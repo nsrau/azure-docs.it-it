@@ -45,11 +45,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | [Creare la prima data factory di Azure con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando Azure PowerShell. |
 | [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando il modello di Gestione risorse di Azure. |
 | [Esercitazione: Creare la prima data factory (informazioni generali)](data-factory-build-your-first-pipeline.md) | Questa esercitazione mostra come creare una data factory con una pipeline di dati che trasforma i dati usando Azure HDInsight. |
-| [Esercitazione: Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](data-factory-get-started.md) | In questa esercitazione viene illustrato come utilizzare l'attività Copia in una pipeline di Data factory di Azure per copiare i dati da un BLOB di Azure a un database SQL di Azure. |
-| [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Azure PowerShell. |
 | [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) | In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando la Copia guidata supportata da Data Factory. |
-| [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor](data-factory-get-started-using-editor.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure. |
-| [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio](data-factory-get-started-using-vs.md) | In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Visual Studio. |
 
 ## Spostamento dei dati
 
@@ -155,6 +151,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - [Grafiche del percorso di apprendimento per i servizi di Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
-- Grafiche del percorso di apprendimento: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- Grafica del percorso di apprendimento: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

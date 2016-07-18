@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Procedura: Inviare le notifiche pianificate
@@ -34,4 +34,4 @@ Per l'invio di una notifica è sufficiente usare la classe [ScheduledNotificatio
 
 Non sono previsti limiti al numero di notifiche pianificate che è possibile inviare.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

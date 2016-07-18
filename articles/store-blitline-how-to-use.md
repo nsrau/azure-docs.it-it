@@ -69,7 +69,7 @@ Ulteriori informazioni sulle *funzioni* supportate sono disponibili qui: <http:/
 
 È inoltre disponibile la documentazione sulle opzioni dei processi qui: <http://www.blitline.com/docs/api>
 
-Dopo aver ottenuto il codice JSON, basta solo pubblicarlo come **POST** su `http://api.blitline.com/jobs`
+Dopo aver ottenuto il codice JSON, basta solo pubblicarlo come **POST** su `http://api.blitline.com/job`
 
 Si otterrà un codice JSON che avrà più o meno l'aspetto seguente:
 
@@ -85,7 +85,7 @@ Si otterrà un codice JSON che avrà più o meno l'aspetto seguente:
     }
 
 
-Il codice informa che Blitline ha ricevuto la richiesta, inserendola in una coda di elaborazione, e che al termine l'immagine sarà disponibile all'indirizzo: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Il codice informa che Blitline ha ricevuto la richiesta, inserendola in una coda di elaborazione, e che al termine l'immagine sarà disponibile all'indirizzo: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## Come salvare un'immagine nell'account di archiviazione di Azure
 
@@ -132,4 +132,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
 * Esempi delle API di Blitline <http://www.blitline.com/docs/examples>
 * Libreria NuGet di terze parti <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

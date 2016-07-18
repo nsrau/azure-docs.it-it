@@ -139,6 +139,6 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 ## Vedere anche
 
 - [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+- [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

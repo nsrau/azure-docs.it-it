@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure  
@@ -132,7 +132,7 @@ Nella tabella seguente sono illustrati nel dettaglio gli elementi della _pianifi
 |:---|:---|:---|
 |**minutes**|Minuti dell'ora in cui verrà eseguito il processo|<ul><li>Numero intero, o</li><li>Matrice di numeri interi</li></ul>|
 |**hours**|Ora del giorno in cui verrà eseguito il processo|<ul><li>Numero intero, o</li><li>Matrice di numeri interi</li></ul>|
-|**weekDays**|Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", o "Sunday"</li><li>Matrice di qualsiasi dei valori precedenti (dimensione massima della matrice: 7)</li></ul>\_Non\_ distingue tra maiuscole e minuscole|
+|**weekDays**|Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Matrice di qualsiasi dei valori precedenti (dimensione massima della matrice: 7)</li></ul>_Non_ distingue tra maiuscole e minuscole|
 |**monthlyOccurrences**|Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile.|<ul><li>Matrice di oggetti monthlyOccurence:</li></ul> <pre>{"day": _giorno_,<br /> "occurrence": _occorrenza_<br />}</pre><p> _giorno_ è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} per ogni domenica del mese. Richiesto.</p><p>Occorrenza è l’_occorrenza_ del giorno durante il mese, ad esempio {Sunday, -1} è l'ultima domenica del mese. Facoltativo.</p>|
 |**monthDays**|Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile.|<ul><li>Qualsiasi valore < = -1 e > = -31.</li><li>Qualsiasi valore > = 1 e < = 31.</li><li>Una matrice di valori come i sopraindicati</li></ul>|
 
@@ -197,4 +197,4 @@ Le pianificazioni di seguito assumono che l’_intervallo_ sia impostato su 1. I
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

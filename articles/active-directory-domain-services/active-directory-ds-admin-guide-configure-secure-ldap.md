@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
@@ -113,7 +113,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
     ![Aggiungere lo snap-in certificati, Seleziona computer](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-local-computer.png)
 
-7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in** fare clic su **OK** per aggiungere lo snap-in certificati a MMC.
+7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in ** fare clic su **OK** per aggiungere lo snap-in certificati a MMC.
 
     ![Aggiungere lo snap-in certificati a MMC, Fatto](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
 
@@ -131,7 +131,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
     ![Esportare il certificato, procedura guidata](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
 
-12. Nella pagina **Esportazione della chiave privata con il certificato** selezionare **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.
+12. Nella pagina **Esportazione della chiave privata con il certificato** selezionare **Sì, esporta la chiave privata ** e quindi fare clic su **Avanti**.
 
     ![Esportare il certificato, chiave privata](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
@@ -143,7 +143,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
 	> [AZURE.NOTE] È supportato solo il formato di file PFX. Non esportare il certificato nel formato di file CER.
 
-14. Nella pagina **Sicurezza** selezionare l'opzione **Password** e digitare una password per proteggere il file con estensione pfx. Prendere nota della password perché sarà necessaria nell'attività successiva. Fare clic su **Avanti** per continuare.
+14. Nella pagina **Sicurezza** selezionare l'opzione **Password** e digitare una password per proteggere il file con estensione pfx. Prendere nota della password perché sarà necessaria nell'attività successiva. Fare clic su **Avanti ** per continuare.
 
     ![Esportazione certificato, Specificare la password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
@@ -242,4 +242,4 @@ La procedura è terminata ed è possibile connettersi al dominio gestito usando 
 
 - [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

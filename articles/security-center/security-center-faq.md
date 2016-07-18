@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -102,7 +102,7 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 ### Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?
 Microsoft Security Response Center (MSRC) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi. Se MSRC rileva che un'entità illegale o non autorizzata ha ottenuto l'accesso a dati del cliente o che l'uso di Azure da parte del cliente non è conforme ai criteri d'uso, un responsabile della sicurezza segnala il problema al cliente. In genere la notifica avviene con l'invio di un messaggio di posta elettronica al o ai contatti per la sicurezza specificati nel Centro sicurezza di Azure oppure al proprietario della sottoscrizione Azure se non è specificato nessun contatto per la sicurezza.
 
-Il Centro sicurezza PC è un servizio di Azure che esegue il monitoraggio continuo dell'ambiente Azure del cliente e applica metodi di analisi per rilevare un'ampia gamma di attività potenzialmente dannose. I rilevamenti vengono visualizzati come di avvisi di sicurezza nel dashboard del Centro sicurezza PC. In futuro, la notifica tramite posta elettronica degli avvisi di sicurezza verrà inviata anche al o ai contatti per la sicurezza.
+Il Centro sicurezza PC è un servizio di Azure che esegue il monitoraggio continuo dell'ambiente Azure del cliente e applica metodi di analisi per rilevare un'ampia gamma di attività potenzialmente dannose. I rilevamenti vengono visualizzati come di avvisi di sicurezza nel dashboard del Centro sicurezza PC.
 
 ### Come avviene la gestione delle autorizzazioni nel Centro sicurezza di Azure?
 Il Centro sicurezza di Azure supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md).
@@ -114,15 +114,15 @@ Per modificare i criteri di sicurezza, è necessario essere proprietario o colla
 ## Macchine virtuali
 
 ### Quali tipi di macchine virtuali saranno supportati?
-Sono supportate le macchine virtuali create in base ai [modelli di distribuzione classica e di Resource Manager](../azure-classic-rm.md), comprese quelle che fanno parte dei cluster di Azure Service Fabric.
+Il monitoraggio dello stato della sicurezza e indicazioni in merito sono disponibili per le macchine virtuali create usando i [modelli di distribuzione classica e Resource Manager](../azure-classic-rm.md), incluse le macchine virtuali che fanno parte di cluster di Azure Service Fabric.
 
-Macchine virtuali Windows supportate:
+Macchine virtuali di Windows supportate:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Macchine virtuali Linux supportate:
+Macchine virtuali di Linux supportate:
 
 - Versioni di Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versioni di Debian 7, 8
@@ -130,4 +130,8 @@ Macchine virtuali Linux supportate:
 - Versioni di Red Hat Enterprise Linux (RHEL) 6.*, 7.*
 - Versioni di SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
-<!---HONumber=AcomDC_0615_2016-->
+Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
+
+La raccomandazione del Centro sicurezza relativa all'[applicazione degli aggiornamenti di sistema](security-center-recommendations.md) suggerisce di distribuire gli aggiornamenti di sicurezza del sistema e critici mancanti alle macchine virtuali. Per le macchine virtuali nei servizi cloud, la raccomandazione relativa all'**aggiornamento della versione del sistema operativo** suggerisce l'aggiornamento del sistema operativo alla versione più recente.
+
+<!---HONumber=AcomDC_0706_2016-->

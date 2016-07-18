@@ -62,7 +62,7 @@ Gli affissi possono fare riferimento ai diversi aspetti che descrivono le specif
 | Environment | dev, stg, prod | A seconda dello scopo e del nome di ogni ambiente. |
 | Location | usw (Stati Uniti occidentali), use (Stati Uniti orientali 2) | A seconda dell'area del data center o dell’area dell'organizzazione. |
 | Componente di Azure, servizio o prodotto | Rg per gruppo di risorse, VNet per rete virtuale | A seconda del prodotto per il quale la risorsa fornisce il supporto. |
-| Ruolo | sql, ora, sp, iis | A seconda del ruolo della macchina virtuale. |
+| Ruolo | db, app, web | A seconda del ruolo della macchina virtuale. |
 | Istanza | 01, 02 e 03 e così via. | Per le risorse con più di un'istanza. Ad esempio, i server Web con carico bilanciato in un servizio cloud. |
 
 
@@ -110,4 +110,4 @@ Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È
 ## Passaggi successivi
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

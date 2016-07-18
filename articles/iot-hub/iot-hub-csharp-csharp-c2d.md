@@ -24,14 +24,18 @@
 
 L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. L’esercitazione [Introduzione all’hub IoT] illustra come creare un hub IoT, eseguire il provisioning dell’identità di un dispositivo al suo interno e creare il codice di un dispositivo simulato che invia messaggi da dispositivo a cloud.
 
-Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. e illustra come inviare messaggi da cloud a dispositivo a un unico dispositivo, richiedere la conferma del recapito (*feedback*) dall'hub IoT e riceverla dal back-end cloud dell'applicazione.
+Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. Illustra le operazioni seguenti:
+
+- Dal back-end cloud dell'applicazione, inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
+- Ricevere messaggi da cloud a dispositivo in un dispositivo.
+- Dal back-end cloud dell'applicazione, richiedere l'acknowledgement di recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub IoT.
 
 È possibile trovare ulteriori informazioni sui messaggi da cloud a dispositivo nella [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D].
 
 Al termine di questa esercitazione si eseguiranno due applicazioni console Windows:
 
 * **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all’hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
-* **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo al dispositivo simulato tramite l'hub IoT e riceve quindi la conferma del recapito.
+* **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo al dispositivo simulato tramite l'hub IoT e quindi riceve l'acknowledgement di recapito.
 
 > [AZURE.NOTE] L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
 
@@ -39,11 +43,11 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015.
 
-+ Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
++ Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate vedere [Versione di valutazione gratuita di Azure][lnk-free-trial].
 
 ## Ricezione di messaggi sul dispositivo simulato
 
-In questa sezione si modificherà l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
+In questa sezione si modificherà l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure per .NET] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
 
 1. In Visual Studio, nel progetto **SimulatedDevice** aggiungere il seguente metodo alla classe **Programma**.
 
@@ -202,8 +206,9 @@ Altre informazioni sull'hub IoT:
 [Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
 [Piattaforme e linguaggi di dispositivi supportati]: iot-hub-supported-devices.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
+[Introduzione all'hub IoT di Azure per .NET]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

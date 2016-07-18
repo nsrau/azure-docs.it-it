@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
@@ -115,14 +115,14 @@ Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argoment
 <!--Image references-->
 
 <!--Article references-->
-[Join ANSI sugli aggiornamenti]: ./sql-data-warehouse-develop-ctas.md
-[Join ANSI sulle eliminazioni]: ./sql-data-warehouse-develop-ctas.md
-[Istruzione merge]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Join ANSI sugli aggiornamenti]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[Join ANSI sulle eliminazioni]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[Istruzione merge]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Argomenti Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [Cursori]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento]: ./sql-data-warehouse-develop-group-by-options.md
 [Livelli di annidamento superiori a 8]: ./sql-data-warehouse-develop-transactions.md
 [Aggiornamento tramite visualizzazioni]: ./sql-data-warehouse-develop-views.md
@@ -133,4 +133,4 @@ Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argoment
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

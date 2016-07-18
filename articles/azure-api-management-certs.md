@@ -32,19 +32,24 @@ Se necessario, sono [disponibili](cloud-services/cloud-services-certs-create.md#
 Dopo aver creato un certificato di gestione (file con estensione cer solo con la chiave pubblica), è possibile caricarlo nel portale. Quando il certificato è disponibile nel portale, chiunque disponga di un certificato corrispondete (chiave privata) può connettersi tramite l'API di gestione e accedere alle risorse per la sottoscrizione associata.
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
-2. Fare clic su **impostazioni** sul lato sinistro del portale (potrebbe essere necessario scorrere verso il basso). 
+
+2. Assicurarsi di selezionare la sottoscrizione corretta a cui si desidera associare un certificato. Selezionare il testo **Subscriptions** (Sottoscrizioni) nella parte superiore destra del portale.
+
+	![Impostazioni](./media/azure-api-management-certs/subscription.png)
+
+3. Dopo aver selezionato la sottoscrizione corretta, scegliere **Settings** (Impostazioni) nella parte sinistra del portale (potrebbe essere necessario scorrere verso il basso).
     
     ![Impostazioni](./media/azure-api-management-certs/settings.png)
 
-3. Scegliere la scheda **Certificati di gestione**.
+4. Scegliere la scheda **Management Certificates** (Certificati di gestione).
 
     ![Impostazioni](./media/azure-api-management-certs/certificates-tab.png)
     
-4. Fare clic sul pulsante **Upload**.
+5. Fare clic sul pulsante **Upload** (Carica).
 
     ![Impostazioni](./media/azure-api-management-certs/upload.png)
     
-5. Compilare le informazioni della finestra di dialogo e fare clic sul **segno di spunta** al completamento.
+6. Compilare le informazioni della finestra di dialogo e fare clic sul **segno di spunta** al completamento.
 
     ![Impostazioni](./media/azure-api-management-certs/upload-dialog.png)
 
@@ -52,4 +57,4 @@ Dopo aver creato un certificato di gestione (file con estensione cer solo con la
 
 Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) connettersi a livello di codice alla [API REST di Gestione dei servizi](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

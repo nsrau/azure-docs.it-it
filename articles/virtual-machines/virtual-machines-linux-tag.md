@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Come contrassegnare una macchina virtuale Linux in Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive diversi modi per contrassegnare una macchina virtuale L
 
 ## Assegnazione di tag con Azure CLI
 
-L’assegnazione di tag è supportata per le risorse che sono già state create tramite la CLI di Azure. Per iniziare, impostare l’[ambiente CLI di Azure][]. Accedere alla sottoscrizione tramite l'interfaccia della riga di comando di Azure e passare alla modalità Resource Manager (`azure config mode arm`).
+Per iniziare, [installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-azure-resource-manager.md) e assicurarsi di trovarsi in modalità Resource Manager (`azure config mode arm`).
 
 È possibile visualizzare tutte le proprietà per una determinata macchina virtuale, compresi i tag, utilizzando questo comando:
 
@@ -53,10 +53,10 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 
 
 
-[ambiente CLI di Azure]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Panoramica di Azure Resource Manager]: ../resource-group-overview.md
 [Uso dei tag per organizzare le risorse di Azure]: ../resource-group-using-tags.md
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

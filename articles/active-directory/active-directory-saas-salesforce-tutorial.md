@@ -84,11 +84,11 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Selezionare Single Sign-On di Microsoft Azure AD.][7]
 
-	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Nella pagina **Configurare le impostazioni applicazione** specificare l'**URL di accesso**, immettendo l'URL del dominio di Salesforce nel formato seguente:
  - Account aziendale: `https://<domain>.my.salesforce.com`
- - Account sviluppatore: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Account sviluppatore: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Immettere l'URL di accesso.][8]
 
@@ -216,7 +216,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se si esegue il provisioning in un ambiente **sviluppatore** di Salesforce, l'utente disporrà di un numero limitato di licenze per ogni profilo. Pertanto, si consiglia di eseguire il provisioning nel profilo **Utente Chatter gratuito**, dal momento che dispone di 4.999 licenze.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
@@ -256,4 +256,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

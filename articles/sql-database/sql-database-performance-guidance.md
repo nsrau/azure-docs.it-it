@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/29/2016"
+	ms.date="06/30/2016"
 	ms.author="carlrab" />
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
@@ -23,7 +23,7 @@
 
 Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. I tre livelli isolano rigorosamente la risorsa fornita al database SQL di Azure e garantiscono prestazioni prevedibili. La velocità effettiva garantita per il database aumenta dal livello Basic a quello Standard fino al livello Premium.
 
->[AZURE.NOTE] I livelli di servizio Business e Web verranno ritirati a settembre 2015. Per altre informazioni, vedere [Domande frequenti sull'interruzione delle edizioni Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Per informazioni dettagliate sull'aggiornamento di database Web e Business esistenti ai nuovi livelli di servizio, vedere [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-server-portal.md).
+>[AZURE.NOTE] I livelli di servizio Business e Web sono stati ritirati a settembre 2015. Per altre informazioni, vedere [Domande frequenti sull'interruzione delle edizioni Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Per informazioni dettagliate sull'aggiornamento di database Web e Business esistenti ai nuovi livelli di servizio, vedere [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-server-portal.md).
 
 Questo documento fornisce indicazioni per stabilire quale livello di servizio rappresenta la soluzione adatta all'applicazione in uso e fornisce consigli per ottimizzare l'applicazione in modo da ottenere il massimo dal database SQL di Azure.
 
@@ -206,7 +206,7 @@ Per altre query, vedere gli esempi in [sys.dm\_db\_resource\_stats](https://msdn
 
 ### Uso di sys.resource\_stats
 
-La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive per il monitoraggio dell'uso delle prestazioni del database SQL nell'ambito del relativo livello di servizio e di prestazioni. I dati vengono raccolti ogni cinque minuti e conservati per circa 14 giorni. Questa vista è più utile per analisi cronologiche a lungo termine dell'utilizzo delle risorse del database SQL.
+La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive per il monitoraggio dell'uso delle prestazioni del database SQL nell'ambito del relativo livello di servizio e di prestazioni. I dati vengono raccolti ogni cinque minuti e conservati per circa 35 giorni. Questa vista è più utile per analisi cronologiche a lungo termine dell'utilizzo delle risorse del database SQL.
 
 Il grafico seguente illustra l'utilizzo di risorse della CPU per un database Premium con livello di prestazioni P2 per ogni ora nell'arco di una settimana. Questo grafico specifico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'utilizzo di risorse nell'applicazione è molto inferiore.
 
@@ -507,4 +507,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

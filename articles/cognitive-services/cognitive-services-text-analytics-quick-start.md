@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Introduzione alle API Text Analytics per rilevare sentimenti, frasi chiave, argomenti e lingua
@@ -24,7 +24,7 @@ Questo documento illustra come configurare il servizio o l'applicazione per l'us
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
-Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](../machine-learning-apps-text-analytics/).
+Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](../machine-learning/machine-learning-apps-text-analytics.md).
 
 Al termine di questa esercitazione, si sarà in grado di rilevare a livello di codice:
 
@@ -66,22 +66,32 @@ In questa attività si effettuerà l'iscrizione al servizio di analisi di testo.
 
 >[AZURE.TIP] Per l'analisi dei sentimenti, è consigliabile dividere il testo in frasi. In questo modo è possibile ottenere in genere una precisione superiore nelle stime dei sentimenti.
 
+Si noti che i linguaggi supportati sono i seguenti:
+
+| Funzionalità | Codici lingua supportati |
+|:-----|:----|
+| Valutazione | `en` (inglese), `es` (spagnolo) `fr` (francese), `pt` (portoghese) |
+| Frasi chiave | `en` (inglese), `es` (spagnolo) `de` (tedesco), `ja` (giapponese) |
+
+
 1. È necessario impostare le intestazioni come indicato di seguito. Si noti che JSON è attualmente l'unico formato di input accettato per le API. XML non è supportato.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. Formattare quindi le righe di input in JSON. Il formato è lo stesso per sentimenti, frasi chiave e lingua. Si noti che ogni ID deve essere univoco e sarà l'ID restituito dal sistema. Le dimensioni massime di un singolo documento che è possibile inviare sono pari a 10 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 1 MB. In una sola chiamata non è possibile inviare più di 1.000 documenti. Di seguito è riportato un esempio di input:
+1. Formattare quindi le righe di input in JSON. Il formato è lo stesso per sentimenti, frasi chiave e lingua. Si noti che ogni ID deve essere univoco e sarà l'ID restituito dal sistema. Le dimensioni massime di un singolo documento che è possibile inviare sono pari a 10 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 1 MB. In una sola chiamata non è possibile inviare più di 1.000 documenti. Language è un parametro facoltativo che deve essere specificato se si analizzano testi in una lingua diversa dall'inglese. Di seguito è riportato un esempio di input in cui è incluso il parametro facoltativo `language` per l'analisi di sentimenti o l'estrazione di frasi chiave:
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
@@ -153,7 +163,6 @@ In questa attività si effettuerà l'iscrizione al servizio di analisi di testo.
 			]
 		}
 
-        
 
 ## Attività 3: rilevare gli argomenti in un corpo di testo ####
 
@@ -164,7 +173,7 @@ Questa API richiede un **minimo di 100 record di testo** da inviare, ma è proge
 Sono disponibili altri due parametri di input **facoltativi** che possono contribuire a migliorare la qualità dei risultati:
 
 - **Parole non significative.** Queste parole e le relative forme chiuse, ad esempio i plurali, verranno escluse dall'intera pipeline di rilevamento degli argomenti. Usare questa opzione per le parole comuni. Ad esempio, "issue", "error" e "user" possono essere scelte appropriate per reclami relativi al software da parte dei clienti. Ogni stringa deve contenere una singola parola.
-- **Frasi non significative**: le frasi verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
+- **Parole non significative**: le parole verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
 
 Seguire questi passaggi per rilevare gli argomenti nel testo.
 
@@ -190,7 +199,7 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 			]
 		}
 
-1. Usando le stesse intestazioni definite nel passaggio 2, effettuare una chiamata **POST** all'endpoint di argomenti:
+1. Usando le stesse intestazioni definite nel passaggio 2, eseguire una chiamata **POST** all'endpoint di argomenti:
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
@@ -206,7 +215,7 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -282,6 +291,6 @@ Di seguito viene spiegata ogni parte della risposta:
 
 ## Passaggi successivi ##
 
-Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati, nonché per automatizzare le informazioni dettagliate per ottenere una visualizzazione in tempo reale dei dati di testo.
+Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati e per automatizzare l'analisi al fine di ottenere una visualizzazione in tempo reale dei dati di testo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

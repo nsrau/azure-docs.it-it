@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Modelli
@@ -127,9 +127,9 @@ Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 | $(prop, n) | Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
 | .(prop, n) | Come in precedenza, ma vengono aggiunti tre punti alla fine del testo troncato. La dimensione totale della stringa troncata e del suffisso non supera n caratteri. .(title, 20) con una proprietà di input "Questa è la riga del titolo" restituisce **Questa è la riga...** |
 | %(prop) | È simile a $(name), a eccezione del fatto che l'output è codificato in formato URI. |
-| #(prop) | Utilizzata nei modelli JSON (ad esempio, per modelli iOS e Android).<br><br>Questa funzione opera esattamente come l'espressione $(prop) specificata in precedenza, salvo quando viene utilizzata nei modelli JSON (ad esempio, nei modelli Apple). In questo caso, se questa funzione non è racchiusa tra "{','}" (ad esempio, 'myJsonProperty' : '#(name)') e restituisce un numero in formato Javascript, ad esempio regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, l'output JSON sarà un numero.<br><br>Ad esempio, ' badge : '#(name)' diventa 'badge' : 40 (e non '40'). |
-| 'text' o "text" | Un valore letterale. I valori letterali contengono testo arbitrario racchiuso tra virgolette singole o doppie. |
-| expr1 + expr2 | L'operatore di concatenazione che unisce due espressioni in un'unica stringa.
+| #(prop) | Utilizzata nei modelli JSON (ad esempio, per modelli iOS e Android).<br><br>Questa funzione opera esattamente come l'espressione $(prop) specificata in precedenza, salvo quando viene utilizzata nei modelli JSON (ad esempio, nei modelli Apple). In questo caso, se questa funzione non è racchiusa tra "{','}", ad esempio 'myJsonProperty' : '#(name)', e restituisce un numero in formato Javascript, ad esempio regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, l'output JSON sarà un numero.<br><br>Ad esempio, 'badge : '#(name)' diventa 'badge' : 40 (e non '40'). |
+| 'text' o "text" | Valore letterale. I valori letterali contengono testo arbitrario racchiuso tra virgolette singole o doppie. |
+| expr1 + expr2 | Operatore di concatenazione che unisce due espressioni in una singola stringa.
 
 Il formato delle espressioni può essere uno dei precedenti.
 
@@ -157,4 +157,4 @@ Come spiegato in precedenza, quando si utilizza la concatenazione, le espression
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

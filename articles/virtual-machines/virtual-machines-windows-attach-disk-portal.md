@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Collegare un disco dati a una macchina virtuale Windows nel portale di Azure
@@ -55,4 +55,4 @@ Questo articolo illustra come collegare dischi nuovi o esistenti a una macchina 
 
 Se l'applicazione deve usare l'unità D: per archiviare i dati, è possibile [modificare la lettera di unità del disco temporaneo di Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

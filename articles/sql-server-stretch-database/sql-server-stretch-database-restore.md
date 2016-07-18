@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="douglasl"/>
 
 # Ripristinare database con estensione abilitata
@@ -56,28 +56,13 @@ Per ripristinare un database di Azure eliminato dal punto dell'eliminazione tram
 5. Specificare un nuovo **Nome database** e fare clic su **Crea**.
 6. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
 
-### Ripristinare un database di Azure in un'area diversa di Azure  
-Il servizio Estensione database di SQL Server su Azure copia gli snapshot in modo asincrono in un'area geografica di Azure diversa per assicurare una maggiore recuperabilità in caso di errori a livello di area. Se non è consentito accedere al database a causa di un errore in un'area di Azure, è possibile ripristinare il database a uno degli snapshot con ridondanza geografica.
-
->   [AZURE.NOTE] Il recupero del database di Azure in un'area diversa di Azure richiede la modifica della stringa di connessione nelle applicazioni client dopo il recupero e può comportare una perdita di dati permanente. Eseguire questo tipo di recupero solo quando è probabile che l'interruzione del servizio duri a lungo.
-
-Per recuperare un database di Azure da un punto precedente nel tempo in un'area diversa di Azure tramite il portale di Azure, eseguire le operazioni seguenti.
-
-1. Accedere al portale di Azure.
-2. Sul lato sinistro della schermata fare clic su **+Nuovo**, selezionare **Dati e archiviazione** e quindi **SQL Data Warehouse**
-3. Selezionare **BACKUP** come origine, quindi selezionare il backup con ridondanza geografica da ripristinare
-4. Specificare il resto delle proprietà del database e quindi fare clic su **Crea**
-5. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**
-
-Dopo aver ripristinato il database di Azure in un'area diversa, è necessario eseguire le stored procedure **sys.sp\_rda\_deauthorize\_db** e **sys.sp\_rda\_reauthorize\_db** per ristabilire la connessione tra il database SQL Server con estensione abilitata e il database di Azure remoto. Per altre informazioni, vedere [Ripristinare la connessione tra il database SQL Server e il database di Azure remoto](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-
 ## Ripristinare la connessione tra il database SQL Server e il database di Azure remoto
 
-1.  Se si prevede di connettersi a un database di Azure ripristinato con un nome diverso o in un'area diversa, eseguire la stored procedure [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) per disconnettersi dal database di Azure precedente.  
+1.  Se si prevede di connettersi a un database di Azure ripristinato con un nome diverso o in un'area diversa, eseguire la stored procedure [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) per disconnettersi dal database di Azure precedente.
 
 2.  Eseguire la stored procedure [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) per riconnettere il database locale con estensione abilitata al database di Azure.
 
-	-   Specificare le credenziali con ambito database come sysname o valore varchar (128). Non usare varchar(max). È possibile cercare il nome delle credenziali nella vista **sys.database\_scoped\_credentials**.  
+	-   Specificare le credenziali con ambito database come sysname o valore varchar (128). Non usare varchar(max). È possibile cercare il nome delle credenziali nella vista **sys.database\_scoped\_credentials**.
 
 	-   Specificare se creare una copia dei dati remoti e connettersi alla copia (scelta consigliata).
 
@@ -98,4 +83,4 @@ Dopo aver ripristinato il database di Azure in un'area diversa, è necessario es
 
 [Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

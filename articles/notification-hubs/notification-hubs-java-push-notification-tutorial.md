@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Come usare Hub di notifica da Java
@@ -25,14 +25,14 @@ In generale, è possibile accedere a tutte le funzionalità di Hub di notifica d
 
 L'SDK attualmente supporta:
 
-- CRUD in Hub di notifica 
+- CRUD in Hub di notifica
 - CRUD in Registrazioni
 - Gestione dell'installazione
 - Importazione/esportazione di registrazioni
 - Invii regolari
 - Invii pianificati
 - Operazioni asincrone tramite Java NIO
-- Piattaforme supportate: APNS (iOS), GCM (Android), WNS (app di Windows Store), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android senza servizi Google) 
+- Piattaforme supportate: APNS (iOS), GCM (Android), WNS (app di Windows Store), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android senza servizi Google)
 
 ## Uso dell'SDK
 
@@ -285,7 +285,7 @@ Quando si esegue il codice Java, dovrebbe essere visualizzata una notifica sul d
 ##<a name="next-steps"></a>Passaggi successivi
 In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. A questo punto è possibile:
 
-* Scaricare la versione completa di [SDK per Java] contenente l'intero codice SDK. 
+* Scaricare la versione completa di [SDK per Java] contenente l'intero codice SDK.
 * Consultare gli esempi:
 	- [Introduzione ad Hub di notifica]
 	- [Inviare le ultime notizie]
@@ -303,4 +303,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

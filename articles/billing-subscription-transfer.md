@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Trasferimento di una sottoscrizione di Azure | Microsoft Azure"
+   pageTitle="Trasferimento di proprietà di una sottoscrizione di Azure | Microsoft Azure"
    description="Come trasferire una sottoscrizione di Azure a un altro utente e alcune domande frequenti sul processo"
    services="billing"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="04/14/2016"
+   ms.date="07/04/2016"
    ms.author="genli"/>
 
-# Trasferimento di una sottoscrizione di Azure
+# Trasferimento di proprietà di una sottoscrizione di Azure
 
 Se:
 
@@ -27,7 +27,16 @@ Se:
 
 Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera. Ora il trasferimento degli acquisti di Azure Marketplace è supportato anche per questi tipi di sottoscrizione.
 
-## Come trasferire una sottoscrizione di Azure
+**Nota:** è necessario essere amministratore account per eseguire un trasferimento di proprietà. È possibile confermare chi sia l'amministratore account della sottoscrizione come segue:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nel menu Hub, selezionare **Sottoscrizione**.
+3. Selezionare la sottoscrizione da controllare e quindi selezionare **Impostazioni**. ![Scheda Impostazioni](./media/billing-subscription-transfer/settings.png)
+4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione verrà visualizzato nella casella **Amministratore account**. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+
+## Trasferimento di proprietà di una sottoscrizione di Azure
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Accedere a <https://account.windowsazure.com/Subscriptions>
 
@@ -59,9 +68,7 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     Il trasferimento non incide in alcun modo sul servizio. In pratica, viene annullata la sottoscrizione dell'attuale amministratore account e ne viene creata una nuova con l'account del destinatario, associando però i servizi di Azure sottostanti alla nuova sottoscrizione. L'ID sottoscrizione rimane invariato.
 
--   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**-
-Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
-
+-   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**- Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
 
 -   **Se si rileva la proprietà della fatturazione di una sottoscrizione da un'altra organizzazione, quest'ultima continuerà ad avere accesso alle risorse del nuovo proprietario?**
 
@@ -72,7 +79,7 @@ Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'acco
 
     L'elenco non è completo. Il destinatario dovrà prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio se deve limitare l'accesso alle proprie risorse. La maggior parte delle risorse può essere aggiornata come segue:
 
-    1.   Accedere al portale di Azure: [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Aprire il portale di Azure all'indirizzo [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Fare clic su Esplora tutto -&gt; Tutte le risorse
 
@@ -116,4 +123,4 @@ Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'acco
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

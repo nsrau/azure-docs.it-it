@@ -19,8 +19,14 @@
 # Uso di Azure PowerShell con Gestione risorse di Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Portale](azure-portal/resource-group-portal.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 Con Gestione risorse di Azure è stato introdotto un metodo completamente nuovo per gestire le risorse di Azure. Invece di creare e gestire le singole risorse, si inizia immaginando un'intera soluzione, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si usa un modello (una rappresentazione dichiarativa della soluzione) per creare un gruppo di risorse contenente tutte le risorse necessarie per supportare la soluzione. A questo punto, si gestisce e distribuisce il gruppo di risorse come unità logica.
 
@@ -31,7 +37,7 @@ In questa esercitazione viene descritto come usare Azure PowerShell con Gestione
 - Regole del firewall: per consentire all'app Web di connettersi al database
 - Piano di servizio app: per definire le funzionalità e il costo dell'app Web
 - Sito Web: per eseguire l'app Web
-- Configurazione Web: per archiviare la stringa di connessione al database 
+- Configurazione Web: per archiviare la stringa di connessione al database
 - Regole di avviso: per il monitoraggio delle prestazioni e degli errori
 - App Insights: per le impostazioni del ridimensionamento automatico
 
@@ -85,7 +91,7 @@ Per accedere al proprio account Azure, usare il cmdlet **Add-AzureRmAccount**.
 
 Il cmdlet richiede le credenziali di accesso per l'account di Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
 
-Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo **Add-AzureRmAccount**.
+Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo il cmdlet **Add-AzureRmAccount**.
 
 >[AZURE.NOTE] I moduli di Azure Resource Manager richiedono Add-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
 
@@ -115,7 +121,7 @@ Il gruppo di risorse è stato creato.
 
 ## Distribuire la soluzione
 
-Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per informazioni, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md) e [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md). Il modello predefinito per il [provisioning di un'app Web con un database SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) verrà distribuito da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
+Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per informazioni, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md) e [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md). Il modello predefinito per il [provisioning di un'app Web con un database SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) verrà distribuito da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
 Dopo avere creato il gruppo di risorse e il modello, si è pronti per distribuire nel gruppo di risorse l'infrastruttura definita nel modello. Le risorse vengono distribuite con il cmdlet **New-AzureRmResourceGroupDeployment**. Il modello specifica molti valori predefiniti, che verranno usati per evitare che sia necessario fornire valori per questi parametri. La sintassi di base è simile alla seguente:
 
@@ -171,7 +177,7 @@ In pochi passaggi, sono state create e distribuite le risorse necessarie per un 
 
 ### Registrare le informazioni di debug
 
-Quando si distribuisce un modello, è possibile registrare informazioni aggiuntive sulla richiesta e sulla risposta, specificando il parametro **-DeploymentDebugLogLevel** quando si esegue **New-AzureRmResourceGroupDeployment**. Queste informazioni possono essere utili per risolvere gli errori di distribuzione. Il valore predefinito è **None**, ovvero non vengono registrati contenuti relativi alla richiesta o alla risposta. È possibile specificare la registrazione del contenuto dalla richiesta, dalla risposta o da entrambi. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni e sulla registrazione delle informazioni di debug, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'esempio seguente registra il contenuto di richieste e risposte per la distribuzione.
+Quando si distribuisce un modello, è possibile registrare informazioni aggiuntive sulla richiesta e sulla risposta, specificando il parametro **-DeploymentDebugLogLevel** quando si esegue **New-AzureRmResourceGroupDeployment**. Queste informazioni possono essere utili per risolvere gli errori di distribuzione. Il valore predefinito è **None**, ovvero non vengono registrati contenuti relativi alla richiesta o alla risposta. È possibile specificare la registrazione del contenuto dalla richiesta, dalla risposta o da entrambi. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni e sulla registrazione delle informazioni di debug, vedere [Visualizzare le operazioni di distribuzione con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'esempio seguente registra il contenuto di richieste e risposte per la distribuzione.
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -380,4 +386,4 @@ Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

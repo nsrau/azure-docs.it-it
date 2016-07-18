@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/29/2016"
 	ms.author="curtand"/>
 
-# Assegnazione dei ruoli di amministratore in Azure Active Directory (Azure AD)
+# Assegnazione dei ruoli di amministratore in Azure Active Directory
 
-A seconda delle dimensioni della società, potrebbe essere opportuno designare più amministratori per le diverse funzioni. Questi amministratori hanno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico e, a seconda del ruolo, possono, tra le altre cose, creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente e gestire i domini.
-
-È importante comprendere che un utente a cui è assegnato un ruolo amministrativo disporrà delle stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione, indipendentemente dal fatto che il ruolo venga assegnato nel portale di Office 365 o nel portale di Azure classico oppure usando il modulo di Azure AD per Windows PowerShell.
+Azure Active Directory (Azure AD) consente di designare amministratori diversi per le diverse funzioni. Questi amministratori hanno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico e, a seconda del ruolo, possono, tra le altre cose, creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente e gestire i domini. Un utente a cui è assegnato un ruolo amministrativo disporrà delle stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione, indipendentemente dal fatto che il ruolo venga assegnato nel portale di Office 365, nel portale di Azure classico oppure usando il modulo di Azure AD per Windows PowerShell.
 
 Sono disponibili i ruoli di amministratore seguenti:
 
@@ -39,6 +37,10 @@ Sono disponibili i ruoli di amministratore seguenti:
 	> [AZURE.NOTE] Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
 
 - **Amministratore utenti**: reimposta le password, monitora l'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. Alle autorizzazioni di un amministratore Gestione utenti si applicano alcune limitazioni. Ad esempio, non possono eliminare un amministratore globale o creare altri amministratori. Non possono inoltre reimpostare le password per gli amministratori fatturazione, globali e del servizio.
+
+- **Ruolo con autorizzazioni di lettura per la sicurezza**: accesso in sola lettura a numerose funzionalità di protezione di Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health (Monitora servizio di integrità di Office 365) e Centro di protezione di Office 365.
+
+- **Amministratore della sicurezza**: tutte le autorizzazioni di sola lettura del **ruolo con autorizzazioni di lettura per la sicurezza**, oltre ad alcune autorizzazioni amministrative aggiuntive per gli stessi servizi: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health (Monitora servizio di integrità di Office 365) e Centro di protezione di Office 365.
 
 ## Autorizzazioni degli amministratori
 
@@ -71,6 +73,22 @@ Operazione consentita | Operazione non consentita
 Operazione consentita | Operazione non consentita
 ------------- | -------------
 <p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente, con alcune limitazioni. Può reimpostare le password per gli amministratori fatturazione, globali e del servizio.</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente, con alcune limitazioni. Non può eliminare un amministratore globale o creare altri amministratori.</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l’autenticazione a più fattori</p>
+
+### Ruolo con autorizzazioni di lettura per la sicurezza
+
+In | Operazione consentita
+------------- | -------------
+Centro di Identity Protection | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<ul><li>Anti-spam<li>Crittografia<li>Prevenzione della perdita di dati<li>Anti-malware<li>Protezione avanzata da minacce<li>Anti-phishing<li>Regole del flusso di posta
+Privileged Identity Management | <p>Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD PIM: criteri e report per le assegnazioni di ruoli in Azure AD, verifiche della sicurezza e in futuro accesso in lettura ai report e ai dati dei criteri per gli scenari in aggiunta all'assegnazione di ruoli in Azure AD.<p>**Non può** eseguire l'iscrizione ad Azure AD PIM o apportarvi modifiche. Nel portale di PIM o tramite PowerShell un utente in questo ruolo può attivare ruoli aggiuntivi, ad esempio amministratore globale o amministratore di ruoli con privilegi, se l'utente è candidato per questi ruoli.
+<p>Monitor Office 365 Service Health </p> (Monitora servizio di integrità di Office 365) <p>Centro protezione di Office 365</p> | <ul><li>Leggere e gestire gli avvisi<li>Leggere i criteri di sicurezza<li>Leggere le informazioni sulle minacce, Cloud App Discovery e sulla quarantena in Search and Investigate (Ricerca e Analisi)<li>Leggere tutti i report
+
+### Amministratore della sicurezza
+
+In | Operazione consentita
+------------- | -------------
+Centro di Identity Protection | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>Inoltre, è possibile eseguire tutte le operazioni IPC, ad eccezione della reimpostazione delle password.
+Privileged Identity Management | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>**Non consente** di gestire le impostazioni o le appartenenze ai ruoli di Azure AD.
+<p>Monitor Office 365 Service Health) </p> (Monitora servizio di integrità di Office 365) <p>Centro di protezione di Office 365 | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>Consente di configurare tutte le impostazioni della funzionalità di protezione da minacce avanzate (protezione da malware e virus, configurazione URL dannosi, traccia di URL e così via).
 
 ## Dettagli sul ruolo di amministratore globale
 
@@ -106,4 +124,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 
@@ -132,12 +132,12 @@ Elementi necessari per integrare SQL AlwaysOn con Site Recovery quando si esegue
 ####  Passaggio 1: Aggiungere un'istanza di SQL Server
 
 
-1. Fare clic su **Aggiungi applicazione SQL** per aggiungere una nuova istanza di SQL Server. 
+1. Fare clic su **Aggiungi applicazione SQL** per aggiungere una nuova istanza di SQL Server.
 
 	![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)
 
 2. In **Configura impostazioni SQL** > **Nome** specificare un nome descrittivo che faccia riferimento a SQL Server.
-3. **In SQL Server (nome di dominio completo)** specificare il nome di dominio completo (FQDN) dell'istanza di SQL Server di origine da aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster.  
+3. **In SQL Server (nome di dominio completo)** specificare il nome di dominio completo (FQDN) dell'istanza di SQL Server di origine da aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster.
 4. In **Istanza di SQL Server** scegliere l'istanza predefinita o specificare il nome dell'istanza personalizzata.
 5. In **Server VMM** selezionare un server VMM registrato nell'insieme di credenziali di Site Recovery. Site Recovery usa questo server VMM per comunicare con SQL Server.
 6. In **Account RunAs** specificare il nome di un account RunAs creato nel server VMM specificato. Questo account viene usato per accedere a SQL Server e deve avere autorizzazioni di lettura e failover nei gruppi di disponibilità nel computer SQL Server.
@@ -151,7 +151,7 @@ Dopo aver aggiunto SQL Server, l'istanza verrà visualizzata nella scheda **SQL 
 
 #### Passaggio 2: Aggiungere un gruppo di disponibilità SQL
 
-1. Dopo aver aggiunto il computer SQL Server, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità a Site Recovery. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL. 
+1. Dopo aver aggiunto il computer SQL Server, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità a Site Recovery. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL.
 
 	![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)
 
@@ -353,4 +353,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

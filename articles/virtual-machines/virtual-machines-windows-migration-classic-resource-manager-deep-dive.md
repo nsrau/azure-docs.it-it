@@ -47,7 +47,7 @@ Nella tabella seguente è disponibile la rappresentazione classica e di Resource
 | Route definite dall'utente | Route definite dall'utente | Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Si noti che la route definita dall'utente nel modello di distribuzione classica non viene rimossa durante la migrazione. Tuttavia, le operazioni del piano di gestione per la route definita dall'utente vengono bloccate mentre la migrazione è in corso. | | |
 | Proprietà di inoltro IP nella configurazione di rete di una VM | Proprietà di inoltro IP nella scheda di rete | La proprietà di IP in una VM viene convertita in una proprietà nell'interfaccia di rete durante la migrazione. | | |
 | Servizio di bilanciamento del carico con più IP | Servizio di bilanciamento del carico con più risorse IP pubblico | Ogni indirizzo IP pubblico associato al servizio di bilanciamento del carico viene convertito in una risorsa IP pubblico e associato al servizio di bilanciamento del carico al termine della migrazione. | | |
-| Nomi DNS interni nella VM | Nomi DNS interni nella NIC | Durante la migrazione i suffissi DNS interni vengono aggiornati in modo da corrispondere ai suffissi del modello di distribuzione di Resource Manager. Si noti che la risoluzione dei nomi continuerà a funzionare dopo la migrazione. Tuttavia, i suffissi associati alle VM verranno modificati. | | |
+| Nomi DNS interni nella VM | Nomi DNS interni nella NIC | Durante la migrazione, i suffissi DNS interni per le VM vengono migrati a una proprietà di sola lettura chiamata "InternalDomainNameSuffix" sulla scheda di interfaccia di rete. Il suffisso non subisce modifiche dopo la migrazione e la risoluzione della VM continuerà a funzionare come in precedenza. | | |
 
 ## Illustrazione di una procedura dettagliata di migrazione semplice
 
@@ -64,4 +64,4 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 - [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

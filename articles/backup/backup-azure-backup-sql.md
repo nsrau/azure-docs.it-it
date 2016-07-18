@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="07/01/2016"
 	ms.author="giridham; jimpark;"/>
 
 
@@ -30,7 +30,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 3. Ripristinare il database da Azure.
 
 ## Prima di iniziare
-Prima di procedere, assicurarsi che tutti i [prerequisiti ](../backup-azure-dpm-introduction/#prerequisites) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti si applicano ad attività quali, ad esempio, la creazione di un archivio di backup, il download delle credenziali dell'insieme di credenziali, l'installazione dell'agente di Backup di Azure e la registrazione del server con l'insieme di credenziali.
+Prima di procedere, assicurarsi che tutti i [prerequisiti ](../backup-azure-dpm-introduction.md#prerequisites) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti si applicano ad attività quali, ad esempio, la creazione di un archivio di backup, il download delle credenziali dell'insieme di credenziali, l'installazione dell'agente di Backup di Azure e la registrazione del server con l'insieme di credenziali.
 
 ## Creare un criterio di backup per proteggere i database SQL Server in Azure.
 
@@ -174,4 +174,4 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 • [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

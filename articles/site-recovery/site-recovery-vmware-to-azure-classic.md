@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery
@@ -43,7 +43,7 @@ Questo articolo contiene istruzioni relative alla distribuzione avanzata nel por
 
 La distribuzione avanzata è un aggiornamento importante. Di seguito è riportato un riepilogo dei miglioramenti apportati:
 
-- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.  
+- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.
 - **Installazione unificata**: un'unica installazione garantisce la scalabilità per i componenti locali e ne semplifica la configurazione.
 - **Distribuzione protetta**: tutto il traffico viene crittografato e le comunicazioni relative alla gestione della replica vengono inviate tramite HTTPS 443.
 - **Punti di ripristino**: supporto per punti di ripristino per l'arresto anomalo del sistema e coerenti con l'applicazione per ambienti Windows e Linux. Sono supportate configurazioni coerenti con VM singole e multiple.
@@ -229,11 +229,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 ## Passaggio 4: Scaricare una chiave di registrazione dell'insieme di credenziali
 
-1. Dal server di gestione aprire la console Azure Site Recovery in Azure. Nella pagina **Servizi di ripristino** fare clic sull'insieme di credenziali per aprire la pagina Avvio rapido. La pagina Avvio rapido può anche essere aperta in qualsiasi momento tramite l'icona.
+1. Dal server di gestione aprire la console Azure Site Recovery in Azure. Nella pagina **Servizi di ripristino** fare clic sull'insieme di credenziali per aprire la pagina di avvio rapido. La pagina Avvio rapido può anche essere aperta in qualsiasi momento tramite l'icona.
 
 	![Quick Start Icon](./media/site-recovery-vmware-to-azure-classic/quick-start-icon.png)
 
-2. Nella pagina **Avvio rapido** fare clic su **Preparare le risorse di destinazione** > **Scaricare una chiave di registrazione**. Il file di registrazione viene generato automaticamente. È valido 5 giorni dopo essere stato generato.
+2. Nella pagina **Avvio rapido** fare clic su **Preparare le risorse (Azure) di destinazione** > **Scaricare una chiave di registrazione**. Il file di registrazione viene generato automaticamente. È valido 5 giorni dopo essere stato generato.
 
 
 ## Passaggio 5: Installare il server di gestione
@@ -254,7 +254,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 1. Dalla pagina **Avvio rapido** scaricare nel server il file di installazione unificata.
 2. Eseguire il file di installazione per avviare l'installazione guidata unificata di Azure Site Recovery.
-3. In **Prima di iniziare** selezionare l'opzione **Installare il server di configurazione e il server di elaborazione**. A seconda della dimensione della distribuzione, in seguito potrebbero rendersi necessari server di elaborazione aggiuntivi, ma non quando si configura la distribuzione per la prima volta.
+3. In **Prima di iniziare** selezionare l'opzione **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione). A seconda della dimensione della distribuzione, in seguito potrebbero rendersi necessari server di elaborazione aggiuntivi, ma non quando si configura la distribuzione per la prima volta.
 
 	![Prima di iniziare](./media/site-recovery-vmware-to-azure-classic/combined-wiz1.png)
 
@@ -264,9 +264,9 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 5. In **Impostazioni Internet** specificare in che modo il provider che verrà installato nel server dovrà connettersi ad Azure Site Recovery tramite Internet.
 
-	- Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente senza un proxy**.
-	- Per connettersi al proxy attualmente configurato nel server, selezionare **Connetti con le impostazioni proxy esistenti**.
-	- Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connetti con le impostazioni proxy personalizzate**.
+	- Per fare in modo che il provider si connetta direttamente, selezionare **Connect directly without a proxy** (Connetti direttamente senza un proxy).
+	- Per connettersi al proxy attualmente configurato nel server, selezionare **Connect with existing proxy settings** (Connetti con le impostazioni proxy esistenti).
+	- Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate).
 	- Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
 	- L'eventuale proxy usato deve permettere di accedere agli URL seguenti:
 
@@ -276,11 +276,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![Prerequisiti](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
->[AZURE.WARNING] Se viene visualizzato un avviso per la verifica preliminare **Sincronizzazione ora globale**, verificare che l'ora del clock di sistema corrisponda al fuso orario.
+>[AZURE.WARNING] Se viene visualizzato un avviso per la verifica preliminare **Global Time Sync** (Sincronizzazione ora globale), verificare che l'ora del clock di sistema corrisponda al fuso orario.
 
 ![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
-8. In **Configurazione MySQL** creare le credenziali per l'accesso all'istanza del server MySQL. È possibile usare questi caratteri speciali: '\_', '!', '@', '$', ' \\', '%'.
+8. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL. È possibile usare questi caratteri speciali: '\_', '!', '@', '$', ' \\', '%'.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
@@ -292,7 +292,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![Posizione di installazione](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
 
-11. In **Selezione rete** specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server dovrà inviare e ricevere i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, verrà aperta la porta 443 nel server per l'invio e la ricezione di informazioni sull'orchestrazione della replica. La porta 443 non deve essere usata per i dati di replica.
+11. In **Network Selection** (Selezione rete) specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server dovrà inviare e ricevere i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, verrà aperta la porta 443 nel server per l'invio e la ricezione di informazioni sull'orchestrazione della replica. La porta 443 non deve essere usata per i dati di replica.
 
 
 	![Selezione della rete](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
@@ -306,10 +306,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword 
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
-	net stop obengine 
-	net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
 
 
 
@@ -348,7 +345,7 @@ Procedere come segue:
 	>[AZURE.NOTE] Un account utente di vCenter con un ruolo di sola lettura può eseguire il failover senza arrestare le macchine di origine protette. Per arrestare tali macchine è necessario il ruolo Azure\_Site\_Recovery. Se si sta eseguendo la sola migrazione delle macchine virtuali da VMware in Azure e non è necessario il failback, il ruolo di sola lettura è sufficiente.
 
 3. Per aggiungere l'account, aprire **cspsconfigtool**. È disponibile come collegamento sul desktop e si trova nella cartella [PERCORSO DI INSTALLAZIONE]\\home\\svsystems\\bin.
-2. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
+2. Nella scheda **Manage Accounts** (Gestisci account) fare clic su **Aggiungi account**.
 
 	![Aggiungere un account](./media/site-recovery-vmware-to-azure-classic/credentials1.png)
 
@@ -430,7 +427,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 2. Aggiungere l'account che è stato creato:
 
 	- Aprire **cspsconfigtool**. È disponibile come collegamento sul desktop e si trova nella cartella [PERCORSO DI INSTALLAZIONE]\\home\\svsystems\\bin.
-	- Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
+	- Nella scheda **Manage Accounts** (Gestisci account) fare clic su **Aggiungi account**.
 	- Aggiungere l'account che è stato creato. Dopo aver aggiunto l'account, per l'aggiunta di un computer al gruppo di protezione sarà necessario fornire le credenziali.
 
 
@@ -441,7 +438,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 2.	Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve essere un utente ROOT nel server Linux di origine. Si noti che queste credenziali vengono usate solo per l'installazione push del servizio Mobility.
 
 	- Aprire **cspsconfigtool**. È disponibile come collegamento sul desktop e si trova nella cartella [PERCORSO DI INSTALLAZIONE]\\home\\svsystems\\bin.
-	- Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
+	- Nella scheda **Manage Accounts** (Gestisci account) fare clic su **Aggiungi account**.
 	- Aggiungere l'account che è stato creato. Dopo aver aggiunto l'account, per l'aggiunta di un computer al gruppo di protezione sarà necessario fornire le credenziali.
 
 3.	Assicurarsi che il file /etc/hosts nel server Linux di origine contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
@@ -463,8 +460,8 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
-Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
@@ -477,7 +474,7 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure-classic/mobility3.png)
 
-3. In **Dettagli del server di configurazione** specificare l'indirizzo IP del server di gestione e la passphrase generata durante l'installazione dei componenti del server di gestione. Per recuperare la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione.
+3. In **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di gestione e la passphrase generata durante l'installazione dei componenti del server di gestione. Per recuperare la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione.
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure-classic/mobility6.png)
 
@@ -535,7 +532,7 @@ Per abilitare la protezione, aggiungere macchine virtuali e server fisici a un g
 - Le macchine virtuali VMware vengono rilevate ogni 15 minuti e possono essere necessari più di 15 minuti perché vengano visualizzate nel portale di Site Recovery dopo l'individuazione.
 - Anche per le modifiche dell'ambiente nella macchina virtuale (ad esempio, l'installazione degli strumenti VMware) possono essere necessari oltre 15 minuti per l'aggiornamento in Site Recovery.
 - È possibile controllare l'ora dell'ultima individuazione di macchine virtuali VMware nel campo **Ora ultimo contatto** per il server vCenter o l'host ESXi nella scheda **Server di configurazione**.
-- Se è già stato creato un gruppo di protezione e successivamente si aggiunge un server vCenter o un host ESXi, possono essere necessari oltre 15 minuti per l'aggiornamento del portale di Azure Site Recovery e per la visualizzazione delle macchine virtuali nella finestra di dialogo **Aggiungere computer a un gruppo di protezione**.
+- Se è già stato creato un gruppo di protezione e successivamente si aggiunge un server vCenter o un host ESXi, possono essere necessari oltre 15 minuti per l'aggiornamento del portale di Azure Site Recovery e per la visualizzazione delle macchine virtuali nella finestra di dialogo **Add machines to a protection group** (Aggiungere computer a un gruppo di protezione).
 - Se si desidera procedere immediatamente con l'aggiunta di computer al gruppo di protezione senza attendere l'individuazione pianificata, evidenziare il server di configurazione (senza fare clic su di esso) e fare clic sul pulsante **Aggiorna**.
 
 Si noti anche che:
@@ -555,7 +552,7 @@ Aggiungere computer a un gruppo di protezione:
 
 	![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection1.png)
 
-4. In **Specificare le risorse di destinazione** selezionare l'account di archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Si noti che gli account di archiviazione premium non sono attualmente supportati.
+4. In **Specify Target Resources** (Specificare le risorse di destinazione) selezionare l'account di archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Si noti che gli account di archiviazione premium non sono attualmente supportati.
 
 	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
 
@@ -573,7 +570,7 @@ Lo stato può essere monitorato nella pagina **Processi**.
 
 ![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-È possibile monitorare lo stato di protezione anche da **Elementi protetti** > <protection group name> > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato del computer passa a **Protetto**.
+È possibile monitorare lo stato di protezione anche da **Elementi protetti** > <nome del gruppo di protezione> > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato del computer passa a **Protetto**.
 
 ![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -608,7 +605,7 @@ Lo stato può essere monitorato nella pagina **Processi**.
 
 ### Creare un piano di ripristino
 
-1. Nella pagina **Piani di ripristino** fare clic su **Aggiungi piano di ripristino** per aggiungere un piano di ripristino. Specificare i dettagli per il piano e selezionare **Azure** come destinazione.
+1. Nella pagina **Piani di ripristino** fare clic su **Add Recovery Plan** (Aggiungi piano di ripristino) per aggiungere un piano di ripristino. Specificare i dettagli per il piano e selezionare **Azure** come destinazione.
 
 	![Configurare un piano di ripristino](./media/site-recovery-vmware-to-azure-classic/recovery-plan1.png)
 
@@ -670,7 +667,7 @@ Il failover non pianificato viene avviato da Azure e può essere eseguito anche 
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover1.png)
 
-2. Se si esegue la replica di macchine virtuali VMware è possibile provare ad arrestare le macchine virtuali locali. Il failover continua indipendentemente dall'esito di questo tentativo. Se l'operazione non viene eseguita correttamente, i dettagli dell'errore vengono visualizzati nella scheda **Processi** > **Processi di failover non pianificati**.
+2. Se si esegue la replica di macchine virtuali VMware è possibile provare ad arrestare le macchine virtuali locali. Il failover continua indipendentemente dall'esito di questo tentativo. Se l'operazione non viene eseguita correttamente, i dettagli dell'errore vengono visualizzati nella scheda **Processi** > **Unplanned Failover Jobs** (Processi di failover non pianificati).
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover2.png)
 
@@ -707,12 +704,12 @@ Per configurare un server di elaborazione aggiuntivo, procedere come segue:
 ### Installare il server di elaborazione
 
 1. Nella pagina Avvio rapido scaricare il file di installazione unificata per l'installazione del componente di Site Recovery. Eseguire l'installazione.
-2. In **Prima di iniziare** selezionare **Aggiungere server di elaborazione per aumentare le istanze di distribuzione**.
+2. In **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
 3. Completare la procedura guidata come per la [configurazione](#step-5-install-the-management-server) del primo server di gestione.
-4. In **Dettagli del server di configurazione** specificare l'indirizzo IP del server di gestione originario in cui è stato installato il server di configurazione e la relativa passphrase. Per ottenere la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione originario.
+4. In **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di gestione originario in cui è stato installato il server di configurazione e la relativa passphrase. Per ottenere la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione originario.
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
 
@@ -741,7 +738,7 @@ Il server di elaborazione può rilevare automaticamente le macchine virtuali in 
 --- | --- | ---
 Ruolo Azure\_Site\_Recovery | Individuazione di macchine virtuali VMware |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Datastore -> Allocate space, Browse datastore, Low level file operations, Remove file, Update virtual machine files<br/><br/>Rete -> Network assign<br/><br/>Risorsa -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Attività -> Create task, Update task<br/><br/>Macchina virtuale -> Configuration<br/><br/>Macchina virtuale -> Interact -> Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Macchina virtuale -> Inventory -> Create, Register, Unregister<br/><br/>Macchina virtuale -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Macchina virtuale -> Snapshots -> Remove snapshots
 Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti).
-Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti). 
+Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti).  
 
 
 
@@ -761,4 +758,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

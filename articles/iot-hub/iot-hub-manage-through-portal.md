@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="06/06/2016"
+	 ms.date="06/28/2016"
 	 ms.author="nasing"/>
 
 # Gestire hub IoT tramite il portale di Azure
@@ -44,11 +44,13 @@ Per creare un hub IoT, è necessario assegnare un nome all'hub. Si noti che ques
 
 ### Scegliere il piano tariffario
 
-È possibile scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione di solo 500 dispositivi all'hub IoT e di un massimo di 8.000 messaggi al giorno.
+È possibile scegliere fra 4 piani: **Gratuito**, **Standard 1** e **Standard 2** e **Standard S3**. Il piano gratuito consente la connessione di solo 500 dispositivi all'hub IoT e di un massimo di 8.000 messaggi al giorno.
 
-**S1 (frequenza ridotta)**: l'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente fino a 400.000 messaggi al giorno tra tutti i dispositivi connessi.
+**Standard S1**: l'edizione Hub IoT S1 è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 consente fino a 400.000 messaggi al giorno tra tutti i dispositivi.
 
-**S2 (frequenza elevata)**: l'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 (frequenza elevata) consente fino a 6 milioni di messaggi al giorno tra tutti i dispositivi connessi.
+**Standard S2**: l'edizione Hub IoT S2 è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 consente fino a 6 milioni di messaggi al giorno tra tutti i dispositivi connessi.
+
+**Standard S3**: l'edizione Hub IoT S3 è progettata per soluzioni IoT che generano grandi quantità di dati. Ogni unità dell'edizione S3 consente fino a 300 milioni di messaggi al giorno tra tutti i dispositivi connessi.
 
 ![][4]
 
@@ -72,7 +74,7 @@ L'hub IoT di Azure mostra automaticamente un elenco di sottoscrizioni alle quali
 
 ### Scegliere la località
 
-L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. L'hub IoT è disponibile per la distribuzione nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Asia orientale e Asia sud-orientale.
+L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. Hub IoT è disponibile per la distribuzione nelle località seguenti Australia orientale, Australia sud-orientale, Asia orientale, Asia sudorientale, Europa settentrionale, Europa occidentale, Giappone orientale, Giappone occidentale, Stati Uniti orientali, Stati Uniti occidentali.
 
 ### Creare l'hub IoT
 
@@ -94,7 +96,7 @@ Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'
 
 	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema ** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
 
- 	I criteri di connessione del servizio concedono l'autorizzazione al gruppo di consumer per i servizi che si connettono all'hub IoT, mentre i criteri di connessione del dispositivo concedono le autorizzazioni per il lato dispositivo dell'hub IoT.
+ 	I criteri **Connessione servizio** concedono l'autorizzazione di accesso agli endpoint sul lato cloud, ad esempio al gruppo di consumer per i servizi che si connettono all'hub IoT, mentre i criteri di **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi negli endpoint sul lato dispositivo dell'hub IoT.
 
 - Fare clic su **Crea** per aggiungere i criteri appena creati all'elenco esistente.
 
@@ -122,7 +124,7 @@ Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprie
 
 ## Caricamento di file
 
-Per usare la funzionalità di caricamento di file nell'hub IoT, è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l’hub IoT da modificare.
+Per usare la funzionalità di caricamento di file nell'hub IoT, è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
 
 **Contenitore di archiviazione**: usare il portale per selezionare il contenitore BLOB in un account di archiviazione nella sottoscrizione corrente da associare all'hub IoT. Se necessario, è possibile creare un nuovo account di archiviazione nel pannello **Account di archiviazione** e un nuovo contenitore BLOB nel pannello **Contenitori**. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
@@ -147,7 +149,7 @@ I prezzi di un hub IoT esistente possono essere modificati tramite le impostazio
 
 ![][12]
 
-Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno supera 400.000, il piano per l'hub IoT non può essere cambiato da S2 in S1.
+Il passaggio da un piano più elevato (S2 o S3) a un piano inferiore (S1 o S2) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno supera 400.000, il livello per l'hub IoT può essere modificato, ma se si modifica il livello passando a S1, l'hub sarà limitato per quel giorno.
 
 ## Eliminare l'hub IoT
 
@@ -173,4 +175,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

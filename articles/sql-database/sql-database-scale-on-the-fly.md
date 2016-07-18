@@ -19,14 +19,14 @@
 
 # Scalabilità immediata del database SQL di Azure
 
-## Quando l'app passa da pochi clienti a un pubblico decisamente più vasto, il database SQL di Azure offre la scalabilità immediata, senza tempo di inattività dell'app.
+## Quando l'app passa da pochi clienti a un pubblico decisamente più vasto, il database SQL di Azure offre scalabilità immediata con un tempo di inattività dell'app minimo.
 
 Uno dei vantaggi dell'esecuzione del database SQL in Microsoft Azure è la possibilità di aumentare o ridurre le prestazioni e di adattarsi rapidamente alle variazioni della domanda del carico di lavoro. Il database SQL offre una vasta gamma di livelli di prestazioni per soddisfare le esigenze specifiche dell'applicazione. In più, ogni livello garantisce le prestazioni, in modo che l'esperienza dell'app per gli utenti offra prestazioni prevedibili.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
 ## Quando l'app ottiene un successo immediato
-Il database SQL semplifica la scalabilità con pochissimo preavviso, quindi se l'app ottiene un successo immediato basta un clic per soddisfare le nuove esigenze in termini di prestazioni. In più, senza tempi di inattività, non sarà necessario preoccuparsi delle conseguenze per l'app quando giunge il momento di aumentare o ridurre la quantità di risorse.
+Il database SQL semplifica la scalabilità con pochissimo preavviso, quindi se l'app ottiene un successo immediato basta un clic per soddisfare le nuove esigenze in termini di prestazioni. In più, con tempi di inattività minimi, non sarà necessario preoccuparsi delle conseguenze per l'app quando giunge il momento di aumentare o ridurre la quantità di risorse.
 
 [Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -54,4 +54,4 @@ Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

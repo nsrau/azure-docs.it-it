@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2015"
+	ms.date="07/04/2016"
 	ms.author="giridham;jimpark"/>
 
 
@@ -133,7 +133,7 @@ Dopo aver configurato DPM e la farm di SharePoint come descritto in precedenza, 
     ![Riepilogo](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## Ripristinare un elemento di SharePoint dal disco tramite DPM
-Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
+Nell'esempio seguente, l'*elemento di SharePoint da ripristinare * è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
 1. Aprire la **Console amministrazione DPM**. Tutte le farm di SharePoint protette da DPM vengono visualizzate nella scheda **Protezione**.
 
@@ -233,4 +233,4 @@ D: è possibile ripristinare un database di SharePoint nel percorso originale se
 - Esaminare le [Note sulla versione di System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Esaminare le [Note sulla versione di Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Introduzione alla libreria CDN di Azure per .NET
+# Introduzione allo sviluppo della rete CDN di Azure
 
-È possibile usare la [libreria CDN di Azure per .NET](https://msdn.microsoft.com/library/mt657769.aspx) per automatizzare la creazione e la gestione dei profili e degli endpoint di una rete CDN. Questa esercitazione illustra in dettaglio la creazione di una semplice applicazione console .NET che dimostra varie operazioni disponibili. Lo scopo di questa esercitazione non è descrivere dettagliatamente tutti gli aspetti della libreria CDN di Azure per .NET.
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
+
+È possibile usare la [libreria CDN di Azure per .NET](https://msdn.microsoft.com/library/mt657769.aspx) per automatizzare la creazione e la gestione di profili ed endpoint di una rete CDN. Questa esercitazione illustra in dettaglio la creazione di una semplice applicazione console .NET che dimostra varie operazioni disponibili. Lo scopo di questa esercitazione non è descrivere dettagliatamente tutti gli aspetti della libreria CDN di Azure per .NET.
 
 Per completare questa esercitazione è necessario disporre di Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) è disponibile gratuitamente per il download.
 
-Un esempio completo di questa esercitazione è disponibile [qui](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] Il [progetto completato di questa esercitazione](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) è disponibile per il download in MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -30,7 +34,7 @@ Un esempio completo di questa esercitazione è disponibile [qui](https://code.ms
 
 Ora che abbiamo creato un gruppo di risorse per i profili di rete CDN e assegnato all'applicazione Azure AD l'autorizzazione per gestire i profili e gli endpoint della rete CDN all'interno del gruppo, è possibile iniziare a creare l'applicazione.
 
-Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto** per aprire la finestra di dialogo Nuovo progetto. Espandere **Visual C#** e selezionare **Windows** nel riquadro a sinistra. Fare clic su **Applicazione console** nel riquadro centrale. Assegnare un nome al progetto e fare clic su **OK**.
+Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto** per aprire la finestra di dialogo del nuovo progetto. Espandere **Visual C#** e selezionare **Windows** nel riquadro a sinistra. Fare clic su **Applicazione console** nel riquadro centrale. Assegnare un nome al progetto e fare clic su **OK**.
 
 ![Nuovo progetto](./media/cdn-app-dev-net/cdn-new-project.png)
 
@@ -65,7 +69,7 @@ Ora si scriverà la struttura di base del programma.
 	using Microsoft.Rest;
 	```
 
-2. È necessario definire alcune costanti che i metodi useranno. Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente. Sostituire i segnaposti, inclusi **&lt;angle brackets&gt;**, con i valori desiderati.
+2. È necessario definire alcune costanti che i metodi useranno. Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente. Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;**, con i valori necessari.
 
 	```
 	//Tenant app constants
@@ -142,7 +146,7 @@ Ora si scriverà la struttura di base del programma.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -333,4 +337,4 @@ Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'
 
 Per altra documentazione su Azure CDN Management Library per .NET, vedere i [riferimenti su MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

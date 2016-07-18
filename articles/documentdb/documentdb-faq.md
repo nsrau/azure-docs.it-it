@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/01/2016" 
 	ms.author="mimig"/>
 
 
@@ -23,7 +23,7 @@
 ## Domande sui database relative ai concetti di base di Microsoft Azure DocumentDB
 
 ### Che cos'è Microsoft Azure DocumentDB? 
-Microsoft Azure DocumentDB è un database di documenti distribuito come servizio NoSQL con scalabilità elevata che offre funzionalità di query avanzate su dati privi di schema, che garantisce prestazioni configurabili e affidabili e che consente lo sviluppo rapido, tutto tramite una piattaforma gestita supportata dalla tecnologia e dalla copertura di Microsoft Azure. DocumentDB è la soluzione ideale per applicazioni Web, per dispositivi mobili, di gioco e IoT che necessitano di velocità effettiva prevedibile, bassa latenza e un modello di dati privo di schema. DocumentDB offre flessibilità dello schema e indicizzazione avanzata tramite un modello dati JSON nativo e include il supporto transazionale per più documenti con JavaScript integrato.
+Microsoft Azure DocumentDB è un database di documenti ultrarapido e con copertura globale distribuito come servizio NoSQL che offre funzionalità di query avanzate su dati privi di schema, che garantisce prestazioni configurabili e affidabili e che consente lo sviluppo rapido, tutto tramite una piattaforma gestita supportata dalla tecnologia e dalla copertura di Microsoft Azure. DocumentDB è la soluzione ideale per applicazioni Web, per dispositivi mobili, di gioco e IoT che necessitano di velocità effettiva prevedibile, disponibilità elevata, bassa latenza e un modello di dati privo di schema. DocumentDB offre flessibilità dello schema e indicizzazione avanzata tramite un modello dati JSON nativo e include il supporto transazionale per più documenti con JavaScript integrato.
   
 Per altre domande sui database, risposte e istruzioni su come distribuire e usare questo servizio, vedere la [pagina relativa alla documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
@@ -31,21 +31,21 @@ Per altre domande sui database, risposte e istruzioni su come distribuire e usar
 DocumentDB è un database orientato ai documenti NoSQL che archivia i dati in formato JSON. DocumentDB supporta strutture dei dati complete nidificate su cui è possibile eseguire query tramite la [grammatica di query SQL](documentdb-sql-query.md) avanzata di DocumentDB. DocumentDB fornisce funzionalità di elaborazione transazionale con prestazioni elevate di JavaScript lato server tramite [stored procedure, trigger e funzioni definite dall'utente](documentdb-programming.md). Il database supporta inoltre livelli di coerenza ottimizzabili dagli sviluppatori, a cui sono associati [livelli di prestazioni](documentdb-performance-levels.md).
  
 ### I database DocumentDB contengono tabelle come i database relazionali (RDBMS)?
-No, DocumentDB archivia i dati in raccolte di documenti JSON. Per altre informazioni sulle risorse di DocumentDB, vedere [Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md).
+No, DocumentDB archivia i dati in raccolte di documenti JSON. Per altre informazioni sulle risorse di DocumentDB, vedere [Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md). Per altre informazioni sulle differenze tra soluzioni NoSQL, ad esempio DocumentDB e soluzioni relazionali, vedere [NoSQL e SQL](documentdb-nosql-vs-sql.md).
 
 ### Nei database DocumentDB sono supportati i dati privi di schema?
 Sì, DocumentDB consente alle applicazioni di archiviare documenti JSON arbitrari senza hint o definizione dello schema. I dati sono immediatamente disponibili per l'esecuzione di Query tramite l'interfaccia di query del linguaggio SQL di DocumentDB.
 
 ### In DocumentDB sono supportate le transazioni ACID?
-Sì, DocumentDB supporta le transazioni tra documenti espresse come trigger e stored procedure JavaScript. L'ambito delle transazioni viene impostato su una singola partizione in ogni raccolta e le transazioni vengono eseguite con semantica ACID isolate o non isolate da altro codice e altre richieste utente simultaneamente in esecuzione. Se vengono generate eccezioni tramite l'esecuzione sul lato server del codice dell'applicazione JavaScript, viene eseguito il rollback dell'intera transazione.
+Sì, DocumentDB supporta le transazioni tra documenti espresse come trigger e stored procedure JavaScript. L'ambito delle transazioni viene impostato su una singola partizione in ogni raccolta e le transazioni vengono eseguite con semantica ACID isolate o non isolate da altro codice e altre richieste utente simultaneamente in esecuzione. Se vengono generate eccezioni tramite l'esecuzione sul lato server del codice dell'applicazione JavaScript, viene eseguito il rollback dell'intera transazione. Per altre informazioni sulle transazioni, vedere [Transazioni del programma del database](documentdb-programming.md#database-program-transactions).
 
 ### Quali sono i casi di utilizzo tipici per DocumentDB?  
 DocumentDB rappresenta la scelta ideale per le nuove applicazioni Web, per dispositivi mobili, di gioco e IoT in cui scalabilità automatica, prestazioni prevedibili, tempi di risposta rapidi nell'ordine di millisecondi e la possibilità di effettuare una query su dati privi di schema sono importanti. DocumentDB si presta allo sviluppo rapido e al supporto dell'iterazione continua dei modelli di dati delle applicazioni. Le applicazioni che gestiscono contenuto e dati generati dall'utente rappresentano i [casi di utilizzo comuni per DocumentDB](documentdb-use-cases.md).
 
 ### Come fa DocumentDB a offrire prestazioni prevedibili?
-Un'unità richiesta è l'unità di misura della velocità effettiva in DocumentDB. Un'unità richiesta corrisponde alla velocità effettiva dell'operazione GET di un documento da 1 KB. Ogni operazione in DocumentDB, tra cui letture, scritture, query SQL ed esecuzioni di stored procedure, ha un valore di unità richiesta deterministico basato sulla velocità effettiva necessaria per completare l'operazione. Invece di considerare CPU, I/O e memoria e il modo in cui ogni elemento influisce sulla velocità effettiva dell'applicazione, è possibile ragionare in termini di singola misura di unità richiesta.
+Un'[unità richiesta](documentdb-request-units.md) è l'unità di misura della velocità effettiva in DocumentDB. Un'unità richiesta corrisponde alla velocità effettiva dell'operazione GET di un documento da 1 KB. Ogni operazione in DocumentDB, tra cui letture, scritture, query SQL ed esecuzioni di stored procedure, ha un valore di unità richiesta deterministico basato sulla velocità effettiva necessaria per completare l'operazione. Invece di considerare CPU, I/O e memoria e il modo in cui ogni elemento influisce sulla velocità effettiva dell'applicazione, è possibile ragionare in termini di singola misura di unità richiesta.
 
-Ogni raccolta di DocumentDB può essere riservata con la velocità effettiva minima di provisioning in termini di unità richiesta di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurare i valori delle unità richiesta ed effettuare il provisioning delle raccolte per gestire la somma totale delle unità richiesta in tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva della raccolta con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e su come determinare il numero di raccolte necessarie, vedere [Gestire la capacità e le prestazioni](documentdb-manage.md).
+Ogni raccolta di DocumentDB può essere riservata con la velocità effettiva minima di provisioning in termini di unità richiesta di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurare i valori delle unità richiesta ed effettuare il provisioning delle raccolte per gestire la somma totale delle unità richiesta in tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva della raccolta con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e su come determinare il numero di raccolte necessarie, vedere [Gestire la capacità e le prestazioni](documentdb-manage.md) e provare il [calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner).
 
 ### DocumentDB dispone della conformità HIPAA?
 Sì, DocumentDB è conforme alla normativa HIPAA. La normativa HIPAA stabilisce i requisiti per l'uso, la divulgazione e la protezione delle informazioni sanitarie personali sensibili. Per altre informazioni, visitare il sito [Microsoft Trust Center](https://www.microsoft.com/it-IT/TrustCenter/Compliance/HIPAA).
@@ -60,7 +60,7 @@ Non esiste in teoria alcun limite alla quantità totale di velocità effettiva c
 Per informazioni dettagliate sui prezzi, vedere [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Gli addebiti per l'uso di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online, dalla quantità di archivio utilizzata e dalla velocità effettiva di cui è stato effettuato il provisioning per ogni raccolta.
 
 ### È disponibile un account gratuito?
-I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](https://azure.microsoft.com/pricing/free-trial/) che è valido 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Se si possiede una sottoscrizione a Visual Studio si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti al mese](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure.
+I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](https://azure.microsoft.com/free/) che è valido 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Se si possiede una sottoscrizione a Visual Studio si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti al mese](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure.
 
 ### Dove è possibile reperire ulteriori informazioni e supporto su DocumentDB?
 Per ottenere informazioni o supporto, è possibile visitare il sito [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), i [forum per sviluppatori MSDN relativi ad Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o pianificare una [chat 1:1 con il team di progettazione di DocumentDB](http://www.askdocdb.com/). Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, è possibile seguirci su [Twitter](https://twitter.com/DocumentDB).
@@ -77,7 +77,7 @@ Una chiave master è un token di sicurezza per l'accesso a tutte le risorse di u
 Per creare i database, è possibile usare il [portale di Azure](), come descritto in [Creare un database DocumentDB](documentdb-create-database.md), nonché uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md) o le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Che cos'è una raccolta?
-Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](documentdb-performance-levels.md) è determinato dal livello di prestazioni associato alla raccolta. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva.
+Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](documentdb-performance-levels.md) è determinato dalla velocità effettiva e dall'archiviazione usata. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva.
 
 Le raccolte costituiscono anche le entità di fatturazione per DocumentDB. Ogni raccolta viene fatturata su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e dello spazio di archiviazione usato. Per altre informazioni, vedere [DocumentDB - Prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -98,7 +98,9 @@ Il linguaggio di query SQL di DocumentDB è un sottoinsieme ottimizzato della fu
 I tipi di dati primitivi supportati in DocumentDB sono gli stessi supportati in JSON. JSON è caratterizzato da un sistema di tipo semplice costituito da stringhe, numeri (IEEE754 precisione doppia), valori booleani (True e False) e valori Null. È possibile rappresentare tipi di dati più complessi, ad esempio DateTime, Guid, Int64 e Geometry, sia in JSON che in DocumentDB tramite la creazione di oggetti annidati usando l'operatore { } e di matrici usando l'operatore [ ].
 
 ### In che modo viene fornita la concorrenza DocumentDB?
-DocumentDB supporta il controllo della concorrenza ottimistica tramite tag di entità HTTP o Etag. Ogni risorsa di DocumentDB ha un ETag e i client DocumentDB includono la relativa versione di lettura più recente nelle richieste di scrittura. Se l'ETag è aggiornato, viene eseguito il commit della modifica. Se il valore è stato modificato esternamente, il server rifiuta la scrittura con un codice di risposta "HTTP 412 - Errore della condizione preliminare". I client devono leggere la versione più recente della risorsa e ripetere la richiesta.
+DocumentDB supporta il controllo della concorrenza ottimistica tramite tag di entità HTTP o etag. Ogni risorsa DocumentDB ha un etag, e il relativo valore è impostato nel server ogni volta che un documento viene aggiornato. In tutti i messaggi di risposta sono inclusi l'intestazione etag e il valore corrente. Gli etag possono essere usati con l'intestazione If-Match per consentire al server di stabilire se una risorsa deve essere aggiornata. Il valore If-Match rappresenta il valore etag con cui eseguire il confronto. Se il valore etag corrisponde al valore etag del server, la risorsa verrà aggiornata. Se il valore etag non è aggiornato, il server rifiuta l'operazione con un codice di risposta "HTTP 412 - Errore della condizione preliminare". Il client dovrà quindi recuperare la risorsa per acquisire il relativo valore etag aggiornato. Inoltre, gli etag sono utilizzabili con l'intestazione If-None-Match per stabilire se ripetere il recupero di una risorsa.
+
+Per applicare la concorrenza ottimistica in .NET, usare la classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx). Per un esempio di .NET, vedere [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) nell'esempio DocumentManagement su github.
 
 ### Come si eseguono le transazioni in DocumentDB?
 DocumentDB supporta le transazioni Language Integrated tramite trigger e stored procedure JavaScript. Tutte le operazioni di database negli script vengono eseguite con l'isolamento dello snapshot limitato alla raccolta se si tratta di una raccolta a partizione singola o ai documenti con lo stesso valore della chiave di partizione in una raccolta se la raccolta è partizionata. Viene acquisito uno snapshot delle versioni (ETag) del documento all'inizio della transazione e il commit della transazione viene eseguito solo se lo script ha esito positivo. Se JavaScript genera un errore, viene eseguito il rollback della transazione. Per informazioni dettagliate, vedere [Programmazione sul lato server di DocumentDB](documentdb-programming.md).
@@ -113,11 +115,12 @@ Sono disponibili tre modi per eseguire l'inserimento in blocco di documenti in D
 ### In DocumentDB è supportata la memorizzazione nella cache dei collegamenti alle risorse?
 Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle risorse sono immutabili e possono essere memorizzati nella cache. I client DocumentDB possono specificare un'intestazione "If-None-Match" per le letture in ogni risorsa come documento o raccolta e aggiornare le copie locali solo quando viene modificata la versione del server.
 
-
+### È disponibile un'istanza locale di DocumentDB?
+Al momento non sono è disponibile un'istanza locale di DocumentDB. È possibile monitorare lo stato di un emulatore locale e quindi votarlo nel [forum dei commenti](https://feedback.azure.com/forums/263030-documentdb/suggestions/6328798-standalone-local-instance).
 
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

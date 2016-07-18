@@ -17,9 +17,15 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
+
 > [AZURE.SELECTOR]
-- [Portale di Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+- [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
+- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
+- [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 La funzionalità Transparent Data Encryption (TDE) di SQL Data Warehouse di Azure consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
 
@@ -33,7 +39,7 @@ Per abilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
 4. Selezionare l’impostazione ![][2] su **Attiva**
-5. Selezionare **Salva** ![][3]  
+5. Selezionare **Salva** ![][3]
 
 ##Disabilitazione della crittografia
 
@@ -43,7 +49,7 @@ Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
 4. Selezionare l’impostazione ![][4] su **Disattiva**
-5. Selezionare **Salva** ![][5]  
+5. Selezionare **Salva** ![][5]
 
 ##Viste a gestione dinamica della crittografia
 
@@ -66,4 +72,4 @@ La crittografia può essere confermata con le seguenti viste a gestione dinamica
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

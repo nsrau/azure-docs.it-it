@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Creare un'app Web Hello World per Azure in IntelliJ
@@ -26,7 +26,7 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
  
 ## Prerequisiti
 
-* Java Developer Kit (JDK) versione 1.7 o successiva.
+* Java Developer Kit (JDK) versione 1.8 o successiva.
 * IntelliJ IDEA Ultimate Edition. È possibile scaricare il pacchetto all'indirizzo <https://www.jetbrains.com/idea/download/index.html>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
 * Un abbonamento di Azure, che può essere acquistato all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
@@ -80,7 +80,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
    ![][08]
 
-1. Nella finestra di dialogo **Deploy to Azure Web App Container** (Distribuisci in un contenitore app Web di Azure) sono visualizzati tutti i contenitori di app Web creati in precedenza. Se non è stato creato alcun contenitore, l'elenco appare vuoto.   
+1. Nella finestra di dialogo **Deploy to Azure Web App Container** (Distribuisci in un contenitore app Web di Azure) sono visualizzati tutti i contenitori di app Web creati in precedenza. Se non è stato creato alcun contenitore, l'elenco appare vuoto.
 
    ![][09]
 
@@ -98,15 +98,15 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Nel menu a discesa **Web Container** (Contenitore Web) selezionare il software appropriato per l'applicazione.
 
-        Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
   1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
 
   1. Nel menu a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse a cui si vuole associare l'app Web.
 
-        Nota: i gruppi di risorse di Azure consentono di raggruppare le risorse correlate in modo che, ad esempio, possano essere eliminate insieme.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        È possibile selezionare un gruppo di risorse esistente, se presente, e andare al passaggio g seguente o usare questa procedura per creare un nuovo gruppo di risorse:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
       * Fare clic su **New** (Nuovo).
 
@@ -122,9 +122,9 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Il menu a discesa **App Service Plan** (Piano di servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
 
-        Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        È possibile selezionare un piano di servizio app esistente, se presente, e andare al passaggio h seguente o usare questa procedura per creare un nuovo piano di servizio app:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
       * Fare clic su **New** (Nuovo).
 
@@ -146,7 +146,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
 
-        Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. A questo punto si è pronti per completare la distribuzione iniziale dell'app Web in Azure. Fare clic su **OK** per distribuire l'applicazione Java nel contenitore di app Web selezionato.
 
@@ -224,10 +224,11 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 - [Toolkit di Azure per IntelliJ]
   - [Installazione del Toolkit di Azure per IntelliJ]
   - *Creare un’app Web Hello World per Azure in IntelliJ (questo articolo)*
+  - [Novità del Toolkit di Azure per IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-Per ulteriori informazioni sulla creazione di applicazioni Web per Azure, vedere la [Panoramica delle app Web].
+Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramica delle App Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
@@ -237,13 +238,15 @@ Per ulteriori informazioni sulla creazione di applicazioni Web per Azure, vedere
 [Azure Toolkit per IntelliJ]: ../azure-toolkit-for-intellij.md
 [Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
 [Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Installare il Toolkit di Azure per Eclipse.]: ../azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Installazione di Azure Toolkit per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novità di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[Novità del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
-[Panoramica delle app Web]: ./app-service-web-overview.md
+[Panoramica delle App Web]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -267,4 +270,4 @@ Per ulteriori informazioni sulla creazione di applicazioni Web per Azure, vedere
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -3,13 +3,13 @@
 
 ## Assegnazione di tag a una macchina virtuale tramite modelli
 
-In primo luogo, diamo un'occhiata ai tag tramite modelli. [Questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)inserisce i tag per le risorse seguenti: calcolo (macchina virtuale), archiviazione (Account di archiviazione) e rete (indirizzo IP pubblico, rete virtuale e interfaccia di rete). Questo esempio di modello riguarda una VM Windows ma può essere adattato per le VM Linux.
+In primo luogo, diamo un'occhiata ai tag tramite modelli. [Questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)inserisce i tag per le risorse seguenti: calcolo (macchina virtuale), archiviazione (Account di archiviazione) e rete (indirizzo IP pubblico, rete virtuale e interfaccia di rete). Questo modello riguarda una VM Windows ma può essere adattato per le VM Linux.
 
 Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Verrà visualizzato il [portale di Azure](https://portal.azure.com/) in cui è possibile distribuire il modello.
 
 ![Distribuzione semplice di tag](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Questo modello include i seguenti tag:*Reparto* *Applicazione* e *Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
+Questo modello include i seguenti tag:*Reparto**Applicazione*e*Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
 
 ![Tag di Azure in un modello](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
@@ -44,3 +44,5 @@ Aggiungere un nuovo tag tramite il portale definendo la propria coppia chiave/va
 Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
 
 ![Nuovo Tag salvato nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+
+<!---HONumber=AcomDC_0706_2016-->

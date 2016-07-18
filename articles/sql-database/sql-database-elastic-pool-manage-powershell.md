@@ -83,8 +83,8 @@ Metriche che è possibile recuperare come percentuale del limite del pool di ris
 
 **Granularità della metrica/periodi di conservazione:**
 
-* I dati verranno restituiti con una granularità di 5 minuti.  
-* La conservazione dei dati è di 14 giorni.  
+* I dati verranno restituiti con una granularità di 5 minuti.
+* La conservazione dei dati è di 35 giorni.
 
 Questo cmdlet e questa API limitano il numero di righe che è possibile recuperare in una chiamata a 1000 righe (circa 3 giorni di dati con una granularità di 5 minuti). Tuttavia, questo comando può essere chiamato più volte con intervalli di tempo iniziale e finale differenti per recuperare ulteriori dati
 
@@ -177,7 +177,7 @@ Per usare questa implementazione di esempio, seguire questa procedura.
 
 1. Scaricare gli [script e la documentazione](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modificare gli script per l'ambiente. Specificare uno o più server in cui sono ospitati i pool elastici.
-3. Specificare un database di telemetria in cui archiviare le metriche raccolte. 
+3. Specificare un database di telemetria in cui archiviare le metriche raccolte.
 4. Personalizzare lo script per specificare la durata dell'esecuzione degli script.
 
 A livello generale, gli script eseguono le operazioni seguenti:
@@ -276,4 +276,4 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 - Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

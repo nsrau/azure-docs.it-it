@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Migrazione di un'app Web aziendale a un servizio app di Azure
@@ -30,14 +30,14 @@
 ## Elementi verificati durante l'analisi della compatibilità ## ##
 Il Migration Assistant crea un report di conformità per identificare le potenziali cause dei problemi di blocco che potrebbero impedire la corretta migrazione da IIS in locale al servizio app per app Web di Azure. Alcuni degli elementi chiavi da considerare sono:
 
--	Associazioni delle porte: App Web supporta solo la porta 80 per il traffico HTTP e la porta 443 per quello HTTPS. Diverse configurazioni di porta verranno ignorate e il traffico verrà indirizzato alla porta 80 o 443. 
--	Autenticazione: App Web supporta l'autenticazione anonima per impostazione predefinita e l'autenticazione basata su form laddove specificato da un'applicazione. L'autenticazione di Windows può essere usata eseguendo l'integrazione solo con Azure Active Directory e ADFS. Tutte le altre forme di autenticazione, come ad esempio l'autenticazione di base, al momento non sono supportate. 
--	Global Assembly Cache (GAC) – Una GAC non è supportata in App Web. Se l'applicazione fa riferimento ad assembly che in genere si distribuiscono nella GAC, sarà necessario distribuirli alla cartella bin dell'applicazione nelle app Web. 
--	Modalità di compatibilità IIS5: non supportata in App Web. 
+-	Associazioni delle porte: App Web supporta solo la porta 80 per il traffico HTTP e la porta 443 per quello HTTPS. Diverse configurazioni di porta verranno ignorate e il traffico verrà indirizzato alla porta 80 o 443.
+-	Autenticazione: App Web supporta l'autenticazione anonima per impostazione predefinita e l'autenticazione basata su form laddove specificato da un'applicazione. L'autenticazione di Windows può essere usata eseguendo l'integrazione solo con Azure Active Directory e ADFS. Tutte le altre forme di autenticazione, come ad esempio l'autenticazione di base, al momento non sono supportate.
+-	Global Assembly Cache (GAC) – Una GAC non è supportata in App Web. Se l'applicazione fa riferimento ad assembly che in genere si distribuiscono nella GAC, sarà necessario distribuirli alla cartella bin dell'applicazione nelle app Web.
+-	Modalità di compatibilità IIS5: non supportata in App Web.
 -	Pool di applicazioni: in App Web, ogni sito e le applicazioni figlio vengono eseguiti nello stesso pool di applicazioni. Se il sito ha più applicazioni figlio che usano più pool di applicazioni, consolidarle in un singolo pool di applicazioni con impostazioni comuni o eseguire la migrazione di ogni applicazione in un'app Web separata.
 -	Componenti COM: App Web non consente la registrazione di componenti COM sulla piattaforma. Se le applicazioni o i siti Web si avvalgono di tutti i componenti COM, è necessario riscriverli nel codice gestito e distribuirli con il sito Web o l'applicazione.
 -	Filtri ISAPI: App Web può supportare l'uso di filtri ISAPI. È necessario eseguire le operazioni seguenti:
-	-	distribuire le DLL con l'app Web 
+	-	distribuire le DLL con l'app Web
 	-	registrare le DLL con [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
 	-	inserire un file applicationHost.xdt nella radice del sito con il contenuto seguente:
 
@@ -57,7 +57,7 @@ Il Migration Assistant crea un report di conformità per identificare le potenzi
 ## Come usare Migration Assistant di App Web ## ##
 Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che usano un server di database SQL in esecuzione su un computer Windows Server 2003 R2 (IIS 6.0) locale:
 
-1.	Nel server IIS o nel computer client andare a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1.	Nel server IIS o nel computer client andare a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
@@ -135,4 +135,4 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

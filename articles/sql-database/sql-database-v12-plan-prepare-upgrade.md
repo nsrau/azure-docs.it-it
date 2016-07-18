@@ -137,7 +137,7 @@ Sono disponibili tre portali per Azure e ognuno dispone di capacità diverse rel
  - *Non* consente l'aggiornamento del database versione 11 alla versione 12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portale classico di Database SQL di Azure:
+- (http://*yourservername*.database.windows.net)<br/> Portale classico di database SQL di Azure:
  - *Non* consente la gestione di server versione 12.
 
 
@@ -158,6 +158,9 @@ Nella pagina del database del portale di Azure classico precedente, per avviare 
 In alternativa, per connettersi al database SQL di Azure è possibile utilizzare SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/). Ulteriori dettagli sono in questo post di blog:<br/>[Aggiornamenti degli strumenti client per il database SQL di Azure](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
+> [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ### Limitazione *durante* l'aggiornamento alla versione 12
 
 
@@ -166,7 +169,7 @@ Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento
 
 | Limitazione | Descrizione |
 | :--- | :--- |
-| Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Con una dimensione superiore a 50 GB oppure<br/>* A un livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
+| Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Dimensioni superiori a 50 GB oppure<br/>* Livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
 | Replica geografica non supportata | La replica geografica non è supportata in un server versione 12 di cui è in corso l'aggiornamento dalla versione 11. |
 | Il database è temporaneamente non disponibile nella fase finale dell'aggiornamento a V12 | I database che appartengono al server V11 restano disponibili durante il processo di aggiornamento. Tuttavia, la connessione al server e ai database è temporaneamente non disponibile nella fase finale, quando inizia la transizione da V11 al V12 pronto.<br/><br/>La durata del passaggio può variare da 40 secondi a 5 minuti. Per la maggior parte dei server, il passaggio avviene in 90 secondi. La durata del passaggio aumenta per i server che dispongono di un numero elevato di database, o quando i database hanno carichi di lavoro di scrittura pesanti. |
 
@@ -253,4 +256,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

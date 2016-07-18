@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/30/2016"
 	ms.author="marsma" />
 
 # Distribuzione delle applicazioni con i pacchetti dell’applicazione di Azure Batch.
@@ -198,6 +198,8 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
+I pacchetti dell'applicazione specificati per un pool vengono installati su ciascun nodo di calcolo quando tale nodo viene aggiunto al pool e quando il nodo viene riavviato o ne viene ricreata l'immagine. Se una distribuzione del pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio Batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività verrà pianificata per l'esecuzione in tale nodo. In questo caso, è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto (il riavvio implica anche la riattivazione della pianificazione delle attività nel nodo).
+
 ## Eseguire le applicazioni installate
 
 Quando un nodo di calcolo viene aggiunto a un pool, o viene riavviato o ne viene ricreata l'immagine, i pacchetti specificati vengono scaricati ed estratti in una directory denominata all'interno del nodo `AZ_BATCH_ROOT_DIR`. Batch crea inoltre una variabile di ambiente per le righe di comando dell’attività da usare quando si chiamano i file binari dell'applicazione. Questa variabile è conforme allo schema di denominazione seguente:
@@ -220,7 +222,7 @@ string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -co
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] Per altre informazioni sulle impostazioni di ambiente dei nodi di calcolo, vedere "Impostazioni di ambiente per le attività" in [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Per altre informazioni sulle impostazioni di ambiente dei nodi di calcolo, vedere "Impostazioni di ambiente per le attività" in [Panoramica delle funzionalità di Batch](batch-api-basics.md).
 
 ## Aggiornare i pacchetti dell’applicazione di un pool
 
@@ -230,7 +232,7 @@ Se un pool esistente è già stato configurato con un pacchetto dell’applicazi
 * I nodi di calcolo che si trovano già nel pool quando si aggiornano i riferimenti al pacchetto non installano automaticamente il nuovo pacchetto dell'applicazione, bensì devono essere riavviati o si deve ricrearne l'immagine per ricevere il nuovo pacchetto.
 * Quando viene distribuito un nuovo pacchetto, le variabili di ambiente create riflettono i riferimenti al nuovo pacchetto di applicazione.
 
-In questo esempio il pool esistente presenta la versione 2.7 dell'applicazione *blender* configurata come uno dei relativi [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Per aggiornare i nodi del pool alla versione 2.76b, specificare un nuovo [ApplicationPackageReference][net_pkgref] con la nuova versione ed eseguire il commit della modifica.
+In questo esempio il pool esistente ha la versione 2.7 dell’applicazione *blender* configurata come uno dei relativi [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Per aggiornare i nodi del pool alla versione 2.76b, specificare un nuovo [ApplicationPackageReference][net_pkgref] con la nuova versione e il commit della modifica.
 
 ```csharp
 string newVersion = "2.76b";
@@ -244,7 +246,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Ora che è stata configurata la nuova versione, qualsiasi *nuovo* nodo che si aggiunge al pool avrà la versione 2.76b distribuita. Per installare la versione 2.76b nei nodi che si trovano *già* nel pool, riavviarli o ricrearne l'immagine. Notare che i nodi riavviati manterranno i file delle distribuzioni precedenti del pacchetto.
+Ora che è stata configurata la versione nuova, qualsiasi nodo *nuovo* che si aggiunge al pool avrà la versione 2.76b. Per installare la versione 2.76b sui nodi che si trovano *già* nel pool, riavviarli o ricrearne l'immagine. Notare che i nodi riavviati manterranno i file delle distribuzioni precedenti del pacchetto.
 
 ## Elencare le applicazioni in un account Batch
 
@@ -270,9 +272,9 @@ Con i pacchetti dell’applicazione, è più semplice per i clienti scegliere le
 
 ## Passaggi successivi
 
-* L'[API REST di Batch][api_rest] garantisce anche supporto durante l'uso dei pacchetti dell'applicazione. Per specificare i pacchetti da installare con l'API REST, vedere ad esempio l'elemento [applicationPackageReferences][rest_add_pool_with_packages] in [Aggiungere un pool a un account][rest_add_pool]. Per informazioni dettagliate sull'applicazione se si usa l'API REST di Batch, vedere [Applicazioni][rest_applications].
+* L’[API REST di Batch][api_rest] garantisce inoltre supporto durante l’uso dei pacchetti dell’applicazione. Per specificare i pacchetti da installare con l’API REST, vedere ad esempio l’elemento [applicationPackageReferences][rest_add_pool_with_packages] in [Aggiungere un pool a un account][rest_add_pool]. Per informazioni dettagliate sull’applicazione se si usa l’API REST di Batch, vedere [Applicazioni][rest_applications]
 
-* Leggere le informazioni su come [Gestire quote e account Batch di Azure con la gestione .NET per Batch](batch-management-dotnet.md) a livello di programmazione. La libreria [Batch Management .NET][api_net_mgmt] può abilitare funzionalità di creazione ed eliminazione di account per l'applicazione o il servizio Batch.
+* È possibile scoprire come [gestire account e quote Azure Batch con la gestione .NET per Batch](batch-management-dotnet.md) a livello di programmazione. Con la libreria di [gestione .NET per Batch][api_net_mgmt] è possibile abilitare funzionalità di creazione ed eliminazione di account per l'applicazione o il servizio Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -284,6 +286,7 @@ Con i pacchetti dell’applicazione, è più semplice per i clienti scegliere le
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -301,4 +304,4 @@ Con i pacchetti dell’applicazione, è più semplice per i clienti scegliere le
 [11]: ./media/batch-application-packages/app_pkg_11.png "Pannello Aggiorna pacchetto nel portale di Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

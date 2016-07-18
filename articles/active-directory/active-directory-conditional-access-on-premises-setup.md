@@ -80,15 +80,15 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 
 | Attività | Riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Distribuire un dominio di Servizi di dominio Active Directory con le estensioni dello schema di Windows Server 2012 R2. Non è necessario aggiornare alcun controller di dominio a Windows Server 2012 R2. L'unico requisito è l'aggiornamento dello schema. | [Aggiornamento dello schema di Servizi di dominio Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
-| I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Preparare i dispositivi di supporto di Active Directory](#Prepare your Active Directory to support devices) |
+| Distribuire un dominio di Servizi di dominio Active Directory con le estensioni dello schema di Windows Server 2012 R2. Non è necessario aggiornare alcun controller di dominio a Windows Server 2012 R2. L'unico requisito è l'aggiornamento dello schema. | [Aggiornare lo schema di Servizi di dominio Active Directory](#upgrade-your-active-directory-domain-services-schema) |
+| I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Preparare Active Directory per supportare i dispositivi](#prepare-your-active-directory-to-support-devices) |
 
 
 ##Parte 3: Abilitare il writeback dei dispositivi in Azure AD
 
 | Attività | Riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Completare la parte 2 di Abilitazione del writeback dei dispositivi in Azure AD Connect. Al termine, tornare a questa guida. | [Abilitazione del writeback dei dispositivi in Azure AD Connect](#Upgrade your Active Directory Domain Services Schema) |
+| Completare la parte 2 di Abilitazione del writeback dei dispositivi in Azure AD Connect. Al termine, tornare a questa guida. | [Abilitazione del writeback dei dispositivi in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 
 ##[Facoltativo] Parte 4: Abilitazione di Multi-Factor Authentication
@@ -102,10 +102,10 @@ La distribuzione è completata. È ora possibile provare alcuni scenari. Seguire
 
 | Attività | Riferimento |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Aggiungere alcuni dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory. È possibile aggiungere dispositivi iOS, Windows e Android. | [Aggiungere dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory](#Join devices to your workplace using Azure Active Directory Device Registration) |
+| Aggiungere alcuni dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory. È possibile aggiungere dispositivi iOS, Windows e Android. | [Aggiungere dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | È possibile visualizzare e abilitare/disabilitare i dispositivi registrati tramite il portale dell'amministratore. In questa attività si visualizzeranno alcuni dispositivi registrati tramite il portale dell'amministratore. | [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
-| Verificare che venga eseguito il writeback degli oggetti dispositivo da Azure Active Directory a Windows Server Active Directory. | [Verificare che venga eseguito il writeback dei dispositivi registrati in Active Directory](#Verify registered devices are written-back to Active Director) |
-| Ora che gli utenti possono registrare i propri dispositivi, è possibile creare criteri di accesso alle applicazioni in AD FS che consentano l'accesso solo a dispositivi registrati. In questa attività si creerà una regola di accesso alle applicazioni e un messaggio di accesso negato personalizzato. | [Creare un criterio di accesso alle applicazioni e un messaggio di accesso negato personalizzato](#Create an application access policy and custom access denied message) |
+| Verificare che venga eseguito il writeback degli oggetti dispositivo da Azure Active Directory a Windows Server Active Directory. | [Verificare che venga eseguito il writeback dei dispositivi registrati in Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Ora che gli utenti possono registrare i propri dispositivi, è possibile creare criteri di accesso alle applicazioni in AD FS che consentano l'accesso solo a dispositivi registrati. In questa attività si creerà una regola di accesso alle applicazioni e un messaggio di accesso negato personalizzato. | [Creare un criterio di accesso alle applicazioni e un messaggio di accesso negato personalizzato](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 
 
@@ -122,7 +122,7 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
   3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
   
   > [AZURE.NOTE] 
-  > Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. Non è necessario configurare le funzionalità di anteprima.
+  Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. Non è necessario configurare le funzionalità di anteprima.
 
 
 ## Aggiornare lo schema di Servizi di dominio Active Directory
@@ -180,7 +180,7 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-È possibile comunicare questo URL agli utenti in diversi modi. Quello consigliato consiste nel pubblicare l'URL in un messaggio personalizzato di accesso all'applicazione negato in AD FS. Questa attività viene descritta nella sezione seguente: [Creare un criterio di accesso alle applicazioni e un messaggio di accesso negato personalizzato](#Create an application access policy and custom access denied message)
+È possibile comunicare questo URL agli utenti in diversi modi. Quello consigliato consiste nel pubblicare l'URL in un messaggio personalizzato di accesso all'applicazione negato in AD FS. Questa attività viene descritta nella sezione seguente: [Creare un criterio di accesso alle applicazioni e un messaggio di accesso negato personalizzato](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ###Aggiungere un dispositivo Windows 8.1 con Registrazione dispositivo di Azure Active Directory
 
@@ -252,4 +252,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

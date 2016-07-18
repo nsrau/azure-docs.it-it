@@ -27,9 +27,8 @@ Ecco alcune procedure consigliate per valutare la migrazione delle risorse IaaS 
 
 - Leggere [l'elenco di configurazioni e funzionalità non supportate](virtual-machines-windows-migration-classic-resource-manager.md). Se sono disponibili macchine virtuali che usano configurazioni o funzionalità non supportate, è consigliabile attendere l'annuncio del supporto di tali configurazioni o funzionalità. In alternativa, è possibile rimuovere tale funzionalità o uscire da tale configurazione per abilitare la migrazione se ciò soddisfa le esigenze.
 -	Se si hanno script automatizzati che consentono di distribuire subito l'infrastruttura e le applicazioni, provare a creare una configurazione di test simile usando questi script per la migrazione. In alternativa, è anche possibile configurare ambienti di esempio tramite il portale di Azure.
-- Poiché il servizio è in anteprima pubblica, assicurarsi che l'ambiente di test per la migrazione sia isolato dall'ambiente di produzione. Non combinare account di archiviazione, reti virtuali o altre risorse tra gli ambienti di test e di produzione.
 
-## Passaggio 2: Impostare la sottoscrizione e iscriversi per l'anteprima pubblica della migrazione
+## Passaggio 2: Impostare la sottoscrizione e iscriversi per la migrazione
 
 Per gli scenari di migrazione è necessario configurare l'ambiente per il modello classico e di Resource Manager. [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [selezionare la sottoscrizione](../xplat-cli-connect.md).
 
@@ -37,7 +36,11 @@ Selezionare la sottoscrizione di Azure usando il comando seguente.
 
 	azure account set "azure-subscription-name"
 
-Effettuare l'iscrizione per l'anteprima pubblica con il comando seguente. Si noti che in alcuni casi si verifica il timeout del comando. Tuttavia, la registrazione verrà completata.
+>[AZURE.NOTE] La registrazione è un passaggio da eseguire un'unica volta, tuttavia deve essere eseguita prima di tentare la migrazione. Senza la registrazione verrà visualizzato il seguente messaggio di errore
+
+>	*BadRequest : Subscription is not registered for migration.* 
+
+Registrarsi con il provider di risorse di migrazione utilizzando il comando seguente. Si noti che in alcuni casi si verifica il timeout del comando. Tuttavia, la registrazione verrà completata.
 
 	azure provider register Microsoft.ClassicInfrastructureMigrate
 
@@ -105,9 +108,25 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 	azure network vnet commit-migration virtualnetworkname
 
+### Migrare un account di archiviazione
+
+Dopo aver completato la migrazione delle macchine virtuali, si consiglia di migrare l'account di archiviazione.
+
+Preparare l'account di archiviazione per la migrazione con il comando seguente.
+
+	azure storage account prepare-migration storageaccountname
+
+Controllare la configurazione per l'account di archiviazione preparato tramite l'interfaccia della riga di comando o il portale di Azure. Se non si è pronti per la migrazione e si vuole tornare allo stato precedente, usare il comando seguente.
+
+	azure storage account abort-migration storageaccountname
+
+Se la configurazione preparata appare corretta, è possibile procedere ed eseguire il commit delle risorse usando il comando seguente.
+
+	azure storage account commit-migration storageaccountname
+
 ## Passaggi successivi
 
 - [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

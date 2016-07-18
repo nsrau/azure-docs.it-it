@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
@@ -23,7 +23,7 @@
 - [Tramite PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Informazioni su come utilizzare il portale di Azure per creare un cluster HDInsight (Hadoop, HBase, Spark o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
+Informazioni su come usare il portale di Azure per creare un cluster HDInsight (Hadoop, HBase, Spark o Storm) con accesso ad Archivio Azure Data Lake. Alcune considerazioni importanti per questa versione:
 
 * **Per i cluster Spark (Linux) e Hadoop (Windows e Linux)**, Archivio Data Lake può essere utilizzato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
 
@@ -31,7 +31,11 @@ Informazioni su come utilizzare il portale di Azure per creare un cluster HDInsi
 
 * **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva. Per altre informazioni, vedere [Usare Archivio Data Lake con cluster HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versioni 3.2 e 3.4 (per i cluster Hadoop, HBase e Storm sia per Windows che per Linux). Per i cluster Spark su Linux, queste opzione è disponibile solo sui cluster HDInsight 3.4.
+> [AZURE.NOTE] Alcuni elementi importanti da considerare:
+> 
+> * L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versioni 3.2 e 3.4 (per i cluster Hadoop, HBase e Storm sia per Windows che per Linux). Per i cluster Spark su Linux, questa opzione è disponibile solo sui cluster HDInsight 3.4.
+>
+> * Come indicato in precedenza, Archivio Data Lake è disponibile come risorsa di archiviazione predefinita per alcuni tipi di cluster (HBase) e come risorsa di archiviazione aggiuntiva per altri tipi (Hadoop, Spark, Storm). L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster. In uno scenario in cui Archivio Data Lake viene usato come risorsa di archiviazione aggiuntiva, i file correlati al cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita (BLOB di Azure), mentre i dati da elaborare possono essere archiviati in un account di Archivio Data Lake.
 
 
 ## Prerequisiti
@@ -40,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- **Account di Archivio Azure Data Lake**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Dopo aver creato l'account, eseguire le attività seguenti per caricare alcuni dati di esempio. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'Archivio Data Lake.
+- **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Dopo aver creato l'account, eseguire le attività seguenti per caricare alcuni dati di esempio. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'Archivio Data Lake.
 
 	* [Creare una cartella in Archivio Data Lake](data-lake-store-get-started-portal.md#createfolder).
 	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
@@ -50,7 +54,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 Guardare i video seguenti per informazioni su come effettuare il provisioning di cluster HDInsight con accesso ad Archivio Data Lake.
 
 * [Creare un cluster HDInsight con accesso ad Archivio Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
-* Una volta configurato il cluster, [accedere ai dati in Archivio Data Lake usando gli script Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
+* Dopo aver configurato il cluster, [accedere ai dati in Archivio Data Lake usando gli script Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
 ## Creare un cluster Azure HDInsight con accesso ad Archivio Azure Data Lake.
 
@@ -68,11 +72,11 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 
 	* **Creare una nuova entità servizio.**
 
-		* Nel pannello **Identità AAD del cluster** fare clic su **Crea nuovo**, su **Entità servizio** e quindi nel pannello **Crea entità servizio** specificare i valori per creare una nuova entità servizio. Nell'ambito questa operazione vengono creati anche un certificato e un'applicazione Azure Active Directory. Fare clic su **Create**.
+		* Nel pannello **Identità AAD cluster** fare clic su **Crea nuovo**, poi su **Entità servizio** e quindi nel pannello **Creare un'entità servizio** specificare i valori per creare una nuova entità servizio. Nell'ambito questa operazione vengono creati anche un certificato e un'applicazione Azure Active Directory. Fare clic su **Create**.
 
 			![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Aggiungere entità servizio a cluster HDInsight")
 
-		* Nel pannello **Identità AAD del cluster** fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake**. Il riquadro mostra gli account Archivio Data Lake associati alla sottoscrizione. Tuttavia, è possibile impostare le autorizzazioni solo per l'account creato. Selezionare le autorizzazioni di LETTURA/SCRITTURA/ESECUZIONE per l'account che si vuole associare al cluster HDInsight e quindi fare clic su **Salva autorizzazioni**.
+		* Nel pannello **Identità AAD cluster** fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake**. Il riquadro mostra gli account Archivio Data Lake associati alla sottoscrizione. Tuttavia, è possibile impostare le autorizzazioni solo per l'account creato. Selezionare le autorizzazioni di LETTURA/SCRITTURA/ESECUZIONE per l'account che si vuole associare al cluster HDInsight e quindi fare clic su **Salva autorizzazioni**.
 
 			![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Aggiungere entità servizio a cluster HDInsight")
 
@@ -83,11 +87,11 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 
 	* **Scegliere un'entità servizio esistente**.
 
-		* Nel pannello **Identità AAD del cluster** fare clic su **Usa esistente**, su **Entità servizio** e quindi nel pannello **selezione entità servizio** cercare un'entità servizio esistente. Fare clic sul nome di un'entità servizio e quindi fare clic su **Seleziona**.
+		* Nel pannello **Identità AAD cluster** fare clic su **Usa esistente**, su **Entità servizio** e quindi nel pannello **Selezione entità servizio** cercare un'entità servizio esistente. Fare clic sul nome di un'entità servizio e quindi fare clic su **Seleziona**.
 
 			![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Aggiungere entità servizio a cluster HDInsight")
 
-		* Nel pannello **Identità AAD del cluster** caricare il certificato con estensione pfx associato all'entità servizio selezionata e quindi specificare la password del certificato.
+		* Nel pannello **Identità AAD cluster** caricare il certificato con estensione pfx associato all'entità servizio selezionata e quindi specificare la password del certificato.
 
 		* Fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake**. Il riquadro mostra gli account Archivio Data Lake associati alla sottoscrizione. Tuttavia, è possibile impostare le autorizzazioni solo per l'account creato. Selezionare le autorizzazioni di LETTURA/SCRITTURA/ESECUZIONE per l'account che si vuole associare al cluster HDInsight e quindi fare clic su **Salva autorizzazioni**.
 
@@ -113,7 +117,7 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 	È anche possibile passare direttamente ad Ambari passando a https://CLUSTERNAME.azurehdinsight.net in un Web browser, dove **CLUSTERNAME** è il nome del cluster HDInsight.
 
-2. Aprire la visualizzazione Hive. Selezionare il set di quadratini nel menu della pagina, accanto al collegamento **Admin** e al pulsante a destra della pagina, per elencare le viste disponibili. Selezionare **Hive view** (Visualizzazione Hive).
+2. Aprire la visualizzazione Hive. Selezionare il set di quadratini nel menu della pagina, accanto al collegamento **Admin** e al pulsante a destra della pagina, per elencare le viste disponibili. Selezionare la vista **Hive**.
 
 	![Selezione delle visualizzazioni di Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -121,11 +125,11 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 	![Immagine della pagina della visualizzazione Hive, contenente una sezione di Query Editor](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
 
-4. Nella sezione **Query Editor** (Editor di query) della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
+4. Nella sezione **Editor di query** della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Fare clic sul pulsante **Execute** (Esegui) nella parte inferiore della sezione **Query Editor** (Editor di query) per avviare la query. Sotto **Query Editor** (Editor di query) verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo.
+5. Fare clic sul pulsante **Esegui** nella parte inferiore della sezione **Editor di query** per avviare la query. Sotto **Editor di query** verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo.
 
 6. Al termine dell'elaborazione della query, la sezione **Query Process Results** (Risultati elaborazione query) visualizzerà i risultati dell'operazione. La scheda **Results** conterrà le informazioni seguenti:
 
@@ -133,7 +137,7 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 		SHOW TABLES;
 
-	La scheda **Results** (Risultati) dovrebbe mostrare quanto segue:
+	La scheda **Risultati** dovrebbe mostrare quanto segue:
 
 		hivesampletable
 		vehicles
@@ -299,7 +303,7 @@ In questa sezione si usa Jupyter Notebook disponibile con i cluster HDInsight Sp
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando speciale `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando speciale `%%sql`. Per altre informazioni sul `%%sql`magic e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -317,7 +321,7 @@ In questa sezione si usa Jupyter Notebook disponibile con i cluster HDInsight Sp
 
 ## Usare Archivio Data Lake in una topologia Storm
 
-È possibile usare Archivio Data Lake per scrivere dati da una topologia Storm. Per le istruzioni su come ottenere questo scenario, vedere [Usare Archivio Azure Data Lake con Apache Storm in HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+È possibile usare Archivio Data Lake per scrivere dati da una topologia Storm. Per istruzioni su come ottenere questo scenario, vedere [Usare Archivio Azure Data Lake con Apache Storm in HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Usare Archivio Data Lake con cluster HBase
 
@@ -343,4 +347,4 @@ Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefi
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

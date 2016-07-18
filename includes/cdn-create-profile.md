@@ -4,7 +4,7 @@
 
     Viene visualizzato il pannello del nuovo profilo di rete CDN.
 
-    ![Nuovo profilo di rete CDN](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Nuovo profilo di rete CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Inserire un nome per il profilo di rete CDN.
 
@@ -14,8 +14,10 @@
 
 5. Selezionare un **Piano tariffario**. Per un confronto tra i piani tariffari, vedere [Panoramica della rete CDN](cdn-overview.md#azure-cdn-features).
     
-    ![Selezione del piano tariffario della rete CDN](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Selezione del piano tariffario della rete CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Selezionare la **Sottoscrizione** per questo profilo di rete CDN.
 
 7. Per creare il nuovo profilo, fare clic sul pulsante **Crea**.
+
+<!---HONumber=AcomDC_0706_2016-->

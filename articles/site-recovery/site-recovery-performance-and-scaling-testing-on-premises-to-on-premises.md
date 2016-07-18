@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery
@@ -195,17 +195,17 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processore (\_Totale) \\ % tempo del processore|
+|CPU|\\Processor(\_Totale)\\% Tempo processore|
 |Memoria disponibile|\\Memoria\\MByte disponibili|
-|IOPS|\\DiscoFisico (\_Totale)\\Trasferimenti su disco/sec|
-| Operazioni lettura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni lettura/sec|
-| Operazioni scrittura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni scrittura/S|
-| Produttività lettura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte lettura/sec|
-| Produttività scrittura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte scrittura/sec|
+|IOPS|\\DiscoFisico(\_Totale)\\Trasferimenti disco/secondo|
+|Operazioni di lettura VM (IOPS) al secondo|\\Dispositivo di archiviazione Hyper-V (VHD)\\Operazioni di lettura/secondo|
+|Operazioni di scrittura VM (IOPS) al secondo|\\Dispositivo di archiviazione Hyper-V (VHD)\\Operazioni di scrittura/secondo|
+|Velocità effettiva lettura VM|\\Dispositivo di archiviazione Hyper-V (VHD)\\Byte letti/secondo|
+|Velocità effettiva di scrittura VM|\\Dispositivo di archiviazione Hyper-V (VHD)\\Byte scritti/secondo|
 
 
 ## Passaggi successivi
 
 - [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

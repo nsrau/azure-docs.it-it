@@ -26,7 +26,7 @@ Questa funzionalità consente di creare attività pianificate per l'esecuzione n
 
 ## Relazioni tra attività con Batch .NET
 
-In questo articolo viene illustrata la configurazione di relazioni tra attività tramite la raccolta [Batch .NET][net_msdn]. Viene illustrato prima di tutto come [abilitare le relazioni tra attività](#enable-task-dependency) nei processi, quindi viene spiegato brevemente come [configurare un'attività con relazioni](#create-dependent-tasks). Vengono infine illustrati gli [scenari di relazione](#dependency-scenarios) supportate da Batch.
+In questo articolo viene illustrata la configurazione di relazioni tra attività tramite la raccolta [Batch .NET][net_msdn]. Viene illustrato prima di tutto come [abilitare le relazioni tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato brevemente come [configurare un'attività con relazioni](#create-dependent-tasks). Vengono infine illustrati gli [scenari di relazione](#dependency-scenarios) supportate da Batch.
 
 ## Abilitare le relazioni tra attività
 
@@ -162,4 +162,4 @@ Per una panoramica dei diversi metodi di preparazione dei nodi per l'esecuzione 
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: relazione tra intervalli di ID attività"
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

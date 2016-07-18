@@ -4,7 +4,7 @@ Un nuovo back-end WebAPI ASP.NET verrà creato nelle sezioni che seguono e avrà
 
 1. **Autenticazione dei client**: in seguito verrà aggiunto un gestore di messaggi per autenticare le richieste client e associare l'utente alla richiesta.
 2. **Registrazioni delle notifiche client**: in seguito si aggiungerà un controllo per gestire le nuove registrazioni in modo che un dispositivo cliente riceva le notifiche. Il nome utente autenticato verrà aggiunto automaticamente alla registrazione come [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Invio di notifiche ai client**: in seguito si aggiungerà anche un controller per fornire all'utente un modo per attivare un push sicuro ai dispositivi e ai client associati al tag. 
+3. **Invio di notifiche ai client**: in seguito si aggiungerà anche un controller per fornire all'utente un modo per attivare un push sicuro ai dispositivi e ai client associati al tag.
 
 I passaggi seguenti mostrano come creare un nuovo back-end WebAPI ASP.NET:
 
@@ -16,7 +16,7 @@ I passaggi seguenti mostrano come creare un nuovo back-end WebAPI ASP.NET:
 > [AZURE.NOTE] Assicurarsi che sia installato Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) per la distribuzione del sito Web.
 
 1. Avviare Visual Studio o Visual Studio Express. Fare clic su **Esplora server** e accedere all'account Azure. Per la creazione delle risorse del sito Web nell'account, in Visual Studio è necessario eseguire l'accesso.
-2. In Visual Studio fare clic su **File**, **Nuovo** e quindi **Progetto**, espandere **Modelli**, **Visual C#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**. 
+2. In Visual Studio fare clic su **File**, **Nuovo** e quindi **Progetto**, espandere **Modelli**, **Visual C#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**.
 	
 	![][B1]
 
@@ -48,7 +48,10 @@ In questa sezione si creerà una nuova classe del gestore di messaggi denominata
 
 3. In AuthenticationTestHandler.cs sostituire la definizione di classe `AuthenticationTestHandler` con il codice seguente:
 
-	Questo gestore autorizzerà la richiesta se vengono soddisfatte le tre condizioni seguenti: * La richiesta include un'intestazione *Authorization*. * La richiesta usa l'autenticazione di *base*. * La stringa del nome utente e la stringa della password sono equivalenti.
+	Questo gestore autorizza la richiesta quando le tre seguenti condizioni sono tutte vere:
+	* La richiesta include un'intestazione *Autorizzazione*.
+	* La richiesta usa l'autenticazione *di base*.
+	* La stringa del nome utente corrisponde alla stringa della password.
 
 	In caso contrario, la richiesta verrà rifiutata. Non si tratta di un vero approccio di autenticazione e autorizzazione. È un esempio molto semplice per questa esercitazione.
 
@@ -122,9 +125,9 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
 
 3. Nell'elenco risultati fare clic su **Hub di notifica di Microsoft Azure** e quindi su **Installa**. Completare l'installazione e chiudere la finestra di Gestione pacchetti NuGet.
 
-	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto NuGet Microsoft.Azure.NotificationHubs</a>.
+	Verrà aggiunto un riferimento all’SDK dell’Hub di notifica di Azure mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto NuGet Microsoft.Azure.NotificationHubs</a>.
 
-4. A questo punto si creerà un nuovo file di classe che rappresenta le diverse notifiche sicure che verranno inviate. In un'implementazione completa, le notifiche vengono archiviate in un database. Per semplicità, in questa esercitazione verrà archiviata in memoria. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**. Assegnare alla nuova classe il nome **Notifications.cs**, fare clic su **Aggiungi** per generare la classe.
+4. Ora verrà creato un nuovo file della classe che rappresenta la connessione con l'hub di notifica usato per inviare le notifiche. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**. Assegnare alla nuova classe il nome **Notifications.cs**, fare clic su **Aggiungi** per generare la classe.
 
 	![][B6]
 
@@ -364,4 +367,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0706_2016-->

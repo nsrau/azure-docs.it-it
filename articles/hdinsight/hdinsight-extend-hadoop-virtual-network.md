@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/20/2016"
+   ms.date="07/06/2016"
    ms.author="larryfr"/>
 
 
@@ -92,6 +92,8 @@ Se HDInsight deve essere installato in una rete virtuale protetta, è necessario
 * 138\.91.141.162
 
 Consentendo a questi indirizzi l'accesso in ingresso dalla porta 443, sarà possibile installare correttamente HDInsight in una rete virtuale protetta.
+
+> [AZURE.IMPORTANT] HDInsight non supporta la limitazione del traffico in uscita, solo del traffico in ingresso. Quando si definiscono regole del gruppo di sicurezza di rete per la subnet che contiene HDInsight, usare solo regole in ingresso.
 
 Gli esempi seguenti spiegano come creare un nuovo gruppo di sicurezza di rete che ammette gli indirizzi specificati e applica il gruppo di sicurezza a una subnet all'interno della rete virtuale. Questa procedura presuppone la creazione di una rete virtuale e della subnet in cui si desidera installare HDInsight.
 
@@ -173,7 +175,7 @@ __Uso dell'interfaccia della riga di comando di Azure__
 
         azure network nsg create RESOURCEGROUPNAME hdisecure LOCATION
     
-    Dopo aver creato il gruppo, si riceveranno informazioni sul nuovo gruppo. Individuare una riga simile alla seguente e salvare l'informazione `/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure`. Queste informazioni saranno usare in un passaggio successivo.
+    Dopo aver creato il gruppo, si riceveranno informazioni sul nuovo gruppo. Cercare una riga simile alla seguente e salvare l'informazione `/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure`. Queste informazioni saranno usare in un passaggio successivo.
     
         data:    Id                              : /subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure
 
@@ -184,7 +186,7 @@ __Uso dell'interfaccia della riga di comando di Azure__
         azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule3 -p "*" -o "*" -u "443" -f "168.61.48.131" -e "VirtualNetwork" -c "Allow" -y 302 -r "Inbound"
         azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "443" -f "138.91.141.162" -e "VirtualNetwork" -c "Allow" -y 303 -r "Inbound"
 
-3. Dopo aver creato le regole, usare le informazioni seguenti per applicare il nuovo gruppo di sicurezza di rete a una subnet. Sostituire __RESOURCEGROUPNAME__ con il nome del gruppo di risorse che contiene la rete virtuale di Azure. Sostituire __VNETNAME__ e __SUBNETNAME__ con il nome della rete virtuale di Azure e la subnet che si vuole usare durante l'installazione di HDInsight.
+3. Dopo aver creato le regole, usare le informazioni seguenti per applicare il nuovo gruppo di sicurezza di rete a una subnet. Sostituire __RESOURCEGROUPNAME__ con il nome del gruppo di risorse che contiene la rete virtuale di Azure. Sostituire __VNETNAME__ e __SUBNETNAME__ con il nome della rete virtuale di Azure e la subnet da usare durante l'installazione di HDInsight.
 
         azure network vnet subnet set RESOURCEGROUPNAME VNETNAME SUBNETNAME -w "/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     
@@ -197,7 +199,7 @@ __Uso dell'interfaccia della riga di comando di Azure__
 > * Azure PowerShell: ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
 > * Interfaccia della riga di comando di Azure: ```azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "22" -f "*" -e "VirtualNetwork" -c "Allow" -y 304 -r "Inbound"```
 
-Per altre informazioni sui gruppi di sicurezza di rete, vedere la [panoramica dei gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Per informazioni sul controllo del routing in una rete virtuale di Azure, vedere l'articolo relativo alle [route definite dall'utente e all'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
+Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Per informazioni sul controllo del routing in una rete virtuale di Azure, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 ##<a id="tasks"></a>Attività e informazioni
 
@@ -305,4 +307,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/30/2016"
 	ms.author="dariagrigoriu"/>
     
 # Procedure consigliate per il servizio app di Azure
@@ -39,4 +39,10 @@ Per altre informazioni sulle differenze tra le applicazioni "con stato" e quelle
 ## <a name="socketresources"></a>Quando si esauriscono le risorse socket
 Una causa comune dell'esaurimento delle connessioni TCP in uscita è l'impiego di librerie client non implementate per il riutilizzo delle connessioni TCP o il mancato uso di un protocollo di livello superiore, ad esempio keep-alive HTTP. Vedere la documentazione di ogni libreria cui fanno riferimento le app nel piano di servizio app per verificare che le librerie siano configurate o accessibili nel proprio codice per un efficiente riutilizzo delle connessioni in uscita. Seguire anche le indicazioni della documentazione delle librerie per le corrette operazioni di creazione, rilascio o pulizia per evitare la perdita di connessioni. Mentre sono in corso le analisi delle librerie client è possibile attenuare l'impatto sulle prestazioni aumentando il numero di istanze.
 
-<!---HONumber=AcomDC_0525_2016-->
+## <a name="appbackup"></a>Quando il backup dell'applicazione non viene più eseguito
+Le due cause più comuni della mancata esecuzione del backup delle app sono: impostazioni di archiviazione non valide e configurazione del database non valida. In genere questi errori si verificano in caso di modifiche alle risorse di archiviazione o alle risorse di database o di modifiche nella modalità di accesso a tali risorse (ad esempio, l'aggiornamento delle credenziali per il database selezionato nelle impostazioni di backup). I backup in genere sono eseguiti in base a una pianificazione e richiedono l'accesso alla risorsa di archiviazione (per l'output dei file di cui è stato eseguito il backup) e ai database (per copiare e leggere il contenuto da includere nel backup). Il risultato dell'incapacità di accedere a queste risorse è una mancata riuscita, costante, del backup.
+
+Quando si verifica la mancata esecuzione del backup, esaminare i risultati più recenti per capire quale tipo di errore si è verificato. In caso di errori di accesso alla risorsa di archiviazione, controllare e aggiornare le impostazioni di archiviazione usate nella configurazione del backup. In caso di errori di accesso al database, controllare e aggiornare le stringhe di connessione nelle impostazioni dell'applicazione; procedere quindi ad aggiornare la configurazione di backup al fine di includere in modo corretto i database necessari. Per altre informazioni sul backup delle app, vedere la documentazione relativa al [backup di un'app Web nel servizio App di Azure](web-sites-backup.md).
+  
+
+<!---HONumber=AcomDC_0706_2016-->

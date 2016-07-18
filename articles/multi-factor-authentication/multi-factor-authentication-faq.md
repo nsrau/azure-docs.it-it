@@ -52,10 +52,10 @@ Quando si usa il server Multi-Factor Authentication (MFA) locale, i dati di un u
 - Indirizzo di posta elettronica: facoltativo
 - Numero di telefono: quando si esegue una chiamata vocale o l'autenticazione tramite SMS
 - Token del dispositivo: quando si esegue l'autenticazione con l'app per dispositivi mobili
-- Modalità di autenticazione 
-- Risultato dell'autenticazione 
-- Nome del server MFA 
-- IP del server MFA 
+- Modalità di autenticazione
+- Risultato dell'autenticazione
+- Nome del server MFA
+- IP del server MFA
 - IP client: se disponibile
 
 
@@ -83,7 +83,7 @@ Modello di fatturazione | Prezzo
 Utilizzo per utente (impegno monetario con Azure)| $ 1,40 al mese (autenticazioni illimitate)
 Utilizzo per autenticazione (impegno monetario con Azure)|$ 1,40 per 10 autenticazioni
 Licenza annuale per utente (Direct)|$ 1,40 al mese (autenticazioni illimitate)
-Licenza annuale per utente (contratto multilicenza)|Contattare il [rappresentante del contratto Enterprise.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
+Licenza annuale per utente (contratto multilicenza)|Contattare il [rappresentante del contratto Enterprise](https://www.microsoft.com/it-IT/licensing/licensing-programs/enterprise.aspx).
 
 **: Il modello di fatturazione "per utente" comporta l'addebito dei costi in base al numero di utenti abilitati per Multi-Factor Authentication o in base al numero di utenti che eseguono le verifiche?**
 
@@ -132,7 +132,7 @@ Se è già stato configurato un telefono di backup, riprovare selezionando tale 
 **D: Cosa fare se l'utente non riesce ad accedere ad app non basate su browser?**
 
 - Gli utenti abilitati per l'autenticazione a più fattori avranno bisogno della password della app per accedere ad alcune app non basate su browser.
-- Gli utenti dovranno cancellare le informazioni di accesso (Elimina informazioni di accesso), riavviare l'applicazione e accedere con il proprio nome utente e la password della app. 
+- Gli utenti dovranno cancellare le informazioni di accesso (Elimina informazioni di accesso), riavviare l'applicazione e accedere con il proprio nome utente e la password della app.
 
 Per informazioni sulla creazione di password della app vedere [Guida in linea per le password della app](multi-factor-authentication-end-user-app-passwords.md)
 
@@ -185,4 +185,4 @@ Attualmente, la verifica aggiuntiva di sicurezza può essere utilizzata solo con
 
 Una soluzione alternativa consiste nel disporre di un account utente separato per le operazioni correlate all'amministratore e un altro per le operazioni non correlate all’amministratore. In un secondo momento, è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere ad outlook utilizzando l'account non amministratore. Per altre informazioni, vedere [Consentire ad un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

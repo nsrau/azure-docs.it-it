@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="07/06/2016"
  ms.author="nberdy"/>
 
 # Introduzione alla metrica di diagnostica
 
-La metrica di diagnostica fa parte di un push di dati di metrica a livello di Azure per fornire dati migliori sullo stato delle risorse di Azure nella sottoscrizione. La metrica consente all'utente di valutare l'integrità complessiva del servizio e dei dispositivi ad esso connessi. Le statistiche per l'utente sono importanti perché consentono di vedere le attività in corso nell'hub IoT e di individuare la causa radice dei problemi senza dover contattare il supporto di Azure.
+La metrica di diagnostica fornisce dati migliori sullo stato delle risorse di Azure nella sottoscrizione. La metrica consente all'utente di valutare l'integrità complessiva del servizio e dei dispositivi ad esso connessi. Le statistiche per l'utente sono importanti perché consentono di vedere le attività in corso nell'hub IoT e di individuare la causa radice dei problemi senza dover contattare il supporto di Azure.
 
 È possibile abilitare la metrica di diagnostica dal portale di Azure.
 
@@ -70,4 +70,4 @@ Al termine di questa panoramica della metrica di diagnostica è possibile usare 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -41,8 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() ha configurato WebHost per l’ascolto del traffico URL in ingresso.  
-[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurerà la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
+UseUrls() configured the WebHost to listen to incoming URL traffic. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurerà la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
 
 ```
 # Configure the listening port to 80
@@ -62,7 +61,7 @@ Per verificare se il mapping del volume funziona, provare a eseguire il comando 
 **Da Windows**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -106,14 +105,14 @@ Se si usa il browser Microsoft Edge, è possibile che il sito non si apra perch�
 
 1. Passare a **Opzioni Internet**.
     - In Windows 10 è possibile digitare `Internet Options` nella casella Esegui di Windows.
-    - In Internet Explorer è possibile scegliere **Opzioni Internet** dal menu **Impostazioni**. 
-1. Selezionare **Opzioni Internet** quando viene visualizzata l'opzione. 
+    - In Internet Explorer è possibile scegliere **Opzioni Internet** dal menu **Impostazioni**.
+1. Selezionare **Opzioni Internet** quando viene visualizzata l'opzione.
 1. Selezionare la scheda **Sicurezza**.
 1. Selezionare l'area **Intranet locale**.
-1. Selezionare **Siti**. 
-1. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco. 
-1. Aggiornare la pagina in Edge per visualizzare il sito come operativo. 
-1. Per altre informazioni su questo problema, vedere il post nel blog di Scott Hanselman relativo a [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox). 
+1. Selezionare **Siti**.
+1. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco.
+1. Aggiornare la pagina in Edge per visualizzare il sito come operativo.
+1. Per altre informazioni su questo problema, vedere il post nel blog di Scott Hanselman relativo a [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox).
 
 ##Risoluzione dei problemi relativi alla versione 0.15 o versioni precedenti
 
@@ -136,4 +135,4 @@ Ciò potrebbe essere dovuto a un errore durante l'esecuzione di `docker-compose-
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

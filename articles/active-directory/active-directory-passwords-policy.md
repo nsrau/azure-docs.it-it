@@ -4,7 +4,7 @@
   services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/29/2016"
 	ms.author="curtand"/>
 
 
@@ -28,7 +28,7 @@ Ogni account utente che deve effettuare l'accesso nel sistema di autenticazione 
 | Proprietà | Requisiti di UserPrincipalName |
 |   ----------------------- |   ----------------------- |
 | Caratteri consentiti | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! # ^ ~</li></ul> |
-| Caratteri non consentiti | <ul> <li>@</li> <li>Non può contenere un punto '.' subito prima del simbolo '@'</li></ul> |
+| Caratteri non consentiti | <ul> <li>Qualsiasi carattere "@" che non separa il nome utente dal dominio.</li> <li>Non può contenere un punto "." subito prima del simbolo "@"</li></ul> |
 | Vincoli di lunghezza | <ul> <li>La lunghezza totale non deve essere superiore a 113 caratteri</li><li>64 caratteri prima del simbolo '@'</li><li>48 caratteri dopo il simbolo '@'</li></ul>
 
 ## Criteri password che si applicano solo agli account utente del cloud
@@ -37,9 +37,9 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 
 | Proprietà | Requisiti |
 |   ----------------------- |   ----------------------- |
-| Caratteri consentiti | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } &#124; \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Caratteri consentiti | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Caratteri non consentiti | <ul><li>Caratteri Unicode</li><li>Spazi</li><li>spazi</li><li> **Solo password complesse**: non possono contenere un punto '.' subito prima del simbolo '@'</li></ul> |
-| Restrizioni per le password | <ul><li>Minimo di 8 caratteri e massimo di 16 caratteri</li><li>**Solo password complesse**: devono essere usati 3 su 4 tra i tipi di caratteri indicati di seguito:<ul><li>Caratteri minuscoli</li><li>Caratteri maiuscoli</li><li>Numeri (0-9)</li><li>Simboli (vedere le restrizioni per le password sopra indicate)</li></ul></li></ul> |
+| Restrizioni per le password | <ul><li>Minimo di 8 caratteri e massimo di 16 caratteri</li><li>**Solo password complesse**: devono essere usati 3 su 4 tra i tipi di caratteri seguenti:<ul><li>Caratteri minuscoli</li><li>Caratteri maiuscoli</li><li>Numeri (0-9)</li><li>Simboli (vedere le restrizioni per le password sopra indicate)</li></ul></li></ul> |
 | Durata di validità della password | <ul><li>Valore predefinito: **90** giorni </li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password | <ul><li>Valore predefinito: **14** giorni (prima della scadenza della password)</li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy.</li></ul> |
 | Scadenza della password | <ul><li>Valore predefinito: **false** (indica che la scadenza della password è abilitata) </li><li>Il valore può essere configurato per singoli account utente mediante il cmdlet Set-MsolUser. </li></ul> |
@@ -60,4 +60,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

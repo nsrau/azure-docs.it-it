@@ -28,7 +28,7 @@ Se si è già distribuita la funzionalità di gestione delle password o se si è
   - [Come accedere ai dati di reimpostazione della password per gli utenti](#how-to-access-password-reset-data-for-your-users)
 
 ## Panoramica del writeback delle password
-Writeback password è un componente di [Azure Active Directory Connect](active-directory-aadconnect) che può essere abilitato e usato dagli attuali sottoscrittori di Azure Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+Writeback password è un componente di [Azure Active Directory Connect](active-directory-aadconnect.md) che può essere abilitato e usato dagli attuali sottoscrittori di Azure Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Il writeback delle password consente di configurare il tenant cloud per scrivere automaticamente le password nuovamente in Active Directory locale. Evita di dover configurare e gestire una complessa soluzione di reimpostazione della password self-service locale, e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Di seguito sono riportate altre informazioni su alcune delle funzionalità principali del writeback delle password:
 
@@ -66,7 +66,7 @@ Quando un utente federato e con sincronizzazione di hash della password reimpost
 10.	Se l'operazione di impostazione della password non riesce, l'errore viene restituito all'utente, consentendogli di riprovare. L'operazione potrebbe non riuscire perché il servizio è inattivo, la password selezionata non soddisfa i criteri dell'organizzazione, l'utente non viene trovato in Active Directory locale o per altri motivi. È disponibile un messaggio specifico per molti di questi casi e all'utente viene indicato cosa può fare per risolvere il problema.
 
 ### Scenari supportati per il writeback delle password
-La tabella seguente descrive quali scenari sono supportati per le versioni delle nostre funzionalità di sincronizzazione. In generale, è consigliabile installare la versione più recente di [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) se si vuole usare il writeback delle password.
+La tabella seguente descrive quali scenari sono supportati per le versioni delle nostre funzionalità di sincronizzazione. In generale, è consigliabile installare la versione più recente di [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) se si vuole usare il writeback delle password.
 
   ![][002]
 
@@ -379,4 +379,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->
