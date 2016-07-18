@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Installazione del Toolkit di Azure per IntelliJ
@@ -97,6 +97,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 - [Toolkit di Azure per IntelliJ]
   - *Installazione del Toolkit di Azure per IntelliJ (questo articolo)*
   - [Creare un'App Web Hello World per Azure in IntelliJ]
+  - [Novità del Toolkit di Azure per IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
@@ -107,7 +108,9 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novità del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
@@ -123,4 +126,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

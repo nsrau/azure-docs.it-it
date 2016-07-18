@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Quando si usa la replica Hyper-V con Site Recovery, si esegue il mapping tra le 
 Se le classificazioni sono configurate correttamente in VMM quando si selezionano il server VMM di origine e destinazione durante il mapping di archiviazione, verranno visualizzate le classificazioni di origine e destinazione. Di seguito è riportato un esempio di condivisioni di file di archiviazione e le classificazioni per un'organizzazione con due posizioni a New York e Chicago.
 
 **Posizione** | **Server VMM** | **Condivisione file (origine)** | **Classificazione (origine)** | **Mappata a** | **Condivisione file (destinazione)**
----|---|--- |---|---|---
+---|---|---|---|---|---
 New York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
  | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
  | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
@@ -65,7 +65,9 @@ Chicago | VMM\_Target | | GOLD\_TARGET | Non mappato |
 
 ![Configurare il mapping di archiviazione](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-In questo esempio: quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione GOLD (SourceShare1), tale macchina verrà replicata in una risorsa di archiviazione GOLD\_TARGET (TargetShare1). Quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione SILVER (SourceShare2), tale macchina verrà replicata in una risorsa di archiviazione SILVER\_TARGET (TargetShare2) e così via.
+Con questo esempio:
+- Una macchina virtuale di replica che viene creata per una macchina virtuale in un archivio GOLD (SourceShare1) viene replicata in un archivio GOLD\_TARGET (TargetShare1).
+- Una macchina virtuale di replica che viene creata per una macchina virtuale in un archivio SILVER (SourceShare2) viene replicata in un archivio SILVER\_TARGET (TargetShare2).
 
 Le condivisioni di file effettive e le classificazioni assegnate in VMM vengono visualizzate nella schermata successiva.
 
@@ -98,4 +100,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene ut
 
 Dopo aver acquisito familiarità con il mapping di archiviazione, è ora possibile [prepararsi alla distribuzione di Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -21,7 +21,7 @@ La [modellazione delle minacce](http://www.microsoft.com/security/sdl/adopt/thre
 
 - Funzionalità di sicurezza e privacy
 - Funzionalità con errori di sicurezza
-- Funzionalità che incontrano un limite di attendibilità 
+- Funzionalità che incontrano un limite di attendibilità
 
 ### Chi implementa la modellazione delle minacce
 
@@ -40,9 +40,9 @@ Il processo di modellazione delle minacce è composto da quattro passaggi, elenc
 
 Ci sono tre regole empiriche da tenere presenti durante la creazione di un modello di rischio:
 
-1. Creare un diagramma basato sull'architettura di riferimento. 
+1. Creare un diagramma basato sull'architettura di riferimento.
 2. Iniziare con la ricerca in ampiezza. Ottenere una panoramica e comprendere il sistema nel suo complesso, prima di addentrarsi. Ciò garantisce un approfondimento nei posti giusti.
-3. È l'utente a guidare il processo, non il contrario. Se si riscontra un problema durante la fase di modellazione e lo si vuole esaminare, procedere pure: non è necessario seguire pedissequamente questa procedura.  
+3. È l'utente a guidare il processo, non il contrario. Se si riscontra un problema durante la fase di modellazione e lo si vuole esaminare, procedere pure: non è necessario seguire pedissequamente questa procedura.
 
 #### Minacce
 
@@ -250,4 +250,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Architettura di riferimento di Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

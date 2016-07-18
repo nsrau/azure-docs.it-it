@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
-    ms.author="sethm" />
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # Entità di messaggistica partizionate
 
@@ -93,7 +93,7 @@ Se le proprietà che fungono da chiave di partizione sono impostate, il bus di s
 
 Per inviare un messaggio transazionale a un argomento o una coda in grado di riconoscere la sessione, il messaggio deve avere la proprietà [BrokeredMessage.SessionId][] impostata. Se è specificata anche la proprietà [BrokeredMessage.PartitionKey][], questa deve avere un valore identico a quello della proprietà [SessionId][]. Se i valori sono diversi, il bus di servizio restituisce un'eccezione **InvalidOperationException**.
 
-A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se si prova a eseguire questa operazione, il bus di servizio restituisce un'eccezione **InvalidOperationException**. Ad esempio:
+A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se si prova a eseguire questa operazione, il bus di servizio restituisce un'eccezione **InvalidOperationException**. ad esempio:
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -111,16 +111,25 @@ committableTransaction.Commit();
 
 Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entità partizionate. Per abilitare l'inoltro automatico dei messaggi, impostare la proprietà [QueueDescription.ForwardTo][] nella coda o nella sottoscrizione di origine. Se il messaggio specifica una chiave di partizione ([SessionId][], [PartitionKey][] o [MessageId][]), questa viene usata per l'entità di destinazione.
 
+## Considerazioni e indicazioni
+
+- **Funzionalità a coerenza elevata**: se un'entità usa funzionalità come le sessioni, il rilevamento dei duplicati o il controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengono indirizzate sempre a frammenti specifici. In caso di traffico elevato in uno dei frammenti o di stato non integro dell'archivio sottostante, queste operazioni hanno esito negativo e la disponibilità viene ridotta. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico.
+- **Gestione**: le operazioni di tipo Create, Update e Delete devono essere eseguite su tutti i frammenti dell'entità. Se un frammento non è integro, potrebbero verificarsi errori per queste operazioni. Per l'operazione Get è necessario aggregare da tutti i frammenti le informazioni quali il numero di messaggi. Se un frammento non è integro, lo stato di disponibilità dell'entità risulta limitato.
+- **Scenari con volumi ridotti di messaggi**: per questi scenari, in particolare se si usa il protocollo HTTP, potrebbe essere necessario eseguire più operazioni di ricezione per ottenere tutti i messaggi. Per le richieste di ricezione, il front-end esegue una ricezione su tutti i frammenti e memorizza nella cache tutte le risposte ricevute. Una richiesta di ricezione successiva sulla stessa connessione sarebbe avvantaggiata dalla memorizzazione nella cache e le latenze di ricezione saranno minori. Se tuttavia sono presenti più connessioni o si usa HTTP, ciò crea una nuova connessione per ogni richiesta. Non è quindi possibile assicurare che la richiesta venga ricevuta sullo stesso nodo. Se tutti i messaggi esistenti sono bloccati e memorizzati nella cache in un altro front-end, l'operazione di ricezione restituisce **null**. I messaggi raggiungeranno infine la scadenza e verranno ricevuti di nuovo. È consigliabile usare la connessione keep-alive HTTP.
+- **Esaminare/Visualizzare l'anteprima dei messaggi**: PeekBatch non restituisce sempre il numero di messaggi specificato nella [proprietà MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx), a causa di due motivi comuni. Il primo motivo consiste nel fatto che le dimensioni aggregate della raccolta di messaggi superano le dimensioni massime peri a 256 KB. L'altro motivo dipende dal fatto che, se la [proprietà EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) della coda o dell'argomento è impostata su **true**, è possibile che una partizione non includa una quantità di messaggi sufficiente per completare il numero di messaggi richiesto. In genere, se un'applicazione vuole ricevere un numero specifico di messaggi, deve chiamare ripetutamente [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) fino a ottenere tale numero di messaggi o fino a quando non siano più presenti messaggi di cui visualizzare l'anteprima. Per altre informazioni, inclusi esempi di codice, vedere [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) o [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+
+## Funzionalità aggiunte di recente
+
+- L'aggiunta o la rimozione di una regola è ora supportata con le entità partizionate. A differenza delle entità non partizionate, queste operazioni non sono supportate nelle transazioni.
+- AMQP è ora supportato per l'invio e la ricezione di messaggi verso e da un'entità partizionata.
+- AMQP è ora supportato per le operazioni seguenti: [invio batch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [ricezione batch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [ricezione per numero di sequenza](https://msdn.microsoft.com/library/azure/hh330765.aspx), [visualizzazione dell'anteprima](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [rinnovo del blocco](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [pianificazione del messaggio](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [annullamento del messaggio pianificato](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [aggiunta di una regola](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [rimozione di una regola](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [rinnovo del blocco della sessione](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [impostazione dello stato della sessione](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [recupero dello stato della sessione](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [recupero dello stato della sessione](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx) e [enumerazione delle sessioni](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx).
+
 ## Limiti delle entità partizionate
 
 Nell'implementazione corrente il bus di servizio impone alle code o agli argomenti partizionati i limiti seguenti:
 
--   Le code e gli argomenti partizionati sono disponibili tramite SBMP o HTTP/HTTPS, nonché AMQP.
-
 -   Le code e gli argomenti partizionati non supportano l'invio di messaggi che appartengono a sessioni diverse in una singola transazione.
-
 -   Il bus di servizio attualmente consente fino a 100 code o argomenti partizionati per spazio dei nomi. Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 10.000 entità per spazio dei nomi.
-
 -   Le code e gli argomenti partizionati non sono supportati nelle versioni 1.0 e 1.1 del bus di servizio per Windows Server.
 
 ## Passaggi successivi
@@ -144,4 +153,4 @@ Per altre informazioni sul partizionamento delle entità di messaggistica, veder
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

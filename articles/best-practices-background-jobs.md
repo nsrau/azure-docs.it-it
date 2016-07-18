@@ -112,8 +112,8 @@ I processi Web di Azure presentano le caratteristiche seguenti:
   - Per l'esecuzione con trigger: site/wwwroot/app\_data/jobs/triggered/{nome processo}
   - Per l'esecuzione continua: site/wwwroot/app\_data/jobs/continuous/{nome processo}
 - **Registrazione in file di log**: Console.Out viene trattato (contrassegnato) come INFO. Console.Error viene trattato come errore. È possibile accedere alle informazioni di monitoraggio e diagnostica dal Portale di Azure. I file di log possono essere scaricati direttamente dal sito. Tali file vengono salvati nei percorsi seguenti:
-  - Per l'esecuzione con trigger: Vfs/data/jobs/continuous/nomeProcesso
-  - Per l'esecuzione continua: Vfs/data/jobs/triggered/nomeProcesso
+  - Per l'esecuzione con trigger: Vfs/data/jobs/triggered/nomeProcesso
+  - Per l'esecuzione continua: Vfs/data/jobs/continuous/nomeProcesso
 - **Configurazione**: è possibile configurare WebJobs tramite il portale, l'API REST e PowerShell. Si può usare un file di configurazione denominato settings.job nella stessa directory radice dello script del processo per fornire le informazioni di configurazione per un processo. Ad esempio:
   - { "stopping\_wait\_time": 60 }
   - { "is\_singleton": true }
@@ -149,7 +149,7 @@ L'esecuzione di attività in background in un ruolo di lavoro presenta diversi v
 - Consente di gestire il ridimensionamento separatamente per ogni tipo di ruolo. Ad esempio, potrebbero essere necessarie più istanze di un ruolo Web per supportare il carico corrente, ma un minor numero di istanze del ruolo di lavoro che esegue le attività in background. Il dimensionamento delle istanze di calcolo dell'attività in background separatamente dai ruoli dell'interfaccia utente consente di ridurre i costi di hosting mantenendo prestazioni accettabili.
 - Scarica il sovraccarico dell'elaborazione per le attività in background del ruolo Web. Il ruolo Web che fornisce l'interfaccia utente può rimanere attivo per cui è necessario un minor numero di istanze per supportare un determinato volume di richieste dagli utenti.
 - Consente di implementare la separazione delle problematiche. Ogni tipo di ruolo può implementare un set specifico di attività ben definite e correlate. La progettazione e la gestione del codice si semplificano grazie alla minore interdipendenza di codice e funzionalità tra ogni ruolo.
-- Può essere utile per isolare dati e processi sensibili. Ad esempio, i ruoli Web che implementano l'interfaccia utente non richiedono l'accesso ai dati gestiti e controllati da un ruolo di lavoro. Ciò può essere utile a rafforzare la sicurezza, soprattutto quando si usa un modello come il [modello Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx).  
+- Può essere utile per isolare dati e processi sensibili. Ad esempio, i ruoli Web che implementano l'interfaccia utente non richiedono l'accesso ai dati gestiti e controllati da un ruolo di lavoro. Ciò può essere utile a rafforzare la sicurezza, soprattutto quando si usa un modello come il [modello Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx).
 
 ### Considerazioni
 
@@ -253,7 +253,7 @@ Per la pianificazione della modalità di esecuzione delle attività in backgroun
 - L'implementazione predefinita del metodo **Run** nella classe **RoleEntryPoint** contiene una chiamata a **Thread.Sleep(Timeout.Infinite)**, che mantiene il ruolo attivo per un tempo illimitato. Se si esegue l'override del metodo **Run** (operazione generalmente necessaria per eseguire attività in background), non deve essere consentito al codice di uscire dal metodo a meno che non si desideri riutilizzare l'istanza del ruolo.
 - Un'implementazione tipica del metodo **Run** include il codice per l'avvio di ciascuna attività in background e un costrutto di ciclo che controlla periodicamente lo stato di tutte le attività in background. Tale implementazione consente di riavviare le attività non riuscite o di monitorare i token di annullamento che indicano il completamento dei processi.
 - Se un'attività in background genera un'eccezione non gestita, l'attività deve essere riavviata, consentendo al contempo il proseguimento dell'esecuzione delle altre attività in background nel ruolo. Se l'eccezione è invece causata dal danneggiamento di oggetti esterni all'attività, come una risorsa di archiviazione condivisa, l'eccezione deve essere gestita dalla classe **RoleEntryPoint**, tutte le attività devono essere annullate ed è necessario consentire al metodo **Run** di terminare. Azure riavvierà quindi il ruolo.
-- Utilizzare il metodo **OnStop** per sospendere o arrestare le attività in background e pulire le risorse. Questo potrebbe comportare l'arresto di attività a esecuzione prolungata o a più passaggi. È fondamentale considerare come eseguire questa operazione in modo da evitare incoerenze nei dati. Se un'istanza del ruolo viene arrestata per un motivo diverso da un arresto avviato dall'utente, il codice in esecuzione nel metodo **OnStop** deve essere completato entro cinque minuti prima della terminazione forzata. Verificare che il codice possa essere completato in quel periodo di tempo o che possa tollerare di non essere eseguito fino al completamento.  
+- Utilizzare il metodo **OnStop** per sospendere o arrestare le attività in background e pulire le risorse. Questo potrebbe comportare l'arresto di attività a esecuzione prolungata o a più passaggi. È fondamentale considerare come eseguire questa operazione in modo da evitare incoerenze nei dati. Se un'istanza del ruolo viene arrestata per un motivo diverso da un arresto avviato dall'utente, il codice in esecuzione nel metodo **OnStop** deve essere completato entro cinque minuti prima della terminazione forzata. Verificare che il codice possa essere completato in quel periodo di tempo o che possa tollerare di non essere eseguito fino al completamento.
 - Il servizio di bilanciamento del carico di Azure inizia a indirizzare il traffico all’istanza del ruolo quando il metodo **RoleEntryPoint.OnStart** restituisce il valore **true**. È quindi consigliabile inserire tutto il codice di inizializzazione nel metodo **OnStart** in modo che le istanze del ruolo non inizializziate correttamente non ricevano il traffico.
 - È possibile usare le attività di avvio in aggiunta ai metodi della classe **RoleEntryPoint**. È consigliabile usare le attività di avvio per inizializzare le impostazioni da modificare nel servizio di bilanciamento del carico di Azure, poiché queste operazioni verranno eseguite prima che il ruolo riceva tutta le richieste. Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](./cloud-services/cloud-services-startup-tasks.md).
 - Un eventuale errore in un'attività di avvio potrebbe determinare il continuo riavvio forzato del ruolo. Ciò può impedire di effettuare lo scambio di un indirizzo VIP con una versione temporanea precedente in quanto lo scambio richiede l'accesso esclusivo al ruolo. Questo non può essere ottenuto durante il riavvio del ruolo. Per risolvere il problema:
@@ -270,7 +270,7 @@ Per la pianificazione della modalità di esecuzione delle attività in backgroun
 	}
 	```
 
-   - Aggiungere la definizione dell’impostazione **Freeze** come valore booleano nei file ServiceDefinition.csdef e ServiceConfiguration.*.cscfg per il ruolo e impostarla su **false**. Se il ruolo passa alla modalità di riavvio ripetuto, è possibile modificare l'impostazione in **true** per bloccare l'esecuzione del ruolo e consentire lo scambio con una versione precedente.
+   - Aggiungere la definizione dell’impostazione **Freeze** come valore booleano nei file ServiceDefinition.csdef e ServiceConfiguration*.cscfg per il ruolo e impostarla su **false**. Se il ruolo passa alla modalità di riavvio ripetuto, è possibile modificare l'impostazione in **true** per bloccare l'esecuzione del ruolo e consentire lo scambio con una versione precedente.
 
 ## Considerazioni sulla resilienza
 
@@ -320,4 +320,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

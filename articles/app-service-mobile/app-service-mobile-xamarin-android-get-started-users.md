@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Aggiungere l'autenticazione all'app per Xamarin.Android
@@ -107,4 +107,4 @@ L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsant
 <!-- URLs. -->
 [Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

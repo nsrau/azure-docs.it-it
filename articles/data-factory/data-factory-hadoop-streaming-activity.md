@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Attività di Hadoop Streaming
@@ -74,7 +74,7 @@ Tenere presente quanto segue:
 2. Impostare il tipo di attività su **HDInsightStreaming**.
 3. Per la proprietà **mapper** specificare il nome dell'eseguibile del mapper. Nell'esempio precedente cat.exe è l'eseguibile del mapper.
 4. Per la proprietà **reducer** specificare il nome dell'eseguibile del reducer. Nell'esempio precedente wc.exe è l'eseguibile del reducer.
-5. Per la proprietà di tipo **input** specificare il file di input (incluso il percorso) per il mapper. Nell'esempio: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample è il contenitore BLOB, example/data/Gutenberg è la cartella e davinci.txt è il BLOB.
+5. Per la proprietà di tipo **input** specificare il file di input (incluso il percorso) per il mapper. Nell'esempio: "wasb://adfsample@<nome account>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample è il contenitore BLOB, example/data/Gutenberg è la cartella e davinci.txt è il BLOB.
 6. Per la proprietà di tipo **output** specificare il file di output (incluso il percorso) per il reducer. L'output del processo di Hadoop Streaming verrà scritto nel percorso specificato per questa proprietà.
 7. Nella sezione **filePaths** specificare i percorsi dei file eseguibili del mapper e del reducer. Nell'esempio: "adfsample/example/apps/wc.exe", adfsample è il contenitore BLOB, example/apps è la cartella e wc.exe è l'eseguibile.
 8. Per la proprietà **fileLinkedService** specificare il servizio collegato Archiviazione di Azure che rappresenta l'archivio di Azure contenente i file specificati nella sezione filePaths.
@@ -199,4 +199,4 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

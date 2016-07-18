@@ -32,7 +32,7 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 
 - [Impostare una scadenza della password](#set-a-password-to-expire)
 
-- [Impostare una password senza scadenza](#set-a-password-not-to-expire)
+- [Impostare una password senza scadenza](#set-a-password-to-never-expire)
 
 ## Come controllare i criteri di scadenza per una password
 
@@ -64,4 +64,4 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 
 	- Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

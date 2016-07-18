@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/20/2016"
+ms.date="07/05/2016"
 ms.author="larryfr"/>
 
 #Aggiungere librerie Hive durante la creazione del cluster HDInsight
@@ -51,7 +51,7 @@ __Requisiti__
     
     * Deve trovarsi in un contenitore in un contenitore di archiviazione collegato. Nel portale, ad esempio, è possibile usare __Configurazione facoltativa__, __Account di archiviazione collegati__ per aggiungere ulteriore spazio di archiviazione.
 
-* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se i file con estensione jar sono archiviati in un contenitore denominato __libs__ in un account di archiviazione denominato __mystorage__, il parametro deve essere \___wasb://libs@mystorage.blob.core.windows.net/__.
+* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se i file con estensione jar sono archiviati in un contenitore denominato __libs__ in un account di archiviazione denominato __mystorage__, il parametro deve essere \_wasb://libs@mystorage.blob.core.windows.net/__.
 
     > [AZURE.NOTE] In questo documento si presuppone che un account di archiviazione e un contenitore BLOB siano già stati creati e che i file siano stati caricati nel contenitore.
     >
@@ -72,7 +72,7 @@ __Requisiti__
     * __HEAD__: selezionare questa opzione
     * __LAVORO__: selezionare questa opzione.
     * __ZOOKEEPER__: lasciare vuoto questo campo.
-    * __PARAMETRI__: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, \_\___wasb://libs@mystorage.blob.core.windows.net/__.
+    * __PARAMETRI__: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, \_\_wasb://libs@mystorage.blob.core.windows.net/__.
 
 3. Nella parte inferiore di **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione.
 
@@ -88,4 +88,4 @@ Al termine della creazione del cluster, sarà possibile usare i file con estensi
 
 In questo documento si è appreso come aggiungere le librerie Hive contenute nei file con estensione jar a un cluster HDInsight durante la creazione del cluster. Per altre informazioni sull'uso di Hive, vedere l'articolo relativo all'[uso di Hive con HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

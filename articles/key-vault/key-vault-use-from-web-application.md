@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Usare l'insieme di credenziali chiave di Azure da un'applicazione Web #
@@ -97,7 +97,8 @@ Di seguito è riportato il codice per ottenere un accesso token da Azure Active 
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE] L’utilizzo di un client secret utilizzando un ID Client e un client secret è il modo più semplice per autenticare un'applicazione Azure AD. Utilizzarlo nell'applicazione Web consente una separazione dei compiti e maggiore controllo sulla gestione delle chiavi. Ma si basa sull'inserimento del client secret nelle impostazioni di configurazione, che per alcuni può essere rischioso quanto inserire la chiave privata che si desidera proteggere nelle impostazioni di configurazione. Per una discussione su come utilizzare un ID Client e un certificato anziché un ID Client e il client secret per autenticare l'applicazione di Azure AD, vedere di seguito.
+> [AZURE.NOTE] 
+L'uso di un ID client e di un segreto client è il modo più semplice per autenticare un'applicazione Azure AD. Utilizzarlo nell'applicazione Web consente una separazione dei compiti e maggiore controllo sulla gestione delle chiavi. Ma si basa sull'inserimento del client secret nelle impostazioni di configurazione, che per alcuni può essere rischioso quanto inserire la chiave privata che si desidera proteggere nelle impostazioni di configurazione. Per una discussione su come utilizzare un ID Client e un certificato anziché un ID Client e il client secret per autenticare l'applicazione di Azure AD, vedere di seguito.
 
 
 
@@ -228,7 +229,7 @@ L'ultima modifica del codice è nel metodo Application\_Start. Innanzitutto è n
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**Aggiungere un certificato a un'applicazione Web** L’aggiunta di un certificato all'applicazione Web è un processo semplice in due passaggi. In primo luogo, accedere al portale di Azure e passare all'applicazione Web. Nel pannello Impostazioni per l'applicazione Web, fare clic sulla voce relativa a "domini personalizzati e SSL". Nel pannello che si apre sarà possibile caricare il certificato creato in precedenza, KVWebApp.pfx; assicurarsi di ricordare la password per il pfx.
+**Aggiungere un certificato all'app Web tramite il portale di Azure** L'aggiunta di un certificato all'app Web è un processo semplice in due passaggi. In primo luogo, accedere al portale di Azure e passare all'applicazione Web. Nel pannello Impostazioni per l'applicazione Web, fare clic sulla voce relativa a "domini personalizzati e SSL". Nel pannello che si apre sarà possibile caricare il certificato creato in precedenza, KVWebApp.pfx; assicurarsi di ricordare la password per il pfx.
 
 ![Aggiunta di un certificato a un'applicazione Web nel portale di Azure][2]
 
@@ -236,6 +237,9 @@ L'ultima modifica del codice è nel metodo Application\_Start. Innanzitutto è n
 L'ultima operazione da eseguire consiste nell'aggiungere all'applicazione Web un'impostazione dell'applicazione con il nome WEBSITE\_LOAD\_CERTIFICATES e il valore *. Ciò garantisce che siano caricati tutti i certificati. Se si desidera caricare solo i certificati caricati, è possibile immettere un elenco delimitato da virgole delle identificazioni personali.
 
 Per ulteriori informazioni sull'aggiunta di un certificato a un'applicazione Web, vedere [Utilizzo di certificati nelle applicazioni di siti Web di Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+
+
+**Aggiungere un certificato all'insieme di credenziali delle chiavi come segreto** Invece di caricare il certificato direttamente nl servizio App Web, è possibile archiviarlo nell'insieme di credenziali delle chiavi come segreto e distribuirlo da questa posizione. Si tratta di un processo in due fasi descritto nel post di blog seguente, [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Distribuzione di un certificato di App Web di Azure tramite l'insieme di credenziali delle chiavi.
 
 
 
@@ -249,4 +253,4 @@ Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

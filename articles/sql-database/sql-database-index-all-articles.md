@@ -161,7 +161,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
 | 83 | [Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)](sql-database-elastic-jobs-powershell.md) | PowerShell viene utilizzato per gestire i pool del database SQL di Azure |
-| 84 | [Creare e gestire database SQL di Azure con un numero maggiore di istanze (anteprima)](sql-database-elastic-jobs-create-and-manage.md) | Informazioni sulla gestione e la creazione di un processo elastico di database. |
+| 84 | [Creare e gestire database SQL di Azure con scalabilità orizzontale (anteprima)](sql-database-elastic-jobs-create-and-manage.md) | Informazioni sulla gestione e la creazione di un processo elastico di database. |
 | 85 | [Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md) | come utilizzare i processi di database elastici |
 | 86 | [Installazione dei processi di database elastici (panoramica)](sql-database-elastic-jobs-service-installation.md) | Installazione dettagliata della funzionalità dei processi elastici. |
 | 87 | [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md) | Viene illustrato il servizio processo di database elastico |
@@ -351,7 +351,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 180 | [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md) | In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure. |
 | 181 | [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) | Istruzioni Transact-SQL non completamente supportate nel Database SQL di Azure |
 | 182 | [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) | In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. È disponibile un collegamento per le informazioni sulla versione relative ai driver rilasciati dalla community anziché da Microsoft. |
-| 183 | [Ricerca con filtri](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
+| 183 | [Ricerca con filtri](https://azure.microsoft.com/it-IT/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
 
 
 ## Miscellaneous
@@ -378,4 +378,4 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - Grafica del percorso di apprendimento: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

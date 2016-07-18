@@ -41,7 +41,7 @@ La compilazione di elementi consigliati presenta due funzionalità che la rendon
 
  Per usare il posizionamento di elementi freddi è necessario indicare informazioni sulle caratteristiche di ogni elemento nel catalogo. Le prime righe del catalogo potrebbero essere simili alle seguenti. Si noti il formato chiave=valore delle caratteristiche:
 
-> 6CX-00001,Surface Pro2, Surface, Type=Hardware, Storage=128GB, Memory=4G, Manufacturer=Microsoft
+> 6CX-00001,Surface Pro2, Surface,, Type=Hardware, Storage=128GB, Memory=4G, Manufacturer=Microsoft
 
 > 73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
 
@@ -64,6 +64,26 @@ La compilazione di elementi consigliati presenta due funzionalità che la rendon
  Un classico esempio in cui applicare elementi consigliati per gli utenti è quando l'utente accede alla pagina iniziale del negozio/sito. È qui possibile promuovere il convenuto che si applica all'utente specifico.
  
  È anche possibile applicare una compilazione di elementi consigliati quando l'utente sta per effettuare il check-out. A quel punto sarà disponibile l'elenco degli elementi che il cliente sta per acquistare ed è possibile indicare elementi consigliati sulla base del carrello corrente.
+ 
+#### Parametri di compilazione di elementi consigliati 
+ 
+| Nome | 	Descrizione |	 Tipo, <br> Valori validi<br> (Valore predefinito)
+|-------|-------------------|------------------
+| NumberOfModelIterations |	Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore. |	 Numero intero, <br> Da 10 a 50 <br>Predefinito: 40 
+| NumberOfModelDimensions |	Il numero di dimensioni è correlato al numero di "funzionalità" che il modello proverà a trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni impediranno tuttavia al modello di trovare correlazioni tra gli elementi. |	Numero intero, <br> Da 10 a 40 <br>Predefinito: 20 |
+| ItemCutOffLowerBound |	Definisce il numero minimo di punti di utilizzo in cui deve essere presente un elemento per essere considerato nel modello. |		Numero intero, <br> 2 o più. <br> Predefinito: 2 |
+| ItemCutOffUpperBound | 	Definisce il numero massimo di punti di utilizzo in cui deve essere presente un elemento per essere considerato nel modello. | Numero intero, <br>2 o più.<br> Predefinito: 2147483647 |
+|UserCutOffLowerBound |	Definisce il numero minimo di transazioni di che un utente deve avere eseguito per essere considerato nel modello. |	Numero intero, <br> 2 o più. <br> Predefinito: 2 
+| ItemCutOffUpperBound |	Definisce il numero massimo di transazioni che un utente deve avere eseguito per essere considerato nel modello. |	Numero intero, <br> 2 o più. <br> Predefinito: 2147483647|
+| UseFeaturesInModel |	Indica se le funzionalità possono essere usate in ordine per migliorare il modello di raccomandazione. | 	 Booleano<br> Predefinito: True 
+|ModelingFeatureList |	Elenco con valori delimitati da virgole dei nomi di funzionalità da usare nella compilazione di raccomandazioni, allo scopo di migliorare la raccomandazione. (Dipende dalle funzionalità considerate importanti) |	Stringa, fino a 512 caratteri
+| AllowColdItemPlacement |	Indica se la raccomandazione dovrà effettuare il push anche degli elementi ignoti in base alla somiglianza di funzionalità. | Booleano <br> Predefinito: False	
+| EnableFeatureCorrelation | Indica se le funzionalità possono essere usate nella motivazione. |	Booleano <br> Predefinito: False
+| ReasoningFeatureList |	Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione (ad esempio, le spiegazioni delle raccomandazioni). (Dipende dalle funzionalità considerate importanti per i clienti) | Stringa, fino a 512 caratteri
+| EnableU2I |	Abilita la raccomandazione personalizzata, nota anche come U2I (raccomandazioni da utente a elemento). | Booleano <br>Predefinito: True
+|EnableModelingInsights |	Definisce se deve essere eseguita la valutazione offline per raccogliere informazioni di modellazione, vale a dire metriche di precisione e diversità. Se impostato su true, il sottoinsieme dei dati non verrà usato per il training ma verrà riservato per il test del modello. Altre informazioni sulle [valutazioni offline](#OfflineEvaluation) | Booleano <br> Predefinito: False
+| SplitterStrategy | If EnableModelingInsights è impostato su true, indica il modo in cui i dati devono essere suddivisi ai fini della valutazione | Stringa, *RandomSplitter* o *LastEventSplitter* <br>Predefinito: RandomSplitter 
+
 
 <a name="FBTBuild"></a>
 ### Tipo di compilazione FBT ###
@@ -77,6 +97,16 @@ Nell'esempio del telefono Lumia 650 verrà restituito un telefono X se e solo se
 Due elementi vengono attualmente considerati acquistati nella stessa sessione se presenti in una transazione con uguale ID utente e timestamp.
 
 Le compilazioni FBT non supportano attualmente elementi freddi perché prevedono per definizione che due elementi vengano effettivamente acquistati nella stessa transazione. Nonostante le compilazioni FBT possano restituire set di elementi (gruppi di tre), non supportano elementi consigliati personalizzati perché accettano un solo elemento seme come input.
+
+
+#### Parametri della compilazione FBT 
+ 
+| Nome | 	Descrizione |		Tipo, <br> Valori validi<br> (Valore predefinito)
+|-------|---------------|-----------------------
+| FbtSupportThreshold | Indica il livello conservativo del modello. Numero di co-occorrenze di elementi da considerare per la creazione del modello. | Intero, <br> 3-50 <br> Predefinito: 6 
+| FbtMaxItemSetSize | Limita il numero di elementi in un set frequente.| Intero, <br> 2-3 <br> Predefinito: 2
+| FbtMinimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. Più alto è il valore, migliori saranno i risultati. | Double <br> 0 e oltre <br> Predefinito: 0
+| FbtSimilarityFunction | Definisce la funzione di somiglianza da usare per la compilazione. L’accuratezza favorisce la serendipità, la co-occorrenza favorisce la prevedibilità e Jaccard è un interessante compromesso tra i due. | Stringa, <br> <i>cooccurrence, lift, jaccard</i><br> Predefinito: <i>jaccard</i> 
 
 <a name="SelectBuild"></a>
 ## Come scegliere la compilazione da usare? ##
@@ -241,4 +271,4 @@ Verrà attivata una compilazione che usa solo un subset dei dati per il training
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

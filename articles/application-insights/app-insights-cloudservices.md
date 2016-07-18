@@ -38,7 +38,7 @@ Di seguito viene illustrato come adattare nello stesso modo il proprio progetto 
 
 Una risorsa di Application Insights rappresenta il punto in cui vengono analizzati e visualizzati i dati di telemetria.
 
-1.  Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'app ASP.NET per il tipo di applicazione. 
+1.  Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'app ASP.NET per il tipo di applicazione.
 
     ![Fare clic su Nuovo, Application Insights](./media/app-insights-cloudservices/01-new.png)
 
@@ -59,7 +59,7 @@ In alternativa, è possibile inviare dati da tutti i ruoli a una sola risorsa, m
     ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Per i ruoli Web aggiungere il pacchetto NuGet [Application Insights per app Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Questa versione dell'SDK include i moduli che aggiungono il contesto del server come le informazioni sui ruoli. Per i ruoli di lavoro usare [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. Per i ruoli Web aggiungere il pacchetto NuGet [Application Insights per app Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Questa versione dell'SDK include i moduli che aggiungono il contesto del server come le informazioni sui ruoli. Per i ruoli di lavoro usare [Application Insights per server Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Cercare "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -87,9 +87,9 @@ In alternativa, è possibile inviare dati da tutti i ruoli a una sola risorsa, m
  
  * [Ruolo Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
  * [Ruolo di lavoro](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
- * [Per pagine Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+ * [Per pagine Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
-4. Impostare il file ApplicationInsights.config da copiare sempre nella directory di output. 
+4. Impostare il file ApplicationInsights.config da copiare sempre nella directory di output.
 
     (Nel file config, ci sono dei messaggi in cui si chiede di inserire la chiave di strumentazione. Tuttavia, per le applicazioni cloud è preferibile che venga impostata dal file cscfg. Assicura che il ruolo venga identificato correttamente nel portale.)
 
@@ -145,7 +145,7 @@ La diagnostica di Azure è utile soprattutto se un ruolo smette di rispondere in
 
 Dove trovare la diagnostica:
 
-* I contatori delle prestazioni vengono visualizzati come metriche personalizzate. 
+* I contatori delle prestazioni vengono visualizzati come metriche personalizzate.
 * I registri eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
 * I registri applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce.
 
@@ -286,4 +286,4 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

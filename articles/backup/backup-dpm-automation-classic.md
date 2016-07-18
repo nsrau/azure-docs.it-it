@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="07/01/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -102,16 +102,7 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch |
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
-| /ph | Indirizzo host proxy | - |
-| /po | Numero porta host proxy | - |
-| /pu | Nome utente host proxy | - |
-| /pw | Password proxy | - |
+| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
 
 ### Registrazione del servizio Backup di Azure
 Per poter eseguire la registrazione con il servizio Backup di Azure, è necessario assicurarsi che i [prerequisiti](backup-azure-dpm-introduction.md) siano soddisfatti. È necessario:
@@ -119,7 +110,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 - Disporre di una sottoscrizione di Azure valida
 - Ottieni un archivio di backup
 
-Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come *C:\\Downloads*.
+Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come * C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -229,7 +220,7 @@ Ogni agente DPM conosce l'elenco di origini dati nel server in cui è installato
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). In questo esempio viene filtrato il volume *D:* che si desidera configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Ricordarsi di usare l'oggetto gruppo protezione dati *modificabile* ```$MPG``` per effettuare le aggiunte.
+Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). In questo esempio viene filtrato il volume *D:* che si desidera configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Ricordarsi di usare l'*oggetto gruppo protezione dati modificabile*```$MPG``` per effettuare le aggiunte.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -340,4 +331,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 - Per altre informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

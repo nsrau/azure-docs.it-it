@@ -330,43 +330,14 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
 
 ####Aggiungere notifiche push all'app iOS
 
-1. Aggiungere l'istruzione `using` seguente all'inizio del file **AppDelegate.cs**.
+1. Nel progetto **iOS** aprire il file AppDelegate.cs e aggiungere l'istruzione **using** seguente all'inizio del file di codice.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. Nella classe **AppDelegate** aggiungere un override per l'evento **RegisteredForRemoteNotifications** per eseguire la registrazione per le notifiche:
 
-2. Nel progetto iOS aprire AppDelegate.cs e aggiornare `FinishedLaunching` per supportare le notifiche remote come indicato di seguito.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. In AppDelegate.cs, aggiungere anche un override per l'evento **RegisteredForRemoteNotifications** per eseguire la registrazione per le notifiche:
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
@@ -381,9 +352,10 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. In AppDelegate.cs, aggiungere anche un override per l'evento **DidReceivedRemoteNotification** per gestire le notifiche in ingresso mentre l'app è in esecuzione:
+5. In **AppDelegate** aggiungere anche l'override seguente per il gestore dell'evento **DidReceivedRemoteNotification**:
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -398,6 +370,22 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
                 avAlert.Show();
             }
         }
+
+	Questo metodo gestisce le notifiche in ingresso mentre l'applicazione è in esecuzione.
+
+2. Nella classe **AppDelegate** aggiungere il codice seguente al metodo **FinishedLaunching**:
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	L'aggiunta di questo codice consente il supporto per le notifiche remote e richiede la registrazione push.
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
@@ -499,9 +487,9 @@ Altre informazioni sulle notifiche push:
 
 È consigliabile proseguire con una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-users.md) Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)(Aggiungere l'autenticazione all'app) Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Abilitare la sincronizzazione offline per l'app](app-service-mobile-xamarin-forms-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
+* [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md) (Abilitare la sincronizzazione offline per l'app) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
 <!-- Images. -->
 
@@ -510,4 +498,4 @@ Altre informazioni sulle notifiche push:
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

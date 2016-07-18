@@ -3,7 +3,7 @@
 
 ##Uso delle estensioni di macchina virtuale
 
-Le estensioni di macchina virtuale di Azure implementano comportamenti o funzionalità che semplificano l'esecuzione di altri programmi su macchine virtuali di Azure (ad esempio, l'estensione **WebDeployForVSDevTest** consente a Visual Studio di eseguire distribuzioni Web di soluzioni nella macchina virtuale di Azure) o permettono di interagire con la macchina virtuale per supportare altri comportamenti (ad esempio, è possibile usare le estensioni di accesso alle macchine virtuali da PowerShell, la riga di comando di Azure, e i client REST per reimpostare o modificare i valori di accesso remoto nella macchina virtuale di Azure).
+Le estensioni di VM di Azure implementano comportamenti o funzionalità che semplificano l'esecuzione di altri programmi su VM di Azure (ad esempio, l'estensione **WebDeployForVSDevTest** consente a Visual Studio di eseguire distribuzioni Web di soluzioni nella VM di Azure) o permettono di interagire con la VM per supportare altri comportamenti (ad esempio, è possibile usare le estensioni di accesso alle VM da PowerShell, interfaccia della riga di comando di Azure e client REST per reimpostare o modificare i valori di accesso remoto nella VM di Azure).
 
 >[AZURE.IMPORTANT] Per un elenco completo delle estensioni in base alle funzionalità che supportano, vedere [Estensioni VM e funzionalità di Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md). Poiché ogni estensione di macchina virtuale supporta una funzionalità specifica, tutte le operazioni esattamente possibili o meno mediante un'estensione dipendono dall'estensione stessa. Di conseguenza, prima di modificare la macchina virtuale, assicurarsi di aver letto la documentazione per l'estensione di macchina virtuale che si vuole usare. La rimozione di alcune estensioni di macchina virtuale non è supportata, mentre altre includono proprietà che possono essere impostate e che modificano radicalmente il comportamento della macchina virtuale.
 
@@ -22,7 +22,7 @@ Attività più comuni:
 È possibile trovare l'estensione, insieme a informazioni estese, usando:
 
 -   PowerShell
--   Interfaccia multi-piattaforma di Azure (riga di comando di Azure)
+-   Interfaccia della riga di comando multipiattaforma di Azure (interfaccia della riga di comando di Azure)
 -   API REST di gestione dei servizi
 
 ###Azure PowerShell
@@ -36,9 +36,7 @@ Per ottenere informazioni sulle estensioni disponibili, è possibile usare i cmd
 
      L'esempio di codice seguente illustra come elencare le informazioni relative all'estensione **IaaSDiagnostics** usando PowerShell.
 
-        PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
-        VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
-        VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
+        PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
 
         Publisher                   : Microsoft.Azure.Diagnostics
         ExtensionName               : IaaSDiagnostics
@@ -119,4 +117,4 @@ Per sapere se un'estensione richiede una configurazione di parametri pubblici e 
 
 >[AZURE.NOTE]Le estensioni possono anche usare configurazioni definite con JSON. Quando si applicano questi tipi di estensioni, viene usato solo l'elemento **SampleConfig**.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Piani e fatturazione nell'utilità di pianificazione di Azure
@@ -25,7 +25,8 @@ Raccolte di processi sono entità fatturabili nell'utilità di pianificazione di
 |:---|:---|:---|:---|:---|
 |**Free**|5 processi per la raccolta attività|Una volta ogni ora. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita la raccolta di processi gratuita fino a 1|Non è possibile utilizzare [oggetto autorizzazione in uscita HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita per un massimo di 100 raccolte di processi standard|Accesso al set completo di funzionalità dell'utilità di pianificazione|
-|**Premium**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita per un massimo di 10,000 raccolte di processi standard. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
+|**P10 Premium**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|A una sottoscrizione sono consentite fino a 10.000 raccolte processi P10 Premium. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
+|**P20 Premium**|1000 processi per ogni raccolta processi|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|A una sottoscrizione sono consentite fino a 500 raccolte processi P20 Premium. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
 
 ## Effettua il downgrade dei piani di raccolta di processi e gli aggiornamenti
 
@@ -85,4 +86,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

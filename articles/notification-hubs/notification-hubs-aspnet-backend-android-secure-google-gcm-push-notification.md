@@ -4,7 +4,7 @@
 	documentationCenter="android"
     keywords="notifica push, notifiche push, push dei messaggi, notifiche push di android"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/15/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 #Invio di notifiche push sicure con Hub di notifica di Azure
@@ -134,4 +134,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

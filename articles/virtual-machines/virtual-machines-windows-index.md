@@ -77,7 +77,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Acquisire l'immagine di una macchina virtuale Windows creata con il modello di distribuzione classica](virtual-machines-windows-classic-capture-image.md)
 
-[Creare e caricare un disco rigido virtuale classico con Windows Server usando Powershell](virtual-machines-windows-classic-createupload-vhd.md)
+[Creare e caricare un disco rigido virtuale classico con Windows Server usando PowerShell](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Automazione della distribuzione delle macchine virtuali di Azure con Chef](virtual-machines-windows-chef-automation.md)
 
@@ -192,4 +192,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

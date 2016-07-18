@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="mimig"/>
 
 # Uso di DocumentDB per i social media
@@ -106,6 +106,33 @@ I flussi di feed possono essere compilati usando i processi in background dei [s
 
 Con questa stessa tecnica è possibile elaborare punteggi e Mi piace relativi ai post in modo posticipato, per creare un ambiente coerente.
 
+I follower sono più complessi. Il limite per la dimensione dei documenti in DocumentDB è di 512 Kb e ciò consente di memorizzare i follower come un documento con la struttura seguente:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+Questa soluzione può funzionare per un utente con alcune migliaia di follower, ma qualora si unissero alcune celebrità, il limite massimo verrebbe raggiunto rapidamente.
+
+Per risolvere il problema, è possibile adottare un approccio misto. Nel documento delle statistiche utenti è possibile archiviare il numero di follower:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+Il grafico effettivo dei follower può essere archiviato nelle tabelle di archiviazione di Azure tramite un'[estensione](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) che consente semplicemente l'archiviazione e il recupero dello schema "A-segue-B". In questo modo è possibile delegare il processo di recupero dell'elenco di follower esatto (quando è necessario) alle tabelle di archiviazione di Azure, mentre per una rapida ricerca sui numeri è possibile continuare a usare DocumentDB.
+
 ## Modello "a gradini" e duplicazione dei dati
 
 Nel documento JSON che fa riferimento a un post sono presenti più occorrenze di un utente. Ciò significa che, data la denormalizzazione, le informazioni che rappresentano un utente potrebbero essere presenti in più posizioni.
@@ -140,21 +167,26 @@ Il gradino intermedio è quello dell'utente e contiene i dati completi che verra
 
 Il gradino più grande è quello dell'utente esteso. Include tutte le informazioni critiche relative all'utente e altri dati che non è necessario leggere rapidamente o che vengono usati poco di frequente, ad esempio la procedura di accesso. Questi dati possono essere archiviati al di fuori di DocumentDB, nel database SQL di Azure o nelle tabelle di archiviazione di Azure.
 
-Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse risulta utile perché lo spazio di archiviazione in DocumentDB non è infinito e perché, in termini di prestazioni, le query su documenti di grandi dimensioni hanno un costo maggiore. I documenti devono quindi essere leggeri e contenere le informazioni necessarie per eseguire query basate sulle prestazioni per un social network. È consigliabile archiviare le informazioni aggiuntive per altri scenari, come ad esempio le modifiche all'intero profilo, gli account di accesso e il data mining per l'analisi di utilizzo e le iniziative legate ai Big Data. Non importa se la raccolta dei dati per il data mining risulta lenta, perché è in esecuzione in un database SQL di Azure. Ciò che conta è offrire un'esperienza utente agile e veloce. Un utente archiviato in DocumentDB si presenta come segue:
+Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse risulta utile perché lo spazio di archiviazione in DocumentDB [non è infinito](documentdb-limits.md) e perché, in termini di prestazioni, le query su documenti di grandi dimensioni hanno un costo maggiore. I documenti devono quindi essere leggeri e contenere le informazioni necessarie per eseguire query basate sulle prestazioni per un social network. È consigliabile archiviare le informazioni aggiuntive per altri scenari, come ad esempio le modifiche all'intero profilo, gli account di accesso e il data mining per l'analisi di utilizzo e le iniziative legate ai Big Data. Non importa se la raccolta dei dati per il data mining risulta lenta, perché è in esecuzione in un database SQL di Azure. Ciò che conta è offrire un'esperienza utente agile e veloce. Un utente archiviato in DocumentDB si presenta come segue:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
         "surname":"Doe",
+        "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "totalPoints":100,
-        "totalPosts":24,
-        "following":{
-            "count":2,
-            "list":[
-                UserChunk1, UserChunk2
-            ]
+        "twitterHandle":"@john"
+    }
+
+Un post invece si presenta come segue:
+
+    {
+        "id":"1234-asd3-54ts-199a",
+        "title":"Awesome post!",
+        "date":"2016-01-02",
+        "createdBy":{
+        	"id":"dse4-qwe2-ert4-aad2",
+    		"username":"johndoe"
         }
     }
 
@@ -184,7 +216,9 @@ Contrariamente a quanto si potrebbe pensare, non è necessario essere dei matema
 
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), incluso in [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), è un servizio cloud completamente gestito che consente di creare flussi di lavoro tramite algoritmi in una semplice interfaccia basata sul trascinamento. È possibile codificare algoritmi personalizzati in [R](https://en.wikipedia.org/wiki/R_(programming_language)) o usare alcune delle API già compilate e pronte per l'uso, come [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
-## Conclusione
+Per ottenere uno di questi scenari di Machine Learning, è possibile usare [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) per inserire le informazioni provenienti da origini diverse e [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) per elaborare le informazioni e generare output che possono poi essere elaborati da Azure Machine Learning.
+
+## Conclusioni
 
 Questo articolo illustra come creare social network interamente in Azure, con servizi a costo contenuto e ottimi risultati, promuovendo l'uso di una distribuzione dei dati e di una soluzione di archiviazione a più livelli detta "a gradini".
 
@@ -198,4 +232,4 @@ Per altre informazioni sulla modellazione di dati, vedere [Modellazione dei dati
 
 Per altre informazioni su DocumentDB, seguire il [percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -64,7 +64,7 @@ Nell’esercitazione si presuppongono le condizioni seguenti:
 
 ## Creare un gruppo di risorse
 
-1. Accedere al [portale di Azure](http://portal.azure.com). 
+1. Accedere al [portale di Azure](http://portal.azure.com).
 
 1. Fare clic su **+Nuovo** e quindi digitare **Gruppo di risorse** nella finestra di ricerca del **Marketplace**.
 
@@ -96,7 +96,7 @@ La soluzione usa una rete virtuale con due subnet. È consigliabile conoscere le
 
 Per creare la rete virtuale:
 
-1. Nel portale di Azure fare clic sul nuovo gruppo di risorse e su **+** per aggiungere un nuovo elemento al gruppo di risorse. Azure apre il pannello **Tutto**. 
+1. Nel portale di Azure fare clic sul nuovo gruppo di risorse e su **+** per aggiungere un nuovo elemento al gruppo di risorse. Azure apre il pannello **Tutto**.
 
     ![Nuovo elemento](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
@@ -143,7 +143,7 @@ A questo punto la rete virtuale contiene una subnet, denominata Subnet-1. I cont
 
 1.  Fare clic su **autoHAVNET** nell'elenco di risorse per aprire il pannello di configurazione della rete.
 
-1.  Nel rete virtuale **autoHAVNET** fare clic su **Tutte le impostazioni*.
+1.  Nella rete virtuale **autoHAVNET**, fare clic su **Tutte le impostazioni*.
 
 1. Nel pannello **Impostazioni** fare clic su **Subnet**.
 
@@ -218,7 +218,7 @@ La tabella seguente descrive le impostazioni per questi due computer.
 | **Campo** | Valore 
 | ----- | ---- 
 | **Nome utente** | DomainAdmin
-| **Password** | Contoso!000 |
+| **Password** | Contoso!0000 |
 | **Sottoscrizione** | *sottoscrizione in uso* |
 | **Gruppo di risorse** | SQL-HA-RG |
 | **Posizione** | *località corrente* 
@@ -247,7 +247,7 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 
 	![Connettersi alla macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
 
-1. Accedere con l'account amministratore (**\\DomainAdmin**) e la password (**Contoso!000**) configurati.
+1. Accedere con l'account amministratore (**\\DomainAdmin**) e la password (**Contoso!0000**) configurati.
 
 1. Per impostazione predefinita, verrà visualizzato il dashboard **Server Manager**.
 
@@ -282,7 +282,7 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 | **Page** |Impostazione|
 |---|---|
 |**Configurazione distribuzione** |**Aggiungi una nuova foresta** = Selezionata<br/>**Nome di dominio radice** = corp.contoso.com|
-|**Opzioni controller di dominio**|**Password DSRM** = Contoso!000<br/>**Conferma password** = Contoso!000|
+|**Opzioni controller di dominio**|**Password DSRM** = Contoso!0000<br/>**Conferma password** = Contoso!0000|
 
 1. Fare clic su **Avanti** per procedere nelle altre pagine della procedura guidata. Nella pagina **Controllo dei prerequisiti** verificare che venga visualizzato il seguente messaggio: **Tutti i controlli dei prerequisiti sono riusciti**. Si noti che è opportuno leggere tutti i messaggi di avviso applicabili, ma è possibile continuare con l'installazione.
 
@@ -292,13 +292,13 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 
 Dopo il riavvio del controller di dominio primario, è possibile configurare il secondo controller di dominio. Questo passaggio facoltativo serve a garantire una disponibilità elevata. Per completare questo passaggio, sarà necessario conoscere l'indirizzo IP privato per il controller di dominio. È possibile ottenerlo dal portale di Azure. Seguire questi passaggi per configurare il secondo controller di dominio.
 
-1. Accedere di nuovo al computer **ad-primary-dc**. 
+1. Accedere di nuovo al computer **ad-primary-dc**.
 
 1. Aprire Desktop remoto e connettersi al controller di dominio secondario in base all'indirizzo IP. Se non si conosce l'indirizzo IP del controller di dominio secondario, andare al portale di Azure e controllare l'indirizzo assegnato all'interfaccia di rete per il controller di dominio secondario.
 
 1. Sostituire l'indirizzo del server DNS preferito con l'indirizzo del controller di dominio.
 
-1. Avviare il file RDP nel controller di dominio primario (**ad-primary-dc**) e accedere alla VM con l'account amministratore (**BUILTIN\\DomainAdmin**) e la password (**Contoso!000**) configurati.
+1. Avviare il file RDP nel controller di dominio primario (**ad-primary-dc**) e accedere alla VM con l'account amministratore (**BUILTIN\\DomainAdmin**) e la password (**Contoso!0000**) configurati.
 
 1. Dal controller di dominio primario avviare una sessione di Desktop remoto in **ad-secondary-dc** usando l'indirizzo IP. Usare lo stesso account e la stessa password.
 
@@ -316,7 +316,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 1. Selezionare Utilizza i seguenti indirizzi server DNS e specificare l'indirizzo del controller di dominio primario in **Server DNS preferito**.
 
-1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** al prompt dei comandi, come illustrato di seguito.
+1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** nel prompt dei comandi, come illustrato di seguito.
 
 	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
@@ -330,7 +330,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 |Page|Impostazione|
 |---|---|
 |**Configurazione distribuzione**|**Aggiungi un controller di dominio a un dominio esistente** = selezionata<br/>**Radice** = corp.contoso.com|
-|**Opzioni controller di dominio**|**Password DSRM** = Contoso!000<br/>**Conferma password** = Contoso!000|
+|**Opzioni controller di dominio**|**Password DSRM** = Contoso!0000<br/>**Conferma password** = Contoso!0000|
 
 
 ### Configurare gli account di dominio
@@ -351,8 +351,8 @@ Nei seguenti passaggi vengono configurati gli account Active Directory (AD) per 
 |---|---|
 |**Nome**|Installa|
 |**Utente SamAccountName**|Installa|
-|**Password**|Contoso!000|
-|**Conferma password**|Contoso!000|
+|**Password**|Contoso!0000|
+|**Conferma password**|Contoso!0000|
 |**Altre opzioni password**|Selezionato|
 |**Nessuna scadenza password**|Selezionato|
 
@@ -382,12 +382,12 @@ Dopo avere completato la configurazione di Active Directory e degli oggetti uten
 
 ###Creare e configurare le VM di SQL Server
 
-Successivamente, creare tre VM, tra cui due VM di SQL Server e un nodo del cluster WSFC. Per creare ogni VM, tornare al gruppo di risorse **HA-AG-RG**, fare clic su **Aggiungi**, cercare l'elemento della raccolta appropriato, **Macchina virtuale** e quindi **Da raccolta**. Successivamente, usare i modelli indicati della seguente tabella per creare le macchine virtuali.
+Successivamente, creare tre VM, tra cui due VM di SQL Server e un nodo del cluster WSFC. Per creare ogni VM, tornare al gruppo di risorse **SQL-HA-RG**, fare clic su **Aggiungi**, cercare l'elemento della raccolta appropriato, **Macchina virtuale**, quindi **Da raccolta**. Successivamente, usare i modelli indicati della seguente tabella per creare le macchine virtuali.
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Selezionare l'elemento della raccolta appropriato|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 SP1 Enterprise in Windows Server 2012 R2**|**SQL Server 2014 SP1 Enterprise in Windows Server 2012 R2**|
-| Configurazione della macchina virtuale - **Nozioni di base** | **Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure |
+| Configurazione della macchina virtuale - **Nozioni di base** | **Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure |
 |Configurazione della macchina virtuale - **Dimensioni** |DS1 (1 core, 3,5 GB di memoria)|**DIMENSIONI** = DS 2 (2 core, 7 GB di memoria)|**DIMENSIONI** = DS 2 (2 core, 7 GB di memoria)|
 |Configurazione della macchina virtuale - **Impostazioni**|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>
 |Configurazione della macchina virtuale - **Impostazioni SQL Server**|Non applicabile|**Connettività SQL** = Privata (all'interno della rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = Disabilita<br/>**Configurazione dell'archiviazione** = Generale<br/>**Applicazione automatica delle patch** = Domenica alle 2:00<br/>**Backup automatizzato** = Disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata|**Connettività SQL** = Privata (all'interno della rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = Disabilita<br/>**Configurazione dell'archiviazione** = Generale<br/>**Applicazione automatica delle patch** = Domenica alle 2:00<br/>**Backup automatizzato** = Disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata|
@@ -413,9 +413,9 @@ Per continuare, annotare l'indirizzo IP virtuale di Azure per ogni VM. Ottenere 
 Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A tale scopo, seguire questa procedura per ognuna delle tre macchine virtuali.
 
 
-1. In primo luogo, modificare l'indirizzo del server DNS preferito per ogni server membro. 
+1. In primo luogo, modificare l'indirizzo del server DNS preferito per ogni server membro.
 
-1. Avviare il file RDP nel controller di dominio primario (**ad-primary-dc**) e accedere alla VM con l'account amministratore (**BUILTIN\\DomainAdmin**) e la password (**Contoso!000**) configurati.
+1. Avviare il file RDP nel controller di dominio primario (**ad-primary-dc**) e accedere alla VM con l'account amministratore (**BUILTIN\\DomainAdmin**) e la password (**Contoso!0000**) configurati.
 
 1. Dal controller di dominio primario avviare una sessione di Desktop remoto in **sqlserver-0** usando l'indirizzo IP. Usare lo stesso account e la stessa password.
 
@@ -433,7 +433,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 1. Selezionare Utilizza i seguenti indirizzi server DNS e specificare l'indirizzo del controller di dominio primario in **Server DNS preferito**.
 
-1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** al prompt dei comandi, come illustrato di seguito.
+1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** nel prompt dei comandi, come illustrato di seguito.
 
 	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
@@ -448,7 +448,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 1. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Fare clic su **OK**.
 
-1. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\\DomainAdmin**) e la password (**Contoso!000**).
+1. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\\DomainAdmin**) e la password (**Contoso!0000**).
 
 1. uando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
 
@@ -470,7 +470,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 1. Nella finestra di dialogo **Proprietà Administrators** fare clic su pulsante **Aggiungi**.
 
-1. Immettere l'utente **CORP\\Install**, quindi fare clic su **OK**. Alla richiesta delle credenziali, usare l'account **DomainAdmin** con la password **Contoso! 000**.
+1. Immettere l'utente **CORP\\Install**, quindi fare clic su **OK**. Alla richiesta delle credenziali, usare l'account **DomainAdmin** con la password **Contoso!0000**.
 
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Proprietà Administrators**.
 
@@ -662,7 +662,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. Avviare il file RDP per **sqlserver-0** e accedere come **CORP\\Install**.
 
-1. In **Esplora file**, creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
+1. In **Esplora file** in **C:** creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
 
 1. Fare clic con il pulsante destro del mouse sulla nuova directory, puntare a **Condividi con**, quindi scegliere **Utenti specifici**, come mostrato di seguito.
 
@@ -847,7 +847,7 @@ A questo punto è necessario configurare il listener del gruppo di disponibilit�
 
 1. Impostare la proprietà Porta di attesa su 1433. A questo scopo, aprire SQL Server Management Studio, fare clic con il pulsante destro del mouse sul listener del gruppo di disponibilità e scegliere Proprietà. Impostare **Porta** su 1433.
 
-1. A questo punto è possibile [portare il listener online](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
+1. A questo punto è possibile [portare online il listener](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
 
 ### Testare la connessione al listener
 
@@ -865,4 +865,4 @@ Per testare la connessione:
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

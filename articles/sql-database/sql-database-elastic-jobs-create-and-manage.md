@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare e gestire database SQL di Azure con un numero maggiore di istanze | Microsoft Azure"
+	pageTitle="Creare e gestire database SQL di Azure con scalabilità orizzontale | Micosoft Azure"
 	description="Informazioni sulla gestione e la creazione di un processo elastico di database."
 	services="sql-database"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/27/2016"
 	ms.author="ddove"/>
 
-# Creare e gestire database SQL di Azure con un numero maggiore di istanze (anteprima)
+# Creare e gestire database SQL di Azure con scalabilità orizzontale (anteprima)
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -29,7 +29,7 @@
 
 Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS.
 
-> [AZURE.IMPORTANT] Usare sempre la versione più aggiornata di SQL Server Management Studio (SSMS) per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. Le versioni precedenti di SQL Server Management Studio non funzionano correttamente con il database SQL. Visitare [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (Scaricare SQL Server Management Studio) per ottenere una nuova versione.
+> [AZURE.IMPORTANT] Usare sempre la versione più aggiornata di SQL Server Management Studio (SSMS) per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. Le versioni precedenti di SQL Server Management Studio non funzionano correttamente con il database SQL. Visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) per ottenere una nuova versione.
 
 ## Creazione e gestione dei database SQL di Azure
 
@@ -76,7 +76,7 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
 
 -   Per concedere a login1 le autorizzazioni per un database denominato **myTestDB**, eseguire i passaggi seguenti:
 
- 1.  Per aggiornare Esplora oggetti in modo da visualizzare il database **myTestDB** creato, fare clic con il pulsante destro del mouse sul nome del server in Esplora oggetti e quindi scegliere **Aggiorna**.  
+ 1.  Per aggiornare Esplora oggetti in modo da visualizzare il database **myTestDB** creato, fare clic con il pulsante destro del mouse sul nome del server in Esplora oggetti e quindi scegliere **Aggiorna**.
 
      Se si è chiusa la connessione, è possibile ristabilirla selezionando **Connect Object Explorer** dal menu File.
 
@@ -151,4 +151,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

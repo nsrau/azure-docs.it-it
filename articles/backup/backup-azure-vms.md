@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -183,4 +183,4 @@ In caso di problemi durante il backup della macchina virtuale, vedere l'articolo
 - [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
@@ -29,7 +29,11 @@ Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight
 
 * **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva.
 
-> [AZURE.NOTE] L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versioni 3.2 e 3.4 (per i cluster Hadoop, HBase e Storm sia per Windows che per Linux). Per i cluster Spark su Linux, queste opzione è disponibile solo sui cluster HDInsight 3.4.
+> [AZURE.NOTE] Alcuni elementi importanti da considerare:
+> 
+> * L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versioni 3.2 e 3.4 (per i cluster Hadoop, HBase e Storm sia per Windows che per Linux). Per i cluster Spark su Linux, questa opzione è disponibile solo sui cluster HDInsight 3.4.
+>
+> * Come indicato in precedenza, Archivio Data Lake è disponibile come risorsa di archiviazione predefinita per alcuni tipi di cluster (HBase) e come risorsa di archiviazione aggiuntiva per altri tipi (Hadoop, Spark, Storm). L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster. In uno scenario in cui Archivio Data Lake viene usato come risorsa di archiviazione aggiuntiva, i file correlati al cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita (BLOB di Azure), mentre i dati da elaborare possono essere archiviati in un account di Archivio Data Lake.
 
 
 In questo articolo si effettuerà il provisioning di un cluster Hadoop con Archivio Data Lake come risorsa di archiviazione aggiuntiva.
@@ -100,7 +104,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] Se si riceve un errore simile a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse Archivio Data Lake, è possibile che la sottoscrizione non sia abilitata per Archivio Azure Data Lake. Assicurarsi di abilitare la sottoscrizione di Azure per l'anteprima pubblica di Archivio Data Lake seguendo queste [istruzioni](data-lake-store-get-started-portal.md#signup).
+	>[AZURE.NOTE] Se si riceve un errore simile a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse Archivio Data Lake, è possibile che la sottoscrizione non sia abilitata per Archivio Data Lake di Azure. Assicurarsi di abilitare la sottoscrizione di Azure per l'anteprima pubblica di Archivio Data Lake seguendo queste [istruzioni](data-lake-store-get-started-portal.md#signup).
 
 3. Un account di Archivio Azure Data Lake è associato a un gruppo di risorse di Azure. Per iniziare, creare un gruppo di risorse di Azure.
 
@@ -380,4 +384,4 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

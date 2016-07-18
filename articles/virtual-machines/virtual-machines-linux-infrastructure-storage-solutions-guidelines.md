@@ -46,7 +46,7 @@ Archiviazione di Azure è una parte fondamentale della distribuzione e della ges
 Per il supporto delle macchine virtuali sono disponibili due tipi di archiviazione:
 
 - Un account di archiviazione standard consente di accedere all'archiviazione BLOB (usata per archiviare i dischi delle macchine virtuali di Azure), all'archiviazione tabelle, all'archiviazione code e all'archiviazione file.
-- [Archiviazione Premium](../storage/storage-premium-storage.md) offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con uso intensivo di I/O, ad esempio SQL Server in un cluster AlwaysOn, e attualmente supporta solo i dischi di macchine virtuali di Azure.
+- [Archiviazione Premium](../storage/storage-premium-storage.md) offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con uso intensivo di I/O, ad esempio cluster condivisi MongoDB e attualmente supporta solo i dischi di VM di Azure.
 
 Azure consente di creare macchine virtuali con un disco del sistema operativo, un disco temporaneo e nessuno o più dischi dati facoltativi. Il disco del sistema operativo e i dischi dati sono BLOB di Azure, mentre il disco temporaneo è archiviato localmente sul nodo in cui si trova il computer. Prestare attenzione quando si progettano applicazioni in modo da usare solo questo disco temporaneo per i dati non persistenti, in quanto la macchina virtuale può eseguire la migrazione tra host durante un evento di manutenzione. Tutti i dati archiviati sul disco temporaneo andranno persi.
 
@@ -71,7 +71,7 @@ Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee
 - Usare la gestione dei volumi logici
 - Evitare di usare le opzioni di memorizzazione nella cache del disco di dati di Azure (criterio di memorizzazione nella cache = Nessuno)
 
-Per altre informazioni, vedere l’articolo sugli [spazi di archiviazione - progettazione della prestazione](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Per ulteriori informazioni, vedere [Configurare LVM in una VM di Linux](virtual-machines-linux-configure-lvm.md).
 
 
 ## Account di archiviazione multipli
@@ -85,4 +85,4 @@ Per altre informazioni sulle funzionalità di I/O delle diverse opzioni di archi
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

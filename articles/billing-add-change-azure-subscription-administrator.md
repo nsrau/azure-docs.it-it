@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # Come aggiungere o modificare i ruoli di amministratore di Azure
@@ -48,7 +48,7 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 	**Nota**
 	- Il ruolo di proprietario dispone degli stessi privilegi di accesso del coamministratore. Questo ruolo non dispone dei privilegi di accesso per il [Centro Account di Azure](https://account.windowsazure.com/subscriptions).
-	- I proprietari aggiunti tramite il [portale di Azure](https://portal.azure.com) non possono gestire i servizi nel [portale di Azure classico](https://manage.windowsazure.com).  
+	- I proprietari aggiunti tramite il [portale di Azure](https://portal.azure.com) non possono gestire i servizi nel [portale di Azure classico](https://manage.windowsazure.com).
 
 5. Immettere l'indirizzo di posta elettronica dell'utente che si desidera aggiungere, fare clic sull'utente e quindi su **Seleziona**.
 
@@ -69,7 +69,7 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministratore:
 
 * **Account Microsoft** (precedentemente noto come ID Windows Live) </br> È possibile usare un account Microsoft per accedere a tutti i prodotti e servizi cloud Microsoft destinati all'utente, quali Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
-* **Account dell'organizzazione**</br> Un account dell'organizzazione è un account che viene creato in Azure Active Directory. L'indirizzo dell'account aziendale è simile al seguente: user@&lt;your dominio&gt;.onmicrosoft.com
+* **Account dell'organizzazione**</br> Un account dell'organizzazione è un account che viene creato in Azure Active Directory. L'indirizzo dell'account aziendale è simile al seguente: utente@&lt;dominio&gt;.onmicrosoft.com
 
 ### Limitazioni e restrizioni
 
@@ -104,14 +104,14 @@ Solo l'amministratore dell'account può modificare l'amministratore del servizio
 
 ## Come modificare l'amministratore dell'account
 
-Per trasferire la proprietà dell'account Azure a un altro account, vedere [Trasferimento di una sottoscrizione di Azure](billing-subscription-transfer.md).
+Per trasferire la proprietà dell'account Azure a un altro account, vedere [Trasferimento di proprietà di una sottoscrizione di Azure](billing-subscription-transfer.md).
 
 ## Passaggi successivi
 
-* Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](./active-directory/active-directory-understanding-resource-access.md).
+* Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](./active-directory/active-directory-understanding-resource-access.md)
 
-* Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
+* Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md)
 
-* Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
+* Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

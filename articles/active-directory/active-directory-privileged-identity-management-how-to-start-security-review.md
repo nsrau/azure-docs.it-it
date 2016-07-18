@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Come avviare una verifica della sicurezza | Microsoft Azure"
-   description="Informazioni su come creare una verifica della sicurezza per le identità con privilegi con l'applicazione Azure Privileged Identity Management."
+   pageTitle="Come iniziare una verifica dell'accesso | Microsoft Azure"
+   description="Informazioni su come creare una verifica dell'accesso per le identità con privilegi con l'applicazione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
-# Come avviare una verifica della sicurezza in Azure AD Privileged Identity Management
+# Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
 
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono esaminare periodicamente i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica della sicurezza in Azure AD Privileged Identity Management (PIM).
 
@@ -25,43 +25,66 @@ Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi c
 
 Nella pagina principale dell'applicazione PIM sono disponibili tre opzioni per avviare una verifica della sicurezza:
 
-- **Verifiche della sicurezza** > **Verifica** > pulsante **Verifica**
+- **Verifiche di accesso** > **Aggiungi**
 - **Ruoli** > pulsante **Verifica**
-- Selezionare il ruolo da verificare dall'elenco dei ruoli > pulsante **Verifica**
+- Selezionare il ruolo specifico da verificare dall'elenco dei ruoli > pulsante **Verifica**
 
-Quando si fa clic sul pulsante **Verifica**, vengono visualizzati i pannelli **Inizia a verificare un ruolo** e **Selezionare un ruolo da verificare**. L'opzione **Selezionare un ruolo da verificare** è già selezionata.
+Quando fa clic sul pulsante **Verifica**, viene visualizzato il pannello **Inizia una verifica di accesso** . In questo pannello configurare la verifica assegnando un nome e un limite temporale, scegliere un ruolo da verificare e decidere chi eseguirà la verifica.
 
-### Selezionare il ruolo da verificare
+![Schermata Inizia una verifica di accesso][1]
 
-1. Selezionare il ruolo dall'elenco dei ruoli nel pannello **Selezionare un ruolo da verificare**. È possibile scegliere solo un ruolo per volta. Il pannello **Seleziona ruolo da rivedere** verrà sostituito dal pannello **Seleziona revisori**. Per la selezione dei revisori sono disponibili due opzioni:
-  - Selezione di se stessi come revisori: usare questa opzione per visualizzare un'anteprima del funzionamento delle verifiche della sicurezza senza coinvolgere altri amministratori.
-  - Verifica automatica dei membri dei ruoli: usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni dei ruoli.
-2. Selezionare una di queste due opzioni per iniziare a esaminare i dettagli della revisione. Verrà visualizzato il pannello **Modifica impostazioni predefinite**.
+### Configurare la verifica
 
-### Revisione di tipo "Io"
+Per creare una verifica di accesso, è necessario assegnare un nome e impostare le date di inizio e di fine.
 
-Se è stata selezionata l'opzione "Io" come revisore, passare alla revisione della sicurezza. Per altre informazioni su come completare la revisione, vedere [Azure Privileged Identity Management: Come eseguire una revisione della sicurezza](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+![Schermata di configurazione della verifica][2]
 
-### Verifica automatica dei membri dei ruoli
+Definire una durata della verifica che consenta agli utenti di completare l'operazione. Se la verifica termina prima della data di fine, è sempre possibile arrestare la verifica in anticipo.
 
-Se si sceglie di fare in modo che gli utenti verifichino le proprie assegnazioni dei ruoli, seguire questa procedura per impostare la verifica e inviare le notifiche.
+### Scegliere un ruolo da verificare
 
-1. Denominare la revisione immettendo il nome della revisione nel campo **Nome**. Assegnare alla verifica un nome univoco descrittivo che consenta di tenerne facilmente traccia.
-2. Immettere una data di inizio della revisione nel campo **Data inizio**.
-3. Immettere una data di fine della revisione nel campo **Data fine**. Sono elencati di seguito alcuni aspetti da considerare quando si imposta la data di fine della revisione:
-  - Numero di persone da sottoporre a revisione
-  - Tempo necessario agli utenti per l'aggiunta dell'applicazione PIM nel portale di Azure e il completamento della verifica
-4. Fare clic su **OK** nel pannello **Modifica impostazioni predefinite**. Il pannello verrà chiuso.
-5. Fare clic su **OK** nel pannello **Inizia a verificare un ruolo**. Il pannello verrà chiuso. Nel menu principale del portale di Azure verrà visualizzata una notifica. Aggiornare il dashboard facendo clic sul pulsante **Aggiorna**. La verifica della sicurezza verrà visualizzata nella sezione **Verifiche della sicurezza**.
-6. Inviare una notifica agli utenti del ruolo in cui viene richiesto di aggiungere l'applicazione PIM e di [verificare il proprio accesso amministrativo](active-directory-privileged-identity-management-how-to-perform-security-review.md).  
+Ogni verifica è incentrata su un solo ruolo. A meno che non si abbia avviato la verifica di accesso dal pannello di un ruolo specifico, è ora necessario scegliere un ruolo.
 
-## Gestire la verifica della sicurezza
+1. Passare a **Verifica l'appartenenza ai ruoli**
 
-È possibile tenere traccia dello stato di avanzamento delle verifiche eseguite dai revisori nella sezione Verifiche della sicurezza del dashboard di Azure AD PIM. Nessun diritto di accesso verrà modificato nella directory fino a quando [non viene completata la verifica](active-directory-privileged-identity-management-how-to-complete-review.md).
+    ![Schermata Verifica l'appartenenza ai ruoli][3]
+
+2. Scegliere un ruolo dall'elenco.
+
+### Decidere chi eseguirà la verifica
+
+Sono disponibili due opzioni per l'esecuzione di una verifica. È possibile farlo personalmente, approvando o negando l'accesso a tutti gli utenti in un ruolo. In alternativa è possibile fare in modo che ogni utente verifichi il proprio accesso.
+
+1. Passare a **Selezionare i revisori**
+
+    ![Schermata Selezionare i revisori][4]
+
+2. Scegliere una delle opzioni disponibili:
+    - **Me** (Io): utile se si vuole visualizzare in anteprima come funzionano le verifiche di accesso o se si vuole eseguire una verifica per conto di utenti che non possono eseguire questa operazione.
+    - **Members review themselves** (I membri verificano se stessi): usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruoli.
+
+### Avviare la verifica
+
+Infine è disponibile l'opzione per richiedere agli utenti di fornire un motivo se approvano l'accesso. Se si vuole, aggiungere una descrizione della verifica e selezionare **Avvia**.
+
+Assicurarsi di informare gli utenti che è presente una verifica di accesso in attesa per loro e mostrare [Come eseguire una verifica dell'accesso](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+
+## Gestire la verifica di accesso
+
+È possibile tenere traccia dello stato di avanzamento delle verifiche eseguite dai revisori nella sezione Verifiche di accesso del dashboard di Azure AD PIM. Nessun diritto di accesso verrà modificato nella directory fino al [completamento della verifica](active-directory-privileged-identity-management-how-to-complete-review.md).
+
+Fino al termine del periodo di verifica, è possibile ricordare agli utenti di completare la verifica o arrestare la verifica in anticipo nella sezione Verifiche di accesso.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Sommario PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
+[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
+[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Panoramica sui certificati per i servizi cloud di Azure
@@ -61,10 +61,16 @@ Questa utilità è stata deprecata e di seguito non è più disponibile la relat
 
 ### PowerShell
 
-```
+```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+
+Se si desidera usare questo [certificato con il portale di gestione](../azure-api-management-certs.md), esportarlo in un file con estensione **cer**:
+
+```powershell
+Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)
@@ -85,4 +91,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

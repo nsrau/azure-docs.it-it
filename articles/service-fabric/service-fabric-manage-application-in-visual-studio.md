@@ -36,23 +36,24 @@ Distribuendo un'applicazione, si combinano in un'unica operazione i passaggi seg
 
 In Visual Studio, anche premendo **F5** l'applicazione viene distribuita e il debugger viene collegato a tutte le relative istanze. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione. Per ulteriori informazioni, consultare [Pubblicare un'applicazione in un cluster remoto mediante Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
-### Mantenere i dati tra le esecuzioni dei test
+### Modalità di debug applicazione
 
-Spesso, si verificano i servizi in locale aggiungendo input di dati di test, modificando alcuni blocchi di codice e quindi nuovamente eseguendo il debug in locale. Gli strumenti di Service Fabric di Visual Studio forniscono una proprietà utile denominata **Conservare i dati all'avvio** per mantenere i dati immessi nella sessione precedente e avere la possibilità di usarli nuovamente.
+Durante il debug del servizio in locale, a volte è consigliabile mantenere l'applicazione e i dati esistenti. Strumenti di Service Fabric per Visual Studio offre una proprietà denominata **Modalità di debug applicazione** che controlla se **F5** disinstalla o mantiene l'applicazione al termine di una sessione di debug.
 
-#### Per abilitare la proprietà di conservazione dei dati all’avvio.
+#### Per impostare la proprietà Modalità di debug applicazione
 
 1. Dal menu di scelta rapida del progetto dell'applicazione, scegliere **Proprietà** (o premere il pulsante **F4**).
-1. Nella finestra **Proprietà**, impostare la proprietà **Mantieni i dati all'avvio** su **Sì**.
+2. Nella finestra **Proprietà** impostare la proprietà **Modalità di debug applicazione** su **Rimuovi** o **Aggiornamento automatico**.
 
-	![Impostare la proprietà di conservazione dei dati all’avvio][preservedata]
+![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty]
 
-Quando si esegue nuovamente l'applicazione, lo script di distribuzione considera ora la distribuzione come un aggiornamento utilizzando la modalità automatica non monitorata per l'aggiornamento rapido dell'applicazione a una versione più recente con una stringa di dati aggiunta. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
+Se il valore della proprietà è impostato su **Aggiornamento automatico**, l'applicazione viene lasciata in esecuzione nel cluster locale. Premendo nuovamente **F5** la distribuzione viene considerata come un aggiornamento e viene usata la modalità automatica non monitorata per aggiornare rapidamente l'applicazione a una versione più recente con l'aggiunta di una stringa della data. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
 
-![Esempio di una nuova versione dell'applicazione con data aggiunta][preservedate]
+![Esempio di una nuova versione dell'applicazione con l'aggiunta di date1][preservedate]
 
 I dati vengono conservati sfruttando la funzionalità di aggiornamento della piattaforma di Service Fabric. Per altre informazioni sull'aggiornamento di un'applicazione, consultare [Aggiornamento dell'applicazione di Service Fabric](service-fabric-application-upgrade.md).
 
+**Nota:** questa proprietà non è presente nelle versioni precedenti alla versione 1.1 di Strumenti di Service Fabric per Visual Studio. Nelle versioni precedenti alla versione 1.1 è possibile usare la proprietà **Conserva dati all'avvio** per ottenere lo stesso comportamento.
 ## Aggiungere un servizio all'applicazione di Service Fabric
 
 È possibile aggiungere nuovi servizi di Service Fabric all'applicazione per estenderne la funzionalità. Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service**.
@@ -69,7 +70,7 @@ Il nuovo servizio verrà aggiunto alla soluzione e al pacchetto applicazione esi
 
 ## Creazione del pacchetto per l'applicazione di Service Fabric
 
-Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Facendo clic su **Pacchetto ** dal menu di scelta rapida **Applicazione** il pacchetto di applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
+Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Facendo clic su **Pacchetto** dal menu di scelta rapida **Applicazione** il pacchetto di applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
 
 ## Rimuovere un'applicazione
 
@@ -96,5 +97,6 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+[debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

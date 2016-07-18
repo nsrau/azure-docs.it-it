@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="07/05/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
@@ -69,7 +69,7 @@ In relazione alla disponibilità elevata, Macchine virtuali di Azure si differen
 
 A differenza delle istanze del ruolo PaaS, i dati archiviati in unità di macchine virtuali sono persistenti anche in caso di rilocazione della macchina virtuale. Le macchine virtuali di Azure usano dischi di VM esistenti come BLOB in Archiviazione di Azure. Grazie alle caratteristiche di disponibilità di Archiviazione di Azure, anche i dati archiviati nelle unità di una macchina virtuale sono a disponibilità elevata.
 
-Si noti che l'unità D: rappresenta un'eccezione a questa regola. L'unità D: è di fatto la risorsa di archiviazione fisica del server del rack che ospita la VM e i relativi dati andranno persi in caso di riciclo della VM. L'unità D: è destinata esclusivamente all'archiviazione temporanea.
+Si noti che l'unità D: nelle macchine virtuali Windows rappresenta un'eccezione a questa regola. L'unità D: è di fatto la risorsa di archiviazione fisica del server del rack che ospita la VM e i relativi dati andranno persi in caso di riciclo della VM. L'unità D: è destinata esclusivamente all'archiviazione temporanea. In Linux Azure espone "solitamente", ma non sempre, il disco temporaneo locale dome dispositivo di blocco /dev/sdb. Viene spesso montato dall'agente Linux di Azure come punti di montaggio /mnt/resource o /mnt. Questo elemento può essere configurato tramite /etc/waagent.conf.
 
 ###Partizionamento
 
@@ -118,13 +118,13 @@ Il database SQL di Azure offre resilienza predefinita agli errori a livello di n
 
 ####Resource management
 
-Ogni database, al momento della creazione, viene configurato con un limite massimo di dimensioni. Le dimensioni massime attualmente disponibili sono 150 GB. Quando raggiunge il proprio limite massimo di dimensioni, il database rifiuta i comandi INSERT o UPDATE aggiuntivi. È ancora possibile eseguire query ed eliminare dati.
+Ogni database, al momento della creazione, viene configurato con un limite massimo di dimensioni. Le dimensioni massime attualmente disponibili sono pari a 1 TB. I limiti per le dimensioni dipendono dal livello di servizio specifico. Vedere [Livelli di servizio e livelli di prestazioni](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels) dei database SQL di Azure. Quando raggiunge il proprio limite massimo di dimensioni, il database rifiuta i comandi INSERT o UPDATE aggiuntivi. È ancora possibile eseguire query ed eliminare dati.
 
 All'interno di un database, il database SQL di Microsoft Azure usa un'infrastruttura per gestire le risorse. Per rilevare gli errori, tuttavia, usa una topologia ad anello anziché un controller di infrastruttura. Ogni replica in un cluster ha due vicini e la responsabilità di rilevare quando sono inattivi. Quando una replica diventa inattiva, i vicini attivano un agente di riconfigurazione per ricrearla in un'altra macchina. La limitazione del motore viene fornita per garantire che un server logico non usi troppe risorse in una macchina o ne superi i limiti fisici.
 
 ###Elasticità
 
-Se le esigenze dell'applicazione superano il limite di 150 GB del database, deve essere implementato un approccio di aumento delle istanze. Con il database SQL di Azure, la scalabilità orizzontale viene eseguita con il partizionamento manuale dei dati, noto anche come partizionamento orizzontale, in più database SQL di Azure. Questo approccio di aumento delle istanze offre l'opportunità di ottenere una crescita proporzionale quasi lineare dei costi. La crescita elastica consente di aumentare la capacità su richiesta con costi incrementali in base alle esigenze, perché i database vengono fatturati in base alle dimensioni effettive medie usate al giorno, non in base alle dimensioni massime possibili.
+Se le esigenze dell'applicazione superano il limite di 1 TB del database, deve essere implementato un approccio di aumento delle istanze. Con il database SQL di Azure, la scalabilità orizzontale viene eseguita con il partizionamento manuale dei dati, noto anche come partizionamento orizzontale, in più database SQL di Azure. Questo approccio di aumento delle istanze offre l'opportunità di ottenere una crescita proporzionale quasi lineare dei costi. La crescita elastica consente di aumentare la capacità su richiesta con costi incrementali in base alle esigenze, perché i database vengono fatturati in base alle dimensioni effettive medie usate al giorno, non in base alle dimensioni massime possibili.
 
 ##SQL Server nelle macchine virtuali
 
@@ -132,11 +132,11 @@ Installando SQL Server (versione 2014 o successiva) in Macchine virtuali di Azur
 
 ###Nodi a disponibilità elevata in un set di disponibilità
 
-Quando si implementa una soluzione a disponibilità elevata in Azure, è possibile usare il set di disponibilità in Azure per inserire i nodi a disponibilità elevata in domini di errore e di aggiornamento separati. Per maggiore chiarezza, il set di disponibilità è un concetto di Azure. È una procedura consigliata da seguire per assicurarsi che i database siano effettivamente a disponibilità elevata, indipendentemente dal fatto che si usino Gruppi di disponibilità AlwaysOn, il mirroring del database o altro. Se non si segue questa procedura consigliata, si potrebbe erroneamente presumere che il sistema sia a disponibilità elevata. In realtà si possono verificare errori in tutti i nodi simultaneamente perché i nodi sono inseriti nello stesso dominio di errore nel data center di Azure.
+Quando si implementa una soluzione a disponibilità elevata in Azure, è possibile usare il set di disponibilità in Azure per inserire i nodi a disponibilità elevata in domini di errore e di aggiornamento separati. Per maggiore chiarezza, il set di disponibilità è un concetto di Azure. È una procedura consigliata da seguire per assicurarsi che i database siano effettivamente a disponibilità elevata, indipendentemente dal fatto che si usino Gruppi di disponibilità AlwaysOn, il mirroring del database o altro. Se non si segue questa procedura consigliata, si potrebbe erroneamente presumere che il sistema sia a disponibilità elevata. In realtà si possono verificare errori in tutti i nodi simultaneamente perché i nodi sono inseriti nello stesso dominio di errore nell'area di Azure.
 
-Questa raccomandazione non si applica con il log shipping. Con questa funzionalità di ripristino di emergenza è consigliabile assicurarsi che i server siano in esecuzione in posizioni dei data center di Azure separate (aree). Per definizione, queste posizioni dei data center sono domini di errore separati.
+Questa raccomandazione non si applica con il log shipping. Con questa funzionalità di ripristino di emergenza è consigliabile assicurarsi che i server siano in esecuzione in aree di Azure separate. Per definizione, queste aree sono domini di errore separati.
 
-Per collocare le macchine virtuali di Azure nello stesso set di disponibilità, è necessario distribuirle nello stesso servizio cloud. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Le VM, inoltre, devono far parte della stessa rete virtuale in modo da mantenere i propri IP anche dopo la correzione del servizio. Ciò consente di evitare i tempi di aggiornamento DNS.
+Per fare in modo che le macchine virtuali dei servizi cloud di Azure distribuite tramite il portale classico si trovino nello stesso set di disponibilità, è necessario distribuirle nello stesso servizio cloud. Le macchine virtuale distribuite tramite Azure Resource Manager (portale corrente) non presentano questa limitazione. Per le macchine virtuali distribuite tramite il portale classico nel servizio cloud di Azure solo i nodi che si trovano nello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Le VM dei servizi cloud, inoltre, devono far parte della stessa rete virtuale in modo da mantenere i propri IP anche dopo la correzione del servizio. Ciò consente di evitare interruzioni all'aggiornamento DNS.
 
 ###Solo Azure: soluzioni a disponibilità elevata
 
@@ -160,23 +160,23 @@ Le applicazioni basate su Azure usufruiscono delle funzionalità della piattafor
 
 ###Bus di servizio
 
-Per attenuare gli effetti di un'interruzione temporanea del bus di servizio di Azure, può essere opportuno creare una coda durevole sul lato client. In questo modo viene usato temporaneamente un meccanismo di archiviazione locale alternativo per archiviare i messaggi che non possono essere aggiunti alla coda del bus di servizio. L'applicazione può decidere come gestire i messaggi archiviati temporaneamente dopo che è stato ripristinato il servizio. Per altre informazioni, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](../service-bus/service-bus-performance-improvements.md) e [Bus di servizio (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+Per attenuare gli effetti di un'interruzione temporanea del bus di servizio di Azure, può essere opportuno creare una coda durevole sul lato client. In questo modo viene usato temporaneamente un meccanismo di archiviazione locale alternativo per archiviare i messaggi che non possono essere aggiunti alla coda del bus di servizio. L'applicazione può decidere come gestire i messaggi archiviati temporaneamente dopo che è stato ripristinato il servizio. Per altre informazioni, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](../service-bus/service-bus-performance-improvements.md) e la sezione sul [bus di servizio (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
 
 ###Servizi mobili
 
 Esistono due considerazioni sulla disponibilità in relazione a Servizi mobili di Azure. Per prima cosa, eseguire regolarmente il backup del database SQL associato al servizio mobile. Eseguire quindi il backup anche degli script del servizio mobile. Per altre informazioni, vedere [Ripristinare il servizio mobile in caso di emergenza](../mobile-services/mobile-services-disaster-recovery.md).
 
-In caso di interruzione temporanea di Servizi mobili, potrebbe essere necessario usare temporaneamente un data center di Azure alternativo. Per altre informazioni, vedere [Servizi mobili (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+In caso di interruzione temporanea di Servizi mobili, potrebbe essere necessario usare temporaneamente un data center di Azure alternativo. Per altre informazioni, vedere la sezione relativa ai [servizi mobili (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
 
 ###HDInsight
 
-I dati associati ad AzureHDInsight vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure. Archiviazione di Azure specifica le proprietà di durabilità e disponibilità elevata per l'archiviazione Blob. L'elaborazione multinodo associata ai processi Hadoop MapReduce viene eseguita in Hadoop Distributed File System (HDFS), di cui HDInsight effettua il provisioning quando necessario. Anche i risultati di un processo MapReduce vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure, quindi i dati elaborati sono durevoli e mantengono la disponibilità elevata dopo il deprovisioning del cluster Hadoop. Per altre informazioni, vedere [HDInsight (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+I dati associati ad AzureHDInsight vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure. Archiviazione di Azure specifica le proprietà di durabilità e disponibilità elevata per l'archiviazione Blob. L'elaborazione multinodo associata ai processi Hadoop MapReduce viene eseguita in Hadoop Distributed File System (HDFS), di cui HDInsight effettua il provisioning quando necessario. Anche i risultati di un processo MapReduce vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure, quindi i dati elaborati sono durevoli e mantengono la disponibilità elevata dopo il deprovisioning del cluster Hadoop. Per altre informazioni, vedere la sezione relativa a [HDInsight (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
 
 ##Elenchi di controllo: errori locali
 
 ###Servizi cloud
 
-  1. Esaminare la sezione [Servizi Cloud](#cloud-services) di questo documento.
+  1. Vedere la sezione [Servizi Cloud](#cloud-services) di questo documento.
   2. Configurare almeno due istanze per ogni ruolo.
   3. Rendere persistente lo stato nella risorsa di archiviazione durevole, non nelle istanze del ruolo.
   4. Gestire correttamente l'evento StatusCheck.
@@ -187,40 +187,40 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 
 ###Macchine virtuali
 
-  1. Esaminare la sezione [Macchine virtuali](#virtual-machines) di questo documento.
+  1. Vedere la sezione [Macchine virtuali](#virtual-machines) di questo documento.
   2. Non usare l'unità D: per l'archiviazione persistente.
   3. Raggruppare le macchine di un livello del servizio in un set di disponibilità.
   4. Configurare il bilanciamento del carico e probe facoltativi.
 
 ###Archiviazione
 
-  1. Esaminare la sezione [Archiviazione](#storage) di questo documento.
+  1. Vedere la sezione [Archiviazione](#storage) di questo documento.
   2. Quando la larghezza di banda o i dati superano le quote, usare più account di archiviazione.
 
 ###Database SQL
 
-  1. Esaminare la sezione [Database SQL](#sql-database) di questo documento.
+  1. Vedere la sezione [Database SQL](#sql-database) di questo documento.
   2. Implementare un criterio di ripetizione dei tentativi per gestire gli errori temporanei.
   3. Usare il partizionamento orizzontale come strategia di aumento delle istanze.
 
 ###SQL Server nelle macchine virtuali
 
-  1. Esaminare la sezione [SQL Server nelle macchine virtuali](#sql-server-on-virtual-machines) di questo documento.
+  1. Vedere la sezione [SQL Server nelle macchine virtuali](#sql-server-on-virtual-machines) di questo documento.
   2. Seguire le raccomandazioni precedenti per le macchine virtuali.
   3. Usare le funzionalità di disponibilità elevata di SQL Server, come AlwaysOn.
 
 ###Bus di servizio
 
-  1. Esaminare la sezione [Bus di servizio](#service-bus) di questo documento.
+  1. Vedere la sezione [Bus di servizio](#service-bus) di questo documento.
   2. Prendere in considerazione la creazione di una coda durevole sul lato client come backup.
 
 ###HDInsight
 
-  1. Esaminare la sezione [HDInsight](#hdinsight) di questo documento.
+  1. Vedere la sezione [HDInsight](#hdinsight) di questo documento.
   2. Per gli errori locali non sono necessari passi aggiuntivi relativi alla disponibilità.
 
 ##Passaggi successivi
 
-Questo articolo fa parte di una serie relativa alle [indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino da un'interruzione del servizio a livello di area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+Questo articolo fa parte della serie [Indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino dopo un'interruzione di servizio di un'area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

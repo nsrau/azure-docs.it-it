@@ -20,7 +20,7 @@
 
 Questo argomento illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che il rollover di queste chiavi viene eseguito periodicamente e in caso di emergenza può essere eseguito immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione per gestire il rollover delle chiavi, se necessario.
 
-> [AZURE.IMPORTANT] Il successivo rollover della chiave di firma verrà eseguito il 15 agosto 2016 e *non* interesserà le applicazioni della raccolta o un'applicazione nel tenant B2C.
+> [AZURE.IMPORTANT] Il successivo rollover delle chiavi di firma è programmato per il 15 agosto 2016 e **non** avrà alcun effetto sulle applicazioni client, sulle applicazioni aggiunte dalla raccolta (fra cui quelle personalizzate), sulle applicazioni pubblicate mediante il proxy delle applicazioni o le applicazioni dei tenant B2C.
 
 ## Informazioni generali sulle chiavi di firma in Azure AD
 
@@ -328,4 +328,4 @@ Per recuperare manualmente la chiave più recente dal documento di metadati dell
 
 È stato appena creato il certificato X509 usato come chiave pubblica per Azure AD. Usando i dettagli del certificato, ad esempio la data di scadenza e l'identificazione personale, è possibile verificare manualmente o a livello di codice che il certificato e l'identificazione personale usati attualmente dall'applicazione siano validi.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

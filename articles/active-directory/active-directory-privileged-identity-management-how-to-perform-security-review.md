@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Come eseguire una verifica della sicurezza | Microsoft Azure"
+   pageTitle="Come eseguire una verifica dell'accesso | Microsoft Azure"
    description="Informazioni su come eseguire una verifica con l'applicazione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
-# Come eseguire una verifica della sicurezza in Azure AD Privileged Identity Management
+# Come eseguire una verifica dell'accesso in Azure AD Privileged Identity Management
 
 Azure Active Directory (AD) Privileged Identity Management semplifica la gestione da parte delle aziende delle identità con privilegi e dell'accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
@@ -28,25 +28,32 @@ Per gli amministratori dei ruoli con privilegi interessati alle verifiche della 
 
 Per eseguire la verifica, è possibile usare l'applicazione Azure AD Privileged Identity Management (PIM) nel [portale di Azure](https://portal.azure.com/). Se l'applicazione Azure AD Privileged Identity Management non è disponibile nel portale, seguire questa procedura per iniziare.
 
-1. Se non è già stato eseguito l'accesso, accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Se l'organizzazione ha più directory, fare clic sul proprio nome utente nell'angolo superiore destro del portale di Azure e selezionare la directory da usare.
-3. Selezionare l'icona **Nuovo** nel riquadro di spostamento sinistro.
-4. Selezionare **Sicurezza e identità** dal menu.
-5. Selezionare **Azure AD Privileged Identity Management**.
-6. Lasciare selezionata l'opzione **Aggiungi al dashboard** e fare clic sul pulsante **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
+3. Selezionare **Nuovo** > **Sicurezza e identità** > **Azure AD Privileged Identity Management**.
+
+	![Abilitare PIM nel portale][1]
+
+4. Selezionare l'opzione **Aggiungi al dashboard** e quindi fare clic sul pulsante **Crea**. Verrà visualizzato il dashboard Privileged Identity Management
 
 
 ## Approvare o negare l'accesso
 
-L'accesso non verrà modificato fino a quando [la verifica non è stata completata](active-directory-privileged-identity-management-how-to-complete-review.md). Questo processo prevede semplicemente la creazione di un elenco di controllo per coloro che desiderano modificare l'accesso per il ruolo. Dopo che è stato selezionato almeno un utente, vengono abilitati i pulsanti **Approva accesso** e **Nega accesso**.
+L'approvazione o la negazione dell'accesso indica semplicemente al revisore se si sta usando ancora il ruolo. Scegliere **Approva** se si vuole restare nel ruolo o **Nega** se l'accesso non è più necessario. Lo stato cambierà solo dopo il revisore avrà applicato i risultati. Seguire questa procedura per trovare e completare la verifica dell'accesso:
 
-1. Nell'applicazione PIM fare clic su **Verifica l'accesso amministrativo** nel menu principale. Verrà visualizzato un elenco di revisioni della sicurezza.
-2. Selezionare nell'elenco gli **utenti** per i quali si desidera modificare l'accesso.
-3. Fare clic su **Approva accesso** o **Nega accesso** per gli utenti selezionati. Verrà visualizzata una notifica nel menu principale del portale di Azure e i nomi selezionati non saranno più visualizzati nell'elenco delle verifiche. Sarà possibile visualizzarli nuovamente modificando l'opzione di filtro. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
+1. Nell'applicazione PIM selezionare **Verifica dell'accesso con privilegi**. Eventuali verifiche di accesso in sospeso verranno visualizzate nel pannello Verifiche di accesso di Azure AD.
+2. Selezionare la verifica da completare.
+3. A meno che non si abbia creato la verifica, si verrà visualizzati come unico utente nella verifica. Selezionare il segno di spunta accanto al nome.
+4. Scegliere **Approva** o **Nega**. Potrebbe essere necessario includere un motivo per la decisione nella casella di testo **Specifica il motivo**.
+5. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

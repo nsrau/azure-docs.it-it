@@ -88,7 +88,7 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di Google Apps, usando uno dei formati seguenti: `https://mail.google.com/a/<yourdomain>`
 
@@ -124,7 +124,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di Google Apps, usando uno dei formati seguenti: `https://mail.google.com/a/<yourdomain>`
 
@@ -194,7 +194,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 4. Se ancora non è stato aggiunto un nome di dominio personalizzato per Azure Active Directory, attenersi alla procedura seguente:
 
-	- Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro. Nell'elenco visualizzato, selezionare la directory. 
+	- Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro. Nell'elenco visualizzato, selezionare la directory.
 
 	- Fare clic su **Domini** dal menu principale in alto e quindi fare clic su **Aggiungere un dominio personalizzato**.
 
@@ -313,4 +313,4 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

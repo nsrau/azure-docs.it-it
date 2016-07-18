@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 #  Replicare macchine virtuali Hyper-V su un singolo server VMM
@@ -27,7 +27,7 @@ In caso di domande dopo la lettura di questo articolo, è possibile pubblicarle 
 
 È possibile replicare le macchine virtuali Hyper-V presenti sugli host Hyper-V in cloud VMM in due modi:
 
-- Replicare in Azure. 
+- Replicare in Azure.
 - Replicare in un sito VMM secondario
 
 Cosa succede se si vuole replicare in un sito VMM secondario, ma nella distribuzione è disponibile un singolo server VMM?
@@ -62,7 +62,7 @@ Seguire le istruzioni in [questo articolo](site-recovery-vmm-to-vmm.md) per crea
 
 In caso d'interruzione, ripristinare i carichi di lavoro sulle macchine virtuali Hyper-V come indicato di seguito:
 
-1. Effettuare manualmente il failover della macchina virtuale di VMM nel sito secondario usando la console di gestione di Hyper-V con un failover pianificato. 
+1. Effettuare manualmente il failover della macchina virtuale di VMM nel sito secondario usando la console di gestione di Hyper-V con un failover pianificato.
 2. Quando la macchina virtuale di VMM è stata ripristinata, è possibile accedere a Gestione del ripristino di Hyper-V dal sito secondario ed effettuare un failover non pianificato delle VM dal sito secondario al sito primario. Si noti che sarà necessario effettuare il failover manuale della macchina virtuale di VMM nel sito secondario, prima di poter eseguire il failover delle VM con i carichi di lavoro.
 3. Al termine del failover non pianificato, è di nuovo possibile accedere a tutte le risorse dal sito primario.
 
@@ -93,4 +93,4 @@ Se si verificano interruzioni, il server VMM e il database SQL Server corrispond
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

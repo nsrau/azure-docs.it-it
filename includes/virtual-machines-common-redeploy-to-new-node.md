@@ -1,36 +1,23 @@
+## Uso del portale di Azure
 
-Se si sono riscontrate difficoltà nella risoluzione dei problemi relativi alla connessione Desktop remoto (RDP) alla macchina virtuale Azure basata su Windows o nella risoluzione dei problemi relativi alla connessione SSH alla macchina virtuale Azure basata su Linux, questo articolo fornirà supporto per una risoluzione autonoma di tali anomalie, senza ricorrere al supporto o al ridimensionamento della macchina virtuale. Microsoft Azure ridistribuirà la macchina virtuale al richiamo dell'operazione di ridistribuzione attraverso Azure PowerShell.
+1. Selezionare la VM di cui si desidera ripetere la distribuzione, quindi fare clic sul pulsante "Ridistribuisci" nel pannello "Impostazioni":
 
-Si noti che dopo il completamento di questa operazione, i dati temporanei del disco andranno persi e gli indirizzi IP dinamici associati alla macchina virtuale saranno aggiornati.
+	![Pannello VM di Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 
+2. Fare clic sul pulsante "Ridistribuisci" per confermare l'operazione:
 
-## Uso di Azure PowerShell
+	![Pannello Ridistribuire una VM](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 
-Assicurarsi che sia installata la versione più recente di Azure PowerShell 1.x. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
+3. Si noterà che lo **stato** della VM passa ad *Aggiornamento in corso* mentre la VM si prepara per la ridistribuzione:
 
-Utilizzare questo comando di Azure PowerShell per ridistribuire la macchina virtuale:
+	![Aggiornamento di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-	Set-AzureRmVM -Redeploy -ResourceGroupName $rgname -Name $vmname 
+4. Lo **stato** passerà poi ad *Avvio in corso* mentre la VM si avvia su un nuovo host Azure:
 
+	![Avvio di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
-Durante l'esecuzione di questo comando controllare la macchina virtuale nel [portale di Azure](https://portal.azure.com). Si noti che lo **stato** della VM viene modificato come segue:
+5. Al termine del processo di avvio della VM, lo **stato** tornerà a *In esecuzione*, a indicare che la VM è stata ridistribuita:
 
-1. Lo **stato** iniziale è *in esecuzione*
+	![Esecuzione di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-	![Redeploy initial status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning1.png)
-
-2. Lo **stato** passa a indicare *l'aggiornamento*
-
-	![Redeploy status Updating](./media/virtual-machines-common-redeploy-to-new-node/statusupdating.png)
-
-3. Lo **stato** passa a indicare *l'avvio*
-
-	![Redeploy status Starting](./media/virtual-machines-common-redeploy-to-new-node/statusstarting.png)
-
-4. Lo **stato** torna a indicare *in esecuzione*
-
-	![Redeploy final status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning2.png)
-
-Quando lo **stato** indica nuovamente in *esecuzione*, la VM è stata ridistribuita correttamente.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

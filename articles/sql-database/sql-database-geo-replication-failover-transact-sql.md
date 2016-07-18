@@ -32,7 +32,11 @@ Questo articolo illustra come avviare il failover su un database SQL secondario 
 Per avviare il failover, è necessario quanto segue:
 
 - Un account di accesso con il ruolo DBManager nel database primario e con db\_ownership del database locale per il quale verrà eseguita la replica geografica, oltre al ruolo DBManager nei server partner in cui si configurerà la replica geografica.
-- La versione più recente di SQL Server Management Studio: per ottenere la versione più recente di SQL Server Management Studio (SSMS), visitare la pagina di [download di SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per informazioni sull'uso di SQL Server Management Studio per gestire database e server logici di database SQL di Azure, vedere [Gestione di database SQL di Azure tramite SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+
+> [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 
 
@@ -92,10 +96,10 @@ Usare la procedura seguente per avviare un failover non pianificato.
 
 ## Risorse aggiuntive
 
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
+- [Spotlight on new Geo-Replication capabilities (Nuove funzionalità di replica geografica in evidenza)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/services/sql-database/)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Eseguire la replica di VM Hyper-V in un cloud VMM in un sito secondario con Azure Site Recovery tramite SAN
@@ -40,8 +40,8 @@ Questo scenario offre i vantaggi seguenti:
 - Sfruttare le funzionalità di replica SAN fornite dai partner di archiviazione aziendali attraverso fibre channel e archiviazione iSCSI. Vedere [partner di archiviazione SAN](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).
 - Sfruttare l'infrastruttura SAN esistente per proteggere le applicazioni di importanza strategica distribuite in cluster Hyper-V.
 - Fornire supporto per i cluster guest.
-- Garantire la replica coerente tra i diversi livelli di un'applicazione mediante una replica sincronizzata con valori RTO e RPO bassi e una replica non sincronizzata per elevata flessibilità, in base alle caratteristiche dell'array di archiviazione.  
-- L'integrazione con VMM offre la gestione SAN all'interno della console VMM e SMI-S in VMM individua lo spazio di archiviazione esistente.  
+- Garantire la replica coerente tra i diversi livelli di un'applicazione mediante una replica sincronizzata con valori RTO e RPO bassi e una replica non sincronizzata per elevata flessibilità, in base alle caratteristiche dell'array di archiviazione.
+- L'integrazione con VMM offre la gestione SAN all'interno della console VMM e SMI-S in VMM individua lo spazio di archiviazione esistente.
 
 ## Architettura
 
@@ -178,7 +178,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
 	![Microsoft Updates](./media/site-recovery-vmm-san/ms-update.png)
 
-7. Il percorso di installazione è impostato su **<SystemDrive>\\Programmi\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic sul pulsante di installazione per iniziare a installare il provider.
+7. Il percorso di installazione è impostato su **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic sul pulsante di installazione per iniziare a installare il provider.
 
 	![InstallLocation](./media/site-recovery-vmm-san/install-location.png)
 
@@ -202,7 +202,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
 10. In **Registration Key** selezionare il codice di registrazione scaricato da Azure Site Recovery e copiato nel server VMM.
-11. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server. 
+11. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server.
 
 	![Server registration](./media/site-recovery-vmm-san/vault-creds.png)
 
@@ -211,7 +211,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 	![Server registration](./media/site-recovery-vmm-san/encrypt.png)
 
 13. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
-14. In **Sincronizzazione iniziale dei metadati del cloud** specificare un nome descrittivo per il server, che verrà visualizzato nell'insieme di credenziali, e scegliere se sincronizzare i metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
+14. In **Initial cloud metadata sync** (Sincronizzazione iniziale dei metadati cloud) specificare un nome descrittivo per il server, che verrà visualizzato nell'insieme di credenziali, e scegliere se sincronizzare i metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
 
 	![Server registration](./media/site-recovery-vmm-san/friendly-name.png)
 
@@ -223,7 +223,7 @@ Il provider di Azure Site Recovery può essere installato anche usando la riga d
 
 1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
 2. Arrestare il servizio System Center Virtual Machine Manager.
-3. Estrarre il programma di installazione del provider eseguendo i comandi seguenti da un prompt dei comandi con privilegi di **amministratore**:
+3. Estrarre il programma di installazione del provider eseguendo questi comandi da un prompt dei comandi con privilegi di **amministratore**:
 
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -239,7 +239,7 @@ Il provider di Azure Site Recovery può essere installato anche usando la riga d
 
 In cui i parametri sono i seguenti:
 
- - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
+ - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.
  - **/FriendlyName** : parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
  - **/EncryptionEnabled**: parametro facoltativo da usare solo nello scenario da VMM ad Azure se è necessario che la crittografia delle macchine virtuali sia inattiva in Azure. Assicurarsi che il nome del file specificato abbia l'estensione **pfx**.
  - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
@@ -254,8 +254,7 @@ Eseguire il mapping degli array per specificare il pool di archiviazione seconda
 
 Prima di iniziare, verificare che i cloud siano visibili nell'insieme di credenziali. I cloud possono essere identificati scegliendo di sincronizzare tutti i cloud durante l'installazione del provider oppure selezionando la sincronizzazione di un cloud specifico nella scheda **Generale** delle proprietà del cloud nella console VMM. Eseguire quindi il mapping degli array di archiviazione come segue:
 
-1. Fare clic su **Risorse** > **Archiviazione server** > **Mappa array di origine e di destinazione**.
-![Server registration](./media/site-recovery-vmm-san/storage-map.png)
+1. Fare clic su **Risorse** > **Archiviazione server** > **Mappa array di origine e di destinazione**. ![Server registration](./media/site-recovery-vmm-san/storage-map.png)
 2. Selezionare gli array di archiviazione presenti nel sito primario e mapparli agli array di archiviazione del sito secondario.
 3.  Eseguire quindi il mapping dei pool di archiviazione di origine e di archiviazione all'interno degli array. A tale scopo, in **Pool di archiviazione** selezionare un pool di archiviazione di origine e uno di destinazione di cui eseguire il mapping.
 
@@ -317,7 +316,7 @@ Una volta abilitate per la protezione, le macchine virtuali vengono visualizzate
 
 >[AZURE.NOTE] Dopo avere abilitato la replica per un computer, è consigliabile non aggiungere VHD per il computer nei LUN che non si trovano in un gruppo di replica di Site Recovery. In caso contrario, non verranno rilevati da Site Recovery.
 
-Tenere traccia dell'avanzamento dell'azione di abilitazione della protezione, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo di finalizzazione della protezione la macchina virtuale è pronta per il failover.
+Tenere traccia dello stato dell'azione di abilitazione della protezione, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo di finalizzazione della protezione la macchina virtuale è pronta per il failover.
 
 ![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-san/job-props.png)
 
@@ -364,4 +363,4 @@ Eseguire il test della distribuzione per verificare che il failover delle macchi
 
 Dopo aver eseguito un failover di test per verificare che l'ambiente funzioni come previsto, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

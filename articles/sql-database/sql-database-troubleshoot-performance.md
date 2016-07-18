@@ -26,8 +26,12 @@
 2.	Usare [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) per valutare le query con le DTU e quindi usare [Advisor per database SQL](sql-database-advisor.md) per visualizzare raccomandazioni relative alla creazione e all'eliminazione di indici, alla parametrizzazione di query e alla correzione di problemi di schema.
 3.	È possibile usare le viste a gestione dinamica (DMV), gli eventi estesi (XEvent) e l'archivio di query in SSMS per ottenere i parametri delle prestazioni in tempo reale. Per suggerimenti dettagliati su ottimizzazione e monitoraggio, vedere l'[argomento con le linee guida sulle prestazioni](sql-database-performance-guidance.md).
 
+
+    > [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Passaggi per migliorare le prestazioni del database con più risorse
 1.	Per i singoli database, è possibile [modificare i livelli di servizio](sql-database-scale-up.md) su richiesta per migliorare le prestazioni del database.
 2.	Per più database, è consigliabile usare [pool di database elastici](sql-database-elastic-pool-guidance.md) per la scalabilità automatica delle risorse.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

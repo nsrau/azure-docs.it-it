@@ -36,7 +36,7 @@ Adventure Works Cycles desidera compilare un'applicazione per un negozio online 
 	- una subnet front-end per i server Web
 	- una subnet back-end per i server applicazioni, i cluster MongoDB e i controller di dominio
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagramma dei diversi livelli di infrastruttura dell'applicazione](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 Il traffico Web protetto in ingresso deve essere sottoposto al bilanciamento del carico tra i server Web mentre i clienti visitano il negozio online. Il traffico di elaborazione degli ordini sotto forma di richieste HTTP provenienti dai server Web deve essere bilanciato tra i server applicazioni. Inoltre, l'infrastruttura deve essere progettata per l'elevata disponibilità.
 
@@ -115,7 +115,7 @@ Adventure Works Cycles ha optato per i seguenti nomi per le macchine virtuali di
 
 Di seguito è riportata la configurazione risultante.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Infrastruttura dell'applicazione finale distribuita in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 Questa configurazione include:
 
@@ -132,4 +132,4 @@ Questa configurazione include:
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

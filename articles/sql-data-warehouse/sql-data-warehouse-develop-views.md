@@ -13,22 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="07/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
 # Viste in SQL Data Warehouse
 
-Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione.
-
-Questo articolo evidenzia alcuni esempi di come migliorare la soluzione mediante l'implementazione di viste. Esistono alcune limitazioni che è opportuno considerare.
+Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione. Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
 
 > [AZURE.NOTE] La sintassi per `CREATE VIEW` non viene illustrata in questo articolo. Per informazioni di riferimento, vedere l'articolo [CREATE VIEW][] su MSDN.
 
 ## Astrazione dell'architettura
 Un modello di applicazione molto comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
 
-L'esempio seguente aggiunge nuovi record a una dimensione data. Si noti come un nuovo oggetto, DimDate\_New, viene creato e poi rinominato per sostituire la versione originale dell'oggetto.
+L'esempio seguente aggiunge nuovi record a una dimensione data. Si noti come viene creata una nuova tabella, DimDate\_New, e poi rinominata per sostituire la versione originale della tabella.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -48,19 +46,18 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Ciò può tuttavia comportare la comparsa e scomparsa di oggetti tabella dalla visualizzazione dell'utente in Esplora oggetti di SQL in SSDT. Le viste possono essere usate per fornire ai consumer del data warehouse un livello di presentazione coerente, mentre gli oggetti sottostanti vengono rinominati. Fornire l'accesso ai dati tramite una vista significa che gli utenti non devono necessariamente avere la visibilità delle tabelle sottostanti. Questo approccio offre un'esperienza utente coerente, assicurando che le finestre di progettazione del data warehouse siano in grado di evolvere il modello di dati e anche di ottimizzare le prestazioni usando CTAS durante il processo di caricamento dei dati.
+Tuttavia, usando questo approccio la visualizzazione delle tabelle nella vista dell'utente potrebbe non essere costante e potrebbero essere restituiti messaggi di errore di tabella non esistente. Le viste possono essere usate per garantire agli utenti un livello di presentazione coerente mentre vengono rinominati gli oggetti sottostanti. Fornire agli utenti l'accesso ai dati tramite le viste significa che gli utenti non devono necessariamente avere la visibilità delle tabelle sottostanti. Questo approccio garantisce la coerenza dell'esperienza utente e consente l'evoluzione del modello dati e l'ottimizzazione delle prestazioni da parte delle finestre di progettazione del data warehouse usando CTAS durante il processo di caricamento dei dati.
 
 ## Ottimizzazione delle prestazioni
-Le visualizzazioni sono un modo efficace per applicare join tra le tabelle ottimizzati per le prestazioni. Ad esempio, la vista può incorporare una chiave di distribuzione ridondante come parte dei criteri di join per ridurre al minimo lo spostamento dei dati. Un altro motivo potrebbe essere l'applicazione di una query specifica o un hint di join. Ciò assicura che il join sia sempre eseguito in modo ottimale e non dipenda dalla possibilità che l'utente ricordi di costruire il join correttamente.
+Le viste possono anche essere usate per creare join ottimizzati per le prestazioni tra le tabelle. Ad esempio, una vista può incorporare una chiave di distribuzione ridondante come parte dei criteri di join per ridurre al minimo lo spostamento dei dati. Un altro vantaggio delle viste potrebbe essere l'applicazione di una query specifica o di un hint di join. Usando le viste in questo modo, i join vengono sempre eseguiti in modo ottimale senza che gli utenti debbano ricordare il costrutto corretto per i relativi join.
 
 ## Limitazioni
-Le viste in SQL Data Warehouse sono solo metadati.
+Le viste in SQL Data Warehouse sono solo metadati. Di conseguenza, le opzioni seguenti non sono disponibili:
 
-Non sono quindi disponibili le opzioni seguenti:
 - 	Non esiste alcuna opzione di binding dello schema
 - 	Le tabelle di base non possono essere aggiornate tramite la vista
 - 	Non è possibile creare visualizzazioni sulle tabelle temporanee
-- 	Non è previsto alcun supporto per gli hint EXPAND/NOEXPAND
+- 	Non è disponibile alcun supporto per gli hint EXPAND/NOEXPAND
 - 	Non sono disponibili viste indicizzate in SQL Data Warehouse
 
 
@@ -70,11 +67,11 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CREATE VIEW]: https://msdn.microsoft.com/it-IT/library/ms187956.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

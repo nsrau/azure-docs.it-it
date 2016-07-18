@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="07/06/2016" 
 	ms.author="anbacker"/>
 	
 # Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici
@@ -148,7 +148,7 @@ Per generare il ticket di supporto per il ripristino automatico di sistema, ragg
 -   [Come mantenere la lettera di unità per le macchine virtuali protette di cui è stato eseguito il failover o la migrazione in Azure](http://support.microsoft.com/kb/3031135)
 -   [Come gestire le impostazioni locali per l'uso della larghezza di banda della rete di protezione di Azure](https://support.microsoft.com/kb/3056159)
 -   [Ripristino automatico di sistema: errore "Impossibile trovare la risorsa cluster" quando si tenta di abilitare la protezione per una macchina virtuale](http://support.microsoft.com/kb/3010979)
--   [Guida alla comprensione e alla risoluzione dei problemi relativi alla replica Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+-   [Guida alla comprensione e alla risoluzione dei problemi relativi alla replica Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 
 ## Errori comuni del ripristino automatico di sistema e relative soluzioni
 
@@ -171,7 +171,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 ### Protezione
 - <span style="color:green;">NUOVO</span> [L’abilitazione della protezione ha esito negativo con l'errore "Impossibile configurare la protezione per la macchina virtuale". Error 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
 - <span style="color:green;">NUOVO</span> [L’abilitazione della protezione ha esito negativo con l'errore "Impossibile abilitare la protezione per la macchina virtuale." Error 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-- <span style="color:green;">NUOVO</span> [Errore di migrazione in tempo reale 23848 - La macchina virtuale sta per essere spostata utilizzando il tipo Live. Questo potrebbe interrompere lo stato di protezione del ripristino della macchina virtuale.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
+- <span style="color:green;">NUOVO</span> [Errore di migrazione in tempo reale 23848 - La macchina virtuale sta per essere spostata utilizzando il tipo Live. Questo potrebbe interrompere lo stato di protezione del ripristino della macchina virtuale.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 - [L’abilitazione della protezione non è riuscita perché l'agente non è installato nel computer host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [Impossibile trovare un host adatto per la macchina virtuale di replica a causa delle scarse risorse di calcolo](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [Impossibile trovare un host adatto per la macchina virtuale di replica a causa dell’assenza di una rete logica collegata](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
@@ -202,4 +202,4 @@ Server di configurazione, server di elaborazione, server master di destinazione
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="06/29/2016"
       ms.author="hascipio; avikova" />
 
 # Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
@@ -39,9 +39,9 @@ Di seguito vengono illustrate in dettaglio le modifiche (elementi aggiunti e ign
 ## Nodo FunctionImport
 Un nodo FunctionImport rappresenta un solo URL (punto di ingresso) che espone un servizio all'utente finale. Il nodo consente di descrivere la modalità di indirizzamento dell'URL, i parametri disponibili per l'utente finale e il modo in cui questi parametri vengono forniti.
 
-Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink]
+Per informazioni dettagliate su questo nodo, vedere [qui][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]: 'http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
 Di seguito sono descritti gli attributi aggiuntivi o le aggiunte agli attributi esposte dal nodo FunctionImport:
 
@@ -53,8 +53,8 @@ Di seguito sono descritti gli attributi aggiuntivi o le aggiunte agli attributi 
 
 **ReturnType** *(facoltativo)*: specifica il tipo di elementi restituiti dall'URI. Non utilizzare questo attributo se la funzione non restituisce un valore. Di seguito sono elencati i tipi supportati:
 
- - **Collection (<Entity type name>)**: specifica una raccolta di tipi di entità definiti. Il nome è presente nell'attributo Name del nodo EntityType. Un esempio è Collection(WXC.HourlyResult).
- - **Raw (<mime type>)**: specifica un documento o un BLOB non elaborato restituito all'utente. Un esempio è Raw(image/jpeg). Altri esempi:
+ - **Collection (<Nome tipo entità>)**: specifica una raccolta di tipi di entità definiti. Il nome è presente nell'attributo Name del nodo EntityType. Un esempio è Collection(WXC.HourlyResult).
+ - **Raw (<tipo MIME>)**: specifica un documento o un BLOB non elaborato restituito all'utente. Un esempio è Raw(image/jpeg). Altri esempi:
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
@@ -143,18 +143,18 @@ Ulteriori nodi figlio, non trattati dalla documentazione CSDL, all'interno del n
 
 Questo nodo rappresenta un solo parametro esposto come parte del modello URI o del corpo della richiesta specificato nel nodo FunctionImport.
 
-Una pagina dettagliata molto utile sul nodo "Elemento Parameter"è disponibile all'indirizzo [http://msdn.microsoft.com/library/ee473431.aspx](http://msdn.microsoft.com/library/ee473431.aspx). Utilizzare l'elenco a discesa **Other Version** per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+Una pagina dettagliata molto utile sul nodo "Elemento Parameter" è disponibile [qui](http://msdn.microsoft.com/library/ee473431.aspx). Usare l'elenco a discesa **Altre versioni** per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Attributo | Obbligatorio | Valore |
 |----|----|----|
 | Nome | Sì | Nome del parametro. Fa distinzione tra maiuscole e minuscole. Seguire maiuscole e minuscole di BaseUri. **Esempio:** `<Property Name="IsDormant" Type="Byte" />` |
-| Tipo | Sì | Tipo di parametro. Il valore deve essere di tipo **EDMSimpleType** o di un tipo complesso compreso nell'ambito del modello. Per ulteriori informazioni, vedere "6 Tipi di parametri e proprietà supportati". Fa distinzione tra maiuscole e minuscole. Il primo carattere è maiuscolo, gli altri sono minuscoli. Vedere anche [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][MSDNParameterLink]. **Esempio:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Tipo | Sì | Tipo di parametro. Il valore deve essere di tipo **EDMSimpleType** o di un tipo complesso compreso nell'ambito del modello. Per ulteriori informazioni, vedere "6 Tipi di parametri e proprietà supportati". Fa distinzione tra maiuscole e minuscole. Il primo carattere è maiuscolo, gli altri sono minuscoli. Vedere anche [Tipi del modello concettuale][MSDNParameterLink]. **Esempio:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | No | **In**, Out o InOut, a seconda che il parametro sia un parametro di input, di output o di input/output. In Azure Marketplace è disponibile solo "In". **Esempio:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | No | Lunghezza massima consentita per il parametro. **Esempio:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | No | Precisione del parametro **Esempio:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale | No | Scalabilità del parametro **Esempio:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: 'http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx'
+[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica CSDL:
 
@@ -169,7 +169,7 @@ Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica C
 
 Questo nodo rappresenta uno dei tipi restituiti da Marketplace all'utente finale. Il nodo contiene inoltre il mapping dell'output restituito dal servizio del provider di contenuti ai valori restituiti all'utente finale.
 
-Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://msdn.microsoft.com/library/bb399206.aspx](http://msdn.microsoft.com/library/bb399206.aspx). Utilizzare l'elenco a discesa **Other Version** per selezionare una versione diversa se necessario per visualizzare la documentazione.
+Per informazioni dettagliate su questo nodo, vedere [qui](http://msdn.microsoft.com/library/bb399206.aspx). Usare l'elenco a discesa **Altre versioni** per selezionare una versione diversa se necessario per visualizzare la documentazione.
 
 | Nome attributo | Obbligatorio | Valore |
 |----|----|----|
@@ -272,4 +272,4 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 - Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
 - Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

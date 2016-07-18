@@ -29,7 +29,7 @@ Il push dell'offerta nella gestione temporanea consente di testare l'offerta pri
 1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com)
 2.	Selezionare **Servizi dati** nella finestra di navigazione a sinistra
 3.	Selezionare l'offerta di cui si desidera effettuare il push in gestione temporanea. Verrà visualizzata la schermata precedente.
-4.	Fare clic sul pulsante **Push gestione temporanea**.  
+4.	Fare clic sul pulsante **Push gestione temporanea**.
 5.	Se sono presenti problemi con l'offerta che devono essere risolti prima del push nella gestione temporanea, verrà visualizzato un elenco. Correggere questi elementi facendo clic su ogni elemento nell'elenco. Quando tutte le correzioni sono state apportate, fare clic nuovamente sul pulsante **Push gestione temporanea**.
 
 Se non sono presenti problemi con l'offerta, si noterà la finestra popup di seguito.
@@ -42,7 +42,7 @@ Tagliare e incollare l'ID di sottoscrizione e fare clic sul segno di spunta per 
 
   ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-> [AZURE.NOTE]Questi ID di sottoscrizione di Azure sono necessari per il testing e la gestione temporanea nel [portale di gestione di Azure](https://manage.windowsazure.com). Non sono necessari per eseguire il test in Azure Marketplace.
+> [AZURE.NOTE] Questi ID di sottoscrizione di Azure sono necessari per il testing e la gestione temporanea nel [portale di gestione di Azure](https://manage.windowsazure.com). Non sono necessari per eseguire il test in Azure Marketplace.
 
 La schermata successiva visualizzata mostra che la pubblicazione ha luogo visualizzando l'icona "In corso" evidenziata in giallo di seguito. Il push in gestione temporanea richiede tra 10 e 15 minuti. Se richiede più tempo, prima di aggiornare il browser (premere F5 in Internet Explorer). In rari casi in cui l'offerta è ancora in fase di push in gestione temporanea dopo un'ora, fare clic sul collegamento dei contatti per comunicarci che è presente un problema.
 
@@ -74,7 +74,7 @@ Testare o verificare ognuno dei 12 elementi contrassegnati in precedenza affinch
 
 Infine, controllare che il servizio funzioni nel Datamarket facendo clic sul collegamento "ESPLORA QUESTO SET DI DATI". Verrà aperta una nuova finestra dello strumento chiamiamo "Service Explorer", in modo che sia possibile visualizzare in anteprima i risultati di una query sul servizio. In questa finestra, è possibile immettere i parametri necessari e vedere i risultati visualizzati da una query sul servizio. Inoltre, viene visualizzato l'URL per la Query.
 
-> [AZURE.NOTE]Assicurarsi di esaminare la descrizione testuale del servizio visualizzato nella parte superiore. Se l'offerta è costituita da più di un servizio, fare clic sulle schede nella parte inferiore per passare al servizio successivo da esaminare e testare.
+> [AZURE.NOTE] Assicurarsi di esaminare la descrizione testuale del servizio visualizzato nella parte superiore. Se l'offerta è costituita da più di un servizio, fare clic sulle schede nella parte inferiore per passare al servizio successivo da esaminare e testare.
 
 
 
@@ -86,4 +86,4 @@ Se si è soddisfatti e pronti per la pubblicazione dell'offerta, leggere la docu
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

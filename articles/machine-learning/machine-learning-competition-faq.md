@@ -34,7 +34,7 @@ I concorsi Microsoft verranno lanciati a intervalli regolari, ogni 8-12 settiman
 
 Accedere alla home page dei concorsi di Cortana Intelligence Gallery. La pagina include tutti i concorsi attualmente in corso. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata. Fare clic [qui](http://aka.ms/CIComp) per accedere alla home page dei concorsi.
 
-1. Trovare il concorso a cui si vuole partecipare in Cortana Intelligence Gallery, leggere tutte le istruzioni e guardare il video di esercitazione, quindi fare clic sul pulsante "Enter Competition" per copiare l'esperimento iniziale nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.   
+1. Trovare il concorso a cui si vuole partecipare in Cortana Intelligence Gallery, leggere tutte le istruzioni e guardare il video di esercitazione, quindi fare clic sul pulsante "Enter Competition" per copiare l'esperimento iniziale nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.
 
 2. Creare un esperimento predittivo con il modello con training a partire dall'esperimento iniziale. Modificare con attenzione gli schemi di input e di output del servizio Web per fare in modo che siano conformi ai requisiti specificati nella documentazione del concorso. Il documento dell'esercitazione contiene in genere istruzioni dettagliate su come fare. Se disponibile, è anche possibile guardare il video dell'esercitazione.
 
@@ -54,7 +54,7 @@ No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati
 
 * Amministratori dei dati: dispongono di informazioni relative ai dati, al significato dei dati, all'uso previsto e allo scopo.
 
-* Studenti e ricercatori: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC).
+* Studenti e ricercatori: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
 
 
 **È possibile iscriversi con i colleghi come team?**
@@ -115,4 +115,4 @@ Attualmente la piattaforma del concorso supporta l'invio di contributi soltanto 
 
 I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -21,7 +21,7 @@
 ## Panoramica ##
 I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'infrastruttura di rete virtuale per estendere la rete locale ad Azure. Un ambiente del servizio app può essere creato in una subnet di questa infrastruttura di [rete virtuale][virtualnetwork]. Le app in esecuzione nell'ambiente del servizio app possono quindi stabilire connessioni sicure a risorse back-end accessibili solo tramite la connessione ExpressRoute.
 
-**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2". Attualmente gli ambienti del servizio app sono supportati solo in reti virtuali "v1" classiche che usano uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
+**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2". Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -70,7 +70,7 @@ Le informazioni dettagliate sulla creazione e la configurazione di route definit
 
 **Prerequisiti**
 
-1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] (con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
+1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] \(con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
 
 2. È consigliabile creare una subnet univoca da usare esclusivamente in un ambiente del servizio app. In questo modo le route UDR applicate alla subnet apriranno solo il traffico in uscita per l'ambiente del servizio app.
 3. **Importante**: distribuire l'ambiente del servizio app solo **dopo** avere eseguito i seguenti passaggi di configurazione. Questo assicura che la connettività di rete in uscita sia disponibile prima di tentare di distribuire un ambiente del servizio app.
@@ -140,4 +140,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

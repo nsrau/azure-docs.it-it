@@ -34,6 +34,10 @@ Per mantenere le informazioni sulle attività non è necessario eseguire alcuna 
 
 A seconda che si tratti dello sviluppo di una nuova applicazione o dell'aggiornamento di una esistente, creare le tabelle temporali o modificare tabelle esistenti aggiungendo attributi temporali. In genere, lo scenario può essere una combinazione di queste due opzioni. Eseguire queste azioni usando [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) o qualsiasi altro strumento di sviluppo Transact-SQL.
 
+
+> [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ###Creare una nuova tabella
 
 Usare la voce di menu contestuale "Nuova tabella con controllo delle versioni di sistema" in Esplora oggetti di SSMS per aprire l'editor di query con uno script modello di tabella temporale e quindi usare "Imposta valori per parametri modello" (CTRL+MAIUSC+M) per popolare il modello:
@@ -195,4 +199,4 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 
 Per informazioni dettagliate sulle tabelle temporali, vedere la [documentazione MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Visitare Channel 9 per ascoltare un [vero caso di successo di implementazione temporale](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale dal vivo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->
