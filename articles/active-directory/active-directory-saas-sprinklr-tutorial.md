@@ -177,7 +177,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Sprinklr ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Sprinklr** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Assegna utenti")
 
