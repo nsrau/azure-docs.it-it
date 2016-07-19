@@ -130,7 +130,7 @@ SQL Data Warehouse si integra anche con molti degli strumenti di SQL Server con 
 
 **Strumenti basati sul cloud:** SQL Data Warehouse può essere usato insieme a numerosi nuovi strumenti di Azure, tra cui Data factory, Analisi di flusso, Machine Learning e Power BI. Per un elenco più completo, vedere la [panoramica degli strumenti integrati][].
 
-**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Vedere [SQL Data Warehouse business intelligence partners][] (Partner di soluzioni per SQL Data Warehouse) per un elenco completo di partner.
+**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Vedere [Partner di business intelligence per SQL Data Warehouse][].
 
 ## Scenari di origini dati ibride
 
@@ -146,7 +146,7 @@ Polybase consente di sfruttare i dati provenienti da origini diverse eseguendo i
 
 ## Passaggi successivi
 
-Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare un Azure SQL Data Warehouse][] rapidamente e [Caricare i dati di esempio in SQL Data Warehouse][]. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
+Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][] rapidamente e [caricare i dati di esempio][]. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
 
 - [Blog]
 - [Richieste di funzionalità]
@@ -162,13 +162,13 @@ Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
-[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[documentazione sulla migrazione]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse business intelligence partners]: ./sql-data-warehouse-integrate-solution-partners.md
-[panoramica degli strumenti integrati]: ./sql-data-warehouse-overview-integrate.md
-[panoramica su backup e ripristino]: ./sql-data-warehouse-restore-database-overview.md
+[Creare un ticket di supporto]: sql-data-warehouse-get-started-create-support-ticket.md
+[caricare i dati di esempio]: sql-data-warehouse-load-sample-databases.md
+[creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[documentazione sulla migrazione]: sql-data-warehouse-overview-migrate.md
+[Partner di business intelligence per SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
+[panoramica degli strumenti integrati]: sql-data-warehouse-overview-integrate.md
+[panoramica su backup e ripristino]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@ Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare
 [Blog]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blog del team CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum di MSDN]: https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureSQLDataWarehouse
+[Forum di MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Forum su Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

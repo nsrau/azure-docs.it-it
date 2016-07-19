@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
@@ -43,7 +43,7 @@ Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Ma
 
 ## Creare un account di Azure Data Lake Store
 
-1. Dal desktop aprire una nuova finestra di Azure PowerShell e immettere il seguente frammento per accedere al proprio account di Azure, impostare la sottoscrizione e registrare il provider di Data Lake Store. Quando viene richiesto di effettuare l'accesso, assicurarsi di accedere come amministratore/proprietario della sottoscrizione:
+1. Dal desktop aprire una nuova finestra di Windows PowerShell e immettere il seguente frammento per accedere al proprio account di Azure, impostare la sottoscrizione e registrare il provider di Data Lake Store. Quando viene richiesto di eseguire l'accesso, assicurarsi di accedere come amministratore/proprietario della sottoscrizione:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +141,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

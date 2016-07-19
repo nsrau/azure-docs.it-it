@@ -5,8 +5,8 @@
 	keywords="Gestione delle password di Active Directory, gestione delle password management, reimpostare la password di Azure AD"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Introduzione alla gestione delle password
+
+> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso**, [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+
 Consentire agli utenti di gestire le proprie password di Azure Active Directory su cloud o di Active Directory locale richiede solo alcuni semplici passaggi. Dopo aver verificato che siano stati soddisfatti alcuni semplici prerequisiti, sarà subito possibile abilitare la modifica e la reimpostazione delle password per tutta l'organizzazione. Questo articolo illustra i concetti seguenti:
 
 * [**Come consentire agli utenti di reimpostare le password di Azure Active Directory su cloud**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -47,7 +50,7 @@ Prima di poter abilitare e usare la reimpostazione delle password self-service, 
 
 - Creare un tenant di AAD. Per altre informazioni, vedere [Introduzione ad Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Ottenere una sottoscrizione di Azure. Per altre informazioni, vedere [Che cos'è un tenant di Azure AD?](active-directory-administer.md#what-is-an-azure-ad-tenant).
-- Associare il tenant di AAD alla sottoscrizione di Azure. Per altre informazioni, vedere [Associazione delle sottoscrizioni Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+- Associare il tenant di AAD alla sottoscrizione di Azure. Per altre informazioni, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 - Eseguire l'aggiornamento ad Azure AD Premium o Basic oppure usare una licenza di Office 365 a pagamento. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
   >[AZURE.NOTE] Per abilitare la reimpostazione delle password self-service per gli utenti del cloud, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic oppure usare una licenza di Office 365 a pagamento. Per abilitare la reimpostazione delle password self-service per gli utenti locali, è necessario eseguire l'aggiornamento ad Azure AD Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
@@ -280,9 +283,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -309,7 +310,7 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso**, [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
@@ -353,4 +354,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

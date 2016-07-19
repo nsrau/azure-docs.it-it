@@ -30,7 +30,7 @@ Prerequisiti per gli esercizi in questo documento:
 
 ## Distribuire un nuovo contenitore
 
-Per creare un nuovo contenitore in Docker Swarm, usare il comando `docker run`. Questo esempio consente di creare un contenitore dall'immagine `yeasy/simple-web`:
+Per creare un nuovo contenitore in Docker Swarm, usare il comando `docker run`, assicurandosi di avere aperto un tunnel SSH per i master, in base ai prerequisiti riportati in precedenza. Questo esempio consente di creare un contenitore dall'immagine `yeasy/simple-web`:
 
 
 ```bash
@@ -54,9 +54,11 @@ Ora è possibile accedere all'applicazione in esecuzione in questo contenitore t
 
 ![Risultati della visita reali](media/real-visit.jpg)
 
+Per impostazione predefinita, le porte 80, 8080 e 443 sono aperte per il servizio di bilanciamento del carico. Se ci si vuole connettere su un'altra porta, sarà necessario aprire la porta in Azure Load Balancer per il pool di agenti.
+
 ## Distribuire più contenitori
 
-Poiché nel cluster Docker Swarm vengono avviati più contenitori, è possibile usare il comando `docker ps` per vedere in quali host vengono eseguiti i contenitori. In questo esempio tre contenitori sono distribuiti uniformemente nei tre agenti Swarm:
+Poiché vengono avviati più contenitori, eseguendo più volte il comando 'docker run', è possibile usare il comando `docker ps` per visualizzare gli host in cui sono in esecuzione i contenitori. Nell'esempio seguente tre contenitori sono distribuiti uniformemente nei tre agenti Swarm:
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Distribuire contenitori con Docker Compose
 
-È possibile usare Docker Compose per l'automazione della distribuzione e la configurazione di più contenitori. A questo scopo, assicurarsi che sia stato creato un tunnel SSH (Secure Shell) e che sia stata impostata la variabile DOCKER\_HOST.
+È possibile usare Docker Compose per l'automazione della distribuzione e la configurazione di più contenitori. A questo scopo, assicurarsi che sia stato creato un tunnel SSH (Secure Shell) e che sia stata impostata la variabile DOCKER\_HOST (vedere i prerequisiti riportati in precedenza).
 
 Creare un file docker-compose.yml nel sistema locale. A questo scopo, usare questo [esempio](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -115,8 +117,10 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+È ovviamente possibile usare `docker-compose ps` per esaminare solo i contenitori definiti nel file `compose.yml`.
+
 ## Passaggi successivi
 
 [Altre informazioni su Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

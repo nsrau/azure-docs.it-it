@@ -141,7 +141,7 @@ Assicurarsi di lasciare tutti i dispositivi simulati in esecuzione durante il co
 
 ## Eseguire l'interfaccia utente di esempio di Gestione dei dispositivi
 
-Dopo avere effettuato il provisioning di un hub IoT e quando sono disponibili alcuni dispositivi simulati in esecuzione e registrati per la gestione, è possibile distribuire l'interfaccia utente di esempio di Gestione dei dispositivi. L'interfaccia utente di esempio di Gestione dei dispositivi fornisce un esempio funzionante relativo a come usare le API di Gestione dei dispositivi per offrire un'esperienza di interfaccia utente interattiva. Per altre informazioni sull'interfaccia utente di esempio di Gestione dei dispositivi, inclusi i [problemi noti](https://github.com/Azure/azure-iot-device-management#knownissues), vedere il repository [Azure IoT device management UI][lnk-dm-github] \(Interfaccia utente di Gestione dei dispositivi di Azure IoT ) di GitHub.
+Dopo avere effettuato il provisioning di un hub IoT e quando sono disponibili alcuni dispositivi simulati in esecuzione e registrati per la gestione, è possibile distribuire l'interfaccia utente di esempio di Gestione dei dispositivi. L'interfaccia utente di esempio di Gestione dei dispositivi fornisce un esempio funzionante relativo a come usare le API di Gestione dei dispositivi per offrire un'esperienza di interfaccia utente interattiva. Per altre informazioni sull'interfaccia utente di esempio di Gestione dei dispositivi, inclusi i [problemi noti](https://github.com/Azure/azure-iot-device-management#knownissues), vedere il repository [Azure IoT device management UI][lnk-dm-github] (Interfaccia utente di Gestione dei dispositivi di Azure IoT ) di GitHub.
 
 Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestione dei dispositivi, seguire questa procedura:
 
@@ -182,9 +182,11 @@ Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestion
 Lasciare in esecuzione i dispositivi simulati e l'app di gestione dei dispositivi durante l'esercitazione successiva sulla gestione dei dispositivi.
 
 
-## Passaggio successivo
+## Passaggi successivi
 
-Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] \(Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio).
+Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzione a Gateway SDK][lnk-gateway-SDK].
+
+Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Esplorare la gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
@@ -200,5 +202,6 @@ Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub 
 [Uso di Gruppi di risorse per gestire le risorse di Azure]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

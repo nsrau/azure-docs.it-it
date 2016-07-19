@@ -41,6 +41,11 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Altri esempi
+
+Per altri esempi di uso dell'archivio BLOB, vedere [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Introduzione all'archiviazione BLOB di Azure in .NET). È possibile scaricare l'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub.
+
+
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -49,7 +54,7 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 ### Aggiungere le dichiarazioni dello spazio dei nomi
 
-Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
+Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -89,8 +94,7 @@ In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 Per impostazione predefinita, il nuovo contenitore è privato, ovvero è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile impostare il contenitore come pubblico usando il codice seguente:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
-	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se è disponibile la chiave di accesso dell'account appropriata o una firma di accesso condiviso.
 
@@ -361,18 +365,22 @@ Per impostazione predefinita, Archiviazione di Azure garantisce la sicurezza dei
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere ai dati BLOB in tale account. L'autenticazione delle richieste per l'archiviazione BLOB richiede la chiave di accesso dell'account per impostazione predefinita. È tuttavia possibile rendere disponibile ad altri utenti determinati dati BLOB. Sono disponibili due opzioni:
 
 - **Accesso anonimo**: è possibile rendere disponibili pubblicamente per l'accesso anonimo un contenitore o i BLOB in esso inclusi. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
-- **Firme di accesso condiviso**: è possibile fornire ai client una firma di accesso condiviso che consente l'accesso delegato a una risorsa nell'account di archiviazione, con le autorizzazioni specificate e per un intervallo specificato. Per altre informazioni, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+- **Firme di accesso condiviso**: è possibile fornire ai client una firma di accesso condiviso che consente l'accesso delegato a una risorsa nell'account di archiviazione, con le autorizzazioni specificate e per un intervallo specificato. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Crittografia dei dati BLOB
 
 Archiviazione di Azure supporta la crittografia dei dati BLOB nel client e nel server:
 
 - **Crittografia lato client**: la libreria client di archiviazione per .NET supporta la crittografia dei dati nelle applicazioni client prima del caricamento in Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con l'insieme di credenziali delle chiavi di Azure per la gestione delle chiavi dell'account di archiviazione. Per altre informazioni, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md). Vedere anche [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Crittografia lato server**: Archiviazione di Azure supporta ora la crittografia lato server. Vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)](storage-service-encryption.md). 
+- **Crittografia lato server**: Archiviazione di Azure supporta ora la crittografia lato server. Vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)](storage-service-encryption.md).
 
 ## Passaggi successivi
 
 A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visitare i collegamenti seguenti per altre informazioni.
+
+### Esempi di archiviazione BLOB
+
+- [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Introduzione all'archiviazione BLOB di Azure in .NET)
 
 ### Informazioni di riferimento sull'archiviazione BLOB
 
@@ -396,4 +404,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

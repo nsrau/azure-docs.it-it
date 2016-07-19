@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/28/2016"
-	ms.author="wesmc"/>
+	ms.date="07/07/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guida introduttiva con procedure consigliate
 
@@ -24,12 +24,12 @@
 
 L'utente mobile medio installerà e disinstallerà le app con grande frequenza man mano che cambiano i suoi interessi e le esperienze in-app. Per determinare il successo di un'app, è indispensabile sapere di più oltre al numero di utenti che installerà l'app. È importante sapere quanto è utile l'app e se la tendenza di utilizzo è destinata a cambiare. È bene porsi le domande seguenti:
 
-- Gli utenti stanno iniziando a considerare l'app poco interessante o obsoleta? 
-- Quanti utenti hanno smesso del tutto di usare l'app? 
+- Gli utenti stanno iniziando a considerare l'app poco interessante o obsoleta?
+- Quanti utenti hanno smesso del tutto di usare l'app?
 - La tendenza agli acquisti in-app sta salendo o scendendo?
-- Gli utenti stanno incontrando difficoltà a completare i flussi di lavoro a causa di problemi con l'app o per mancanza di interesse? 
-- È possibile fare in modo che l'app continui a essere utile e rilevante proponendo nuovi contenuti alla base utenti? 
-- Questi nuovi contenuti dovrebbero essere gli stessi per tutti gli utenti o differenziati per ogni segmento di utenti a seconda del comportamento nell'app? 
+- Gli utenti stanno incontrando difficoltà a completare i flussi di lavoro a causa di problemi con l'app o per mancanza di interesse?
+- È possibile fare in modo che l'app continui a essere utile e rilevante proponendo nuovi contenuti alla base utenti?
+- Questi nuovi contenuti dovrebbero essere gli stessi per tutti gli utenti o differenziati per ogni segmento di utenti a seconda del comportamento nell'app?
  
 Le risposte a domande di questo tipo potrebbero essere utili per prolungare il ciclo di vita dell'app e i relativi ricavi oltre che per definire e conservare la base utenti.
 
@@ -70,7 +70,7 @@ Gli indicatori KPI per il business dovrebbero essere i più semplice da definire
 	- Numero di conti
 	- Funzionalità attivate
 	- Pagine di offerte visitate
-	- Avvisi selezionati o attivati	   
+	- Avvisi selezionati o attivati
 
 
 
@@ -80,7 +80,7 @@ Un indicatore KPI per l'interesse è un indicatore di prestazioni per misurare l
 
 - Utenti attivi negli ultimi 7 giorni
 - Conteggio utenti inattivi negli ultimi 7 giorni
-- Conteggio degli utenti che non hanno usato l'app in 30 giorni  
+- Conteggio degli utenti che non hanno usato l'app in 30 giorni
 
 Alcuni ovvi fattori esterni possono influenzare gli indicatori in quest'area. Considerare, ad esempio, la possibilità che un utente abbia sempre con sé un dispositivo mobile. Questo può essere vero o meno. Un'app di gioco potrebbe tendenzialmente essere utilizzata di più durante le festività quando un giocatore gioca di più non essendo al lavoro o a scuola.
 
@@ -94,7 +94,7 @@ Gli indicatori di prestazioni in questa categoria consentono di determinare se l
  
 Ecco alcuni esempi di KPI tecnici:
 
-- Informazioni e conteggio di eccezioni non gestite e gestite 
+- Informazioni e conteggio di eccezioni non gestite e gestite
 - Timestamp per l'ultimo arresto anomalo
 - Ultimo pulsante selezionato o ultima pagina visitata
 - Utilizzo memoria dell'app
@@ -213,7 +213,7 @@ Il reindirizzamento può essere gestito anche per altri sistemi. Ad esempio, con
 - Una cassetta postale con la posta elettronica già configurata
 - Una casella SMS
 - Un servizio di chiamata
-- Direttamente all'archivio delle applicazioni per classificare l'applicazione. 
+- Direttamente all'archivio delle applicazioni per classificare l'applicazione.
 
 Ciò offre diverse possibilità di coinvolgere gli utenti finali e di creare regole automatiche per migliorare le prestazioni.
 
@@ -297,7 +297,7 @@ I processi sono usati per segnalare azioni con una durata. Di seguito sono ripor
 
 - Esecuzione di chiamate API
 - Tempo di visualizzazione degli annunci
-- Durata delle attività in background 
+- Durata delle attività in background
 - Durata dei processi di acquisto
 - Visualizzazione di un video
 
@@ -362,7 +362,7 @@ Configurare Azure Mobile Engagement è molto semplice. Tutta la documentazione c
 
 - Amministratori:
 - Sviluppatori:
-- Visualizzatori 
+- Visualizzatori
 
 Successivamente:
 - Registrare l'ID dispositivo per testare il proprio dispositivo.
@@ -382,7 +382,7 @@ All'inizio, durante lo sviluppo dell'esperienza con le strategie di interesse, n
 
 Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta degli elementi seguenti ai programmi di interesse:
 
-- Rilevamento: si acquisiscono utenti e probabilmente si definiscono le origini per la raccolta dati. Azure mobile Engagement può essere collegato alle origini per la raccolta dati. Consente di monitorare le prestazioni di ogni origine. Queste informazioni saranno importanti per ottimizzare l'investimento per l'acquisizione. 
+- Rilevamento: si acquisiscono utenti e probabilmente si definiscono le origini per la raccolta dati. Azure mobile Engagement può essere collegato alle origini per la raccolta dati. Consente di monitorare le prestazioni di ogni origine. Queste informazioni saranno importanti per ottimizzare l'investimento per l'acquisizione.
 
 - Test A/B: è una parte essenziale del programma di interesse. Ogni app ha le proprie specifiche. Con il test A/B, è possibile migliorare il programma di interesse.
 
@@ -407,4 +407,4 @@ Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

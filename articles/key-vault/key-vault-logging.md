@@ -25,7 +25,7 @@ Dopo aver creato una o più credenziali delle chiavi, può essere utile monitora
 È possibile accedere alle informazioni di registrazione dopo un massimo di 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima. La gestione dei log nell'account di archiviazione è compito dell'utente:
 
 - Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
-- Eliminare i log che non è più necessario mantenere nell'account di archiviazione. 
+- Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
 Usare questa esercitazione per un'introduzione all'uso della registrazione dell'insieme di credenziali delle chiavi di Azure, per creare l'account di archiviazione, abilitare la registrazione e interpretare le informazioni di registrazione raccolte.
 
@@ -40,8 +40,8 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-- Insieme di credenziali delle chiavi esistente e già in uso.  
-- Azure PowerShell ** versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.  
+- Insieme di credenziali delle chiavi esistente e già in uso.
+- Azure PowerShell ** versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.
 - Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
 
@@ -105,7 +105,7 @@ Informazioni registrate:
 - Vengono registrate tutte le richieste API REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide.
 - Operazioni sull'insieme di credenziali delle chiavi stesso, ad esempio creazione, eliminazione e impostazione di criteri di accesso all'insieme di credenziali delle chiavi, nonché aggiornamento degli attributi dell'insieme di credenziali delle chiavi, quali i tag.
 - Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, ad esempio creazione, modifica o eliminazione di chiavi o segreti. Operazioni quali accesso, verifica, crittografia, decrittografia, esecuzione e annullamento del wrapping delle chiavi, recupero di segreti, nonché elenco di chiavi e segreti e delle relative versioni.
-- Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
+- Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
 
 
 ## <a id="access"></a>Accedere ai log ##
@@ -116,7 +116,7 @@ I log dell'insieme di credenziali delle chiavi vengono archiviati nel contenitor
 
 L'output sarà simile al seguente:
 
-****Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Name**
@@ -130,7 +130,7 @@ L'output sarà simile al seguente:
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
-Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/nomefile.json**
+Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ID risorsa ARM>/y=<anno>/m=<mese>/d=<giorno del mese>/h=<ora>/m=<minuti>/filename.json**
 
 I valori di data e ora sono nel formato UTC.
 
@@ -221,7 +221,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni.
 
 I valori del campo **operationName** sono in formato OggettoVerbo. Ad esempio:
 
-- Tutte le operazioni sull'insieme di credenziali delle chiavi hanno il formato 'Vault`<action>`', ad esempio `VaultGet` e `VaultCreate`. 
+- Tutte le operazioni sull'insieme di credenziali delle chiavi hanno il formato 'Vault`<action>`', ad esempio `VaultGet` e `VaultCreate`.
 
 - Tutte le operazioni sulle chiavi hanno il formato 'Key`<action>`', ad esempio `KeySign` e `KeyList`.
 
@@ -269,6 +269,7 @@ Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
 Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+Per un'esercitazione sulla rotazione delle chiavi e il controllo del registro con l'insieme di credenziali delle chiavi di Azure, vedere [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo end-to-end).
+
+<!---HONumber=AcomDC_0713_2016-->

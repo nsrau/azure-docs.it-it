@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte"/>
 
 # Autenticare runbook con account RunAs di Azure
@@ -41,7 +41,7 @@ La procedura descritta in questa sezione permette di creare un nuovo account di 
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br>![Aggiungi account di Automazione](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di Automazione.
 5. Se si hanno più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
-6. Assicurarsi che sia selezionato il valore **Sì** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
+6. Assicurarsi che sia selezionato il valore **Sì** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.
 
     ![Aggiungi account di Automazione, avviso](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
@@ -69,20 +69,20 @@ La procedura seguente aggiorna un account di automazione esistente e crea l'enti
 Prima di procedere, verificare quanto segue:
 
 1. È stato scaricato e installato [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855), se si esegue Windows 7. Se si esegue Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 o Windows 7 SP1, è disponibile per l'installazione [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395).
-2. Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
+2. Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 3. È stato creato un account di automazione. A questo account viene fatto riferimento come valore per i parametri -AutomationAccountName e -ApplicationDisplayName nello script riportato più avanti in questo articolo.
 
 
 Lo script di PowerShell configura quanto segue:
 
-* Un'applicazione Azure AD che verrà autenticata con il certificato autofirmato. Verrà creato un account dell'entità servizio per questa applicazione in Azure AD e a questo account verrà assegnato il ruolo Collaboratore nella sottoscrizione corrente, che può essere cambiato in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere l'articolo [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).  
+* Un'applicazione Azure AD che verrà autenticata con il certificato autofirmato. Verrà creato un account dell'entità servizio per questa applicazione in Azure AD e a questo account verrà assegnato il ruolo Collaboratore nella sottoscrizione corrente, che può essere cambiato in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere l'articolo [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 * Un asset del certificato di Automazione nell'account di automazione specificato denominato **AzureRunAsCertificate**, che contiene il certificato usato nell'entità servizio.
-* Un asset della connessione di Automazione nell'account di automazione specificato denominato **AzureRunAsConnection**, che contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.  
+* Un asset della connessione di Automazione nell'account di automazione specificato denominato **AzureRunAsConnection**, che contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.
 
 
 ### Eseguire lo script di PowerShell
 
-1. Salvare lo script seguente nel computer. Per questo esempio, salvare il file con il nome **New-AzureServicePrincipal.ps1**.  
+1. Salvare lo script seguente nel computer. Per questo esempio, salvare il file con il nome **New-AzureServicePrincipal.ps1**.
 
     ```
     #Requires -RunAsAdministrator
@@ -181,7 +181,7 @@ Lo script di PowerShell configura quanto segue:
 ### Verificare l'autenticazione
 A questo punto dell'esercitazione viene eseguito un breve test per confermare che sia possibile eseguire l'autenticazione usando la nuova entità servizio. Se non si riesce a eseguire l'autenticazione, tornare al passaggio 1 e verificare nuovamente i singoli passaggi.
 
-1. Nel portale di Azure aprire l'account di automazione creato in precedenza.  
+1. Nel portale di Azure aprire l'account di automazione creato in precedenza.
 2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
 3. Creare un nuovo runbook facendo clic sul pulsante **Aggiungi runbook** e quindi selezionare **Crea un nuovo runbook** nel pannello **Aggiungi runbook**.
 4. Denominare il runbook *Test-SecPrin-Runbook* e selezionare PowerShell in **Tipo di runbook**. Fare clic su **Crea** per creare il runbook.
@@ -196,8 +196,8 @@ A questo punto dell'esercitazione viene eseguito un breve test per confermare ch
 6. Salvare il runbook facendo clic su **Salva**.
 7. Fare clic su **Riquadro di test** per aprire il pannello **Test**.
 8. Fare clic su **Avvia** per avviare il test.
-9. Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro.  
-10. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
+9. Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro.
+10. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.
 11. Al termine del processo del runbook, viene visualizzato l'output. In questo caso lo stato visualizzato dovrebbe essere **Completato**.<br> ![Verifica del runbook dell'entità di sicurezza](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. Chiudere il pannello **Test** per tornare all'area di disegno.
 13. Chiudere il pannello **Modifica runbook di PowerShell**.
@@ -242,4 +242,4 @@ Lo script include due righe di codice aggiuntive per supportare il riferimento a
 - Per altre informazioni sulle entità servizio, vedere [Oggetti applicazione e oggetti entità servizio](../active-directory/active-directory-application-objects.md).
 - Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

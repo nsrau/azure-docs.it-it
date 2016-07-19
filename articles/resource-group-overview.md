@@ -30,7 +30,7 @@ Gestione risorse offre numerosi vantaggi:
 - È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
 - è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
 - È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
-- È possibile ottenere informazioni di fatturazione dettagliate visualizzando i costi aggregati per l'intero gruppo o per un gruppo di risorse che condividono la stessa categoria.  
+- È possibile ottenere informazioni di fatturazione dettagliate visualizzando i costi aggregati per l'intero gruppo o per un gruppo di risorse che condividono la stessa categoria.
 
 Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](resource-manager-deployment-model.md).
 
@@ -125,6 +125,32 @@ Per informazioni sull'uso del portale, vedere [Uso del portale di Azure per gest
 
 Gestione risorse di Azure supporta la condivisione di risorse tra origini (CORS, Cross-Origin Resource Sharing). Con CORS è possibile chiamare l'API REST di Gestione risorse o un'API REST del servizio Azure da un'applicazione Web residente in un dominio diverso. Senza il supporto di CORS il Web browser impedisce a un'app in un dominio di accedere alle risorse in un altro dominio. Gestione risorse abilita CORS per tutte le richieste con credenziali di autenticazione valide.
 
+## SDK ed esempi
+
+Azure SDK sono disponibili per più linguaggi e piattaforme. Ogni implementazione del linguaggio è disponibile tramite Gestione pacchetti del relativo ecosistema e in GitHub.
+
+Il codice in ogni SDK viene generato dalle specifiche dell'API RESTful di Azure. Queste specifiche sono open source e si basano sulla specifica Swagger 2.0. Il codice degli SDK viene generato con un progetto open source denominato AutoRest. AutoRest trasforma le specifiche delle API basate su REST in librerie client in più linguaggi. Se si vogliono migliorare alcuni aspetti del codice generato negli SDK, l'intero set di strumenti per creare gli SDK è aperto, disponibile gratuitamente e basato su un formato di specifica API ampiamente diffuso.
+
+**Esempi**: iniziare a usare rapidamente il linguaggio preferito.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *presto disponibile*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *presto disponibile*
+- [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *presto disponibile*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**Repository di SDK open source**: sono graditi commenti e suggerimenti, problemi e richieste pull.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.JS](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] Se l'SDK non fornisce le funzionalità necessarie, è anche possibile chiamare direttamente l'[API REST di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+
 ## Passaggi successivi
 
 - Per una semplice introduzione all'uso dei modelli, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
@@ -136,4 +162,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->
