@@ -147,7 +147,7 @@ Anche se ogni distribuzione mostra solo le modifiche apportate al gruppo di riso
 
       ![esportare un gruppo di risorse](./media/resource-manager-export-template/export-resource-group.png)
 
-     Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Se il gruppo di risorse contiene solo l'account di archiviazione e la rete virtuale illustrati in questo articolo, non verranno visualizzati errori. Se invece sono stati creati altri tipi di risorse, è possibile che venga visualizzato un errore che informa di un problema con l'esportazione. Per informazioni su come gestire tali problemi, vedere la sezione [Risoluzione dei problemi di esportazione](#fixing-export-issues).
+     Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Se il gruppo di risorse contiene solo l'account di archiviazione e la rete virtuale illustrati in questo articolo, non verranno visualizzati errori. Se invece sono stati creati altri tipi di risorse, è possibile che venga visualizzato un errore che informa di un problema con l'esportazione. Per informazioni su come gestire tali problemi, vedere la sezione [Risolvere i problemi di esportazione](#fix-export-issues).
 
       
 
@@ -342,4 +342,4 @@ Congratulazioni. Si è appreso come esportare un modello da risorse create nel p
 - Per informazioni su come esportare un modello con PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Per informazioni su come esportare un modello con l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

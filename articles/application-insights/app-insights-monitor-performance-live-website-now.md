@@ -180,6 +180,12 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 È possibile usare PowerShell per avviare e arrestare il monitoraggio.
 
+Importare prima di tutto il modulo di Application Insights:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Individuare le applicazioni sottoposte a monitoraggio:
+
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
 * `-Name` (facoltativo) Nome di un'app Web.
@@ -284,4 +290,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

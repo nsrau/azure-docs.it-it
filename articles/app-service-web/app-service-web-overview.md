@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/25/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Panoramica di App Web
 
@@ -62,4 +62,4 @@ Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio a
 
 Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
