@@ -261,7 +261,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 
   ![][032]
 
-  L'impostazione di queste autorizzazioni consentirà all'account del servizio dell'agente di gestione per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestire le password locali dal cloud. Di seguito sono descritti i passaggi dettagliati su come effettuare questa operazione usando lo snap-in di gestione di **Utenti e computer di Active Directory**:
+L'impostazione di queste autorizzazioni consentirà all'account del servizio dell'agente di gestione per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestire le password locali dal cloud. Di seguito sono descritti i passaggi dettagliati su come effettuare questa operazione usando lo snap-in di gestione di **Utenti e computer di Active Directory**:
 
 >[AZURE.NOTE] La replica delle autorizzazioni in tutti gli oggetti nella directory può richiedere fino a un'ora.
 
@@ -283,7 +283,9 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 

@@ -70,7 +70,7 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 
 1.	Fare clic su **Pannello di test** per aprire il pannello di test.<br>![Riquadro Test](media/automation-first-runbook-textual/runbook-edit-toolbar-test-pane.png)
 2.	Fare clic su **Avvia** per avviare il test. Questa deve essere l'unica opzione abilitata.
-3.	Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato. Lo stato del processo verrà avviato come *In coda* per indicare che è in attesa della disponibilità di un thread di lavoro del runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.
+3.	Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato. Lo stato del processo verrà avviato come *In coda* per indicare che è in attesa della disponibilità di un thread di lavoro del runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
 4.	Al termine del processo del runbook, viene visualizzato l'output. In questo caso, dovrebbe essere visualizzato *Hello World*.<br> ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 5.	Chiudere il riquadro di test per tornare all'area di disegno.
 
@@ -84,7 +84,7 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 4.	Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br>![Avvia runbook](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5.	Viene aperto un riquadro del processo per il processo del runbook appena creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare l'avanzamento del processo.
 6.	Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-summary.png)
-7.	Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello Output dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)
+7.	Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello Output dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)  
 8.	Chiudere il riquadro Output.
 9.	Fare clic su **Flussi** per aprire il riquadro dei flussi per il processo del runbook. Nel flusso di output dovrebbe essere visibile solo *Hello World*, ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-streams.png)
 10.	Chiudere il riquadro dei flussi e il riquadro dei processi per tornare al riquadro MyFirstRunbook-Workflow.

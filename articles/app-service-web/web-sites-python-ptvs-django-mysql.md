@@ -24,7 +24,7 @@ In questa esercitazione si userà [Python Tools per Visual Studio](PTVS) al fine
 
 > [AZURE.NOTE] Le informazioni contenute in questa esercitazione sono disponibili anche nel video seguente:
 > 
-> [PTVS 2.1: Django app with MySQL][video] (PTVS 2.1: app Django con MySQL)
+> [PTVS 2.1: Django app with MySQL][video] \(PTVS 2.1: app Django con MySQL)
 
 Vedere il [Centro per sviluppatori Python] per altri articoli che trattano lo sviluppo di app Web del servizio app di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
 

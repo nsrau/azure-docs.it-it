@@ -58,7 +58,7 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
+	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 ### Analizzare la stringa di connessione
 

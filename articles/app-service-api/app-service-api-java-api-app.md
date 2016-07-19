@@ -24,7 +24,7 @@ Questa esercitazione illustra come creare un'applicazione Java e come distribuir
 
 ## Prerequisiti
 
-1. [Java Development Kit 8] (o versioni successive)
+1. [Java Development Kit 8] \(o versioni successive)
 1. [Maven] installato nel computer di sviluppo
 1. [Git] installato nel computer di sviluppo
 1. Una sottoscrizione di [valutazione gratuita] o a pagamento a [Microsoft Azure]
