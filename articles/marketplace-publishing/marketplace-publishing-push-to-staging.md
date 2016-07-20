@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="06/29/2016"
    ms.author="hascipio"/>
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -175,10 +175,8 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono usate le
 
 ## Passaggi successivi
 Ora che il contenuto del Marketplace è caricato, è possibile passare al test dell'offerta nella gestione temporanea. Tuttavia, è necessario selezionare il tipo di offerta appropriato dall'elenco riportato di seguito, poiché i passaggi variano in base al tipo di offerta.
-
-||Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
-|----|----|----|----|----|
-| **Passaggio 3. Push dell'offerta nella gestione temporanea** | [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md) | Anteprima privata | [Test dell'offerta del servizio dati nello staging](marketplace-publishing-data-service-test-in-staging.md) | [Test del modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md) |
+- [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md)
+- [Test dell'offerta di modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -192,4 +190,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

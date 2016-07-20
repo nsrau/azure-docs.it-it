@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -62,4 +62,4 @@ Azure RemoteApp consente all'amministratore di Contoso di creare una raccolta ag
 
 Per altre informazioni su questo scenario di distribuzione, vedere il post del blog su Servizi Desktop remoto che illustra come [sollevare e spostare i carichi di lavoro con Azure RemoteApp e Servizi di dominio Azure Active Directory](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

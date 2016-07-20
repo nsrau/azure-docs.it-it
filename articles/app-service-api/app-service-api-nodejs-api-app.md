@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="get-started-article"
 	ms.date="05/26/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Compilare un'API RESTful Node.js e distribuirla a un'app per le API in Azure
 
@@ -90,7 +90,7 @@ Per quanto il servizio app consenta di distribuire il codice in un'app per le AP
 
 ### Personalizzare il codice sottoposto a scaffolding
 
-1. Copiare la cartella **lib** dalla cartella **start** alla cartella **ContactList** creata dal processo di scaffolding. 
+1. Copiare la cartella **lib** dalla cartella **start** alla cartella **ContactList** creata dal processo di scaffolding.
 
 1. Sostituire il codice nel file **handlers/contacts.js** con il codice seguente.
 
@@ -155,7 +155,7 @@ Per quanto il servizio app consenta di distribuire il codice in un'app per le AP
 
 ### Eseguire il test con l'API in esecuzione in locale
 
-1. Attivare il server usando l'eseguibile della riga di comando di Node.js. 
+1. Attivare il server usando l'eseguibile della riga di comando di Node.js.
 
         node server.js
 
@@ -179,7 +179,7 @@ Per quanto il servizio app consenta di distribuire il codice in un'app per le AP
 
 In questa sezione si usa il portale di Azure per creare una nuova app per le API in Azure. Questa app per le API rappresenta le risorse di calcolo che verranno fornite da Azure per l'esecuzione del codice. Nelle sezioni successive verrà distribuito il codice nella nuova app per le API.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Fare clic su **Nuovo > Web e dispositivi mobili > App per le API**.
 
@@ -221,7 +221,7 @@ In questa sezione si usa il portale di Azure per creare una nuova app per le API
 
 Per distribuire il codice nell'app per le API, sarà necessario effettuare il push dei commit in un repository Git nel servizio app di Azure. In questa sezione dell'esercitazione si creano le credenziali e il repository Git in Azure che si useranno per la distribuzione.
 
-1. Dopo che l'app per le API è stata creata, fare clic su **Servizi app > {app per le API}** nella home page del portale. 
+1. Dopo che l'app per le API è stata creata, fare clic su **Servizi app > {app per le API}** nella home page del portale.
 
 	Il portale visualizza i pannelli **App per le API** e **Impostazioni**.
 
@@ -294,7 +294,7 @@ In questa sezione si crea un repository Git locale contenente il codice server p
 
 ## Eseguire il test con l'API in esecuzione in Azure
  
-3. Copiare l'**URL** nella sezione **Informazioni di base** del pannello dell'app per le API. 
+3. Copiare l'**URL** nella sezione **Informazioni di base** del pannello dell'app per le API.
 
     ![Distribuzione completata](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
@@ -312,4 +312,4 @@ Ora che il recapito continuo è stato associato, è possibile apportare modifich
 
 A questo punto sono state completate la creazione di un'app per le API e la distribuzione in tale app del codice di un'API Node.js. L'esercitazione successiva mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

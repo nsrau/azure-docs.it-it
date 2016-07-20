@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Amministrare DNS in un dominio gestito dai Servizi di dominio Azure AD
@@ -118,4 +118,4 @@ Per altre informazioni sulla gestione DNS, vedere l'articolo [sugli strumenti DN
 
 - [Strumenti di amministrazione DNS](https://technet.microsoft.com/library/cc753579.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

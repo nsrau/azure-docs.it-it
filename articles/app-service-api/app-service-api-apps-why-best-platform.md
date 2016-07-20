@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Panoramica delle app per le API
 
@@ -57,10 +57,10 @@ Gestione API e le app per le API talvolta offrono funzionalità simili. Ad esemp
 
 Per iniziare a usare le app per le API distribuendo il codice di esempio in una di esse, vedere l'esercitazione relativa al framework preferito:
 
-* [ASP.NET](app-service-api-dotnet-get-started.md) 
-* [Node.JS](app-service-api-nodejs-api-app.md) 
-* [Java](app-service-api-java-api-app.md) 
+* [ASP.NET](app-service-api-dotnet-get-started.md)
+* [Node.JS](app-service-api-nodejs-api-app.md)
+* [Java](app-service-api-java-api-app.md)
 
 Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

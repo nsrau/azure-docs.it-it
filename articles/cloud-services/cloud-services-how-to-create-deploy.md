@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -150,4 +150,4 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

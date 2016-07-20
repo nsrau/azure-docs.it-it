@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Aggiornamento alla versione 2 dell'API di analisi del testo #
 
-Questa guida illustra il processo di aggiornamento del codice dall'uso della [prima versione dell'API](../machine-learning-apps-text-analytics/) all'uso della seconda versione.
+Questa guida illustra il processo di aggiornamento del codice dall'uso della [prima versione dell'API](../machine-learning/machine-learning-apps-text-analytics.md) all'uso della seconda versione.
 
 Se non si ha familiarità con l'API, è possibile **[trovare altre informazioni sull'API qui](//go.microsoft.com/fwlink/?LinkID=759711)** o **[vedere la guida introduttiva](//go.microsoft.com/fwlink/?LinkID=760860)**. Per la documentazione tecnica, vedere la **[definizione dell'API](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
@@ -308,4 +308,4 @@ Al termine dell'esecuzione dell'API degli argomenti, verrà restituito lo stato 
 
 A questo punto si dovrebbe essere pronti. Testare il codice con un piccolo esempio per assicurarsi di riuscire a elaborare i dati.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

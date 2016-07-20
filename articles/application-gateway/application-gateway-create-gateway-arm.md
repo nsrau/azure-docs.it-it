@@ -40,7 +40,7 @@ Questo articolo illustra in dettaglio i passaggi necessari per creare e configur
 ## Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
-2. Creare una rete virtuale e una subnet per il Gateway Applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
+2. Se si ha una rete virtuale esistente, selezionare una subnet vuota esistente oppure creare una nuova subnet nella rete virtuale esclusivamente per l'uso da parte del gateway applicazione. Non è possibile distribuire il gateway applicazione in una rete virtuale diversa da quella delle risorse da distribuire dietro il gateway applicazione.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
 ## Elementi necessari per creare un gateway applicazione
@@ -270,4 +270,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

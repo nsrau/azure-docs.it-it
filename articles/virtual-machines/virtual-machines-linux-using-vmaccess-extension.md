@@ -21,13 +21,16 @@
 
 # Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess
 
-Questo articolo illustra come usare l'estensione VM VMAccess [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) per controllare o ripristinare il disco, reimpostare l'accesso utente, gestire gli account utente o reimpostare la configurazione dei dischi SSHD in Linux. Questo articolo richiede [un account Azure](https://azure.microsoft.com/pricing/free-trial/), [chiavi SSH](virtual-machines-linux-mac-create-ssh-keys.md), una macchina virtuale Linux di Azure e l'interfaccia della riga di comando di Azure installata e impostata in modalità ARM tramite `azure config mode arm`.
+Questo articolo illustra come usare l'estensione VM VMAccess [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account utente o reimpostare la configurazione dei dischi SSHD in Linux. Questo articolo richiede [un account Azure](https://azure.microsoft.com/pricing/free-trial/), [chiavi SSH](virtual-machines-linux-mac-create-ssh-keys.md), una macchina virtuale Linux di Azure e l'interfaccia della riga di comando di Azure installata e impostata in modalità ARM tramite `azure config mode arm`.
 
 ## Comandi rapidi
 
-Esistono due modi per usare VMAccess nelle VM Linux. Il primo corrisponde all'uso dell'interfaccia della riga di comando di Azure con `azure vm reset-access` e il flag corretto. Il secondo modo consente di usare VMAccess con file json non elaborati VMAccess elaborerà e su cui baserà le proprie operazioni. Per la sezione dei comandi rapidi si userà il metodo `azure vm reset-access`.
+Esistono due modi per usare VMAccess nelle VM Linux:
 
-Negli esempi di comandi seguenti sostituire i valori compresi tra &lt; e &gt; con i valori dell'ambiente locale.
+- Usare l'interfaccia della riga di comando di Azure e i parametri richiesti.
+- Usare file JSON non elaborati che VMAccess elaborerà e su cui baserà le sue operazioni.
+
+Per la sezione dei comandi rapidi si userà il metodo `azure vm reset-access` dell'interfaccia della riga di comando di Azure. Negli esempi di comandi seguenti sostituire i valori compresi tra &lt; e &gt; con i valori dell'ambiente locale.
 
 ## Reimpostare la password radice
 
@@ -74,7 +77,7 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. Se ciò fosse accaduto ai tempi bui dei centri dati, sarebbe stato necessario recarsi di persona presso il centro dati, ottenere l'accesso tramite riconoscimento delle impronte digitali, entrare nella gabbia e quindi scassinare tastiera, video e mouse per accedere alla console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
 
-Per la procedura dettagliata si userà la forma estesa di VMAccess, che usa file json non elaborati. Questi file json di VMAccess possono essere chiamati anche dai modelli di Azure.
+Per la procedura dettagliata si userà la forma estesa di VMAccess, che usa file JSON non elaborati. Questi file JSON di VMAccess possono essere chiamati anche dai modelli di Azure.
 
 ### Uso di VMAccess per controllare o riparare il disco di una VM Linux
 
@@ -101,7 +104,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Uso di VMAccess per reimpostare l'accesso utente a Linux
 
-Se si è perso l'accesso alla radice della VM Linux è possibile avviare uno script VMAccess per reimpostare la password radice, sbloccando Linux.
+Se si è perso l'accesso alla radice della VM Linux è possibile avviare uno script VMAccess per reimpostare la password radice.
 
 Per reimpostare la password radice, usare questo script VMAccess:
 
@@ -205,4 +208,4 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -82,7 +82,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:
 
-- Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. È necessario spostare anche le risorse del servizio app non associate al piano di servizio app. 
+- Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. È necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
 - Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
 
 Se il gruppo di risorse originale include anche una risorsa Application Insights non è possibile spostare tale risorsa, perché attualmente Application Insights non supporta l'operazione di spostamento. Se si include la risorsa Application Insights quando si spostano le app del servizio app, l'intera operazione di spostamento non riuscirà. Tuttavia per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
@@ -119,7 +119,7 @@ Le opzioni per lo spostamento delle risorse distribuite con il modello classico 
 Quando si spostano risorse da un gruppo di risorse a un altro **nella stessa sottoscrizione**, sono valide le restrizioni seguenti:
 
 - Le reti virtuali (classiche) non possono essere spostate.
-- Le macchine virtuali (classiche) devono essere spostate con il servizio cloud. 
+- Le macchine virtuali (classiche) devono essere spostate con il servizio cloud.
 - Il servizio cloud può essere spostato solo quando lo spostamento include tutte le macchine virtuali del servizio stesso.
 - È possibile spostare un solo servizio cloud alla volta.
 - È possibile spostare un solo account di archiviazione (classico) alla volta.
@@ -132,11 +132,11 @@ Quando si spostano risorse in una **nuova sottoscrizione**, sono valide le restr
 
 ## Uso del portale per spostare le risorse
 
-È possibile spostare alcune risorse tramite il portale, tuttavia non tutti i provider di risorse che supportano l'operazione di spostamento forniscono tale funzionalità tramite il portale.
-
 Per spostare una risorsa, selezionarla e quindi fare clic sul pulsante **Sposta**.
 
 ![Spostamento della risorsa](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] Non tutte le risorse supportano attualmente lo spostamento nel portale. Se il pulsante **Sposta** non viene visualizzato per la risorsa che si desidera spostare, usare PowerShell, l'interfaccia della riga di comando o l'API REST per completare tale operazione.
 
 Specificare la sottoscrizione e il gruppo di risorse di destinazione per lo spostamento della risorsa. Se insieme a tale risorsa devono essere spostate altre risorse, queste verranno elencate.
 
@@ -268,8 +268,8 @@ con il seguente corpo della richiesta:
 
 ## Passaggi successivi
 - Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
-- Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](xplat-cli-azure-resource-manager.md).
-- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per gestire le risorse](./azure-portal/resource-group-portal.md).
-- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
+- Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

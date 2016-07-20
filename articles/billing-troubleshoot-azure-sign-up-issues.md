@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="cjiang"/>
 
 # Risoluzione dei problemi relativi all'iscrizione ad Azure
 Questo articolo descrive come risolvere le cause più comuni dei problemi che possono verificarsi durante l'iscrizione ad Azure.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un incidente del supporto tecnico di Azure nel [sito del supporto tecnico di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 ## Errore quando si immettono le informazioni per eseguire l'iscrizione.
 Le informazioni relative al profilo dell'account sono corrette? I dettagli del profilo vengono usati per generare gli estratti conto ai fini della fatturazione ed è quindi importante immettere informazioni accurate. Esempi di campi non corretti sono:
@@ -81,4 +81,4 @@ Suggerimenti:
 Suggerimenti:
 - se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione della versione di valutazione gratuita non riesce, prendere in considerazione l'acquisto di una sottoscrizione con pagamento in base al consumo. L'utente potrebbe inoltre aver diritto a un'offerta con vantaggi. Per altre informazioni, vedere la [pagina dettagli dell'offerta Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) anziché il piano della versione di valutazione gratuita di Azure. Si noti che i piani con vantaggi richiedono prerequisiti specifici.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -348,7 +348,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
     "outputs": {
        "<outputName>" : {
          "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>",
+         "value": "<output-value-expression>"
        }
     }
 
@@ -368,11 +368,13 @@ L'esempio seguente illustra un valore che viene restituito nella sezione dell'ou
        }
     }
 
+Per altre informazioni sull'uso dell'output, vedere [Condivisione dello stato in modelli di Azure Resource Manager](best-practices-resource-manager-state.md).
+
 ## Passaggi successivi
-- Per visualizzare modelli completi per molti tipi diversi di soluzioni vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
-- Per informazioni dettagliate sulle funzioni che è possibile usare in un modello vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
-- Per unire più modelli durante la distribuzione vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
+- Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
+- Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
+- Per unire più modelli durante la distribuzione, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

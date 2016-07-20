@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
@@ -22,13 +22,16 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-Questo argomento illustra come utilizzare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per ulteriori informazioni sulla gestione delle risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 
-Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità dei portali di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Creare un gruppo di risorse
 
@@ -64,7 +67,7 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 
     ![visualizzare notifiche](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. Una volta distribuite le risorse, è possibile aggiungerne a un gruppo di risorse utilizzando il comando **Aggiungi** nel pannello del gruppo corrispondente.
+5. Dopo aver distribuito le risorse, è possibile aggiungerne al gruppo di risorse usando il comando **Aggiungi** nel pannello del gruppo corrispondente.
 
     ![aggiungere una risorsa](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -100,7 +103,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
 ## Distribuire risorse da un modello salvato nel proprio account
 
-Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per ulteriori informazioni sull'utilizzo dei modelli salvati, consultare [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
+Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'uso dei modelli salvati, consultare [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
 1. Per accedere ai modelli salvati, selezionare **Sfoglia** > **Modelli**.
 
@@ -116,8 +119,8 @@ Il portale consente di salvare un modello nel proprio account Azure e di ridistr
 
 ## Passaggi successivi
 
-- Per visualizzare i log di controllo vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per risolvere gli errori di distribuzione vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per risolvere gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Per recuperare un modello da un gruppo di risorse o di distribuzione, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

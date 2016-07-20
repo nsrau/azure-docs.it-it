@@ -25,6 +25,10 @@ I collegamenti seguenti indirizzano a una panoramica delle aree di funzionalità
 
 Le esercitazioni seguenti spiegano come usare SQL Server Management Studio per gestire il database SQL di Azure ed eseguire query sul database.
 
+
+> [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 | Esercitazione | Descrizione |
 |---|---|---|
 | [Connettersi al database SQL di Azure con un accesso entità a livello di server](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| Questa esercitazione mostra come connettersi al database SQL di Azure con un account di accesso entità a livello del server.|
@@ -105,7 +109,7 @@ Le esercitazioni seguenti mostrano come [eseguire la migrazione di un database S
 
 ##Sviluppare
 
-Le esercitazioni seguenti illustrano i concetti relativi allo [sviluppo di database SQL](sql-database-develop-overview.md) e all'uso delle [raccolte di connessioni](sql-database-libraries.md).
+Le esercitazioni seguenti illustrano i concetti relativi allo [sviluppo di database SQL](sql-database-develop-overview.md) e all'uso delle [librerie di connettività](sql-database-libraries.md).
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -151,7 +155,7 @@ Le esercitazioni seguenti mostrano come [proteggere i dati del database SQL di A
 
 ## Continuità aziendale e aumento delle istanze di query
 
-Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino geografico e replica geografica attiva](sql-database-business-continuity.md) per eseguire operazioni di ripristino a seguito di errori, per la continuità aziendale e per l'aumento delle istanze di query.
+Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino geografico e replica geografica attiva](sql-database-business-continuity.md) per eseguire operazioni di ripristino a seguito di errori, per la continuità aziendale e per la scalabilità orizzontale delle query.
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -180,4 +184,4 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 
 [Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

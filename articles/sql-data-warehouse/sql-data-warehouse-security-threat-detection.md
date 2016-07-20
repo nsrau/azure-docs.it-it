@@ -19,11 +19,21 @@
 
 # Introduzione al rilevamento delle minacce
 
+> [AZURE.SELECTOR]
+- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+- [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
+- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
+- [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Panoramica
 
 La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Questa funzionalità è in anteprima ed è supportata per SQL Data Warehouse.
 
-Il rilevamento delle minacce offre un nuovo livello di protezione, che consente ai clienti di rilevare e rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale. Gli utenti possono esaminare gli eventi sospetti tramite il [servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) per determinare se sono il risultato di un tentativo di accesso, una violazione o un exploit dei dati nel database. Il rilevamento delle minacce rende più semplice affrontare le minacce potenziali al data warehouse, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.
+Il rilevamento delle minacce offre un nuovo livello di protezione, che consente ai clienti di rilevare e rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale. Gli utenti possono esaminare gli eventi sospetti usando il [servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) per determinare se sono il risultato di un tentativo di accesso, una violazione o un exploit dei dati nel data warehouse. Il rilevamento delle minacce rende più semplice affrontare le minacce potenziali al data warehouse, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.
 
 Ad esempio, la funzionalità di rilevamento delle minacce individua determinate attività anomale nel database che indicano potenziali tentativi di attacco SQL injection. L'attacco SQL injection è uno dei problemi di sicurezza comuni delle applicazioni Web su Internet, che viene usato per attaccare le applicazioni guidate dai dati. Gli autori di attacchi sfruttano le vulnerabilità delle applicazioni per introdurre istruzioni SQL dannose nei campi di immissione dell'applicazione, per violare o modificare i dati nel database.
 
@@ -89,4 +99,4 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

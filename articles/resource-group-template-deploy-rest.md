@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli e l'API REST di Resource Manager
@@ -22,15 +22,20 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 In questo articolo viene illustrato come utilizzare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [Visualizzare le operazioni di distribuzione con l'API REST](resource-manager-troubleshoot-deployments-rest.md) per informazioni su come risolvere l'errore.
-> - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni.
+> - [Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) per informazioni su come risolvere l'errore
+> - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
+
+Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -73,7 +78,7 @@ In questo articolo viene illustrato come utilizzare l'API REST di Resource Manag
           "detailLevel": "requestContent, responseContent"
         }
 
-      È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per ulteriori informazioni, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
+      È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
 
 4. Ottenere lo stato della distribuzione del modello. Per altre informazioni, vedere [Ottenere informazioni sulla distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
@@ -83,9 +88,9 @@ In questo articolo viene illustrato come utilizzare l'API REST di Resource Manag
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
-- Per informazioni dettagliate sull'utilizzo di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+- Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/05/2016"
    ms.author="heeldin;motanv"/>
 
 # Azioni di Testabilità
@@ -95,7 +95,7 @@ L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di
 
 L'esecuzione di un'azione di testabilità (con PowerShell) su un cluster di Azure è simile all'esecuzione della stessa azione su un cluster locale. L'unica differenza è che, prima di poter eseguire l'azione, invece di connettersi al cluster locale, è necessario connettersi al cluster di Azure.
 
-## Esecuzione di un'azione di testabilità con C&#35; 
+## Esecuzione di un'azione di testabilità con C&#35;
 
 Per eseguire un'azione di testabilità con C#, è necessario prima connettersi al cluster tramite FabricClient. Ottenere quindi i parametri necessari per eseguire l'azione. Per eseguire la stessa azione possono essere utilizzati parametri diversi. In merito all'azione RestartServiceFabricNode, per eseguirla è possibile usare le informazioni sul nodo (nodo del nome e ID dell'istanza del nodo) disponibili nel cluster.
 
@@ -105,7 +105,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Spiegazione di alcuni parametri:
 
-- **CompleteMode** specifica che l'esito positivo dell'azione di riavvio non verrà verificato. Per verificare l'esito positivo dell'azione di riavvio, è necessario specificare la modalità di completamento come "Verify".  
+- **CompleteMode** specifica che l'esito positivo dell'azione di riavvio non verrà verificato. Per verificare l'esito positivo dell'azione di riavvio, è necessario specificare la modalità di completamento come "Verify".
 - **OperationTimeout**: imposta la quantità di tempo disponibile per completare l'operazione prima che venga generata un'eccezione TimeoutException.
 - **CancellationToken**: consente di annullare una chiamata in sospeso.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simulare gli errori durante i carichi di lavoro del servizio](service-fabric-testability-workload-tests.md)
    - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -3,7 +3,7 @@
 	description="Informazioni sulla configurazione dei progetti team di Visual Studio Team Services per usare Git per la compilazione e la distribuzione automatiche alla funzionalità App Web nel Servizio app di Azure o nei servizi cloud."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="TomArcher"
+	authors="mlearned"
 	manager="douge"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
-	ms.author="tarcher"/>
+	ms.date="07/06/2016"
+	ms.author="mlearned"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services e Git
 
@@ -273,4 +273,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

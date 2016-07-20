@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="04/07/2016"
+  ms.date="06/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
@@ -46,13 +46,11 @@ Si tratta della sottoscrizione che si userà per creare le immagini di VM e dist
 Per vendere i propri servizi in Microsoft Azure Marketplace, è necessario assicurarsi che l'entità registrata si trovi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per l'elenco completo, vedere la sezione 1b delle [politiche di partecipazione ad Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Passaggi successivi
-Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare clic sul collegamento all'articolo per il tipo di offerta corrispondente che si desidera creare per Azure Marketplace.
-
-| Immagine di macchina virtuale | Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
-|-----|-----|-----|-----|
-| [Prerequisiti tecnici per le VM](marketplace-publishing-vm-image-creation-prerequisites.md) | Anteprima privata | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
+Quando vengono rispettati i prerequisiti non tecnici, occorre passare ai prerequisiti tecnici specifici dell'offerta. Fare clic sul collegamento all'articolo per il tipo di offerta corrispondente che si desidera creare per Azure Marketplace.
+- [Prerequisiti tecnici per le macchine virtuali](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

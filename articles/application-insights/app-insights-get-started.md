@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/06/2016"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights di Visual Studio
@@ -52,8 +52,6 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
  * [Risoluzione dei problemi][qna]
  * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bug:
- * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggerimenti:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Esempi di codice
@@ -77,4 +75,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

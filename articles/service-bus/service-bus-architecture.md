@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Architettura del bus di servizio | Microsoft Azure"
-    description="Viene descritta l'architettura di elaborazione dei messaggi del bus di servizio di Azure."
+    description="Descrive l'architettura di elaborazione e inoltro dei messaggi del bus di servizio di Azure."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Architettura del bus di servizio
 
-Questo articolo descrive l'architettura di elaborazione dei messaggi del bus di servizio di Azure.
+Questo articolo descrive l'architettura di elaborazione e inoltro dei messaggi del bus di servizio di Azure.
 
 ## Unità di scala del bus di servizio
 
@@ -53,10 +53,10 @@ Quando viene stabilita la connessione di inoltro, i client possono scambiare mes
 
 ## Passaggi successivi
 
-A questo punto, dopo aver letto una panoramica del funzionamento del bus di servizio, visitare i collegamenti seguenti per iniziare:
+Ora che è stata esaminata una panoramica dell'architettura del bus di servizio, visitare i collegamenti seguenti per iniziare:
 
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

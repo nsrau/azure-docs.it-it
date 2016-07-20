@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/05/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere proprietari e utenti a un lab
@@ -31,7 +31,7 @@ Per concedere l'accesso al lab, si possono usare due ruoli:
 -  **Utente DevTest Labs**: gli utenti assegnati al ruolo **Utente DevTest Labs** possono creare macchine virtuali nel lab specificato e visualizzare tutte le risorse lab, come macchine virtuali, criteri o reti virtuali. Gli utenti possono essere *interni* (un membro di Azure Active Directory per la sottoscrizione), o *esterni* (un utente che non è un membro di Azure AD, ad esempio un membro di un'organizzazione partner).
 	-  Un ruolo **utente di lab di sviluppo e test** deve essere assegnato tramite il riquadro **Aggiungi utenti** del lab.
 	-  Gli utenti con il ruolo **utente di lab di sviluppo e test** possono eseguire queste operazioni solo all'interno del lab a cui sono assegnati. Ad esempio, un **utente di lab di sviluppo e test** non può creare una macchina virtuale usando il servizio Macchina virtuale della sottoscrizione. La creazione di una macchina virtuale è consentita solo da account di lab di sviluppo e test.
-	- Gli utenti *esterni* devono disporre di un account in uno dei domini di account Microsoft (ad esempio @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com o una variante di un paese specifico).
+	- Gli utenti *esterni* sono utenti con un Account Microsoft (MSA).
  
 Dopo aver creato una macchina virtuale, l'utente che l'ha creata viene assegnato automaticamente al ruolo **Proprietario** nella macchina virtuale e può quindi eseguire tutte le azioni disponibili nel lab.
 
@@ -103,4 +103,4 @@ Per aggiungere un utente di lab di sviluppo e test al lab, seguire questi passag
 
 1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -25,7 +25,7 @@
 - Gli inviti a indirizzi di posta elettronica personali, ad esempio hotmail.com, Gmail.com o comcast.net non sono attualmente supportati.
 - L’accesso degli utenti esterni ad applicazioni locali non è testato.
 - Gli utenti esterni non vengono automaticamente eliminati quando l'utente effettivo viene eliminato dalla loro directory.
-- Gli inviti a liste di distribuzione non sono supportati.
+- Gli inviti alle liste di distribuzione non sono supportati.
 - Un numero massimo di 2.000 record può essere caricato tramite CSV.
 
 ## Articoli correlati
@@ -39,4 +39,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

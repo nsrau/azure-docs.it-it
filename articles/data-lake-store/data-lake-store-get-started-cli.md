@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
@@ -189,4 +189,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

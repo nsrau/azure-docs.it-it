@@ -3,13 +3,13 @@
 
 ## Trovare la macchina virtuale
 
-1. Accedere al portale di Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Nel menu Hub fare clic su **Macchine virtuali**.
+2. Scegliere **Macchine virtuali** dal menu Hub.
 
 3.	Selezionare la macchina virtuale dall'elenco.
 
-4. A destra, in **Essentials**, fare clic su **Tutte le impostazioni**, quindi fare clic su **Dischi**.
+4. Nel pannello Macchine virtuali di **Essentials**, fare clic su **Tutte le impostazioni** > **Dischi**.
 
 	![Aprire le impostazioni del disco](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
@@ -43,4 +43,4 @@ Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un di
 
 6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

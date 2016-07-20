@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="07/13/2016"
    ms.author="cherylmc"/>
 
 # Reimpostare un gateway VPN di Azure mediante PowerShell
@@ -58,4 +58,4 @@ Dopo due riavvii, se si verificano ancora problemi di connettività tra più sed
 	
 Per altre informazioni su questo cmdlet, vedere [Riferimenti PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

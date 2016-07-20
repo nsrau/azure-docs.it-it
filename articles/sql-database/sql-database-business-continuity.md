@@ -61,8 +61,8 @@ Si sta rilasciando un aggiornamento importante dell'applicazione che comporta mo
 La tabella seguente include un elenco delle funzionalità di continuità aziendale del database SQL e descrive le differenze dei vari [livelli di servizio](sql-database-service-tiers.md):
 
 | Funzionalità | Livello Basic | Livello Standard |Livello Premium
-| --- |--- | --- | ---
-| Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 14 giorni | Qualsiasi punto di ripristino entro 35 giorni
+| --- | --- | --- | ---
+| Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 35 giorni | Qualsiasi punto di ripristino entro 35 giorni
 | Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
 | Replica geografica attiva | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec
 
@@ -73,7 +73,7 @@ Queste funzionalità consentono di gestire gli scenari elencati in precedenza.
 
 ###Ripristino temporizzato
 
-Il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) è concepito per riportare il database a un punto precedente nel tempo. Questa funzionalità si basa sui backup del database, sui backup incrementali e sui backup dei log delle transazioni che il servizio gestisce automaticamente per ogni database utente. È disponibile per tutti i livelli di servizio. È possibile tornare indietro di 7 giorni con il livello Basic, di 14 giorni con il livello Standard e di 35 giorni con il livello Premium.
+Il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) è concepito per riportare il database a un punto precedente nel tempo. Questa funzionalità si basa sui backup del database, sui backup incrementali e sui backup dei log delle transazioni che il servizio gestisce automaticamente per ogni database utente. È disponibile per tutti i livelli di servizio. È possibile tornare indietro di 7 giorni con il livello Basic, di 35 giorni con il livello Standard e di 35 giorni con il livello Premium.
 
 ### Ripristino geografico
 
@@ -126,4 +126,4 @@ Per informazioni sulle strategie di ripristino dettagliate da usare con un pool 
 - Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

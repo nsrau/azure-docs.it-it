@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Distribuire un'app Web ASP.NET nel servizio app di Azure con Visual Studio
 
@@ -199,8 +199,7 @@ In questa sezione si distribuirà il progetto Web nell'app Web.
 
 	![Applicazione Web in esecuzione in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] È possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione o aprire la procedura guidata **Pubblica sul Web**. 
-	![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] È possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione o aprire la procedura guidata **Pubblica sul Web**. ![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Risoluzione dei problemi
 
@@ -214,7 +213,7 @@ Una volta che l'app Web ASP.NET è in esecuzione nel servizio app di Azure, è c
 
 In questa esercitazione sono state illustrate le procedure per creare una semplice applicazione Web e distribuirla in un'app Web di Azure. Di seguito sono elencati alcuni argomenti e risorse correlati cui fare riferimento per altre informazioni sul servizio app di Azure:
 
-* Monitorare e gestire l'app Web nel [portale di Azure](https://portal.azure.com/). 
+* Monitorare e gestire l'app Web nel [portale di Azure](https://portal.azure.com/).
 
 	Per altre informazioni, vedere [una panoramica del portale di Azure](/services/management-portal/) e [Configurare le app Web nel servizio app di Azure](web-sites-configure.md).
 
@@ -241,4 +240,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../resource-group-portal.md).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

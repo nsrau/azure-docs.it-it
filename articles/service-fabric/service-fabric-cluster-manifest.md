@@ -19,7 +19,7 @@
 
 # Impostazioni di configurazione per un cluster autonomo in Windows
 
-Questo articolo descrive come configurare un cluster di Service Fabric autonomo usando il file _**ClusterConfig.JSON**_. Questo file viene scaricato sul computer in uso, nell'ambito del [download del pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Il file ClusterConfig.JSON consente di specificare informazioni quali i nodi di Service Fabric e i relativi indirizzi IP, i tipi di nodi nel cluster, le configurazioni di sicurezza e la topologia di rete in termini di domini di errore/aggiornamento per il cluster di Service Fabric.
+Questo articolo descrive come configurare un cluster di Service Fabric autonomo usando il file _**ClusterConfig.JSON**_. Questo file viene scaricato sul computer in uso, nell'ambito del [download del pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Il file ClusterConfig.JSON consente di specificare informazioni quali i nodi di Service Fabric e i relativi indirizzi IP, i vari tipi di nodi nel cluster, le configurazioni di sicurezza e la topologia di rete in termini di domini di errore/aggiornamento per il cluster di Service Fabric.
 
 Di seguito verranno esaminate le diverse sezioni di questo file.
 
@@ -75,9 +75,9 @@ Un cluster di Service Fabric richiede almeno 3 nodi. È possibile aggiungere pi�
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 Queste variabili consentono di raccogliere log di traccia ETW, dump di arresto anomalo e contatori delle prestazioni. Per altre informazioni sui log di traccia ETW, leggere gli articoli [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Traccia ETW](https://msdn.microsoft.com/library/ms751538.aspx). I [dump di arresto anomalo](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) per il cluster e il nodo di Service Fabric possono essere indirizzati verso la cartella **crashDumpConnectionString**. I [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) per il cluster possono essere indirizzati alla cartella **perfCtrConnectionString** nel computer.
@@ -137,10 +137,10 @@ Questa sezione consente di impostare le directory radice per i log e i dati di S
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 Si noti che se si personalizza solo la radice dei dati, la radice del log verrà inserita un livello sotto la radice dei dati.
@@ -150,4 +150,4 @@ Si noti che se si personalizza solo la radice dei dati, la radice del log verrà
 
 Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Azure Service Fabric locale o nel cloud](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

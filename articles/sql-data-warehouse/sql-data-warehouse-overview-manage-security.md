@@ -18,6 +18,16 @@
 
 # Proteggere un database in SQL Data Warehouse
 
+> [AZURE.SELECTOR]
+- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+- [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
+- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
+- [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 Questo articolo illustra i concetti di base relativi alla protezione del proprio database di Azure SQL Data Warehouse. In particolare l'articolo spiega come iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database.
 
 ## Sicurezza delle connessioni
@@ -37,7 +47,7 @@ Durante la creazione del server logico per il database, è stato specificato un 
 
 Tuttavia, come procedura consigliata, è opportuno che gli utenti dell'organizzazione usino un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection.
 
-Per creare un utente autenticato in SQL Server, connettersi al database **master** sul proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.
+Per creare un utente autenticato in SQL Server, connettersi al database **master** nel proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.
 
 ```sql
 -- Connect to master database and create a login
@@ -45,7 +55,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Quindi connettersi al **database SQL Data Warehouse** con l'account di accesso amministratore del server e creare un utente di database basato sull'account di accesso al server appena creato.
+Quindi connettersi al **database di SQL Data Warehouse** con l'account di accesso amministratore server e creare un utente di database basato sull'account di accesso al server appena creato.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -53,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Per altre informazioni su come avviene l'autenticazione per un database SQL, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure][]. Per altre informazioni sull'uso dell'anteprima di Azure AD per SQL Data Warehouse, vedere l'articolo [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory).
+Per altre informazioni su come avviene l'autenticazione per un database SQL, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure][]. Per altre informazioni sull'uso dell'anteprima di Azure AD per SQL Data Warehouse, vedere [Autenticazione in Azure SQL Data Warehouse][].
 
 
 ## Autorizzazione
@@ -86,22 +96,22 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-È anche possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure][]. Per altre informazioni, vedere [Introduzione a Transparent Data Encryption (TDE)][].
+È anche possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure][]. Per altre informazioni, vedere [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse][].
 
 ## Controllo
 
 Il controllo e il monitoraggio di eventi del database consentono di mantenere la conformità alle normative e di identificare attività sospette. La funzionalità di controllo di SQL Data Warehouse consente di registrare gli eventi nel database in un log di controllo nell'account di archiviazione Azure. La funzionalità di controllo di SQL Data Warehouse si integra inoltre con Microsoft Power BI per facilitare l'esecuzione di analisi e report drill-down. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL][].
 
 ## Passaggi successivi
-Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con protocolli diversi, vedere [Connettersi a SQL Data Warehouse][].
+Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con protocolli diversi, vedere [Connettersi ad Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Connettersi a SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
+[Connettersi ad Azure SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Introduzione al controllo del database SQL]: ./sql-data-warehouse-overview-auditing.md
-[Introduzione a Transparent Data Encryption (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse]: ./sql-data-warehouse-encryption-tde.md
+[Autenticazione in Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall di database SQL di Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +125,4 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

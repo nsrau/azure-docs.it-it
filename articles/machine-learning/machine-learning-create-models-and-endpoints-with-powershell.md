@@ -68,14 +68,14 @@ Configurare l'ambiente PowerShell:
 	# Assume the default configuration file exists and is properly set to point to the valid Workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 Quindi, eseguire il comando di PowerShell seguente:
 
 	# Create 10 endpoints on the scoring web service.
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
 	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
+	    Write-Host ('adding endpoint ' + $endpointName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
 
@@ -87,8 +87,10 @@ I 10 endpoint appena creati contengono tutti lo stesso modello di cui è stato e
 
 Il passaggio successivo consiste nell'aggiornare gli endpoint con i modelli di cui è stato eseguito il training univoco sui dati dei singoli clienti. Prima, però, è necessario produrre tali modelli dal servizio Web **Bike Rental Training**. Tornare al servizio Web **Bike Rental Training**. È necessario chiamare 10 volte il relativo endpoint BES con 10 set di dati di training diversi per produrre 10 modelli differenti. A tale scopo, usare il cmdlet **InovkeAmlWebServiceBESEndpoint** di PowerShell.
 
+È inoltre necessario fornire le credenziali per l'account di archiviazione BLOB in `$configContent`, ovvero i campi `AccountName`, `AccountKey` e `RelativeLocation`. `AccountName` può essere uno dei nomi di account, come illustrato nel **portale di gestione di Azure classico** (scheda *Archiviazione*). Dopo avere fatto clic su un account di archiviazione,è possibile trovare il relativo `AccountKey` scegliendo il pulsante **Gestisci chiavi di accesso** nella parte inferiore e copiando il valore di *Chiave di accesso primaria*. `RelativeLocation` è il percorso relativo della risorsa di archiviazione in cui verrà archiviato un nuovo modello. Ad esempio, il percorso `hai/retrain/bike_rental/` nello script seguente punta a un contenitore denominato `hai` e `/retrain/bike_rental/` sono le sottocartelle. Attualmente, non è possibile creare sottocartelle tramite l'interfaccia utente del portale, ma esistono diversi [Strumenti di esplorazione degli archivi di Azure](../storage/storage-explorers.md) che consentono di eseguire questa operazione. È consigliabile creare un nuovo contenitore nella risorsa di archiviazione per archiviare i nuovi modelli con training (file ILEARNER) come segue: dalla pagina Archiviazione fare clic sul pulsante **Aggiungi** nella parte inferiore e denominarlo `retrain`. In breve, le modifiche necessarie allo script seguente si riferiscono a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+
 	# Invoke the retraining API 10 times
-	# This is the default (and the only) endpoint on the training web service 
+	# This is the default (and the only) endpoint on the training web service
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
 	$apiKey = $trainingSvcEp.PrimaryKey;
@@ -117,17 +119,17 @@ Se tutto va bene, dopo poco tempo nell'account di archiviazione di Azure dovrebb
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-L'esecuzione dovrebbe essere abbastanza rapida. Al termine saranno disponibili 10 endpoint di servizio Web predittivi, ognuno dei quali contiene un modello di cui è stato eseguito il training in modo univoco sul set di dati specifico di un punto di noleggio. Tutto questo a partire da un unico esperimento di training. Per eseguire una verifica, è possibile chiamare gli endpoint con il cmdlet **InvokeAmlWebServiceRRSEndpoint**, fornendo loro gli stessi dati di input. Il risultato dovrebbe essere costituito da 10 previsioni diverse, dato che per il training di ogni modello è stato usato un set di dati di training diverso.
+L'esecuzione dovrebbe essere abbastanza rapida. Al termine saranno disponibili 10 endpoint di servizio Web predittivi, ognuno dei quali contiene un modello di cui è stato eseguito il training in modo univoco sul set di dati specifico di un punto di noleggio. Tutto questo a partire da un unico esperimento di training. Per eseguire una verifica, è possibile chiamare gli endpoint con il cmdlet **InvokeAmlWebServiceRRSEndpoint**, fornendo gli stessi dati di input. Il risultato dovrebbe essere costituito da 10 stime diverse, dato che per il training di ogni modello è stato usato un set di dati di training diverso.
 
 ## Script di PowerShell completo
 
 Di seguito è riportato il listato del codice sorgente completo:
-	
+
 	Import-Module .\AzureMLPS.dll
 	# Assume the default configuration file exists and properly set to point to the valid workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 	# Create 10 endpoints on the scoring web service
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
@@ -135,7 +137,7 @@ Di seguito è riportato il listato del codice sorgente completo:
 	    Write-Host ('adding endpoint ' + $endpontName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
-	
+
 	# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
@@ -147,7 +149,7 @@ Di seguito è riportato il listato del codice sorgente completo:
 	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
 	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
 	}
-	
+
 	# Patch the 10 endpoints with respective .ilearner models
 	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
 	$sasToken = '?test'
@@ -159,4 +161,4 @@ Di seguito è riportato il listato del codice sorgente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio di Azure AD *(Anteprima)* - Guida alla risoluzione dei problemi
@@ -64,4 +64,4 @@ Se si verifica una situazione in cui uno o più utenti nel tenant di Azure AD no
 ### Contattaci
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](active-directory-ds-contact-us.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

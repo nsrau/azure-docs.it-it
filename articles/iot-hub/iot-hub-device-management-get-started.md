@@ -100,7 +100,7 @@ Per compilare gli esempi ed effettuare il provisioning dei dispositivi nell'hub 
 
 Lo script esegue queste operazioni:
 
-1.  Esegue **cmake** per creare una soluzione di Visual Studio 2015 per il dispositivo simulato. Il file di progetto è **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Si noti che i file di origine sono nella cartella **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Esegue **cmake** per creare una soluzione di Visual Studio 2015 per il dispositivo simulato. Il file di progetto è **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Si noti che i file di origine si trovano nella cartella **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila il progetto di dispositivo simulato **iotdm\_simple\_sample.vcxproj**.
 
@@ -175,9 +175,11 @@ Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestion
 Lasciare in esecuzione i dispositivi simulati e l'app di gestione dei dispositivi durante l'esercitazione successiva sulla gestione dei dispositivi.
 
 
-## Passaggio successivo
+## Passaggi successivi
 
-Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] \(Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio).
+Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzione a Gateway SDK][lnk-gateway-SDK].
+
+Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Esplorare la gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -193,5 +195,6 @@ Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub 
 [Uso di Gruppi di risorse per gestire le risorse di Azure]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

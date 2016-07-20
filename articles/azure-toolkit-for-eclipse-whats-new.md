@@ -26,11 +26,23 @@ Questo articolo include informazioni sulle diverse versioni e sugli aggiornament
 
 > [AZURE.NOTE] Esiste anche un Toolkit di Azure per l’IDE di IntelliJ. Per ulteriori informazioni, vedere [Azure Toolkit per IntelliJ].
 
+### 29 giugno 2016
+
+La versione del Toolkit di Azure per Eclipse rilasciata a giugno 2016 include i miglioramenti seguenti:
+
+* **Requisito Java 8**. Per il Toolkit Azure per Eclipse è ora necessario Java 8. Sebbene questo requisito sia fondamentale per il toolkit, le applicazioni possono continuare a usare versioni di Java supportate da Azure.
+* **Supporto per i JDK di Java più recenti**. Le versioni più recenti dei JDK di Java sono ora supportate dal Toolkit di Azure per Eclipse.
+* **Supporto per Azure SDK versione 2.9.1**. La versione più recente di Azure SDK è ora il prerequisito minimo per Azure Toolkit per Eclipse.
+* **Campioni integrati**. Il Toolkit di Azure per Eclipse presenta adesso numerose applicazioni campione per fornire supporto agli sviluppatori nella fase iniziale.
+* **Integrazione dello strumento HDInsight**. Gli strumenti HDInsight di Azure sono adesso contenuti nel Toolkit di Azure per Eclipse.
+* **Debug remoto delle App Web Java**. Il Toolkit di Azure per Eclipse supporta adesso il debug remoto delle App Web Java nel servizio app di Azure.
+* **Supporto per la versione di Eclipse Luna.** La nuova versione minima richiesta dell'IDE di Eclipse è Luna.
+
 ### 12 aprile 2016
 
 La versione di Azure Toolkit per Eclipse rilasciata ad aprile 2016 include i miglioramenti seguenti:
 
-* **Supporto per Azure SDK v2.9.0**. La versione più recente di Azure SDK è ora il prerequisito minimo per Azure Toolkit per Eclipse.
+* **Supporto per Azure SDK versione 2.9.0**. La versione più recente di Azure SDK è ora il prerequisito minimo per Azure Toolkit per Eclipse.
 * **Vari miglioramenti di usabilità, velocità di risposta e prestazioni relativamente al supporto di App Web di Azure**. Prestazioni ottimizzate relativamente alla comunicazione tra il Toolkit e il risultato di Azure in un'interfaccia utente più reattiva.
 * **Possibilità di eliminare un contenitore di applicazioni Web in Azure da Eclipse**. Azure Toolkit per Eclipse consente ora di eliminare un contenitore Web di Azure esistente senza uscire da Eclipse.
 
@@ -48,7 +60,7 @@ La versione di Azure Toolkit per Eclipse rilasciata a gennaio 2016 include i mig
 
 * **Supporto per gli aggiornamenti di Zulu OpenJDK**. Per altre informazioni, vedere la [pagina Web di Azul Systems per Zulu OpenJDK].
 * **Distribuzioni aggiornate di Tomcat e Jetty**. Le distribuzioni di Tomcat e Jetty disponibili in Microsoft Azure per l'uso con Azure Toolkit for Eclipse sono state aggiornate.
-* **Parità di funzionalità tra i toolkit Eclipse e IntelliJ per Azure**. Azure Toolkit per Eclipse e [Azure Toolkit per IntelliJ] ora supportano lo stesso set di funzionalità.
+* **Parità di funzionalità tra i toolkit Eclipse e IntelliJ per Azure**. Il Toolkit di Azure per Eclipse e il [Toolkit di Azure per IntelliJ] supportano adesso lo stesso set di funzionalità.
 
 ### 1ª settembre 2015
 
@@ -308,6 +320,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 - [Toolkit di Azure per IntelliJ]
   - [Installazione del Toolkit di Azure per IntelliJ]
   - [Creare un'App Web Hello World per Azure in IntelliJ]
+  - [Novità del Toolkit di Azure per IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
@@ -320,9 +333,12 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novità del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [pagina Web di Azul Systems per Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Endpoint del servizio di Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Elenco di account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Proprietà dei componenti]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
@@ -354,4 +370,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

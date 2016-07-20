@@ -17,6 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Servizio di controllo di Azure SQL Data Warehouse
+
+> [AZURE.SELECTOR]
+- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+- [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
+- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
+- [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
 Il servizio di controllo di Azure SQL Data Warehouse tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di Archiviazione di Azure.
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
@@ -141,4 +151,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

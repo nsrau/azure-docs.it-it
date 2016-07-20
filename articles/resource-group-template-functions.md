@@ -444,9 +444,9 @@ Gestione risorse fornisce diverse funzioni per usare i valori di matrice:
 
 - [concat](#concat)
 - [length](#length)
-- [take](#take)
 - [skip](#skip)
 - [split](#split)
+- [take](#take)
 
 <a id="length" />
 ### length
@@ -469,37 +469,6 @@ In alternativa, è possibile utilizzarla con una stringa:
     },
     "variables": { 
         "nameLength": "[length(parameters('appName'))]"
-    }
-
-<a id="take" />
-### take
-**take(originalValue, numberToTake)**
-
-Restituisce una matrice o una stringa con il numero specificato di elementi o i caratteri dall'inizio della matrice o stringa.
-
-| Parametro | Obbligatorio | Descrizione
-| :--------------------------------: | :------: | :----------
-| originalValue | Sì | La matrice o stringa da cui accettare gli elementi o i caratteri.
-| numberToTake | Sì | Il numero di elementi o caratteri da accettare. Se questo valore è 0 o minore, viene restituita una matrice o una stringa vuota. Se è maggiore della lunghezza della matrice o della stringa specificata, vengono restituiti tutti gli elementi nella matrice o stringa.
-
-L'esempio seguente accetta il numero specificato di elementi dalla matrice.
-
-    "parameters": {
-      "first": {
-        "type": "array",
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int"
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
     }
 
 <a id="skip" />
@@ -530,6 +499,37 @@ L'esempio seguente ignora il numero specificato di elementi nella matrice.
       "return": {
         "type": "array",
         "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Restituisce una matrice o una stringa con il numero specificato di elementi o i caratteri dall'inizio della matrice o stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalValue | Sì | La matrice o stringa da cui accettare gli elementi o i caratteri.
+| numberToTake | Sì | Il numero di elementi o caratteri da accettare. Se questo valore è 0 o minore, viene restituita una matrice o una stringa vuota. Se è maggiore della lunghezza della matrice o della stringa specificata, vengono restituiti tutti gli elementi nella matrice o stringa.
+
+L'esempio seguente accetta il numero specificato di elementi dalla matrice.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
       }
     }
 
@@ -877,4 +877,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

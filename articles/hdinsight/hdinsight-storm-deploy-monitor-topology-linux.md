@@ -135,7 +135,7 @@ Se si seleziona un collegamento nella sezione **Topology summary**, verranno vis
 
     Per altre informazioni, vedere l'articolo relativo al <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">parallelismo di una topologia Storm</a>.
 
-  * **Kill**: termina una topologia Storm dopo il timeout specificato.
+* **Kill**: termina una topologia Storm dopo il timeout specificato.
 
 * **Topology stats**: statistiche sulla topologia. Usare i collegamenti disponibili nella colonna **Window** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
 
@@ -171,7 +171,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 ### URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in * *https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in **https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 

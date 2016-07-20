@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)*
@@ -37,7 +37,13 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Supporto di binding LDAP e operazioni di lettura LDAP:** è possibile usare applicazioni che si basano sui binding LDAP per l'autenticazione degli utenti in domini gestiti da Servizi di dominio Azure AD. Inoltre, anche le applicazioni che usano operazioni di lettura LDAP per eseguire query sugli attributi utente/computer dalla directory possono interagire con Servizi di dominio Azure AD.
 
+- **LDAP sicuro (LDAPS):** è possibile abilitare l'accesso alla directory tramite LDAP sicuro (LDAPS). L'accesso LDAP sicuro è disponibile all'interno della rete virtuale per impostazione predefinita. È tuttavia possibile abilitare l'accesso LDAP sicuro tramite Internet.
+
 - **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio.
+
+- **Gestione DNS:** i membri del gruppo "AAD DC Administrators" possono gestire il sistema DNS per il dominio gestito Servizi di dominio Azure AD tramite strumenti di amministrazione DNS noti, come lo snap-in MMC per amministrazione DNS.
+
+- **Creare unità organizzative (OU) personalizzate:** i membri del gruppo "AAD DC Administrators" possono creare unità organizzative personalizzate all'interno del dominio gestito Servizi di dominio AAD. A questi utenti vengono concessi privilegi amministrativi completi sulle unità organizzative personalizzate e quindi possono aggiungere e rimuovere account di servizio, computer, gruppi e così via all'interno di queste unità organizzative personalizzate.
 
 - **Disponibile in più aree di Azure:** per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 
@@ -45,4 +51,4 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Usare strumenti familiari di gestione:** è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini forniti da Servizi di dominio Azure AD.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

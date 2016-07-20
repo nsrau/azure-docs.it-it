@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="05/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -42,7 +42,7 @@ Per configurare l'integrazione di Azure AD con Soonr Workplace, sono necessari g
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Descrizione dello scenario
@@ -57,7 +57,7 @@ Per configurare l'integrazione di Soonr Workplace in Azure AD, è necessario agg
 
 **Per aggiungere Soonr Workplace dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -86,14 +86,14 @@ Per configurare l'integrazione di Soonr Workplace in Azure AD, è necessario agg
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Soonr Workplace con un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Soonr Workplace che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Soonr Workplace. La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Soonr Workplace.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Soonr Workplace che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Soonr Workplace.
 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Soonr Workplace, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Soonr Workplace](#creating-a-soonr-workplace-test-user)**: per avere una controparte di Britta Simon in Soonr Workplace collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente di test di Soonr Workplace](#creating-a-soonr-workplace-test-user)**: per avere una controparte di Britta Simon in Soonr Workplace collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -118,7 +118,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png)
 
 
-    a. Nella casella di testo URL accesso digitare l'URL usato dagli utenti per accedere all'applicazione Soonr Workplace adottando il modello seguente: **"https://<nome-server>>.soonr.com/singlesignon/saml/SSO"**.
+    a. Nella casella di testo URL accesso digitare l'URL usato dagli utenti per accedere all'applicazione Soonr Workplace nel formato seguente: **"https://<nome-server>>.soonr.com/singlesignon/saml/SSO"**.
 
     b. Fare clic su **Avanti**.
 
@@ -131,10 +131,10 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Soonr Workplace e inviare per posta elettronica il file di metadati scaricato. Specificare inoltre l'URL dell'autorità di certificazione, l'URL SSO SAML e l'URL di disconnessione in modo da configurarli per l'integrazione SSO.
+5. Al fine di configurare l'accesso SSO per l'applicazione, consultare le informazioni di guida sull'integrazione dell'accesso SSO di Soonr Workplace o rivolgersi ai partner di integrazione per altre informazioni.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -161,11 +161,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_04.png)
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_05.png)
 
@@ -193,7 +193,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_07.png)
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_08.png)
 
@@ -233,7 +233,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** nella barra degli strumenti in basso.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -268,4 +268,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

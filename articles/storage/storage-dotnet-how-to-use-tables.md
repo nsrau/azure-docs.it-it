@@ -42,6 +42,11 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Altri esempi
+
+Per altri esempi di uso dell'archivio tabelle, vedere [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Introduzione all'archivio tabelle di Azure in .NET). È possibile scaricare l'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub.
+
+
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -50,7 +55,7 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 ### Aggiungere le dichiarazioni dello spazio dei nomi
 
-Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
+Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -437,6 +442,7 @@ Se si legge un numero elevato di entità e si desidera elaborare/visualizzare le
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse:
 
+- Per altri esempi di archivio tabelle, vedere [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Introduzione all'archivio tabelle di Azure in .NET).
 - Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
     - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
@@ -463,4 +469,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

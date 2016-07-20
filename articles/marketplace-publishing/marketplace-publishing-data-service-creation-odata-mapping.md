@@ -69,15 +69,15 @@ Un'estensione di ATOM Pub in cui ciascuna voce rappresenta una riga di un risult
 
 Consente di definire le funzioni (SPROC) e le entità che vengono esposte tramite un database. Sono disponibili ulteriori informazioni all'indirizzo: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)
 
-> [AZURE.TIP]Se l'articolo non viene visualizzato, fare clic sull'elenco a discesa **Altre versioni** e selezionare una versione.
+> [AZURE.TIP] Se l'articolo non viene visualizzato, fare clic sull'elenco a discesa **Altre versioni** e selezionare una versione.
 
 ### EDM - Entry Data Model, Modello di dati di movimento
 - Panoramica: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
 - Anteprima: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
 - Tipi di dati: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Di seguito viene illustrato il flusso di dettagli da sinistra a destra da cui il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati:
 
@@ -115,7 +115,11 @@ Con riferimento a quanto segue per un servizio dati:
 - EntityType ~ = colonne
 - FunctionImport ~ = Stored Procedure
 
-**Verbi HTTP consentiti**: GET restituisce i valori del database (restituzione di una raccolta). POST viene utilizzato per trasmettere i dati al database e, facoltativamente, restituire i valori da esso provenienti (creazione di una nuova voce nella raccolta, restituzione di ID/URI). DELETE elimina i dati dal database (eliminazione di una raccolta). PUT aggiorna i dati in un database (sostituzione o creazione di una raccolta)
+**Verbi HTTP consentiti**
+- GET: restituisce valori dal database (restituisce una raccolta)
+- POST: consente di passare dati verso e restituire facoltativamente valori dal database (creare una nuova voce nella raccolta, restituire ID/URI)
+- DELETE: elimina dati dal database (elimina una raccolta)
+- PUT: consente di aggiornare i dati in un database (sostituire una raccolta o crearne una)
 
 ## Documento metadati/mapping
 
@@ -123,7 +127,10 @@ Il documento metadati/mapping viene utilizzato per il mapping dei servizi Web es
 
 A seguire, un esempio di CSDL: (copiare e incollare il CSDL di esempio seguente in un editor XML e modificarlo affinché corrisponda al proprio servizio. Quindi incollare il contenuto nel mapping CSDL, nella scheda DataService, durante la creazione del servizio nel [portale di pubblicazione di Azure Marketplace](https://publish.windowsazure.com)).
 
-**Termini:** riguardo la correlazione fra i termini di CSDL e quelli dell'interfaccia utente del [portale di pubblicazione](https://publish.windowsazure.com) (PPUI) - il "Titolo" dell'offerta in PPUI si riferisce a MyWebOffer - MyCompany in PPUI si riferisce al **nome visualizzato dell'editore** nell'interfaccia utente del [Centro per sviluppatori Microsoft](http://dev.windows.com/registration?accountprogram=azure) - l'API si riferisce a un servizio dati o Web (un piano nella PPUI)
+**Condizioni:** correlazione tra i termini di CSDL e i termini dell'interfaccia utente del [portale di pubblicazione](https://publish.windowsazure.com).
+- Il "titolo" dell'offerta nell'interfaccia utente del portale di pubblicazione è correlato a MyWebOffer.
+- Il valore MyCompany nell'interfaccia utente del portale di pubblicazione è correlato al **Nome visualizzato dell'editore** nell'interfaccia utente del [Centro sviluppatori Microsoft](http://dev.windows.com/registration?accountprogram=azure).
+- L'API è correlata a un servizio Web o un servizio dati, ovvero un piano nell'interfaccia utente del portale di pubblicazione
 
 **Gerarchia:** una società (provider di contenuti) è titolare delle offerte con piani, ossia servizi, che si allineano a un'API.
 
@@ -239,7 +246,7 @@ Si connette a un servizio che espone un endpoint dell'applicazione Web (ad esemp
             </EntityType>
         </Schema>
 
-> [AZURE.TIP]Altri esempi di CSDL di servizi Web sono disponibili nell'articolo relativo agli [esempi di mapping di un servizio Web esistente in OData tramite CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+> [AZURE.TIP] Altri esempi di CSDL di servizi Web sono disponibili nell'articolo relativo agli [esempi di mapping di un servizio Web esistente in OData tramite CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 ###Esempio di CSDL di DataService
 
@@ -301,4 +308,4 @@ Si connette a un servizio che espone una vista o tabella di database come un end
 - Per esaminare gli esempi, leggere l'articolo relativo agli [esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e comprendere il contesto e la sintassi del codice.
 - Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0706_2016-->

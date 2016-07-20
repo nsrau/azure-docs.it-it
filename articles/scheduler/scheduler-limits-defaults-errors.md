@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="04/18/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Limiti e impostazioni predefinite dell'Utilità di pianificazione
@@ -46,4 +46,4 @@ Se una richiesta fallisce sistematicamente e si è verificato che la richiesta �
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

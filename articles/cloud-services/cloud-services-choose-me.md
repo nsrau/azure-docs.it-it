@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="07/05/2016" 
 	ms.author="adegeo"/>
 
 # Perché scegliere Servizi cloud
@@ -57,4 +57,4 @@ L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre 
 ## Passaggi successivi
 [Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md) [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md) [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md) [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

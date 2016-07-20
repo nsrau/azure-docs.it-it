@@ -13,54 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 
 ## Avvisi di sicurezza
-Azure Privileged Identity Management (PIM) genera gli avvisi seguenti, che possono essere visualizzati nella sezione Avvisi del dashboard di PIM.
+Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM.
+
+![Schermata Avvisi di sicurezza del dashboard di PIM][1]
+
+
 
 | Avviso | Trigger | Raccomandazione |
 | ----- | ------- | -------------- |
-| **Attivazione permanente** | Un amministratore è stato assegnato a un ruolo in modo permanente, all'esterno di PIM. | Rivedere l'assegnazione del nuovo ruolo e modificarlo in ruolo temporaneo, se necessario. |
-| **Rinnovo attivazione sospetto di ruoli con privilegi** | È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. | Contattare l'utente per assicurarsi che possa attivare il ruolo correttamente. |
-| **Autenticazione debole configurata per l'attivazione del ruolo** | Sono presenti ruoli senza MFA nelle impostazioni. | È consigliabile richiedere l'autenticazione MFA per l'attivazione di tutti i ruoli. |
-| **Numero eccessivo di amministratori** | Sono presenti amministratori temporanei che non hanno attivato i loro ruoli di recente. | Rimuovere le assegnazioni dei ruoli non più necessari. |
-| **Numero eccessivo di amministratori globali** | Sono presenti più amministratori globali di quanti consigliati. | Rimuovere le assegnazioni dei ruoli che non sono più necessarie o modificare alcuni ruoli in ruoli temporanei. |
+| **I ruoli vengono assegnati all'esterno di PIM** | Un amministratore è stato assegnato a un ruolo in modo permanente, all'esterno dell'interfaccia PIM. | Verificare la nuova assegnazione del ruolo. Poiché gli altri servizi possono solo assegnare amministratori permanenti, modificare il valore in un'assegnazione idonea, se necessario. |
+| **I ruoli vengono attivati con una frequenza eccessiva** | È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. | Contattare l'utente per verificare il motivo per cui ha attivato il ruolo con una frequenza elevata. Il limite temporale potrebbe essere troppo breve per completare le attività o l'utente potrebbe usare script per aggirare il processo. |
+| **I ruoli non richiedono l'autenticazione MFA per l'attivazione** | Sono presenti ruoli con impostazioni in cui l'autenticazione MFA non è abilitata. | È richiesta l'autenticazione MFA per i ruoli con privilegi elevati, ma si consiglia di attivare l'autenticazione MFA per l'attivazione di tutti i ruoli. |
+| **Gli amministratori non usano i ruoli con privilegi** | Sono presenti amministratori temporanei che non hanno attivato i loro ruoli di recente. | Avviare una verifica di accesso per determinare gli utenti che non necessitano più dell'accesso. |
+| **Il numero di amministratori globali presenti è eccessivo** | Sono presenti più amministratori globali di quanti consigliati. | Se il numero di amministratori globali è elevato, è probabile che ottengano più autorizzazioni di quelle necessarie. Trasferire gli utenti a ruoli con privilegi meno elevati o rendere alcuni utenti idonei per il ruolo anziché assegnare i privilegi in modo permanente. |
 
 ## Configurare le impostazioni degli avvisi di sicurezza
 
-### Avviso "Rinnovi sospetti dell'attivazione di ruoli con privilegi"
+È possibile personalizzare alcuni avvisi di sicurezza in PIM in linea con gli obiettivi di protezione e l'ambiente. Seguire questa procedura per accedere al pannello impostazioni:
 
-Configurare le impostazioni **Intervallo di tempo per il rinnovo delle attivazioni** e **Numero di rinnovi** per specificare quando attivare l'avviso.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare **Azure AD Privileged Identity Management** nel dashboard.
+2. Selezionare **Managed privileged roles** (Ruoli con privilegi gestiti)> **Impostazioni** > **Impostazioni degli avvisi**.
 
-1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
-2. Fare clic su **Impostazioni**.
-3. Impostare il valore di **Intervallo di tempo rinnovi attivazione** regolando il dispositivo di scorrimento o immettendo il numero di minuti nel campo di testo. Il valore massimo è 100.
-4. Impostare il valore di **Numero rinnovi attivazione** nell'intervallo di tempo dei rinnovi dell'attivazione regolando il dispositivo di scorrimento o immettendo il numero di rinnovi nel campo di testo. Il valore massimo è 100.
-5. Fare clic su **Save**.
+    ![Passare a impostazioni degli avvisi di sicurezza][2]
 
-### Avviso "Numero eccessivo di amministratori"
-1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
-2. Fare clic su **Impostazioni**.
-3. Selezionare il numero di giorni consentiti senza attivazione del ruolo regolando il dispositivo di scorrimento o immettendo il numero di giorni nel campo di testo.
-4. Fare clic su **Save**.
+### Avviso "I ruoli vengono attivati con una frequenza eccessiva"
 
-### Avviso "Numero eccessivo di amministratori globali"
+Questo avviso viene attivato se un utente attiva lo stesso ruolo con privilegi più volte entro l'intervallo temporale specificato. È possibile configurare il periodo di tempo e il numero di attivazioni.
 
-Esistono due impostazioni che possono attivare questo avviso:
-- **Numero minimo di amministratori globali** attiva l'avviso se sono presenti più amministratori del numero consentito.
-- **Percentuale di amministratori globali** attiva l'avviso se la percentuale di amministratori globali è maggiore di quella consentita dalle impostazioni.
+- **Intervallo di tempo per il rinnovo delle attivazioni**: specificare in giorni, ore, minuti e secondi il periodo per cui si vuole rilevare rinnovi sospetti.
 
-1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
-2. Fare clic su **Impostazioni**.
-3. Impostare il campo **Numero minimo di amministratori globali** regolando il dispositivo di scorrimento o immettendo il numero nel campo di testo.
-4. Impostare **Percentuale di amministratori globali** regolando il dispositivo di scorrimento o immettendo la percentuale nel campo di testo.
-5. Fare clic su **Save**.
+- **Numero rinnovi attivazione**: specificare il numero di attivazioni, da 2 a 100, che si considera sospetti o almeno idoneo per un avviso, entro l'intervallo di tempo specificato. È possibile impostare questo valore spostando il dispositivo di scorrimento o digitando un numero nella casella di testo.
+
+
+### Avviso "Il numero di amministratori globali è eccessivo"
+
+Se vengono soddisfatti due criteri diversi ed è possibile configurarli entrambi, PIM attiva l'avviso. È necessario prima raggiungere una determinata soglia di amministratori globali. Una determinata percentuale del totale di assegnazioni di ruoli deve essere rappresentata da amministratori globali. Se viene soddisfatto uno solo di questi criteri, l'avviso non verrà visualizzato.
+
+- **Numero minimo di amministratori globali**: specificare il numero di amministratori globali, da 2 a 100, che si considera un valore non sicuro.
+
+- **Percentuale di amministratori globali**: specificare la percentuale di amministratori che sono amministratori globali, da 0% a 100%, che si considera non sicura nell'ambiente.
+
+### Avviso "Gli amministratori non usano i ruoli con privilegi"
+
+Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinato periodo.
+
+- **Numero di giorni**: specificare il numero di giorni, da 0 a 100, per cui un utente può non attivare un ruolo.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
+
+<!---HONumber=AcomDC_0706_2016-->

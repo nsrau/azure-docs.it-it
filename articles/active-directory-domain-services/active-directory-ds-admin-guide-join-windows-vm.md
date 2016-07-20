@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Aggiungere una macchina virtuale Windows Server a un dominio gestito
@@ -134,4 +134,4 @@ Se si verificano problemi con le credenziali e non è possibile completare l'agg
 
 - Assicurarsi di avere atteso per il tempo necessario per consentire il completamento della sincronizzazione delle password, come specificato nella Guida introduttiva.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

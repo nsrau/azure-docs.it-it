@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
@@ -22,21 +22,35 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 In questo argomento viene illustrato come utilizzare l'interfaccia della riga di comando di Azure con i modelli di Azure Resource Manager per distribuire le risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure ](resource-manager-troubleshoot-deployments-cli.md) per informazioni su come risolvere l'errore.
-> - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni.
+> - [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure ](resource-manager-troubleshoot-deployments-cli.md) per informazioni su come risolvere l'errore
+> - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
+
+Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
+
+## Azioni rapide per la distribuzione
+
+Questo articolo descrive tutte le diverse opzioni disponibili durante la distribuzione. Tuttavia, molto spesso saranno necessari solo due semplici comandi. Per iniziare a usare rapidamente la distribuzione, usare i comandi seguenti:
+
+    azure group create -n ExampleResourceGroup -l "West US"
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+
+Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario di riferimento, continuare a leggere questo articolo.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
 ## Distribuire con l'interfaccia della riga di comando di Azure
 
-Se l’interfaccia della riga comando di Azure non è stata usata in precedenza con Resource Manager, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+Se l’interfaccia della riga comando di Azure non è stata usata in precedenza con Gestione risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce il risultato dell'accesso.
 
@@ -103,7 +117,7 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Per registrare informazioni aggiuntive sulla distribuzione che potrebbero contribuire a risolvere eventuali errori di distribuzione, utilizzare il parametro **debug-setting**. È possibile specificare la registrazione del contenuto della richiesta, del contenuto della risposta o di entrambi con l'operazione di distribuzione.
+6. Per registrare informazioni aggiuntive sulla distribuzione che potrebbero contribuire a risolvere eventuali errori di distribuzione, usare il parametro **debug-setting**. È possibile specificare la registrazione del contenuto della richiesta, del contenuto della risposta o di entrambi con l'operazione di distribuzione.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
@@ -151,14 +165,14 @@ Per distribuire un modello privato in un account di archiviazione, recuperare un
 
         azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
 
-Per un esempio sull'utilizzo di un token SAS con i modelli collegati, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md).
+Per un esempio sull'uso di un token SAS con i modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
-- Per informazioni dettagliate sull'utilizzo di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+- Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

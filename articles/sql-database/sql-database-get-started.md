@@ -54,9 +54,11 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
+- Per caricare alcuni dati in una nuova tabella da un file CSV usando BCP, vedere [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md) (Caricamento di dati nel database SQL da un file CSV usando BCP).
+
 
 ## Risorse aggiuntive
 
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Creare più istanze di risorse in Gestione risorse di Azure
@@ -80,7 +80,7 @@ Si noterà nell'esempio precedente che il valore di indice va da 0 a 2. Per eseg
 - examplecopy-2
 - examplecopy-3
 
-## Uso con la matrice
+## Usare l'oggetto copy con matrice
    
 L'operazione di copia è particolarmente utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Per distribuire tre siti Web denominati:
 
@@ -210,282 +210,118 @@ Per creare più istanze di set di dati, è necessario modificare il modello come
         ...
     }]
 
-## Creazione di più dischi dati per una macchina virtuale
+## Creare più istanze quando l'oggetto copy non funziona
 
-Uno scenario frequente consiste nel creare più dischi dati per una macchina virtuale. Non è possibile usare **copy** con i dischi dati perché **dataDisks** è una proprietà nella macchina virtuale, non il relativo tipo di risorsa. **copy** funziona solo con le risorse. È invece possibile creare un modello collegato che definisce tutti i dischi dati necessari e restituisce una matrice con il numero di dischi dati specificato. Collegarsi a questo modello dal modello di distribuzione e passare il numero di dischi dati da restituire. Nel modello di distribuzione impostare la proprietà **dataDisks** sul valore dell'output del modello collegato.
+È possibile usare **copy** solo su tipi di risorse e non sulle proprietà al loro interno. Ciò può creare problemi per l'utente quando si desidera creare più istanze di un elemento che fa parte di una risorsa. Uno scenario frequente consiste nel creare più dischi dati per una macchina virtuale. Non è possibile usare **copy** con i dischi dati perché **dataDisks** è una proprietà nella macchina virtuale e non il relativo tipo di risorsa. È invece possibile creare una matrice con tutti i dischi dati necessari e passare il numero effettivo di dischi dati da creare. Nella definizione di macchina virtuale usare la funzione **take** per ottenere solo il numero di elementi effettivamente desiderato dalla matrice.
 
 Un esempio completo di questo schema è illustrato nel modello per la [creazione di una macchina virtuale con una selezione dinamica di dischi dati](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/).
 
-Le sezioni pertinenti del modello di distribuzione sono riportate di seguito. Gran parte del modello è stata rimossa per evidenziare le sezioni coinvolte nella creazione dinamica di alcuni dischi dati. Si noti il parametro **numDataDisks** che consente di passare il numero di dischi da creare. Nella sezione resources viene specificato un modello collegato denominato **diskSelection**. L'output di tale modello collegato viene assegnato alla proprietà **dataDisks** nella macchina virtuale.
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        ...
-        "numDataDisks": {
-          "type": "string",
-          "allowedValues": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "32"
-          ],
-          "metadata": {
-            "description": "This parameter allows the user to select the number of disks they want"
-          }
-        }
-      },
-      "variables": {
-        "artifactsLocation": "https://raw.githubusercontent.com/singhkay/azure-quickstart-templates/master/201-vm-dynamic-data-disks-selection/", 
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
-        "sizeOfDataDisksInGB": 100,
-        "diskCaching": "ReadWrite",
-        ...
-      },
-      "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "diskSelection",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "Incremental",
-            "templateLink": {
-              "uri": "[concat(variables('artifactsLocation'), 'disksSelector', '.json')]",
-              "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-              "numDataDisks": {
-                "value": "[parameters('numDataDisks')]"
-              },
-              "diskStorageAccountName": {
-                "value": "[variables('storageAccountName')]"
-              },
-              "diskCaching": {
-                "value": "[variables('diskCaching')]"
-              },
-              "diskSizeGB": {
-                "value": "[variables('sizeOfDataDisksInGB')]"
-              }
-            }
-          }
-        },
-        ...
-        {
-          "type": "Microsoft.Compute/virtualMachines",
-          "properties": {
-            "storageProfile": {
-              ...
-              "dataDisks": "[reference('diskSelection').outputs.dataDiskArray.value]"
-            },
-            ...
-          }
-        }
-      ]
-    }
-
-Il modello collegato definisce la matrice da restituire. Il modello illustrato di seguito omette la ripetizione delle definizioni dei dischi da 3 a 32, ma nel modello effettivo è necessario includere tutte le definizioni. Se sono necessari più di 32 dischi dati, è possibile continuare seguendo lo stesso schema. Si noti che questo modello non esegue alcuna distribuzione delle risorse. Restituisce semplicemente una matrice con il numero richiesto di oggetti che definiscono il disco dati.
+Le sezioni pertinenti del modello di distribuzione sono riportate di seguito. Gran parte del modello è stata rimossa per evidenziare le sezioni coinvolte nella creazione dinamica di alcuni dischi dati. Si noti il parametro **numDataDisks** che consente di passare il numero di dischi da creare.
 
 ```
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    ...
     "numDataDisks": {
-      "type": "string",
-      "allowedValues": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "32"
-      ],
-      "metadata": {
-        "description": "This parameter allows the user to select the number of disks they want"
-      }
-    },
-    "diskStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account where the data disks are stored"
-      }
-    },
-    "diskCaching": {
-      "type": "string",
-      "allowedValues": [
-        "None",
-        "ReadOnly",
-        "ReadWrite"
-      ],
-      "metadata": {
-        "description": "Caching type for the data disks"
-      }
-    },
-    "diskSizeGB": {
       "type": "int",
-      "minValue": 1,
-      "maxValue": 1023,
+      "maxValue": 64,
       "metadata": {
-        "description": "Size of the data disks"
+        "description": "This parameter allows you to select the number of disks you want"
       }
     }
   },
   "variables": {
-    "disksArray": {
-      "1": "[variables('dataDisks')['1']]",
-      "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
-      "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
-      "4": "[variables('diskDeltas')['4delta']]",
-      "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
-      "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
-      "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
-      "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
-      "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
-      "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
-      "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
-      "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
-      "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
-      "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
-      "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
-      "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]",
-      "32": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]"
-    },
-    "dataDisks": {
-      "1": [
-        {
-          "name": "datadisk1",
-          "lun": 0,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "2": [
-        {
-          "name": "datadisk2",
-          "lun": 1,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "3": [
-        {
-          "name": "datadisk3",
-          "lun": 2,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
+    "sizeOfDataDisksInGB": 100,
+    "diskCaching": "ReadWrite",
+    "diskArray": [
+      {
+        "name": "datadisk1",
+        "lun": 0,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk2",
+        "lun": 1,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk3",
+        "lun": 2,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk4",
+        "lun": 3,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
       ...
-      "32": [
-        {
-          "name": "datadisk32",
-          "lun": 31,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk32.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ]
-    },
-    "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
-    "diskDeltas": {
-      "4delta": [
-        "[variables('dataDisks')['1'][0]]",
-        "[variables('dataDisks')['2'][0]]",
-        "[variables('dataDisks')['3'][0]]",
-        "[variables('dataDisks')['4'][0]]"
-      ],
-      "8delta": [
-        "[variables('dataDisks')['5'][0]]",
-        "[variables('dataDisks')['6'][0]]",
-        "[variables('dataDisks')['7'][0]]",
-        "[variables('dataDisks')['8'][0]]"
-      ],
-      "12delta": [
-        "[variables('dataDisks')['9'][0]]",
-        "[variables('dataDisks')['10'][0]]",
-        "[variables('dataDisks')['11'][0]]",
-        "[variables('dataDisks')['12'][0]]"
-      ],
-      "16delta": [
-        "[variables('dataDisks')['13'][0]]",
-        "[variables('dataDisks')['14'][0]]",
-        "[variables('dataDisks')['15'][0]]",
-        "[variables('dataDisks')['16'][0]]"
-      ],
-      "32delta": [
-        "[variables('dataDisks')['17'][0]]",
-        "[variables('dataDisks')['18'][0]]",
-        "[variables('dataDisks')['19'][0]]",
-        "[variables('dataDisks')['20'][0]]",
-        "[variables('dataDisks')['21'][0]]",
-        "[variables('dataDisks')['22'][0]]",
-        "[variables('dataDisks')['23'][0]]",
-        "[variables('dataDisks')['24'][0]]",
-        "[variables('dataDisks')['25'][0]]",
-        "[variables('dataDisks')['26'][0]]",
-        "[variables('dataDisks')['27'][0]]",
-        "[variables('dataDisks')['28'][0]]",
-        "[variables('dataDisks')['29'][0]]",
-        "[variables('dataDisks')['30'][0]]",
-        "[variables('dataDisks')['31'][0]]",
-        "[variables('dataDisks')['32'][0]]"
-      ]
-    }
+      {
+        "name": "datadisk63",
+        "lun": 62,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk63.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk64",
+        "lun": 63,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      }
+    ]
   },
-  "resources": [],
-  "outputs": {
-    "dataDiskArray": {
-      "type": "array",
-      "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+  "resources": [
+    ...
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "properties": {
+        ...
+        "storageProfile": {
+          ...
+          "dataDisks": "[take(variables('diskArray'),parameters('numDataDisks'))]"
+        },
+        ...
+      }
+      ...
     }
-  }
+  ]
 }
-
 ```
+
 
 ## Passaggi successivi
 - Per altre informazioni sulle sezioni di un modello, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
 - Per tutte le funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

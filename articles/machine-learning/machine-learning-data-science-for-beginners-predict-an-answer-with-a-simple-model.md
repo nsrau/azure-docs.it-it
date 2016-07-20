@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prevedere una risposta con un modello semplice | Microsoft Azure"
+   pageTitle="Prevedere una risposta con un modello semplice: Analisi scientifica dei dati per principianti | Microsoft Azure"
    description="È possibile scoprire come creare un modello semplice per prevedere il prezzo di un diamante guardando il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare di base con i dati di destinazione."                                  
    keywords="creare un modello, modello semplice, semplice modello di dati, previsione prezzi, modello di regressione semplice"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Prevedere una risposta con un modello semplice: Analisi scientifica dei dati per principianti, video 4
+# Analisi scientifica dei dati per principianti, video 4: Prevedere una risposta con un modello semplice
 
 È possibile scoprire come creare un modello semplice per prevedere il prezzo di un diamante guardando il quarto video della serie Analisi scientifica dei dati per principianti. Verrà rappresentato un modello di regressione con i dati di destinazione.
+
+Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -41,10 +43,10 @@ L'elenco presenta quindi due colonne. Ciascuna colonna contiene un attributo div
 
 In questo modo è stata creato un piccolo set di dati, ovvero una tabella. Si noti che questa tabella soddisfa i criteri di qualità:
 
-* I dati sono **rilevanti** - il peso è senza dubbio correlato al prezzo
-* Sono **accurati** - i prezzi appuntati sono stati verificati due volte
-* Sono **connessi** - nessuna delle colonne contiene spazi vuoti
-* E da quanto illustrato, la quantità dei dati è **sufficiente** per rispondere alla domanda
+* I dati sono **rilevanti**: il peso è senza dubbio correlato al prezzo
+* Sono **accurati**: i prezzi appuntati sono stati verificati due volte
+* Sono **connessi**: nessuna delle colonne contiene spazi vuoti
+* E, come illustrato, la quantità dei dati è **sufficiente** per rispondere alla domanda
 
 ## Porre una domanda ben strutturata
 
@@ -76,7 +78,7 @@ In questo modo si crea un *modello*. È come se si prendesse il modo reale e si 
 
 ![Linea di regressione lineare](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ciascun punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
+Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ogni punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
 
 Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
@@ -90,7 +92,7 @@ Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una 
 
 ## Creare un intervallo di confidenza
 
-È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: siamo abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
+È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
 ![Creare un intervallo di confidenza](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -101,8 +103,8 @@ A proposito dell'intervallo di confidenza è possibile affermare con sicurezza c
 Abbiamo svolto un lavoro scientifico semplicemente disegnando:
 
 * Abbiamo posto una domanda a cui è stato possibile rispondere con i dati
-* Abbiamo creato un *modello* usando una *regressione lineare*
-* Abbiamo realizzato una *previsione*, completa di *intervallo di confidenza*
+* È stato creato un *modello* usando una *regressione lineare*
+* È stata realizzata una *previsione*, completa di *intervallo di confidenza*
 
 senza matematica, né computer.
 
@@ -125,14 +127,15 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-  * Video 1: [Le 5 domande a cui l'analisi scientifica dei dati può rispondere](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Disponibile ora.**
-  * Video 2: [Sono pronti i dati per l'analisi scientifica?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Disponibile ora.**
-  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Disponibile ora.**
-  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponibile dal 30 giugno.
+  * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Video 4: Prevedere una risposta con un modello semplice
+  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Passaggi successivi
 
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

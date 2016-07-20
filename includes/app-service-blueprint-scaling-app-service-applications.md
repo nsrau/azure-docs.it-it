@@ -1,4 +1,4 @@
-* [Scalabilità del Servizio app di Azure](../articles/app-service/app-service-scale.md)
+* [Scalabilità del Servizio app di Azure](../articles/app-service-web/web-sites-scale.md)
 	* Informazioni su ridondanza e affidabilità
 	* Applicazioni CON stato vs applicazioni SENZA stato
 		* [Configurazione dell'applicazione senza stato](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
@@ -14,4 +14,4 @@
 * Distribuzione area geografica
 	* [Uso di Gestione traffico per acquisire scalabilità globale](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

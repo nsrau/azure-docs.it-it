@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management
@@ -26,12 +26,12 @@ Prima che l'organizzazione inizi a usare PIM, tutte le assegnazioni dei ruoli so
 
 Il secondo passaggio della procedura guidata offre la possibilità di modificare le assegnazioni dei ruoli di amministratore.
 
-> [AZURE.WARNING] È importante che siano presenti almeno un amministratore globale e più amministratori dei ruoli con privilegi con account aziendali e non account Microsoft. Se è presente un solo amministratore dei ruoli con privilegi, l'organizzazione non sarà in grado di gestire PIM se tale account viene eliminato. Inoltre, non modificare le assegnazioni dei ruoli in temporanee se un utente ha un account Microsoft. Se si prevede di richiedere l'autenticazione MFA per l'attivazione del ruolo, l'utente verrà bloccato.
+> [AZURE.WARNING] È importante che siano presenti almeno un amministratore globale e più amministratori dei ruoli con privilegi con account aziendali e non account Microsoft. Se è presente un solo amministratore dei ruoli con privilegi, l'organizzazione non sarà in grado di gestire PIM se tale account viene eliminato. Mantenere inoltre assegnazioni permanenti di ruoli se l'utente dispone di un account Microsoft (usato per accedere a servizi Microsoft come Skype e Outlook.com). Se si prevede di richiedere l'autenticazione MFA per l'attivazione di questo ruolo, l'utente verrà bloccato.
 
 
 Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizzata. Al successivo uso di PIM, anche da parte di un altro amministratore dei ruoli con privilegi, verrà visualizzato il dashboard di PIM.
 
-- Se si vuole aggiungere o rimuovere gli utenti dai ruoli o modificare le assegnazioni da permanenti a temporanee, vedere [Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user.md) per altre informazioni.
+- Se si vuole aggiungere o rimuovere utenti dai ruoli o modificare le assegnazioni da permanenti a idonee, vedere [Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user.md) per altre informazioni.
 - Per concedere a più utenti l'accesso per la gestione di PIM, vedere l'articolo [Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
@@ -39,4 +39,4 @@ Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizz
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

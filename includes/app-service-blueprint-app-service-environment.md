@@ -1,5 +1,5 @@
 * [Impostazione del footprint dell'app distribuita a livello di area geografica](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Implementazione di un'architettura di sicurezza a livelli](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
+* [Implementazione di un'architettura di sicurezza a livelli](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
 * [Configurazione di Web application firewall con un ambiente del servizio app](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 
@@ -7,7 +7,7 @@
 * [Sicurezza del traffico in ingresso](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Connessione alle risorse back-end](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Ambienti ExpressRoute e servizio app](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
-* [Impostazioni di configurazione personalizzate per gli ambienti del servizio app](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [Impostazioni di configurazione personalizzate per gli ambienti del servizio app, tra cui impostazioni di conformità PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hosting ad alta densità nel servizio app di Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -27,7 +27,7 @@ Questo articolo illustra il supporto di endpoint di vario tipo da parte di Gesti
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
 
-- **Endpoint di Azure**, usati per i servizi ospitati in Azure.  
+- **Endpoint di Azure**, usati per i servizi ospitati in Azure.
 - **Endpoint esterni**, usati per i servizi ospitati all'esterno di Azure, in locale o da un provider di hosting diverso.
 - **Endpoint annidati**, usati per combinare i profili di Gestione traffico e creare schemi di routing del traffico più flessibili, per supportare le esigenze di distribuzioni più grandi e complesse.
 
@@ -127,7 +127,7 @@ In genere, Gestione traffico viene usato per indirizzare il traffico ad applicaz
 
 Per quanto riguarda le app Web, gli endpoint di Azure di Gestione traffico non permettono di aggiungere più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico. I passaggi seguenti offrono una soluzione alternativa a questo vincolo:
 
-1.	Verificare che le app Web della stessa area si trovino in unità di scala diverse dell'app Web, vale a dire in istanze diverse del servizio app Web. A tale scopo, cercare la voce DNS <...>.azurewebsites.net nel percorso DNS. L'unità di scala avrà un aspetto simile a "waws-prod-xyz-123.vip.azurewebsites.net". Un determinato nome di dominio deve eseguire il mapping a un unico sito in un'unità di scala specificata. È per questo motivo che due app Web nella stessa unità di scala non possono condividere un profilo di Gestione traffico. 
+1.	Verificare che le app Web della stessa area si trovino in unità di scala diverse dell'app Web, vale a dire in istanze diverse del servizio app Web. A tale scopo, cercare la voce DNS <...>.azurewebsites.net nel percorso DNS. L'unità di scala avrà un aspetto simile a "waws-prod-xyz-123.vip.azurewebsites.net". Un determinato nome di dominio deve eseguire il mapping a un unico sito in un'unità di scala specificata. È per questo motivo che due app Web nella stessa unità di scala non possono condividere un profilo di Gestione traffico.
 2.	Supponendo che ogni app Web sia un'unità di scala diversa, aggiungere il nome di dominio personalizzato come nome host personalizzato a ogni app Web. Per poter eseguire questa operazione è necessario che tutte le app Web facciano parte della stessa sottoscrizione.
 3.	Aggiungere normalmente un unico endpoint di app Web a Gestione traffico come endpoint di Azure.
 4.	Aggiungere gli altri endpoint di app Web al profilo di Gestione traffico come endpoint esterni. A questo scopo è necessario usare l'esperienza Resource Manager per Gestione traffico, anziché Service Management.
@@ -142,4 +142,4 @@ Per quanto riguarda le app Web, gli endpoint di Azure di Gestione traffico non p
 
 - Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) di Gestione traffico.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

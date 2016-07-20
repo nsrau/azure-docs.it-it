@@ -46,4 +46,4 @@ Usare gli strumenti di database elastico per eseguire azioni quali:
 * Gestione di database in un modello single-tenant o multi-tenant tramite la [libreria client della scalabilità elastica](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

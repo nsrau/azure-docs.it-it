@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -36,4 +36,4 @@ Perché sia possibile analizzare il problema, assicurarsi di indicare i dati seg
 
 Per contattare Microsoft, assicurarsi di anteporre alla domanda o al commento/suggerimento le parole **'AADDS'**.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

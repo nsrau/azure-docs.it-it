@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Introduzione ad Azure CDN SDK per Node.js
+# Introduzione allo sviluppo della rete CDN di Azure
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
 
 È possibile usare [Azure CDN SDK per Node.js](https://www.npmjs.com/package/azure-arm-cdn) per automatizzare la creazione e la gestione dei profili e degli endpoint di rete CDN. Questa esercitazione illustra nel dettaglio la creazione di una semplice applicazione console Node.js che dimostra varie operazioni tra quelle disponibili. Lo scopo di questa esercitazione non è fornire una descrizione dettagliata di tutti gli aspetti di Azure CDN SDK per Node.js.
 
 Per completare questa esercitazione, è necessario che [Node.js](http://www.nodejs.org) **4.x.x** o versione successiva sia già installato e configurato. Per creare l'applicazione Node.js è possibile usare qualsiasi editor di testo. Per scrivere questa esercitazione è stato usato [Visual Studio Code](https://code.visualstudio.com).
 
-Un esempio completo di questa esercitazione è disponibile [qui](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+> [AZURE.TIP] Il [progetto completato di questa esercitazione](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) è disponibile per il download in MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -361,6 +365,6 @@ Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'
 
 Per informazioni su Azure CDN SDK per Node.js, vedere il [riferimento](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Per ottenere altra documentazione su Azure SDK per Node.js, vedere il [riferimento completo](http://azure.github.io/azure-sdk-for-node/).
+Per altra documentazione su Azure SDK per Node.js, vedere il [riferimento completo](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

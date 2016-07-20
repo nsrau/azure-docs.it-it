@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Distribuire e gestire hub di notifica tramite PowerShell
@@ -96,7 +96,7 @@ Per eseguire il provisioning di un nuovo hub di notifica, utilizzare l’[API .N
 In questa parte dello script verranno impostate quattro variabili locali.
 
 1. `$Namespace`: impostare sul nome dello spazio dei nomi in cui si desidera creare un hub di notifica.
-2. `$Path`: impostare il percorso sul nome del nuovo hub di notifica. Ad esempio, "MyHub".    
+2. `$Path`: impostare il percorso sul nome del nuovo hub di notifica. Ad esempio, "MyHub".
 3. `$WnsPackageSid`: impostare sul SID di pacchetto per l’applicazione Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey`: impostare sulla chiave privata per l’applicazione Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
@@ -172,4 +172,4 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

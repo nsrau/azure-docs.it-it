@@ -46,6 +46,7 @@ Per abilitare manualmente Database Estensione sul server, eseguire **sp\_configu
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -62,6 +63,10 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 1.  Prima di iniziare, scegliere un server Azure di esistente per i dati di cui Estensione database esegue la migrazione o creare un nuovo server di Azure.
 
 2.  Nel server di Azure, creare una regola del firewall con l'intervallo di indirizzi IP di SQL Server per consentire a SQL Server di comunicare con il server remoto.
+
+    È possibile trovare facilmente i valori richiesti e creare la regola del firewall cercando di connettersi al server di Azure da Esplora oggetti in SQL Server Management Studio (SSMS). SSMS aiuta a creare la regola aprendo la seguente finestra di dialogo che include già i valori dell'indirizzo IP richiesti.
+
+	![Creare una regola firewall in SSMS][FirewallRule]
 
 3.  Per configurare un database di SQL Server per Database Estensione, il database deve avere una chiave master del database. La chiave master del database consente di proteggere le credenziali usate da Database Estensione per la connessione al database remoto. Di seguito è riportato un esempio che crea una nuova chiave master del database.
 
@@ -105,7 +110,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 5.  Per configurare un database per Database Estensione, eseguire il comando ALTER DATABASE.
 
-    1.  Per l'argomento SERVER, specificare il nome di un server di Azure esistente, tra cui la parte `.database.windows.net` del nome, ad esempio `MyStretchDatabaseServer.database.windows.net`.
+    1.  Per l'argomento SERVER, specificare il nome di un server Azure esistente, tra cui la parte `.database.windows.net` del nome, ad esempio `MyStretchDatabaseServer.database.windows.net`.
 
     2.  Immettere le credenziali amministratore esistenti con l'argomento CREDENTIAL o specificare FEDERATED\_SERVICE\_ACCOUNT = ON. Nell'esempio seguente vengono fornite credenziali esistenti.
 
@@ -136,4 +141,6 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
+
+<!---HONumber=AcomDC_0706_2016-->
