@@ -27,7 +27,6 @@
  - [Recupero delle informazioni dei report di Azure Active Directoryl](active-directory-reporting-backfill.md)
  - [Latenze dei report di Azure Active Directory](active-directory-reporting-latencies.md)
  - [Evento "Attore Sconosciuto" per il report di Azure Active Directory](active-directory-reporting-unknown-actor.md)
- - [Report Tutta l'attività di accesso degli utenti di Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -52,6 +52,9 @@ Quando viene usata una porta aperta nel firewall a livello di server, gli ammini
 Per una procedura dettagliata per la connessione con SQL Server Management Studio, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md).
 
 
+> [AZURE.IMPORTANT] È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Account speciali aggiuntivi
 Il database SQL offre due ruoli amministrativi con restrizioni nel database master virtuale a cui possono essere aggiunti account utente.
 
@@ -158,4 +161,4 @@ Nel database SQL possono essere concesse o negate singolarmente oltre 100 autori
 
 [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

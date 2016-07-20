@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'API REST Ambari
@@ -76,13 +76,11 @@ Se si esegue questa richiesta, sostituendo __PASSWORD__ con la password dell'amm
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Poiché si tratta di JSON, è in genere più semplice usare un parser JSON per recuperare i dati. Ad esempio, se si vuole recuperare un conteggio di avvisi, contenuto nell'elemento __"Host/host\_status/ALERT"__, è possibile usare il codice seguente per accedere direttamente al valore:
+Poiché si tratta di JSON, è in genere più semplice usare un parser JSON per recuperare i dati. Ad esempio, se si vogliono recuperare informazioni sullo stato di integrità per il cluster, è possibile usare quanto segue.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-Il documento JSON verrà recuperato e verrà eseguito il piping dell'output a jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indica l'elemento da recuperare nel documento JSON.
-
-> [AZURE.NOTE] L'elemento __Host/host\_status/ALERT__ è racchiuso tra virgolette per indicare che '/' fa parte del nome dell'elemento. Per altre informazioni sull'uso di jq, vedere il [sito Web jq](https://stedolan.github.io/jq/).
+Il documento JSON verrà recuperato e verrà eseguito il piping dell'output a jq. `.Clusters.health_report` indica l'elemento da recuperare nel documento JSON.
 
 ##Esempio: Ottenere il nome di dominio completo dei nodi del cluster
 
@@ -146,7 +144,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
         
-    Verrà restituito un documento JSON contenente la configurazione corrente identificata dal valore _tag_ dei componenti installati nel cluster. Ad esempio, di seguito è riportato un estratto dei dati restituiti da un tipo di cluster Spark.
+    Verrà restituito un documento JSON contenente la configurazione corrente, identificata dal valore _tag_, per i componenti installati nel cluster. Ad esempio, di seguito è riportato un estratto dei dati restituiti da un tipo di cluster Spark.
     
         "spark-metrics-properties" : {
             "tag" : "INITIAL",
@@ -175,7 +173,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
     * Crea un valore univoco contenente la stringa "version" e la data che viene archiviato in __newtag__
     * Crea un documento radice per la nuova configurazione desiderata
     * Ottiene il contenuto della matrice items e lo aggiunge sotto l'elemento __desired\_config__.
-    * Elimina gli elementi __href__, __version__ e __Config__ poiché non sono necessari per l'invio di una nuova configurazione
+    * Elimina gli elementi __href__, __version__ e __Config__ perché non sono necessari per l'invio di una nuova configurazione
     * Aggiunge un nuovo elemento __tag__ e ne imposta il valore su __version#################__, dove la parte numerica è basata sulla data corrente. Ogni configurazione deve avere un tag univoco.
     
     Infine i dati vengono salvati nel documento __newconfig.json__. La struttura del documento sarà simile a quella riportata di seguito:
@@ -194,7 +192,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
             }
         }
 
-3. Aprire il documento __newconfig.json__ e modificare o aggiungere i valori nell'oggetto __properties__. Ad esempio, modificare il valore di __"spark.yarn.am.memory"__ da __"1g"__ a __"3g"__ e aggiungere un nuovo elemento per __"spark.kryoserializer.buffer.max"__ con valore __"256m"__.
+3. Aprire il documento __newconfig.json__ e modificare o aggiungere i valori nell'oggetto __properties__. Ad esempio, modificare il valore di __"spark.yarn.am.memory"__ da __"1g"__ in __"3g"__ e aggiungere un nuovo elemento per __"spark.kryoserializer.buffer.max"__ con valore __"256m"__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -257,4 +255,4 @@ Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle
 
 > [AZURE.NOTE] Alcune funzionalità di Ambari sono disabilitate, perché vengono gestite dal servizio cloud HDInsight, ad esempio, l'aggiunta o la rimozione di host dal cluster o l'aggiunta di nuovi servizi.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

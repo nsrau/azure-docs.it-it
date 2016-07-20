@@ -34,7 +34,7 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 | Ripristino DB | Livello Basic | Livelli Standard | Livelli Premium |
 | :-- | :-- | :-- | :-- |
-| Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni|Qualsiasi punto di ripristino entro 14 giorni| Qualsiasi punto di ripristino entro 35 giorni|
+| Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni|Qualsiasi punto di ripristino entro 35 giorni| Qualsiasi punto di ripristino entro 35 giorni|
 
 ## Copia della tabella dal database ripristinato tramite lo strumento di migrazione del database SQL
 1. Scaricare e installare la [Migrazione guidata database SQL di Microsoft Azure](https://sqlazuremw.codeplex.com).
@@ -71,4 +71,4 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 [Backup automatici del database SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

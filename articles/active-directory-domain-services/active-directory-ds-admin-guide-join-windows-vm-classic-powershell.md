@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -35,14 +35,14 @@ Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argo
 
 ## Passaggio 1: Aggiungere l'account
 
-1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **Invio**.
+1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**.
 2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**.
 3. Digitare la password per l'account.
 4. Fare clic su **Accedi**.
 
 ## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
 
-Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -147,4 +147,4 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -84,11 +84,11 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Selezionare Single Sign-On di Microsoft Azure AD.][7]
 
-	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Nella pagina **Configurare le impostazioni applicazione** specificare l'**URL di accesso**, immettendo l'URL del dominio di Salesforce nel formato seguente:
  - Account aziendale: `https://<domain>.my.salesforce.com`
- - Account sviluppatore: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Account sviluppatore: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Immettere l'URL di accesso.][8]
 
@@ -256,4 +256,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

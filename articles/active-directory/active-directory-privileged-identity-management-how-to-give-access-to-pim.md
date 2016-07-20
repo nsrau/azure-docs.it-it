@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 
-Il primo utente che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione deve essere un amministratore globale. Tuttavia, poiché non hanno accesso a PIM per impostazione predefinita, gli altri amministratori globali non possono gestire le assegnazioni temporanee. Per concedere l'accesso a PIM, il primo utente può assegnare gli altri al ruolo di amministratore dei ruoli con privilegi. Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
+L'amministratore globale che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione ottiene automaticamente le assegnazioni di ruolo e l'accesso a PIM. Per impostazione predefinita, nessun altro utente ottiene l'accesso, inclusi gli altri amministratori globali. Per concedere l'accesso a PIM, il primo utente può assegnare ad altri il ruolo di **amministratore dei ruoli con privilegi**. Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
 
 > [AZURE.NOTE] Per la gestione di Azure AD PIM è necessario Azure Multi-Factor Authentication. Poiché gli account Microsoft non possono effettuare la registrazione per Azure MFA, gli utenti che eseguono l'accesso con un account Microsoft non possono accedere a Azure AD PIM.
 
@@ -27,16 +27,20 @@ Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei 
 ## Concedere a un altro utente l'accesso per la gestione di PIM
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'app **Azure AD Privileged Identity Management** nel dashboard.
-2. Selezionare il ruolo di **amministratore dei ruoli con privilegi**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
-3. Fare clic su **Aggiungi**. Verrà visualizzato il pannello della procedura guidata. Il ruolo sarà già selezionato.
-4. Fare clic su **Selezionare gli utenti**. Verrà aperto il pannello dell'elenco utenti.
-5. Immettere il nome dell'utente nel campo di ricerca. Se l'utente è incluso nella directory, l'account verrà visualizzato durante la digitazione.
+2. Selezionare **Gestione dei ruoli con privilegi** > **Amministratore dei ruoli con privilegi** > **Aggiungi**.
+
+    ![Schermata Aggiungi amministratori dei ruoli con privilegi][1]
+
+4. Nel pannello Aggiungi utenti gestiti il passaggio 1 è già stato completato. Selezionare il passaggio 2, **Seleziona utenti** e ricercare l'utente da aggiungere.
+
+    ![Schermata Seleziona gli utenti][2]
+
 6. Selezionare l'utente nell'elenco dei risultati della ricerca e fare clic su **Fine**.
-7. Fare clic su **OK** per salvare la selezione. L'utente selezionato verrà visualizzato nell'elenco e il ruolo sarà temporaneo per impostazione predefinita.
+7. Fare clic su **OK** per salvare la selezione. L'utente selezionato verrà visualizzato nell'elenco degli amministratori dei ruoli con privilegi.
 
-  - Se si desidera rendere permanente il ruolo, fare clic sull'utente nell'elenco. Le informazioni relative all'utente verranno visualizzate in un nuovo pannello. Scegliere **Rendi permanente** dal menu delle informazioni dell'utente.
+    - Ogni volta che si assegna un nuovo ruolo a un utente, questo viene configurato automaticamente come idoneo per attivare il ruolo. Se si vuole rendere l'utente permanente nel ruolo, fare clic sull'utente nell'elenco. Scegliere **Rendi permanente** dal menu delle informazioni dell'utente.
 
-8. Inviare all'utente un collegamento alla documentazione di Azure in [Introduzione a Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
+8. Inviare all'utente un collegamento a [Introduzione ad Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
 
 ## Rimuovere i diritti di accesso di un altro utente per la gestione di PIM
@@ -46,10 +50,15 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 1. Nel dashboard di PIM fare clic sul ruolo di **amministratore dei ruoli con privilegi**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
 2. Selezionare l'utente nell'elenco degli utenti.
 3. Fare clic su **Rimuovi**. Verrà visualizzato un messaggio di richiesta di conferma.
-4. Fare clic su **Sì** per rimuovere il ruolo dall'utente.
+4. Fare clic su **Sì** per rimuovere l'utente dal ruolo.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
+
+<!---HONumber=AcomDC_0706_2016-->

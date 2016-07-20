@@ -32,7 +32,7 @@ ASP.NET 5 è una riprogettazione significativa di ASP.NET. Costituisce un nuovo 
 
 * Installare [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
 * Installare [Node.js](http://nodejs.org): Node.js è una piattaforma per la creazione di applicazioni server veloci e scalabili tramite JavaScript. Node è il runtime (nodo), mentre [npm](http://www.npmjs.com/) è lo strumento di gestione pacchetti per i moduli Node. In questa esercitazione si userà npm per eseguire lo scaffolding di un'app Web ASP.NET 5.
-* Installare Git: è possibile installarlo da una delle seguenti posizioni: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Se non si ha familiarità con Git, scegliere [git-scm.com](http://git-scm.com/downloads) e selezionare l'opzione **Usare Git dal prompt dei comandi di Windows**. Dopo aver installato Git, è necessario impostare il nome utente e l'indirizzo di posta elettronica Git, poiché verrà richiesto più avanti nell'esercitazione (quando si eseguirà un'operazione di commit da Visual Studio Code).  
+* Installare Git: è possibile installarlo da una delle seguenti posizioni: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Se non si ha familiarità con Git, scegliere [git-scm.com](http://git-scm.com/downloads) e selezionare l'opzione **Usare Git dal prompt dei comandi di Windows**. Dopo aver installato Git, è necessario impostare il nome utente e l'indirizzo di posta elettronica Git, poiché verrà richiesto più avanti nell'esercitazione (quando si eseguirà un'operazione di commit da Visual Studio Code).
 
 ## Installare ASP.NET 5 e DNX
 ASP.NET 5/DNX (l’ambiente di esecuzione .NET) è uno stack .NET snello per la creazione di un cloud moderno e di app Web in esecuzione su OS X, Linux e Windows. È stato completamente riprogettato per fornire un framework di sviluppo ottimizzato per le app che vengono distribuite nel cloud o eseguite in locale. È costituito da componenti modulari con un overhead minimo, in modo da garantire la massima flessibilità durante la creazione di soluzioni.
@@ -123,7 +123,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 	Nella finestra di comando verrà visualizzato l'applicazione è stata avviata. Se nella finestra di comando non compare questo messaggio, verificare che nell'angolo inferiore sinistro della finestra di VSCode non siano presenti errori relativi al progetto.
 	
-	> [AZURE.NOTE] Per eseguire un comando da **Command Palette**, è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*.
+	> [AZURE.NOTE] Per eseguire un comando da **Command Palette**, è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*. Se il comando non viene visualizzato o non è disponibile, potrebbe essere necessario installare l'estensione in C#. Eseguire `>Extensions: Install Extension` e `ext install c#` per installare le estensioni in C#.
 
 2. Aprire un browser e passare all'URL seguente.
 
@@ -250,7 +250,7 @@ Dopo aver distribuito l'app Web, è possibile ora eseguirla mentre è ospitata i
 
 A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 
-* Aprire un browser e immettere il nome dell'app Web come indicato di seguito.   
+* Aprire un browser e immettere il nome dell'app Web come indicato di seguito.
 
 		http://SampleWebAppDemo.azurewebsites.net
  
@@ -262,4 +262,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo [Vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

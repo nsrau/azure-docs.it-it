@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -34,13 +34,13 @@ In questo argomento viene descritto come usare il metodo di creazione rapida di 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
 
-- **Definizione del servizio**
+- **Definizione del servizio**  
   Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
 
-- **Configurazione del servizio**
+- **Configurazione del servizio**  
   l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
 
-- **Pacchetto del servizio**
+- **Pacchetto del servizio**  
   Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
 
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
@@ -78,7 +78,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 4. Nel nuovo pannello **Servizio cloud** immettere un valore per il **nome DNS**.
 5. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
 6. Selezionare un **percorso**.
-7. Fare clic su **Pacchetto**. Verrà visualizzato il pannello **Carica un pacchetto**. Compilare i campi obbligatori.  
+7. Fare clic su **Pacchetto**. Verrà visualizzato il pannello **Carica un pacchetto**. Compilare i campi obbligatori.
 
      Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 
@@ -119,4 +119,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

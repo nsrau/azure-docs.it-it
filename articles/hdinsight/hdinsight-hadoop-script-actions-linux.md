@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="07/05/2016"
     ms.author="larryfr"/>
 
 # Sviluppo di azioni script con HDInsight
@@ -50,6 +50,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 - [Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure](#bPS6)
 - [Scrivere informazioni in STDOUT e STDERR](#bPS7)
 - [Salvare i file in formato ASCII con terminazioni di riga LF](#bps8)
+- [Usare la logica di ripetizione dei tentativi per il ripristino da errori temporanei](#bps9)
 
 > [AZURE.IMPORTANT] Le azioni di script devono essere completate entro 60 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 
@@ -95,7 +96,7 @@ Ad esempio, il codice seguente copia il file giraph-examples.jar dal file system
 
 Le informazioni scritte in STDOUT e STDERR durante l'esecuzione dello script vengono registrate e possono essere visualizzate tramite l'interfaccia utente Web di Ambari.
 
-> [AZURE.NOTE] Ambari sarà disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight tramite azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
+> [AZURE.NOTE] Ambari sarà disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
 La maggior parte delle utilità e dei pacchetti di installazione scrivono già le informazioni in STDOUT e STDERR, tuttavia è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
 
@@ -115,6 +116,40 @@ Gli script Bash devono essere archiviati nel formato ASCII con righe terminate d
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
+
+###<a name="bps9"></a> Usare la logica di ripetizione dei tentativi per il ripristino da errori temporanei
+
+Quando si scaricano file, l'installazione di pacchetti tramite apt-get o altre azioni che trasmettono dati su Internet, l'azione potrebbe non riuscire a causa di errori di rete temporanei. Ad esempio, è possibile che sia in corso il failover a un nodo di backup della risorsa remota con la quale si sta comunicando.
+
+Per rendere lo script resiliente agli errori temporanei, è possibile implementare la logica di ripetizione dei tentativi. Di seguito è riportato un esempio una funzione che esegue qualsiasi comando ricevuto e, se il comando non riesce, ripete i tentativi per un massimo di tre volte. Attenderà due secondi tra ogni tentativo.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+Ecco alcuni esempi d'uso di questa funzione.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
 ## <a name="helpermethods"></a>Metodi helper per gli script personalizzati
 
@@ -181,7 +216,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 ## <a name="runScriptAction"></a>Come eseguire un'azione script
 
-È possibile usare le azioni script per personalizzare i cluster HDInsight usando il portale di Azure, Azure PowerShell, i modelli di Azure Resource Manager (ARM) o HDInsight .NET SDK. Per le istruzioni, vedere [Come usare un'azione script](hdinsight-hadoop-customize-cluster-linux.md).
+È possibile usare le azioni script per personalizzare i cluster HDInsight usando il portale di Azure, Azure PowerShell, i modelli di Azure Resource Manager (ARM) o HDInsight .NET SDK. Per istruzioni, vedere [Come usare un'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Esempi di script personalizzati
 
@@ -190,7 +225,7 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 - [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
 - [Installare e usare R nei cluster Hadoop HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
-- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
+- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
 > [AZURE.NOTE] I documenti indicati nei collegamenti precedenti sono specifici per i cluster HDInsight basati su Linux. Per gli script che funzionano con HDInsight basato su Windows, vedere [Sviluppo di azioni di script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) oppure usare i collegamenti disponibili all'inizio di ogni articolo.
 
@@ -227,10 +262,10 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 ## <a name="seeAlso"></a>Passaggi successivi
 
-* Informazioni su come [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
+* Informazioni su come [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
-* Vedere il [Riferimento di HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx) per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight
+* Per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight, vedere [Riferimento .NET per HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 
-* Vedere l'[API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight.
+* Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l'[API REST del provider di risorse HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

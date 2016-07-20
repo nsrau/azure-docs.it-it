@@ -18,7 +18,7 @@
 
 # Backup automatici del database SQL
 
-Il servizio di database SQL di Azure protegge tutti i database con un backup automatizzato che viene conservato per 7 giorni per l'opzione Basic, 14 giorni per l'opzione Standard e 35 giorni per l'opzione Premium. Vedere l'articolo [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md) per maggiori informazioni sulle funzioni disponibili per ogni livello di servizio.
+Il servizio di database SQL di Azure protegge tutti i database con un backup automatizzato che viene conservato per 7 giorni per l'opzione Basic, 35 giorni per l’opzione Standard e 35 giorni per l'opzione Premium. Vedere l'articolo [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md) per maggiori informazioni sulle funzioni disponibili per ogni livello di servizio.
 
 I backup del database vengono eseguiti automaticamente senza alcuna necessità di fornire il consenso esplicito e senza costi aggiuntivi. Le funzionalità automatiche di backup e ripristino temporizzato offrono un modo per proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero e senza l'intervento dell'amministratore, qualunque sia la causa. È possibile usare questi backup automatizzati per eseguire ripristini temporizzati e per ripristinare un database eliminato dopo un danneggiamento o un'eliminazione accidentale dei dati.
 
@@ -48,7 +48,7 @@ I file di backup vengono archiviati in un account di archiviazione con ridondanz
 
 ## Cosa accade al periodo di conservazione del punto di ripristino in caso di downgrade o aggiornamento in base al livello di servizio
 
-Dopo il downgrade a un livello di prestazioni inferiore, il periodo di conservazione del punto di ripristino viene limitato immediatamente al periodo di conservazione del livello di prestazioni del database corrente. Se invece il livello di servizio viene aggiornato, il periodo di conservazione inizia a estendersi solo dopo l'aggiornamento del database. Se ad esempio si esegue il downgrade del database da P1 a S3, il periodo di conservazione cambierà immediatamente da 35 a 14 giorni e tutti i punti di ripristino precedenti al nuovo periodo di 14 giorni non saranno più disponibili. Successivamente, se il database viene di nuovo aggiornato a P1, il periodo di conservazione inizierà da 14 giorni e comincerà ad estendersi fino a 35 giorni.
+Dopo il downgrade a un livello di prestazioni inferiore, il periodo di conservazione del punto di ripristino viene limitato immediatamente al periodo di conservazione del livello di prestazioni del database corrente. Se invece il livello di servizio viene aggiornato, il periodo di conservazione inizia a estendersi solo dopo l'aggiornamento del database. Se ad esempio si esegue il downgrade del database da P1 a S3, il periodo di conservazione cambierà immediatamente da 35 a 35 giorni e tutti i punti di ripristino precedenti al nuovo periodo di 35 giorni non saranno più disponibili. Successivamente, se il database viene di nuovo aggiornato a P1, il periodo di conservazione inizierà da 35 giorni e comincerà ad estendersi fino a 35 giorni.
 
 ## Quanto dura il periodo di conservazione di un database rimosso? 
 Il periodo di conservazione è determinato dal livello di servizio associato al database prima della rimozione o dal numero di giorni in cui il database esiste ancora (viene usato il valore più basso).
@@ -62,4 +62,4 @@ Il periodo di conservazione è determinato dal livello di servizio associato al 
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 - Per un quadro generale, vedere la [panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

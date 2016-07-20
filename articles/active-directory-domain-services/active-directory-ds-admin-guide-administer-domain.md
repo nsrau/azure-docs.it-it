@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
@@ -146,4 +146,4 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
 
 - [Distribuire strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

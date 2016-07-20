@@ -18,7 +18,7 @@
 
 # Creazione di database cloud scalabili
 
-La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure.
+La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL di Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure.
 
 Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -31,13 +31,13 @@ Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.C
 * [Query su più partizioni](sql-database-elastic-scale-multishard-querying.md)
 * [Aggiunta di una partizione utilizzando gli strumenti di database elastici](sql-database-elastic-scale-add-a-shard.md)
 * [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-* [Aggiornare le app della libreria client](sql-database-elastic-scale-upgrade-client-library.md) 
+* [Aggiornare le app della libreria client](sql-database-elastic-scale-upgrade-client-library.md)
 * [Panoramica sulle query di database elastico](sql-database-elastic-query-overview.md)
 * [Glossario sugli strumenti di database elastici](sql-database-elastic-scale-glossary.md)
 * [Libreria client dei database elastici con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Uso della libreria client dei database elastici con Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Strumento di divisione-unione](sql-database-elastic-scale-overview-split-and-merge.md)
-* [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md) 
+* [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md)
 * [Domande frequenti sugli strumenti di database elastici](sql-database-elastic-scale-faq.md)
 
 ## Funzionalità client
@@ -73,4 +73,4 @@ La libreria è disponibile come software open source in [GitHub](https://github.
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

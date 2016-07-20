@@ -109,7 +109,7 @@ Storm in HDInsight viene fornito con supporto completo di livello enterprise 24 
 
 ##Casi comuni di uso dell’analisi in tempo reale
 
-Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache Storm in HDInsight. Per informazioni sugli scenari reali, leggere l'articolo che descrive [in che modo le società stanno usando Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
+Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache Storm in HDInsight. Per informazioni sugli scenari reali, leggere l'articolo che descrive [in che modo le società stanno usando Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet delle cose
 * Rilevamento delle frodi
@@ -162,11 +162,11 @@ Per altre informazioni, vedere [Sviluppare topologie C# per Apache Storm in HDIn
 
 Molti esempi Java illustrati sono di tipo Java normale o Trident. Trident è un'astrazione di alto livello che semplifica diverse operazioni, ad esempio join, aggregazioni, raggruppamento e filtro. Trident, tuttavia, si applica a batch di tuple, mentre una soluzione Java non elaborata consente di elaborare un flusso una tupla alla volta.
 
-Per altre informazioni su Trident, vedere l'[esercitazione su Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) nel sito Web apache.org.
+Per altre informazioni su Trident, vedere l'[esercitazione su Trident](https://storm.apache.org/documentation/Trident-tutorial.html) nel sito Web apache.org.
 
 Per esempi di topologie Java e Trident, vedere l’[elenco di esempi di topologie Storm](hdinsight-storm-example-topology.md) o gli esempi storm-starter nel cluster HDInsight.
 
-Gli esempi di storm starter si trovano nella directory \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ nei cluster basati su Linux, e nella directory **%storm\_home%\\contrib\\storm-starter** nei cluster basati su Windows.
+Gli esempi di storm-starter si trovano nella directory __ /usr/hdp/current/storm-client/contrib/storm-starter__ nei cluster basati su Linux e nella directory **%storm\_home%\\contrib\\storm-starter** nei cluster basati su Windows.
 
 ##Quali sono alcuni dei modelli di sviluppo più comuni?
 
@@ -214,9 +214,9 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

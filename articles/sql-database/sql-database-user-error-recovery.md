@@ -29,7 +29,7 @@ Il database SQL di Azure viene sempre ripristinato in un nuovo database con il r
 
 In caso di errore dell'utente o di una modifica imprevista dei dati, il ripristino temporizzato consente di ripristinare un qualsiasi momento del ciclo di vita del database compreso nel relativo periodo di conservazione.
 
-I database Basic dispongono di 7 giorni di conservazione, i database Standard di 14 giorni e i database Premium di 35 giorni. Per altre informazioni sulla conservazione del backup del database, vedere l'articolo sui [backup automatici](sql-database-automated-backups.md).
+I database Basic dispongono di 7 giorni di conservazione, i database Standard di 35 giorni e i database Premium di 35 giorni. Per altre informazioni sulla conservazione del backup del database, vedere l'articolo sui [backup automatici](sql-database-automated-backups.md).
 
 Per eseguire un ripristino temporizzato vedere:
 
@@ -59,4 +59,4 @@ Per ripristinare un database eliminato:
 - Per altre informazioni sull'uso di backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
 - Per informazioni sull'uso della replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

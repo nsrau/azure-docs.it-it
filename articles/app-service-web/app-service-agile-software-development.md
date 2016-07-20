@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 
@@ -43,7 +43,7 @@ Viene illustrato in dettaglio un tipico flusso di lavoro sviluppo-test-gestione 
 
 Spiegazione dell'immagine:
 
--	L'architettura di distribuzione è divisa in tre ambienti separati (o [gruppi di risorse](../resource-group-overview.md) in Azure), ciascuno con il proprio [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), impostazioni di [scalabilità](web-sites-scale.md) e database SQL. 
+-	L'architettura di distribuzione è divisa in tre ambienti separati (o [gruppi di risorse](../resource-group-overview.md) in Azure), ciascuno con il proprio [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), impostazioni di [scalabilità](web-sites-scale.md) e database SQL.
 -	Ogni ambiente può essere gestito separatamente. Possono anche essere presenti in sottoscrizioni diverse.
 -	La gestione temporanea e la produzione vengono implementate come due slot della stessa app del servizio app. Il ramo master è configurato per l'integrazione continuata con lo slot di gestione temporanea.
 -	Quando un commit al ramo master viene verificato nello slot di gestione temporanea (con i dati di produzione), l'app di gestione temporanea verificata viene scambiata nello slot di produzione [senza tempi di inattività](web-sites-staged-publishing.md).
@@ -60,16 +60,18 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 
 -	Un account Azure
 -	Un account [GitHub](https://github.com/)
--	Git Shell (installato con [GitHub per Windows](https://windows.github.com/)): consente di eseguire comandi sia Git che PowerShell nella stessa sessione 
+-	Git Shell (installato con [GitHub per Windows](https://windows.github.com/)): consente di eseguire comandi sia Git che PowerShell nella stessa sessione
 -	Ultimi bit di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Conoscenza di base degli argomenti seguenti:
 	-	Distribuzione di modelli di [Gestione risorse di Azure](../resource-group-overview.md) (vedere anche [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/). Si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, una volta esauriti i crediti, sarà comunque possibile mantenere l'account e continuare a usare i servizi di Azure gratuiti, come le app Web.
+> + È possibile [attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/). Con la sottoscrizione Visual Studio ogni mese si accumulano crediti utilizzabili per i servizi di Azure a pagamento.
 >
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Configurare l'ambiente di produzione ##
 
@@ -121,7 +123,7 @@ L'ambiente di produzione è stato impostato. In seguito si preparerà un nuovo a
 
 Ora che un'applicazione complessa è in esecuzione nell'ambiente di produzione in Azure, si creerà un aggiornamento dell'applicazione secondo la metodologia Agile. In questa sezione, si creeranno i rami di sviluppo e di test che saranno necessari per eseguire gli aggiornamenti richiesti.
 
-1.	Creare innanzitutto l'ambiente di test. Nella sessione di Git Shell eseguire i seguenti comandi per creare l'ambiente per un nuovo ramo denominato **NewUpdate**. 
+1.	Creare innanzitutto l'ambiente di test. Nella sessione di Git Shell eseguire i seguenti comandi per creare l'ambiente per un nuovo ramo denominato **NewUpdate**.
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -280,4 +282,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

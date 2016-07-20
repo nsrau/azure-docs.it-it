@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="06/27/2016"
    ms.author="hascipio"/>
 
 # Creare un account di Microsoft Developer
@@ -22,7 +22,7 @@ In questo articolo viene illustrata la creazione e la registrazione dell'account
 ## 1\. Creare un account Microsoft
 > [AZURE.WARNING] Per avviare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà usato per registrarsi e per accedere a **Microsoft Developer Center** e al **portale di pubblicazione di Azure**. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico per servizi oppure offerte.
 
-L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed essere controllato dal team IT, ad esempio publishing@example.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
+L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed essere controllato dal team IT, ad esempio publishing@example.com. Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
 
   > [AZURE.WARNING] Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account Microsoft. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
 
@@ -65,7 +65,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 2. Passare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-3. Accedere con l'account Microsoft di registrazione dell'azienda (ad esempio, marketplace@example.com).
+3. Accedere con l'account Microsoft di registrazione della società, ad esempio, marketplace@example.com.
 
     ![disegno][img-signin]
 
@@ -126,7 +126,7 @@ Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo mom
 
 1. Accedere a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 
-2. Fare clic su **Profilo fiscale ** nel menu a sinistra.
+2. Fare clic su **Profilo fiscale** nel menu a sinistra.
 
 3. Nella pagina **Configura modulo per la tassazione** selezionare il paese o l'area geografica in cui ha la residenza permanente, quindi selezionare il paese o l'area geografica della cittadinanza principale. Fare clic su **Avanti**.
 
@@ -143,7 +143,7 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
 2.	Visitare la pagina [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Accedere con l'account Microsoft di registrazione della società (ad esempio marketplace@example.com)) per aggiungere coamministratori in base alle esigenze.
+3.	Accedere con l'account Microsoft di registrazione della società, ad esempio marketplace@example.com, per aggiungere coamministratori in base alle esigenze.
 
   > [AZURE.TIP] I criteri di partecipazione sono descritti nel [sito Web di Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
@@ -159,14 +159,7 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
 
 ## Passaggi successivi
-Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (macchina virtuale, servizio di sviluppatore, servizio dati, modello di soluzione) che si desidera pubblicare in Azure Marketplace. Esaminare uno dei seguenti articoli per scoprire come pubblicare la propria offerta:
-
-|| Immagine di macchina virtuale | Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
-|----|-----|-----|-----|-----|
-|**Passaggio 2: Creare l'offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| Anteprima privata | [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)|
-|| [Prerequisiti tecnici per le immagini VM][link-single-vm-prereq] | Anteprima privata | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guida alla pubblicazione di immagini VM][link-single-vm] | Anteprima privata | [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md) | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) |
-|| [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging] | Anteprima privata | [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging] | [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging] |
+Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare tutti i prerequisiti non tecnici per pubblicare l'offerta verificando i [prerequisiti non tecnici](marketplace-publishing-pre-requisites.md).
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +191,4 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

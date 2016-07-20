@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Come collegare un disco dati a una macchina virtuale Linux nel portale di Azure
@@ -34,4 +34,4 @@ In questo articolo viene illustrato come collegare dischi nuovi o esistenti a un
 
 Dopo aver aggiunto il disco, è necessario prepararlo per l'uso. Nel sistema operativo della macchina virtuale vedere la sezione relativa alla Procedura: Inizializzare un nuovo disco dati in Linux, in questo [articolo](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -22,16 +22,28 @@ Una delle maggiori difficoltà relative all'integrazione moderna dei dati consis
 
 Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
-## VERSIONE CORRENTE (1.12.5953.1)
-- Correzioni di bug
+## VERSIONE CORRENTE (2.0.6013.1)
+
+- È possibile selezionare la lingua/cultura che verrà usata da un gateway durante l'installazione manuale.
+- Quando il gateway non funziona come previsto, è possibile scegliere di inviare a Microsoft i log di gateway degli ultimi 7 giorni per agevolare la risoluzione del problema. Se il gateway non è connesso al servizio cloud, è possibile scegliere di salvare e archiviare i log del gateway.
+- Miglioramenti all'interfaccia utente per la gestione della configurazione gateway:
+	- Stato del gateway più visibile sulla scheda Home.
+	- Controlli riorganizzati e semplificati.
+- È possibile copiare dati da un archivio diverso da BLOB di Azure in SQL Data Warehouse di Azure tramite Polybase e BLOB di staging usando lo [strumento di anteprima della copia senza codice](data-factory-copy-data-wizard-tutorial.md). Vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) per informazioni generiche su questa funzionalità.
+- Gateway di gestione dati consente di inserire i dati direttamente da un database di SQL Server locale in Azure Machine Learning.
+- Miglioramenti delle prestazioni
+	- Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di anteprima della copia senza codice.
 
 
 ## Versioni precedenti
 
+## 1\.12.5953.1
+- Correzioni di bug
+
 ## 1\.11.5918.1
 
 - La dimensione massima del registro eventi del gateway è aumentata da 1 MB a 40 MB.
-- Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo. 
+- Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo.
 - In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo 3 volte.
 - Miglioramenti delle prestazioni
 	- È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
@@ -49,7 +61,7 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 - Possibilità di scegliere "Aggiorna adesso" dal client
 - Possibilità di impostare l'ora di pianificazione dell'aggiornamento
 - Script di PowerShell per attivare o disattivare l'aggiornamento automatico
-- Supporto per il formato JSON  
+- Supporto per il formato JSON
 - Miglioramenti delle prestazioni
 - Correzioni di bug
 
@@ -134,7 +146,7 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 
 ### 1\.2.5303.1
 
-- 	Risoluzione del problema di timeout per supportare connessioni alle origini dati più dispersive in termini di tempo. 
+- 	Risoluzione del problema di timeout per supportare connessioni alle origini dati più dispersive in termini di tempo.
  	
 ### 1\.1.5526.8
 
@@ -142,11 +154,11 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 
 ### 1\.0.5144.2
 
-- Nessuna modifica che interessi gli scenari di Data factory di Azure. 
+- Nessuna modifica che interessi gli scenari di Data factory di Azure.
 
 ## Domande e risposte
 
 ### Perché Gestione origine dati prova a connettersi a un gateway?
 Si tratta di una progettazione di sicurezza secondo cui è possibile configurare solo origini dati locali per l'accesso cloud all'interno della rete aziendale, evitando la propagazione delle credenziali all'esterno del firewall aziendale. Assicurarsi che il computer possa raggiungere il computer in cui è installato il gateway.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

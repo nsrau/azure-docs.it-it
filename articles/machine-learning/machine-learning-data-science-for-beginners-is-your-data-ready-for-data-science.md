@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sono pronti i dati per l'analisi scientifica? - valutazione dei dati| Microsoft Azure"
+   pageTitle="Verifica della preparazione dei dati per l'analisi scientifica dei dati (valutazione dei dati) - Analisi scientifica dei dati per principianti | Microsoft Azure"
    description="I 4 criteri per rendere pronti i dati per l'analisi scientifica. Nel video 2 Analisi scientifica dei dati per principianti vengono illustrati esempi concreti per la valutazione dei dati di base."
    keywords="valutazione dei dati, dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, dati pronti"
    services="machine-learning"
@@ -18,15 +18,17 @@
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Sono pronti i dati per l'analisi scientifica? Analisi scientifica dei dati per principianti, video 2
+# Analisi scientifica dei dati per principianti, video 2: Verifica della preparazione dei dati per l'analisi scientifica dei dati
 
 È possibile scoprire di più sulla valutazione dei dati per assicurarsi che questo processo soddisfi i criteri di base per l'analisi scientifica dei dati.
+
+Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
 ## Trascrizione: Sono pronti i dati per l'analisi scientifica?
 
-Benvenuti a "Sono pronti i dati per l'analisi scientifica?", il secondo video della serie *Analisi scientifica dei dati per principianti*.
+Benvenuti a "Verifica della preparazione dei dati per l'analisi scientifica dei dati", il secondo video della serie *Analisi scientifica dei dati per principianti*.
 
 Prima che l'analisi scientifica dei dati possa produrre le risposte desiderate, è necessario fornirgli alcuni dati non elaborati di alta qualità. Proprio come preparare una pizza: più buoni sono gli ingredienti usati, migliore sarà il risultato finale.
 
@@ -95,17 +97,18 @@ Aggiungendo sempre più dati, l'immagine diventa più chiara ed è possibile pre
 
 Dati rilevanti, connessi, accurati e in quantità sufficiente rappresentano tutti gli ingredienti necessari per effettuare alcune analisi scientifiche dei dati di alta qualità.
 
-Anche gli altri 4 video della serie *Analisi scientifica dei dati per principianti* di Microsoft Azure Machine Learning meritano di essere visti.
+Gli altri 4 video della serie *Analisi scientifica dei dati per principianti* sono disponibili da Microsoft Azure Machine Learning.
 
 
 ## Altri video della serie
 
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-  * Video 1: [Le 5 domande a cui l'analisi scientifica dei dati può rispondere](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Disponibile ora.**
-  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Disponibile ora.**
-  * Video 4: [Prevedere una risposta con un modello semplice](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). **Disponibile ora.**
-  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponibile dal 30 giugno.
+  * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Video 2: Verifica della preparazione dei dati per l'analisi scientifica dei dati
+  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Video 4: [Prevedere una risposta con un modello semplice](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## Passaggi successivi
@@ -113,4 +116,4 @@ Anche gli altri 4 video della serie *Analisi scientifica dei dati per principian
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

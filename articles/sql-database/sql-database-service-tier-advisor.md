@@ -52,7 +52,7 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 | Raccomandazione | Descrizione |
 | :--- | :--- |
 | Aggiornamento | Eseguire l'aggiornamento a un nuovo livello. |
-| Non disponibile | Un database richiede un carico di lavoro minimo o circa 14 giorni di attività. Non sono disponibili dati sufficienti per fornire un'indicazione valida. |
+| Non disponibile | Un database richiede un carico di lavoro minimo o circa 35 giorni di attività. Non sono disponibili dati sufficienti per fornire un'indicazione valida. |
 
 ## Ottenere indicazioni sui livelli di prezzo
 
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

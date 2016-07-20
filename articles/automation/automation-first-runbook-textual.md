@@ -45,7 +45,7 @@ Si inizierà creando un runbook semplice che restituisce il testo *Hello World*.
 
 È possibile digitare il codice direttamente nel runbook, oppure è possibile selezionare i cmdlet, i runbook e le risorse dal controllo della libreria e aggiungerle al runbook con tutti i parametri correlati. Per questa procedura dettagliata, si digiterà direttamente nel runbook.
 
-1.	Il runbook è attualmente vuoto con solo la parola chiave richiesta *workflow*, il nome del runbook e le parentesi graffe che racchiuderanno l'intero flusso di lavoro. 
+1.	Il runbook è attualmente vuoto con solo la parola chiave richiesta *workflow*, il nome del runbook e le parentesi graffe che racchiuderanno l'intero flusso di lavoro.
 
     ```
     Workflow MyFirstRunbook-Workflow
@@ -87,7 +87,7 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 7.	Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello Output dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)  
 8.	Chiudere il riquadro Output.
 9.	Fare clic su **Flussi** per aprire il riquadro dei flussi per il processo del runbook. Nel flusso di output dovrebbe essere visibile solo *Hello World*, ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-streams.png)
-10.	Chiudere il riquadro dei flussi e il riquadro dei processi per tornare al riquadro MyFirstRunbook.
+10.	Chiudere il riquadro dei flussi e il riquadro dei processi per tornare al riquadro MyFirstRunbook-Workflow.
 11.	Fare clic su**Processi** per aprire il pannello dei processi per questo runbook. Sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.<br> ![Processi](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12.	È possibile fare clic su questo processo per aprire lo stesso riquadro del processo visualizzato quando è stato avviato il runbook. In questo modo è possibile tornare indietro nel tempo e visualizzare i dettagli di tutti i processi creati per un runbook particolare.
 
@@ -101,9 +101,8 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 4.	Digitare o copiare e incollare il codice seguente che gestirà l'autenticazione con l'account RunAs di Automazione:
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
 
 5.	Fare clic sul **Pannello di test** in modo da testare il runbook.
@@ -113,14 +112,14 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
 Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure, è possibile gestire le risorse. Si aggiungerà un comando per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome verrà hardcoded nel cmdlet.
 
-1.	Dopo *Add-AzureRmAccount* digitare *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.  
+1.	Dopo *Add-AzureRmAccount* digitare *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.
 
     ```
     workflow MyFirstRunbook-Workflow
     {
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+ 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -132,7 +131,7 @@ Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure, è po
 
 Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe più utile se si potesse specificare la macchina virtuale quando si avvia il runbook. Per fornire questa funzionalità, ora si aggiungeranno dei parametri di input al runbook.
 
-1.	Aggiungere parametri per *VMName* e *ResourceGroupName* al runbook e usare queste variabili con il cmdlet **Start-AzureRmVM** come nell'esempio seguente. 
+1.	Aggiungere parametri per *VMName* e *ResourceGroupName* al runbook e usare queste variabili con il cmdlet **Start-AzureRmVM** come nell'esempio seguente.
 
     ```
     workflow MyFirstRunbook-Workflow
@@ -142,8 +141,7 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,8 +157,8 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 ## Passaggi successivi
 
 -  Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md).
--	Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md).
+-  Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md).
 -  Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
--	Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

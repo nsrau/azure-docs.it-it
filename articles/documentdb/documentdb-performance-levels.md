@@ -82,7 +82,7 @@ Se si modifica il livello di prestazioni di una raccolta nell'intervallo di un'o
 
 Le unità di richiesta vengono riservate per ogni raccolta in base al livello delle prestazioni impostato. L'utilizzo di unità di richiesta viene valutato con una tariffa al secondo. Le applicazioni che superano il livello di unità di richiesta con provisioning (o il livello delle prestazioni) in una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato per tale raccolta. Se l'applicazione necessita di un livello superiore di velocità effettiva, sarà possibile aumentare il livello delle prestazioni per ogni raccolta.
 
-> [AZURE.NOTE] Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate. È consigliabile aggiungere una richiesta alla volta.
+> [AZURE.NOTE] Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate. In questo caso, è consigliabile aggiungere un numero ridotto di tentativi per gestire i picchi di traffico delle richieste.
 
 ## Utilizzo dei livelli delle prestazioni
 Le raccolte di DocumentDB permettono di raggruppare i dati sulla base di modelli di query e delle esigenze in termini di prestazioni dell'applicazione. Con l'indicizzazione automatica e il supporto delle query di DocumentDB, è molto comune collocare documenti eterogenei all'interno della stessa raccolta. Le considerazioni principali nello stabilire se è necessario usare raccolte separate per i dati includono:
@@ -179,4 +179,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

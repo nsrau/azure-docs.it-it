@@ -3,7 +3,7 @@
    description="Panoramica relativa a come proteggere le comunicazioni per servizi Reliable Services in esecuzione in un cluster di Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
+   authors="suchiagicha"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/22/2016"
-   ms.author="punewa"/>
+   ms.date="07/06/2016"
+   ms.author="suchiagicha"/>
 
 # Proteggere le comunicazioni per i servizi in Azure Service Fabric
 
@@ -309,4 +309,4 @@ Verrà usato un [esempio](service-fabric-reliable-services-communication-wcf.md)
 
 * [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

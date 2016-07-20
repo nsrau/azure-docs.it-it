@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Creare un'unità organizzativa (OU) in un dominio gestito di Servizi di dominio Azure AD
@@ -75,4 +75,4 @@ Dopo avere creato una OU personalizzata, è possibile procedere alla creazione d
 
 - [Guida dettagliata agli account del servizio gestiti](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

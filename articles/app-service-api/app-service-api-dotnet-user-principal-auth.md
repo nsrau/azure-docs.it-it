@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/30/2016"
 	ms.author="tdykstra"/>
 
 # Autenticazione utente per le app per le API nel servizio app di Azure
@@ -91,7 +91,7 @@ A questo punto l'applicazione è in esecuzione nel servizio app di Azure senza r
 
 * Configurare il servizio app perché richieda l'autenticazione di Azure Active Directory (Azure AD) per chiamare l'app per le API di livello intermedio.
 * Creare un'applicazione Azure AD.
-* Configurare l'applicazione Azure AD per inviare il token di connessione dopo l'accesso al front-end AngularJS. 
+* Configurare l'applicazione Azure AD per inviare il token di connessione dopo l'accesso al front-end AngularJS.
 
 Se si verificano problemi mentre si seguono le istruzioni dell'esercitazione, vedere la sezione [Risoluzione dei problemi](#troubleshooting) alla fine dell'esercitazione.
  
@@ -135,7 +135,7 @@ Ora solo gli utenti nel tenant di Azure AD possono chiamare l'app per le API.
 
 ### Facoltativo: testare l'app per le API
 
-1. In un browser passare all'URL dell'app per le API. Nel pannello **App per le API** del portale di Azure fare clic sul collegamento in **URL**.  
+1. In un browser passare all'URL dell'app per le API. Nel pannello **App per le API** del portale di Azure fare clic sul collegamento in **URL**.
 
 	Si viene reindirizzati a una schermata di accesso, perché alle richieste non autenticate non è consentito raggiungere l'app per le API.
 
@@ -329,11 +329,11 @@ Per informazioni su come creare un'applicazione AngularJS a singola pagina con u
 
 [AZURE.INCLUDE [risoluzione dei problemi](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* Assicurarsi di non confondere ToDoListAPI (livello intermedio) e ToDoListDataAPI (livello dati). Ad esempio, verificare di aver aggiunto l'autenticazione all'app per le API di livello intermedio, non di livello dati. 
-* Verificare che il codice sorgente di AngularJS faccia riferimento all'URL dell'app per le API di livello intermedio (ToDoListAPI, non ToDoListDataAPI) e all'ID client di Azure AD corretto. 
+* Assicurarsi di non confondere ToDoListAPI (livello intermedio) e ToDoListDataAPI (livello dati). Ad esempio, verificare di aver aggiunto l'autenticazione all'app per le API di livello intermedio, non di livello dati.
+* Verificare che il codice sorgente di AngularJS faccia riferimento all'URL dell'app per le API di livello intermedio (ToDoListAPI, non ToDoListDataAPI) e all'ID client di Azure AD corretto.
 
 ## Passaggi successivi
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

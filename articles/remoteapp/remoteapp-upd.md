@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="06/30/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp come salva dati e impostazioni?
@@ -50,9 +50,6 @@ RemoteApp di Azure consente di salvare lo stato di Outlook (cassette postali, fi
 
 Per altre informazioni sull'uso di Outlook e Azure RemoteApp, consultare [questo articolo](remoteapp-outlook.md).
 
-## Possiamo utilizzare soluzioni di dati condivisi?
-Sì, RemoteApp di Azure supporta l'utilizzo di soluzioni dati condivisi - in particolare OneDrive for Business e Dropbox. Si noti che OneDrive Consumer (versione personale) e Box non sono supportati.
-
 ## Come funziona il reindirizzamento?
 È possibile configurare Azure RemoteApp per consentire agli utenti di accedere ai dispositivi locali mediante il [reindirizzamento](remoteapp-redirection.md). I dispositivi locali saranno in grado di accedere ai dati sull’UPD.
 
@@ -84,7 +81,7 @@ Sì, è possibile chiedere a RemoteApp di Azure di disabilitare gli UPD per una 
 
 - È necessario disporre di accesso e controllo completi dei dati utente (a scopo di controllo e verifica, ad esempio negli istituti finanziari).
 - Si dispone di soluzioni locali di gestione del profilo utente di terze parti e si desidera continuare a usarle nella distribuzione di Azure RemoteApp aggiunta al dominio. Questa opzione richiede il caricamento dell'agente del profilo nell'immagine gold.
-- Non è necessaria una risorsa di archiviazione di dati locale oppure tutti i dati sono archiviati nel cloud (ad esempio in OneDrive for Business) o in condivisione file e si vuole controllare il salvataggio dei dati in modalità locale tramite Azure RemoteApp.
+- Non è necessaria una risorsa di archiviazione di dati locale oppure tutti i dati sono archiviati nel cloud o in una condivisione file e si vuole controllare il salvataggio dei dati in modalità locale tramite Azure RemoteApp.
 
 Per altre informazioni, vedere il post di blog relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/).
 
@@ -111,7 +108,6 @@ No, tutti gli UPD hanno 50 GB di spazio di archiviazione. Se si desidera archivi
 3. Caricare la condivisione file utilizzando uno script di avvio. Per ulteriori informazioni sugli script di avvio in Azure RemoteApp, vedere di seguito.
 4. Indirizzare gli utenti al salvataggio di tutti i dati nella condivisione file.
 
-Inoltre, è possibile utilizzare App di sincronizzazione dati come OneDrive for Business.
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
@@ -121,7 +117,7 @@ Se si desidera eseguire uno script di avvio, iniziare creando un'attività piani
 
 ![Creare un'attività di sistema che viene eseguita quando un utente accede](./media/remoteapp-upd/upd2.png)
 
-Nella scheda **Generale**, assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
+Nella scheda **Generale** assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
 
 ![Modificare l'account utente in un gruppo](./media/remoteapp-upd/upd4.png)
 
@@ -143,7 +139,7 @@ No, tale opzione non è supportata da Azure RemoteApp.
 
 ## È possibile archiviare dati sulla VM in locale?
 
-NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno persi. È molto probabile l'utente non riceva la stessa VM al successivo accesso ad Azure RemoteApp. Non viene mantenuta la persistenza utente-VM, pertanto l'utente non eseguirà l'accesso alla stessa VM e i dati andranno persi. Inoltre, quando si aggiorna la raccolta, le VM esistenti vengono sostituite con un nuovo set di VM, pertanto i dati archiviati sulla stessa VM andranno persi. Si consiglia di archiviare i dati nell'UPD, in un servizio di archiviazione condivisa come File di Azure, in un file server all'interno di una rete virtuale o nel cloud con OneDrive per Business o un altro sistema di archiviazione cloud supportato come DropBox.
+NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno persi. È molto probabile l'utente non riceva la stessa VM al successivo accesso ad Azure RemoteApp. Non viene mantenuta la persistenza utente-VM, pertanto l'utente non eseguirà l'accesso alla stessa VM e i dati andranno persi. Inoltre, quando si aggiorna la raccolta, le VM esistenti vengono sostituite con un nuovo set di VM, pertanto i dati archiviati sulla stessa VM andranno persi. È consigliabile archiviare i dati nell'UPD, in un servizio di archiviazione condivisa come File di Azure, in un file server all'interno di una rete virtuale o nel cloud con un sistema di archiviazione cloud come DropBox.
 
 ## Come montare una condivisione di File di Azure in una VM, tramite PowerShell
 
@@ -159,4 +155,4 @@ NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno
 
 In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

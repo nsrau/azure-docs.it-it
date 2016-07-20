@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Anteprima di Servizi di dominio Azure Active Directory: Domande frequenti
@@ -78,4 +78,4 @@ Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure A
 #### Quando sarà disponibile a livello generale Servizi di dominio Azure AD?
 Non è attualmente possibile condividere informazioni sulla tempistica prevista per la disponibilità del servizio a livello generale.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

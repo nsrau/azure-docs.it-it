@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="L'aggiornamento da Servizi mobili a Servizio app di Azure" 
-	description="Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="L'aggiornamento da Servizi mobili a Servizio app di Azure"
+	description="Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app"
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Aggiornamento del servizio mobile .NET di Azure esistente al Servizio app
@@ -84,10 +84,10 @@ In WebApiConfig.cs è quindi possibile sostituire:
 
         // Use this class to set configuration options for your mobile service
         ConfigOptions options = new ConfigOptions();
-        
+
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-        
+
 con
 
         HttpConfiguration config = new HttpConfiguration();
@@ -98,9 +98,9 @@ con
 >[AZURE.NOTE] Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET].
 
 Se l'app fa uso delle funzionalità di autenticazione, sarà inoltre necessario registrare un middleware OWIN. In questo caso, è necessario spostare il codice di configurazione precedente in una nuova classe di avvio OWIN.
- 
+
 1. Aggiungere il pacchetto NuGet `Microsoft.Owin.Host.SystemWeb` se non è già incluso nel progetto.
-2. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi** -> **Nuovo elemento**. Selezionare **Web** -> **Generale** -> **Classe di avvio OWIN**. 
+2. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi** -> **Nuovo elemento**. Selezionare **Web** -> **Generale** -> **Classe di avvio OWIN**.
 3. Spostare il codice precedente per MobileAppConfiguration da `WebApiConfig.Register()` nel metodo `Configuration()` per la nuova classe di avvio.
 
 Assicurarsi che il metodo `Configuration()` termini con:
@@ -117,19 +117,19 @@ In Servizi mobili, il nome dell'app per dispositivi mobili veniva usato come nom
 Per assicurarsi di fare riferimento allo stesso schema, usare il codice seguente per impostare lo schema in DbContext per l'applicazione:
 
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
-        
+
 Assicurarsi di avere impostato MS\_MobileServiceName se si esegue l'operazione precedente. È anche possibile fornire un altro nome di schema se l'applicazione lo ha personalizzato in precedenza.
 
 ### Proprietà di sistema
 
-#### Denominazione 
+#### Denominazione
 
 Nell'SDK del server di Servizi mobili di Azure le proprietà di sistema contengono sempre un prefisso con un doppio carattere di sottolineatura (`__`):
 
-- __\_\_createdAt
-- __\_\_updatedAt
-- __\_\_deleted
-- __\_\_version
+- \_\_createdAt
+- \_\_updatedAt
+- \_\_deleted
+- \_\_version
 
 Gli SDK client di Servizi mobili hanno una logica speciale per l'analisi delle proprietà di sistema in questo formato.
 
@@ -142,7 +142,7 @@ Nelle app per dispositivi mobili di Azure le proprietà di sistema non hanno pi�
 
 Gli SDK client delle app per dispositivi mobili usano i nuovi nomi delle proprietà di sistema, pertanto non sono necessarie modifiche al codice client. Tuttavia, se si effettuano direttamente chiamate REST al servizio, è necessario modificare le query di conseguenza.
 
-#### Archivio locale 
+#### Archivio locale
 
 Le modifiche ai nomi delle proprietà di sistema implicano che un database locale di sincronizzazione offline per Servizi mobili non è compatibile con le applicazioni per dispositivi mobili. Se possibile, evitare di eseguire l'aggiornamento di app client da Servizi mobili alle app per dispositivi mobili finché le modifiche in sospeso non sono state inviate al server. L'app aggiornata deve quindi usare un nuovo nome di file di database.
 
@@ -209,7 +209,7 @@ Tutti gli ApiController che verranno usati da un client mobile ora devono dispor
 
 L'oggetto `ApiServices` non è più incluso nell'SDK. Per accedere alle impostazioni dell'app per dispositivi mobili, è possibile usare il codice seguente:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings(); 
+    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
 Analogamente, la registrazione viene ora effettuata mediante la scrittura di tracce ASP.NET standard:
 
@@ -230,11 +230,11 @@ Tutte le istanze dell'attributo `[AuthorizeLevel(AuthorizationLevel.User)]` ora 
 È possibile ottenere informazioni aggiuntive sull'utente, inclusi i token di accesso tramite il metodo `GetAppServiceIdentityAsync()`:
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
-        
+
 Inoltre, se l'applicazione stabilisce dipendenze su ID utente, ad esempio memorizzandole in un database, è importante notare che gli ID utente tra Servizi mobili e App per dispositivi mobili del servizio app sono diversi. È tuttavia ancora possibile ottenere l'ID utente di Servizi mobili. Tutte le sottoclassi ProviderCredentials hanno una proprietà UserId. Pertanto, continuando dall'esempio precedente:
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
-        
+
 Se l'app stabilisce dipendenze sugli ID utente, è importante sfruttare la stessa registrazione con un provider di identità, se possibile. Gli ID utente sono in genere destinati alla registrazione dell'applicazione che è stata usata, pertanto l'introduzione di una nuova registrazione potrebbe creare problemi di associazione degli utenti ai relativi dati.
 
 ### Autenticazione personalizzata
@@ -253,7 +253,7 @@ Una delle principali modifiche tra le versioni è rappresentata dai costruttori 
 Per altre informazioni sull'installazione dei nuovi SDK e sull'uso della nuova struttura, visitare i collegamenti seguenti:
 
 - [iOS versione 3.0.0 o successiva](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET (Windows/Xamarin) versione 2.0.0 o successiva](app-service-mobile-dotnet-how-to-use-client-library.md) 
+- [.NET (Windows/Xamarin) versione 2.0.0 o successiva](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 Se l'applicazione usa le notifiche push, prendere nota delle specifiche istruzioni di registrazione per ogni piattaforma, perché sono state apportate alcune modifiche anche in questo ambito.
 
@@ -277,4 +277,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

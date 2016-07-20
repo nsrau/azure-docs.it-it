@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="notifica push, notifiche push, notifiche push iOS, notifiche push android, push ios, push android"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
@@ -197,7 +197,7 @@ Hub di notifica di Azure consente la visualizzazione di dati di telemetria nel [
 [esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [esempi completi]: https://github.com/Azure/azure-notificationhubs-samples
-[App per dispositivi mobili di Azure]: https://azure.microsoft.com/services/app-service/mobile/
-[prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[App per dispositivi mobili di Azure]: https://azure.microsoft.com/it-IT/services/app-service/mobile/
+[prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Note sulla versione di Azure Mobile Engagement iOS SDK"
+	pageTitle="Note sulla versione di Azure Mobile Engagement iOS SDK | Microsoft Azure"
 	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#Note sulla versione
+#Note sulla versione di Azure Mobile Engagement iOS SDK
+
+##3\.2.4 (30/06/2016)
+
+-   Aggregazione fissa tra log tecnici e altri log.
 
 ##3\.2.3 (07/06/2016)
 
@@ -67,4 +71,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

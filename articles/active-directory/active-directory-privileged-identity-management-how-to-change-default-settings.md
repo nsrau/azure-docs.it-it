@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,38 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Come gestire le impostazioni di attivazione del ruolo in Azure AD Privileged Identity Management
 
-Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di un ruolo temporaneo.
+Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di idoneo al ruolo.
 
 ## Gestire le impostazioni di attivazione del ruolo
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare l'app **Azure AD Privileged Identity Management** dal dashboard.
 2. Selezionare il ruolo che si vuole gestire dalla tabella ruoli.
 3. Fare clic su **Impostazioni**.
-4. Impostare la durata di attivazione predefinita in ore regolando il dispositivo di scorrimento o inserendo il numero di ore nel campo di testo. Il valore massimo è 72 ore.
-5. Fare clic su **Abilita** o **Disabilita** per specificare se inviare le notifiche sull'attivazione agli amministratori. L'abilitazione delle notifiche può risultare utile per individuare le attività di amministratore non autorizzate.
-6. Fare clic su **Abilita** per consentire agli amministratori di immettere informazioni sulla creazione di ticket nella richiesta di attivazione. Queste informazioni possono essere utili in seguito durante il controllo degli accessi del ruolo.
-7. Fare clic su **Abilita** o **Disabilita** per specificare se richiedere l'autenticazione a più fattori per una richiesta di attivazione.
-8. Fare clic su **Save**.
 
-Non è possibile disabilitare la Multi-Factor Authentication per ruoli con privilegi elevati per Azure AD e Office365, inclusi i seguenti:
-- Amministratore globale
-- Amministratore dei ruoli con privilegi   
-- Amministratore account utente  
-- Ruolo con autorizzazioni di scrittura nella directory  
-- Supporto partner - Livello 1  
-- Supporto partner - Livello 2  
-- Amministratore fatturazione  
-- Amministratore della sicurezza  
-- Amministratore di Exchange  
-- Amministratore della cassetta postale  
-- Amministratore di Skype for Business  
-- Amministratore di SharePoint  
-- Amministratore di conformità  
+La pagina Impostazioni per ogni ruolo contiene numerose impostazioni che è possibile configurare. Queste impostazioni incidono solo sugli utenti che sono amministratori idonei, non sugli amministratori permanenti.
+
+**Attivazioni**: il tempo in ore per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
+
+**Notifiche**: è possibile scegliere se il sistema invia messaggi di posta elettronica agli amministratori per confermare che hanno attivato un ruolo. Questa opzione può essere utile per il rilevamento di attivazioni non autorizzate o dannose.
+
+**Ticket di evento imprevisto/richiesta**: è possibile scegliere se si vuole richiedere che gli amministratori idonei includano un numero di ticket quando attivano il proprio ruolo. Questa opzione può essere utile quando si eseguono i controlli di accesso dei ruoli.
+
+**Multi-Factor Authentication**: è possibile scegliere se richiedere agli utenti di verificare la propria identità con l'autenticazione MFA prima di attivare i relativi ruoli. La verifica è necessaria solo una volta per ogni sessione, non ogni volta che si attiva un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
+
+- Gli utenti che dispongono di account Microsoft per i relativi indirizzi di posta elettronica (in genere @outlook.com) non possono eseguire la registrazione per Azure MFA. Se si vuole assegnare ruoli agli utenti con account Microsoft, renderli amministratori permanenti o disabilitare l'autenticazione MFA per il ruolo.
+
+- Non è possibile disabilitare l'autenticazione MFA per i ruoli con privilegi elevati per Azure AD e Office365. Si tratta di una funzionalità di sicurezza poiché è necessaria una protezione elevata per questi ruoli:
+
+    - Amministratore globale
+    - Amministratore dei ruoli con privilegi
+    - Amministratore account utente
+    - Ruolo con autorizzazioni di scrittura nella directory
+    - Supporto partner - Livello 1
+    - Supporto partner - Livello 2
+    - Amministratore fatturazione
+    - Amministratore della sicurezza
+    - Amministratore di Exchange
+    - Amministratore della cassetta postale
+    - Amministratore di Skype for Business
+    - Amministratore di SharePoint
+    - Amministratore di conformità
 
 Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richiedere l’MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -54,4 +62,4 @@ Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richie
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

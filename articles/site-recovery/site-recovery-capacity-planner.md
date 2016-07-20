@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # Pianificare la capacità per la protezione delle macchine virtuali e dei server fisici in Azure Site Recovery
@@ -42,12 +42,12 @@ Prima di eseguire lo strumento:
 	- Per la replica di server fisici, è necessario eseguire la stima manualmente.
 
 ## Eseguire lo strumento di pianificazione rapida
-1.	Scaricare e aprire lo strumento [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Sarà necessario eseguire macro, selezionare quindi le opzioni per abilitare la modifica e il contenuto quando richiesto. 
+1.	Scaricare e aprire lo strumento [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Sarà necessario eseguire macro, selezionare quindi le opzioni per abilitare la modifica e il contenuto quando richiesto.
 2.	Nella casella di riepilogo **Select a planner type** scegliere **Quick Planner**.
 
 	![Introduzione](./media/site-recovery-capacity-planner/getting-started.png)
 
-3.	Nel foglio di lavoro **Strumento di pianificazione della capacità** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati con un cerchio rosso nella schermata seguente.
+3.	Nel foglio di lavoro **Capacity Planner** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati con un cerchio rosso nella schermata seguente.
 
 	- In **Selezionare uno scenario** scegliere **Hyper-V in Azure** o **VMware/Physical in Azure**.
 	- In **Frequenza media di modifica dei dati giornaliera (%)** inserire le informazioni raccolte con lo [strumento di pianificazione della capacità di Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o lo [strumento di pianificazione della capacità di vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
@@ -76,12 +76,12 @@ Prima di eseguire lo strumento:
 ## Eseguire lo strumento di pianificazione dettagliata
 
 
-1.	Scaricare e aprire lo strumento [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Sarà necessario eseguire macro, selezionare quindi le opzioni per abilitare la modifica e il contenuto quando richiesto. 
-2.	Nella casella di riepilogo **Select a planner type** scegliere **Detailed Planner**.
+1.	Scaricare e aprire lo strumento [Pianificazione della capacità di Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Sarà necessario eseguire macro, selezionare quindi le opzioni per abilitare la modifica e il contenuto quando richiesto. 
+2.	Nella casella di riepilogo **Selezionare un tipo di pianificatore** scegliere **Strumento di pianificazione dettagliata**.
 
 	![Introduzione](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3.	Nel foglio di lavoro **Workload Qualification** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati.
+3.	Nel foglio di lavoro **Qualifica del carico di lavoro** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati.
 
 	- In **Core del processore** specificare il numero totale di core in un server di origine.
 	- In **Allocazione della memoria (in MB)** specificare la dimensione della RAM di un server di origine. 
@@ -115,7 +115,7 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 - Si noti quanto segue nell'output dell'esempio:
 	
 	- La prima colonna è per la convalida di macchine virtuali, dischi e varianza.
-	- Per cinque macchine virtuali sono necessari due account di archiviazione standard e un account di archiviazione premium. 
+	- Per cinque macchine virtuali sono necessari due account di archiviazione standard e un account di archiviazione premium.
 	-  La VM3 non è idonea alla protezione perché uno o più dischi sono superiori a 1 TB.
 	-  La VM1 e la VM2 possono usare il primo account di archiviazione standard.
 	-  La VM4 può usare il secondo account di archiviazione standard.
@@ -123,14 +123,14 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 
 	>[AZURE.NOTE]  Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è in grado di gestire fino a 500 operazioni totali di input/output per disco. Se le operazioni totali di input/output per disco sono superiori a 500, sarà necessaria l’archiviazione premium. Tuttavia se le operazioni totali di input/output per disco sono superiori a 500 ma le operazioni totali di input/output per il numero totale di dischi della macchina virtuale rientrano nei limiti di supporto standard delle macchine virtuali di Azure (dimensione VM, numero di dischi, numero di schede di rete, CPU, memorie), la pianificazione sceglie una macchina virtuale standard e non le serie DS o GS. Sarà necessario aggiornare manualmente la cella relativa al mapping della dimensione di Azure con le macchine virtuali delle serie DS o GS appropriate
 
-5. Dopo aver fornito tutti i dettagli, fare clic su **Submit data to the planner tool** per aprire il foglio di lavoro **Capacity Planner**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
+5. Dopo aver fornito tutti i dettagli, fare clic su **Invia dati allo strumento di pianificazione** per aprire il foglio di lavoro **Strumento di pianificazione della capacità**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
 
 
 ### Inviare i dati nello strumento di pianificazione
 
-1.	Quando si apre il foglio di lavoro **Capacity Planner** viene compilato in base alle impostazioni specificate. Il termine "Workload" viene visualizzato nel campo **Infra inputs source** per indicare che l'input è dato dal foglio di lavoro **Workload Qualification**. 
+1.	Quando si apre il foglio di lavoro **Capacity Planner** viene compilato in base alle impostazioni specificate. Il termine "Workload" viene visualizzato nel campo **Infra inputs source** per indicare che l'input è dato dal foglio di lavoro **Qualifica del carico di lavoro**. 
 2.	Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** e fare clic di nuovo su Submit data To the planner tool.  
 
 	![Strumento di pianificazione della capacità](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

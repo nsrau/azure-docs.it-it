@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
 
 In questo articolo viene descritto come utilizzare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro ed esaminare l'esecuzione delle query SQL Data Warehouse di Azure.
 
-## Monitoraggio delle connessioni
+## Monitorare le connessioni
 
 La vista [sys.dm\_pdw\_exec\_sessions][] consente di monitorare le connessioni al database Azure SQL Data Warehouse. Questa vista contiene sessioni attive, nonché una cronologia delle sessioni disconnesse di recente. L'elemento session\_id è la chiave primaria per questa vista e viene assegnato in sequenza per ogni nuovo accesso.
 
@@ -28,8 +28,10 @@ La vista [sys.dm\_pdw\_exec\_sessions][] consente di monitorare le connessioni a
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
-## Analisi dell'esecuzione di query
+## Analizzare l'esecuzione di query
 Per monitorare l'esecuzione di query, iniziare con [sys.dm\_pdw\_exec\_requests][]. Questa vista contiene le query in corso, nonché una cronologia delle query completate di recente. L'elemento request\_id identifica in modo univoco ogni query ed è la chiave primaria per questa vista. Viene assegnato in sequenza per ogni nuova query. Se si esegue una query nella tabella per un dato session\_id, verranno visualizzate tutte le query per un determinato accesso.
+
+>[AZURE.NOTE] Le stored procedure usano più ID richiesta, che vengono assegnati in ordine sequenziale.
 
 Ecco i passaggi da seguire per analizzare i piani e i tempi di esecuzione delle query per una query specifica.
 
@@ -93,9 +95,9 @@ Controllare la colonna *operation\_type* dell'istruzione di query con esecuzione
 - Procedere al passaggio 4a per le **operazioni SQL**: OnOperation, RemoteOperation, ReturnOperation.
 - Procedere al passaggio 4b per le **operazioni di spostamento dati**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### PASSAGGIO 4a: individuare lo stato di esecuzione di un'istruzione SQL
+### PASSAGGIO 4a: trovare lo stato di esecuzione di un passaggio SQL
 
-Usare l'ID richiesta e l'indice passo per recuperare informazioni dalla vista [sys.dm\_pdw\_sql\_requests][] che contiene dettagli sull'esecuzione della query sulle istanze distribuite di SQL Server. Prendere nota dell'ID di distribuzione e dello SPID se la query è ancora in esecuzione e si desidera ottenere il piano di distribuzione da SQL Server.
+Usare l'ID richiesta e l'indice passo per recuperare informazioni da [sys.dm\_pdw\_sql\_requests][], che contiene dettagli sull'esecuzione della query nelle istanze distribuite di SQL Server. Prendere nota dell'ID di distribuzione e dello SPID se la query è ancora in esecuzione e si desidera ottenere il piano di distribuzione da SQL Server.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -106,7 +108,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 
-Se la query è in esecuzione, è possibile usare [DBCC PDW\_SHOWEXECUTIONPLAN][] per recuperare il piano di esecuzione di SQL Server per l'istruzione SQL in esecuzione per una distribuzione particolare.
+Se la query è in esecuzione, è possibile usare [DBCC PDW\_SHOWEXECUTIONPLAN][] per recuperare il piano di esecuzione di SQL Server per il passaggio SQL in esecuzione per una distribuzione particolare.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -116,9 +118,9 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-### PASSAGGIO 4b: individuare lo stato di esecuzione di un passaggio del DMS
+### PASSAGGIO 4b: trovare lo stato di esecuzione di un passaggio DMS
 
-Usare l'ID richiesta e l'indice passo per recuperare informazioni sul passaggio del DMS in esecuzione in ciascuna distribuzione da [sys.dm\_pdw\_dms\_workers][].
+Usare l'ID richiesta e l'indice passo per recuperare informazioni sul passaggio DMS in esecuzione in ogni distribuzione da [sys.dm\_pdw\_dms\_workers][].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -132,7 +134,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Controllare la colonna *total\_elapsed\_time* per verificare se una distribuzione particolare richiede più tempo per lo spostamento dati rispetto alle altre.
 - Per la distribuzione con esecuzione prolungata, esaminare la colonna *rows\_processed* e controllare se il numero di righe spostato da tale distribuzione è significativamente più grande rispetto alle altre. In caso affermativo, questo potrebbe indicare asimmetria dei dati sottostanti.
 
-Se la query è in esecuzione, tramite [DBCC PDW\_SHOWEXECUTIONPLAN][] è possibile recuperare il piano di esecuzione di SQL Server per il passaggio DMS in esecuzione per una distribuzione particolare.
+Se la query è in esecuzione, è possibile usare [DBCC PDW\_SHOWEXECUTIONPLAN][] per recuperare il piano di esecuzione di SQL Server per il passaggio DMS in esecuzione per una distribuzione particolare.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -143,15 +145,14 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Passaggi successivi
-Per altre informazioni su DMV, vedere [Viste di sistema][]. Per alcuni suggerimenti sulla gestione di SQL Data Warehouse, vedere l'articolo che offre una [panoramica della gestione][]. Per le procedure consigliate, vedere l'articolo sulle [procedure consigliate di SQL Data Warehouse][].
+Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di sistema][]. Per suggerimenti sulla gestione di SQL Data Warehouse, vedere [Gestire i database in Azure SQL Data Warehouse][]. Per informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[panoramica della gestione]: sql-data-warehouse-overview-manage.md
-[procedure consigliate di SQL Data Warehouse]: sql-data-warehouse-best-practices.md
-[Viste di sistema]: sql-data-warehouse-reference-tsql-system-views.md
+[Gestire i database in Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-manage.md
+[Procedure consigliate per Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Viste di sistema]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +163,4 @@ Per altre informazioni su DMV, vedere [Viste di sistema][]. Per alcuni suggerime
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

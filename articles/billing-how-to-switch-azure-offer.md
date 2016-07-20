@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # Passaggio a un'offerta di Azure diversa
@@ -25,6 +25,8 @@
 -	Se si vuole usufruire dei vantaggi dell'abbonamento, ad esempio MSDN o BizSpark, dopo aver eseguito l'iscrizione per una sottoscrizione con pagamento in base al consumo.
 
 ## Come trasferire la sottoscrizione a un'altra offerta
+
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions).
 2.	Selezionare la sottoscrizione da trasferire.
@@ -73,4 +75,4 @@ Di seguito sono riportati i percorsi attualmente supportati nel [Centro account]
 -	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) all'offerta [con 12 mesi prepagati](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) a una delle [offerte di credito mensile di Azure per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -47,13 +47,13 @@ Ecco di seguito una descrizione degli endpoint:
 * **Endpoint del dispositivo**. Per ogni dispositivo di cui è stato effettuato il provisioning nel registro delle identità dei dispositivi, l'hub IoT espone un set di endpoint che il dispositivo può usare per inviare e ricevere messaggi:
     - *Invio di messaggi da dispositivo a cloud*. Usare questo endpoint per inviare messaggi da dispositivo a cloud. Per altre informazioni, vedere [Messaggistica da dispositivo a cloud](#d2c).
     - *Ricezione di messaggi da cloud a dispositivo*. Il dispositivo usa questo endpoint per ricevere messaggi da cloud a dispositivo specifici. Per altre informazioni, vedere [Messaggistica da cloud a dispositivo](#c2d).
-    - *Avvio di caricamenti di file*. Il dispositivo usa questo endpoint per ricevere un URI di firma di accesso condiviso di Archiviazione di Azure dall'hub IoT per il caricamento di un file. Per altre informazioni, vedere [Caricamenti di file](#fileupload). 
+    - *Avvio di caricamenti di file*. Il dispositivo usa questo endpoint per ricevere un URI di firma di accesso condiviso di Archiviazione di Azure dall'hub IoT per il caricamento di un file. Per altre informazioni, vedere [Caricamenti di file](#fileupload).
 
     Questi endpoint vengono esposti con i protocolli HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Si noti che AMQP è disponibile anche su [WebSocket][lnk-websockets] sulla porta 443.
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint che il back-end dell'applicazione può usare per comunicare con i dispositivi. Questi endpoint vengono attualmente esposti solo tramite il protocollo [AMQP][lnk-amqp].
     - *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure][lnk-event-hubs] e può essere usato da un servizio back-end per leggere tutti i messaggi da dispositivo a cloud inviati dai dispositivi. Per altre informazioni, vedere [Messaggistica da dispositivo a cloud](#d2c).
     - *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end dell'applicazione di inviare messaggi affidabili da cloud a dispositivo e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti. Per altre informazioni, vedere [Messaggistica da cloud a dispositivo](#c2d).
-    - *Ricezione di notifiche relative ai file*. Questo endpoint di messaggistica consente di ricevere notifiche quando i dispositivi completano il caricamento di un file. 
+    - *Ricezione di notifiche relative ai file*. Questo endpoint di messaggistica consente di ricevere notifiche quando i dispositivi completano il caricamento di un file.
 
 L'articolo [SDK hub IoT][lnk-apis-sdks] descrive le varie modalità di accesso a questi endpoint.
 
@@ -70,7 +70,7 @@ Quando si usano SDK (o integrazioni del prodotto) non compatibili con l'hub IoT,
 
     ![Impostazioni da dispositivo a cloud][img-eventhubcompatible]
 
-> [AZURE.NOTE] Se l'SDK richiede un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema da **Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Se l'SDK richiede un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema da **Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi criterio di sicurezza di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
 
@@ -248,7 +248,7 @@ L'hub IoT fornisce le primitive di messaggistica per comunicare:
 
 - [Da cloud a dispositivo](#c2d), dal back-end di un'applicazione (*di servizio* o *cloud*).
 - [Da dispositivo a cloud](#d2c), da un dispositivo al back-end di un'applicazione.
-- [Caricamenti di file](#fileupload), da un dispositivo a un account di archiviazione di Azure associato. 
+- [Caricamenti di file](#fileupload), da un dispositivo a un account di archiviazione di Azure associato.
 
 Le proprietà di base della funzionalità di messaggistica dell'hub IoT sono l'affidabilità e la durabilità dei messaggi. Ciò consente la resilienza in caso di connettività intermittente sul lato dispositivo e picchi di carico durante l'elaborazione degli eventi sul lato cloud. L'hub IoT implementa *almeno una volta* le garanzie di recapito per la messaggistica da dispositivo a cloud e da cloud a dispositivo.
 
@@ -550,18 +550,18 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 
 | Limitazione | Valore per ogni hub |
 | -------- | ------------- |
-| Operazioni del registro delle identità (creazione, recupero, elenco, aggiornamento, eliminazione) | 100/min/unità, fino a 5000/min. |
-| Connessioni del dispositivo | 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si otterrà almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
-| Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si otterrà almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
-| Inoltri dal cloud al dispositivo | 100/min/unità. |
-| Ricezioni dal cloud al dispositivo | 1000/min/unità. |
-| Operazioni di caricamento file | 100 notifiche caricamento file/min/unità. <br/> Possono essere impiegati contemporaneamente 10000 URI di firma di accesso condiviso per un account di archiviazione. <br/> Possono essere impiegati contemporaneamente 10 URI di firma di accesso condiviso per dispositivo. | 
+| Operazioni del registro delle identità (creazione, recupero, elenco, aggiornamento, eliminazione) | 5000/min/unità (per S3) <br/> 100/min/unità (per S1 e S2). |
+| Connessioni del dispositivo | 6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si avranno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
+| Inoltri dal dispositivo al cloud | 6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si avranno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
+| Inoltri dal cloud al dispositivo | 5000/min/unità (per S3), 100/min/unità (per S1 e S2). |
+| Ricezioni dal cloud al dispositivo | 50000/min/unità (per S3), 1000/min/unità (per S1 e S2). |
+| Operazioni di caricamento file | 5000 notifiche di caricamento file/min/unità (per S3), 100 notifiche di caricamento file/min/unità (per S1 e S2). <br/> 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione .<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. | 
 
 È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT e non il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene effettuato il provisioning per l'hub.
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità dei dispositivi.
 
-Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
+Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post di blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitazione dell'hub IoT).
 
 >[AZURE.NOTE] È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 
@@ -624,4 +624,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

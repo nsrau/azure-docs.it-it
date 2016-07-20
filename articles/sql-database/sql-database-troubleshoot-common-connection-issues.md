@@ -20,8 +20,7 @@
 
 Quando la connessione al database SQL di Azure non riesce, vengono visualizzati [messaggi di errore](sql-database-develop-error-messages.md). Questo articolo tratta un argomento centrale che aiuta l'utente a risolvere i problemi di connettività del database SQL di Azure. Presenta le [cause comuni](#cause) dei problemi di connessione, consiglia [uno strumento di risoluzione dei problemi](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) che aiuta a identificare il problema e fornisce i passaggi necessari per risolvere gli [errori temporanei](#troubleshoot-transient-errors) e gli [errori persistenti o non temporanei](#troubleshoot-the-persistent-errors). Infine elenca [tutti gli articoli pertinenti sui problemi di connettività del database SQL di Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-In caso di problemi di connessione, provare i passaggi di risoluzione dei problemi descritti in questo articolo.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+In caso di problemi di connessione, provare i passaggi di risoluzione dei problemi descritti in questo articolo. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
@@ -53,7 +52,7 @@ Se l'applicazione presenta errori temporanei, esaminare i seguenti argomenti per
 
 ## Risolvere i problemi causati da errori permanenti (errori non temporanei)
 
-Se l'applicazione non riesce a connettersi in maniera costante al database SQL Azure, il problema è uno dei seguenti:
+Se l'applicazione non riesce a connettersi in maniera costante al database SQL di Azure, il problema è uno dei seguenti:
 
 - Configurazione del firewall. Il firewall del database SQL di Azure o lato client blocca le connessioni al database SQL di Azure.
 - Riconfigurazione della rete lato client: ad esempio un nuovo indirizzo IP o un nuovo server proxy.
@@ -99,6 +98,6 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 - [Linee guida generali per la gestione degli errori temporanei](../best-practices-retry-general.md)
 - [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 - [Il percorso di apprendimento per l'uso del database SQL di Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [Il percorso di apprendimento per l'uso delle funzionalità e degli strumenti dei database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [Il percorso di apprendimento per l'uso delle funzionalità e degli strumenti dei database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

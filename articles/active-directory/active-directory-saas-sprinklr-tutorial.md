@@ -80,7 +80,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso Sprinklr** usando il modello seguente "*https://\<tenant-name>.sprinklr.com*", quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso Sprinklr** usando il modello seguente " *https://\<tenant-name>.sprinklr.com* ", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configura URL app")
 
@@ -177,7 +177,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Sprinklr ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Sprinklr** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Assegna utenti")
 

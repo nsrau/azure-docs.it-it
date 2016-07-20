@@ -20,9 +20,13 @@
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager
 
 > [AZURE.SELECTOR]
+- [Portale](azure-portal/resource-group-portal.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 Questo articolo illustra i metodi comuni per creare e gestire risorse di Azure usando l'interfaccia della riga di comando di Azure in modalità Azure Resource Manager.
@@ -31,17 +35,17 @@ Questo articolo illustra i metodi comuni per creare e gestire risorse di Azure u
 
 ## Risorse di Azure
 
-Usare Azure Resource Manager per creare e gestire un gruppo di _risorse_ (entità gestite dall'utente quali una macchina virtuale, un server di database, un database o un sito Web) come una singola unità logica o _gruppo di risorse_.
+Usare Gestione risorse di Azure per creare e gestire un gruppo di _risorse_ (entità gestite dall'utente quali una macchina virtuale, un server di database, un database o un sito Web) come una singola unità logica o _gruppo di risorse_.
 
 Uno dei vantaggi di Azure Resource Manager è che permette di creare le risorse di Azure in modo _dichiarativo_, descrivendo la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello identifica i parametri che possono essere completati inline quando si esegue un comando oppure archiviati in un file di parametri JSON (JavaScript Object Notation) distinto. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
 
-Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Azure Resource Manager, vedere l'articolo relativo alla [panoramica di Azure Resource Manager](resource-group-overview.md).
+Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Gestione risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
 Dopo aver creato una distribuzione, è possibile gestire le singole risorse in modo imperativo dalla riga di comando, in modo analogo a quello usato nel modello di distribuzione classica. Usare ad esempio i comandi dell'interfaccia della riga di comando in modalità Resource Manager per avviare, arrestare o eliminare risorse, ad esempio [macchine virtuali di Azure Resource Manager](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Autenticazione
 
-L'uso di Azure Resource Manager con l'interfaccia della riga di comando di Azure attualmente richiede l'autenticazione in Microsoft Azure con il comando `azure login` e quindi l'immissione di un account gestito da Azure Active Directory, che può essere un account aziendale o dell'istituto di istruzione (account aziendale) o un account Microsoft. L'autenticazione tramite un certificato installato mediante un file con estensione publishsettings non funziona in questa modalità.
+L'uso di Azure Resource Manager con l'interfaccia della riga di comando di Azure attualmente richiede l'autenticazione in Microsoft Azure con il comando `azure login` e quindi l'immissione di un account gestito da Azure Active Directory, che può essere un account aziendale o dell'istituto di istruzione o un account Microsoft. L'autenticazione tramite un certificato installato mediante un file con estensione publishsettings non funziona in questa modalità.
 
 Per altre informazioni sull'autenticazione a Microsoft Azure, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
 
@@ -84,7 +88,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo. Per inizi
 * Password = `adminPassword`
 * Nome di dominio per la VM = `dnsLabelPrefix`
 
->[AZURE.TIP] Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli diAzure Resource Manager e l'interfaccia della riga di comando di Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+>[AZURE.TIP] Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 1. Fare clic sul collegamento relativo ad altre informazioni con GitHub per scaricare i file azuredeploy.json e azuredeploy.parameters.json da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) in una cartella di lavoro nel computer locale. Assicurarsi di selezionare il formato _raw_di ogni file in GitHub.
 
@@ -117,7 +121,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo. Per inizi
 	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGDeploy
 	```
 
-	L'opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. L'opzione `-f` specifica il file modello azuredeploy.json.
+	L’opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. L'opzione `-f` specifica il file modello azuredeploy.json.
 
 	Questo comando restituirà OK dopo che la distribuzione viene caricata, ma prima che venga applicata la distribuzione alle risorse del gruppo.
 
@@ -162,7 +166,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo. Per inizi
 
 	Questo comando restituisce informazioni relative alle risorse nel gruppo. Se sono presenti più gruppi, usare il comando `azure group list` per recuperare un elenco di nomi di gruppi e quindi usare il comando `azure group show` per visualizzare i dettagli di un gruppo specifico.
 
-È inoltre possibile utilizzare un modello direttamente da [GitHub](https://github.com/Azure/azure-quickstart-templates), invece di scaricarne uno nel computer. A tale scopo, passare l'URL del file azuredeploy.json per il modello nel comando usando l'opzione **--template-uri**. Per ottenere l’URL, aprire zuredeploy.json in GitHub in modalità _raw_, e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile utilizzare questo URL direttamente per creare una distribuzione, utilizzando un comando simile al seguente.
+È inoltre possibile utilizzare un modello direttamente da [GitHub](https://github.com/Azure/azure-quickstart-templates), invece di scaricarne uno nel computer. A tale scopo, passare l'URL al file azuredeploy.json per il modello nel comando usando l'opzione **--template-uri**. Per ottenere l’URL, aprire zuredeploy.json in GitHub in modalità _raw_, e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile utilizzare questo URL direttamente per creare una distribuzione, utilizzando un comando simile al seguente.
 
 	azure group deployment create testRG testRGDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
@@ -231,7 +235,7 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 
 ## Passaggi successivi
 
-* Per informazioni sull'uso di Azure Resource Manager con Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
-* Per informazioni sull'uso di Azure Resource Manager dal portale di Azure, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+* Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
+* Per informazioni sull'uso di Azure Resource Manager dal portale di Azure, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

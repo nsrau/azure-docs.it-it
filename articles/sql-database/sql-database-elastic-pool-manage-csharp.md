@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Monitorare e gestire un pool di database elastici con C&#x23; 
@@ -29,9 +29,7 @@ Informazioni su come gestire un [pool di database elastici](sql-database-elastic
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
-
-Negli esempi viene utilizzata la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) Installare la libreria eseguendo il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Gli esempi seguenti utilizzano la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), pertanto, se non è ancora installata, è necessario installare la libreria per proseguire. È possibile installare la libreria con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -104,7 +102,7 @@ Recuperare le proprietà dei pool esistenti. Modificare i valori ed eseguire il 
 
 ## Esempio di gestione di un pool C&#x23;
 
-Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**
+Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -430,6 +428,6 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Creare un nuovo pool di database elastici con C#](sql-database-elastic-pool-create-csharp.md)
 - [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
-- Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
+- Vedere l'articolo sulla [scalabilità orizzontale con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastico per scalare in orizzontale, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

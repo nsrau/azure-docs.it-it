@@ -52,7 +52,7 @@ L'uso dei gruppi di risorse offre maggiore flessibilità alla progettazione dei 
 ### Reti virtuali solo cloud
 Se utenti e computer locali non richiedono connettività costante alle macchine virtuali in una rete virtuale Azure, la progettazione della rete virtuale è semplificata.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagramma rete virtuale di base solo cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 Si tratta di una rete indicata in genere per carichi di lavoro con connessione Internet, ad esempio un server Web basato su Internet. È possibile gestire queste macchine virtuali tramite SSH o connessioni VPN da punto a sito.
 
@@ -62,7 +62,7 @@ Poiché non si connettono alla rete locale, le reti virtuali solo Azure possono 
 ### Reti virtuali cross-premise
 Se computer e utenti locali richiedono la connettività costante alle macchine virtuali in una rete virtuale di Azure, creare una rete virtuale cross-premise e connetterla alla rete locale con un ExpressRoute o una connessione VPN da sito a sito.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagramma rete virtuale cross-premise](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 In questa configurazione, la rete virtuale di Azure è essenzialmente un'estensione della rete locale basata su cloud.
 
@@ -107,4 +107,4 @@ Come accade in un'infrastruttura di rete locale fisica, la rete virtuale di Azur
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

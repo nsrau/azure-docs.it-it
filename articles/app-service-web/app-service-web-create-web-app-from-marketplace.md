@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiam
 
 In questa esercitazione si apprenderà come:
 
-* Trovare un modello di applicazione in Azure Marketplace.
-* Creare un'app Web basata sul modello nel servizio app di Azure.
-* Configurare le impostazioni del servizio app di Azure per la nuova app Web e il database.
+* Individuare e creare un'app Web nel servizio app di Azure basata su un modello di Azure Marketplace.
+* Configurare le impostazioni del servizio app di Azure per la nuova app Web.
+* Avviare e gestire l'app Web.
 
 Ai fini di questa esercitazione, si distribuirà un sito blog di WordPress da Azure Marketplace. Una volta completati i passaggi di questa esercitazione, si otterrà un sito WordPress attivo e in esecuzione nel cloud.
 
-![Dashboard dell'app Web WordPress di esempio][WordPressDashboard]
+![Dashboard dell'app Web WordPress di esempio][WordPressDashboard1]
 
 Il sito WordPress che verrà distribuito in questa esercitazione usa MySQL come database. Se si preferisce usare un database SQL, vedere [Project Nami], disponibile anche in Azure Marketplace.
 
@@ -41,7 +41,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 >
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-## Selezionare WordPress ed eseguire la configurazione per il servizio app di Azure
+## Individuare e trovare un'app Web nel servizio app di Azure
 
 1. Accedere al [Portale di Azure].
 
@@ -57,13 +57,15 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 	![Creare un'app Web WordPress][MarketplaceCreate]
 
-1. Verrà visualizzato il pannello delle impostazioni WordPress, in cui sarà possibile completare i passaggi seguenti:
+## Configurare le impostazioni del servizio app di Azure per la nuova app Web
+
+1. Al termine della creazione di una nuova app Web, verrà visualizzato il pannello delle impostazioni WordPress, in cui sarà possibile completare i passaggi seguenti:
 
 	![Configurare le impostazioni dell'app Web WordPress][ConfigStart]
 
 1. Immettere un nome per l'app Web nella casella **App Web**.
 
-	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà *{nome}.azurewebsites.net*. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
+	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà *{nome}*.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 
 	![Configurare il nome dell'app Web WordPress][ConfigAppName]
 
@@ -131,7 +133,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 1. Verrà aperta la pagina Dashboard del sito che visualizzerà le informazioni fornite.
 
-	![Visualizzare il dashboard di WordPress][WordPressDashboard]
+	![Visualizzare il dashboard di WordPress][WordPressDashboard2]
 
 ## Passaggi successivi
 
@@ -174,7 +176,8 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

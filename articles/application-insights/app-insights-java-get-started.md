@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Analisi di app Web Java con Application Insights | Microsoft Azure"
-	description="Monitorare le prestazioni e l'uso del sito Web Java con Application Insights."
+	description="Monitorare le prestazioni e l'uso del sito Web Java con Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -163,6 +163,19 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
 
+### Modi alternativi per impostare la chiave di strumentazione
+
+Application Insights SDK cerca la chiave nell'ordine seguente.
+
+1. Proprietà di sistema: -DAPPLICATION\_INSIGHTS\_IKEY=ikey
+2. Variabile di ambiente: APPLICATION\_INSIGHTS\_IKEY
+3. File di configurazione: ApplicationInsights.xml
+
+È anche possibile eseguirne l'[impostazione nel codice](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
+
 ## 4\. Aggiungere un filtro HTTP
 
 L'ultimo passaggio di configurazione consente al componente delle richieste HTTP di registrare ogni richiesta Web. Non necessario se si desidera l'API.
@@ -227,7 +240,7 @@ Fare clic su qualsiasi grafico per visualizzare metriche aggregate più dettagli
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia: `VERB controller/action`. Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`. In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
+> Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia `VERB controller/action`. Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`. In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
 
 ### Dati dell'istanza 
@@ -243,21 +256,19 @@ Quando si visualizzano le proprietà di una richiesta, è possibile visualizzare
 
 ### Analytics: linguaggio di query avanzato
 
-Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analytics]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e informazioni utili per la diagnostica.
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analytics]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
 ![Esempio di Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. Installare l'applicazione nel server
+## 7\. Installare l'applicazione nel server
 
 A questo punto è possibile pubblicare l'applicazione nel server, permettere agli utenti di utilizzarla e visualizzare la telemetria mostrata nel portale.
 
 * Verificare che il firewall consenta all'applicazione di inviare i dati di telemetria a queste porte:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Nei server Windows installare:
@@ -274,7 +285,7 @@ Vengono raccolte automaticamente le eccezioni non gestite:
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
-* [Inserire chiamate a trackException() nel codice][apiexceptions]. 
+* [Inserire chiamate a trackException() nel codice][apiexceptions].
 * [Installare l'agente Java nel server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
 
 
@@ -401,4 +412,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/)
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

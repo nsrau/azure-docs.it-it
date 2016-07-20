@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticazione dell'entità servizio per app per le API nel servizio app di Azure
@@ -83,8 +83,8 @@ Una volta acquisito il token, il chiamante lo include con le richieste HTTP nell
 
 I token di connessione per gli utenti nello stesso tenant sono considerati validi per l'app per le API protetta. Per assicurarsi che una sola entità servizio possa chiamare l'app per le API protetta, aggiungere il codice nell'app per le API protetta per convalidare le attestazioni seguenti dal token:
 
-* `appid` deve essere l'ID client dell'applicazione Azure AD associata al chiamante. 
-* `oid` (`objectidentifier`) deve essere l'ID entità servizio del chiamante. 
+* `appid` deve essere l'ID client dell'applicazione Azure AD associata al chiamante.
+* `oid` (`objectidentifier`) deve essere l'ID entità servizio del chiamante.
 
 Il servizio app fornisce anche l'attestazione `objectidentifier` nell'intestazione X-MS-CLIENT-PRINCIPAL-ID.
 
@@ -150,7 +150,7 @@ Se si verificano problemi mentre si seguono le istruzioni dell'esercitazione, ve
 
 ### Verificare che l'app per le API sia protetta
 
-1. In un browser passare all'URL dell'app per le API. A tale scopo, nel pannello **App per le API** del portale di Azure fare clic sul collegamento in **URL**. 
+1. In un browser passare all'URL dell'app per le API. A tale scopo, nel pannello **App per le API** del portale di Azure fare clic sul collegamento in **URL**.
 
 	Si viene reindirizzati a una schermata di accesso, perché alle richieste non autenticate non è consentito raggiungere l'app per le API.
 
@@ -166,7 +166,7 @@ In questa sezione vengono eseguite le attività seguenti:
 
 * Aggiunta di codice nell'app per le API del livello intermedio che usa le credenziali dell'applicazione Azure AD per acquisire un token e inviarlo con le richieste HTTP all'app per le API del livello dati.
 * Acquisizione delle credenziali necessarie da Azure AD.
-* Immissione delle credenziali nelle impostazioni dell'ambiente di runtime di Servizio app di Azure nell'app per le API del livello intermedio. 
+* Immissione delle credenziali nelle impostazioni dell'ambiente di runtime di Servizio app di Azure nell'app per le API del livello intermedio.
 
 ### Configurare il progetto ToDoListAPI per acquisire e inviare il token di Azure AD
 
@@ -415,4 +415,4 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Distribuire l'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

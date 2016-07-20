@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Diagnostica e monitoraggio delle prestazioni per Reliable Actors
@@ -118,7 +118,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 |Service Fabric Actor|Average milliseconds actor lock held|Tempo (in millisecondi) per il quale il blocco per attore è attivato|
 
 ### Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
-Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-state-management).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md).
 
 |Nome evento|ID evento|Level|Parole chiave|Descrizione|
 |---|---|---|---|---|
@@ -169,4 +169,4 @@ Quando un client richiama un metodo tramite un oggetto proxy di attore, viene ge
  - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

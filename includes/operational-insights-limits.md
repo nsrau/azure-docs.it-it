@@ -26,6 +26,6 @@ I limiti seguenti si applicano alle sottoscrizioni di Operational Insights.
 |Limite di archiviazione dei dati|500 MB * 7 giorni = 3,5 GB|senza limiti|senza limiti|
 
 
-<sup>1</sup>Quando i clienti raggiungono il limite giornaliero di trasferimento dei dati di 500 MB, l’analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
+<sup>1</sup>Quando i clienti raggiungono il limite giornaliero di trasferimento dati di 500 M, l'analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -36,7 +36,7 @@ Nella figura seguente viene illustrato un esempio di route definite dall'utente 
 
 ![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT] Le route definite dall'utente vengono applicate solo al traffico da una subnet. non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Inoltre, il dispositivo in cui si desidera inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi.
+>[AZURE.IMPORTANT] Le route definite dall'utente vengono applicate solo al traffico da una subnet. non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Inoltre, il dispositivo in cui si vuole inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi.
 
 ## Risorsa di route
 I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella di route definita in ogni nodo nella rete fisica. Una tabella di route è un insieme di route singoli utilizzata per decidere dove inoltrare pacchetti in base a indirizzo IP di destinazione. Una route è costituita dai seguenti elementi:
@@ -77,7 +77,7 @@ Le subnet si basano su route predefinite fino a quando una tabella di route vien
 
 Per informazioni su come creare route definite dall'utente, vedere[come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si desidera aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di Azure route che inoltra tutto il traffico verso lo spazio degli indirizzi locale per il dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale flusso attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
+>[AZURE.IMPORTANT] Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale passa attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
 
 ### Route BGP
 Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP propagare route dalla rete locale in Azure. Queste route BGP vengono utilizzate nello stesso modo delle route predefinite e delle route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](../expressroute/expressroute-introduction.md).
@@ -94,4 +94,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](virtual-network-create-udr-arm-template.md) e associarle alle subnet.
 - Informazioni su come [creare route nel modello di distribuzione classica](virtual-network-create-udr-classic-ps.md) e associarle a subnet.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

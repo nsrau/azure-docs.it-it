@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Ottimizzazione delle transazioni per SQL Data Warehouse
@@ -172,7 +172,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 ## Ottimizzazione con cambio della partizione
 
-In caso di modifiche su larga scala all'interno di una [partizione della tabella][] può risultare molto utile adottare un modello di cambio di partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, una semplice operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
+In caso di modifiche su larga scala all'interno di una [partizione di tabella][] può risultare molto utile adottare un modello di cambio di partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, una semplice operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
 
 I passaggi per eseguire un cambio di partizione sono indicati di seguito:
 1. Creare una partizione di disattivazione vuota.
@@ -413,7 +413,7 @@ Vedere [Transazioni in SQL Data Warehouse][] per ulteriori informazioni su limit
 
 <!--Article references-->
 [Transazioni in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[partizione della tabella]: ./sql-data-warehouse-develop-table-partitions.md
+[partizione di tabella]: ./sql-data-warehouse-tables-partition.md
 [concorrenza]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
@@ -424,4 +424,4 @@ Vedere [Transazioni in SQL Data Warehouse][] per ulteriori informazioni su limit
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

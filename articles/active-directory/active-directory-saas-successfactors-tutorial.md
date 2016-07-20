@@ -121,7 +121,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **SuccessFactors ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **SuccessFactors** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Assegna utenti")
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Casi di studio sui clienti
@@ -48,4 +48,4 @@ Data factory è un servizio di gestione delle informazioni basato sul cloud che 
 
 [Ricerca una migliore connessione con i clienti tramite la formazione relativa al Cloud Machine](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

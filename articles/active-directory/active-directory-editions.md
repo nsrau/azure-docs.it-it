@@ -64,7 +64,7 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 **Funzionalità comuni**
 
-- [Oggetti directory](#directory-objects) 
+- [Oggetti directory](#directory-objects)
 
 - [Gestione di utenti/gruppi (aggiunta/aggiornamento/eliminazione) / Provisioning basato sull'utente, registrazione dei dispositivi](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
@@ -163,11 +163,11 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] \(livello gratuito + app del proxy di applicazione) | Nessun limite [2] \(livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)|
+| 10 app per utente (1) | 10 app per utente (1) | Nessun limite (2) | 10 app per utente (1)|
 
-[1] Con Azure AD Free e Azure AD Basic, gli utenti finali a cui è stato assegnato l'accesso alle app SaaS possono visualizzare fino a 10 app nel proprio pannello di accesso e possono ottenere l'accesso SSO a tali app. Con le sottoscrizioni Free e Basic gli amministratori possono configurare l'accesso SSO e assegnare agli utenti l'accesso a qualsiasi numero di app SaaS, ma gli utenti finali possono vedere un massimo di 10 app alla volta nel proprio pannello di accesso.
+1. Con Azure AD Free e Azure AD Basic, gli utenti finali a cui è stato assegnato l'accesso alle app SaaS possono visualizzare fino a 10 app nel proprio pannello di accesso e ottenere l'accesso SSO a tali app. Con le sottoscrizioni Free e Basic gli amministratori possono configurare l'accesso SSO e assegnare agli utenti l'accesso a qualsiasi numero di app SaaS, ma gli utenti finali possono vedere un massimo di 10 app alla volta nel proprio pannello di accesso.
 
-[2] Integrazione self-service di qualsiasi applicazione che supporta SAML, SCIM o l'autenticazione basata su moduli mediante i modelli forniti nel menu della raccolta di applicazioni. Per altre informazioni, vedere [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md).
+2. Integrazione self-service di qualsiasi applicazione che supporta SAML, SCIM o l'autenticazione basata su moduli mediante i modelli forniti nel menu della raccolta di applicazioni. Per altre informazioni, vedere [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Altre informazioni:**
 
@@ -495,4 +495,4 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->
