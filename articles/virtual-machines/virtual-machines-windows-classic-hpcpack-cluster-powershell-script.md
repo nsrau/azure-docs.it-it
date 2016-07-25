@@ -1,6 +1,6 @@
 <properties
    pageTitle="Script PowerShell per distribuire cluster HPC Windows | Microsoft Azure"
-   description="Eseguire uno script di PowerShell per distribuire un cluster HPC Pack Windows in servizi di infrastruttura di Azure."
+   description="Eseguire uno script di PowerShell per distribuire un cluster HPC Pack Windows in macchine virtuali di Azure"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # Creare un cluster Windows HPC (High Performance Computing) con lo script di distribuzione IaaS di HPC Pack
 
-Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack in un computer client per distribuire un cluster HPC completo per i carichi di lavoro Windows nei servizi di infrastruttura di Azure (IaaS). Se si desidera distribuire un cluster HPC Pack in Azure per i carichi di lavoro di Linux, vedere [Creare un cluster HPC Linux con lo script di distribuzione IaaS di HPC Pack](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md).
+Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack per distribuire un cluster HPC completo per carichi di lavoro di Windows nelle macchine virtuali di Azure. Il cluster è costituito da un nodo head aggiunto ad Active Directory che esegue Windows Server e Microsoft HPC Pack e da altre risorse di calcolo di Windows specificate. Se si desidera distribuire un cluster HPC Pack in Azure per i carichi di lavoro di Linux, vedere [Creare un cluster HPC Linux con lo script di distribuzione IaaS di HPC Pack](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Per distribuire un cluster HPC Pack è anche possibile usare un modello di Gestione risorse di Azure. Per esempi, vedere [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creare un cluster HPC) e [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creare un cluster HPC con un'immagine di nodo di calcolo personalizzata).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -26,9 +26,49 @@ Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack in un computer c
 
 ## File di configurazione di esempio
 
+Negli esempi seguenti sostituire i propri valori per l'ID o il nome della sottoscrizione e i nomi degli account e dei servizi.
+
 ### Esempio 1
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali e 12 nodi di calcolo con l'estensione BGInfo applicata. L'installazione automatica degli aggiornamenti di Windows è disabilitata per tutte le macchine virtuali nella foresta di domini. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo vengono creati in 3 servizi cloud e 3 account di archiviazione (ovvero, da _MyHPCCN-0001_ a _MyHPCCN-0005_ in _MyHPCCNService01_ e _mycnstorage01_; da _MyHPCCN-0006_ a _MyHPCCN0010_ in _MyHPCCNService02_ e _mycnstorage02_ e da _MyHPCCN-0011_ a _MyHPCCN-0012_ in _MyHPCCNService03_ e _mycnstorage03_). I nodi di calcolo vengono creati da un'immagine privata esistente acquisita da un nodo di calcolo. Il servizio di aumento e riduzione automatico è abilitato con intervalli di aumento e riduzione predefiniti.
+Il file di configurazione seguente distribuisce un cluster HPC Pack che include un nodo head con database locali e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2012 R2. Tutti i servizi cloud vengono creati direttamente nell'area Stati Uniti occidentali. Il nodo head funge da controller di dominio della foresta di domini.
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
+    <StorageAccount>mystorageaccount</StorageAccount>
+  </Subscription>
+  <Location>West US</Location>  
+  <VNet>
+    <VNetName>MyVNet</VNetName>
+    <SubnetName>Subnet-1</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpc.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>MyHeadNode</VMName>
+    <ServiceName>MyHPCService</ServiceName>
+    <VMSize>ExtraLarge</VMSize>
+  </HeadNode>
+  <ComputeNodes>
+    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
+    <ServiceName>MyHPCCNService</ServiceName>
+    <VMSize>Medium</VMSize>
+    <NodeCount>5</NodeCount>
+    <OSVersion>WindowsServer2012R2</OSVersion>
+  </ComputeNodes>
+</IaaSClusterConfig>
+```
+
+### Esempio 2
+
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali e 12 nodi di calcolo con l'estensione BGInfo applicata. L'installazione automatica degli aggiornamenti di Windows è disabilitata per tutte le macchine virtuali nella foresta di domini. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo vengono creati in 3 servizi cloud e 3 account di archiviazione, ovvero da _MyHPCCN-0001_ a _MyHPCCN-0005_ in _MyHPCCNService01_ e _mycnstorage01_, da _MyHPCCN-0006_ a _MyHPCCN0010_ in _MyHPCCNService02_ e _mycnstorage02_ e infine da _MyHPCCN-0011_ a _MyHPCCN-0012_ in _MyHPCCNService03_ e _mycnstorage03_. I nodi di calcolo vengono creati da un'immagine privata esistente acquisita da un nodo di calcolo. Il servizio di aumento e riduzione automatico è abilitato con intervalli di aumento e riduzione predefiniti.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -90,9 +130,9 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 ```
 
-### Esempio 2
+### Esempio 3
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster contiene 1 nodo head, 1 server di database con un disco dati da 500 GB, 2 nodi broker che eseguono il sistema operativo Windows Server 2012 R2 e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2012 R2. Il servizio cloud MyHPCCNService viene creato nel set di affinità *MyIBAffinityGroup* e tutti gli altri servizi cloud vengono creati nel set di affinità *MyAffinityGroup*. L'API REST del pianificatore di processi HPC e il portale Web di HPC sono abilitati nel nodo head.
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster contiene 1 nodo head, 1 server di database con un disco dati da 500 GB, 2 nodi broker che eseguono il sistema operativo Windows Server 2012 R2 e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2012 R2. Il servizio cloud MyHPCCNService viene creato nel gruppo di affinità *MyIBAffinityGroup* e tutti gli altri servizi cloud vengono creati nel gruppo di affinità *MyAffinityGroup*. L'API REST del pianificatore di processi HPC e il portale Web di HPC sono abilitati nel nodo head.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -144,47 +184,11 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 </IaaSClusterConfig>
 ```
 
-### Esempio 3
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack che include 1 nodo head con database locali e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2008 R2. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. Il nodo head funge da controller di dominio della foresta di domini.
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<IaaSClusterConfig>
-  <Subscription>
-    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
-    <StorageAccount>mystorageaccount</StorageAccount>
-  </Subscription>
-  <Location>East Asia</Location>  
-  <VNet>
-    <VNetName>MyVNet</VNetName>
-    <SubnetName>Subnet-1</SubnetName>
-  </VNet>
-  <Domain>
-    <DCOption>HeadNodeAsDC</DCOption>
-    <DomainFQDN>hpc.local</DomainFQDN>
-  </Domain>
-  <Database>
-    <DBOption>LocalDB</DBOption>
-  </Database>
-  <HeadNode>
-    <VMName>MyHeadNode</VMName>
-    <ServiceName>MyHPCService</ServiceName>
-    <VMSize>ExtraLarge</VMSize>
-  </HeadNode>
-  <ComputeNodes>
-    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
-    <ServiceName>MyHPCCNService</ServiceName>
-    <VMSize>Medium</VMSize>
-    <NodeCount>5</NodeCount>
-    <OSVersion>WindowsServer2008R2</OSVersion>
-  </ComputeNodes>
-</IaaSClusterConfig>
-```
 
 ### Esempio 4
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali, vengono creati 2 modelli di nodo di Azure e 3 nodi di Azure di dimensione Media per il modello di nodo di Azure _AzureTemplate1_. Un file di script verrà eseguito sul nodo head una volta configurato il nodo.
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali, vengono creati due modelli di nodo di Azure e 3 nodi di Azure di dimensione Media per il modello di nodo di Azure _AzureTemplate1_. Un file di script verrà eseguito sul nodo head una volta configurato il nodo.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -269,8 +273,8 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 * Per un'esercitazione che usa lo script per creare un cluster ed eseguire un carico di lavoro HPC, vedere [Introduzione all'uso di un cluster HPC Pack in Azure per l'esecuzione di carichi di lavoro di Excel e SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
 
-* Provare gli strumenti di HPC Pack per avviare, arrestare e rimuovere nodi di calcolo da un cluster. Vedere [Gestire i nodi di calcolo in un cluster HPC Pack in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
+* Provare gli strumenti di HPC Pack per avviare, arrestare e rimuovere nodi di calcolo da un cluster. Vedere [Gestire il numero e la disponibilità dei nodi di calcolo in un cluster HPC Pack in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
 
-* Per distribuire un cluster HPC Pack è anche possibile usare un modello di Gestione risorse di Azure. Per gli esempi, vedere [Creare un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) e [Creare un cluster HPC con un'immagine di nodo di calcolo personalizzata](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+* Per configurare l'invio di processi al cluster da un computer locale, vedere [Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

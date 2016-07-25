@@ -28,22 +28,7 @@ Molte di queste attività usano
 
 ## Definire le variabili di ambiente prima dell'avvio di un ruolo
 
-È possibile definire le variabili di ambiente per un intero ruolo aggiungendo l'elemento [Runtime] alla definizione del ruolo nel file csdef.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-Se è necessario le definire variabili di ambiente per un'attività specifica non condivisa da altre attività, è possibile usare l'elemento [Environment] all'interno dell'elemento [Task].
+Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,7 +376,6 @@ Il modo più semplice per rilevare se un'attività è già stata eseguita consis
     REM   Exit normally.
     EXIT /B 0
 
-
 ## Procedure consigliate per l'attività
 Di seguito sono riportate alcune procedure consigliate da seguire durante la configurazione dell'attività per il ruolo Web o di lavoro.
 
@@ -503,4 +487,4 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

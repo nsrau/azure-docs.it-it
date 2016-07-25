@@ -24,7 +24,7 @@ Gli sviluppatori che desiderano compilare in modo indipendente l'esperienza inte
 
 ## Prerequisiti
 
-Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
+Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] (Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
 
 Al termine dell'esercitazione "Introduzione", è necessario disporre degli elementi seguenti nel sistema di test:
 
@@ -111,12 +111,20 @@ L'aggiornamento di questa schermata dopo alcuni istanti modifica lo stato del pr
 
 ## Passaggi successivi
 
-L'esplorazione guidata dei concetti di Gestione dei dispositivi e l'uso della relativa interfaccia utente di esempio sono stati completati. Se si desidera ottenere informazioni più avanzate sulle API di Gestione dei dispositivi e provare alcuni esempi di codice, vedere le esercitazioni per sviluppatori seguenti:
+L'esplorazione guidata dei concetti di Gestione dei dispositivi e l'uso della relativa interfaccia utente di esempio sono stati completati. Per ottenere informazioni più avanzate sulle API di Gestione dei dispositivi e provare alcuni esempi di codice, vedere le seguenti risorse ed esercitazioni per gli sviluppatori:
 
 - [Come usare il dispositivo gemello][lnk-tutorial-twin]
 - [Come trovare dispositivi gemelli tramite query][lnk-tutorial-queries]
 - [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-tutorial-jobs]
+- [Abilitare i dispositivi gestiti protetti da un gateway IoT][lnk-dm-gateway]
 - [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-library-c]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -130,9 +138,16 @@ L'esplorazione guidata dei concetti di Gestione dei dispositivi e l'uso della re
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
-[lnk-library-c]: iot-hub-device-management-library.md
+
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

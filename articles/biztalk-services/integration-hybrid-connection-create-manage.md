@@ -38,7 +38,7 @@ Una connessione ibrida può essere creata nel portale di Azure usando le app Web
 **Per creare connessioni ibride nei servizi BizTalk**:
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk. 
+2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk.
 
 	Se non ne esiste già uno, è possibile [creare un servizio BizTalk](biztalk-provision-services.md).
 3. Selezionare la scheda **Connessioni ibride**: ![scheda per le connessioni ibride][HybridConnectionTab]
@@ -47,16 +47,16 @@ Una connessione ibrida può essere creata nel portale di Azure usando le app Web
 
 	Proprietà | Descrizione
 --- | ---
-Nome | Il nome della connessione ibrida deve essere univoco e non può essere uguale al nome del servizio BizTalk. È possibile inserire qualsiasi nome, ma è consigliabile sceglierne uno che descriva lo scopo specifico. Tra gli esempi sono inclusi:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Ad esempio, <br/><br/>SQLServerUtente<br/>*SQLServerUtente*.*Dominio*.corp.*SocietàUtente*.com<br/>*ServerSharePointHTTPUtente*<br/>*ServerSharePointHTTPUtente*.*SocietàUtente*.com<br/>10.100.10.10
-Porta | Immettere il numero di porta della risorsa locale. Ad esempio, se si usa App Web, immettere la porta 80 o 443. Se si usa SQL Server, immettere la porta 1433.
+Nome | Il nome della connessione ibrida deve essere univoco e non può essere uguale al nome del servizio BizTalk. È possibile inserire qualsiasi nome, ma è consigliabile sceglierne uno che descriva lo scopo specifico. Alcuni esempi:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
+Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Alcuni esempi:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Port | Immettere il numero di porta della risorsa locale. Ad esempio, se si usa App Web, immettere la porta 80 o 443. Se si usa SQL Server, immettere la porta 1433.
 
 5. Per completare la configurazione, fare clic sul segno di spunta.
 
 #### Informazioni aggiuntive
 
-- È possibile creare più connessioni ibride. Vedere [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md) per il numero di connessioni consentito. 
-- Ogni connessione ibrida viene creata con una coppia di stringhe di connessione: chiavi dell’applicazione per SEND e chiavi locali per LISTEN. Ogni coppia ha una chiave primaria e una chiave secondaria. 
+- È possibile creare più connessioni ibride. Vedere [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md) per il numero di connessioni consentito.
+- Ogni connessione ibrida viene creata con una coppia di stringhe di connessione: chiavi dell’applicazione per SEND e chiavi locali per LISTEN. Ogni coppia ha una chiave primaria e una chiave secondaria.
 
 
 ## <a name="LinkWebSite"></a>Collegare App Web di Azure o App per dispositivi mobili di Azure
@@ -71,11 +71,11 @@ Per collegare le app per dispositivi mobili di Azure a una connessione ibrida es
 Dopo aver creato una connessione ibrida, installare Gestione connessioni ibride nella risorsa locale, disponibile per il download dalle App Web di Azure o dal servizio BizTalk. Passaggi dei servizi BizTalk:
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk. 
+2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk.
 3. Selezionare la scheda **Connessioni ibride**: ![scheda per le connessioni ibride][HybridConnectionTab]
 4. Nella barra delle applicazioni selezionare **Installazione locale:**: ![On-Premises Setup][HCOnPremSetup]
-5. Selezionare **Installa e configura** per eseguire o scaricare Gestione connessioni ibride nel sistema locale. 
-6. Selezionare il segno di spunta per avviare l'installazione. 
+5. Selezionare **Installa e configura** per eseguire o scaricare Gestione connessioni ibride nel sistema locale.
+6. Selezionare il segno di spunta per avviare l'installazione.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -88,39 +88,39 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 --> 
 
 #### Informazioni aggiuntive
-- Le connessioni ibride supportano le risorse locali installate nei seguenti sistemi operativi:
+- Gestione connessioni ibride può essere installato nei sistemi operativi seguenti:
 
-	- Windows Server 2008 R2
-	- Windows Server 2012
+	- Windows Server 2008 R2 (.NET Framework 4.5 + e Windows Management Framework 4.0 + richiesti)
+	- Windows Server 2012 (Windows Management Framework 4.0 + richiesto)
 	- Windows Server 2012 R2
 
 
 - Dopo aver installato Gestione connessioni ibride, si verifica quanto segue:
 
-	- La connessione ibrida ospitata in Azure viene configurata automaticamente per usare la stringa di connessione dell'applicazione primaria. 
+	- La connessione ibrida ospitata in Azure viene configurata automaticamente per usare la stringa di connessione dell'applicazione primaria.
 	- La risorsa locale viene configurata automaticamente per usare la stringa di connessione locale primaria.
 
 - Gestione connessioni ibride deve usare una stringa di connessione locale valida per le autorizzazioni. In App Web o in App per dispositivi mobili di Azure deve essere usata una stringa di connessione dell'applicazione valida per le autorizzazioni.
-- È possibile ridimensionare le connessioni ibride installando un'altra istanza di Hybrid Connection Manager in un altro server. Configurare il listener locale per utilizzare lo stesso indirizzo come il primo listener locale. In questo caso, il traffico è (round robin) distribuito in modo casuale tra i listener locale attivo. 
+- È possibile ridimensionare le connessioni ibride installando un'altra istanza di Hybrid Connection Manager in un altro server. Configurare il listener locale per utilizzare lo stesso indirizzo come il primo listener locale. In questo caso, il traffico è (round robin) distribuito in modo casuale tra i listener locale attivo.
 
 
 ## <a name="ManageHybridConnection"></a>Gestire le connessioni ibride
 Per gestire le connessioni ibride è possibile:
 
-- Usare il portale di Azure e andare al servizio BizTalk. 
+- Usare il portale di Azure e andare al servizio BizTalk.
 - Usare le [API REST](http://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 #### Copiare/rigenerare le stringhe di connessione ibrida
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk. 
+2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk.
 3. Selezionare la scheda **Connessioni ibride**: ![scheda per le connessioni ibride][HybridConnectionTab]
 4. Selezionare la connessione ibrida. Nella barra delle applicazioni selezionare **Gestisci connessione**: ![Gestione delle opzioni][HCManageConnection]
 
 	**Gestisci connessione** elenca le stringhe di connessione dell'applicazione e locali. È possibile copiare le stringhe di connessione o rigenerare la chiave di accesso usata nella stringa di connessione.
 
 	**Se si seleziona Rigenera**, la chiave di accesso condivisa usata nella stringa di connessione viene modificata. Eseguire le operazioni seguenti:
-	- Nel portale classico di Azure selezionare **Chiavi di sincronizzazione** nell'applicazione Azure.
+	- Nel portale di Azure classico, selezionare **Chiavi di sincronizzazione** nell'applicazione Azure.
 	- Eseguire di nuovo **Installazione locale**. Quando si esegue di nuovo l'installazione locale, la risorsa locale viene configurata automaticamente per usare la stringa di connessione primaria aggiornata.
 
 
@@ -128,7 +128,7 @@ Per gestire le connessioni ibride è possibile:
 
 1. Scaricare i [modelli amministrativi di Gestione connessioni ibride](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Estrarre i file.
-3. Nel computer che modifica i Criteri di gruppo eseguire le operazioni seguenti:  
+3. Nel computer che modifica i Criteri di gruppo eseguire le operazioni seguenti:
 
 	- Copiare i file .ADMX nella cartella *%WINROOT%\\PolicyDefinitions*.
 	- Copiare i file .ADML nella cartella *%WINROOT%\\PolicyDefinitions\\it-IT*.
@@ -152,4 +152,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

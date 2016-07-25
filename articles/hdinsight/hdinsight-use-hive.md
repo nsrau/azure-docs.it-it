@@ -34,6 +34,8 @@ Hive è in grado di gestire perfettamente dati strutturati e semistrutturati, ad
 
 Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere gli argomenti seguenti:
 
+* [Usare una funzione Java definita dall'utente con Hive](hdinsight-hadoop-hive-java-udf.md)
+
 * [Usare Python con Hive e Pig in HDInsight](hdinsight-python.md)
 
 * [Usare C# con Hive e Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
@@ -46,7 +48,7 @@ Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, c
 Vi sono alcune informazioni che è necessario conoscere sulle tabelle Hive interna ed esterna:
 
 - Il comando **CREATE TABLE** crea una tabella interna. Il file di dati deve trovarsi nel contenitore predefinito.
-- Il comando **CREATE TABLE** sposta il file di dati nella cartella /hive/warehouse<TableName>/.
+- Il comando **CREATE TABLE** sposta il file di dati nella cartella /hive/warehouse/<TableName>.
 - Il comando **CREATE EXTERNAL TABLE** crea una tabella esterna. Il file di dati può trovarsi all'esterno del contenitore predefinito.
 - Il comando **CREATE EXTERNAL TABLE** non sposta il file di dati.
 - Il comando **CREATE EXTERNAL TABLE** non consente la creazione di cartelle in LOCATION. È per questo motivo che nell'esercitazione si esegue una copia del file sample.log.
@@ -70,7 +72,7 @@ I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDIns
 
 Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
 
-> [AZURE.NOTE] La sintassi **wasb:///**, viene usata per accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si vuole accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La sintassi precedente, **wasb:///**, consente di accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si vuole accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
 
@@ -212,4 +214,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 
@@ -266,7 +266,7 @@ Un'applicazione ASP.NET in esecuzione in un'app Web di Azure può generare i tip
 
 * **Log di traccia dell'applicazione**<br/> L'applicazione crea questi log chiamando i metodi della classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Log del server Web**<br/> Il server Web crea una voce di log per ogni richiesta HTTP inviata al sito.
-* **Log dei messaggi di errore dettagliati**<br/> Il server Web crea una pagina HTML con alcune informazioni aggiuntive relative alle richieste HTTP non riuscite, ovvero quelle che generano un codice di stato pari ad almeno 400. 
+* **Log dei messaggi di errore dettagliati**<br/> Il server Web crea una pagina HTML con alcune informazioni aggiuntive relative alle richieste HTTP non riuscite, ovvero quelle che generano un codice di stato pari ad almeno 400.
 * **Log di traccia delle richieste non riuscite**<br/> Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
   
 Poiché la registrazione influisce sulle prestazioni dell'app Web, Azure offre la possibilità di abilitare o disabilitare ogni tipo di log secondo necessità. Per i log dell'applicazione, è possibile specificare che vengano creati solo quelli superiori a un determinato livello di gravità. Quando si crea una nuova app Web, per impostazione predefinita la registrazione è disabilitata.
@@ -279,7 +279,7 @@ In questa sezione verranno eseguite le attività seguenti:
 
 * Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NETGetStarted][GetStarted].
 * Visualizzazione dei log quando si esegue il progetto in locale.
-* Visualizzazione dei log mentre vengono generati dall'applicazione in esecuzione in Azure. 
+* Visualizzazione dei log mentre vengono generati dall'applicazione in esecuzione in Azure.
 
 Per informazioni su come creare i log applicazioni nei processi Web, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK - Come scrivere i log](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). Le seguenti istruzioni per visualizzare i log e controllare come vengono archiviati in Azure si applicano anche ai log delle applicazioni creati dai processi Web.
 
@@ -349,7 +349,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 3. Premere CTRL+F5 per eseguire l'applicazione.
 
-4. Nella barra degli indirizzi della finestra del browser aggiungere *trace.axd* all'URL, quindi premere INVIO. L'URL sarà simile a http://localhost:53370/trace.axd).
+4. Nella barra degli indirizzi della finestra del browser aggiungere *trace.axd* all'URL, quindi premere INVIO. L'URL sarà simile a http://localhost:53370/trace.axd.
 
 5. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
@@ -521,7 +521,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 ![Create Storage Account](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione. 
+3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione.
 
 	Il nome deve essere univoco. Nessun altro account di archiviazione di Azure può avere lo stesso nome. Se il nome immesso è già in uso, sarà possibile cambiarlo.
 
@@ -616,7 +616,7 @@ Nelle app Web di Azure viene utilizzata la stessa funzionalità di traccia delle
 
 	![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****Quando si effettua l'accesso, è necessario utilizzare il nome utente completo con il prefisso del nome dell'app Web. Ad esempio, se si immette "idpersonale" come nome utente e il sito è "esempiopersonale", è accedere come "esempiopersonale\\idpersonale".
+	**Quando si effettua l'accesso, è necessario utilizzare il nome utente completo con il prefisso del nome dell'app Web. Ad esempio, se si immette "idpersonale" come nome utente e il sito è "esempiopersonale", è accedere come "esempiopersonale\\idpersonale".
 
 5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** o **Nome host FTPS** del pannello **App Web** per l'app Web.
 
@@ -648,7 +648,7 @@ Nelle app Web di Azure viene utilizzata la stessa funzionalità di traccia delle
 In questo articolo è stato illustrato come visualizzare in Visual Studio i log creati da un'app Web di Azure. Le sezioni seguenti forniscono collegamenti ad altre risorse su argomenti correlati:
 
 * Risoluzione dei problemi relativi alle app Web di Azure
-* Debug in Visual Studio 
+* Debug in Visual Studio
 * Debug remoto in Azure
 * Traccia nelle applicazioni ASP.NET
 * Analisi dei log del server Web
@@ -728,4 +728,4 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -20,7 +20,7 @@
 
 ## Introduzione
 
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Altre esercitazioni, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Altre esercitazioni, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
 
 Questa esercitazione è basata sul codice mostrato nell'esercitazione [Introduzione all'hub IoT] e illustra due modelli scalabili che è possibile usare per elaborare i messaggi da dispositivo a cloud:
 
@@ -108,14 +108,14 @@ L'applicazione usa la funzionalità di deduplicazione del bus di servizio per ev
 
 Per fare in modo che nessun messaggio venga inviato di nuovo al di fuori della finestra di deduplicazione, il codice sincronizza il meccanismo di creazione di checkpoint di **EventProcessorHost** con la finestra di deduplicazione della coda del bus di servizio. A questo scopo, viene imposto un checkpoint almeno ogni volta che trascorre la finestra temporale di deduplicazione (in questa esercitazione, un'ora).
 
-> [AZURE.NOTE] Questa esercitazione usa una sola coda del bus di servizio partizionata per elaborare tutti i messaggi interattivi recuperati dall'hub IoT. Per altre informazioni su come usare le code del bus di servizio per soddisfare le esigenze di scalabilità della soluzione, vedere la [Documentazione su Bus di servizio].
+> [AZURE.NOTE] Questa esercitazione usa una sola coda del bus di servizio partizionata per elaborare tutti i messaggi interattivi recuperati dall'hub IoT. Per ulteriori informazioni su come usare le code del bus di servizio per soddisfare le esigenze di scalabilità della soluzione, vedere la documentazione sul [Bus di servizio di Azura].
 
 ### Effettuare il provisioning di un account di archiviazione di Azure e di una coda del bus di servizio
 Per usare la classe [EventProcessorHost], è necessario un account di archiviazione di Azure per abilitare la registrazione delle informazioni sui checkpoint da parte di **EventProcessorHost**. È possibile usare un account di archiviazione esistente o seguire le istruzioni contenute in [Informazioni sugli account di archiviazione di Azure] per crearne uno nuovo. Prendere nota della stringa di connessione dell'account di archiviazione.
 
 > [AZURE.NOTE] Quando si copia e incolla la stringa di connessione all'account di archiviazione, verificare che non siano presenti spazi al suo interno.
 
-Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di codice con una finestra di deduplicazione di un'ora, come illustrato in [Introduzione alle code del bus di servizio][Service Bus queue]. In alternativa, è possibile usare il [portale di Azure classico], attenendosi alla procedura seguente:
+Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di codice con una finestra di deduplicazione di un'ora, come illustrato in [Introduzione alle code del bus di servizio][Service Bus queue]. In alternativa, è possibile usare il [portale di Azure classico][lnk-classic-portal], attenendosi alla procedura seguente:
 
 1. Fare clic su **Nuovo** nell'angolo inferiore sinistro. Quindi fare clic su **Servizi app** > **Bus di servizio** > **Coda** > **Creazione personalizzata**. Immettere il nome **d2ctutorial**, selezionare un'area e usare uno spazio dei nomi esistente o crearne uno nuovo. Nella pagina successiva selezionare **Abilita rilevamento duplicati** e impostare **Finestra temporale cronologia di rilevamento duplicata** su un'ora. Fare clic sul segno di spunta nell'angolo in basso a destra per salvare la configurazione della coda.
 
@@ -396,24 +396,15 @@ A questo punto è possibile eseguire le applicazioni.
 
 Questa esercitazione ha illustrato come elaborare in modo affidabile i messaggi di punti dati e interattivi da dispositivo a cloud usando la classe [EventProcessorHost].
 
-L'[Esercitazione: caricare file dai dispositivi al cloud con l'hub IoT] si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
+L'esercitazione [Come inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d] descrive le modalità di invio dei messaggi ai dispositivi dal proprio back-end.
 
-Altre informazioni sull'hub IoT:
+Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite][lnk-suite].
 
-* [Panoramica dell'hub IoT]
-* [Guida per sviluppatori di hub IoT]
-* [Linee guida dell'hub IoT]
-* [Piattaforme e linguaggi di dispositivi supportati][Supported devices]
-* [Centro per sviluppatori Azure IoT]
+Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-[12]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp3.png
-
-[20]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage1.png
-[21]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage2.png
-[22]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage3.png
 
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
@@ -426,23 +417,16 @@ Altre informazioni sull'hub IoT:
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [coda del bus di servizio]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-
-
 
 [Guida per gli sviluppatori dell'hub IoT di Azure - Da dispositivo a cloud]: iot-hub-devguide.md#d2c
 
 [Archiviazione di Azure]: https://azure.microsoft.com/documentation/services/storage/
+[Bus di servizio di Azura]: https://azure.microsoft.com/documentation/services/service-bus/
 [bus di servizio di Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Esercitazione: caricare file dai dispositivi al cloud con l'hub IoT]: iot-hub-csharp-csharp-file-upload.md
-[Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
-[Linee guida dell'hub IoT]: iot-hub-guidance.md
-[Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
+[Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -451,18 +435,17 @@ Altre informazioni sull'hub IoT:
 
 <!-- Links -->
 [Informazioni sugli account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Introduzione all'Hub eventi]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Hub eventi]: ../event-hubs/event-hubs-overview.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guida alla programmazione di Hub eventi]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Portal]: https://manage.windowsazure.com/
 [Applicazione .NET multilivello che usa code del bus di servizio]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[Documentazione su Bus di servizio]: https://azure.microsoft.com/documentation/services/service-bus/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-classic-portal]: https://manage.windowsazure.com
+[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0713_2016-->

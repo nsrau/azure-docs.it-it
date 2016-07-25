@@ -27,20 +27,20 @@
 
 1. **Creare un esperimento di training**. Questa operazione si esegue con Azure ML Studio un ambiente di sviluppo visivo di collaborazione usato per eseguire il training e il test di un modello di analisi predittiva con i dati di training forniti.
 2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
-3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. Gli utenti possono inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.  
+3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. Gli utenti possono inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 Data factory di Azure consente di creare facilmente pipeline che sfruttano un servizio Web di [Azure Machine Learning][azure-machine-learning] pubblicato per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Data factory di Azure è possibile richiamare un servizio Web di Azure ML per eseguire stime dei dati in batch. Per altre informazioni, vedere la sezione [Richiamo di un servizio Web di Azure ML tramite Attività di esecuzione batch](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity).
 
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. È possibile ripetere il training di un modello di Azure ML da una pipeline di Data factory seguendo questa procedura:
 
 1. Pubblicare l'esperimento di training, non l'esperimento predittivo, come servizio Web. Eseguire questa operazione in Azure ML Studio come si è fatto per esporre l'esperimento predittivo come servizio Web nello scenario precedente.
-2. Usare Attività di esecuzione batch di Azure ML per richiamare il servizio Web per l'esperimento di training. In sostanza, è possibile usare Attività di esecuzione batch di Azure ML per richiamare sia il servizio Web di training che il servizio Web di assegnazione dei punteggi. 
+2. Usare Attività di esecuzione batch di Azure ML per richiamare il servizio Web per l'esperimento di training. In sostanza, è possibile usare Attività di esecuzione batch di Azure ML per richiamare sia il servizio Web di training che il servizio Web di assegnazione dei punteggi.
   
 Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi, cioè l'esperimento predittivo esposto come servizio Web, con il nuovo modello sottoposto a training. A questo scopo, seguire questa procedura:
 
 1. Aggiungere un endpoint non predefinito al servizio Web di assegnazione dei punteggi. L'endpoint predefinito del servizio Web non può esser aggiornato, quindi sarà necessario creare un nuovo endpoint non predefinito usando il portale di Azure. Per informazioni concettuali e passaggi procedurali, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).
 2. Aggiornare i servizi collegati di Azure ML per l'assegnazione dei punteggi esistenti perché usino l'endpoint non predefinito. È consigliabile iniziare con il nuovo endpoint per usare il servizio Web aggiornato.
-3. Usare **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il servizio Web con il nuovo modello sottoposto a training.  
+3. Usare **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il servizio Web con il nuovo modello sottoposto a training.
 
 Per altre informazioni, vedere la sezione [Aggiornamento dei modelli di Azure ML con Attività della risorsa di aggiornamento](#updating-azure-ml-models-using-the-update-resource-activity).
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere la sezione [Aggiornamento dei modelli di Azure ML
 
 1. Creare un servizio collegato di Azure Machine Learning. Sarà necessario quanto indicato di seguito:
 	1. **URI della richiesta** per l’API di esecuzione batch. È possibile trovare l'URI della richiesta facendo clic sul collegamento **ESECUZIONE BATCH** nella pagina servizi Web (come illustrato di seguito).
-	1. **API key** per il servizio Web di Azure Machine Learning pubblicato. È possibile trovare la chiave API facendo clic sul servizio Web pubblicato. 
+	1. **API key** per il servizio Web di Azure Machine Learning pubblicato. È possibile trovare la chiave API facendo clic sul servizio Web pubblicato.
  2. Usare l'attività **AzureMLBatchExecution**.
 
 	![Dashboard di Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -216,7 +216,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 		    }
 		  }
 		}
-5. Creare infine una pipeline contenente un'attività **AzureMLBatchExecution**. La pipeline otterrà il percorso del file di input dai set di dati di input, chiamerà l'API per l'esecuzione batch di Azure Machine Learning e copierà il file di output dell'esecuzione batch nel BLOB specificato nel set di dati di output. 
+5. Creare infine una pipeline contenente un'attività **AzureMLBatchExecution**. La pipeline otterrà il percorso del file di input dai set di dati di input, chiamerà l'API per l'esecuzione batch di Azure Machine Learning e copierà il file di output dell'esecuzione batch nel BLOB specificato nel set di dati di output.
 
 	> [AZURE.NOTE] L'attività AzureMLBatchExecution può avere zero o più input e uno o più output.
 
@@ -351,7 +351,7 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
  
 Nell'esempio JSON precedente:
 
-- Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.  
+- Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.
 - Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 ore**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### Altri scenari
@@ -438,16 +438,16 @@ I moduli Reader e Writer del servizio Web di Azure ML possono essere configurati
 
 Le **informazioni chiave** sono:
 
--   Se l'endpoint dell'esperimento usa la proprietà webServiceInput, questa è rappresentata da un set di dati del BLOB ed è inclusa negli input dell'attività, nonché nella proprietà webServiceInput. In caso contrario, la proprietà webServiceInput viene omessa. 
+-   Se l'endpoint dell'esperimento usa la proprietà webServiceInput, questa è rappresentata da un set di dati del BLOB ed è inclusa negli input dell'attività, nonché nella proprietà webServiceInput. In caso contrario, la proprietà webServiceInput viene omessa.
 -   Se l'endpoint dell'esperimento usa le proprietà webServiceOutputs, queste sono rappresentate da un set di dati del BLOB e sono incluse negli output dell'attività nonché nella proprietà webServicepOutputs (mappata in base al nome di ogni output presente nell'esperimento). In caso contrario, la proprietà webServiceOutputs viene omessa.
--   Se l'endpoint dell'esperimento espone le proprietà globalParameters, vengono assegnate alla proprietà globalParameters dell'attività come coppie chiave-valore. In caso contrario, la proprietà globalParameters viene omessa. Le chiavi distinguono tra maiuscole e minuscole. Le [funzioni di Data factory di Azure](data-factory-scheduling-and-execution.md#data-factory-functions-reference) possono essere usate nei valori. 
-- Nelle proprietà di input e output delle dell'attività possono essere inclusi set di dati aggiuntivi, senza che vi si faccia riferimento nella sezione typeProperties dell'attività. Questi set di dati regoleranno l'esecuzione tramite le dipendenze delle sezioni, ma in caso contrario vengono ignorati dall'attività AzureMLBatchExecution. 
+-   Se l'endpoint dell'esperimento espone le proprietà globalParameters, vengono assegnate alla proprietà globalParameters dell'attività come coppie chiave-valore. In caso contrario, la proprietà globalParameters viene omessa. Le chiavi distinguono tra maiuscole e minuscole. Le [funzioni di Data factory di Azure](data-factory-scheduling-and-execution.md#data-factory-functions-reference) possono essere usate nei valori.
+- Nelle proprietà di input e output delle dell'attività possono essere inclusi set di dati aggiuntivi, senza che vi si faccia riferimento nella sezione typeProperties dell'attività. Questi set di dati regoleranno l'esecuzione tramite le dipendenze delle sezioni, ma in caso contrario vengono ignorati dall'attività AzureMLBatchExecution.
 
 
 ## Aggiornamento dei modelli di Azure ML con Attività della risorsa di aggiornamento
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello ML di cui è stato ripetuto il training. Questa è la procedura tipica per abilitare la ripetizione del training e l'aggiornamento dei modelli di Azure ML tramite i servizi Web:
 
-1. Creare un esperimento in [Azure ML Studio](https://studio.azureml.net). 
+1. Creare un esperimento in [Azure ML Studio](https://studio.azureml.net).
 2. Quando si è soddisfatti del modello, usare Azure ML Studio per pubblicare i servizi Web sia per l'**esperimento di training** che per l'**esperimento predittivo** o di assegnazione dei punteggi.
 
 La tabella seguente descrive i servizi Web usati in questo esempio. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](../machine-learning/machine-learning-retrain-models-programmatically.md).
@@ -479,8 +479,8 @@ Ecco la vista diagramma della pipeline di esempio. Come si può vedere, Attivit�
 #### Servizio collegato di archiviazione BLOB di Azure:
 Archiviazione di Azure include i dati seguenti:
 
-- Dati di training. Sono i dati di input per il servizio Web di training di Azure ML.  
-- File iLearner. È l'output del servizio Web di training di Azure ML. È anche l'input per Attività della risorsa di aggiornamento.  
+- Dati di training. Sono i dati di input per il servizio Web di training di Azure ML.
+- File iLearner. È l'output del servizio Web di training di Azure ML. È anche l'input per Attività della risorsa di aggiornamento.
    
 Ecco la definizione JSON di esempio del servizio collegato:
 
@@ -563,9 +563,9 @@ Il frammento di codice JSON seguente definisce un servizio collegato di Azure Ma
 In **Azure ML Studio** eseguire queste operazioni per ottenere i valori per **mlEndpoint** e **apiKey**:
 
 1. Fare clic su **SERVIZI WEB** nel menu a sinistra.
-2. Fare clic su **servizio Web di training** nell'elenco dei servizi Web. 
+2. Fare clic su **servizio Web di training** nell'elenco dei servizi Web.
 3. Fare clic su copy accanto alla casella di testo **API key** per copiare la chiave API negli Appunti. Incollare la chiave nell'editor JSON di Data factory.
-4. In **Azure ML Studio** fare clic sul collegamento **ESECUZIONE BATCH**, copiare il valore di **URI della richiesta** dalla sezione **Richiesta** e incollarlo nell'editor JSON di Data factory.   
+4. In **Azure ML Studio** fare clic sul collegamento **ESECUZIONE BATCH**, copiare il valore di **URI della richiesta** dalla sezione **Richiesta** e incollarlo nell'editor JSON di Data factory.
 
 
 #### Servizio collegato per l'endpoint di assegnazione dei punteggi aggiornabile di Azure ML:
@@ -772,4 +772,4 @@ Aggiungere una sezione **typeProperties** alla sezione **AzureMLBatchScoringActi
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Panoramica dell'architettura di rete degli ambienti del servizio app
@@ -23,9 +23,11 @@ Gli ambienti del servizio app vengono sempre creati in una subnet di una [rete v
 
 ## Flusso di rete generale ##
  
-Un ambiente del servizio app ha sempre un indirizzo IP virtuale (VIP) pubblico. Tutto il traffico in ingresso arriva su tale indirizzo VIP pubblico, incluso il traffico HTTP e HTTPS per le app, oltre al rimanente traffico per l'FTP, la funzionalità di debug remoto e le operazioni di gestione di Azure. Per un elenco completo delle porte specifiche (sia obbligatorie che facoltative) disponibili nell'indirizzo VIP pubblico, vedere l'articolo sul [controllo del traffico in uscita][controllinginboundtraffic] verso un ambiente del servizio app.
+Quando un ambiente del servizio app usa un indirizzo IP virtuale pubblico (VIP) per le app, tutto il traffico in ingresso viene ricevuto su questo indirizzo VIP pubblico. Sono inclusi il traffico HTTP e HTTPS per le app, altro traffico per l'FTP, la funzionalità di debug remoto e le operazioni di gestione di Azure. Per un elenco completo delle porte specifiche (sia obbligatorie che facoltative) disponibili nell'indirizzo VIP pubblico, vedere l'articolo sul [controllo del traffico in uscita][controllinginboundtraffic] verso un ambiente del servizio app.
 
-Il diagramma seguente mostra una panoramica dei vari flussi di rete in ingresso e in uscita:
+Gli ambienti del servizio app supportano anche le applicazioni in esecuzione associate solo a un indirizzo interno di rete virtuale, noto anche come indirizzo ILB (bilanciamento del carico interno). In un ambiente del servizio app abilitato al bilanciamento del carico interno, il traffico HTTP e HTTPS per le app e le chiamate di debug remoto, vengono ricevuti all'indirizzo ILB. Per le configurazioni dell'ambiente di servizio app con bilanciamento del carico interno più comuni, anche il traffico FTP/FTPS verrà ricevuto all'indirizzo ILB. Le operazioni di gestione di Azure useranno tuttavia le porte 454/455 all'indirizzo VIP pubblico di un ambiente del servizio app abilitato per il bilanciamento del carico interno.
+
+Il diagramma seguente mostra una panoramica dei vari flussi di rete in ingresso e in uscita per un ambiente del servizio app in cui le app sono associate a un indirizzo IP virtuale pubblico:
 
 ![Flussi di rete generali][GeneralNetworkFlows]
 
@@ -46,7 +48,7 @@ Se l'endpoint da chiamare è all'**esterno** della topologia di rete virtuale, l
  
 ![Indirizzo IP in uscita][OutboundIPAddress]
 
-Questo indirizzo può essere determinato anche creando un'app nell'ambiente del servizio app e quindi eseguendo *nslookup* nell'indirizzo dell'app. L'indirizzo IP risultante è sia l'indirizzo VIP pubblico sia l'indirizzo NAT in uscita dell'ambiente del servizio app.
+Questo indirizzo può essere determinato per gli ambienti del servizio app che hanno un indirizzo VIP pubblico anche creando un'app nell'ambiente del servizio app ed eseguendo *nslookup* nell'indirizzo dell'app. L'indirizzo IP risultante è sia l'indirizzo VIP pubblico sia l'indirizzo NAT in uscita dell'ambiente del servizio app.
 
 Se l'endpoint da chiamare è all'**interno** della topologia di rete virtuale, l'indirizzo in uscita dell'app chiamante sarà l'indirizzo IP interno della singola risorsa di calcolo che esegue l'app. Tuttavia non esiste un mapping persistente degli indirizzi IP interni di rete virtuale alle app. Le app possono spostarsi in risorse di calcolo diverse e il pool di risorse di calcolo disponibili in un ambiente del servizio app può essere modificato in seguito a operazioni di ridimensionamento.
 
@@ -73,6 +75,8 @@ Nell'esempio precedente l'indirizzo IP in uscita dell'ambiente del servizio app 
 Anche se le chiamate tra ambienti del servizio app diversi sono considerate come chiamate "Internet", quando entrambi gli ambienti del servizio app si trovano nella stessa area di Azure, il traffico di rete rimarrà nella rete dell'area di Azure e non transiterà fisicamente attraverso la rete Internet pubblica. Di conseguenza è possibile usare un gruppo di sicurezza di rete nella subnet del secondo ambiente del servizio app per consentire solo chiamate in ingresso dal primo ambiente del servizio app con indirizzo IP in uscita 192.23.1.2, garantendo comunicazioni sicure tra gli ambienti del servizio app.
 
 ## Informazioni e collegamenti aggiuntivi ##
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+
 Informazioni dettagliate sulle porte in ingresso usate dagli ambienti del servizio app e sull'uso di gruppi di sicurezza di rete per controllare il traffico in ingresso sono disponibili [qui][controllinginboundtraffic].
 
 Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'accesso Internet in uscita agli ambienti del servizio app sono disponibili in questo [articolo][ExpressRoute].
@@ -89,4 +93,4 @@ Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

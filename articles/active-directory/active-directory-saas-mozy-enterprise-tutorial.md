@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/26/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Mozy Enterprise eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-mozy-enterprise-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Mozy Enterprise** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Mozy Enterprise** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mozy-enterprise-tutorial/IC771709.png "Configura accesso Single Sign-On")
 
@@ -96,10 +96,10 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     1.  Selezionare **Servizio directory** come **Provider**.
     2.  Selezionare **Use LDAP Push**.
-    3.  Fare clic sulla scheda **Autenticazione SAML**.
-    4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure copiare il valore di **URL richiesta di autenticazione** e incollarlo nella casella di testo **Authentication URL**.
-    5.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **SAML Endpoint**.
-    6.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    3.  Fare clic sulla scheda **SAML Authentication**.
+    4.  Nella pagina della finestra di dialogo **Configure single sign-on at Mozy Enterprise** (Configura accesso Single Sign-On in Mozy Enterprise) del portale di Azure classico copiare il valore di **URL richiesta di autenticazione** e incollarlo nella casella di testo **Authentication URL** (URL di autenticazione).
+    5.  Nella pagina della finestra di dialogo **Configure single sign-on at Mozy Enterprise** (Configura accesso Single Sign-On in Mozy Enterprise) del portale di Azure classico copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **SAML Endpoint** (Endpoint SAML).
+    6.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -107,7 +107,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     8.  Selezionare **Abilita SSO per consentire agli amministratori di accedere con le proprie credenziali di rete**.
     9.  Fare clic su **Salva modifiche**.
 
-8.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Completa**.
+8.  Nella pagina della finestra di dialogo **Configure single sign-on at Mozy Enterprise** (Configura accesso Single Sign-On in Mozy Enterprise) del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Completa**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -145,9 +145,9 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Mozy Enterprise, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione di **Mozy Enterprise** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione di **Mozy Enterprise** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-mozy-enterprise-tutorial/IC777319.png "Assegna utenti")
 
@@ -157,4 +157,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0713_2016-->

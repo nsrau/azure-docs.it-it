@@ -149,17 +149,18 @@ A questo punto è possibile eseguire le applicazioni.
 
 ## Passaggi successivi
 
-In questa esercitazione si è appreso come sfruttare le funzionalità di caricamento file dell'hub IoT per semplificare i caricamenti di file dai dispositivi. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT con l'esercitazione seguente:
+In questa esercitazione si è appreso come sfruttare le funzionalità di caricamento file dell'hub IoT per semplificare i caricamenti di file dai dispositivi. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT consultando i seguenti articoli:
 
-- [Elaborare messaggi da dispositivo a cloud] illustra come elaborare in modo affidabile telemetria e messaggi interattivi provenienti dai dispositivi.
+- [Creare un hub IoT a livello di codice][lnk-create-hub]
+- [Introduzione a C SDK][lnk-c-sdk]
+- [SDK hub IoT][lnk-sdks]
 
-Altre informazioni sull'hub IoT:
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 
-* [Panoramica dell'hub IoT]
-* [Guida per sviluppatori di hub IoT]
-* [Linee guida dell'hub IoT]
-* [Piattaforme e linguaggi di dispositivi supportati][Supported devices]
-* [Centro per sviluppatori Azure IoT]
+- [Progettare una soluzione][lnk-design]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- Images. -->
 
@@ -169,34 +170,31 @@ Altre informazioni sull'hub IoT:
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-
 [portale di Azure]: https://portal.azure.com/
 
 [Data factory di Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Inviare messaggi da cloud a dispositivo con l'hub IoT e Java]: iot-hub-csharp-csharp-c2d.md
 [Elaborare i messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Elaborare messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
-[Linee guida dell'hub IoT]: iot-hub-guidance.md
-[Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Gestire hub IoT tramite il portale di Azure]: iot-hub-manage-through-portal.md#file-upload
 [Microsoft Azure IoT Service SDK]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

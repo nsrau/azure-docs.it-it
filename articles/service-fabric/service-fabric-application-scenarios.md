@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Scenari di applicazione di Service Fabric
@@ -24,7 +24,7 @@ La piattaforma Service Fabric in Azure è ideale per le categorie di applicazion
 
 - **Servizi a disponibilità elevata**: i servizi di Service Fabric garantiscono un failover veloce tramite la creazione di più repliche secondarie del servizio. In caso di inattività di un nodo, di un processo o di un singolo servizio a causa di un errore hardware o di un'altra anomalia, una delle repliche secondarie viene innalzata di livello a replica primaria con una perdita trascurabile di servizio.
 
-- **Servizi scalabili**: è possibile partizionare singoli servizi implementando la scalabilità orizzontale dello stato nel cluster. Inoltre, i singoli servizi possono essere creati e rimossi in tempo reale. I servizi possono essere aumentati facilmente e rapidamente da poche istanze su un numero ridotto di nodi a migliaia di istanze su molti nodi, e quindi ridotti nuovamente, a seconda delle esigenze delle risorse. È possibile usare Service Fabric per compilare questi servizi e gestire il relativo ciclo di vita completo.
+- **Servizi scalabili**: è possibile partizionare singoli servizi implementando la scalabilità orizzontale dello stato nel cluster. Inoltre, i singoli servizi possono essere creati e rimossi in tempo reale. I servizi possono essere aumentati facilmente e rapidamente da poche istanze su un numero ridotto di nodi a migliaia di istanze su molti nodi e quindi ridotti nuovamente, a seconda delle risorse necessarie. È possibile usare Service Fabric per compilare questi servizi e gestire il relativo ciclo di vita completo.
 
 - **Calcolo su dati non statici**: Service Fabric permette di compilare dati, I/O e applicazioni con stato e a elevato utilizzo di calcolo. Service Fabric consente la collocazione dell'elaborazione (calcolo) e dei dati nelle applicazioni. In genere, quando l'applicazione richiede l'accesso ai dati è presente una latenza di rete associata alla cache dei dati esterni o al livello della risorsa di archiviazione. Con i servizi con stato di Service Fabric la latenza viene eliminata e questo consente operazioni di lettura e scrittura più efficienti. Si supponga, ad esempio, di avere un'applicazione che esegue la selezione delle raccomandazioni quasi in tempo reale per i clienti, con un requisito di tempo di round trip inferiore a 100 millisecondi. Le caratteristiche di latenza e prestazioni di Service Fabric, in cui il calcolo della selezione delle raccomandazioni è collocato con i dati e le regole, offrono all'utente un'esperienza reattiva rispetto al modello di implementazione standard con cui si devono recuperare i dati necessari dall'archivio remoto.
 
@@ -61,4 +61,4 @@ I microservizi con stato semplificano la progettazione delle applicazioni perch�
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

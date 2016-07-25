@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: integrazione di Azure Active Directory con Kudos
@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Kudos eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-kudos-tutorial/IC700993.png "Active Directory")
 
@@ -69,9 +69,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Kudos** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Kudos** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configura accesso Single Sign-On")
 
@@ -79,7 +79,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso a Kudos** utilizzando il modello seguente "*https://company.kudosnow.com*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **Kudos Sign On URL** (URL di accesso Kudos) della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.kudosnow.com*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configura URL app")
 
@@ -99,18 +99,18 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
-    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL di accesso**.
-	2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    1.  Nella pagina della finestra di dialogo **Configure single sign-on at Kudos** (Configura accesso Single Sign-On in Kudos) del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign on URL** (URL di accesso).
+    2.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
         >[AZURE.TIP]
         Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**
-    4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Disconnessione dall’URL**.
-	5.  Nella casella di testo **URL di Kudos** digitare il nome della società.
+    4.  Nella pagina della finestra di dialogo **Configure single sign-on at Kudos** (Configura accesso Single Sign-On in Kudos) del portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Logout To URL** (URL di disconnessione).
+    5.  Nella casella di testo **URL di Kudos** digitare il nome della società.
     6.  Fare clic su **Save**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -146,7 +146,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Kudos, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Kudos** fare clic su **Assegna utenti**.
 
@@ -158,7 +158,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016--->
-
-
-
+<!---HONumber=AcomDC_0713_2016-->

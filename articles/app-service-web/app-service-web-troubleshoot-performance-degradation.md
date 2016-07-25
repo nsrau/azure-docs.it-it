@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Risoluzione dei problemi: Riduzione delle prestazioni in un'app Web"
-	description="Questo articolo fornisce informazioni utili per la risoluzione dei problemi nell'app Web ospitata nel servizio app di Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+<properties pageTitle="Rallentamento delle prestazioni dell'app Web nel Servizio app | Microsoft Azure" description="Questo articolo fornisce informazioni utili per la risoluzione dei problemi nell'app Web del servizio app di Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="prestazioni app Web, app rallentate, rallentamento dell'app"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,14 +6,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Risoluzione dei problemi: Riduzione delle prestazioni in un'app Web
+# Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
 
-Questo articolo fornisce informazioni utili per la risoluzione dei problemi nell'app Web ospitata nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e Stack Overflow dedicati ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito di supporto per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito di supporto per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
 ## Sintomo
 
@@ -64,7 +56,7 @@ Le metriche più comunemente monitorate per le app Web sono
 -	Working set della memoria
 -	Richieste
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitoraggio delle prestazioni dell'app Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Per altre informazioni, vedere:
 
@@ -182,8 +174,8 @@ Per altre informazioni, vedere il post di blog relativo alla [correzione automat
 
 Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/) sono disponibili le opzioni per arrestare o riavviare l'app.
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

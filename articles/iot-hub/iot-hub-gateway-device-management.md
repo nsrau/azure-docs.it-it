@@ -61,7 +61,14 @@ Per informazioni su come usare Gateway SDK, vedere le esercitazioni seguenti:
 - [IoT Gateway SDK - Introduzione in Linux][lnk-gateway-get-started]
 - [IoT Gateway SDK: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated]
 
-Per altre informazioni sulla gestione dei dispositivi con l'hub IoT, leggere la [panoramica sulla gestione dei dispositivi dell'hub IoT di Azure][lnk-device-management].
+Per ulteriori informazioni sulla gestione dei dispositivi con l'hub IoT, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-library-c].
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
@@ -74,4 +81,15 @@ Per altre informazioni sulla gestione dei dispositivi con l'hub IoT, leggere la 
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

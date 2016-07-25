@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ripristinare un'app nel Servizio app di Azure" 
+	pageTitle="Ripristinare un'app in Azure" 
 	description="Informazioni su come ripristinare l'app da un backup." 
 	services="app-service" 
 	documentationCenter="" 
@@ -13,21 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="07/06/2016" 
 	ms.author="cephalin"/>
 
-# Ripristinare un'app nel Servizio app di Azure
+# Ripristinare un'app in Azure
 
-In questo articolo viene illustrato come ripristinare un'app del servizio app in precedenza sottoposta a un backup tramite la funzionalità di backup del [servizio app](../app-service/app-service-value-prop-what-is.md). Per altre informazioni, vedere [Backup del servizio app](web-sites-backup.md).
+Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) in precedenza sottoposta a un backup (vedere [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md)). È possibile ripristinare su richiesta uno stato precedente dell'app con i relativi database collegati (database SQL o MySQL) oppure creare una nuova app basata su uno dei backup dell'applicazione originale. Creare una nuova app eseguita in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
-La funzionalità di ripristino del servizio app consente di ripristinare su richiesta uno stato precedente dell'app con i relativi database collegati (Database SQL o MySQL) oppure di creare una nuova app basata su uno dei backup dell'applicazione originale. Creare una nuova app eseguita in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
-
-La funzionalità di ripristino del servizio app, disponibile nel pannello **Backup** del [portale di Azure](https://portal.azure.com), è disponibile solo nei piani tariffari Standard e Premium. Per informazioni su come ridimensionare l'app utilizzando i piani Standard o Premium, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md). Si noti che il piano Premium consente di eseguire un maggior numero di backup giornalieri rispetto al piano Standard.
+Il ripristino da backup è disponibile per le app in esecuzione a livello **Standard** e **Premium**. Per informazioni sul passaggio dell'app a un piano superiore, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 
 <a name="PreviousBackup"></a>
-## Per ripristinare un'app da un backup eseguito in precedenza
+## Ripristinare un'app da un backup esistente
 
-1. Nel pannello **Impostazioni** dell'app nel portale di Azure, fare clic su **Backup** per visualizzare il pannello **Backup**. Quindi fare clic su **Ripristina ora** nella barra dei comandi. 
+1. Nel pannello **Impostazioni** dell'app nel portale di Azure, fare clic su **Backup** per visualizzare il pannello **Backup**. Quindi fare clic su **Ripristina ora** nella barra dei comandi.
 	
 	![Scegliere Ripristina][ChooseRestoreNow]
 
@@ -35,13 +33,13 @@ La funzionalità di ripristino del servizio app, disponibile nel pannello **Back
 
 	![](./media/web-sites-restore/021ChooseSource.png)
 	
-	L’opzione **Backup app** mostra tutti i backup creati direttamente dall'app stessa, perché questi sono gli unitici compatibili con le app. È possibile selezionare uno facilmente. L’opzione **Archiviazione** consente di selezionare il file ZIP del backup effettivo dall'account di archiviazione e dal contenitore configurato nel pannello **Backup**. Se sono presenti file di backup di eventuali altre app nel contenitore, è possibile selezionarli per il ripristino.
+	L'opzione **Backup dell'app** mostra tutti i backup esistenti dell'app corrente, che possono essere facilmente selezionati. L'opzione **Archiviazione** consente di selezionare qualsiasi file ZIP del backup da un account di archiviazione e un contenitore di Azure esistenti nella sottoscrizione. Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione**.
 
 4. Quindi, specificare la destinazione per il ripristino dell’app in **Destinazione di ripristino**.
 
 	![](./media/web-sites-restore/022ChooseDestination.png)
 	
-	>[AZURE.WARNING] Se si sceglie **Sovrascrivi**, tutti i dati relativi all'app esistente verranno cancellati. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
+	>[AZURE.WARNING] Se si sceglie **Sovrascrivi**, tutti i dati esistenti nell'app corrente verranno cancellati. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
 	
 	È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di utilizzare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione del database in quello definito nel backup dell’app.
 	
@@ -56,38 +54,35 @@ La funzionalità di ripristino del servizio app, disponibile nel pannello **Back
 	
 2. Selezionare l'account di archiviazione che contiene il backup che si desidera scaricare o eliminare.
 	
-	Verrà visualizzato il pannello **ARCHIVIAZIONE**.
+	Verrà visualizzato il pannello per l'account di archiviazione.
 
-3. Selezionare **Contenitori** nel pannello **ARCHIVIAZIONE** per visualizzare il pannello **Contenitori**.
-	
-	Verrà visualizzato un elenco dei contenitori. In questo elenco verranno inoltre mostrati l'URL e la data in cui il contenitore è stato modificato l'ultima volta.
+3. Nel pannello dell'account di archiviazione selezionare il contenitore desiderato
 	
 	![Contenitori di visualizzazione][ViewContainers]
 
-4. Nell'elenco, selezionare il contenitore e visualizzare il pannello in cui viene mostrato un elenco dei nomi di file, insieme alle dimensioni di ciascun file.
-	
-5. Selezionando un file, è possibile scegliere di **scaricarlo** oppure **eliminarlo**. Si noti che esistono due tipi di file principali, i file ZIP e gli XML.
+4. Selezionare il file di backup che si desidera scaricare o eliminare.
+
+	![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
+
+5. Fare clic su **Scarica** o **Elimina** a seconda dell'azione che si desidera eseguire.
 
 <a name="OperationLogs"></a>
-## Visualizzare i log di controllo
+## Monitorare un'operazione di ripristino
 	
-1. Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app, selezionare **Log di controllo** nel pannello **Sfoglia** principale. 
+1. Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app, passare al pannello ** Log di controllo** nel portale di Azure.
 	
 	Nel pannello **Log di controllo** vengono visualizzate tutte le operazioni, insieme ai dettagli relativi a livello, stato, risorsa e tempo.
 	
-2. Scorrere il pannello per individuare le operazioni correlate all'app.
-3. Per visualizzare altri dettagli su un'operazione, selezionare tale operazione nell'elenco.
-	
-Nel pannello dei dettagli verranno visualizzate le informazioni disponibli correlate all'operazione.
-	
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+2. Scorrere verso il basso per trovare l'operazione di ripristino desiderata e fare clic su di essa per selezionarla.
 
+Nel pannello dei dettagli verranno visualizzate le informazioni disponibili correlate all'operazione di ripristino.
+	
 ## Passaggi successivi
 
-È inoltre possibile eseguire il backup e il ripristino delle applicazioni del servizio app mediante l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio App](websites-csm-backup.md)).
+È anche possibile eseguire il backup e il ripristino delle applicazioni del servizio app mediante l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio App](websites-csm-backup.md)).
 
-## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
@@ -106,4 +101,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

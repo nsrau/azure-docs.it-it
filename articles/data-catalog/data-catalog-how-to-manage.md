@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 
@@ -60,4 +60,4 @@ Gli amministratori di Azure Data Catalog sono implicitamente comproprietari di t
 ## Riepilogo
 Il modello di crowdsourcing di Azure Data Catalog per l'individuazione di asset di dati e metadati consente a tutti gli utenti del catalogo di contribuire all'individuazione. L'edizione Standard di Azure Data Catalog offre funzionalità di gestione e proprietà per limitare la visibilità e l'uso di asset di dati specifici.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

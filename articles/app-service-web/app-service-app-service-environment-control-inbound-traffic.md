@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
 
 ## Panoramica ##
-Un ambiente del servizio app viene sempre creato in una subnet di una [rete virtuale][virtualnetwork] "v1" classica regionale. È possibile definire una nuova rete virtuale "v1" classica regionale e una nuova subnet al momento della creazione di un ambiente del servizio app. In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale "v1" classica regionale e in una subnet preesistenti. Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati. Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
-
-**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2" gestita da ARM.
+Un ambiente del servizio app può essere creato **in** una rete virtuale di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] del modello di distribuzione classica. È possibile definire una nuova rete virtuale e una nuova subnet al momento della creazione di un ambiente del servizio app. In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale e in una subnet preesistenti. Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati. Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
@@ -36,31 +34,20 @@ Prima di bloccare il traffico di rete in ingresso tramite un gruppo di sicurezza
 
 Di seguito è riportato un elenco delle porte usate da un ambiente del servizio app:
 
-- 454: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app. Non bloccare il traffico indirizzato a questa porta.
-- 455: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app. Non bloccare il traffico indirizzato a questa porta.
-- 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
-- 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
-- 21: canale di controllo per il servizio FTP. Questa porta può essere bloccata, se non si usa un servizio FTP.
-- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP.
-- 4016: porta usata per il debug remoto con Visual Studio 2012. Questa porta può essere bloccata, se non si usa questa funzionalità.
-- 4018: porta usata per il debug remoto con Visual Studio 2013. Questa porta può essere bloccata, se non si usa questa funzionalità.
-- 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
+- 454: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app. Non bloccare il traffico indirizzato a questa porta. Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+- 455: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app. Non bloccare il traffico indirizzato a questa porta. Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+- 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+- 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+- 21: canale di controllo per il servizio FTP. Questa porta può essere bloccata, se non si usa un servizio FTP. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
+- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta può essere associata all'indirizzo ILB dell'ambiente.
+- 4016: porta usata per il debug remoto con Visual Studio 2012. Questa porta può essere bloccata, se non si usa questa funzionalità. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+- 4018: porta usata per il debug remoto con Visual Studio 2013. Questa porta può essere bloccata, se non si usa questa funzionalità. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+- 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità. In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 
 ## Requisiti per DNS e connettività in uscita ##
-Per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+Per un corretto funzionamento dell'ambiente del servizio app, è necessario l'accesso in uscita ai vari endpoint. Un elenco completo degli endpoint esterni usati da un ambiente del servizio app è disponibile nella sezione "Requisiti della connettività di rete" dell'articolo [Configurazione di rete per ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
-Gli ambienti del servizio app richiedono anche un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L'attivazione di un riavvio di ambiente continuo con l'icona "Riavvia" posizionata nella parte superiore del pannello di gestione dell'ambiente di servizio app nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
-
-L'elenco seguente illustra i requisiti relativi al DNS e alla connettività per un ambiente del servizio app:
-
--  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
--  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*.
--  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*.
--  Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. È necessario per supportare la funzionalità SSL.
--  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
--  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app.
--  Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale. In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati. Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.
--  L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito secondo quanto illustrato in questo [articolo](app-service-app-service-environment-control-inbound-traffic.md).
+Gli ambienti del servizio app richiedono un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L'attivazione di un riavvio di ambiente in sequenza mediante l'icona "Riavvia" posizionata nella parte superiore del pannello di gestione dell'ambiente del servizio app nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
 
 È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo. In modo analogo, se esiste un server DNS personalizzato nell’altra estremità di un gateway VPN e il server DNS è irraggiungibile o non disponibile, anche il processo di creazione dell’ambiente del servizio App avrà esito negativo.
 
@@ -121,13 +108,17 @@ Per completezza, di seguito viene mostrato un esempio di come rimuovere e quindi
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Considerazioni speciali su IP SSL esplicito ##
-Se un'app è configurata con un indirizzo IP esplicito anziché con l'indirizzo IP predefinito dell'ambiente del servizio app, il traffico HTTP e HTTPS viene indirizzato alla subnet tramite un set di porte diverso dalle porte 80 e 443.
+Se un'app è configurata con un indirizzo IP SSL esplicito (applicabile agli ambienti del servizio app con un solo indirizzo VIP pubblico) anziché usare l'indirizzo IP predefinito dell'ambiente del servizio app, il traffico HTTP e HTTPS transita nella subnet tramite un set di porte diverse dalle porte 80 e 443.
 
-La coppia individuale di porte utilizzate per ogni indirizzo IP-SSL è disponibile facendo clic su "Tutte le impostazioni"--> "Indirizzi IP" dal pannello dell’interfaccia utente di un ambiente servizio App. Il pannello "Indirizzi IP" mostra una tabella di tutti gli indirizzi IP-SSL configurati in modo esplicito per l'ambiente del servizio app, con la coppia speciale di porte che consente di instradare il traffico HTTP e HTTPS associato a ogni indirizzo IP-SSL. Questa è la coppia di porte che deve essere utilizzata per i parametri DestinationPortRange quando si configurano le regole in un gruppo di sicurezza di rete.
+La singola coppia di porte usata da ogni indirizzo IP SSL è disponibile nell'interfaccia utente del portale nel pannello relativo all'esperienza utente con i dettagli dell'ambiente del servizio app. Selezionare "Tutte le impostazioni" --> "Indirizzi IP". Il pannello "Indirizzi IP" mostra una tabella di tutti gli indirizzi IP SSL configurati in modo esplicito per l'ambiente del servizio app, con la coppia speciale di porte che consente di instradare il traffico HTTP e HTTPS associato a ogni indirizzo IP-SSL. Questa è la coppia di porte che deve essere utilizzata per i parametri DestinationPortRange quando si configurano le regole in un gruppo di sicurezza di rete.
+
+Quando un'app in un ambiente del servizio app è configurata in modo da usare l'indirizzo IP SSL, ai clienti esterni non verrà visualizzato il mapping della coppia di porte e non dovranno preoccuparsi di questo aspetto. Il traffico verso le app transiterà normalmente all'indirizzo IP SSL configurato. La conversione a una coppia di porte specifica avviene internamente in modo automatico durante l'ultima parte del routing del traffico nella subnet contenente l'ambiente del servizio app.
 
 ## Introduzione
 
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment].
+
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 Per informazioni dettagliate sulle app che si connettono in modo sicuro alla risorsa back-end da un ambiente del servizio app, vedere [Connessione sicura alle risorse back-end da un ambiente del servizio app][SecurelyConnecttoBackend]
 
@@ -149,4 +140,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

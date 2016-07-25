@@ -207,6 +207,18 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 - Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
 - Per altre informazioni sulle funzionalità di Azure Resource Manager, leggere la [Panoramica su Azure Resource Manager][lnk-azure-rm-overview].
 
+Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
+
+- [Introduzione a C SDK][lnk-c-sdk]
+- [SDK hub IoT][lnk-sdks]
+
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
+
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
@@ -215,4 +227,12 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0601_2016-->
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

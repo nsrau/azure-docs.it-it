@@ -22,7 +22,7 @@ Valutare se l'uso di un pool di database elastici può risultare conveniente in 
 
 - Per una panoramica dei pool di database elastici, vedere l'articolo sui [pool di database elastici di database SQL](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure ad eccezione di Stati Uniti centro-settentrionali, Brasile meridionale, India occidentale, India meridionale e Cina settentrionale, dove sono attualmente in anteprima. La disponibilità generale dei pool elastici in queste aree verrà offerta al più presto.
+> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure ad eccezione di Stati Uniti centro-settentrionali, India occidentale e Cina settentrionale, dove sono attualmente in anteprima. La disponibilità generale dei pool elastici in queste aree verrà offerta al più presto.
 
 ## Un pool elastico di database.
 
@@ -58,7 +58,7 @@ Dalla riga di colore nera nella figura precedente viene illustrato l'utilizzo di
 
 In questo esempio è ideale per i motivi seguenti:
 
-- Esistono grandi differenze tra i picchi di utilizzo e l'utilizzo medio per ogni database.  
+- Esistono grandi differenze tra i picchi di utilizzo e l'utilizzo medio per ogni database.
 - Il picco di utilizzo per ogni database si verifica in diversi momenti nel tempo.
 - Le eDTU sono condivise da un numero elevato di database.
 
@@ -131,4 +131,4 @@ Non tutti i database singoli sono candidati ottimali per i pool. Database con mo
 - [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 - [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

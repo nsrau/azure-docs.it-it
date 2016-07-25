@@ -79,7 +79,7 @@ Attualmente, la macchina virtuale di dimensioni maggiori nella serie DS è STAND
 
 Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali delle serie DS, DSv2 e GS, vedere [Dimensioni della macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Dimensioni della macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
-Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
+Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets) di questo articolo.
 
 ## Obiettivi di scalabilità e prestazioni di Archiviazione Premium
 
@@ -351,7 +351,7 @@ Quando si usa il servizio di archiviazione Premium, tenere conto delle considera
 - Snapshot in Archiviazione Premium
 - Trasferimenti di dati in uscita
 
-**Dimensione del disco/BLOB di Archiviazione Premium**: la fatturazione di un disco/BLOB di Archiviazione Premium dipende dalla dimensione di provisioning del disco/BLOB. Azure associa la dimensione del disco di provisioning (arrotondata per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina, come specificato nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage). Tutti gli oggetti archiviati in un account di Archiviazione Premium saranno mappati a una delle dimensioni di provisioning supportate e saranno fatturati di conseguenza. Evitare perciò di usare l'account di Archiviazione Premium per l'archiviazione di BLOB di piccole dimensioni. La fatturazione per qualsiasi disco/BLOB di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite o dalla velocità effettiva usata.
+**Dimensione del disco/BLOB di Archiviazione Premium**: la fatturazione di un disco/BLOB di Archiviazione Premium dipende dalla dimensione di provisioning del disco/BLOB. Azure associa la dimensione del disco di provisioning (arrotondata per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina, come specificato nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#premium-storage-scalability-and-performance-targets). Tutti gli oggetti archiviati in un account di Archiviazione Premium saranno mappati a una delle dimensioni di provisioning supportate e saranno fatturati di conseguenza. Evitare perciò di usare l'account di Archiviazione Premium per l'archiviazione di BLOB di piccole dimensioni. La fatturazione per qualsiasi disco/BLOB di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite o dalla velocità effettiva usata.
 
 **Snapshot in Archiviazione Premium**: gli snapshot in Archiviazione Premium vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
@@ -562,4 +562,4 @@ Per altre informazioni su Archiviazione Premium di Azure, vedere gli articoli se
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

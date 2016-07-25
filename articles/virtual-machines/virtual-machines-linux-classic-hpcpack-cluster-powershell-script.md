@@ -1,6 +1,6 @@
 <properties
    pageTitle="Script PowerShell per distribuire cluster HPC Linux | Microsoft Azure"
-   description="Eseguire uno script di PowerShell per distribuire un cluster HPC Pack Linux in servizi di infrastruttura di Azure."
+   description="Eseguire uno script di PowerShell per distribuire un cluster HPC Pack Linux in macchine virtuali di Azure"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # Creare un cluster HPC (High Performance Computing) Linux con lo script di distribuzione IaaS di HPC Pack
 
-Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack in un computer client per distribuire un cluster HPC completo per i carichi di lavoro Linux nei servizi di infrastruttura di Azure (IaaS). Se si desidera distribuire un cluster HPC Pack in Azure per i carichi di lavoro di Windows, vedere [Creare un cluster Windows HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack per distribuire un cluster HPC completo per carichi di lavoro di Linux nelle macchine virtuali di Azure. Il cluster è costituito da un nodo head aggiunto ad Active Directory che esegue Windows Server e Microsoft HPC Pack e da nodi di calcolo che eseguono una delle distribuzioni di Linux supportate da HPC Pack. Se si desidera distribuire un cluster HPC Pack in Azure per i carichi di lavoro di Windows, vedere [Creare un cluster Windows HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). Per distribuire un cluster HPC Pack è anche possibile usare un modello di Gestione risorse di Azure. Per un esempio, vedere [Creare un cluster HPC con nodi di calcolo Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -26,9 +26,9 @@ Eseguire lo script PowerShell di distribuzione IaaS di HPC Pack in un computer c
 
 ## File di configurazione di esempio
 
-### Esempio 1
+Il file di configurazione seguente crea una nuova foresta di domini controller di dominio e distribuisce un cluster HPC Pack con 1 nodo head con database locali e 10 nodi di calcolo Linux. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo Linux vengono creati in 2 servizi cloud e 2 account di archiviazione, ovvero da _MyLnxCN-0001_ a _MyLnxCN-0005_ in _MyLnxCNService01_ e _mylnxstorage01_,e _MyLnxCN-0006_ a _MyLnxCN-0010_ in _MyLnxCNService02_ e _mylnxstorage02_. I nodi di calcolo sono creati da un'immagine OpenLogic CentOS versione 7.0.
 
-Il file di configurazione seguente crea una nuova foresta di domini e distribuisce un cluster HPC Pack con 1 nodo head con database locali e 20 nodi di calcolo Linux. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo Linux vengono creati in 4 servizi cloud e 4 account di archiviazione (ovvero da _MyLnxCN-0001_ a _MyLnxCN-0005_ in _MyLnxCNService01_ e _mylnxstorage01_, da _MyLnxCN-0006_ a _MyLnxCN-0010_ in _MyLnxCNService02_ e _mylnxstorage02_, da _MyLnxCN-0011_ a _MyLnxCN-0015_ in _MyLnxCNService03_ e _mylnxstorage03_ e da _MyLnxCN-0016_ a _MyLnxCN-0020_ in _MyLnxCNService04_ e _mylnxstorage04_). I nodi di calcolo sono creati da un'immagine OpenLogic CentOS versione 7.0.
+Sostituire con i propri valori il nome della sottoscrizione e i nomi degli account e dei servizi.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -65,12 +65,8 @@ Il file di configurazione seguente crea una nuova foresta di domini e distribuis
     <MaxNodeCountPerService>5</MaxNodeCountPerService>
     <StorageAccountNamePattern>mylnxstorage%01%</StorageAccountNamePattern>
     <VMSize>Medium</VMSize>
-    <NodeCount>20</NodeCount>
+    <NodeCount>10</NodeCount>
     <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20150325 </ImageName>
-    <SSHKeyPairForRoot>
-      <PfxFile>d:\mytestcert1.pfx</PfxFile>
-      <Password>MyPsw!!2</Password>
-    </SSHKeyPairForRoot>
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
@@ -84,8 +80,10 @@ Il file di configurazione seguente crea una nuova foresta di domini e distribuis
     
 ## Passaggi successivi
 
-* Per esercitazioni che usano lo script per creare un cluster ed eseguire un carico di lavoro HPC Linux, vedere [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md) o [Eseguire OpenFOAM con Microsoft HPC Pack in su nodi di calcolo Linux in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+* Vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) per informazioni sulle distribuzioni Linux supportate, lo spostamento dei dati e inviare processi a un cluster HPC Pack con Linux nodi di calcolo.
+* Per esercitazioni in cui si usa lo script per creare un cluster ed eseguire un carico di lavoro HPC Linux, vedere:
+    * [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+    * [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+    * [Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
-* Per distribuire un cluster HPC Pack è anche possibile usare un modello di Gestione risorse di Azure. Per un esempio, vedere [Creare un cluster HPC con nodi di calcolo Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

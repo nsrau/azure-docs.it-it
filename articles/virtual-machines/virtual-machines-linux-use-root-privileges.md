@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -55,4 +55,4 @@ In questo caso, all'utente **non** verrà richiesta una password. Dopo aver prem
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

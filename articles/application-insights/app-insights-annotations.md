@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
 # Annotazioni sulla versione in Application Insights
@@ -40,7 +40,7 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com) e aprire la risorsa di Application Insights che monitora l'applicazione o [crearne una nuova](app-insights-overview.md), se necessario.
-2. Aprire **Impostazioni**, **Accesso all'API** ed eseguire una copia di **ID di Application Insights**.
+2. Aprire **Accesso all'API** e creare una copia dell'**ID di Application Insights**.
 
     ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare l'ID applicazione](./media/app-insights-annotations/20.png)
 
@@ -96,4 +96,4 @@ Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versi
 
 ![Fare clic su un marcatore di annotazione della versione.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

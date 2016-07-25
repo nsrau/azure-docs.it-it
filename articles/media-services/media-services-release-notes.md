@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di luglio 2016](#july_changes16)
 - [Versione di aprile 2016](#apr_changes16)
 - [Versione di febbraio 2016](#feb_changes16)
 - [Versione di gennaio 2016](#jan_changes_16)
@@ -68,8 +69,8 @@ Nell'API REST non sono fornite alcune intestazioni HTTP comuni.|Se si sviluppano
 La codifica di un asset con un nome di file contenente caratteri di escape, (ad esempio %20), genera un errore simile al seguente "MediaProcessor: File non trovato.”|I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.
 Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
 Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Modifiche alla versione del manifesto Smooth Streaming|Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
 
 ### <a id="dotnet_issues"></a>Problemi relativi all'SDK di Servizi multimediali per .NET
 
@@ -81,6 +82,24 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
+##<a id="july_changes16"></a>Versione di luglio 2016
+
+###Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
+
+Quando viene inviata a Media Encoder Standard o Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
+
+>[AZURE.NOTE]La sintassi del file manifesto di streaming (con estensione ism) è riservata per l'uso interno ed è soggetta a modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
+
+###Un nuovo file manifesto client (con estensione ismc) viene generato nell'asset di output quando un'attività di codifica restituisce uno o più file MP4
+
+A partire dalla versione del servizio più recente, dopo il completamento di un'attività di codifica che genera uno più file MP4, l'asset di output conterrà anche un file manifesto client (con estensione ismc). Il file con estensione ismc consente di migliorare le prestazioni del flusso dinamico.
+
+>[AZURE.NOTE]La sintassi del file manifesto client (con estensione ismc) è riservata per l'uso interno ed è soggetta a modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
+
+Per altre informazioni, vedere [questo blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+
+Per verificare i problemi noti, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
+
 ##<a id="apr_changes16"></a>Versione di aprile 2016
 
 ### Analisi Servizi multimediali di Azure
@@ -89,7 +108,7 @@ Servizi multimediali di Azure presenta la funzionalità di Analisi Servizi multi
 
 ### FairPlay di Apple (anteprima)
 
-Servizi multimediali di Azure consente ora di crittografare dinamicamente i contenuti di HTTP Live Streaming (HLS) usando il FairPlay di Apple. È possibile usare il servizio di distribuzione delle licenze di AMS anche per distribuire le licenze FairPlay ai client. Per informazioni più dettagliate, vedere [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)(Usare Servizi multimediali di Azure per trasmettere il contenuto HLS in modo protetto con Apple FairPlay).
+Servizi multimediali di Azure consente ora di crittografare dinamicamente i contenuti di HTTP Live Streaming (HLS) usando il FairPlay di Apple. È possibile usare il servizio di distribuzione delle licenze di AMS anche per distribuire le licenze FairPlay ai client. Per informazioni più dettagliate, vedere [Usare Servizi multimediali di Azure per trasmettere il contenuto HLS in modo protetto con Apple FairPlay](media-services-protect-hls-with-fairplay.md).
   
 ##<a id="feb_changes16"></a>Versione di febbraio 2016
 
@@ -206,29 +225,29 @@ Annuncio delle nuove funzionalità seguenti:
 
 ##<a id="april_changes_15"></a>Versione di aprile 2015
 
-        ###General Media Services Updates
+ ###Aggiornamenti generali di Servizi multimediali
 
-        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
-        - Azure Media Indexer updates
-        - Support for Spanish Language
-        - New configuration xml format
+- [Annuncio di Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- A partire da Servizi multimediali REST 2.10, i canali configurati per l'inserimento di un protocollo RTMP vengono creati con URL di inserimento primari e secondari. Per altre informazioni, vedere [Configurazioni di inserimento del canale](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+- Aggiornamenti di Azure Media Indexer
+- Supporto per la lingua spagnola
+- Nuovo formato xml di configurazione
 
-        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-        ###Media Services .NET SDK Updates
+Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+###Aggiornamenti dell'SDK di Servizi multimediali per .NET
 
-        Azure Media Services .NET SDK is now version 3.2.0.0.
+L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.2.0.0.
 
-        The following are some of the customer facing updates:
+Di seguito sono riportati alcuni degli aggiornamenti utilizzati dal cliente:
 
-        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
-        - Updates related to creating custom retry policies.
-        - Bug fixes related to uploading/downloading files.
-        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+- **Modifica di rilievo**: modificati **TokenRestrictionTemplate.Issuer** e **TokenRestrictionTemplate.Audience** in modo che siano di tipo string.
+- Aggiornamenti relativi alla creazione di criteri di ripetizione personalizzati.
+- Correzioni di bug correlati al caricamento/download di file.
+- La classe **MediaServicesCredentials** accetta ora endpoint di controllo di accesso primari e secondari per l'autenticazione.
 
 
 
-        ##<a id="march_changes_15"></a>March 2015 Release
+##<a id="march_changes_15"></a>Versione di marzo 2015
 
 ### Aggiornamenti generali di Servizi multimediali
 
@@ -631,7 +650,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 
 <!-- Images. -->
 
-<!-- URLs. -->
+<!--- URLs. --->
 [forum di MSDN sui Servizi multimediali di Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Dettagli prezzi dei servizi multimediali]: http://azure.microsoft.com/pricing/details/media-services/
@@ -665,4 +684,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

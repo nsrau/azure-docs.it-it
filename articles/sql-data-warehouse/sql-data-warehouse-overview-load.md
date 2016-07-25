@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati in Azure SQL Data Warehouse
@@ -100,6 +100,19 @@ Riepilogo del processo di caricamento
 3. Inviare i dischi a Microsoft.
 4. Microsoft carica i dati in SQL Data Warehouse.
 
+## Caricare da HDInsight
+SQL Data Warehouse supporta il caricamento di dati da HDInsight tramite PolyBase. Il processo è lo stesso usato per il caricamento dei dati dall'archivio BLOB di Azure, usando PolyBase per connettersi a HDInsight per caricare i dati.
+
+### 1\. Usare PolyBase e T-SQL
+
+Riepilogo del processo di caricamento:
+
+2. Formattare i dati come UTF-8 poiché PolyBase non supporta attualmente UTF-16.
+2. Spostare i dati in HDInsight e archiviarli nel file di testo, in formato ORC o Parquet.
+3. Configurare gli oggetti esterni in SQL Data Warehouse per definire il percorso e il formato dei dati.
+4. Eseguire un comando T-SQL per caricare i dati in parallelo in una nuova tabella di database.
+
+Per un'esercitazione, vedere [Caricare dati dall'archivio BLOB di Azure in SQL Data Warehouse (PolyBase)][].
 
 ## Consigli
 
@@ -107,7 +120,7 @@ Molti partner Microsoft dispongono di soluzioni di caricamento. Per altre inform
 
 Se i dati provengono da un'origine non relazionale e si intende caricarli in SQL Data Warehouse, è necessario trasformarli in righe e colonne prima di caricarli. I dati trasformati non devono essere archiviati in un database e possono essere archiviati in file di testo.
 
-Creare statistiche sui dati appena caricati. SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per informazioni dettagliate, vedere [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
+Creare statistiche sui dati appena caricati. SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per informazioni dettagliate, vedere [Managing statistics on tables in SQL Data Warehouse][] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
 
 
 ## Passaggi successivi
@@ -124,7 +137,7 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 [Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
 [Eseguire la migrazione della soluzione in SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
-[partner di soluzioni]: ./sql-data-warehouse-integrate-solution-partners.md
+[partner di soluzioni]: ./sql-data-warehouse-partner-business-intelligence.md
 [panoramica sullo sviluppo]: ./sql-data-warehouse-overview-develop.md
 [Managing statistics on tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
 
@@ -133,4 +146,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--Other Web references-->
 [Importazione/Esportazione]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

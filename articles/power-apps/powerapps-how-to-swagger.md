@@ -14,15 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Personalizzazione della definizione Swagger per PowerApps e flussi logici
 
+>[AZURE.IMPORTANT] Questo argomento è stato spostato nel sito powerapps.microsoft.com in [Personalizzazione della definizione Swagger per PowerApps e flussi logici](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/). Passare a PowerApps per visualizzare la versione più recente. Questo collegamento di Azure verrà archiviato.
+
+
 ## Creazione della definizione API Swagger 2.0 per l'API
 
-Per informazioni su come aggiungere Swagger al WebAPI, vedere [Swashbuckle][1].
+Per informazioni su come aggiungere Swagger all'API Web, vedere [Swashbuckle][1].
 
 ## Estensioni dello schema
 Oltre alle specifiche Swagger standard, sono disponibili alcune estensioni Swagger aggiuntive durante la creazione di un'API personalizzata per PowerApps e flussi logici. Questa sezione elenca e descrive queste estensioni.
@@ -52,9 +55,9 @@ Indica alla finestra di progettazione del flusso della logica che l'API fornisce
 
 Il valore è un oggetto che contiene le proprietà seguenti:
 	
-- `operationId`: stringa corrispondente all'operationId per l'operazione che viene richiamata.
-- `parameters`: oggetto le cui proprietà definiscono i parametri necessari per l'operazione.
-- `value-collection`: stringa di percorso che restituisce una matrice di oggetti nel payload della risposta.
+- `operationId`: stringa corrispondente all'operationId per l'operazione che viene richiamata
+- `parameters`: oggetto le cui proprietà definiscono i parametri necessari per l'operazione
+- `value-collection`: stringa di percorso che restituisce una matrice di oggetti nel payload della risposta
 - `value-path`: stringa di percorso nell'oggetto all'interno di "value-collection" che fa riferimento al valore del parametro.
 - `value-title`: stringa di percorso nell'oggetto all'interno di "value-collection" che fa riferimento a una descrizione per il valore.
 
@@ -115,4 +118,4 @@ Ciò è utile negli scenari in cui gli input per un'operazione sono dinamici. Ad
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

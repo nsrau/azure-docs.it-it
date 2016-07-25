@@ -39,10 +39,10 @@ Questa panoramica illustra questi aspetti della gestione di SQL Data Warehouse.
 ### Portale di Azure
 Il [portale di Azure][] è un portale basato sul Web in cui è possibile creare, aggiornare ed eliminare i database e monitorare le risorse di database. Si tratta dello strumento ideale se si sta appena iniziando a usare Azure, se si gestisce un numero ridotto di database del data warehouse o se è necessario operare rapidamente.
 
-Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse][] \(portale di Azure).
+Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse][] (portale di Azure).
 
 ### SQL Server Data Tools in Visual Studio
-[SQL Server Data Tools][] \(SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
+[SQL Server Data Tools][] (SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
 
 SSDT include Esplora oggetti di SQL Server., che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure classico.
 
@@ -92,7 +92,7 @@ Per altre informazioni sulla gestione della sicurezza, vedere la [Proteggere un 
 Eseguire backup affidabili dei dati è una parte fondamentale di qualsiasi database di produzione. SQL Data Warehouse tiene al sicuro i dati eseguendo automaticamente il backup dei database attivi a intervalli regolari. Questi backup consentono di eseguire il ripristino dagli scenari in cui sono stati corrotti i dati oppure sono stati eliminati accidentalmente i dati o il database. Per informazioni relative a pianificazione del backup dei dati, criteri di conservazione e come ripristinare un database, vedere l'articolo relativo al [ripristino da snapshot][].
 
 ## Passaggi successivi
-L'uso di buoni principi di progettazione dei database semplificherà la gestione dei database in SQL Data Warehouse. Per altre informazioni, vedere la [panoramica sullo sviluppo][].
+L'uso di buoni principi di progettazione dei database semplificherà la gestione dei database in SQL Data Warehouse. Per altre informazioni, vedere la [panoramica dello sviluppo][].
 
 <!--Image references-->
 
@@ -102,7 +102,7 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 [connection]: sql-data-warehouse-develop-connections.md
 [Connettersi a SQL Data Warehouse con Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connettersi ed eseguire query con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-development.md
+[panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
 [Monitoraggio del carico di lavoro mediante DMV]: sql-data-warehouse-manage-monitor.md
 [Sospendere il calcolo]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [ripristino da snapshot]: sql-data-warehouse-restore-database-overview.md
@@ -118,4 +118,4 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

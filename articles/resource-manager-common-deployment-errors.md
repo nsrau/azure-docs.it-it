@@ -1,12 +1,13 @@
 <properties
    pageTitle="Risolvere errori comuni durante la distribuzione di risorse in Azure | Microsoft Azure"
-   description="Descrive come risolvere gli errori più comuni durante la distribuzione con Azure Resource Manager."
+   description="Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="errore di distribuzione, distribuzione di azure, distribuire in azure"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="07/06/2016"
    ms.author="tomfitz"/>
 
 # Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
-Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Se sono necessari altre informazioni sulla causa dell'errore durante la distribuzione, vedere prima di tutto [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md) e quindi tornare a questo articolo per informazioni su come risolvere l'errore.
+Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Se sono necessarie altre informazioni sulla causa dell'errore durante la distribuzione, vedere prima di tutto [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md) e quindi tornare a questo articolo per informazioni su come risolvere l'errore.
 
 ## Risorsa o modello non valido
 
@@ -34,9 +35,9 @@ A seconda della posizione del carattere mancante nel modello, viene visualizzato
 ## Resource name already exists or is already used by another resource (Il nome della risorsa esiste già o è già usato da un'altra risorsa)
 
 Per alcune risorse, in particolare gli account di archiviazione, i server di database e i siti Web, è necessario specificare un nome che sia univoco all'interno di Azure. È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions.md#uniquestring).
- 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
-    "type": "Microsoft.Storage/storageAccounts", 
+
+    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
 
 ## Non si riesce a trovare la risorsa durante la distribuzione
 
@@ -54,7 +55,7 @@ Azure Resource Manager consente di ottimizzare la distribuzione creando risorse 
 
 ## Could not find member 'copy' on object (Non è stato possibile trovare il membro 'copia' nell'oggetto)
 
-Viene visualizzato questo errore quando sono è stato applicato l'elemento **copy** a una parte del modello che non supporta questo elemento. È possibile applicare l'elemento copy solo a un tipo di risorsa. Copia non è possibile applicare copy a una proprietà all'interno di un tipo di risorsa. Ad esempio, si applica copy a una macchina virtuale, ma non è possibile applicarlo ai dischi del sistema operativo per una macchina virtuale. In alcuni casi, è possibile convertire una risorsa figlio in una risorsa padre per creare un ciclo di copy. Per altre informazioni sull'uso di copy, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
+Questo errore viene visualizzato quando è stato applicato l'elemento **copy** a una parte del modello che non supporta questo elemento. È possibile applicare l'elemento copy solo a un tipo di risorsa. Copia non è possibile applicare copy a una proprietà all'interno di un tipo di risorsa. Ad esempio, si applica copy a una macchina virtuale, ma non è possibile applicarlo ai dischi del sistema operativo per una macchina virtuale. In alcuni casi, è possibile convertire una risorsa figlio in una risorsa padre per creare un ciclo di copy. Per altre informazioni sull'uso di copy, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
 
 ## SKU not available (Non disponibile)
 
@@ -65,7 +66,7 @@ Quando si distribuisce una risorsa, in genere una macchina virtuale, è possibil
 
 Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad esempio le dimensioni della macchina virtuale, non è disponibile per il percorso selezionato. Per risolvere il problema sono disponibili due opzioni:
 
-1.	Accedere al portale e iniziare ad aggiungere una nuova risorsa tramite l'interfaccia utente. Quando si impostano i valori, verranno visualizzati gli SKU disponibili per tale risorsa. 
+1.	Accedere al portale e iniziare ad aggiungere una nuova risorsa tramite l'interfaccia utente. Quando si impostano i valori, verranno visualizzati gli SKU disponibili per tale risorsa.
 
     ![sku disponibili](./media/resource-manager-common-deployment-errors/view-sku.png)
 
@@ -76,7 +77,7 @@ Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad ese
 
 Quando si distribuisce una risorsa, è possibile che venga visualizzato il codice di errore e il messaggio seguenti:
 
-    Dode: NoRegisteredProviderFound
+    Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
 
 Questo errore viene visualizzato per uno di questi tre motivi:
@@ -110,7 +111,7 @@ Per ottenere le versioni di API supportate per un tipo di risorsa particolare è
 Per vedere se il provider è registrato, usare il comando `azure provider list`.
 
     azure provider list
-        
+
 Per registrare un provider di risorse, usare il comando `azure provider register` e specificare lo *spazio dei nomi* per la registrazione.
 
     azure provider register Microsoft.Cdn
@@ -118,7 +119,7 @@ Per registrare un provider di risorse, usare il comando `azure provider register
 Per visualizzare le versioni di API e i percorsi supportati per un provider di risorse, usare:
 
     azure provider show -n Microsoft.Compute --json > compute.json
-    
+
 ## La quota è stata superata
 
 Alcuni problemi potrebbero verificarsi quando una distribuzione supera una quota specifica per un gruppo di risorse, le sottoscrizioni, gli account o per altri ambiti. Ad esempio, la sottoscrizione potrebbe essere configurata in modo da limitare il numero di core per un'area. Se si prova a distribuire una macchina virtuale con un numero di core superiore alla quantità consentita, si riceve un messaggio di errore che informa che la quota è stata superata. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md).
@@ -126,9 +127,9 @@ Alcuni problemi potrebbero verificarsi quando una distribuzione supera una quota
 Per esaminare le quote per i core della sottoscrizione, è possibile usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure. L'esempio seguente mostra che la quota di core per un account della versione di valutazione gratuita è quattro:
 
     azure vm list-usage
-    
+
 Che restituisce:
-    
+
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
@@ -145,7 +146,7 @@ Se si tenta di distribuire un modello che crea più di 4 core nell'area Stati Un
 In alternativa, in PowerShell è possibile usare il cmdlet **Get-AzureRmVMUsage**.
 
     Get-AzureRmVMUsage
-    
+
 Che restituisce:
 
     ...
@@ -171,37 +172,37 @@ Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Usa
 
 Oltre che dal controllo degli accessi in base al ruolo, le azioni di distribuzione possono essere limitate da criteri della sottoscrizione. Attraverso i criteri, l'amministratore può imporre convenzioni in tutte le risorse distribuite nella sottoscrizione. Ad esempio, un amministratore può richiedere che venga fornito un valore di tag specifico per un tipo di risorsa. Se non vengono soddisfatti i requisiti dei criteri, si riceve un messaggio di errore durante la distribuzione. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-## Risoluzione dei problemi delle macchine virtuali 
+## Risoluzione dei problemi delle macchine virtuali
 
 | Errore | Articoli |
 | -------- | ----------- |
-| Errori dell'estensione script personalizzata | [Risoluzione degli errori delle estensioni della macchina virtuale Windows di Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />o<br />[Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
-| Errori di provisioning dell'immagine del sistema operativo | [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />o<br />[Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) | 
-| Errori di allocazione | [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />o<br />[Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Linux in Azure](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
-| Errori SSH (Secure Shell) errori durante il tentativo di connessione | [Risolvere i problemi relativi alle connessioni Secure Shell a una macchina virtuale di Azure basata su Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
-| Errori di connessione all'applicazione in esecuzione nella macchina virtuale | [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />o<br />[Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | 
-| Errori di connessione Desktop remoto | [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
-| Errori di connessione risolti con la ridistribuzione | [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
-| Errori del servizio cloud | [Risolvere eventuali problemi di distribuzione dei servizi cloud](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
+| Errori dell'estensione script personalizzata | [Risoluzione degli errori delle estensioni della macchina virtuale Windows di Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />o<br />[Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
+| Errori di provisioning dell'immagine del sistema operativo | [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />o<br />[Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
+| Errori di allocazione | [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />o<br />[Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Linux in Azure](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
+| Errori SSH (Secure Shell) errori durante il tentativo di connessione | [Risolvere i problemi relativi alle connessioni Secure Shell a una macchina virtuale di Azure basata su Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
+| Errori di connessione all'applicazione in esecuzione nella macchina virtuale | [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md) (Windows)<br />o<br />[Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) (Linux) |
+| Errori di connessione Desktop remoto | [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
+| Errori di connessione risolti con la ridistribuzione | [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
+| Errori del servizio cloud | [Risolvere eventuali problemi di distribuzione dei servizi cloud](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
-## Risoluzione dei problemi di altri servizi 
+## Risoluzione dei problemi di altri servizi
 
 La tabella seguente non include un elenco completo di argomenti relativi alla risoluzione dei problemi per Azure. È incentrata invece sui problemi relativi alla distribuzione o alla configurazione delle risorse. Se occorre assistenza per la risoluzione dei problemi in fase di esecuzione di una risorsa, vedere la documentazione relativa al servizio di Azure specifico.
 
 | Service | Articolo |
 | -------- | -------- |
-| Automazione | [Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure](./automation/automation-troubleshooting-automation-errors.md) | 
-| Azure Stack | [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) (Risoluzione dei problemi di Microsoft Azure Stack) | 
-| Azure Stack | [Web Apps and Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) (App Web e Azure Stack) | 
-| Data factory | [Risolvere i problemi di Data factory](./data-factory/data-factory-troubleshoot.md) | 
-| Service Fabric | [Risolvere i problemi comuni quando si distribuiscono servizi in Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Automazione | [Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure](./automation/automation-troubleshooting-automation-errors.md) |
+| Azure Stack | [Microsoft Azure Stack troubleshooting (Risoluzione dei problemi di Microsoft Azure Stack)](./azure-stack/azure-stack-troubleshooting.md) |
+| Azure Stack | [Web Apps and Azure Stack (App Web e Azure Stack)](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
+| Data factory | [Risolvere i problemi di Data factory](./data-factory/data-factory-troubleshoot.md) |
+| Service Fabric | [Risolvere i problemi comuni quando si distribuiscono servizi in Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery | [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Archiviazione | [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple | [Risoluzione dei problemi di distribuzione del dispositivo StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) | 
-| Database SQL | [Risoluzione dei problemi di connessione al database SQL di Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
-| SQL Data Warehouse | [Risoluzione dei problemi relativi a SQL Data Warehouse di Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
+| StorSimple | [Risoluzione dei problemi di distribuzione del dispositivo StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) |
+| Database SQL | [Risoluzione dei problemi di connessione al database SQL di Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
+| SQL Data Warehouse | [Risoluzione dei problemi relativi a SQL Data Warehouse di Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
-## Comprendere quando una distribuzione è pronta 
+## Comprendere quando una distribuzione è pronta
 
 Azure Resource Manager segnala l'esito positivo in una distribuzione quando tutti i provider vengono restituiti correttamente dalla distribuzione. Tuttavia, questo non implica necessariamente che il gruppo di risorse sia "attivo e disponibile per gli utenti". Ad esempio, per una distribuzione potrebbe essere necessario scaricare aggiornamenti, attendere risorse esterne al modello oppure installare script complessi o altre attività eseguibili che Azure non rileva perché non sono attività registrate da un provider. In questi casi potrebbe trascorrere altro tempo prima che le risorse siano effettivamente pronte per l'uso. Di conseguenza, è necessario che lo stato di distribuzione venga completato correttamente prima di poter usare la distribuzione.
 
@@ -212,4 +213,4 @@ Per impedire che Azure segnali lo stato di completamento della distribuzione, tu
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

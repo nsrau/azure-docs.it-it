@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Scenari di Testabilità di Service Fabric: comunicazione tra servizi
@@ -67,7 +67,7 @@ Grazie agli strumenti di testabilità di Service Fabric, è possibile creare uno
 
     ```powershell
 
-    PS > Restart-ServiceFabricNode -NodeName Node.1
+    PS > Restart-ServiceFabricNode -NodeName Node_1
 
     ```
 
@@ -97,4 +97,4 @@ In questo esempio `QuorumLossMode` viene impostato su `QuorumReplicas`, per indi
 
 [Scenari di Testabilità](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

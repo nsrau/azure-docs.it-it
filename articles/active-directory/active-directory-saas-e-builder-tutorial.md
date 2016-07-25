@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con e-Builder
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per e-Bu
 
 ###Per abilitare l'integrazione dell'applicazione per e-Builder, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-e-builder-tutorial/IC700993.png "Active Directory")
 
@@ -68,11 +68,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **e-Builder** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **EmpCenter** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configura accesso Single Sign-On")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a e-Builder** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  Nella pagina **How would you like users to sign on to e-Builder** (Stabilire come si desidera che gli utenti accedano a e-Builder) selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configura accesso Single Sign-On")
 
@@ -80,7 +80,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configura URL app")
 
-4.  Nella pagina **Configura accesso Single Sign-On in e-Builder** fare clic su **Scarica metadati** per scaricare i metadati e salvare il file di dati localmente come **c:\\e-BuilderMetaData.xml**.
+4.  Nella pagina **Configure single sign-on at e-Builder** (Configura accesso Single Sign-On in e-Builder) fare clic su **Scarica metadati** per scaricare i metadati e salvare il file di dati localmente come **c:\\e-BuilderMetaData.xml**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configura accesso Single Sign-On")
 
@@ -98,9 +98,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a e-Builder, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **e-Builder** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **e-Builder** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Assegna utenti")
 
@@ -110,4 +110,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Autenticazione utente per le app per le API nel servizio app di Azure
 
@@ -336,4 +336,4 @@ Per informazioni su come creare un'applicazione AngularJS a singola pagina con u
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

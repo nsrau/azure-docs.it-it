@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 # Come salvare le ricerche e aggiungere risorse di dati
@@ -76,4 +76,4 @@ La home page del portale del Catalogo dati di Azure include una sezione "Risorse
 ## Riepilogo
 Il Catalogo dati di Azure offre funzionalità che semplificano l'individuazione delle origini dati necessarie da parte degli utenti, in modo che sia necessario dedicare meno tempo alla ricerca dei dati e concentrarsi invece sull'uso dei dati. Le ricerche salvate e le risorse di dati aggiunte si basano su queste funzionalità di base, in modo che gli utenti possano identificare con facilità le origini dati con sui lavorano ripetutamente.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

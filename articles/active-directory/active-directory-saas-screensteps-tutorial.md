@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per ScreenSteps, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ScreenSteps tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **ScreenSteps** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **ScreenSteps** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configura accesso Single Sign-On")
 
@@ -110,12 +110,12 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Endpoint di autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Endpoint di autenticazione remota")
 
-    1.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL**.
-    2.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log out URL**.
+    1.  Nella pagina **Configure single sign-on at ScreenSteps** (Configura accesso Single Sign-On in ScreenSteps) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL** (URL accesso remoto).
+    2.  Nella pagina **Configure single sign-on at ScreenSteps** (Configura accesso Single Sign-On in ScreenSteps) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log out URL** (URL di disconnessione).
     3.  Fare clic su **Scegli un file** e caricare il certificato scaricato.
-    4.  Fare clic su **Update**.
+    4.  Fare clic su **Aggiorna**.
 
-11. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-screensteps-tutorial/IC778542.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -140,7 +140,7 @@ Per consentire agli utenti di Azure AD di accedere a **ScreenSteps**, è necessa
 
 5.  Dall’elenco **User Role** selezionare un ruolo per l'utente.
 
-6.  Nella sezione Ruolo utente, digitare il **nome**, il **cognome**, l’**indirizzo di posta elettronica**, l’**account di accesso**, la **password** e la **password di conferma** di un account di ADD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
+6.  Nella sezione User Role (Ruolo utente) digitare "**First name** (Nome), **Last name** (Cognome), **Email** (Indirizzo di posta elettronica), **Login** (Account di accesso), **Password** (Password) e **Password Confirmation** (Password di conferma)" di un account di AAD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
 
     ![Nuovo utente](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Nuovo utente")
 
@@ -156,7 +156,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti ad ScreenSteps eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **ScreenSteps** fare clic su **Assegna utenti**.
 
@@ -168,4 +168,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

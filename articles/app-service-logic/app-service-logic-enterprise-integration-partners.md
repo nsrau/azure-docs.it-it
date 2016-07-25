@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni sui partner ed Enterprise Integration Pack | Servizio app di Microsoft Azure" 
+	pageTitle="Informazioni sui partner e su Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Informazioni su come usare i partner con Enterprise Integration Pack e le app per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Informazioni sui partner ed Enterprise Integration Pack
@@ -53,14 +53,12 @@ Seguire la procedura in basso per modificare un partner già esistente nell'acco
 3. Nel riquadro **Update Partner** (Aggiorna partner) apportare le modifiche necessarie
 4. Se si è soddisfatti delle modifiche, selezionare il collegamento **Save** (Salva) o, in caso contrario, scegliere il collegamento **Discard** (Ignora) per eliminare le modifiche. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
-
 ## Procedura: Eliminare un partner
 1. Selezionare il riquadro **Partners** (Partner)
 2. Selezionare il partner che si desidera modificare quando si apre il pannello Partners (Partner)
 3. Selezionare il collegamento **Elimina** ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
-
 ## Passaggi successivi
 - [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

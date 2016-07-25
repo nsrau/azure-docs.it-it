@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Applicazione dell'infrastruttura di servizi e fasi successive
@@ -49,9 +49,13 @@ Il progetto attore fornisce metodi per l'impostazione e il recupero del valore d
 ### API Web senza stato
 Il progetto API Web senza stato fornisce un servizio Web di base che è possibile usare per aprire l'applicazione ai client esterni. Per altre informazioni su come è strutturato il progetto, vedere [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md).
 
+### ASP.NET Core
+
+Service Fabric SDK offre lo stesso set di modelli ASP.NET Core disponibile per progetti ASP.NET Core autonomi: modello vuoto, [API Web][aspnet-webapi] e [applicazione Web][aspnet-webapp].
+
 ## Passaggi successivi
 ### Creare un cluster di Azure
-LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Configurazione di un cluster di Service Fabric dal portale di Azure][create-cluster-in-portal].
+LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Creare un cluster di Service Fabric dal portale di Azure][create-cluster-in-portal].
 
 ### Provare a distribuire in Azure gratuitamente i cluster di terze parti
 
@@ -61,14 +65,13 @@ Se si vuole provare a distribuire e gestire applicazioni in Azure senza configur
 È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per informazioni, vedere [Pubblicare l'applicazione in Azure][publish-app-to-azure].
 
 ### Visualizzare il cluster con Service Fabric Explorer
-Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer][visualize-with-sfx].
+Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer][visualize-with-sfx].
 
 ### Effettuare il versioning e aggiornare i servizi
 Service Fabric consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere l'articolo relativo all'[esecuzione del versioning e dell'aggiornamento dei servizi][app-upgrade-tutorial].
 
 ### Configurare l'integrazione continua con Visual Studio Team Services
 Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere l'articolo relativo alla [configurazione dell'integrazione continua con Visual Studio Team Services][ci-with-vso].
-
 
 
 <!-- Links -->
@@ -79,5 +82,7 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
+[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
+[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

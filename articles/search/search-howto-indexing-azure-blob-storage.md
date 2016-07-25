@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="06/27/2016"
+ms.date="07/12/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
@@ -62,7 +62,7 @@ Per altre informazioni sull'API Create Datasource (Creare un'origine dati) di cr
   		"name" : "my-target-index",
   		"fields": [
     		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
   		]
 	}
 
@@ -294,4 +294,4 @@ Se è necessario estrarre tutti i metadati ignorando tuttavia l'estrazione del c
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

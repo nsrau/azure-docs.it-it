@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows-sql-server"
    ms.workload="infrastructure-services"
-   ms.date="04/17/2016"
+   ms.date="07/12/2016"
    ms.author="MikeRayMSFT"/>
 
 # Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure
@@ -28,7 +28,7 @@ Per questo argomento è necessario che i gruppi di disponibilità siano già con
 
 Gli argomenti correlati includono:
 
- - [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+ - [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
  
  - [Configurare una connessione da VNet a VNet tramite Azure Resource Manager e PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
@@ -70,13 +70,13 @@ Il primo passaggio consiste nel creare il servizio di bilanciamento del carico. 
 | **Gruppo di risorse** | Scegliere il gruppo di risorse in cui si trovano le istanze di SQL Server. | 
 | **Posizione** | Scegliere la località di Azure in cui si trovano le istanze di SQL Server. |
 
-- Fare clic su **Create**. 
+- Fare clic su **Create**.
 
 Azure crea il servizio di bilanciamento del carico configurato sopra. Il servizio di bilanciamento del carico appartiene a una rete, a una subnet, a un gruppo di risorse e a una località specifici. Quando Azure ha terminato, verificare le impostazioni del servizio di bilanciamento del carico in Azure.
 
 Configurare ora l'indirizzo IP del servizio di bilanciamento del carico.
 
-- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Indirizzo IP**. Il pannello **Indirizzo IP** indica che si tratta di un servizio di bilanciamento del carico privato nella stessa rete virtuale delle istanze di SQL Server. 
+- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Indirizzo IP**. Il pannello **Indirizzo IP** indica che si tratta di un servizio di bilanciamento del carico privato nella stessa rete virtuale delle istanze di SQL Server.
 
 - Usare le seguenti impostazioni:
 
@@ -96,7 +96,7 @@ Il servizio di bilanciamento del carico ora ha un indirizzo IP. Registrare tale 
 
 Il passaggio successivo consiste nel creare un pool di indirizzi back-end. In Azure il pool di indirizzi back-end è chiamato *pool back-end*. In questo caso, il pool back-end è costituito dagli indirizzi delle due istanze di SQL Server nel gruppo di disponibilità.
 
-- Nel gruppo di risorse fare clic sul servizio di bilanciamento del carico creato. 
+- Nel gruppo di risorse fare clic sul servizio di bilanciamento del carico creato.
 
 - In **Impostazioni** fare clic su **Pool back-end**.
 
@@ -118,7 +118,7 @@ Azure Aggiorna le impostazioni per il pool di indirizzi back-end. Il set di disp
 
 Il passaggio successivo consiste nella creazione di un probe. Il probe definisce come Azure deve verificare quale istanza di SQL Server è attualmente proprietaria del listener del gruppo di disponibilità. Azure esaminerà il servizio in base all'indirizzo IP su una porta definita quando si crea il probe.
 
-- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Probe**. 
+- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Probe**.
 
 - Nel pannello **Probe** fare clic su **Aggiungi**.
 
@@ -132,7 +132,7 @@ Il passaggio successivo consiste nella creazione di un probe. Il probe definisce
 | **Interval** | *5* | 
 | **Soglia non integra** | *2* | 
 
-- Fare clic su **OK**. 
+- Fare clic su **OK**.
 
 >[AZURE.NOTE] Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](http://technet.microsoft.com/library/cc753558.aspx).
 
@@ -142,7 +142,7 @@ Azure crea il probe. Azure userà il probe per testare quale istanza di SQL Serv
 
 Impostare le regole di bilanciamento del carico. Le regole di bilanciamento del carico determinano come il servizio di bilanciamento del carico instrada il traffico alle istanze di SQL Server. Per questo servizio di bilanciamento del carico si abiliterà Direct Server Return perché solo una per volta delle due istanze di SQL Server sarà proprietaria della risorsa listener del gruppo di disponibilità.
 
-- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Regole di bilanciamento del carico**. 
+- Nel pannello **Impostazioni** del servizio di bilanciamento del carico fare clic su **Regole di bilanciamento del carico**.
 
 - Nel pannello **Regole di bilanciamento del carico** fare clic su **Aggiungi**.
 
@@ -161,7 +161,7 @@ Impostare le regole di bilanciamento del carico. Le regole di bilanciamento del 
 
  >[AZURE.NOTE] Potrebbe essere necessario scorrere il pannello verso il basso per visualizzare tutte le impostazioni.
 
-- Fare clic su **OK**. 
+- Fare clic su **OK**.
 
 - Azure configura la regola di bilanciamento del carico. Ora il servizio di bilanciamento del carico è configurato per instradare il traffico all'istanza di SQL Server che ospita il listener per il gruppo di disponibilità.
 
@@ -173,7 +173,7 @@ A questo punto il gruppo di risorse ha un servizio di bilanciamento del carico, 
 
 Il passaggio successivo consiste nel configurare il listener nel cluster e nel portare il listener online. A tale scopo, eseguire queste operazioni:
 
-1. Creare il listener del gruppo di disponibilità nel cluster di failover 
+1. Creare il listener del gruppo di disponibilità nel cluster di failover
 
 1. Portare online il listener
 
@@ -181,7 +181,7 @@ Il passaggio successivo consiste nel configurare il listener nel cluster e nel p
 
 In questo passaggio si creerà manualmente il listener del gruppo di disponibilità in Gestione Cluster di Failover e SQL Server Management Studio (SSMS).
 
-- Usare RDP per connettersi alla macchina virtuale di Azure che ospita la replica primaria. 
+- Usare RDP per connettersi alla macchina virtuale di Azure che ospita la replica primaria.
 
 - Aprire Gestione cluster di failover.
 
@@ -260,9 +260,9 @@ La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Ser
 
 Tenere presente le linee guida seguenti per il listener del gruppo di disponibilità in Azure con il servizio di bilanciamento del carico interno:
 
-- Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità interno, perché il listener è configurato per il servizio di bilanciamento del carico e c'è un solo servizio di bilanciamento del carico interno. Tuttavia, è possibile creare più listener esterni. 
+- Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità interno, perché il listener è configurato per il servizio di bilanciamento del carico e c'è un solo servizio di bilanciamento del carico interno. Tuttavia, è possibile creare più listener esterni.
 
 - Con un servizio di bilanciamento del carico interno è possibile accedere al listener solo dalla stessa rete virtuale.
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

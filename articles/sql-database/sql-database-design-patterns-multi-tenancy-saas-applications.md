@@ -31,7 +31,8 @@ Nel contesto di questo articolo un'applicazione multi-tenant è un'applicazione 
 
 Le applicazioni multi-tenant sono un esempio significativo di applicazione in cui è possibile partizionare facilmente i dati e i carichi di lavoro. Con le applicazioni multi-tenant, ad esempio, i dati e il carico di lavoro possono in genere essere partizionati in base ai limiti dei tenant, dato che la maggior parte delle richieste rientra proprio entro tali limiti. Questa proprietà intrinseca dei dati e del carico di lavoro predilige i modelli di applicazione illustrati nella parte restante di questo articolo.
 
-Si tratta di applicazioni che abbracciano l'intera gamma di applicazioni basate su cloud, ad esempio:
+Tali applicazioni coprono l'intera gamma delle applicazioni basate su cloud, ad esempio:
+
 - Applicazioni di database ISV di cui è in corso la transizione nel cloud come applicazioni SaaS.
 - Applicazioni SaaS compilate per il cloud da zero.
 - Applicazioni rivolte al consumer diretto o all'utente finale.
@@ -117,7 +118,7 @@ Il database SQL di Azure offre pool di database elastici che migliorano il suppo
 | Facilità di DevOps tra i database | [Pool di database elastici:](sql-database-elastic-pool.md) come sopra.|
 ||[Query elastica:](sql-database-elastic-query-horizontal-partitioning.md) consente di eseguire query tra database a scopo di creazione di report o analisi tra tenant.|
 ||[Processi elastici:](sql-database-elastic-jobs-overview.md) consente di creare pacchetti e distribuire in modo affidabile le operazioni di manutenzione dei database o le modifiche allo schema di database a vari database.|
-||[Transazioni elastiche:](sql-database-elastic-scale.md) consente di elaborare le modifiche a più database in modo atomico e isolato. Questa funzionalità è necessaria quando le applicazioni richiedono garanzie di tipo "tutto o niente" su varie operazioni di database. |
+||[Transazioni elastiche:](sql-database-elastic-transactions-overview.md) consente di elaborare modifiche a più database in modo atomico e isolato. Questa funzionalità è necessaria quando le applicazioni richiedono garanzie di tipo "tutto o niente" su varie operazioni di database. |
 ||[Libreria client dei database elastici:](sql-database-elastic-database-client-library.md) consente di gestire le distribuzioni dei dati e il mapping dei tenant ai database. |
 ||||
 
@@ -179,4 +180,4 @@ Per domande è possibile visitare il [forum sul database SQL](http://social.msdn
 
 	
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica degli account di integrazione ed Enterprise Integration Pack | Servizio app di Microsoft Azure" 
+	pageTitle="Panoramica degli account di integrazione e di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Tutte le informazioni sugli account di integrazione, Enterprise Integration Pack e le app per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Panoramica degli account di integrazione
@@ -73,4 +73,4 @@ Ora che l'account di integrazione è collegato all'app per la logica, è possibi
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

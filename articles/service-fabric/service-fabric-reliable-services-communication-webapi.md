@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN
@@ -39,7 +39,9 @@ Iniziare creando una nuova applicazione di Service Fabric, con un singolo serviz
 
 ![Creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
-È disponibile un modello di Visual Studio per un servizio senza stato tramite l'API Web. In questa esercitazione verrà compilato un progetto che genera un risultato simile a ciò che si otterrebbe selezionando tale modello. A questo punto è possibile iniziare con l'API Web del servizio senza stato e proseguire oppure iniziare con un servizio senza stato vuoto e partire da zero.
+È disponibile un modello di Visual Studio per un servizio senza stato tramite l'API Web. In questa esercitazione verrà compilato da zero un progetto API Web che genera un risultato simile a ciò che si otterrebbe selezionando tale modello.
+
+È possibile selezionare un progetto Servizio senza stato vuoto per imparare a compilare da zero un progetto API Web oppure partire da un modello API Web di servizio senza stato e seguire semplicemente la procedura.
 
 ![Creare un singolo servizio senza stato](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
@@ -163,11 +165,11 @@ I dettagli relativi al processo host del servizio e alla registrazione del servi
 
 ## Ospitare in modo autonomo l'API Web con self-hosting OWIN
 
-Il codice dell'applicazione API Web è ospitato nel relativo processo. Verrà ora illustrato come associarlo a un server Web. Immettere [OWIN](http://owin.org/). OWIN è semplicemente un contratto tra le applicazioni Web .NET e i server Web. Quando viene usato ASP.NET, fino a MVC 5, l'applicazione Web in genere è strettamente associata a IIS tramite System.Web. L'API Web implementa tuttavia OWIN, che consente di scrivere un'applicazione Web separata dal server Web che la ospita. Per questo motivo è possibile usare un server Web *con self-hosting* OWIN e avviarlo nel processo. Questo server si adatta perfettamente al modello di hosting di Service Fabric descritto in precedenza.
+Il codice dell'applicazione API Web è ospitato nel relativo processo. Verrà ora illustrato come associarlo a un server Web. Immettere [OWIN](http://owin.org/). OWIN è semplicemente un contratto tra le applicazioni Web .NET e i server Web. Quando viene usato ASP.NET, fino a MVC 5, l'applicazione Web in genere è strettamente associata a IIS tramite System.Web. L'API Web implementa tuttavia OWIN, che consente di scrivere un'applicazione Web separata dal server Web che la ospita. Per questo motivo è possibile usare un server Web OWIN *con self-hosting* e avviarlo nel processo. Questo server si adatta perfettamente al modello di hosting di Service Fabric descritto in precedenza.
 
-In questo articolo verrà usato Katana come host OWIN per l'applicazione API Web. Katana è un'implementazione host OWIN open source.
+In questo articolo verrà usato Katana come host OWIN per l'applicazione API Web. Katana è un'implementazione host OWIN open source basata su [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) e sull'[API server HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) di Windows.
 
-> [AZURE.NOTE] Per altre informazioni su Katana, visitare il [sito di Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Per una rapida panoramica sull'uso di Katana per il self-hosting dell'API Web, vedere l'articolo relativo all'[uso di OWIN per il self-hosting dell'API Web ASP.NET 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
+> [AZURE.NOTE] Per altre informazioni su Katana, visitare il [sito Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Per una rapida panoramica di come usare Katana per il self-hosting dell'API Web, vedere [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso di OWIN per il self-hosting dell'API Web ASP.NET 2).
 
 
 ## Configurare il server Web
@@ -349,7 +351,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Si noti che viene usato "http://+" per assicurarsi che il server Web sia in ascolto su tutti gli indirizzi disponibili, tra cui il localhost, il nome di dominio completo e l'IP del computer.
 
-L'implementazione di OpenAsync è uno dei motivi principali per i quali il server Web (o qualsiasi stack di comunicazione) viene implementato come interfaccia ICommunicationListener anziché venire aperto direttamente da `RunAsync()` nel servizio. Il valore restituito da OpenAsync è l'indirizzo su cui è in ascolto il server Web. Quando questo indirizzo viene restituito al sistema, registra l'indirizzo con il servizio. L'API di Service Fabric consente ai client e ad altri servizi di richiedere questo indirizzo in base al nome del servizio. Questo aspetto è importante perché l'indirizzo del servizio non è statico. I servizi vengono spostati nel cluster ai fini del bilanciamento del carico e della disponibilità delle risorse. Questo meccanismo consente ai client di risolvere l'indirizzo di ascolto per un servizio.
+L'implementazione di OpenAsync è uno dei principali motivi per cui il server Web (o qualsiasi stack di comunicazione) viene implementato come interfaccia ICommunicationListener anziché essere aperto direttamente da `RunAsync()` nel servizio. Il valore restituito da OpenAsync è l'indirizzo su cui è in ascolto il server Web. Quando questo indirizzo viene restituito al sistema, registra l'indirizzo con il servizio. L'API di Service Fabric consente ai client e ad altri servizi di richiedere questo indirizzo in base al nome del servizio. Questo aspetto è importante perché l'indirizzo del servizio non è statico. I servizi vengono spostati nel cluster ai fini del bilanciamento del carico e della disponibilità delle risorse. Questo meccanismo consente ai client di risolvere l'indirizzo di ascolto per un servizio.
 
 Tenendo presente questo aspetto, OpenAsync avvia il server Web e restituisce l'indirizzo su cui è in ascolto. Si noti che è in ascolto su "http://+", ma prima che OpenAsync restituisca l'indirizzo, il "+" viene sostituito con l'IP o con il nome di dominio completo del nodo corrente. L'indirizzo restituito da questo metodo è quello registrato con il sistema. È anche l'indirizzo visualizzato dai client e dagli altri servizi quando richiedono l'indirizzo di un servizio. Per una corretta connessione dei client, è necessario un IP o un nome di dominio completo effettivo nell'indirizzo.
 
@@ -685,4 +687,4 @@ Per altre informazioni sulla creazione di istanze di applicazioni e di servizi, 
 
 [Debug dell'applicazione di Service Fabric mediante Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

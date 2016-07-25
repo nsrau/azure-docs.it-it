@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # Query e sintassi SQL in DocumentDB
@@ -864,8 +864,7 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
 	]
 
 
-###Operatore *
-L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
+###Operatore * L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
 
 **Query**
 
@@ -2378,4 +2377,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

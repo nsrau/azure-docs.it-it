@@ -207,8 +207,16 @@ La query è abilitata dalla libreria client di Gestione dei dispositivi dell'hub
 
 Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere le esercitazioni seguenti:
 
-- [Come usare il dispositivo gemello][lnk-twin-tutorial]
-- [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-jobs-tutorial]
+- [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-tutorial-jobs]
+- [Abilitare i dispositivi gestiti protetti da un gateway IoT][lnk-dm-gateway]
+- [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-library-c]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 
 
@@ -221,4 +229,13 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

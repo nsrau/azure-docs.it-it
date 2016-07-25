@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="07/11/2016" 
 	ms.author="spelluru"/>
 
 # Spostamento di dati e attività di copia: migrazione di dati nel cloud e tra archivi cloud
@@ -33,9 +33,11 @@ Nei casi in cui sia l'archivio dati di origine che l'archivio dati sink (destina
 
 
 ## Copiare dati tra un archivio dati locale e un archivio dati cloud
-Per [spostare in modo sicuro i dati tra gli archivi dati locali protetti da firewall aziendale e un archivio dati cloud](#moveonpremtocloud), è necessario installare il Gateway di gestione dati, ovvero un agente che consente lo spostamento e l'elaborazione ibridi dei dati sul computer locale. Il Gateway di gestione dati può essere installato sullo stesso computer dell'archivio dati o su un computer separato che è in grado di accedere all'archivio dati. In questo scenario, la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo vengono eseguiti dal Gateway di gestione dati. In questo caso, i dati non transitano attraverso il servizio Data factory di Azure. Gateway di gestione dati scrive direttamente i dati nell'archivio di destinazione.
+Per spostare in modo sicuro i dati tra gli archivi dati locali protetti da firewall aziendale e un archivio dati cloud, è necessario installare il Gateway di gestione dati, ovvero un agente che consente lo spostamento e l'elaborazione ibridi dei dati sul computer locale. Il Gateway di gestione dati può essere installato sullo stesso computer dell'archivio dati o su un computer separato che è in grado di accedere all'archivio dati. In questo scenario, la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo vengono eseguiti dal Gateway di gestione dati. In questo caso, i dati non transitano attraverso il servizio Data factory di Azure. Gateway di gestione dati scrive direttamente i dati nell'archivio di destinazione.
 
 ![copia da locale a cloud](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+
+Per l'introduzione e la procedura dettagliata leggere l’articolo [Spostare dati tra archivi cloud e locali](data-factory-move-data-between-onprem-and-cloud.md), mentre l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) fornisce informazioni dettagliate sul gateway di gestione dei dati.
 
 ## Copiare dati da/a un archivio dati in una macchina virtuale IaaS di Azure 
 È anche possibile spostare dati da/a archivi dati supportati ospitati su VM IaaS (macchine virtuali Infrastructure-as-a-Service) di Azure tramite il Gateway di gestione dati. In questo caso, il Gateway di gestione dati può essere installato sulla stessa macchina virtuale di Azure dell'archivio dati o su una macchina virtuale separata in grado di accedere all'archivio dati.
@@ -74,21 +76,6 @@ cloud | cloud | **Servizio cloud su cui si basa l'attività di copia**. Data fac
 
 
 > [AZURE.NOTE] Se l'area dell'archivio dati di destinazione non è nell'elenco precedente, l'attività di copia non viene completata invece di passare attraverso un'area alternativa.
-
-
-
-### <a name="moveonpremtocloud"></a>Trasferire dati in modo sicuro tra un ambiente locale e il cloud
-Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nel trasferire facilmente i dati da ambienti locali al cloud e viceversa. Il Gateway di gestione dati è un agente che è possibile installare in locale per abilitare le pipeline di dati ibride.
-
-Il Gateway di gestione dati offre le funzionalità seguenti:
-
-1.	Consente di gestire in modo sicuro l'accesso ad archivi di dati locali.
-2.	Consente di modellare gli archivi dati locali e nel cloud all'interno di un'unica istanza di Data factory e di spostare i dati al suo interno.
-3.	Consente di monitorare e gestire lo stato del gateway in un'unica schermata attraverso un dashboard di Data factory basato sul cloud.
-
-È necessario considerare l'origine dati come un'origine dati locale, ovvero come se fosse protetta da firewall, anche quando si usa **ExpressRoute** e **il gateway** per stabilire la connettività tra il servizio e l'origine dati.
-
-Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
 
 ### Spostamento di dati affidabile e conveniente
@@ -196,4 +183,9 @@ Fare clic sul pulsante **Sfoglia** per il **File o cartella**, passare a una di 
 
 ![Uso di variabili personalizzate](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+## Passaggi successivi
+- Vedere [Copiare i dati dal BLOB di Azure a SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink in generale.
+- Vedere [Spostare dati tra archivi cloud e locali](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud.
+ 
+
+<!---HONumber=AcomDC_0713_2016-->

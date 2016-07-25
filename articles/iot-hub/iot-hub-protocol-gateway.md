@@ -39,4 +39,23 @@ Per ulteriori informazioni sul gateway del protocollo IoT di Azure e su come uti
 * [Archivio gateway del protocollo IoT Azure su GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guida per sviluppatori del gateway del protocollo IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, vedere:
+
+- [Eseguire il confronto con Hub eventi][lnk-compare]
+- [Scalabilità, disponibilità elevata e ripristino di emergenza][lnk-scaling]
+
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
+
+- [Guida per sviluppatori][lnk-devguide]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
+
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

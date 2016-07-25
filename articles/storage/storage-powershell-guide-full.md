@@ -46,10 +46,10 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
     	#begin
     	# Update with the name of your subscription.
-    	$SubscriptionName="YourSubscriptionName"
+    	$SubscriptionName = "YourSubscriptionName"
 
     	# Give a name to your new storage account. It must be lowercase!
-    	$StorageAccountName="yourstorageaccountname"
+    	$StorageAccountName = "yourstorageaccountname"
 
     	# Choose "West US" as an example.
     	$Location = "West US"
@@ -138,14 +138,14 @@ Sono necessari una sottoscrizione e un account di Azure per eseguire i cmdlet di
 
 Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windows PowerShell. Per informazioni sull'installazione e sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
-È possibile eseguire i cmdlet nella console di Azure PowerShell, nella console standard di Windows PowerShell oppure in Windows PowerShell Integrated Scripting Environment (ISE). Ad esempio, per aprire una **console di Azure PowerShell** andare al menu Start, digitare Microsoft Azure PowerShell, fare clic con il pulsante destro del mouse e scegliere Esegui come amministratore. Per aprire **Windows PowerShell ISE**, andare al menu Start, digitare Strumenti di amministrazione e fare clic per eseguirli. Nella finestra Strumenti di amministrazione fare clic con il pulsante destro del mouse su Windows PowerShell ISE, quindi scegliere Esegui come amministratore.
+È possibile eseguire i cmdlet nella console standard di Windows PowerShell o da Windows PowerShell Integrated Scripting Environment (ISE). Per aprire **Windows PowerShell ISE**, nel menu Start digitare Strumenti di amministrazione e fare clic per eseguirli. Nella finestra Strumenti di amministrazione fare clic con il pulsante destro del mouse su Windows PowerShell ISE, quindi scegliere Esegui come amministratore.
 
 ## Come gestire gli account di archiviazione in Azure
 
 ### Come impostare una sottoscrizione di Azure predefinita
 Per gestire Archiviazione di Azure con Azure PowerShell è necessario eseguire l'autenticazione dell'ambiente client con Azure usando l'autenticazione di Azure Active Directory o l'autenticazione basata su certificato. Per informazioni dettagliate, vedere il tutorial [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). In questa guida viene usata l'autenticazione di Azure Active Directory.
 
-1.	Nella console di Azure PowerShell o in Windows PowerShell ISE, digitare il comando seguente per aggiungere l'account Azure all'ambiente PowerShell locale:
+1.	In Windows PowerShell ISE digitare il comando seguente per aggiungere l'account Azure all'ambiente PowerShell locale:
 
     `Add-AzureAccount`
 
@@ -177,7 +177,7 @@ Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dop
 
 1.	Eseguire il cmdlet Get-AzureLocation per trovare tutte le posizioni dei data center disponibili:
 
-    `Get-AzureLocation | format-Table -Property Name, AvailableServices, StorageAccountTypes`
+    `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
 
 2.	Eseguire il cmdlet New-AzureStorageAccount per creare un nuovo account di archiviazione. Nell'esempio seguente viene creato un nuovo account di archiviazione nel data center "West US":
 
@@ -265,7 +265,7 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
 > [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
 
 ### Come caricare un BLOB in un contenitore
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Understanding Block Blobs, Append BLobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) (Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine).
+In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Per caricare i BLOB in un contenitore, è possibile usare il cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Per impostazione predefinita, questo comando carica i file locali in un BLOB in blocchi. Per specificare il tipo per il BLOB, è possibile usare il parametro - BlobType.
 
@@ -388,12 +388,12 @@ Non ci sono limiti agli snapshot creati per un BLOB. È possibile elencare gli s
     #Copy the snapshot to another container.
     Start-AzureStorageBlobCopy –Context $Ctx -ICloudBlob $snap -DestBlob $DestBlobName -DestContainer $DestContainerName
 
-Ora che si è appreso come gestire i BLOB e gli snapshot BLOB con Azure PowerShell, passare alla sezione successiva per informazioni su come gestire tabelle, code e file.
+Dopo aver compreso come gestire i BLOB e gli snapshot BLOB di Azure, passare alla sezione successiva per informazioni su come gestire tabelle, code e file.
 
 ## Come gestire le tabelle e le entità di tabella di Azure
 Il servizio di archiviazione tabelle di Azure è un archivio dati NoSQL, che è possibile usare per archiviare ed eseguire query su grandi set di dati strutturati non relazionali. I componenti principali del servizio sono tabelle, entità e proprietà. una tabella è una raccolta di entità. Un'entità è un set di proprietà. Ogni entità può avere fino a 252 proprietà, che corrispondono tutte a coppie nome-valore. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione tabelle di Azure. Per informazioni dettagliate, vedere [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) (Informazioni sul modello di dati del servizio tabelle) e [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
 
-Nelle seguenti sottosezioni verrà spiegato come gestire il servizio di archiviazione tabelle di Azure usando Azure PowerShell. Gli scenari presentati includono **la creazione**, **l’eliminazione**, e **il recupero** **delle tabelle**, nonché **l’aggiunta**, **l'esecuzione di query**, e **l'eliminazione delle entità di tabella**.
+Nelle seguenti sottosezioni verrà spiegato come gestire il servizio di archiviazione tabelle di Azure con Azure PowerShell. Gli scenari presentati includono **la creazione**, **l’eliminazione**, e **il recupero** **delle tabelle**, nonché **l’aggiunta**, **l'esecuzione di query**, e **l'eliminazione delle entità di tabella**.
 
 ### Come creare una tabella
 Ogni tabella deve risiedere in un account di archiviazione di Azure. L'esempio seguente mostra come creare una tabella in Archiviazione di Azure. Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Viene quindi usato il cmdlet [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) per creare una tabella in Archiviazione di Azure.
@@ -481,7 +481,7 @@ Per eseguire query su una tabella, usare la classe [Microsoft.WindowsAzure.Stora
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
     $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -505,7 +505,7 @@ Per eseguire query su una tabella, usare la classe [Microsoft.WindowsAzure.Stora
     $entities = $table.CloudTable.ExecuteQuery($query)
 
     #Display entity properties with the table format.
-    $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties[“ID”].Int32Value}} -AutoSize
+    $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties["ID"].Int32Value}} -AutoSize
 
 #### Come eliminare le entità di tabella
 È possibile eliminare un'entità usando le relative chiavi di riga e di partizione. Il seguente esempio presuppone che lo script indicato nella sezione Come aggiungere le entità di questa guida sia stato già eseguito. Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Successivamente, si tenta di recuperare la tabella "Employees" creata in precedenza usando il cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) Se la tabella esiste, viene chiamato il metodo [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) per recuperare un'entità in base ai relativi valori di chiave di riga e di partizione. Quindi l'entità viene passata al metodo [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) per l'eliminazione.
@@ -523,16 +523,17 @@ Per eseguire query su una tabella, usare la classe [Microsoft.WindowsAzure.Stora
     if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
-       $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
-       $entity = $tableResult.Result;
+       $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
+       $entity = $tableResult.Result
     if ($entity -ne $null)
     {
-       #Delete the entity.$table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
+       #Delete the entity.
+       $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
     }
     }
 
 ## Come gestire le code e i messaggi della coda di Azure
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione di accodamento di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione code di Azure con .NET](storage-dotnet-how-to-use-queues.md).
+Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione di accodamento di Azure. Per informazioni dettagliate, vedere [Introduzione all'archivio code di Azure con .NET](storage-dotnet-how-to-use-queues.md).
 
 Questa sezione spiega come gestire il servizio di archiviazione di accodamento di Azure usando Azure PowerShell. Gli scenari presentati includono **l’inserimento** e **l’eliminazione** dei messaggi in coda, nonché **la creazione**, **l’eliminazione**, e **il recupero di code**.
 
@@ -610,7 +611,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 ## Come gestire condivisioni file e file di Azure
 L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Microsoft Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API dell'archiviazione file o Azure PowerShell.
 
-Per informazioni dettagliate su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) e [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (API REST del servizio file).
+Per informazioni dettagliate su Archiviazione file di Azure, vedere [Introduzione all'archivio file di Azure in Windows](storage-dotnet-how-to-use-files.md) e [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (API REST del servizio file).
 
 ## Come impostare ed eseguire query di Analisi archiviazione
 È possibile utilizzare [Analisi archiviazione di Azure](storage-analytics.md) per raccogliere le metriche per gli account di archiviazione di Azure e per registrare i dati sulle richieste inviate all'account di archiviazione. È possibile usare le metriche di archiviazione per monitorare l'integrità di un account di archiviazione e Registrazione archiviazione per diagnosticare e risolvere i problemi relativi al proprio account di archiviazione. Per impostazione predefinita, le Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il portale di Azure o Windows PowerShell o a livello di codice mediante la libreria del client di archiviazione. La Registrazione archiviazione viene eseguita sul lato server e consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle proprie tabelle, code e BLOB, nonché i motivi per cui le richieste non sono riuscite.
@@ -635,7 +636,7 @@ Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere i
 
 Nelle sezioni successive verrà illustrato come creare un token di firma di accesso condiviso e criteri di accesso archiviati per le tabelle di Azure. Azure PowerShell fornisce cmdlet simili per contenitori, BLOB e code. Per eseguire gli script in questa sezione, scaricare [Azure PowerShell versione 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o versione successiva.
 
-### Come creare criteri in base al token di firma di accesso condiviso
+### Come creare un token di firma di accesso condiviso basato su criteri
 Usare il cmdlet New-AzureStorageTableStoredAccessPolicy per creare nuovi criteri di accesso archiviati. Chiamare quindi il nuovo cmdlet [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) per creare un nuovo token di firma di accesso condiviso basato sui criteri per una tabella di archiviazione Azure.
 
     $policy = "policy1"
@@ -751,4 +752,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

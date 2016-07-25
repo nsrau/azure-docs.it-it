@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Porre una domanda a cui è possibile rispondere con i dati: Analisi scientifica dei dati per principianti | Microsoft Azure"
+   pageTitle="Porre una domanda a cui è possibile rispondere con i dati - formulare domande| Microsoft Azure"
    description="Informazioni su come formulare una domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione."
    keywords="scegliere una domanda, domande di analisi scientifica dei dati, formulare una domanda, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata"
    services="machine-learning"
@@ -17,7 +17,7 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Analisi scientifica dei dati per principianti, video 3: Porre una domanda a cui è possibile rispondere con i dati 
+# Analisi scientifica dei dati per principianti, video 3: Porre una domanda a cui è possibile rispondere con i dati
 
 Informazioni su come formulare una domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
@@ -27,7 +27,7 @@ Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L
 
 ## Trascrizione: Porre una domanda a cui è possibile rispondere con i dati
 
-Benvenuti al terzo video della serie "Analisi scientifica dei dati per principianti".
+Questo è il terzo video della serie "Analisi scientifica dei dati per principianti".
 
 In questo video vengono forniti suggerimenti per formulare una domanda a cui è possibile rispondere con i dati.
 
@@ -99,4 +99,4 @@ Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dat
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

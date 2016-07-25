@@ -2,7 +2,7 @@
 
 Sono disponibili diverse opzioni per distribuire il traffico di rete tramite Microsoft Azure. Queste opzioni funzionano in modo diverso, vantano un set di funzionalità differenti e supportano diversi scenari. Possono essere utilizzate singolarmente o in combinazione.
 
-- Il servizio di bilanciamento del carico di Azure funziona a livello di rete (livello 4 nello stack di riferimento di rete OSI). Assicura la distribuzione del traffico a livello di rete tra le istanze di un'applicazione in esecuzione nello stesso data center di Azure.
+- Il servizio di bilanciamento del carico di Azure funziona al livello trasporto (livello 4 nello stack di riferimento di rete OSI). Assicura la distribuzione del traffico a livello di rete tra le istanze di un'applicazione in esecuzione nello stesso data center di Azure.
 
 - Il gateway applicazione funziona a livello di applicazione (livello 7 nello stack di riferimento di rete OSI). Agisce come un servizio di proxy inverso, terminando la connessione di client e inoltrando richieste a endpoint di back-end.
 
@@ -10,7 +10,7 @@ Sono disponibili diverse opzioni per distribuire il traffico di rete tramite Mic
 
 | Servizio | Servizio di bilanciamento del carico di Azure | Gateway applicazione | Gestione traffico |
 |---|---|---|---|
-|Tecnologia| Livello di rete (livello 4) | Livello di applicazione (livello 7) | Livello DNS |
+|Tecnologia| Livello trasporto (livello 4) | Livello di applicazione (livello 7) | Livello DNS |
 | Protocolli di applicazioni supportati |	Qualsiasi | HTTP e HTTPS | 	Qualsiasi (è richiesto un endpoint HTTP/S per il monitoraggio degli endpoint) |
 | Endpoint | Istanze del ruolo VM e Servizi cloud di Azure | Qualsiasi indirizzo IP interno di Azure o indirizzo IP Internet pubblico | VM di Azure, Servizi Cloud, App Web di Azure ed endpoint esterni |
 | Supporto della rete virtuale | Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) | Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) |	Supporta solo applicazioni con connessione Internet |
@@ -30,4 +30,4 @@ Monitoraggio degli endpoint | supportato tramite probe | supportato tramite prob
 
   
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

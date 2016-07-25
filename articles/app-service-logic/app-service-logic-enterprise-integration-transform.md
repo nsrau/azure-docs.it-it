@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica di Enterprise Integration Pack | Servizio app di Microsoft Azure" 
+	pageTitle="Panoramica di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Usare le funzionalità di Enterprise Integration Pack per abilitare processi aziendali e scenari di integrazione tramite il Servizio app di Microsoft Azure" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise Integration con trasformazioni XML
@@ -34,28 +34,24 @@ Dopo aver caricato il file della trasformazione nell'account di integrazione, è
 
 ### Prerequisiti 
 Nell'anteprima è necessario:
+
 -  [Creare un contenitore di Funzioni di Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Creare un contenitore di Funzioni di Azure")
-
-
->[AZURE.TIP] Annotare il nome del contenitore di Funzioni di Azure, che sarà necessario nel passaggio successivo.
-
-
 -  [Aggiungere una funzione al contenitore di Funzioni di Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Questo modello consente di creare una funzione webhook basata sulla funzione di Azure C# con funzionalità di trasformazione da usare negli scenari di integrazione di app per la logica")
+-  Creare un account di integrazione e aggiungervi una mappa
 
-
->[AZURE.TIP] Annotare il nome della funzione, che sarà necessario nel passaggio successivo.
+>[AZURE.TIP] Annotare il nome del contenitore di Funzioni di Azure e della funzione di Azure, che saranno necessari nel passaggio successivo.
 
 Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:
 
-1. Creare un'app per la logica e [collegarla all'account di integrazione](./app-service-logic-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la trasformazione.
-2. Aggiungere un trigger **Request - When an HTTP request is received** (Richiesta - Alla ricezione di una richiesta HTTP) all'app per la logica ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
-3. Aggiungere l'azione **Transform XML** selezionando innanzitutto **Aggiungi un'azione** ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
-4. Immettere la parola *trasformazione* nella casella di ricerca per filtrare tutte le azioni su quella che si desidera usare ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
+1. Creare un'app per la logica e [collegarla all'account di integrazione](./app-service-logic-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
+2. Aggiungere un trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
+3. Aggiungere l'azione **Transform XML** selezionando prima **Aggiungi un'azione** ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
+4. Immettere la parola *transform* nella casella di ricerca per filtrare tutte le azioni su quella che si vuole usare ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
 5. Selezionare l'azione **Transform XML** ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)
-6. Selezionare il **FUNCTION CONTAINER** (Contenitore funzioni) che contiene la funzione da usare. Si tratta del nome del contenitore di Funzioni di Azure creato in precedenza.
+6. Selezionare il **Contenitore funzioni** con la funzione da usare. Si tratta del nome del contenitore di Funzioni di Azure creato in precedenza.
 7. Selezionare la **FUNZIONE** che si vuole usare. Si tratta del nome della funzione di Azure creato in precedenza.
 8. Aggiungere il **CONTENUTO** XML da trasformare. Si noti che è possibile usare tutti i dati XML ricevuti nella richiesta HTTP come **CONTENUTO**. In questo esempio selezionare il corpo della richiesta HTTP che ha attivato l'app per la logica.
-9. Selezionare il nome della **MAPPA** che si desidera usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.
+9. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.
 10. Salvare il lavoro ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png)
 
 A questo punto, la configurazione della mappa è completa. In un'applicazione reale è possibile archiviare i dati trasformati in un'applicazione LOB, ad esempio SalesForce. È possibile eseguire facilmente questa azione inviando l'output della trasformazione a Salesforce.
@@ -75,6 +71,7 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 
 ## Altre informazioni
 - [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
+- [Altre informazioni sulle mappe](./app-service-logic-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
