@@ -263,7 +263,9 @@ Usare questo metodo se si è connessi a Windows con le credenziali di un dominio
 
 1. Avviare Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
 2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
-3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato. ![Selezionare Autenticazione della password di Active Directory][12]
+3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato.
+
+	![Selezionare Autenticazione della password di Active Directory][12]
 
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 

@@ -38,7 +38,7 @@ Usare questa architettura quando il server di elaborazione è locale e si usa Ex
 
 Usare questa architettura quando il server di elaborazione è in Azure e si dispone di una rete VPN o di una connessione ExpressRoute.
 
-![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Per vedere l'elenco completo delle porte e il diagramma che illustra l'architettura di failback, fare riferimento all'immagine seguente.
 
@@ -98,7 +98,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 1.  Selezionare il server di configurazione in Insieme di credenziali > Impostazioni > Manage Site Recovery Infrastructure (Gestisci infrastruttura di Site Recovery) > **Server di configurazione**, sotto l'intestazione For VMware and Physical Machines (Per VMware e computer fisici). Fare clic su + Server di elaborazione
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. Per la distribuzione del server di elaborazione scegliere la distribuzione di un server di elaborazione di failback in Azure
 
@@ -108,11 +108,11 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 5. Se è stata selezionata una rete di *distribuzione classica*, verrà richiesto di creare una nuova VM tramite la raccolta di Azure e installarvi il server di elaborazione.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Assicurarsi di selezionare *Classico* come modello di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.PNG)
 	
 	2. Installare il server di elaborazione seguendo la procedura [specificata qui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -128,7 +128,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	5. Scegliere la subnet specifica e l'interfaccia di rete per la connessione. Nota: è necessario creare un'[interfaccia di rete](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selezionarla in fase di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.PNG)
 	
 	6. Fare clic su OK. Si attiverà quindi un processo che creerà una macchina virtuale di tipo di distribuzione Resource Manager con l’installazione del server di elaborazione. È necessario eseguire l’installazione all'interno della VM per registrare il server nel server di configurazione. A tale scopo, seguire [questa procedura](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -252,4 +252,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

@@ -16,7 +16,8 @@
 
 #Esercitazione: integrazione di Azure Active Directory con Kudos
   
-In questa esercitazione viene illustrata l'integrazione di Azure e Kudos. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+In questa esercitazione viene illustrata l'integrazione di Azure e Kudos.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant Kudos
@@ -64,7 +65,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Kudos tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Kudos tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 

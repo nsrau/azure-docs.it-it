@@ -206,7 +206,11 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 
 | Nome campo | Uso | Nome API |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - | | priority | - | - | | ttl | Durata per questo messaggio | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - |
+| priority | - | - |
+| ttl | Durata per questo messaggio | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | - | - |
+| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 

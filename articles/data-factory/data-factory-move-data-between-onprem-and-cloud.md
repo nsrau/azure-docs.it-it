@@ -340,7 +340,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
 	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink** come **tipo di sink**.
-	- La query SQL *select * from emp* viene specificata per la proprietà **sqlReaderQuery** di **SqlSource****.
+	- La query SQL *select * from emp* viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	

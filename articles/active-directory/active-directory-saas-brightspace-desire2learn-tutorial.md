@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Brightspace by Desire2Learn
 
-Questa esercitazione descrive l'integrazione di Azure e Brightspace by Desire2Learn. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Brightspace by Desire2Learn.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Brightspace by Desire2Learn abilitata per l'accesso Single Sign-On
@@ -89,14 +90,16 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inviare il file di metadati scaricato al team di supporto di Brightspace by Desire2Learn.
 
-    >[AZURE.NOTE] Il team di supporto di Brightspace by Desire2Learn si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
+    >[AZURE.NOTE] Il team di supporto di Brightspace by Desire2Learn si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. 
+    Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
 6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a Brightspace by Desire2Learn, è necessario eseguirne il provisioning in Brightspace by Desire2Learn. Nel caso di Brightspace by Desire2Learn, gli account utente devono essere creati dal team di supporto di Brightspace by Desire2Learn.
+Per consentire agli utenti di Azure AD di accedere a Brightspace by Desire2Learn, è necessario eseguirne il provisioning in Brightspace by Desire2Learn.  
+Nel caso di Brightspace by Desire2Learn, gli account utente devono essere creati dal team di supporto di Brightspace by Desire2Learn.
 
 >[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Brightspace by Desire2Learn per eseguire il provisioning degli account utente di Azure Active Directory.
 

@@ -112,7 +112,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS. Nel caso di ArcGIS, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS.  
+Nel caso di ArcGIS, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
