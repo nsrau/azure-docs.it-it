@@ -112,7 +112,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	1. Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Assicurarsi di selezionare *Classico* come modello di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Installare il server di elaborazione seguendo la procedura [specificata qui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -128,7 +128,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	5. Scegliere la subnet specifica e l'interfaccia di rete per la connessione. Nota: è necessario creare un'[interfaccia di rete](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selezionarla in fase di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. Fare clic su OK. Si attiverà quindi un processo che creerà una macchina virtuale di tipo di distribuzione Resource Manager con l’installazione del server di elaborazione. È necessario eseguire l’installazione all'interno della VM per registrare il server nel server di configurazione. A tale scopo, seguire [questa procedura](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -252,4 +252,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!------HONumber=AcomDC_0713_2016-->
+<!-------HONumber=AcomDC_0713_2016-->
