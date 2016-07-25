@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # Creare un'app Web in un ambiente del servizio app
@@ -30,7 +30,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
 
 ## Creare un'app Web
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo > Web e dispositivi mobili > App Web**. 
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo > Web e dispositivi mobili > App Web**.
 
 	![][1]
 
@@ -44,7 +44,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
 
 4. Selezionare o creare un piano di servizio app.
 
-	I *piani di servizio app* sono costituiti da set gestiti di app Web. Quando si seleziona il prezzo, l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano. Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	I *piani di servizio app* sono costituiti da set gestiti di app Web. Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app. Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano. Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 	È possibile identificare i piani di servizio app nell'ambiente del servizio app osservando la località indicata sotto il nome del piano.
 
@@ -54,15 +54,9 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
 
 5. Immettere il nome dell'app Web e fare clic su **Crea**.
 
-	Il nome dell'app Web deve essere univoco nel servizio app di Azure. Questo significa che se si vuole creare un'app Web denominata "miaappweb", al momento non possono esistere altre app Web denominate nello stesso modo nel servizio app di Azure.
-
-	L'URL di un'app Web in un ambiente del servizio app è:
-
-	[*nomesito*].[*nome dell'ambiente del servizio app*].p.azurewebsites.net
-
-	invece dell'indirizzo
-
-	[*nomesito*].azurewebsites.net
+	Se l'ambiente del servizio app usa un indirizzo VIP esterno, l'URL dell'app nell'ambiente del servizio app è: [*nomesito*].[*nome dell'ambiente del servizio app*].p.azurewebsites.net e non [*nomesito*].azurewebsites.net
+	
+	Se l'ambiente del servizio app usa un indirizzo VIP interno, l'URL dell'app in tale ambiente del servizio app è: [*nomesito*].[*sottodominio specificato durante la creazione dell'ambiente del servizio app*] Dopo aver selezionato il piano del servizio app durante la creazione dell'ambiente del servizio app, l'aggiornamento del sottodominio verrà visualizzato in **Nome**
 
 ## <a name="createplan"></a> Creare un piano di servizio app
 
@@ -118,4 +112,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

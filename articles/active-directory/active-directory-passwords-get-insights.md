@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure" 
-	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure"
+	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Come ottenere informazioni dettagliate con i report di gestione delle password
+
+> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+
 Questa sezione descrive come è possibile usare i report di gestione delle password di Azure Active Directory per visualizzare come gli utenti usano la modifica e la reimpostazione delle password nell'organizzazione.
 
 - [**Informazioni generali sui report di gestione delle password**](#overview-of-password-management-reports)
@@ -81,7 +84,7 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
 
 Colonna|Valori consentiti e relativi significati
 ---|---
-Dati registrati| **Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p><p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per l'autenticazione<p>**Cellulare**: l'utente ha usato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza**: l'utente ha usato domande di sicurezza per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio indirizzo di posta elettronica alternativo + cellulare)**: si verifica quando vengono specificati 2 diversi criteri e indica i metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
+Dati registrati| **Indirizzo di posta elettronica alternativo** – l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<p><p>** Telefono ufficio** – l'utente ha usato il telefono ufficio per autenticarsi<p>**Cellulare** – l'utente ha usato un numero di cellulare per autenticarsi<p>**Domande di sicurezza** – domande di sicurezza usate dall'utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
 
 ## Visualizzare le attività di reimpostazione delle password nell'organizzazione
 
@@ -108,8 +111,8 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
 
 Colonna|Valori consentiti e relativi significati
 ---|---
-Metodi usati|**Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi<p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
-Risultato|**Operazione abbandonata**: l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>**Operazione bloccata**: è stato impedito all'account utente di usare la pagina di reimpostazione della password poiché ha tentato troppe volte di usare tale pagina o un singolo criterio di reimpostazione password in 24 ore <p>**Operazione annullata**: l'utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**È stato contattato l'amministratore**: l'utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l'amministratore tramite il collegamento "Contatta l'amministratore" invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita**: l'utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per usare tale funzionalità (ad esempio, mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita**: la reimpostazione della password è stata eseguita correttamente.
+Metodi usati|**Indirizzo di posta elettronica alternativo** – l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<p>**Telefono ufficio** – l'utente ha usato il telefono ufficio per autenticarsi<p>**Cellulare** – l'utente ha usato un numero di cellulare per autenticarsi<p>**Domande di sicurezza** – domande di sicurezza usate dall'utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
+Risultato|**Operazione abbandonata** – l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>**Operazione bloccata** – è stato impedito all'account utente di usare la pagina di reimpostazione della password poiché ha tentato troppe volte di usare tale pagina o un singolo criterio di reimpostazione password in 24 ore<p>**Operazione annullata** – l'utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**È stato contattato l'amministratore** – l'utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l'amministratore tramite il collegamento "Contatta l'amministratore" invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita** – l'utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per usare tale funzionalità (ad esempio mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita** – la reimpostazione della password è stata eseguita correttamente.
 Dettagli|Vedere la tabella seguente
 
 ### Valori consentiti per la colonna dettagli
@@ -156,7 +159,7 @@ La reimpostazione della password dell'utente è riuscita.|Succeeded
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -171,4 +174,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

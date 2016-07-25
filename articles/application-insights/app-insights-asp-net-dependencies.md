@@ -99,11 +99,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ## <a name="diagnosis"></a>Diagnosi dei problemi relativi alle prestazioni delle dipendenze
 
-Per valutare le prestazioni delle richieste al server:
-
-![Nella pagina Panoramica dell'applicazione in Application Insights fare clic sul riquadro Prestazioni](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-Scorrere fino a esaminare la griglia di richieste:
+Per valutare le prestazioni delle richieste al server, aprire il pannello Prestazioni e scorrere verso il basso per consultare la griglia delle richieste:
 
 ![Elenco di richieste con conteggi e medie](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Fare clic su tale riga per visualizzare gli eventi di richiesta singola:
 
 Fare clic su qualsiasi istanza con esecuzione prolungata per esaminarla ulteriormente.
 
-> [AZURE.NOTE] Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
-
 Scorrere in basso fino alle chiamate alle dipendenze remote correlate a questa richiesta:
 
 ![Trovare le chiamate alle dipendenze remote, identificare una durata insolita](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Sembra che gran parte del tempo dedicato a questa richiesta sia stato impiegato in una chiamata a un servizio locale.
 
-Selezionare la riga per ottenere altre informazioni:
 
+Selezionare la riga per ottenere altre informazioni:
 
 ![Fare clic su tale dipendenza remota per identificare il motivo del problema](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 Il dettaglio include informazioni sufficienti a diagnosticare il problema.
 
+
+In un diverso caso, nessuna chiamata di dipendenza risulta essere lunga, ma passando alla visualizzazione della sequenza temporale è possibile vedere il punto in cui si è verificato il ritardo nell'elaborazione interna:
+
+
+![Trovare le chiamate alle dipendenze remote, identificare una durata insolita](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## Errori
@@ -172,15 +171,15 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 ## Risoluzione dei problemi
 
-*Il flag di operazione riuscita della dipendenza visualizza sempre true o false*.
+*Il flag di operazione riuscita della dipendenza visualizza sempre true o false.*
 
 * Eseguire l'aggiornamento alla versione più recente dell'SDK. Se la versione di .NET è precedente alla 4.6, installare [Status Monitor](app-insights-monitor-performance-live-website-now.md).
 
 ## Passaggi successivi
 
-- [Eccezioni](app-insights-asp-net-exception-mvc.md#selector1)
-- [Dati utente & pagina](app-insights-asp-net-client.md#selector1)
-- [Disponibilità](app-insights-monitor-web-app-availability.md#selector1)
+- [Eccezioni](app-insights-asp-net-exceptions.md)
+- [Dati utente & pagina][client]
+- [Disponibilità](app-insights-monitor-web-app-availability.md)
 
 
 
@@ -202,4 +201,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

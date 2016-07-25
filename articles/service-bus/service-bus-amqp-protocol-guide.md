@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure | Microsoft Azure" 
     description="Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -234,6 +234,8 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 
 Questa sezione illustra le funzionalità avanzate del bus di servizio di Azure, basate sulle estensioni provvisorie per AMQP attualmente in fase di sviluppo nel comitato tecnico OASIS per AMQP. Il bus di servizio di Azure implementa lo stato più recente di queste estensioni provvisorie e adotterà le modifiche introdotte non appena le versioni provvisorie acquisiscono lo stato standard.
 
+> [AZURE.NOTE] Le operazioni avanzate per la messaggistica del bus di servizio sono supportate tramite un modello di richiesta/risposta. I dettagli di queste operazioni sono descritte nel documento [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 nel bus di servizio: operazioni basate su richiesta/risposta).
+
 ### Gestione di AMQP
 
 La specifica di gestione di AMQP è la prima estensione provvisoria illustrata in questo articolo. Questa specifica definisce un set di gesti del protocollo posizionati sopra il protocollo AMQP che consentono interazioni di gestione con l'infrastruttura di messaggistica su AMQP. La specifica definisce operazioni generiche, ad esempio *create*, *read*, *update* e *delete* per la gestione di entità all'interno di un'infrastruttura di messaggistica e un set di operazioni di query.
@@ -327,4 +329,4 @@ Per altre informazioni su AMQP, vedere i collegamenti seguenti:
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

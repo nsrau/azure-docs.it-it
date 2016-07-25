@@ -188,7 +188,7 @@ In fase di compilazione nell'ambito dei parametri per la compilazione FBT o di e
 
 2.	È possibile selezionare facoltativamente il parametro *splitterStrategy*, ovvero *RandomSplitter* o *LastEventSplitter*. *RandomSplitter* suddivide i dati di utilizzo in set di training e set di test basati sui valori percentuali e di seme casuali *randomSplitterParameters* specificati per il test. *LastEventSplitter* suddivide i dati di utilizzo in set di training e set di test in base all'ultima transazione per ogni utente.
 
-Verrà attivata una compilazione che usa solo un subset dei dati per il training; il resto dei dati viene usato per calcolare le metriche di valutazione. Dopo aver completato la compilazione, per ottenere l'output della valutazione è sufficiente chiamare l’[API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) passando il rispettivo elemento *modelId* e *buildId*.
+Verrà attivata una compilazione che usa solo un subset dei dati per il training; il resto dei dati viene usato per calcolare le metriche di valutazione. Dopo aver completato la compilazione, per ottenere l'output della valutazione è sufficiente chiamare l’[API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f) passando il rispettivo elemento *modelId* e *buildId*.
 
  Di seguito è riportato l'output JSON per la valutazione di esempio eseguita:
 
@@ -271,4 +271,4 @@ Verrà attivata una compilazione che usa solo un subset dei dati per il training
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

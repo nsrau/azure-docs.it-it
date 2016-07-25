@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Usare SQL Server Management Studio in Azure RemoteApp per connettersi al database SQL
@@ -158,4 +158,4 @@ Per altre informazioni su come stabilire la connessione al database SQL, vedere 
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

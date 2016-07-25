@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Usare Hive con Hadoop in HDInsight con Beeline
@@ -55,25 +55,13 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
 
 ##<a id="beeline"></a>Usare il comando Beeline
 
-1. Una volta connessi, utilizzare quanto segue per ottenere il nome host del nodo head:
+1. Dopo la connessione, usare il comando seguente per avviare Beeline:
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    Il client Beeline viene avviato e si effettua la connessione all'URL JDBC. Qui si utilizza `localhost` poiché HiveServer2 viene eseguito in entrambi i nodi head del cluster e Beeline è in esecuzione direttamente nel nodo head 0.
     
-    Salvare il nome host restituito, verrà utilizzato in un secondo momento durante la connessione a HiveServer2 da Beeline.
-    
-2. Avviare l'interfaccia della riga di comando di Hive mediante il comando seguente:
-
-        beeline
-
-2. Al prompt di `beeline>` usare il comando seguente per connettersi al servizio HiveServer2: Sostituire __HOSTNAME__ con il nome host restituito per il nodo head precedentemente:
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-        
-    In questo modo si indica a Beeline di connettersi alla porta __10001__ sull'oggetto __HOSTNAME__ specificato e che __HTTP__ è il metodo di trasporto. L'account __admin__ viene usato per autenticare la connessione.
-
-    Quando richiesto, immettere la password di amministratore (admin) per il cluster HDInsight. Una volta stabilita la connessione, il prompt cambierà nel modo seguente:
-    
-        jdbc:hive2://HOSTNAME:10001/>
+    Al termine dell'esecuzione del comando, si aprirà il prompt dei comandi `jdbc:hive2://localhost:10001/>`.
 
 3. I comandi di Beeline iniziano di solito con un carattere `!`, ad esempio `!help` visualizza la Guida. È tuttavia possibile omettere `!`. Ad esempio, anche `help` funzionerà.
 
@@ -176,13 +164,15 @@ Beeline può anche essere usato per eseguire un file che contiene istruzioni Hiv
     
     > [AZURE.NOTE] A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
     
-3. Per salvare il file usare __CTRL__+___\_X__, quindi immettere __Y__ e infine premere __INVIO__.
+3. Per salvare il file usare __CTRL__+__\_X__, quindi immettere _Y_ e infine premere __INVIO__.
 
 4. Usare il codice seguente per eseguire il file tramite Beeline: Sostituire __HOSTNAME__ con il nome ottenuto in precedenza per il nodo head e __PASSWORD__ con la password per l'account amministratore:
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. Per verificare che la tabella **errorLogs** è stata creata, avviare Beeline e connettersi a HiveServer2, quindi usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
+    > [AZURE.NOTE] Il parametro `-i` avvia Beeline, esegue le istruzioni nel file query.hql e rimane in Beeline nel prompt dei comandi `jdbc:hive2://localhost:10001/>`. È inoltre possibile eseguire un file utilizzando il parametro `-f`, che consente di tornare a Bash dopo l'elaborazione del file.
+
+5. Per verificare che la tabella **errorLogs** è stata creata, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
 
         SELECT * from errorLogs;
 
@@ -245,4 +235,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

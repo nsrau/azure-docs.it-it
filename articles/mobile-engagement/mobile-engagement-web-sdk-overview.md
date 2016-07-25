@@ -17,45 +17,45 @@
 	ms.author="piyushjo" />
 
 
-# SDK per Web per Azure Mobile Engagement
+# Azure Mobile Engagement Web SDK
 
-Da qui, è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app Web. Se si vuole fare prima una prova, eseguire l'[esercitazione di 15 minuti](mobile-engagement-web-app-get-started.md).
+Da qui è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app Web. Per fare una prova prima di iniziare con la propria app Web, vedere l'[esercitazione di 15 minuti](mobile-engagement-web-app-get-started.md).
 
 ## Procedure di integrazione
-1. Iniziare da qui: [Come integrare Engagement in un'applicazione Web](mobile-engagement-web-integrate-engagement.md)
+1. Informazioni su [come integrare Mobile Engagement in un'app Web](mobile-engagement-web-integrate-engagement.md).
 
-2. Implementazione del piano di tag: [Come usare l'API di Engagement in un'applicazione Web](mobile-engagement-web-use-engagement-api.md)
+2. Per l'implementazione del piano di tag, vedere [come usare l'API avanzata di assegnazione tag di Mobile Engagement nella propria app Web](mobile-engagement-web-use-engagement-api.md).
 
 ## Note sulla versione
 
-### 2\.0.1 (10/06/2016)
+### 2\.0.1 (10/6/2016)
 
--   SDK disabilitato in Internet Explorer 8 e Internet Explorer 9.
--   Rilevamento del browser Web Opera fisso.
+-   Disabilitato Mobile Engagement Web SDK in Internet Explorer 8 e Internet Explorer 9.
+-   Corretto il rilevamento del Web browser Opera.
 
 Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagement-web-release-notes.md).
 
 ## Procedure di aggiornamento
 
-### Dalla versione 1.2.1 alla 2.0.0
+### Aggiornamento da 1.2.1 a 2.0.0
 
-La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement. Se si esegue la migrazione da una versione precedente, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 1.2.1 e quindi applicare la procedura seguente.
+Le sezioni seguenti illustrano come eseguire la migrazione di un'integrazione di Mobile Engagement Web SDK dal servizio Capptain offerto da Capptain SAS a un'app di Azure Mobile Engagement. Se si esegue la migrazione da una versione precedente alla 1.2.1, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 1.2.1 e quindi applicare le procedure seguenti.
 
-Questa versione di Engagement SDK per Web non supporta samsung-tv, OperaTV, webOS e la funzionalità Reach.
+Questa versione di Mobile Engagement SDK per Web non supporta Samsung Smart TV, OperaTV, webOS o la funzionalità Reach.
 
->[AZURE.IMPORTANT] Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement.
+>[AZURE.IMPORTANT] Capptain e Azure Mobile Engagement sono servizi diversi e le procedure seguente illustrano solo come eseguire la migrazione dell'app client. La migrazione di Mobile Engagement SDK per Web nell'app non comporta la migrazione dei dati dai server di Capptain a un server di Mobile Engagement.
 
 #### File JavaScript
 
-Sostituire il file `capptain-sdk.js` con il file `azure-engagement.js` e aggiornare le importazioni degli script di conseguenza.
+Sostituire il file capptain-sdk.js con il file azure-engagement.js e aggiornare di conseguenza le importazioni degli script.
 
 #### Rimuovere Capptain Reach
 
-Questa versione di Engagement SDK per Web non supporta la funzionalità Reach. Se lo strumento Capptain Reach è stato integrato nell'applicazione, è necessario rimuoverlo.
+Questa versione di Mobile Engagement SDK per Web non supporta la funzionalità Reach. Se nell'applicazione è integrata la funzione Capptain Reach, rimuoverla.
 
-Rimuovere l'importazione di css Reach dalla pagina ed eliminare il file css correlato (per impostazione predefinita, capptain-reach.css).
+Rimuovere l'importazione di CSS Reach dalla pagina ed eliminare il relativo file con estensione css (per impostazione predefinita, capptain-reach.css).
 
-Eliminare le risorse di Reach: l'immagine di chiusura (per impostazione predefinita, capptain-close.png) e l'icona del marchio (per impostazione predefinita, capptain-notification-icon).
+Eliminare le risorse di Reach seguenti: l'immagine di chiusura (per impostazione predefinita, capptain-close.png) e l'icona del marchio (per impostazione predefinita, capptain-notification-icon).
 
 Rimuovere l'interfaccia utente di Reach per le notifiche in-app. Il layout predefinito è simile al seguente:
 
@@ -74,7 +74,7 @@ Rimuovere l'interfaccia utente di Reach per le notifiche in-app. Il layout prede
 	  </div>
 	</div>
 
-Rimuovere l'interfaccia utente di Reach per annunci Web/testo e sondaggi. Il layout predefinito è simile al seguente:
+Rimuovere l'interfaccia utente di Reach per gli annunci Web, per gli annunci di testo e per i sondaggi. Il layout predefinito è simile al seguente:
 
 	<div id="capptain_overlay" class="capptain_category_default">
 	  <button id="capptain_overlay_close">x</button>
@@ -87,7 +87,7 @@ Rimuovere l'interfaccia utente di Reach per annunci Web/testo e sondaggi. Il lay
 	  </div>
 	</div>
 
-Rimuovere l'oggetto `reach` dalla configurazione, se presente. Il layout è simile al seguente:
+Rimuovere l'oggetto `reach` dalla configurazione, se presente. L'aspetto sarà simile al seguente:
 
 	window.capptain = {
 	  [...]
@@ -100,17 +100,17 @@ Rimuovere eventuali altre personalizzazioni di Reach, ad esempio le categorie.
 
 #### Rimuovere API deprecate
 
-Alcune delle API da Capptain sono deprecate nella versione Engagement dell'SDK.
+Alcune delle API da Capptain sono deprecate in Mobile Engagement SDK per Web.
 
-Rimuovere eventuali chiamate alle API seguenti: `agent.connect`, `agent.disconnect`, `agent.pause`, `agent.sendMessageToDevice`.
+Rimuovere eventuali chiamate alle API seguenti: `agent.connect`, `agent.disconnect`, `agent.pause` e `agent.sendMessageToDevice`.
 
-Rimuovere i callback seguenti, se presenti, dalla configurazione di Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, `onPushMessageReceived`.
+Rimuovere i callback seguenti dalla configurazione di Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived` e `onPushMessageReceived`.
 
 #### Configurazione
 
-Il servizio Engagement usa ora una stringa di connessione per configurare gli identificatori dell'SDK, ad esempio l'identificatore dell'applicazione.
+Mobile Engagement usa ora una stringa di connessione per configurare gli identificatori dell'SDK, ad esempio l'identificatore dell'applicazione.
 
-Sostituire l'ID dell'applicazione con la stringa di connessione. Si noti anche che l'oggetto globale per la configurazione dell'SDK passa da `capptain` a `azureEngagement`.
+Sostituire l'ID dell'applicazione con la stringa di connessione. Si noti che l'oggetto globale per la configurazione dell'SDK cambia da `capptain` a `azureEngagement`.
 
 Prima della migrazione:
 
@@ -130,10 +130,10 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di A
 
 #### API JavaScript
 
-L'oggetto JavaScript globale `window.capptain` è stato rinominato `window.azureEngagement` ma è possibile usare l'alias `window.engagement` per le chiamate API (non è possibile usare l'alias per definire la configurazione dell'SDK).
+L'oggetto JavaScript globale `window.capptain` è stato rinominato `window.azureEngagement`, ma è possibile usare l'alias `window.engagement` per le chiamate API. Non è possibile usare l'alias per definire la configurazione dell'SDK.
 
-Ad esempio: `capptain.deviceId` diventa `engagement.deviceId`, `capptain.agent.startActivity` diventa `engagement.agent.startActivity` ecc ...
+Ad esempio, `capptain.deviceId` diventa `engagement.deviceId`, `capptain.agent.startActivity` diventa `engagement.agent.startActivity` e così via.
 
-Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-web-upgrade-procedure.md).
+Se nell'applicazione Web è già stata integrata una versione precedente di Azure Mobile Engagement Web SDK, vedere le [procedure di aggiornamento](mobile-engagement-web-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

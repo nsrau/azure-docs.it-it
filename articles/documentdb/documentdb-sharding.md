@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
-# Come partizionare i dati in DocumentDB con .NET SDK
+# Come eseguire il partizionamento dei dati tramite il supporto lato client di DocumentDB
 
-Azure DocumentDB supporta le raccolte che è possono aumentare fino a raggiungere [grandi volumi di archiviazione e velocità effettiva](documentdb-partition-data.md). Tuttavia, esistono casi di utilizzo in cui risulta utile mantenere un controllo con granularità fine sul comportamento di partizionamento. Per ridurre il codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js e Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più raccolte.
+Azure DocumentDB supporta [il partizionamento automatico delle raccolte](documentdb-partition-data.md). Tuttavia, esistono casi di utilizzo in cui risulta utile mantenere un controllo con granularità fine sul comportamento di partizionamento. Per ridurre il codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js e Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più raccolte.
 
 In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e verrà spiegato come usarle per sviluppare le applicazioni partizionate. Altri SDK come Java, Node. js e Python supportano interfacce e metodi simili per il partizionamento lato client.
 
-## Partizionamento con l'SDK di DocumentDB
+## Partizionamento lato client con l'SDK di DocumentDB
 
 Prima di esaminare più in dettaglio il partizionamento, è opportuno riepilogare alcuni concetti di base di DocumentDB correlati al partizionamento. Ogni account di database di DocumentDB è costituito da un insieme di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, UDF, documenti e allegati correlati. Le raccolte possono essere partizionate singolarmente o autopartizionate con le seguenti proprietà:
 
@@ -140,7 +140,7 @@ Gli esempi sono open source e si consiglia di inviare richieste pull con contrib
 
 Sì, DocumentDB supporta il [partizionamento lato server](documentdb-partition-data.md). DocumentDB supporta anche il partizionamento lato client tramite resolver della partizione lato client per i casi di utilizzo più avanzati.
 
-* * Come distinguere quando utilizzare il partizionamento lato server o lato client? * * Per la maggior parte dei casi di utilizzo, è consigliabile l'utilizzo del partizionamento lato server, perché gestisce le attività amministrative di partizionamento dei dati e routing delle richieste. Tuttavia, se è necessario il partizionamento per intervalli o in un caso di utilizzo specializzato per l'isolamento delle prestazioni tra i diversi valori delle chiavi di partizione, il partizionamento lato client potrebbe essere l'approccio migliore.
+** Quando è opportuno utilizzare il partizionamento lato server rispetto al partizionamento lato client?** Per la maggior parte dei casi di utilizzo, è consigliabile l'utilizzo del partizionamento lato server, perché gestisce le attività amministrative di partizionamento dei dati e routing delle richieste. Tuttavia, se è necessario il partizionamento per intervalli o in un caso di utilizzo specializzato per l'isolamento delle prestazioni tra i diversi valori delle chiavi di partizione, il partizionamento lato client potrebbe essere l'approccio migliore.
 
 **Come aggiungere o rimuovere una raccolta nel proprio schema di partizionamento?**
 
@@ -164,4 +164,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introduzione a Reliable Actors
@@ -32,10 +32,11 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere quattro concett
 	* Risolve i nomi. La classe è in grado di individuare l'attore nel cluster, ossia trovare il nodo del cluster in cui è ospitato.
 	* Gestisce gli errori. La classe può ripetere le chiamate al metodo e determinare nuovamente la posizione dell'attore, ad esempio dopo un errore che richiede lo spostamento dell'attore in un altro nodo del cluster.
 
-Vale la pena ricordare le regole seguenti relative ai metodi di interfaccia dell'attore:
+È opportuno citare le regole seguenti relative alle interfacce dell'attore:
 
 - I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
 - I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+- Non sono supportate interfacce generiche.
 
 ## Creare un nuovo progetto in Visual Studio
 Dopo aver installato gli strumenti di Service Fabric per Visual Studio, è possibile creare nuovi tipi di progetto. Questi tipi sono inclusi nella categoria **Cloud** della finestra di dialogo **Nuovo progetto**.
@@ -112,7 +113,7 @@ Se si inizia un nuovo progetto in Visual Studio ed è presente una sola definizi
 
 ```
 
-> [AZURE.TIP] Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi ai metodi degli attori](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
+> [AZURE.TIP] Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni correlati ai metodi degli attori](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
 
 ## Debug
@@ -139,4 +140,4 @@ Durante il processo di distribuzione è possibile visualizzare lo stato di avanz
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

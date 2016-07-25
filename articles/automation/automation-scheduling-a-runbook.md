@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="bwren" />
 
 # Pianificazione di un runbook in Automazione di Azure
@@ -23,6 +23,8 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 ## Creazione di una pianificazione
 
 È possibile creare una nuova pianificazione per i runbook nel portale di Azure, nel portale classico o con Windows PowerShell. È anche possibile creare una nuova pianificazione quando si collega un runbook a una pianificazione usando il portale di Azure classico o il portale di Azure.
+
+>[AZURE.NOTE] Quando si associa una pianificazione a un runbook, Automazione archivia le versioni correnti dei moduli nell’account dell’utente e le collega alla pianificazione. Ciò significa che se nell'account si disponeva di un modulo con la versione 1.0 quando è stata creata la pianificazione e successivamente il modulo è stato aggiornato alla versione 2.0, la pianificazione continuerà a utilizzare la versione 1.0. Per utilizzare la versione aggiornata del modulo è necessario creare una nuova pianificazione.
 
 ### Per creare una nuova pianificazione nel portale di Azure classico
 
@@ -64,6 +66,7 @@ I comandi di esempio seguenti illustrano come creare una pianificazione per i gi
 ## Collegamento di una pianificazione a un runbook
 
 Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook. Se un runbook dispone di parametri, è possibile fornire valori per tali parametri. È necessario specificare i valori per tutti i parametri obbligatori, mentre è possibile scegliere se specificare o meno i valori per i parametri facoltativi. Questi valori verranno usati ogni volta che il runbook viene avviato dalla pianificazione. È possibile collegare lo stesso runbook a un'altra pianificazione e specificare valori diversi per i parametri.
+
 
 ### Per collegare una pianificazione a un runbook con il portale di Azure classico
 
@@ -142,9 +145,10 @@ I comandi di esempio seguenti mostrano come disabilitare una pianificazione per 
 	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 
+
 ## Passaggi successivi
 
 - Per altre informazioni sull'uso delle pianificazioni, vedere [Pianificazioni in Automazione di Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - Per iniziare a usare i runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

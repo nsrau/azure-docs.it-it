@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Verifica della preparazione dei dati per l'analisi scientifica dei dati (valutazione dei dati) - Analisi scientifica dei dati per principianti | Microsoft Azure"
+   pageTitle="Sono pronti i dati per l'analisi scientifica? Valutazione dei dati | Microsoft Azure"
    description="I 4 criteri per rendere pronti i dati per l'analisi scientifica. Nel video 2 Analisi scientifica dei dati per principianti vengono illustrati esempi concreti per la valutazione dei dati di base."
    keywords="valutazione dei dati, dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, dati pronti"
    services="machine-learning"
@@ -39,7 +39,7 @@ Quindi, nel caso dell'analisi scientifica dei dati, esistono alcuni ingredienti 
 Sono fondamentali dati:
 
   *	Rilevanti
-  *	Connesso
+  *	Connessi
   *	Accurati
   *	In quantità sufficiente
 
@@ -116,4 +116,4 @@ Gli altri 4 video della serie *Analisi scientifica dei dati per principianti* so
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

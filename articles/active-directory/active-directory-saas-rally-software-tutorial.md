@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Rally Software | Microsoft Azure" 
     description="Informazioni su come usare Rally Software con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Rally Software
   
@@ -35,7 +35,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Rally Software, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
 
@@ -64,9 +64,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Rally Software tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario caricare un certificato in Rally Software.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Rally Software** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Rally Software** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configura accesso Single Sign-On")
 
@@ -95,10 +95,10 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     ![Autenticazione](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Autenticazione")
 
     1.  Selezionare **Autenticazione Rally o SSO** dall'elenco a discesa Autenticazione
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Rally Software** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **URL provider di identità**
-    3.  Nella finestra di dialogo **Configura Single Sign-On in Rally Software** del portale di Azure, copiare il valore **URL disconnessione remota**.
+    2.  Nella finestra di dialogo **Configure single sign-on at Rally Software** (Configura accesso Single Sign-On in Rally Software) del portale di Azure classico copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Identity Provider URL** (URL provider di identità).
+    3.  Nella finestra di dialogo **Configure single sign-on at Rally Software** (Configura accesso Single Sign-On in Rally Software) del portale di Azure classico copiare il valore **URL disconnessione remota**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -131,7 +131,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Rally Software, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Rally Software** fare clic su **Assegna utenti**.
 
@@ -143,4 +143,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

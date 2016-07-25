@@ -77,7 +77,7 @@ In questa sezione si modificherà l'applicazione del dispositivo simulato creata
 
         ReceiveC2dAsync();
 
-> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
 
 ## Inviare un messaggio da cloud a dispositivo dal back-end dell'app
 
@@ -169,22 +169,15 @@ In questa sezione si modificherà l'app **SendCloudToDevice** per richiedere fee
 
     ![Ricezione di un messaggio da parte dell'app][22]
 
-> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
 
 ## Passaggi successivi
 
-In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT con le esercitazioni seguenti:
+In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo.
 
-- [Elaborare messaggi da dispositivo a cloud dell'hub IoT] illustra come elaborare in modo affidabile dati di telemetria e messaggi interattivi provenienti dai dispositivi.
-- [Caricamento di file da dispositivi] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
+Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
 
-Altre informazioni sull'hub IoT:
-
-* [Panoramica dell'hub IoT]
-* [Guida per sviluppatori di hub IoT]
-* [Linee guida dell'hub IoT]
-* [Piattaforme e linguaggi di dispositivi supportati]
-* [Centro per sviluppatori Azure IoT]
+Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -198,17 +191,12 @@ Altre informazioni sull'hub IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Elaborare messaggi da dispositivo a cloud dell'hub IoT]: iot-hub-csharp-csharp-process-d2c.md
-[Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
-
-[Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
-[Linee guida dell'hub IoT]: iot-hub-guidance.md
-[Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
-[Piattaforme e linguaggi di dispositivi supportati]: iot-hub-supported-devices.md
+[Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all'hub IoT di Azure per .NET]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

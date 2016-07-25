@@ -16,11 +16,11 @@
 	ms.date="06/07/2016"
 	ms.author="piyushjo" />
 
-# Come usare l'API di Engagement in un'applicazione Web
+# Usare l'API di Azure Mobile Engagement in un'applicazione Web
 
-Questo documento costituisce un'integrazione al documento [Come integrare Engagement in un'applicazione Web](mobile-engagement-web-integrate-engagement.md). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
+Questo documento è un'aggiunta al documento [Integrare Azure Mobile Engagement in un'applicazione Web](mobile-engagement-web-integrate-engagement.md). Offre informazioni approfondite su come usare l'API di Azure Mobile Engagement per segnalare le statistiche dell'applicazione.
 
-L'API di Engagement viene fornita dall'oggetto `engagement.agent`. `engagement` è l'alias predefinito di Engagement SDK che può essere ridefinito dalla configurazione dell'SDK.
+L'API di Mobile Engagement viene messa a disposizione dall'oggetto `engagement.agent`. L'alias predefinito di Azure Mobile Engagement Web SDK è `engagement`. È possibile ridefinire l'alias dalla configurazione dell'SDK.
 
 ## Concetti relativi a Mobile Engagement
 
@@ -28,17 +28,19 @@ Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Conce
 
 ### `Session` e `Activity`
 
-Se l'utente resta inattivo per più di due secondi tra due *attività*, la sequenza di *attività* viene divisa in due *sessioni* distinte. Questi pochi secondi vengono chiamati *timeout della sessione*.
+Se l'utente resta inattivo per più di alcuni secondi tra due attività, la sequenza di attività dell'utente viene divisa in due sessioni distinte. Questi pochi secondi vengono chiamati timeout della sessione.
 
-Se l'applicazione Web non dichiara la fine delle attività utente da sola (chiamando la funzione `engagement.agent.endActivity`), il server di Engagement terminerà automaticamente la sessione utente entro 3 minuti dalla chiusura della pagina dell'applicazione. Questo comportamento viene definito *timeout della sessione* del server.
+Se l'applicazione Web non dichiara la fine delle attività utente chiamando la funzione `engagement.agent.endActivity`, il server di Mobile Engagement terminerà automaticamente la sessione utente entro tre minuti dalla chiusura della pagina dell'applicazione. Questo comportamento viene definito timeout della sessione del server.
 
 ### `Crash`
 
-Non esiste alcun report automatizzato di eccezioni JavaScript non rilevate. Tuttavia, è possibile segnalare manualmente arresti anomali del sistema tramite la funzione `sendCrash` (vedere di seguito).
+I report automatici di eccezioni JavaScript non rilevate non vengono creati per impostazione predefinita. È tuttavia possibile segnalare manualmente gli arresti anomali usando la funzione `sendCrash`. Vedere la sezione sulla segnalazione degli arresti anomali.
 
 ## Segnalazione di attività
 
-### L'utente inizia una nuova attività
+La segnalazione delle attività utente include il momento in cui un utente avvia una nuova attività e il momento in cui l'utente termina l'attività corrente.
+
+### L'utente avvia una nuova attività
 
 	engagement.agent.startActivity("MyUserActivity");
 
@@ -48,11 +50,13 @@ Non esiste alcun report automatizzato di eccezioni JavaScript non rilevate. Tutt
 
 	engagement.agent.endActivity();
 
-È necessario chiamare `endActivity()` almeno una volta quando l'utente termina la sua ultima attività. In questo modo, si indica all'SDK di Engagement che l'utente è attualmente inattivo e che la sessione utente deve essere chiusa allo scadere del timeout. Se si chiama `startActivity()` prima dello scadere del timeout, la sessione viene semplicemente ripresa.
+È necessario chiamare `endActivity()` almeno una volta quando l'utente termina l'ultima attività. In questo modo si indica a Mobile Engagement Web SDK che l'utente è attualmente inattivo e che la sessione utente deve essere chiusa allo scadere del timeout. Se si chiama `startActivity()` prima dello scadere del timeout, la sessione viene semplicemente ripresa.
 
-Spesso è difficile o non è possibile rilevare la fine delle attività utente all'interno di ambienti Web (chiamata non affidabile quando la finestra di navigazione è chiusa). Per questo motivo il server di Engagement termina automaticamente una sessione utente entro 3 minuti dalla chiusura della pagina dell'applicazione.
+Data l'assenza di una chiamata affidabile per il momento in cui la finestra dello strumento di navigazione viene chiusa, è spesso difficile o impossibile rilevare la fine delle attività utente all'interno di ambienti Web. Per questo motivo il server di Mobile Engagement termina automaticamente la sessione utente entro tre minuti dalla chiusura della pagina dell'applicazione.
 
 ## Segnalazione di eventi
+
+La segnalazione di eventi include eventi di sessione ed eventi autonomi.
 
 ### Eventi di sessione
 
@@ -74,11 +78,13 @@ Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite 
 
 ### Eventi autonomi
 
-Diversamente dagli eventi di sessione, gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione.
+A differenza degli eventi di sessione, gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione.
 
 A tale scopo, usare ``engagement.agent.sendEvent`` invece di ``engagement.agent.sendSessionEvent``.
 
 ## Segnalazione di errori
+
+La segnalazione di errori include errori di sessione ed errori autonomi.
 
 ### Errori di sessione
 
@@ -106,16 +112,18 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
 
 ### Errori autonomi
 
-Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi all'esterno del contesto di una sessione.
+A differenza degli errori di sessione, gli errori autonomi possono verificarsi all'esterno del contesto di una sessione.
 
 A tale scopo, usare `engagement.agent.sendError` invece di `engagement.agent.sendSessionError`.
 
 ## Segnalazione di processi
 
-### Esempio
+La segnalazione di processi include la segnalazione di errori ed eventi che si verificano durante un processo e la segnalazione di arresti anomali.
 
-Si supponga di voler monitorare una richiesta Ajax:
-			
+**Esempio:**
+
+Per monitorare una richiesta AJAX, usare il codice seguente:
+
 	// [...]
 	xhr.onreadystatechange = function() {
 	  if (xhr.readyState == 4) {
@@ -133,7 +141,7 @@ Gli errori possono essere correlati a un processo in esecuzione invece che alla 
 
 **Esempio:**
 
-Si supponga di voler segnalare un errore in caso di esito negativo di una richiesta Ajax:
+Per segnalare un errore in caso di esito negativo di una richiesta AJAX:
 
 	// [...]
 	xhr.onreadystatechange = function() {
@@ -157,24 +165,26 @@ Questa funzione opera esattamente come la funzione `engagement.agent.sendJobErro
 
 ### Segnalazione di arresti anomali
 
-la funzione `sendCrash` è usata per segnalare manualmente arresti anomali del sistema.
+Usare la funzione `sendCrash` per segnalare manualmente gli arresti anomali.
 
-l'argomento `crashid` è una stringa usata per identificare il tipo di arresto anomalo del sistema. L'argomento `crash` è in genere l'analisi dello stack dell'arresto anomalo sotto forma di stringa.
+L'argomento `crashid` è una stringa che identifica il tipo di arresto anomalo. L'argomento `crash` è in genere l'analisi dello stack dell'arresto anomalo sotto forma di stringa.
 
 	engagement.agent.sendCrash(crashid, crash);
 
 ## Parametri aggiuntivi
 
-Dati arbitrari possono essere collegati a un evento, un errore, un'attività o un processo.
+È possibile collegare dati arbitrari a un evento, errore, attività o processo.
 
-Questi dati possono essere qualsiasi oggetto JSON (non una matrice o tipi primitivi).
+Questi dati possono essere qualsiasi oggetto JSON, ma non una matrice o un tipo primitivo.
 
-**Esempio**
+**Esempio:**
 
 	var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
 	engagement.agent.sendEvent("video_clicked", extras);
 
 ### Limiti
+
+I limiti che si applicano ai parametri aggiuntivi riguardano le aree delle espressioni regolari per chiavi, tipi di valore e dimensioni.
 
 #### Chiavi
 
@@ -182,7 +192,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 	^[a-zA-Z][a-zA-Z_0-9]*
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
 #### Valori
 
@@ -190,24 +200,26 @@ I valori sono limitati a tipi string, number e boolean.
 
 #### Dimensione
 
-I dati aggiuntivi sono limitati a **1024** caratteri per chiamata, dopo essere stati codificati in JSON dall'SDK.
+I dati aggiuntivi sono limitati a 1.024 caratteri per chiamata, dopo che la chiamata è stata codificata in JSON da Mobile Engagement Web SDK.
 
 ## Segnalazione di informazioni sull'applicazione
 
-È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione `sendAppInfo()`.
+È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione con la funzione `sendAppInfo()`.
 
-Queste informazioni possono essere inviate in modo incrementale: viene mantenuto solo l'ultimo valore per una determinata chiave per ogni dispositivo specifico.
+Si noti che queste informazioni possono essere inviate in modo incrementale. Verrà mantenuto solo l'ultimo valore per una chiave specifica per un dispositivo specifico.
 
-Come per i dati aggiuntivi degli eventi, l'oggetto JSON può essere usato per astrarre le informazioni sull'applicazione. Tenere presente che le matrici o gli oggetti secondari vengono trattati come stringhe flat (usando la serializzazione JSON).
+Come per i dati aggiuntivi degli eventi, è possibile usare qualsiasi oggetto JSON per astrarre le informazioni sull'applicazione. Si noti che le matrici o gli oggetti secondari vengono trattati come stringhe flat, usando la serializzazione JSON.
 
-### Esempio
+**Esempio:**
 
-Ecco un esempio di codice per inviare il sesso e la data di nascita dell'utente:
+Di seguito è riportato un esempio di codice per inviare il sesso e la data di nascita dell'utente:
 
 	var appInfos = {"birthdate":"1983-12-07","gender":"female"};
 	engagement.agent.sendAppInfo(appInfos);
 
 ### Limiti
+
+I limiti che si applicano alle informazioni sull'applicazione riguardano le aree delle espressioni regolari per chiavi e dimensioni.
 
 #### Chiavi
 
@@ -215,15 +227,14 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 	^[a-zA-Z][a-zA-Z_0-9]*
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
 #### Dimensione
 
-Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamata, dopo essere state codificate in JSON dall'SDK.
+Le informazioni sull'applicazione sono limitate a 1.024 caratteri per chiamata, dopo che la chiamata è stata codificata in JSON da Mobile Engagement Web SDK.
 
-Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
+Nell'esempio precedente, il codice JSON inviato al server è lungo 44 caratteri:
 
 	{"birthdate":"1983-12-07","gender":"female"}
- 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

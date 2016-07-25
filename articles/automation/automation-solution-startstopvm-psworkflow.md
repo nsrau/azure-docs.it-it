@@ -12,17 +12,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Scenario di Automazione di Azure - Avvio e arresto delle macchine virtuali
 
 Questo scenario di Automazione di Azure include runbook per l'avvio e l'arresto di macchine virtuali classiche. È possibile usare questo scenario per le operazioni seguenti:
 
-- Usare i runbook senza modifiche nell'ambiente in uso. 
-- Modificare i runbook per eseguire funzionalità personalizzate.  
-- Chiamare i runbook da un altro runbook come parte di una soluzione completa. 
-- Usare i runbook come esercitazioni per acquisire familiarità con i concetti di creazione dei runbook. 
+- Usare i runbook senza modifiche nell'ambiente in uso.
+- Modificare i runbook per eseguire funzionalità personalizzate.
+- Chiamare i runbook da un altro runbook come parte di una soluzione completa.
+- Usare i runbook come esercitazioni per acquisire familiarità con i concetti di creazione dei runbook.
 
 > [AZURE.SELECTOR]
 - [Grafico](automation-solution-startstopvm-graphical.md)
@@ -190,7 +190,7 @@ Le righe successive eseguono i passaggi per ogni macchina virtuale. Viene prima 
 
 ## Passaggi successivi
 
-- [Runbook figlio in Automazione di Azure](automation-child-runbooks.md) 
-- [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
+- Per ulteriori informazioni sull’utilizzo dei runbook figlio, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md)
+- Per ulteriori informazioni sui messaggi di output durante l'esecuzione di runbook e la registrazione per la risoluzione dei problemi, vedere [Output di runbook e messaggi in Automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

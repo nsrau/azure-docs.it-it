@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Aggiungere report sull'integrità di Service Fabric personalizzati
@@ -200,7 +200,7 @@ public static void SendReport(object obj)
 ```
 
 ### PowerShell
-Gli utenti possono inviare report sull'integrità con **Send-ServiceFabric*EntityType*HealthReport**.
+Gli utenti possono inviare report sull'integrità con **Send-ServiceFabric*TipoEntità*HealthReport**.
 
 L'esempio seguente illustra la generazione di report periodica sui valori della CPU in un nodo. I report devono essere inviati ogni 30 secondi e hanno una durata (TTL) di 2 minuti. Se scadono, nel reporter sono presenti problemi e quindi il nodo viene considerato in stato di errore. Quando la CPU è oltre la soglia specificata, il report presenta uno stato di integrità di tipo avviso. Quando la CPU rimane oltre la soglia specificata per più di tempo di quello configurato, verrà segnalato come errore. In caso contrario, il reporter invia uno stato di integrità corretto.
 
@@ -291,10 +291,12 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 
 [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
+[Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

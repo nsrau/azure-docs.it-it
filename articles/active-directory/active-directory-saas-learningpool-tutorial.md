@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Learningpool
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Learningpool, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
@@ -70,9 +70,9 @@ L'applicazione Learningpool prevede le asserzioni SAML in un formato specifico. 
 
 ![Attributi di token SAML](./media/active-directory-saas-learningpool-tutorial/IC795074.png "Attributi di token SAML")
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nel menu visualizzato nella parte superiore della pagina di integrazione dell’applicazione **Learningpool** del portale di Azure AD fare clic su **Attributi** per aprire la finestra di dialogo **Attributi di token SAML**.
+1.  Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **Learningpool** del portale di Azure classico fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
 
     ![Attributi](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributi")
 
@@ -106,7 +106,7 @@ L'applicazione Learningpool prevede le asserzioni SAML in un formato specifico. 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configura accesso Single Sign-On")
 
-7.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a Learningpool** digitare l'URL utilizzato dagli utenti per accedere all'applicazione Learningpool (ad esempio: https://parliament.preview.learningpool.com/auth/shibboleth/index.php)), quindi fare clic su **Avanti**.
+7.  Nella casella di testo **Learningpool Sign On URL** (URL di accesso Learningpool) della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Learningpool, ad esempio https://parliament.preview.learningpool.com/auth/shibboleth/index.php, e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configura URL app")
 
@@ -118,7 +118,7 @@ L'applicazione Learningpool prevede le asserzioni SAML in un formato specifico. 
 
     >[AZURE.NOTE]L’accesso Single Sign-On deve essere abilitato dal team di supporto di Learningpool.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -135,7 +135,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Learningpool eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Learningpool** fare clic su **Assegna utenti**.
 
@@ -147,4 +147,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

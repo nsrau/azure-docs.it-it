@@ -27,7 +27,7 @@ Per altre informazioni sulla funzionalità di query del database elastico, veder
 
 Per iniziare, è necessario creare due database, **Customers** e **Orders**, in server logici uguali o diversi.
 
-Eseguire la query seguente sul database **Orders** per creare la tabella **OrderInformation** e inserire i dati di esempio.
+Eseguire la query seguente sul database **Orders ** per creare la tabella **OrderInformation** e inserire i dati di esempio.
 
 	CREATE TABLE [dbo].[OrderInformation]( 
 		[OrderID] [int] NOT NULL, 
@@ -62,7 +62,7 @@ Quindi eseguire la query seguente sul database **Customers** per creare la tabel
 		WITH IDENTITY = '<username>', 
 		SECRET = '<password>';  
 
-	Il nome utente e la password devono corrispondere al nome utente e alla password usati per l'accesso al database Customers.
+	Il nome utente e la password devono corrispondere al nome utente e alla password usati per l'accesso al database Customers. L'autenticazione tramite Azure Active Directory con query elastiche non è attualmente supportata.
 
 ### DROP EXTERNAL DATA SOURCE
 Per creare un'origine dati esterna, eseguire il comando seguente sul database Orders:
@@ -106,4 +106,4 @@ Per informazioni sui prezzi, vedere [Database SQL - Prezzi](/pricing/details/sql
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

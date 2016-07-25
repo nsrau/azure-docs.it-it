@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
 
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][].
+Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
 
 Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer del bus di servizio][] su GitHub.
 
@@ -31,15 +31,13 @@ Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consum
 >-    [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 >-    [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 >
->Per verificare gli ultimi modelli, vedere i [modelli di avvio rapido di Azure][] e cercare il bus di servizio.
+>Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
 
 ## Distribuzione
 
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer.
 
-Hub eventi è un servizio di elaborazione eventi e viene usato per offrire ingresso a eventi e dati di telemetria in Azure su larga scala, con bassa latenza e affidabilità elevata.
-
-Altre informazioni su [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+[Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -49,7 +47,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
-Di seguito viene fornita la descrizione di ogni parametro del modello.
+Il modello definisce i parametri seguenti.
 
 ### serviceBusNamespaceName
 
@@ -163,9 +161,9 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 - [Gestire le risorse del bus di Hub eventi con Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/
+  [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello di Hub eventi e del gruppo di consumer del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

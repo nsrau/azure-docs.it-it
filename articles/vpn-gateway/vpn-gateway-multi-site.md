@@ -72,13 +72,13 @@ Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico,
 
 ### Se già si ha a disposizione una rete virtuale da sito a sito, ma con un gateway di routing statico basato su criteri:
 
-1. Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico, ovvero basato su route. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere la pagina relativa alla [modifica di un tipo di routing del gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).  
+1. Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico, ovvero basato su route. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere [Come modificare il tipo di routing VPN per il gateway](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 2. Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni, vedere [Configurare un gateway VPN nel portale di Azure classico](vpn-gateway-configure-vpn-gateway-mp.md). Prima di tutto modificare il tipo di gateway in routing dinamico.
 
 ### Se non si ha a disposizione una rete virtuale da sito a sito:
 
-1. Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito usando il portale di Azure classico](vpn-gateway-site-to-site-create.md).  
+1. Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito usando il portale di Azure classico](vpn-gateway-site-to-site-create.md).
 
 2. Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
@@ -206,4 +206,4 @@ Verificare lo stato del tunnel multisito. Dopo aver scaricato le chiavi per ogni
 
 Per altre informazioni sui gateway VPN, vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

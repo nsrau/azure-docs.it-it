@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 Quando viene attivato un promemoria, il runtime di Reliable Actors richiama il metodo `ReceiveReminderAsync` sull'attore. Un attore può registrare più promemoria e il metodo `ReceiveReminderAsync` viene richiamato ogni volta che tali promemoria vengono attivati. L'attore può usare il nome del promemoria che viene passato al metodo `ReceiveReminderAsync` per identificare il promemoria attivato.
 
-Il runtime di Actors salva lo stato dell'attore al termine della chiamata a `ReceiveReminderAsync`. Se si verifica un errore durante il salvataggio dello stato, viene disattivato l'oggetto attore e viene attivata una nuova istanza. Per specificare che lo stato non deve essere salvato al completamento del callback di promemoria, è possibile impostare il flag `ActorReminderAttributes.ReadOnly` nel parametro `attributes` quando viene chiamato il metodo `RegisterReminder` per creare il promemoria.
+Il runtime di Actors salva lo stato dell'attore al termine della chiamata a `ReceiveReminderAsync`. Se si verifica un errore durante il salvataggio dello stato, viene disattivato l'oggetto attore e viene attivata una nuova istanza.
 
 Per annullare la registrazione di un promemoria, un attore chiama il metodo `UnregisterReminder`, come illustrato nell'esempio seguente.
 
@@ -125,4 +125,4 @@ Come indicato nell'esempio, il metodo `UnregisterReminder` accetta un'interfacci
  - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

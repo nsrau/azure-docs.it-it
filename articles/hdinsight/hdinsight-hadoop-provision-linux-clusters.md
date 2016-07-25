@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/09/2016"
+   	ms.date="07/08/2016"
    	ms.author="jgao"/>
 
 
@@ -224,9 +224,13 @@ Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'a
 
 È consigliabile usare un metastore personalizzato per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, allo scopo di associare il metastore a un altro cluster HDInsight in futuro.
 
+> [AZURE.IMPORTANT] Il metastore HDInsight non è compatibile con le versioni precedenti. Ad esempio, non è possibile utilizzare un metastore di un cluster HDInsight 3.4 per creare un cluster HDInsight 3.3.
+
 Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster. Per impostazione predefinita, Hive usa un database SQL di Azure incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato. Ad esempio, è disponibile un cluster creato con un metastore Hive. Sono state create alcune tabelle Hive. Dopo avere eliminato il cluster e averlo ricreato usando lo stesso metastore Hive, si potranno visualizzare le tabelle Hive create nel cluster originale.
 
-> [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+
+> [AZURE.IMPORTANT] Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché in quel caso il processo di creazione del cluster non andrebbe a buon fine.
 
 ## Usare le reti virtuali di Azure
 
@@ -266,7 +270,7 @@ A volte potrebbe essere necessario modificare i file di configurazione:
 - webhcat-site.xml
 - yarn-site.xml
 
-Per mantenere le modifiche per tutta la durata del cluster, è possibile usare la funzionalità di personalizzazione dei cluster HDInsight durante il processo di creazione oppure usare Ambari nei cluster basati su Linux in modo sicuro. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Per mantenere le modifiche per tutta la durata del cluster, è possibile usare la funzionalità di personalizzazione dei cluster HDInsight durante il processo di creazione oppure usare Ambari nei cluster basati su Linux in modo sicuro. Per maggiori informazioni, vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 >[AZURE.NOTE] I cluster basati su Windows non possono conservare le modifiche a causa del re-imaging. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per tutta la durata dei cluster, è necessario usare la funzionalità di personalizzazione dei cluster HDInsight durante il processo di creazione.
 
@@ -294,4 +298,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

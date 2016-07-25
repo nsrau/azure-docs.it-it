@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Canvas LMS
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Canv
 
 ###Per abilitare l'integrazione dell'applicazione per Canvas, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-canvas-lms-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Canvas** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Canvas** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/IC771709.png "Configura accesso Single Sign-On")
 
@@ -98,19 +98,19 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Current Integration](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Current Integration")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **ID entità** e incollarlo nella casella di testo **IdP Entity ID**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Log On URL**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log Out URL**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **Modifica URL password** e quindi incollarlo nella casella di testo **Change Password Link**.
-    5.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.  
+    1.  Nella pagina della finestra di dialogo **Configure single sign-on at Canvas** (Configura accesso Single Sign-On in Canvas) del portale di Azure classico copiare il valore di **ID entità** e incollarlo nella casella di testo **IdP Entity ID** (ID entità IdP).
+    2.  Nella finestra di dialogo **Configure single sign-on at Canvas** (Configura accesso Single Sign-On in Canvas) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Log On URL** (URL di accesso).
+    3.  Nella finestra di dialogo **Configure single sign-on at Canvas** (Configura accesso Single Sign-On in Canvas) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Log Out URL** (URL di disconnessione).
+    4.  Nella finestra di dialogo **Configure single sign-on at Canvas** (Configura accesso Single Sign-On in Canvas) del portale di Azure classico copiare il valore di **Modifica URL password** e quindi incollarlo nella casella di testo **Change Password Link** (Cambia collegamento password).
+    5.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     6.  Nell'elenco **Login Attribute** selezionare **NameID**.
     7.  Nell'elenco **Identifier Format** selezionare **emailAddress**.
     8.  Fare clic su **Save authentication settings**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -143,7 +143,7 @@ Per consentire agli utenti di Azure AD di accedere a Canvas, è necessario esegu
     4.  Selezionare **Email the user about this account creation**.
     5.  Fare clic su **Add User**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Canvas per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Canvas per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
 
@@ -151,7 +151,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Canvas, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Canvas** fare clic su **Assegna utenti**.
 
@@ -163,4 +163,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

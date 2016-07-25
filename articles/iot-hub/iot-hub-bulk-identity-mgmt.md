@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Passaggi successivi
 
-In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità dei dispositivi in un hub IoT. È possibile continuare a esplorare le funzionalità dell'hub IoT e altri scenari IoT negli articoli seguenti:
+In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità dei dispositivi in un hub IoT. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
-- [Creare un hub IoT a livello di codice](iot-hub-rm-template.md)
-- [Metriche di utilizzo dell'hub IoT](iot-hub-metrics.md)
-- [Monitoraggio delle operazioni dell'hub IoT](iot-hub-operations-monitoring.md)
+- [Metriche di utilizzo][lnk-metrics]
+- [Monitoraggio delle operazioni][lnk-monitor]
+- [Gestire l'accesso all'hub IoT][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

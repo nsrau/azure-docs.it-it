@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/26/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
@@ -20,7 +20,7 @@ Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scena
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow, versione Calgary o versione successiva
--   Il tenant di ServiceNow deve avere il [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) abilitato. Questa operazione può essere eseguita inviando una richiesta di servizio a https://hi.service-now.com/ 
+-   Il tenant di ServiceNow deve avere il [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) abilitato. Questa operazione può essere eseguita inviando una richiesta di servizio a https://hi.service-now.com/
   
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati a ServiceNow potranno accedere all'applicazione tramite il sito aziendale di ServiceNow (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
@@ -89,7 +89,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     c. Fare clic su **Avanti**
 
-4.  Per fare in modo che AD Azure configuri automaticamente ServiceNow per l'autenticazione basata su SAML, immettere il nome dell'istanza ServiceNow, il nome utente amministratore e la password di amministratore nel modulo **Configura automaticamente l'accesso Single Sign-On** e fare clic su *Configura*. Affinché funzioni, il nome utente amministratore fornito deve disporre del ruolo **security\_admin** assegnato in ServiceNow. In caso contrario, per configurare manualmente ServiceNow per usare Azure AD come provider di identità SAML, fare clic su **Configura manualmente l'applicazione per l'accesso Single Sign-On**, quindi fare clic su **Avanti** e completare i passaggi seguenti.
+4.  Per fare in modo che Azure AD configuri automaticamente ServiceNow per l'autenticazione basata su SAML, immettere il nome dell'istanza ServiceNow, il nome utente amministratore e la password di amministratore nel modulo **Configura automaticamente l'accesso Single Sign-On** e fare clic su *Configura*. Affinché funzioni, il nome utente amministratore fornito deve disporre del ruolo **security\_admin** assegnato in ServiceNow. In caso contrario, per configurare manualmente ServiceNow per usare Azure AD come provider di identità SAML, fare clic su **Configura manualmente questa applicazione per l'accesso Single Sign-On**, quindi fare clic su **Avanti** e completare la procedura seguente.
 
     ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configura URL app")
 
@@ -145,7 +145,8 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
     e. Per **Type** selezionare **Trust Store Cert**.
 
     f. Creare un file con codifica Base 64 dal certificato scaricato.
-    > [AZURE.NOTE] Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+   
+	> [AZURE.NOTE] Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
     
     g. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PEM Certificate**.
 
@@ -173,19 +174,19 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     a. Nella casella di testo **Name** digitare un nome per la configurazione, ad esempio **SAML 2.0**.
 
-    b. Nella casella di testo **User Field**, digitare **email** o **user\_id**, a seconda di quale campo viene utilizzato per identificare in modo univoco gli utenti nella distribuzione ServiceNow.
+    b. Nella casella di testo **User Field** (Campo utente) digitare **email** o **user\_id**, a seconda di quale campo viene usato per identificare in modo univoco gli utenti nella distribuzione ServiceNow.
     
-    **Nota:** è possibile configurare Azure AD per generare l'ID utente di Azure AD (nome dell'entità utente) o l'indirizzo di posta elettronica come identificatore univoco nel token SAML andando alla sezione **ServiceNow > attributi > Single Sign-On** del portale di Azure classico ed eseguendo il mapping del campo desiderato sull’attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD (ad esempio nome dell'entità utente) deve corrispondere al valore archiviato in ServiceNow per il campo immesso (ad esempio user\_id)
+    **Nota:** è possibile configurare Azure AD per generare l'ID utente di Azure AD (nome principale utente) o l'indirizzo di posta elettronica come identificatore univoco nel token SAML andando alla sezione **ServiceNow > Attributi > Single Sign-On** del portale di Azure classico ed eseguendo il mapping del campo desiderato sull'attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD (ad esempio nome dell'entità utente) deve corrispondere al valore archiviato in ServiceNow per il campo immesso (ad esempio user\_id)
 
-    c. Nel portale di Azure AD classico copiare il valore in **ID provider di identità** e incollarlo nella casella di testo **Identity Provider URL**.
+    c. Nel portale di Azure AD classico copiare il valore in **ID provider di identità** e incollarlo nella casella di testo **Identity Provider URL** (ID provider di identità).
 
-    d. Nel portale di Azure AD classico copiare il valore in **URL richiesta di autenticazione** e incollarlo nella casella di testo **Identity Provider's AuthnRequest**.
+    d. Nel portale di Azure AD classico copiare il valore in **URL richiesta di autenticazione** e incollarlo nella casella di testo **Identity Provider's AuthnRequest** (Richiesta di autenticazione provider di identità).
 
-    e. Nel portale di Azure AD classico copiare il valore in **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Identity Provider's SingleLogoutRequest**.
+    e. Nel portale di Azure AD classico copiare il valore in **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Identity Provider's SingleLogoutRequest** (Richiesta Single Sign-Out del provider di identità).
 
     f. Nella casella di testo **ServiceNow Homepage** digitare l'URL della home page dell'istanza di ServiceNow.
 
-    > [AZURE.NOTE] L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio **https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio *https://fabrikam.service-now.com/navpage.do*.
  
 
     g. Nella casella di testo **Entity ID / Issuer** digitare l'URL del tenant ServiceNow.
@@ -198,7 +199,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     k. Fare clic su **Create an AuthnContextClass**.
 
-    l. In **AuthnContextClassRef Method** digitare ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    l. In **AuthnContextClassRef Method** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
     m. Nella casella di testo **Clock Skew** digitare **60**.
 
@@ -225,26 +226,30 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 Questa sezione descrive come abilitare il provisioning degli account utente di Azure Active Directory in ServiceNow.
 
 
-### Per configurare il provisioning utente, eseguire la procedura seguente:
+### Per configurare il provisioning utente, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **ServiceNow** del portale di gestione di Azure classico fare clic su **Configura provisioning utenti**. <br><br> ![Provisioning utenti](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Provisioning utenti")
+1. Nella pagina di integrazione dell'applicazione **ServiceNow** del portale di gestione di Azure classico fare clic su **Configura provisioning utenti**.
+
+	![Provisioning utenti](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Provisioning utenti")
 
 
 2. Nella pagina **Immettere le credenziali ServiceNow per abilitare il provisioning utente automatico** specificare le credenziali di configurazione seguenti: Configura provisioning utenti
 
-     2\.1. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
+     a. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
 
-     2\.2. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore ServiceNow.
+     b. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore ServiceNow.
 
-     2\.3. Nella casella di testo **Password amministratore ServiceNow** digitare la password dell'account.
+     c. Nella casella di testo **Password amministratore ServiceNow** digitare la password dell'account.
 
-     2\.4. Fare clic su **Convalida** per verificare la configurazione.
+     d. Fare clic su **Convalida** per verificare la configurazione.
 
-     2\.5. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
+     e. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
 
-     2\.6. Se si vuole effettuare il provisioning di tutti gli utenti nell'applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**". <br><br> ![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
+     f. Se si vuole eseguire il provisioning di tutti gli utenti nell'applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**".
 
-     2\.7. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
+	![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
+
+     g. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
 
 
 
@@ -280,4 +285,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

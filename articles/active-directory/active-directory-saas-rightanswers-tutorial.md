@@ -2,16 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con RightAnswers | Microsoft Azure" 
     description="Informazioni su come usare RightAnswers con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con RightAnswers
   
@@ -36,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per RightAnswers, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-rightanswers-tutorial/IC700993.png "Active Directory")
 
@@ -63,9 +64,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a RightAnswers tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **RightAnswers** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **RightAnswers** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configura accesso Single Sign-On")
 
@@ -73,7 +74,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configurare le impostazioni dell'app** digitare nella casella di testo **URL di accesso** l'URL usato dagli utenti per accedere all’applicazione RightAnswers (ad esempio, **https://fortify.rightanswers.com/portal/ss/*), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configurare le impostazioni dell'app** digitare nella casella di testo **URL di accesso** l'URL usato dagli utenti per accedere all'applicazione RightAnswers, ad esempio *https://fortify.rightanswers.com/portal/ss/*, quindi fare clic su **Avanti**.
 
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Configurare le impostazioni dell'app")
 
@@ -83,9 +84,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  Inviare il file di metadati scaricato al team di supporto di RightAnswers.
 
-    >[AZURE.NOTE]La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di RightAnswers. Una volta completata l'abilitazione dell'accesso Single Sign-On per la sottoscrizione, viene ricevuta una notifica.
+    >[AZURE.NOTE] La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di RightAnswers. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -102,7 +103,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a RightAnswers, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **RightAnswers** fare clic su **Assegna utenti**.
 
@@ -114,4 +115,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

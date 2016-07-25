@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Cornerstone OnDemand
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Corn
 
 ###Per abilitare l'integrazione dell'applicazione per Cornerstone OnDemand, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Cornerstone OnDemand** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Cornerstone OnDemand** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Abilitazione dell'accesso Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Abilitazione dell'accesso Single Sign-On")
 
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Single Sign-On di Microsoft Azure AD")
 
-3.  Nella casella di testo **URL accesso Cornerstone OnDemand** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.csod.com*" e fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** nella casella di testo **Cornerstone OnDemand Sign In URL** (URL di accesso a Cornerstone OnDemand) digitare l'URL usando il modello "*http://company.csod.com*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Configura URL app")
 
@@ -90,7 +90,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Il valore **URL accesso remoto**
     3.  Il valore **URL disconnessione remota**
 
-    >[AZURE.NOTE]L'accesso Single Sign-On deve essere configurato dal team di supporto di Cornerstone OnDemand. Il team di supporto invierà una notifica al termine della configurazione.
+    >[AZURE.NOTE] L'accesso Single Sign-On deve essere configurato dal team di supporto di Cornerstone OnDemand. Il team di supporto invierà una notifica al termine della configurazione.
 
 6.  Selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -103,7 +103,7 @@ Per consentire agli utenti di Azure AD di accedere a Cornerstone OnDemand, è ne
 
 1.  Inviare le informazioni, ad esempio nome e indirizzo di posta elettronica, relative all'utente di Azure AD di cui si vuole eseguire il provisioning al team di supporto di Cornerstone OnDemand.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Cornerstone OnDemand per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Cornerstone OnDemand per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
 
@@ -111,7 +111,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Cornerstone OnDemand, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Cornerstone OnDemand** fare clic su **Assegna utenti**.
 
@@ -123,4 +123,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

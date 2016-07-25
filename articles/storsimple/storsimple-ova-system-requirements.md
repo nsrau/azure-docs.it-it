@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # Requisiti di sistema StorSimple Virtual Array
@@ -93,6 +93,9 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
+> [AZURE.IMPORTANT] Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
+
+
 ### Modelli URL per le regole del firewall 
 
 Gli amministratori di rete possono spesso configurare regole del firewall avanzate in base ai modelli URL in modo da filtrare il traffico in entrata e in uscita. L'array virtuale e il servizio StorSimple Manager dipendono da altre applicazioni Microsoft, ad esempio il bus di servizio di Azure, Controllo di accesso Active Directory di Azure, gli account di archiviazione e i server Microsoft Update. I modelli URL associati a queste applicazioni possono essere usati per configurare le regole del firewall. È importante comprendere che i modelli di URL associati alle suddette applicazioni possono variare. Questo a sua volta richiederà, da parte dell'amministratore di rete, il monitoraggio e l'aggiornamento delle regole del firewall per StorSimple a seconda delle esigenze.
@@ -101,8 +104,8 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 > [AZURE.NOTE] 
 > 
-> - Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud. 
-> - Gli indirizzi IP di destinazione devono essere impostati su [intervalli IP di data center di Azure](https://www.microsoft.com/it-IT/download/confirmation.aspx?id=41653).
+> - Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud.
+> - Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/it-IT/download/confirmation.aspx?id=41653).
 
 
 | Modello URL | Componente/funzionalità |
@@ -110,8 +113,8 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure|
 |`http://*.backup.windowsazure.com`|Registrazione del dispositivo|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revoca del certificato |
-| `https://*.core.windows.net/*` | Account di archiviazione di Azure e monitoraggio |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server Microsoft Update<br> |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Account di archiviazione di Azure e monitoraggio |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto |
 | `http://*.data.microsoft.com ` | Servizio Telemetria in Windows, vedere [Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica](https://support.microsoft.com/it-IT/kb/3068708) |
@@ -120,4 +123,4 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 -   [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

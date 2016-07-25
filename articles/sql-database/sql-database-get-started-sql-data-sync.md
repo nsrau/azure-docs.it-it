@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -48,7 +48,7 @@ Nel computer in cui viene installato l'agente client devono essere installati an
 
 - **.NET Framework 4.0**
 
- È possibile installare .NET Framework 4.0 da [qui](http://go.microsoft.com/fwlink/?linkid=205836).
+ Installare .NET Framework 4.0 da [qui](http://go.microsoft.com/fwlink/?linkid=205836).
 
 - **Tipi CLR di sistema di Microsoft SQL Server 2008 R2 SP1 (x86)**
 
@@ -202,4 +202,4 @@ Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

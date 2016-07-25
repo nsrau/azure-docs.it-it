@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Risoluzione dei problemi: App Web non disponibile a causa dei codici di errore HTTP 502/503"
-	description="Questo articolo descrive come risolvere gli errori di tipo HTTP 502/503 nell'app Web ospitata nel servizio app di Azure."
+	pageTitle="Correggere gli errori ";502 - Gateway non valido"; e ";503 - Servizio non disponibile";| Microsoft Azure"
+	description="Risoluzione degli errori ";502 - Gateway non valido"; e ";503 - Servizio non disponibile"; nelle app Web ospitate in un servizio App di Azure."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="502 - Gateway non valido, 503 - Servizio non disponibile, errore 503, errore 502"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Risoluzione dei problemi: App Web non disponibile a causa dei codici di errore HTTP 502/503
+# Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle App Web di Azure
 
-Questo articolo descrive come risolvere gli errori di tipo HTTP 502/503 nell'app Web ospitata nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle applicazioni Web ospitate in un [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e Stack Overflow dedicati ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito di supporto per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito di supporto per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
 ## Sintomo
 
-Quando si passa all'app Web, viene restituito un errore HTTP "502 - Gateway non valido" o un errore HTTP "503 - Servizio non disponibile".
+Quando si passa all'app Web, viene restituito un errore HTTP "502 - Gateway non valido" o HTTP "503 - Servizio non disponibile".
 
 ## Causa
 
@@ -35,7 +36,7 @@ Spesso la causa dell'errore deriva da problemi a livello dell'applicazione, ad e
 -	utilizzo elevato di memoria/CPU da parte dell'applicazione
 -	arresto anomalo dell'applicazione a causa di un'eccezione.
 
-## Passaggi per la risoluzione dei problemi
+## Passaggi per la risoluzione degli errori "503 - Servizio non disponibile" e "502 - Gateway non valido"
 
 La risoluzione dei problemi prevede tre attività distinte, in ordine sequenziale:
 
@@ -64,7 +65,7 @@ Le metriche più comunemente monitorate per le app Web sono
 -	Working set della memoria
 -	Richieste
 
-![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![monitorare le app Web per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Per altre informazioni, vedere:
 
@@ -134,8 +135,8 @@ Per altre informazioni, vedere il post di blog relativo alla [correzione automat
 
 Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/) sono disponibili le opzioni per arrestare o riavviare l'app.
 
- ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![riavviare l'app per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

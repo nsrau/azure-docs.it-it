@@ -24,9 +24,9 @@ Di seguito è riportato un riepilogo delle funzionalità che l'utente potrebbe n
 ||
 |---|---
 |[**Test di disponibilità**](app-insights-monitor-web-app-availability.md)<br/>Consente di inviare le richieste HTTP dell'app Web a intervalli regolari da tutto il mondo. Se la risposta è lenta o non affidabile, l'utente verrà avvisato.| 
-|[**Chiamate AJAX e di dipendenza**](app-insights-asp-net-dependencies.md)<br/>Consente di monitorare le query SQL e le chiamate a REST o ad altre risorse.|
+|[**Chiamate di dipendenza**](app-insights-asp-net-dependencies.md)<br/>Consente di monitorare le query SQL e le chiamate a REST o ad altre risorse.|
 |[**Eccezioni**](app-insights-asp-net-exceptions.md)<br/>Consente di contare le eccezioni gestite e non gestite, eseguire l'analisi dello stack e fare clic per visualizzare il codice.|
-|[**Pagine Web**](app-insights-javascript.md)<br/>Consente di monitorare l'uso delle pagine e le prestazioni instrumentando le pagine Web.
+|[**Pagine Web**](app-insights-javascript.md)<br/>Consente di monitorare l'uso delle pagine, le prestazioni e le chaimate AJAX instrumentando le pagine Web.
 |**Prestazioni dell'host: [Diagnostica di Azure](app-insights-azure-diagnostics.md), [Contatori delle prestazioni di Windows](app-insights-web-monitor-performance.md)**<br/>Consente di visualizzare l'uso della CPU e altre metriche sul contesto. |![](./media/app-insights-asp-net-more/04.png)
 |[**API SDK: telemetria personalizzata**](app-insights-api-custom-events-metrics.md)<br/>Consente di inviare gli eventi e le metriche personali per una visualizzazione più dettagliata dell'uso e delle prestazioni dell'app, sia nel codice del server sia nel codice del client.|
 |[**Integrazione del log**](app-insights-asp-net-trace-logs.md)<br/>Se si usa un framework di registrazione, ad esempio Log4Net, NLog o System.Diagnostics.Trace, è presente un adattatore che invia le analisi ad Application Insights insieme ad altri dati di telemetria.|
@@ -52,4 +52,4 @@ Di seguito è riportato un riepilogo delle funzionalità che l'utente potrebbe n
 |**API di accesso ai dati**<br/>Presto disponibile.|
 |[**Campionamento**](app-insights-sampling.md)<br/>Riduce la velocità dei dati e permette di rimanere entro il limite del piano tariffario.|![Riquadro del campionamento](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: integrazione di Azure Active Directory con Pagerduty
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Pagerduty tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Pagerduty** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Pagerduty** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configura accesso Single Sign-On")
 
@@ -98,17 +98,17 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Attiva Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Abilitare l'autenticazione Single Sign-On")
 
-    1.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    1.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     2.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
-    3.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Pagerduty** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di accesso**.
-    4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Pagerduty** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione**.
+    3.  Nella pagina della finestra di dialogo **Configure single sign-on at Pagerduty** (Configura accesso Single Sign-On in Pagerduty) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
+    4.  Nella pagina della finestra di dialogo **Configure single sign-on at Pagerduty** (Configura accesso Single Sign-On in Pagerduty) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL di disconnessione).
     5.  Selezionare **Attiva Single Sign-on**.
     6.  Fare clic su **Salva modifiche**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -129,9 +129,9 @@ Per consentire agli utenti di Azure AD di accedere a Pagerduty, è necessario es
 
     ![Invita il team](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invita il team")
 
-    >[AZURE.NOTE]Tutti gli utenti aggiunti riceveranno un invito per creare un account PagerDuty.
+    >[AZURE.NOTE] Tutti gli utenti aggiunti riceveranno un invito per creare un account PagerDuty.
 
->[AZURE.NOTE]È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Pagerduty o le API fornite da Pagerduty per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Pagerduty o le API fornite da Pagerduty per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -139,7 +139,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Pagerduty, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Pagerduty** fare clic su **Assegna utenti**.
 
@@ -151,4 +151,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

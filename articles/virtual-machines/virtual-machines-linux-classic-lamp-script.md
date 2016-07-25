@@ -68,7 +68,7 @@ Lo script consente di installare uno stack LAMP in Ubuntu (inclusa l'impostazion
 
 ### Caricamento script
 
-Salvare lo script come file di testo, ad esempio *lamp\_install.sh*, e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". se il contenitore non esiste, è necessario prima crearlo.
+Salvare lo script come file di testo, ad esempio *install\_lamp.sh* e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". se il contenitore non esiste, è necessario prima crearlo.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -83,7 +83,7 @@ A questo punto, è possibile utilizzare il seguente comando per distribuire l'es
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-In tal modo verrà scaricato ed eseguito lo script *lamp\_install.sh* su una macchina virtuale denominata *lamp-vm*.
+In tal modo verrà scaricato ed eseguito lo script *install\_lamp.sh* in una macchina virtuale denominata *lamp-vm*.
 
 Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di ascolto HTTP nella macchina virtuale remota con il seguente comando:
 
@@ -110,4 +110,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

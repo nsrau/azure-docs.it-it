@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/11/2016"
+   ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Introduzione alla maschera dati dinamica del database SQL (portale di Azure classico)
@@ -100,4 +100,4 @@ Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azu
 
 Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

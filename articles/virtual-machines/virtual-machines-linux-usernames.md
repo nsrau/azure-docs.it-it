@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -31,112 +31,9 @@ Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di bas
 
  - Vedere anche: [Base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Di seguito sono riportati i nomi utente da non usare quando si esegue il provisioning di una macchina virtuale Linux. Si consiglia di **non usare questi nomi utente** per evitare che il processo di provisioning della macchina virtuale abbia esito negativo.
+L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubuntu che non devono essere usati quando si effettua il provisioning di una macchina virtuale Linux in Azure. Questo elenco è solo un esempio. Vedere la documentazione specifica della distribuzione per assicurarsi che il nome utente scelto non sia in conflitto con un utente di sistema esistente.
 
 
-## openSUSE
-- abrt
-- adm
-- audio
-- bin
-- bin
-- cdrom
-- cgred
-- daemon
-- dbus
-- dialout
-- dip
-- disk
-- floppy
-- ftp
-- games
-- gopher
-- haldaemon
-- halt
-- kmem
-- lock
-- lp
-- mail
-- man
-- mem
-- nfsnobody
-- nobody
-- ntp
-- operator
-- oprofile
-- postdrop
-- postfix
-- qpidd
-- root
-- rpc
-- rpcuser
-- saslauth
-- shutdown
-- slocate
-- sshd
-- stapdev
-- stapusr
-- sync
-- sys
-- tape
-- test
-- tcpdump
-- tty
-- users
-- utempter
-- utmp
-- uucp
-- vcsa
-- video
-- wheel
-
-
-## SLES
-- audio
-- bin
-- cdrom
-- console
-- daemon
-- dialout
-- disk
-- floppy
-- ftp
-- ftp
-- games
-- haldaemon
-- kmem
-- lp
-- lp
-- mail
-- maildrop
-- man
-- messagebus
-- modem
-- news
-- news
-- nobody
-- nogroup
-- polkituser
-- postfix
-- public
-- root
-- shadow
-- sshd
-- sys
-- test
-- trusted
-- tty
-- users
-- utmp
-- uucp
-- uuidd
-- video
-- wheel
-- www
-- wwwrun
-- xok
-
- 
 ## CentOS
 - abrt
 - adm
@@ -251,4 +148,4 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

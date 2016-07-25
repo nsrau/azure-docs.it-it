@@ -1,23 +1,26 @@
-<properties 
-	pageTitle="Personalizzare: Gestione delle password di Azure AD | Microsoft Azure" 
-	description="Come personalizzare l'aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Personalizzare: Gestione delle password di Azure AD | Microsoft Azure"
+	description="Come personalizzare l'aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
-Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplorare e provare tutte le opzioni di configurazione disponibili di Gestione delle password. Di fatto, è possibile iniziare l'esplorazione immediatamente passando alla scheda di configurazione dell’**estensione Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com). In questo argomento vengono descritte tutte le diverse personalizzazioni di Gestione delle password che è possibile effettuare come amministratore nella scheda **Configura** della directory all'interno del [portale di gestione di Azure](https://manage.windowsazure.com), tra cui:
+
+> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+
+Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplorare e provare tutte le opzioni di configurazione disponibili di Gestione delle password. Di fatto, è possibile iniziare l'esplorazione immediatamente passando alla scheda di configurazione dell'**estensione Active Directory** nel [portale di Azure classico](https://manage.windowsazure.com). In questo argomento vengono descritte tutte le diverse personalizzazioni di Gestione delle password che è possibile eseguire come amministratore nella scheda **Configura** della directory all'interno del [portale di Azure classico](https://manage.windowsazure.com), tra cui:
 
 | Argomento | |
 | --------- | --------- |
@@ -95,7 +98,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Determina se gli utenti che visitano la pagina di reimpostazione delle password visualizzano il logo Microsoft o il logo personalizzato. Questo elemento di configurazione consente inoltre di aggiungere informazioni personalizzate alla pagina di accesso e al pannello di accesso.</p>
                 <p>
-                  
+
                 </p>
                 <p>Ulteriori informazioni sulla funzionalità di personalizzazione del tenant sono disponibili in <a href="https://technet.microsoft.com/library/dn532270.aspx">Aggiungere informazioni personalizzate distintive dell’azienda alla pagina di accesso e al pannello di accesso</a>.</p>
               </td>
@@ -223,7 +226,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Determina quale gruppo di utenti finali è autorizzato a usare la reimpostazione delle password. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Limitare l’accesso per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
@@ -262,16 +265,16 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Determina le richieste di verifica che un utente è autorizzato a usare per reimpostare la propria password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Nota:</strong>
@@ -328,7 +331,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Determina il numero minimo di metodi di autenticazione disponibili che un utente deve usare per reimpostare la propria password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
@@ -398,7 +401,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Determina il numero minimo di domande a cui un utente deve rispondere quando reimposta una password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se la casella di controllo <strong>Domande di sicurezza</strong> è abilitata).</p>
               </td>
@@ -432,7 +435,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Definisce le domande di sicurezza pre-definite che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se la casella di controllo <strong>Domande di sicurezza</strong> è abilitata).</p>
               </td>
@@ -483,7 +486,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Definisce le domande di sicurezza che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se la casella di controllo <strong>Domande di sicurezza</strong> è abilitata).</p>
               </td>
@@ -533,7 +536,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                   <p>Richiedere agli utenti di registrarsi all'accesso?</p>
                 </div>
                 <p>
-                  
+
                 </p>
               </td>
               <td>
@@ -542,20 +545,20 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <p>Questa funzionalità può essere utilizzata in qualsiasi pagina di accesso che utilizza un account aziendale o di un istituto di istruzione. Tali pagine includono tutte le versioni di Office 365, il Portale di gestione di Azure, il Pannello di accesso e tutte le applicazioni federate o sviluppate in modo personalizzato che effettuano l'accesso tramite Azure AD.
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>La registrazione applicata viene utilizzata solo per gli utenti per i quali è abilitata la reimpostazione della password. Pertanto, se sono state utilizzate la funzionalità "Limitare l'accesso per la reimpostazione delle password" e la reimpostazione della password con ambito per un gruppo specifico di utenti, solo agli utenti di questo gruppo verrà richiesto all'accesso di registrarsi per la reimpostazione della password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Nota:</strong>
@@ -586,16 +589,16 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Quando <strong>Richiedere agli utenti di effettuare la registrazione</strong> è attivato, questa impostazione determina il periodo di tempo che può trascorrere prima che un utente debba riconfermare i dati. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Richiedere agli utenti di effettuare la registrazione quando accedono al pannello di accesso</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Nota: </strong>
@@ -622,7 +625,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Controlla se il collegamento Contattare l’amministratore (visualizzato a sinistra) viene visualizzato nel portale di reimpostazione delle password quando si verifica un errore o se un utente attende troppo a lungo che un'operazione punti a un URL o a un indirizzo di posta elettronica personalizzato.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
@@ -668,7 +671,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Controlla l'indirizzo di posta elettronica o l'URL a cui punta il collegamento <strong>Contattare l'amministratore</strong>. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visibile solo se <strong>Personalizzare il collegamento Contattare l’amministratore</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
@@ -702,13 +705,13 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
               <td>
                 <p>Controlla se Writeback password è abilitato per questa directory e, in questo caso, indica lo stato del servizio di writeback locale.</p>
                 <p>
-                  
+
                 </p>
                 <p>Questa impostazione è utile se si desidera disabilitare temporaneamente il servizio senza riconfigurare Azure AD Connect.</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Nota:</strong>
@@ -748,11 +751,11 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </div>
               </td>
               <td>
-              
+
               <p>Stabilisce se gli utenti che visitano il portale di reimpostazione della password devono avere la possibilità di sbloccare il proprio account di Active Directory locale senza reimpostare la password. Per impostazione predefinita, Azure AD sblocca sempre gli account quando si esegue una reimpostazione della password. Questa impostazione consente di separare le due operazioni.</p>
-              
+
               <p>Se impostata su "sì", agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password. </p>
-              
+
               <p>Se impostata su "no", gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.</p>
 
               </td>
@@ -763,7 +766,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <ul>
                   <li class="unordered">
 												Per utilizzare questa funzionalità, è necessario installare la versione di agosto 2015 o una versione successiva di Azure AD Connect (v. 1.0.8667.0 o superiore).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Fare clic qui per scaricare la versione più recente di Azure AD Connect.</a></li>
-                        
+
                   <li class="unordered">
                     <strong>Nota:</strong> per testare questa funzionalità, è necessario abilitare il writeback delle password e utilizzare un account originato in locale (ad esempio un utente federato o con password sincronizzata) e bloccato. Per gli utenti non locali e che non hanno un account bloccato non verrà visualizzata l'opzione di sblocco del proprio account.</li>
                 </ul>
@@ -860,7 +863,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
@@ -872,4 +875,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

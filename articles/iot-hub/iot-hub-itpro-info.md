@@ -42,14 +42,22 @@ L'accesso ad altri endpoint di gestione in un hub IoT viene controllato anche tr
 
 ## Passaggi successivi
 
-Questo articolo contiene informazioni specifiche per i professionisti dell’IT e gli sviluppatori che eseguono la configurazione dei propri ambienti di sviluppo e test. Seguire i collegamenti seguenti per ulteriori informazioni sul servizio hub IoT Azure:
+Questo articolo contiene informazioni specifiche per i professionisti dell’IT e gli sviluppatori che eseguono la configurazione dei propri ambienti di sviluppo e test. La [sezione sulla protezione nella Guida per sviluppatori di hub IoT Azure][lnk-devguide] fornisce informazioni aggiuntive sui token e sul sistema di autorizzazioni nell'hub IoT.
 
-- [Che cos'è l’hub IoT Azure?][lnk-iothub]
-- La [sezione sulla protezione nella Guida per sviluppatori di hub IoT Azure][lnk-devguide] fornisce informazioni aggiuntive sui token e sul sistema di autorizzazioni nell'hub IoT.
-- [Gestire l’hub IoT tramite il portale Azure][lnk-manage-portal] descrive come utilizzare il portale di Azure per gestire l'hub IoT.
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

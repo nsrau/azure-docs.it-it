@@ -90,4 +90,4 @@ Se sono stati acquistati crediti Azure in Open da un rivenditore e si possiede u
 
 3. Immettere il codice Product Key e quindi selezionare l'opzione del contratto.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

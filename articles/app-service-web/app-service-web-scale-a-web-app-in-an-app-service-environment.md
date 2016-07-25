@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # Ridimensionamento di app in un ambiente del servizio app #
@@ -21,7 +21,7 @@
 Nel servizio app di Azure è possibile ridimensionare tre aspetti:
 
 - piano tariffario
-- dimensioni dei processi di lavoro 
+- dimensioni dei processi di lavoro
 - numero di istanze.
 
 In un ambiente del servizio app non è necessario selezionare o modificare il piano tariffario. In termini di funzionalità il livello è già quello del piano tariffario Premium.
@@ -84,4 +84,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -76,7 +76,7 @@ Una domanda ricorrente dei clienti, in particolare da parte di coloro che usano 
         ],
 
 ## Modifica dell'ordine dei pacchetti di crittografia TLS ##
-Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco delle crittografie negoziate dal server. Questo risultato può essere ottenuto modificando **clusterSettings** come illustrato di seguito. L'elenco dei pacchetti di crittografia può essere recuperato da [questo articolo di MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco delle crittografie negoziate dal server. Questo risultato può essere ottenuto modificando **clusterSettings** come illustrato di seguito. L'elenco dei pacchetti di crittografia può essere recuperato da [questo articolo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {
@@ -95,4 +95,4 @@ Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

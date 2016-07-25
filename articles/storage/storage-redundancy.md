@@ -98,7 +98,8 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 | Regno Unito meridionale 2 | Regno Unito settentrionale |
 | Germania centrale | Germania nord-orientale |
 | Germania nord-orientale | Germania centrale |
-
+| Stati Uniti occidentali 2 | Stati Uniti centro-occidentali |
+| Stati Uniti centro-occidentali | Stati Uniti occidentali 2 |
 
 Per informazioni aggiornate sulle aree supportate da Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
  
@@ -116,4 +117,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Opzioni di ridondanza di Archiviazione di Microsoft Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

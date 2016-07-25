@@ -34,7 +34,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ### Indicazioni per le VM
 
-- È consigliabile usare le serie GS e DS, a meno che non si disponga di un carico di lavoro specializzato, ad esempio di high-performance computing. Per informazioni dettagliate, vedere l'articolo sulle [dimensioni delle macchine virtuali][virtual-machine-sizes]. Quando si sposta un carico di lavoro esistente in Azure, per iniziare scegliere le dimensioni di VM più simili a quelle dei server locali. Dopodiché, misurare le prestazioni del carico di lavoro effettivo in relazione agli aspetti di CPU, memoria e IOPS del disco e regolare le dimensioni secondo necessità. Inoltre, se sono necessarie più schede di interfaccia di rete, tenerne presente il limite per ogni dimensione.  
+- È consigliabile usare le serie GS e DS, a meno che non si disponga di un carico di lavoro specializzato, ad esempio di high-performance computing. Per informazioni dettagliate, vedere l'articolo sulle [dimensioni delle macchine virtuali][virtual-machine-sizes]. Quando si sposta un carico di lavoro esistente in Azure, per iniziare scegliere le dimensioni di VM più simili a quelle dei server locali. Dopodiché, misurare le prestazioni del carico di lavoro effettivo in relazione agli aspetti di CPU, memoria e IOPS del disco e regolare le dimensioni secondo necessità. Inoltre, se sono necessarie più schede di interfaccia di rete, tenerne presente il limite per ogni dimensione.
 
 - Quando si effettua il provisioning della VM e di altre risorse, è necessario specificare una località. È in genere consigliabile scegliere la località più vicina agli utenti interni o ai clienti. È tuttavia possibile che le dimensioni di VM non siano tutte disponibili in tutte le località. Per informazioni dettagliate, vedere l’articolo sui [servizi in base alle aree][services-by-region]. Per elencare le dimensioni delle VM disponibili in una determinata posizione, eseguire il seguente comando di Azure:
 
@@ -46,7 +46,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ### Indicazioni per il disco e l'archiviazione
 
-- Per ottimizzare le prestazioni I/O del disco, si consiglia di utilizzare [Archiviazione Premium][premium-storage], che archivia i dati in unità SSD (Solid State Drive). I costi dipendono dalle dimensioni del disco sottoposto a provisioning. Anche IOPS e velocità effettiva, ad esempio la velocità di trasferimento dati, dipendono dalle dimensioni del disco. Quando si effettua il provisioning di un disco è quindi consigliabile tenere in considerazione tutti e tre i fattori, ovvero capacità, IOPS e velocità effettiva. 
+- Per ottimizzare le prestazioni I/O del disco, si consiglia di utilizzare [Archiviazione Premium][premium-storage], che archivia i dati in unità SSD (Solid State Drive). I costi dipendono dalle dimensioni del disco sottoposto a provisioning. Anche IOPS e velocità effettiva, ad esempio la velocità di trasferimento dati, dipendono dalle dimensioni del disco. Quando si effettua il provisioning di un disco è quindi consigliabile tenere in considerazione tutti e tre i fattori, ovvero capacità, IOPS e velocità effettiva.
 
 - Aggiungere uno o più dischi dati. Quando si crea un nuovo VHD, il disco non è formattato. Accedere alla VM per formattare il disco.
 
@@ -70,7 +70,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ## Considerazioni sulla scalabilità
 
-- Per aumentare o ridurre le prestazioni di una VM, è possibile [modificare le dimensioni della VM][vm-resize]. 
+- Per aumentare o ridurre le prestazioni di una VM, è possibile [modificare le dimensioni della VM][vm-resize].
 
 - Per scalare orizzontalmente, inserire due o più VM in un set di disponibilità nell'ambito di un servizio di bilanciamento del carico. Per ulteriori dettagli, vedere l'articolo sull'[esecuzione di più VM Windows in Azure][multi-vm].
 
@@ -114,7 +114,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ## Considerazioni relative alla sicurezza
 
-- Usare il [Centro sicurezza di Azure][security-center] per ottenere una visualizzazione centrale dello stato di sicurezza delle risorse di Azure. Il Centro sicurezza monitora potenziali problemi di sicurezza, ad esempio aggiornamenti del sistema e antimalware, e fornisce un'immagine completa dello stato della sicurezza della distribuzione. 
+- Usare il [Centro sicurezza di Azure][security-center] per ottenere una visualizzazione centrale dello stato di sicurezza delle risorse di Azure. Il Centro sicurezza monitora potenziali problemi di sicurezza, ad esempio aggiornamenti del sistema e antimalware, e fornisce un'immagine completa dello stato della sicurezza della distribuzione.
 
     - Il Centro sicurezza è configurato per ogni sottoscrizione di Azure. Abilitare la raccolta dei dati di sicurezza come descritto nell'articolo sull'[utilizzo del Centro sicurezza PC].
     - Dopo aver abilitato la raccolta dei dati, il Centro sicurezza PC analizza automaticamente tutte le macchine virtuali create nell'ambito della sottoscrizione.
@@ -260,19 +260,19 @@ Per poter applicare il [contratto di servizio per le macchine virtuali][vm-sla],
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/it-IT/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
-[group-policy]: https://technet.microsoft.com/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[group-policy]: https://technet.microsoft.com/it-IT/library/dn595129.aspx
+[log-collector]: https://azure.microsoft.com/it-IT/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -284,21 +284,21 @@ Per poter applicare il [contratto di servizio per le macchine virtuali][vm-sla],
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/it-IT/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
-[Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize-VHD]: https://technet.microsoft.com/it-IT/library/hh848535.aspx
+[Resize virtual machines]: https://azure.microsoft.com/it-IT/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/it-IT/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/it-IT/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [utilizzo del Centro sicurezza PC]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/it-IT/support/legal/sla/virtual-machines/v1_0/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

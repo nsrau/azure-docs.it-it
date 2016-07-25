@@ -174,11 +174,11 @@ Node.js Server SDK (azure-mobile-apps) offre diversi meccanismi per esporre le t
 
 | Operazione | Descrizione |
 | --------- | ----------- |
-| GET /tables/\_tablename\_ | Ottiene tutti i record nella tabella |
-| GET /tables/\_tablename\_/:id | Ottiene un record specifico nella tabella |
-| POST /tables/\_tablename\_ | Crea un nuovo record nella tabella |
-| PATCH /tables/\_tablename\_/:id | Aggiorna un record esistente nella tabella |
-| DELETE /tables/\_tablename\_/:id | Elimina un record dalla tabella |
+| GET /tables/_tablename_ | Ottiene tutti i record nella tabella |
+| GET /tables/_tablename_/:id | Ottiene un record specifico nella tabella |
+| POST /tables/_tablename_ | Crea un nuovo record nella tabella |
+| PATCH /tables/_tablename_/:id | Aggiorna un record esistente nella tabella |
+| DELETE /tables/_tablename_/:id | Elimina un record dalla tabella |
 
 Questa API Web supporta [OData] ed estende lo schema della tabella per supportare la [sincronizzazione dati offline].
 
@@ -629,7 +629,7 @@ L'endpoint di Swagger si trova in http://_yoursite_.azurewebsites.net/swagger. �
 
 ## <a name="push">Notifiche push
 
-App per dispositivi mobili si integra con Hub di notifica di Azure per consentire l'invio di notifiche push mirate a milioni di dispositivi basati sulle piattaforme principali. Con Hub di notifica è possibile inviare notifiche push a dispositivi iOS, Android e Windows. Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](./notification-hubs/notification-hubs-push-notification-overview.md).
+App per dispositivi mobili si integra con Hub di notifica di Azure per consentire l'invio di notifiche push mirate a milioni di dispositivi basati sulle piattaforme principali. Con Hub di notifica è possibile inviare notifiche push a dispositivi iOS, Android e Windows. Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Procedura: Inviare notifiche push
 
@@ -763,7 +763,7 @@ Lo stesso token usato per l'endpoint delle tabelle deve essere usato per le API 
 
 ### <a name="howto-customapi-auth"></a>Procedura: Gestire il caricamento di file di grandi dimensioni
 
-Azure Mobile Apps SDK usa il [middleware body-parser](https://github.com/expressjs/body-parser) per accettare e decodificare il contenuto del corpo nell'elemento inviato. È possibile preconfigurare il body-parser per accettare caricamenti di file più grandi:
+L'SDK delle app per dispositivi mobili di Azure usa il [middleware body-parser](https://github.com/expressjs/body-parser) per accettare e decodificare il contenuto del corpo nell'elemento inviato. È possibile preconfigurare il body-parser per accettare caricamenti di file più grandi:
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -820,7 +820,7 @@ Con Azure Mobile App SDK è possibile accedere all'intero contesto tramite l'ogg
 
 ## <a name="Debugging"></a>Debug, tabelle semplici e API semplici
 
-### <a name="howto-diagnostic-logs"></a>Procedura: Eseguire il debug e diagnosticare e risolvere i problemi di app per dispositivi mobili di Azure
+### <a name="howto-diagnostic-logs"></a>Procedura: Eseguire il debug e diagnosticare e risolvere i problemi di App per dispositivi mobili di Azure
 
 Il Servizio app di Azure offre diverse tecniche di debug e risoluzione dei problemi per le applicazioni Node.js. Per iniziare la risoluzione dei problemi del back-end Node.js Mobile, consultare i seguenti articoli:
 
@@ -832,7 +832,7 @@ Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procedura: Usare tabelle semplici nel portale di Azure
 
-L'impostazione Easy Tables nel portale consente di creare e usare tabelle direttamente nel portale. Consente inoltre di modificare le operazioni di tabella usando l'editor di Visual Studio Online.
+L'impostazione Easy Tables nel portale consente di creare e usare tabelle direttamente nel portale. Consente anche di modificare le operazioni di tabella usando l'editor del servizio app.
 
 Quando si fa clic su **Easy tables** nelle impostazioni del sito di back-end, è possibile aggiungere una nuova tabella oppure modificarne o eliminarne una esistente. È anche possibile visualizzare i dati nella tabella.
 
@@ -841,7 +841,7 @@ Quando si fa clic su **Easy tables** nelle impostazioni del sito di back-end, è
 I comandi seguenti sono disponibili sulla barra dei comandi di una tabella:
 
 + **Modifica autorizzazioni**: è possibile modificare l'autorizzazione per le operazioni di lettura, inserimento, aggiornamento ed eliminazione di operazioni sulla tabella. Le opzioni consentono di eseguire l'accesso anonimo, richiedere l'autenticazione o disabilitare qualunque tipo di accesso all'operazione. In questo modo si modifica il file di codice del progetto table.json.
-+ **Modifica script**: il file di script per la tabella viene aperto nell'editor di Visual Studio Team Services.
++ **Modifica script**: il file di script per la tabella viene aperto nell'editor del servizio app.
 + **Gestisci schema**: è possibile aggiungere o eliminare le colonne o modificare l'indice di tabella.
 + **Cancella tabella**: tronca una tabella esistente eliminando tutte le righe di dati ma lasciando lo schema invariato.
 + **Elimina righe**: è possibile eliminare singole righe di dati.
@@ -849,21 +849,21 @@ I comandi seguenti sono disponibili sulla barra dei comandi di una tabella:
 
 ###<a name="work-easy-apis"></a>Procedura: Usare Easy APIs nel portale di Azure
 
-L'impostazione Easy APIs nel portale consentono di creare e usare API personalizzate direttamente nel portale. Consente inoltre di modificare gli script dell'API usando l'editor di Visual Studio Online.
+L'impostazione Easy APIs nel portale consentono di creare e usare API personalizzate direttamente nel portale. Consente anche di modificare gli script dell'API usando l'editor del servizio app.
 
 Quando fa clic su **Easy APIs** nelle impostazioni del sito di back-end, è possibile aggiungere un endpoint dell'API personalizzata oppure modificarne o eliminarne uno esistente.
 
 ![Utilizzare Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Nel portale è possibile modificare le autorizzazioni di accesso per una determinata azione HTTP, modificare il file di script dell'API nell'editor di Visual Studio Team Services o visualizzare i log in streaming.
+Nel portale è possibile modificare le autorizzazioni di accesso per una determinata azione HTTP, modificare il file di script dell'API nell'editor del servizio app o visualizzare i log in streaming.
 
-###<a name="online-editor"></a>Procedura: Modificare il codice in Visual Studio Team Services
+###<a name="online-editor"></a>Procedura: Modificare il codice nell'editor del servizio app
 
-Il portale di Azure consente di modificare i file di script del back-end Node.js in Visual Studio Team Services senza dover scaricare il progetto nel computer locale. Per modificare i file di script nell'editor online:
+Il portale di Azure consente di modificare i file di script del back-end Node.js nell'editor del servizio app senza dover scaricare il progetto nel computer locale. Per modificare i file di script nell'editor online:
 
-1. Nel pannello del back-end delle app per dispositivi mobili fare clic su **Tutte le impostazioni** > **Easy tables** o **Easy APIs**, fare clic su una tabella o un'API e quindi su **Modifica script**. Il file di script viene aperto nell'editor di Visual Studio Team Services.
+1. Nel pannello del back-end delle app per dispositivi mobili fare clic su **Tutte le impostazioni** > **Easy tables** o **Easy APIs**, fare clic su una tabella o un'API e quindi su **Modifica script**. Il file di script viene aperto nell'editor del servizio app.
 
-	![Editor del codice di Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Editor del servizio app](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Apportare le modifiche al file di codice nell'editor online. Le modifiche vengono salvate automaticamente durante la digitazione.
 
@@ -917,4 +917,4 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

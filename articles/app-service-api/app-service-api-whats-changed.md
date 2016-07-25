@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="mohisri"/>
+	ms.author="rachelap"/>
 
 # App per le API del servizio app: Modifiche apportate
 
@@ -122,4 +122,4 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

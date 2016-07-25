@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Panorama9
@@ -66,7 +66,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Panorama9 tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Panorama9 richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
 1.  Nella pagina di integrazione dell'applicazione **Panorama9** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -76,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** nella casella di testo **URL di accesso a Panorama9**, digitare l'URL utilizzato dagli utenti per accedere a Panorama9 (ad esempio: "*https://dashboard.panorama9.com/saml/access/3262*"), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** nella casella di testo **Panorama9 Sign On URL** (URL di accesso a Panorama9) digitare l'URL usato dagli utenti per accedere a Panorama9, ad esempio "*https://dashboard.panorama9.com/saml/access/3262*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configura URL app")
 
@@ -98,8 +98,8 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Impostazioni](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Impostazioni")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Panorama9** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL provider di identità**.
-    2.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.  
+    1.  Nella finestra di dialogo **Configure single sign-on at Panorama9** (Configura accesso Single Sign-On in Panorama9) del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Identity provider URL** (URL provider di identità).
+    2.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
@@ -149,4 +149,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

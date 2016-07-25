@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con ShiftPlanning | Microsoft Azure" 
     description="Informazioni su come usare ShiftPlanning con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ShiftPlanning
   
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per ShiftPlanning, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ScreenSteps tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **ShiftPlanning** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **ShiftPlanning** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configura accesso Single Sign-On")
 
@@ -76,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso a ShiftPlanning** usando il modello seguente "**https://company.shiftplanning.com/includes/saml/*" e fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **ShiftPlanning Sign On URL** (URL di accesso a ShiftPlanning) usando il modello "*https://company.shiftplanning.com/includes/saml/*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configura URL app")
 
@@ -100,16 +100,16 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     1.  Selezionare **SAML abilitato**.
     2.  Selezionare **Consenti accesso tramite password**
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in ShiftPlanning** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL autorità di certificazione SAML**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in ShiftPlanning** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione remota**.
-    5.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    3.  Nella finestra di dialogo **Configure single sign-on at ShiftPlanning** (Configura accesso Single Sign-On in ShiftPlanning) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **SAML Issuer URL** (URL autorità di certificazione SAML).
+    4.  Nella finestra di dialogo **Configure single sign-on at ShiftPlanning** (Configura accesso Single Sign-On in ShiftPlanning) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Remote Logout URL** (URL disconnessione remota).
+    5.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
     7.  Fare clic su **Salva impostazioni**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -147,7 +147,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a ShiftPlanning, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **ShiftPlanning** fare clic su **Assegna utenti**.
 
@@ -159,4 +159,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

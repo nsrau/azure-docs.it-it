@@ -3,7 +3,7 @@
    description="Anteprima della risoluzione dei problemi di Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/25/2016"
-   ms.author="derrickv"/>
+   ms.date="06/29/2016"
+   ms.author="owend"/>
 
 # Anteprima della risoluzione dei problemi di Microsoft Power BI Embedded
 In questo articolo vengono illustrate risposte per la risoluzione dei problemi di **Power BI Embedded**.
@@ -40,4 +40,4 @@ Nel caso in cui si abbiano credenziali per un ambiente di sviluppo o di gestione
 - [Esempio introduttivo](power-bi-embedded-get-started-sample.md)
 - [Informazioni su Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

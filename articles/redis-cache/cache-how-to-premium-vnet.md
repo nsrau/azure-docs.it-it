@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure
@@ -74,6 +74,7 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 -	[Quali sono alcuni problemi comuni di configurazione errata per Cache Redis di Azure e le reti virtuali?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[È possibile usare reti virtuali con una cache Standard o Basic?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 -	[Perché la creazione di una cache Redis ha esito negativo in alcune subnet e non in altre?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-	[Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 
 ## Quali sono alcuni problemi comuni di configurazione errata per Cache Redis di Azure e le reti virtuali?
@@ -96,7 +97,7 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebbero non essere inizialmente soddisfatti in una rete virtuale. Per il corretto funzionamento quando viene usata all'interno di una rete virtuale, Cache Redis di Azure richiede tutti gli elementi seguenti.
 
--  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*. 
+-  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
 -  Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. È necessario per supportare la funzionalità SSL.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Questi requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.
 
@@ -111,6 +112,13 @@ Le reti virtuali possono essere usate solo con cache Premium.
 Quando si distribuisce una Cache Redis di Azure in una rete virtuale ARM, la cache deve trovarsi in una subnet dedicata che non contiene altri tipi di risorse. Se si tenta di distribuire una Cache Redis di Azure in una subnet di rete virtuale ARM contenente altre risorse, la distribuzione avrà esito negativo. Prima di poter creare una nuova cache Redis, è necessario eliminare le risorse esistenti all'interno della subnet.
 
 È possibile distribuire più tipi di risorse in una rete virtuale classica, purché siano disponibili indirizzi IP sufficienti.
+
+### Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?
+
+Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache e quindi le funzionalità di gestione della cache seguenti non funzionano in questo momento.
+
+-	Console di Redis: poiché la Console di Redis usa il client di redis cli.exe ospitato su macchine virtuali che non fanno parte di una rete virtuale, non è possibile connettersi alla cache.
+
 
 ## Usare ExpressRoute con Cache Redis di Azure
 
@@ -159,4 +167,4 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

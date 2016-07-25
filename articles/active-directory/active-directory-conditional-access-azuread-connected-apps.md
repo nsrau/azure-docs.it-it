@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Guida introduttiva all'accesso condizionale ad Azure AD  
@@ -68,7 +68,7 @@ La versione di anteprima corrente supporta le opzioni seguenti:
 
 * **Richiedi autenticazione a più fattori**: con questa opzione, gli utenti a cui si applicano le regole di accesso dovranno completare la procedura Multi-Factor Authentication prima di accedere all'applicazione a cui si applica il criterio.
 
-* **Richiedi autenticazione a più fattori quando non al lavoro**: con questa opzione, un utente che accede da un indirizzo IP attendibile non deve eseguire la procedura Multi-Factor Authentication. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina delle impostazioni dell'autenticazione Multi-Factor Authentication oppure utilizzando gli appositi intervalli di indirizzi IP pubblici nella scheda di configurazione della directory.
+* **Richiedi autenticazione a più fattori quando non al lavoro**: con questa opzione, un utente che accede da un indirizzo IP attendibile non deve eseguire la procedura Multi-Factor Authentication. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
 
 * **Blocca l'accesso quando non al lavoro**: con questa opzione, un utente che non accede da un indirizzo IP attendibile verrà bloccato. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
 
@@ -94,4 +94,4 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="04/27/2016"
+	ms.date="07/12/2016"
 	ms.author="sdanie" />
 
 # Provider di cache di output ASP.NET per la Cache Redis di Azure
@@ -81,4 +81,4 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

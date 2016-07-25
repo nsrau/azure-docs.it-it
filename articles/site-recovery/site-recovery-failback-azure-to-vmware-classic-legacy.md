@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/06/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Failback di server fisici e macchine virtuali VMware da Azure a VMware con Azure Site Recovery (legacy)
@@ -428,4 +428,4 @@ Dopo avere completato il failback, è opportuno proteggere ancora le macchine vi
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

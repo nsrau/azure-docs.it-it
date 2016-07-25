@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="07/13/2016"
    ms.author="georgem"/>
 
 # Vantaggio Azure Hybrid Use per Windows Server
@@ -39,6 +39,8 @@ Per distribuire una macchina virtuale Windows Server in Azure è prima necessari
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
 ```
 
+> [AZURE.NOTE] Microsoft SQL Server, SharePoint Server e Dynamics possono usare anche le licenza di Software Assurance. È comunque necessario preparare l'immagine di Windows Server installando i componenti dell'applicazione e specificando i codici di licenza corrispondenti, quindi caricando l'immagine del disco in Azure. Esaminare la documentazione appropriata per l'esecuzione di SysPrep con l'applicazione, ad esempio [Considerazioni sull'installazione di SQL Server tramite SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) o [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx) (Creare un'immagine di riferimento di SharePoint Server 2016 con Sysprep).
+
 Altre informazioni sul [caricamento del disco rigido virtuale in Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
 > [AZURE.TIP] Questo articolo è incentrato sulla distribuzione di macchine virtuali Windows Server; è tuttavia anche possibile distribuire macchine virtuali di client Windows nello stesso modo. Negli esempi seguenti, sostituire `Server` con `Client`.
@@ -51,7 +53,7 @@ New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
     -LicenseType Windows_Server
 ```
 
-È possibile [leggere una procedura più dettagliata sulla distribuzione di una macchina virtuale in Azure con PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) più avanti nel documento oppure una guida più descrittiva con i diversi passaggi per [creare una macchina virtuale Windows usando Resource Manager e PowerShell](./virtual-machines-windows-ps-create.md).
+È possibile [leggere una procedura più dettagliata sulla distribuzione di una macchina virtuale in Azure con PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) più avanti nel documento oppure vedere una guida più descrittiva con i diversi passaggi per [creare una macchina virtuale Windows usando Resource Manager e PowerShell](./virtual-machines-windows-ps-create.md).
 
 ## Distribuire una macchina virtuale con Resource Manager
 Nei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
@@ -160,8 +162,8 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 ## Passaggi successivi
 
-Altre informazioni sul [vantaggio Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Altre informazioni sul [Vantaggio Microsoft Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Altre informazioni sull'[uso dei modelli di Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->
