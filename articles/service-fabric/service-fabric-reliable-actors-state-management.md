@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Gestione dello stato di Reliable Actors
@@ -62,7 +62,7 @@ Questa impostazione usa un provider di stato solo in memoria e imposta il numero
 
 ### Impostazioni predefinite e impostazioni generate
 
-Quando si usa l'attributo `StatePersistence`, viene selezionato automaticamente un provider di stato in fase di esecuzione all'avvio del servizio attore. Il numero di repliche, tuttavia, viene impostato in fase di compilazione dagli strumenti di compilazione dell'attore di Visual Studio. Gli strumenti di compilazione generano automaticamente un *servizio predefinito* per il servizio attore in ApplicationManifest.xml. I parametri vengono creati per le **dimensioni minime del set di repliche** e le **dimensioni del set di repliche di destinazione**. Naturalmente è possibile modificare questi parametri manualmente, tuttavia, ogni volta che l'attributo `StatePersistence` viene modificato, i parametri verranno impostati sui valori predefiniti delle dimensioni del set di repliche per l'attributo `StatePersistence` selezionato, eseguendo l'override di eventuali valori precedenti.
+Quando si usa l'attributo `StatePersistence`, viene selezionato automaticamente un provider di stato in fase di esecuzione all'avvio del servizio attore. Il numero di repliche, tuttavia, viene impostato in fase di compilazione dagli strumenti di compilazione dell'attore di Visual Studio. Gli strumenti di compilazione generano automaticamente un *servizio predefinito* per il servizio attore in ApplicationManifest.xml. I parametri vengono creati per le **dimensioni minime del set di repliche** e le **dimensioni del set di repliche di destinazione**. Naturalmente è possibile modificare questi parametri manualmente, tuttavia, ogni volta che l'attributo `StatePersistence` viene modificato, i parametri verranno impostati sui valori predefiniti delle dimensioni del set di repliche per l'attributo `StatePersistence` selezionato, eseguendo l'override di eventuali valori precedenti. In altri termini, l'override dei valori impostati in ServiceManifest.xml verrà eseguito **solo** in fase di compilazione quando si modifica l'attributo `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -98,9 +98,9 @@ Lo stato è accessibile tramite State Manager dalla chiave. I metodi di State Ma
 
  - Il metodo di un attore genera un'eccezione non gestita dopo il recupero di un oggetto da State Manager.
  - Un attore viene riattivato dopo essere stato disattivato o a causa di un errore.
- - Se il provider di stato invia lo stato al disco. Questo comportamento dipende dall'implementazione del provider di stato. Il provider di stato predefinito per l'impostazione `Persisted` ha questo comportamento. 
+ - Se il provider di stato invia lo stato al disco. Questo comportamento dipende dall'implementazione del provider di stato. Il provider di stato predefinito per l'impostazione `Persisted` ha questo comportamento.
 
-Lo stato può essere recuperato tramite un'operazione *Get* standard che genera l'eccezione `KeyNotFoundException` se non esiste una voce per la chiave specificata:
+Lo stato può essere recuperato con un'operazione *Get* standard che genera l'eccezione `KeyNotFoundException` se non esiste una voce per la chiave specificata:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -113,7 +113,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-Lo stato può essere recuperato anche con il metodo *TryGet* che non genera alcuna eccezione se non esiste una voce per la chiave specificata:
+Lo stato può essere recuperato anche con un metodo *TryGet* che non genera alcuna eccezione se non esiste una voce per la chiave specificata:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -135,7 +135,7 @@ class MyActor : Actor, IMyActor
 
 I metodi di recupero di State Manager restituiscono un riferimento a un oggetto nella memoria locale. Se questo oggetto viene modificato solo nella memoria locale non verrà salvato in modo permanente. Quando un oggetto viene recuperato da State Manager e modificato, deve essere reinserito in State Manager per essere salvato in modo permanente.
 
-Lo stato può essere inserito usando il metodo *Set* condizionale, che è l'equivalente della sintassi `dictionary["key"] = value`:
+Lo stato può essere inserito usando un metodo *Set* non condizionale, che è l'equivalente della sintassi `dictionary["key"] = value`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -148,7 +148,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-Lo stato può essere aggiunto con il metodo *Add*, che genererà l'eccezione `InvalidOperationException` quando si prova ad aggiungere una chiave già presente:
+Lo stato può essere aggiunto con un metodo *Add*, che genererà l'eccezione `InvalidOperationException` quando si prova ad aggiungere una chiave già esistente:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -161,7 +161,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-Lo stato può essere aggiunto anche con il metodo *TryAdd*, che non genererà alcuna eccezione quando si prova ad aggiungere una chiave già presente:
+Lo stato può essere aggiunto anche con un metodo *TryAdd*, che non genererà alcuna eccezione quando si prova ad aggiungere una chiave già esistente:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -181,7 +181,7 @@ class MyActor : Actor, IMyActor
 
 Alla fine di un metodo di un attore, State Manager salva automaticamente tutti i valori che sono stati aggiunti o modificati da un'operazione di inserimento o aggiornamento. Un'operazione di salvataggio può includere il salvataggio su disco in modo permanente e la replica, a seconda delle impostazioni usate. I valori che non sono stati modificati non vengono salvati in modo permanente né replicati. Se non è stato modificato alcun valore, l'operazione di salvataggio non eseguirà alcuna azione. Nel caso in cui il salvataggio non riesce, lo stato modificato verrà eliminato e verrà ricaricato lo stato originale.
 
-Lo stato può anche essere salvato manualmente chiamando il metodo `SaveStateAsync` nella classe dell'attore:
+Lo stato può anche essere salvato manualmente chiamando il metodo `SaveStateAsync` sulla base dell'attore:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

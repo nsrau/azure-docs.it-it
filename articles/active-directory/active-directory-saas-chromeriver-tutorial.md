@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 
@@ -38,7 +38,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Chro
 
 ###Per abilitare l'integrazione dell'applicazione per Chromeriver, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-chromeriver-tutorial/IC700993.png "Active Directory")
 
@@ -67,7 +67,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Chromeriver** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Chromeriver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configura accesso Single Sign-On")
 
@@ -79,9 +79,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configurare le impostazioni dell'app")
 
-    1.  Nella casella di testo **URL di risposta** digitare l'**URL AssertionConsumerService** di Chromeriver (ad esempio, **https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).
+    1.  Nella casella di testo **URL di risposta** digitare l'**URL AssertionConsumerService** di Chromeriver (ad esempio, *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).
 
-        >[AZURE.NOTE]È possibile ottenere questo valore dal team di supporto di Chromeriver.
+        >[AZURE.NOTE] È possibile ottenere questo valore dal team di supporto di Chromeriver.
 
     2.  Fare clic su **Avanti**
 
@@ -91,16 +91,16 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inviare il file di metadati scaricato al team di supporto di Chromeriver.
 
-    >[AZURE.NOTE]Il team di supporto di Chromeriver si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
+    >[AZURE.NOTE] Il team di supporto di Chromeriver si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802761.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
 Per consentire agli utenti di Azure AD di accedere a Chromeriver, è necessario eseguirne il provisioning in Chromeriver. Nel caso di Chromeriver, gli account utente devono essere creati dal team di supporto di Chromeriver.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Chromeriver per eseguire il provisioning degli account utente di Azure Active Directory.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Chromeriver per eseguire il provisioning degli account utente di Azure Active Directory.
 
 ##Assegnazione degli utenti
 
@@ -108,9 +108,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Chromeriver seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **Chromeriver** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Chromeriver** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Assegna utenti")
 
@@ -120,4 +120,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

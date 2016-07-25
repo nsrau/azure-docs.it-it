@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Uso avanzato del modello di programmazione Reliable Services
@@ -42,7 +42,7 @@ Anche se `RunAsync` dovrebbe essere sufficiente nella maggior parte dei casi, in
 
 Il ciclo di vita di una replica del servizio con stato è molto più complesso rispetto a quello di un'istanza del servizio senza stato. Oltre agli eventi di apertura, chiusura e interruzione, una replica del servizio con stato è soggetta a modifiche dei ruoli durante il ciclo di vita. Quando una replica del servizio con stato cambia ruolo, viene attivato l'evento `OnChangeRoleAsync`:
 
-- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`: OnChangeRoleAsync viene chiamato quando il servizio con stato cambia ruolo, ad esempio primario o secondario. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare le raccolte Reliable Collections e a scriverci). Alle repliche secondarie viene assegnato lo stato di lettura (possono solo leggere dalle raccolte Reliable Collections esistenti). È possibile avviare o aggiornare attività in background in risposta alle modifiche dei ruoli, come l'esecuzione di convalida di sola lettura, la generazione di report o il data mining in una replica secondaria.
+- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`: OnChangeRoleAsync viene chiamato quando il servizio con stato cambia ruolo, ad esempio primario o secondario. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare raccolte Reliable Collections e a scrivervi). Alle repliche secondarie viene assegnato lo stato di lettura (possono solo leggere da raccolte Reliable Collections esistenti). La maggior parte delle operazioni in un servizio con stato viene eseguita nella replica primaria. Le repliche secondarie possono eseguire la convalida di sola lettura, la generazione di report, il data mining o altri processi di sola lettura.
 
 In un servizio con stato solo la replica primaria ha accesso in scrittura allo stato ed è in genere il momento in cui il servizio esegue il lavoro effettivo. Il metodo `RunAsync` in un servizio con stato viene eseguito solo quando la replica del servizio con stato è primaria. Il metodo `RunAsync` viene annullato quando il ruolo della replica primaria non è più primario, nonché durante gli eventi di chiusura e interruzione.
 
@@ -67,4 +67,4 @@ Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli segue
 
 - [Configurazione dei servizi con Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

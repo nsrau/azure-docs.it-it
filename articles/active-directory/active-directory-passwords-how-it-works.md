@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure" 
-	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure"
+	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Funzionamento della gestione delle password
+
+> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+
 La gestione delle password in Azure Active Directory è costituita da più componenti logici descritti di seguito. Fare clic su ogni collegamento, per altre informazioni sul componente specifico.
 
 - [**Portale di configurazione per la gestione delle password**](#password-management-configuration-portal). Gli amministratori possono controllare diversi aspetti della gestione delle password nei relativi tenant passando alla scheda Configura della propria directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
@@ -102,7 +105,7 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
@@ -121,4 +124,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

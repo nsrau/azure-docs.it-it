@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="07/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
@@ -33,6 +33,8 @@ Un'offerta è l'elemento "padre" di tutti i relativi SKU. È possibile disporre 
 SKU è il nome commerciale per un'immagine di macchina virtuale. Un'immagine di macchina virtuale contiene un disco del sistema operativo e zero o più dischi dati. Si tratta essenzialmente del profilo di archiviazione completo per una macchina virtuale. È necessario un disco rigido virtuale per ogni disco. È necessario crearne uno anche per i dischi dati vuoti.
 
 Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per lo SKU. In fase di distribuzione i clienti non possono rimuovere i dischi che fanno parte di un'immagine, ma possono sempre aggiungerne altri durante o dopo la distribuzione se necessario.
+
+>[AZURE.IMPORTANT] **Non modificare il numero di dischi in una nuova versione dell'immagine.** Se è necessario riconfigurare i dischi dati nell'immagine, definire un nuovo SKU. La pubblicazione di una nuova versione dell'immagine con un numero di dischi diverso può compromettere le attività di sviluppo basate sulla nuova versione dell'immagine in caso di scalabilità automatica, distribuzione automatica di soluzioni tramite modelli di Azure Resource Manager e altri scenari.
 
 ### 1\.1 Aggiungere un'offerta
 
@@ -511,7 +513,7 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
     ![disegno](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Passaggio successivo
-Dopo aver specificato i dettagli dell'SKU, passare alla [guida dei contenuti marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
+Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -567,4 +569,4 @@ Dopo aver specificato i dettagli dell'SKU, passare alla [guida dei contenuti mar
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

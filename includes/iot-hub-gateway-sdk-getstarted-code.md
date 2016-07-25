@@ -198,13 +198,11 @@ Per informazioni su come usare l'SDK per gateway, vedere quanto segue:
 - [IoT SDK per gateway: invio di messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated].
 - [Azure IoT SDK per gateway][lnk-gateway-sdk] su GitHub.
 
-Per altre informazioni sulla gestione dei dispositivi con l'hub IoT, leggere la [panoramica sulla gestione dei dispositivi dell'hub IoT di Azure][lnk-device-management].
-
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-device-management]: ../articles/iot-hub/iot-hub-device-management-overview.md
 
+<!---HONumber=AcomDC_0713_2016-->

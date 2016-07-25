@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Skydesk Email in Azure AD, è necessario aggiu
 
 **Per aggiungere Skydesk Email dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -325,4 +325,4 @@ Quando si fa clic sul riquadro Skydesk Email nel pannello di accesso, si dovrebb
 [204]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
@@ -655,7 +655,7 @@ Il codice R completo per questa sezione è disponibile nel file con estensione z
 
 Come già accennato, le serie temporali sono costituite da una serie di valori di dati indicizzati per data e ora. Gli oggetti serie temporale vengono usati in R per creare e gestire l'indice temporale. Questi oggetti offrono infatti una serie di vantaggi. Gli oggetti della serie temporale consentono di liberarsi delle numerose attività di gestione dei valori di indice della serie temporale incapsulati nell'oggetto. Consentono inoltre di usare i vari metodi messi a disposizione dalle serie temporali per operazioni di tracciamento, stampa, modeling, ecc.
 
-In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1ª gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi di oggetti serie temporale comunemente usate in R includono zoo e xts, serie temporali estensibili.
+In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi di oggetti serie temporale comunemente usate in R includono zoo e xts, serie temporali estensibili.
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Esempio di oggetto della serie temporale
@@ -1296,13 +1296,13 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base sull'ambito di utilizzo del linguaggio R con Azure Machine Learning Studio. Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
-- R for Beginners di Emmanuel Paradis, per iniziare, all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+- R for Beginners di Emmanuel Paradis, per iniziare, all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.
 
 - An Introduction to R di W. N. Venables et. al., con informazioni un po' più approfondite, all'indirizzo http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Sono disponibili molti libri con informazioni introduttive su R. Di seguito sono elencati quelli che ritengo più utili:
 
-- The Art of R Programming: A Tour of Statistical Software Design di Norman Matloff, un'eccellente introduzione alla programmazione in R.  
+- The Art of R Programming: A Tour of Statistical Software Design di Norman Matloff, un'eccellente introduzione alla programmazione in R.
 
 - R Cookbook di Paul Teetor, che offre un approccio problema-soluzione all'uso di R.
 
@@ -1318,7 +1318,7 @@ Il libro Introductory Time Series with R di Paul Cowpertwait e Andrew Metcalfe f
 
 Alcune importanti risorse su Internet:
 
-- DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Per esercitazioni interattive di R gratuite, visitare https://www.datacamp.com/courses/introduction-to-r  
+- DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Per esercitazioni interattive di R gratuite, visitare https://www.datacamp.com/courses/introduction-to-r
 
 - A quick R tutorial di Kelly Black della Clarkson University http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

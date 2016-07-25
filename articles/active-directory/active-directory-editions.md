@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/08/2016"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -480,6 +480,9 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 - Privileged Identity Management
 - [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+- [Autenticazione basata su certificati in iOS](active-directory-certificate-based-authentication-ios.md)
+- [Autenticazione basata su certificati in Android](active-directory-certificate-based-authentication-android.md)
+ 
 
 
 
@@ -491,8 +494,7 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # Ordinamento dei dati di DocumentDB tramite Order By
@@ -136,4 +136,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

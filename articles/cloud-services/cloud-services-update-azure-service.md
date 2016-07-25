@@ -3,7 +3,7 @@ pageTitle="Come aggiornare un servizio cloud | Microsoft Azure"
 description="Informazioni su come aggiornare i servizi cloud in Azure. Informazioni su come viene eseguito un aggiornamento in un servizio cloud per assicurare la disponibilità."
 services="cloud-services"
 documentationCenter=""
-authors="kenazk"
+authors="Thraka"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="10/26/2015"
-ms.author="kenazk"/>
+ms.date="05/05/2016"
+ms.author="adegeo"/>
 
 # Come aggiornare un servizio cloud
 
@@ -26,7 +26,7 @@ Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di
 
 Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) o [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed).
+Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds).
 
 > [AZURE.NOTE] Anche se i termini inglesi **update** e **upgrade** hanno un significato leggermente diverso nel contesto di Azure, sono stati entrambi tradotti con il termine italiano "aggiornamento" in relazione ai processi e alle descrizioni delle funzionalità di questo documento.
 
@@ -132,7 +132,7 @@ Azure offre flessibilità nella gestione dei servizi durante un aggiornamento pe
 Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
 
 -   Le istanze del ruolo che non erano ancora state aggiornate alla nuova versione non vengono aggiornate, perché tali istanze stanno già eseguendo la versione di destinazione del servizio.
--   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (\*.cspkg) o al file di configurazione del service (\*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
+-   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (*.cspkg) o al file di configurazione del service (*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
 
 Questa funzionalità viene fornita dalle funzioni seguenti:
 
@@ -145,7 +145,7 @@ Questa funzionalità viene fornita dalle funzioni seguenti:
 
 In alcune situazioni un ripristino dello stato precedente di un aggiornamento non è supportato, come nei casi seguenti:
 
--   Riduzione nelle risorse locali: se l'aggiornamento aumenta le risorse locali per un ruolo, la piattaforma Azure non consente il ripristino dello stato precedente. Per altre informazioni sulla configurazione delle risorse per un ruolo, vedere [Configurare le risorse di archiviazione locale](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Riduzione nelle risorse locali: se l'aggiornamento aumenta le risorse locali per un ruolo, la piattaforma Azure non consente il ripristino dello stato precedente.
 -   Limitazioni della quota: se l'aggiornamento ha comportato un'operazione di riduzione, è possibile che la quota di calcolo non sia più sufficiente per completare l'operazione di ripristino dello stato precedente. A ogni sottoscrizione di Azure è associata una quota che specifica il numero massimo di memorie centrali che possono essere utilizzate da tutti i servizi ospitati appartenenti a tale sottoscrizione. Se l'esecuzione di un ripristino dello stato precedente di un determinato aggiornamento farà superare la quota prevista per la sottoscrizione, il ripristino dello stato precedente non verrà abilitato.
 -   Race condition: se l'aggiornamento iniziale è stato completato, un ripristino dello stato precedente non è possibile.
 
@@ -167,7 +167,7 @@ Due operazioni, [Get Deployment](https://msdn.microsoft.com/library/azure/ee4608
 Per chiamare la versione di questi metodi che restituisce il flag Locked, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01" o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 ## Distribuzione di ruoli nei domini di aggiornamento
-Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file csdef, vedere [Schema di definizione del servizio di Azure (file .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file csdef, vedere [Schema di definizione del servizio di Azure (file .csdef)](cloud-services-model-and-package.md#csdef).
 
 Se, ad esempio, il ruolo ha dieci istanze, per impostazione predefinita, ogni dominio di aggiornamento contiene due istanze. Se il ruolo ha 14 istanze, quattro domini di aggiornamento contengono tre istanze e un quinto dominio ne contiene due.
 
@@ -182,4 +182,4 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 ## Passaggi successivi
 [Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@ Per configurare l'integrazione di IBM Kenexa Survey Enterprise in Azure AD, è n
 
 **Per aggiungere IBM Kenexa Survey Enterprise dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -143,7 +143,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
  - File del certificato scaricato
  - **URL dell'autorità di certificazione**
- - **URL SAML SSO** 
+ - **URL SAML SSO**
  - **URL del servizio Single Sign-Out**
 
 	> [AZURE.NOTE] Si noti che il valore attestazione NameID nella risposta deve corrispondere con l'ID SSO configurato nel sistema Kenexa. È quindi necessario collaborare con il team di supporto di Kenexa per mappare l'identificatore utente appropriato all'interno dell'organizzazione come ID SSO. Per impostazione predefinita Azure AD verranno imposterà NameIdentifier come valore UPN. È possibile modificarlo dalla scheda Attributo come illustrato nella schermata seguente. L'integrazione funzionerà solo dopo aver completato correttamente il mapping.
@@ -289,4 +289,4 @@ Quando si fa clic sul riquadro IBM Kenexa Survey Enterprise nel pannello di acce
 [204]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

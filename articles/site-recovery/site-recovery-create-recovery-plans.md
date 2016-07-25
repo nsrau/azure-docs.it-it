@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/01/2016" 
+	ms.date="07/08/2016" 
 	ms.author="raynew"/>
 
 # Creare piani di ripristino
@@ -73,10 +73,10 @@ Creare un piano di ripristino come segue:
 
 1. Fare clic sulla scheda **Piani di ripristino** > **Crea piano di ripristino**. Specificare un nome per il piano di ripristino, nonché per il server di origine e di destinazione Sul server di origine devono essere eseguite macchine virtuali abilitate per il failover e il ripristino.
 
-	- Se si esegue la replica da un server VMM in un altro server VMM, selezionare **Tipo di origine** > **VMM**, nonché i server VMM di origine e destinazione. Fare clic su **Hyper-V** per visualizzare i cloud configurati per l'utilizzo di Replica Hyper-V. 
+	- Se si esegue la replica da un server VMM in un altro server VMM, selezionare **Tipo di origine** > **VMM**, nonché i server VMM di origine e destinazione. Fare clic su **Hyper-V** per visualizzare i cloud configurati per l'utilizzo di Replica Hyper-V.
 	- Se si esegue la replica da un server VMM in un altro server VMM tramite SAN, selezionare **Tipo di origine** > **VMM**, nonché i server VMM di origine e destinazione. Fare clic su **SAN** per visualizzare solo i cloud configurati per la replica SAN.
 	- Se si esegue la replica da VMM in Azure selezionare **Tipo di origine** > **VMM**. Selezionare il server VMM di origine e **Azure** come destinazione.
-	- Se si esegue la replica da un sito di Hyper-V, selezionare **Tipo di origine** > **Sito Hyper-V**. Selezionare il sito come origine e * * Azure * * come destinazione.
+	- Se si esegue la replica da un sito di Hyper-V, selezionare **Tipo di origine** > **Sito Hyper-V**. Selezionare il sito come origine e **Azure** come destinazione.
 	- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
 
 2. In **Seleziona macchine virtuali** selezionare le macchine virtuali (o il gruppo di replica) che si vuole aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
@@ -86,7 +86,7 @@ Creare un piano di ripristino come segue:
 Dopo aver aggiunto macchine virtuali protette o gruppi di replica al gruppo del piano di ripristino predefinito e dopo aver creato il piano, è possibile personalizzarlo:
 
 - **Aggiungere nuovi gruppi**: è possibile aggiungere gruppi di piano di ripristino aggiuntivi. I gruppi vengono numerati nell'ordine in cui vengono aggiunti. È possibile aggiungere fino a sette gruppi. È possibile aggiungere più computer o gruppi di replica a questi nuovi gruppi. Si noti che una macchina virtuale o un gruppo di replica può essere incluso solo in un gruppo del piano di ripristino.
-- *** * Aggiungere uno script * *, è possibile aggiungere script prima o dopo un ripristino del gruppo di pianificazione. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
+- **Aggiungere uno script**: è possibile aggiungere script prima o dopo un gruppo del piano di ripristino. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
 - **Aggiungere un'azione manuale**: è possibile aggiungere azioni manuali da eseguire prima o dopo un gruppo del piano di ripristino. Quando viene eseguito, il piano di ripristino si interrompe nel punto in cui è stata inserita l'azione manuale e in una finestra di dialogo viene richiesto di specificare il completamento dell'azione.
 
 ## Estendere i piani di ripristino con gli script
@@ -115,7 +115,7 @@ Creare lo script come segue:
 1. Aprire il piano di ripristino che si desidera personalizzare.
 2. Fare clic per aggiungere una macchina virtuale o un nuovo gruppo.
 3. Per aggiungere uno script o manuale azione, fare clic su qualsiasi elemento nell’elenco dei **passaggio**, quindi fare clic sull’opzione relativa allo **Script** o all’**azione manuale**. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Utilizzare i pulsanti per lo spostamento verso l’**alto** e verso il **basso** i pulsanti per spostare la posizione dello script verso l'alto o verso il basso di comando.
-4. Se si aggiunge uno script VMM, selezionare l’opzione relativa al **failover nello script VMM** e al **percorso dello Script** digitare il percorso relativo alla condivisione. Quindi, ad esempio se la condivisione si trova in: \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, specificare il percorso: \\rpscripts\\rpscript.ps1..
+4. Se si aggiunge uno script VMM, selezionare l’opzione relativa al **failover nello script VMM** e al **percorso dello Script** digitare il percorso relativo alla condivisione. Poiché nell'esempio la condivisione si trova in \\<VMMServerName>\\MSSCVMMLibrary\\RPScripts, specificare il percorso \\RPScripts\\RPScript.PS1.
 5. Se si aggiunge un runbook di automazione di Azure, specificare l’**account di automazione di Azure** in cui si trova il runbook e selezionare lo **script runbook appropriato per Azure**.
 5. Eseguire un failover del piano di ripristino per assicurarsi che lo script funzioni come previsto.
 
@@ -127,4 +127,4 @@ Creare lo script come segue:
 
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0713_2016-->

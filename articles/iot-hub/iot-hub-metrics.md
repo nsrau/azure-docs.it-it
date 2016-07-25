@@ -54,11 +54,17 @@ L'hub IoT fornisce metriche diverse per fornire una panoramica dell'integrità d
 
 ## Passaggi successivi
 
-Al termine di questa panoramica della metrica di diagnostica è possibile usare i collegamenti seguenti per altre informazioni:
+Al termine di questa panoramica della metrica di diagnostica è possibile usare i collegamenti seguenti per saperne di più sulla gestione dell'hub IoT di Azure:
 
-- [Monitoraggio delle operazioni dell'hub IoT][lnk-operations-monitoring]
-- [Ridimensionamento dell'hub IoT][lnk-scaling]
-- [Disponibilità elevata e ripristino di emergenza dell'hub IoT][lnk-dr]
+- [Monitoraggio delle operazioni][lnk-monitor]
+- [Gestire l'accesso all'hub IoT][lnk-itpro]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@ Al termine di questa panoramica della metrica di diagnostica è possibile usare 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

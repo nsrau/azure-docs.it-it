@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -30,6 +30,7 @@ Per raggiungere questo obiettivo:
 
 In questo argomento viene fornita una panoramica dei concetti di consegna dei contenuti importanti.
 
+Per verificare i problemi noti, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
 
 ##Creazione dinamica dei pacchetti
 
@@ -86,7 +87,7 @@ Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si 
 
 ##Formati degli URL di streaming URL:
 
-**Formato MPEG DASH**
+###Formato MPEG DASH
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
 
@@ -96,19 +97,19 @@ Esempio
 
 
 
-**Formato Apple HTTP Live Streaming (HLS) V4**
+###Formato Apple HTTP Live Streaming (HLS) V4
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-**Formato Apple HTTP Live Streaming (HLS) V3**
+###Formato Apple HTTP Live Streaming (HLS) V3
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-**Formato Apple HTTP Live Streaming (HLS) con il filtro solo audio**
+###Formato Apple HTTP Live Streaming (HLS) con il filtro solo audio
 
 Per impostazione predefinita le tracce di solo audio sono incluse nel contenuto HLS del manifesto. È necessario per la certificazione di Apple store per reti cellulari. In questo caso, se un client non dispone di larghezza di banda sufficiente o connessa tramite una connessione 2G si passa alla sola riproduzione di audio. Ciò consente di mantenere costante il flusso senza memorizzazione nel buffer, ma comunque con l’inconveniente di non visualizzare alcun video. Tuttavia, in alcuni scenari, si potrebbe preferire il buffer del lettore di Windows solamente per l’audio. Se si desidera rimuovere la traccia solo audio è possibile aggiungere (solo audio = false) per l'URL e la si rimuove.
 
@@ -117,7 +118,7 @@ Per impostazione predefinita le tracce di solo audio sono incluse nel contenuto 
 Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
-**Formato Smooth Streaming**
+###Formato Smooth Streaming
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
 
@@ -125,7 +126,7 @@ Esempio:
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-**Manifesto Smooth Streaming 2.0 (manifesto legacy)**
+###<a id="fmp4_v20"></a>Manifesto Smooth Streaming 2.0 (manifesto legacy)
 
 Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di ripetizione (r-tag). Alcuni lettori, tuttavia, non supportano gli r-tag. Tali client possono usare formati che disabilitano gli r-tag:
 
@@ -133,12 +134,11 @@ Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di r
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-**HDS (solo per licenze Adobe PrimeTime/Access)**
+###HDS (solo per licenze Adobe PrimeTime/Access)
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
-
 
 ##Download progressivo 
 
@@ -151,7 +151,6 @@ Per eseguire il download progressivo di contenuti, usare un localizzatore di tip
 Tenere presenti le seguenti considerazioni:
 
 - Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
-
 
 ##Scaricare
 
@@ -166,13 +165,38 @@ Si applicano le considerazioni seguenti:
 - Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
 - Un download ha esito negativo se non viene completato entro 12 ore.
 
-
-
 ##Endpoint di streaming
 
 Un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio endpoint di streaming in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità riservate di streaming. È consigliabile allocare almeno un'unità riservata per le applicazioni in un ambiente di produzione. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
 
+##Problemi noti
 
+### Modifiche alla versione del manifesto Smooth Streaming
+
+Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione legacy di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0, in cui le durate dei frammenti non usano i cosiddetti tag di ripetizione ('r'). ad esempio:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" n="0" />
+			<c d="2000" />
+			<c d="2000" />
+			<c d="2000" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Dopo la versione del servizio di luglio 2016, il manifesto Smooth Streaming generato è conforme alla versione 2.2, con durate di frammento che usano i tag di ripetizione, ad esempio:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" r="4" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+È possibile che alcuni client Smooth Streaming legacy non supportino i tag di ripetizione e non carichino il manifesto. Per attenuare il problema è possibile usare il parametro del formato manifesto legacy, **format=fmp4-v20**. Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#fmp4_v20) sezione. In alternativa, aggiornare il client alla versione più recente che supporta i tag di ripetizione.
 
 ##Percorsi di apprendimento di Media Services
 
@@ -187,4 +211,4 @@ Un **endpoint di streaming** rappresenta un servizio di streaming in grado di di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

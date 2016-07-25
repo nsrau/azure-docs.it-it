@@ -32,7 +32,7 @@ I data center di Azure sono dislocati in diverse aree del mondo. Questa infrastr
 
 Quando si verifica un problema specifico di un'area, è necessario reindirizzare il traffico a servizi o distribuzioni in un'altra area. Il routing può essere eseguito manualmente, ma l'uso di un processo automatizzato risulta più efficiente. Gestione traffico di Azure è progettato per questa attività. Consente di gestire automaticamente il failover del traffico utente a un'altra area in caso di errore dell'area primaria. Poiché la gestione del traffico rappresenta un aspetto importante della strategia complessiva, è fondamentale comprendere le nozioni di base di Gestione traffico di Azure.
 
-Nella figura seguente, gli utenti si connettono a un URL specificato per Gestione traffico (__http://myATMURL.trafficmanager.net__) e che astrae l'URL del sito effettivo (__http://app1URL.cloudapp.net__ e \___http://app2URL.cloudapp.net__). In base alla modalità di applicazione dei criteri di instradamento configurati per gli utenti, questi verranno indirizzati al sito corretto effettivo, quando necessario. Le opzioni dei criteri sono round robin, prestazioni o failover. Ai fini di questo articolo si esaminerà solo l'opzione di failover.
+Nel diagramma seguente gli utenti si connettono a un URL specificato per Gestione traffico (__http://myATMURL.trafficmanager.net__), che astrae l'URL del sito effettivo (__http://app1URL.cloudapp.net__ e \_http://app2URL.cloudapp.net__). In base alla modalità di applicazione dei criteri di instradamento configurati per gli utenti, questi verranno indirizzati al sito corretto effettivo, quando necessario. Le opzioni dei criteri sono round robin, prestazioni o failover. Ai fini di questo articolo si esaminerà solo l'opzione di failover.
 
 ![Routing tramite Gestione traffico di Microsoft Azure](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 
@@ -305,4 +305,4 @@ Esistono diverse altre tecniche utilizzabili per testare i piani di ripristino d
 
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo precedente della serie è [Disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

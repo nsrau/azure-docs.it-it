@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/07/2016"
 	ms.author="onewth"/>
 
 
 # API di Machine Learning: Analisi del testo per analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e rilevamento di argomenti
 
->[AZURE.NOTE] Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**consultare questo documento**](../cognitive-services-text-analytics-quick-start/). La versione 2 è ora la versione preferita di questa API.
+>[AZURE.NOTE] Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**vedere questo documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versione 2 è ora la versione preferita di questa API.
 
 ## Panoramica
 
@@ -74,7 +74,7 @@ Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe 
 
 **Richiesta di esempio**
 
-Nella chiamata seguente viene richiesta l'analisi di valutazione per la frase "Hello World":
+Nella chiamata seguente viene richiesta l'analisi del sentiment per la frase "Hello World":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
@@ -95,7 +95,7 @@ Restituirà una risposta come la seguente:
 
 **Richiesta di esempio**
 
-Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "Ottimo hotel in cui alloggiare: splendidi arredi e personale amichevole":
+Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "It was a wonderful hotel to stay at, with unique decor and friendly staff":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -385,4 +385,4 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 | TopicId | ID dell'argomento a cui sono stati assegnati i record. |
 | Distance | Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

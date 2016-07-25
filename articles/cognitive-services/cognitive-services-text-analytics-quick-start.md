@@ -36,7 +36,9 @@ Al termine di questa esercitazione, si sarà in grado di rilevare a livello di c
 
 - **Lingue**: in quale lingua è scritto il testo?
 
-Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato.
+Tenere presente che con questa API viene addebitata 1 transazione per ciascun documento inviato. Quindi, ad esempio, se si richiede una valutazione per 1.000 documenti in una singola chiamata, verranno dedotte 1.000 transazioni.
+
+
 
 <a name="Overview"></a>
 ## Panoramica generale ##
@@ -293,4 +295,6 @@ Di seguito viene spiegata ogni parte della risposta:
 
 Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati e per automatizzare l'analisi al fine di ottenere una visualizzazione in tempo reale dei dati di testo.
 
-<!---HONumber=AcomDC_0706_2016-->
+Per scoprire come utilizzare le funzionalità di Text Analytics, ad esempio una valutazione, come parte di un bot, vedere l'esempio [Bot emotivo](http://docs.botframework.com/it-IT/bot-intelligence/language/#example-emotional-bot) sul sito Bot Framework.
+
+<!---HONumber=AcomDC_0713_2016-->

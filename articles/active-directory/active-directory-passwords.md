@@ -1,26 +1,26 @@
-<properties 
+<properties
 	pageTitle="Reimpostazione della password di Azure AD | Microsoft Azure"
-	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
-	
+
 
 # Reimpostazione della password di Azure AD per utenti e amministratori
 
   >[AZURE.IMPORTANT] Si desidera reimpostare la password di Azure o di O365? Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
-  
+
 Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo. In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure AD si distingue da queste offerte fornendo alcune delle funzionalità self-service più efficaci e semplici da usare disponibili attualmente.
 
 **Gestione delle password di Azure AD** è un insieme di funzionalità che consentono agli utenti di gestire le password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione, pur rimanendo conforme ai criteri di sicurezza definiti.
@@ -63,7 +63,7 @@ Di seguito sono elencate alcune operazioni che è possibile eseguire con le funz
 - La **modifica delle password self-service** consente agli utenti finali o agli amministratori di cambiare le password scadute o non scadute senza dover chiamare un amministratore o rivolgersi al Supporto tecnico.
 - La **reimpostazione delle password self-service** consente agli utenti finali o agli amministratori di reimpostare automaticamente le password senza dover chiamare un amministratore o rivolgersi al Supporto tecnico. La reimpostazione delle password self-service è disponibile solo in Azure AD Premium o Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory.
 - La **reimpostazione delle password avviata dall'amministratore** consente a un amministratore di reimpostare la password di un utente finale o di un altro amministratore dal [portale di gestione di Azure](https://manage.windowsazure.com).
-- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione. 
+- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione.
 - Il **writeback delle password** permette di gestire le password locali dal cloud, in modo che tutti gli scenari descritti in precedenza possano essere eseguiti da o per conto di utenti federati o con sincronizzazione tramite password. Per il writeback delle password è necessaria una licenza di Azure AD Premium. Per altre informazioni, vedere Introduzione a Azure AD Premium.
 
 ### Perché usare la funzione di reimpostazione della password di Azure AD?
@@ -242,7 +242,7 @@ Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazi
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -252,4 +252,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 * [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

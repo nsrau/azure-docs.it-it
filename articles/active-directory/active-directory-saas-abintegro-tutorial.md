@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Abintegro
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Abin
 
 ###Per abilitare l'integrazione dell'applicazione per Abintegro, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-abintegro-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Abintegro** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Abintegro** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configura accesso Single Sign-On")
 
@@ -86,9 +86,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inviare il file di metadati al team di supporto di Abintegro.
 
-    >[AZURE.NOTE]La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Abintegro. Al termine della configurazione, verrà visualizzata una notifica.
+    >[AZURE.NOTE] La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Abintegro. Al termine della configurazione, viene ricevuta una notifica.
 
-6.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -100,7 +100,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti ad Abintegro, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Abintegro** fare clic su **Assegna utenti**.
 
@@ -112,4 +112,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

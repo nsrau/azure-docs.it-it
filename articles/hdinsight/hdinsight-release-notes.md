@@ -14,11 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata il 07/07/2016
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| [Strumenti di HDInsight per IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) | Il plug-in IntelliJ IDEA per i cluster HDInsight Spark è ora integrato nel toolkit di Azure per IntelliJ. Supporta l’SDK v2.9.1 di Azure, i più recenti SDK di Java e include tutte le funzionalità del plug-in HDInsight per IntelliJ indipendente.| Strumenti | Spark| N/D|
+| [Strumenti di HDInsight per Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) | Il toolkit di Azure per Eclipse supporta ora i cluster HDInsight Spark e offre le funzionalità seguenti: <ul><li>Creare e scrivere facilmente un'applicazione Spark in Scala e Java con il supporto alla creazione avanzata per IntelliSense, la formattazione automatica, il controllo degli errori, ecc.</li><li>Testare l'applicazione Spark localmente.</li><li>Inviare processi al cluster HDInsight Spark e recuperare i risultati.</li><li>Connettersi ad Azure e accedere a tutti i cluster Spark associati con le sottoscrizioni di Azure.</li><li>Navigare in tutte le risorse di archiviazione associate del cluster HDInsight Spark.</li></ul>| Strumenti | Spark| N/D
 
 ## Note sulla versione di HDInsight rilasciata il 06/06/2016
 
@@ -1303,7 +1312,7 @@ Questa versione dell'hotfix ha risolto una perdita di memoria in Templeton che i
 
 ## Note per la versione rilasciata il 07/10/2014
 
-* Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", il campo *host\_name* restituisce il nome di dominio completo (FQDN) del nodo anziché il solo nome host. Ad esempio, invece di "**headnode0**", si otterrà il nome FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**". Questa modifica si è resa necessaria per facilitare scenari in cui sia possibile implementare più tipi di cluster, come HBase e Hadoop, in un'unica rete virtuale. Ciò accade, ad esempio, quando si usa HBase come piattaforma back-end per Hadoop.
+* Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", il campo *host\_name* restituisce il nome di dominio completo (FQDN) del nodo anziché il solo nome host. Ad esempio, invece di restituire "**headnode0**", si otterrà il nome FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**". Questa modifica si è resa necessaria per facilitare scenari in cui sia possibile implementare più tipi di cluster, come HBase e Hadoop, in un'unica rete virtuale. Ciò accade, ad esempio, quando si usa HBase come piattaforma back-end per Hadoop.
 
 * Sono state fornite nuove impostazioni di memoria per l'implementazione predefinita del cluster HDInsight. Le precedenti impostazioni di memoria predefinite non tenevano adeguatamente conto delle indicazioni relative al numero di core CPU implementati. Queste nuove impostazioni di memoria dovrebbero offrire valori predefiniti migliori, sulla base delle raccomandazioni di Hortonworks. Per modificare queste impostazioni, consultare la documentazione di riferimento dell'SDK sulla modifica della configurazione del cluster. Le nuove impostazioni di memoria usate dal cluster HDInsight predefinito con 4 core CPU (8 contenitori) sono elencate nella tabella seguente. Vengono forniti tra parentesi anche i valori usati prima di questa versione.
 
@@ -1387,7 +1396,7 @@ Questi problemi di compatibilità sono stati risolti nelle versioni più recenti
 In questa versione sono disponibili miglioramenti al servizio HDInsight:
 
 * **Disponibilità di HDP 2.1**: HDInsight 3.1, che contiene HDP 2.1, è disponibile a livello generale e rappresenta la versione predefinita per i nuovi cluster.
-* **HBase - Miglioramenti nel portale di gestione di Azure**: i cluster HBase sono disponibili in anteprima. È possibile creare cluster HBase dal portale con pochi clic. 
+* **HBase - Miglioramenti nel portale di gestione di Azure**: i cluster HBase sono disponibili in anteprima. È possibile creare cluster HBase dal portale con pochi clic.
 
 HBase consente di creare numerosi carichi di lavoro in tempo reale su HDInsight, da siti Web interattivi da usare con grandi set di dati a servizi che archiviano dati di sensori e telemetria da milioni di endpoint. Il passaggio successivo consiste nell'analizzare i dati di questi carichi di lavoro tramite processi Hadoop e questo è immediatamente possibile in HDInsight mediante Azure PowerShell e il dashboard del cluster Hive.
 
@@ -1559,7 +1568,7 @@ Tra HDInsight 2.x (HDP1.x) e HDInsight 3.x (HDP2.x) sono state apportate le segu
 
 
 ### Driver
-Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correzioni di bug
@@ -1601,4 +1610,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

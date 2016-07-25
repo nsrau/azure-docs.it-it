@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Projectplace | Microsoft Azure" 
     description="Informazioni su come usare Projectplace con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Projectplace
   
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Projectplace, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Projectplace tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Projectplace** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Projectplace** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configura accesso Single Sign-On")
 
@@ -76,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare nella casella di testo **URL di accesso a Projectplace** l'URL del tenant Projectplace (ad esempio: **http://company.projectplace.com*"), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app**, nella casella di testo **Projectplace Sign On URL** (URL di accesso a Projectplace) digitare l'URL del tenant Projectplace, ad esempio "*http://company.projectplace.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Configura URL app")
 
@@ -86,9 +86,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  Inviare il file di metadati al team di supporto di Projectplace.
 
-    >[AZURE.NOTE]La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Projectplace. Al termine della configurazione, viene ricevuta una notifica.
+    >[AZURE.NOTE] La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Projectplace. Al termine della configurazione, viene ricevuta una notifica.
 
-6.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -114,7 +114,7 @@ Per consentire agli utenti di Azure AD di accedere a Projectplace, è necessario
     1.  Nella casella di testo **Nuovi membri**, digitare l’indirizzo di posta elettronica di un account di Azure Active Directory valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
     2.  Fare clic su **Invia**.
 
-	    >[AZURE.NOTE]Un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account, viene inviato al titolare dell'account Azure Active Directory.
+	    >[AZURE.NOTE] Un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account, viene inviato al titolare dell'account Azure Active Directory.
     
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Projectplace per eseguire il provisioning degli account utente di Azure AD.
 
@@ -124,7 +124,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Projectplace, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Projectplace** fare clic su **Assegna utenti**.
 
@@ -136,4 +136,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

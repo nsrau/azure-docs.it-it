@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/09/2016"
+   ms.date="07/08/2016"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight
@@ -45,7 +45,7 @@ Ogni tipo di cluster usa una terminologia specifica per i nodi nel cluster, oltr
 |Storm|Nodo Nimbus (2), server Supervisor (1+), nodo Zookeeper (3)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Nodo head (2), nodo Worker (1+), nodo Zookeeper (3) (gratuito per le VM Zookeeper con dimensioni A1)|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Tra parentesi è indicato il numero di nodi per ogni tipo di nodo.
+(Nota: tra parentesi è indicato il numero di nodi per ogni tipo di nodo.)
 
 > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
@@ -69,8 +69,8 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 - **Sistema operativo**
 
 	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti:
-	- **HDInsight in Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-	- **HDInsight in Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight su Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
     
 - **Versione HDInsight**
 
@@ -173,7 +173,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
         |Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
         |Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500|    
  
-    Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere l'articolo relativo alle [dimensioni per le macchine virtuali](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+    Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere l'articolo relativo alle [dimensioni per le macchine virtuali](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight)
     
 	> [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM. La fatturazione inizia dopo la creazione del nodo e si interrompe solo quando il nodo viene eliminato. Per altre informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -189,9 +189,13 @@ Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'a
 
 È consigliabile usare un metastore personalizzato per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, allo scopo di associare il metastore a un altro cluster HDInsight in futuro.
 
+> [AZURE.IMPORTANT] Il metastore HDInsight non è compatibile con le versioni precedenti. Ad esempio, non è possibile utilizzare un metastore di un cluster HDInsight 3.3 per creare un cluster HDInsight 3.2.
+
 Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster. Per impostazione predefinita, Hive usa un database SQL di Azure incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato. Ad esempio, è disponibile un cluster creato con un metastore Hive. Sono state create alcune tabelle Hive. Dopo avere eliminato il cluster e averlo ricreato usando lo stesso metastore Hive, si potranno visualizzare le tabelle Hive create nel cluster originale.
 
-> [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+
+> [AZURE.IMPORTANT] Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché in quel caso il processo di creazione del cluster non andrebbe a buon fine.
 
 ## Usare le reti virtuali di Azure
 
@@ -254,4 +258,4 @@ In questo articolo si sono apprese informazioni di base sulla creazione di un cl
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

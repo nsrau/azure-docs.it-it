@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/12/2016"
 	ms.author="curtand"/>
 
 
 # Restrizioni e criteri password in Azure Active Directory
 
 Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente archiviati nella directory di Azure AD.
+
+> [AZURE.IMPORTANT] **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 
 ## Criteri UserPrincipalName che si applicano a tutti gli account utente
 
@@ -38,7 +40,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 | Proprietà | Requisiti |
 |   ----------------------- |   ----------------------- |
 | Caratteri consentiti | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caratteri non consentiti | <ul><li>Caratteri Unicode</li><li>Spazi</li><li>spazi</li><li> **Solo password complesse**: non possono contenere un punto '.' subito prima del simbolo '@'</li></ul> |
+| Caratteri non consentiti | <ul><li>Caratteri Unicode</li><li>Spazi</li><li>**Solo password complesse**: non possono contenere un punto "." subito prima del simbolo "@"</li></ul> |
 | Restrizioni per le password | <ul><li>Minimo di 8 caratteri e massimo di 16 caratteri</li><li>**Solo password complesse**: devono essere usati 3 su 4 tra i tipi di caratteri seguenti:<ul><li>Caratteri minuscoli</li><li>Caratteri maiuscoli</li><li>Numeri (0-9)</li><li>Simboli (vedere le restrizioni per le password sopra indicate)</li></ul></li></ul> |
 | Durata di validità della password | <ul><li>Valore predefinito: **90** giorni </li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password | <ul><li>Valore predefinito: **14** giorni (prima della scadenza della password)</li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy.</li></ul> |
@@ -50,6 +52,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 
 ## Passaggi successivi
 
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [Gestire le password da qualsiasi posizione](active-directory-passwords.md)
 * [Funzionamento di Gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
@@ -60,4 +63,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

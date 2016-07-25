@@ -18,11 +18,11 @@
 
 # Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi "Messaggistica" del bus di servizio con SKU Standard/Basic. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio di tipo **Messaggistica** con SKU Standard/Basic. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][].
+Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
 
-Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio][] su GitHub.
+Per il modello completo, vedere il [modello di spazio dei nomi del bus di servizio][] su GitHub.
 
 >[AZURE.NOTE] Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
 >
@@ -31,7 +31,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 >-    [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 >-    [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
 >
->Per verificare gli ultimi modelli, vedere i [modelli di avvio rapido di Azure][] e cercare il bus di servizio.
+>Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
 
 ## Distribuzione
 
@@ -45,7 +45,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
-Di seguito viene fornita la descrizione di ogni parametro del modello.
+Il modello definisce i parametri seguenti.
 
 ### serviceBusNamespaceName
 
@@ -148,10 +148,10 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 - [Gestire le risorse del bus di servizio con Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [modello dello spazio dei nomi del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/
+  [modello di spazio dei nomi del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
+  [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Informazioni sul prezzo e la fatturazione del bus di servizio]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -40,9 +40,9 @@ Quando la sincronizzazione è completata e si è pronti a eseguire la migrazione
 
 ## Requisiti della replica transazionale
 
-La replica transazionale è una tecnologia integrata in SQL Server a partire dalla versione 6.5. Si tratta di una tecnologia sperimentata e consolidata che la maggior parte degli amministratori di database conosce e con cui hanno esperienza. Con l'[anteprima di SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/), è ora possibile configurare il database SQL di Azure come [sottoscrittore di replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx) alla pubblicazione locale. L'esperienza che si ottiene impostando il database da Management Studio è identica alla configurazione di un sottoscrittore di replica transazionale in un server locale. Questo scenario è supportato quando il server di pubblicazione e di distribuzione è almeno una delle seguenti versioni di SQL Server:
+La replica transazionale è una tecnologia integrata in SQL Server a partire dalla versione 6.5. Si tratta di una tecnologia sperimentata e consolidata che la maggior parte degli amministratori di database conosce e con cui hanno esperienza. Con [SQL Server 2016](https://www.microsoft.com/it-IT/cloud-platform/sql-server), è ora possibile configurare il database SQL di Azure come [sottoscrittore di replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx) per la pubblicazione locale. L'esperienza che si ottiene impostando il database da Management Studio è identica alla configurazione di un sottoscrittore di replica transazionale in un server locale. Questo scenario è supportato quando il server di pubblicazione e di distribuzione è almeno una delle seguenti versioni di SQL Server:
 
- - SQL Server 2016 CTP3 (anteprima) e versioni successive 
+ - SQL Server 2016 e versioni successive
  - SQL Server 2014 SP1 CU3 e versioni successive
  - SQL Server 2014 RTM CU10 e versioni successive
  - SQL Server 2012 SP2 CU8 e versioni successive
@@ -56,7 +56,7 @@ La replica transazionale è una tecnologia integrata in SQL Server a partire dal
 
 - [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Anteprima di SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [SQL Server 2016](https://www.microsoft.com/it-IT/cloud-platform/sql-server)
 
 ## Risorse aggiuntive
 
@@ -65,4 +65,4 @@ La replica transazionale è una tecnologia integrata in SQL Server a partire dal
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

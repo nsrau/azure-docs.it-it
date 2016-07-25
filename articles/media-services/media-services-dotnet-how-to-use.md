@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="07/12/2016"  
 	ms.author="juliako"/>
 
 #Sviluppo di applicazioni di Servizi multimediali con .NET
@@ -75,7 +75,12 @@ Viene visualizzata la finestra di dialogo Gestione riferimenti.
 Per ottenere le informazioni sul **nome dell'account** e sulla **chiave dell'account**, aprire il **portale di Azure classico**, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	<configuration>
+	...
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
 	  
 	</configuration>
 
@@ -103,4 +108,4 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

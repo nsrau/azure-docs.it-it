@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Adaptive Suite
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Adap
 
 ###Per abilitare l'integrazione dell'applicazione per Adaptive Suite, procedere come segue:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-adaptive-suite-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Adaptive Suite** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Adaptive Suite** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configura accesso Single Sign-On")
 
@@ -76,9 +76,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configurare le impostazioni dell'app** nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente "**https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" e fare clic su **Avanti**.
+3.  Nella pagina **Configurare le impostazioni dell'app** nella casella di testo **URL di risposta** digitare l'URL usando il modello "*https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" e fare clic su **Avanti**.
 
-    >[AZURE.NOTE]È possibile ottenere questo valore dalla pagina **SAML SSO Settings** di Adaptive Suite.
+    >[AZURE.NOTE] È possibile ottenere questo valore dalla pagina **SAML SSO Settings** di Adaptive Suite.
 
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configurare le impostazioni dell'app")
 
@@ -101,9 +101,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings")
 
     1.  Nella casella di testo **Identity provider name** digitare un nome per la configurazione.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Adaptive Suite** del portale di Azure copiare il valore di **ID entità** e incollarlo nella casella di testo **Identity provider Entity ID**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Adaptive Suite** del portale di Azure copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Identity provider SSO URL**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Adaptive Suite** del portale di Azure copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Custom logout URL**.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Adaptive Suite** del portale di Azure classico copiare il valore di **ID entità** e incollarlo nella casella di testo **Identity provider Entity ID** (ID entità provider di identità).
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Adaptive Suite** del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Identity provider SSO URL** (URL SSO provider di identità).
+    4.  Nella finestra di dialogo **Configure single sign-on at Adaptive Suite** (Configura accesso Single Sign-On in Adaptive Suite) del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Custom logout URL** (URL di disconnessione personalizzato).
     5.  Per caricare il certificato scaricato, fare clic su **Scegli file**.
     6.  Per **SAML user id**, selezionare il **nome utente dell'utente di Adaptive Insights**.
     7.  Per **SAML user id location**, selezionare l'**ID utente in NameID of Subject**.
@@ -111,7 +111,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     9.  Per **Enable SAML**, selezionare **Allow SAML SSO and direct Adaptive Insights login**.
     10. Fare clic su **Save**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -138,7 +138,7 @@ Per consentire agli utenti di Azure AD di accedere ad Adaptive Suite, è necessa
     2.  Selezionare un valore in **Role**.
     3.  Fare clic su **Submit**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Adaptive Suite per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Adaptive Suite per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
 
@@ -146,7 +146,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti ad Adaptive Suite, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Adaptive Suite** fare clic su **Assegna utenti**.
 
@@ -158,4 +158,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -433,7 +433,7 @@ oracleReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). | No
-writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Integer | No (valore predefinito: 10000)  
+writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero (numero di righe)| No (valore predefinito: 10000)  
 sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. | Istruzione di query. | No
 sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. | Nome di colonna di una colonna con tipo di dati binario (32). | No
 
@@ -501,4 +501,4 @@ XML | String
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

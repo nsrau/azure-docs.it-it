@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Esplorare i log di traccia Java in Application Insights
@@ -136,9 +136,9 @@ Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al fi
 
 ## Esplorare le tracce nel portale Application Insights.
 
-Ora che è stato configurato il progetto per inviare tracce in Application Insights, è possibile visualizzare e cercare queste tracce nel portale di Application Insights nel pannello [Ricerca diagnostica][diagnostic].
+Ora che è stato configurato il progetto per inviare tracce in Application Insights, è possibile visualizzare e cercare queste tracce nel portale di Application Insights nel pannello [Ricerca][diagnostic].
 
-![Nel portale di Application Insights aprire Ricerca diagnostica.](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![Nel portale di Application Insights, aprire Ricerca diagnostica](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Passaggi successivi
 
@@ -151,4 +151,4 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

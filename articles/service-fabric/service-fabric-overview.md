@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Panoramica di Service Fabric
@@ -41,7 +41,7 @@ Per altre informazioni sull'approccio ai microservizi, leggere [Perché usare un
 ## Creare i cluster di Service Fabric in qualsiasi ambiente
 È possibile creare i cluster Service Fabric in molti ambienti in cui distribuire le applicazioni. È possibile farlo in Azure o in locale, su Windows Server o su Linux. Inoltre l'ambiente di sviluppo nell’SDK è identico all'ambiente di produzione senza emulatori coinvolti. In altre parole, se è in esecuzione nel cluster di sviluppo locale verrà distribuita nello stesso cluster in altri ambienti.
 
-Per altre informazioni, leggere [Distribuzione in qualsiasi ambiente su Windows Server o Linux con Service Fabric](service-fabric-deploy-anywhere.md)
+Per altre informazioni sulla creazione di cluster in locale, vedere [Creare cluster autonomi di Service Fabric in Windows Server o Linux](service-fabric-deploy-anywhere.md) o [Creare un cluster di Service Fabric dal portale di Azure](service-fabric-cluster-creation-via-portal.md).
 
 ![Piattaforma Service Fabric][Image1]
 
@@ -55,16 +55,16 @@ Perché avere microservizi con stato insieme a quelli senza stato? I due motivi 
 
 2. La maggiore semplicità di progettazione delle applicazioni, poiché i microservizi con stato eliminano la necessità di usare code e cache aggiuntive, tradizionalmente necessarie per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme.
 
-Per altre informazioni sui modelli di applicazione con Service Fabric, leggere [Scenari applicativi](service-fabric-application-scenarios.md) e [Scelta di un framework delmodello di programmazione](service-fabric-choose-framework.md) per il servizio
+Per altre informazioni sui modelli di applicazione con Service Fabric, vedere [Scenari di applicazione di Service Fabric](service-fabric-application-scenarios.md) e [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) per il servizio.
 
 ## Gestione del ciclo di vita delle applicazioni
 Service Fabric offre un supporto di alto livello per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, fino alla gestione giornaliera, alla manutenzione e alla rimozione delle autorizzazioni.
 
 Le funzionalità di gestione del ciclo di vita delle applicazioni di Service Fabric consentono agli amministratori delle applicazioni e agli operatori IT di usare semplici flussi di lavoro con interazione limitata per il provisioning, la distribuzione, l'applicazione di patch e il monitoraggio delle applicazioni. Questi flussi di lavoro predefiniti riducono in modo significativo il carico degli operatori IT per mantenere le applicazioni continuamente disponibili.
 
-La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione, ognuna delle quali può essere gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric è in grado di distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, può essere usato per distribuire ASP.NET Core 1, Node.js, VM Java, script o qualsiasi elemento costitutivo dell'applicazione.
+La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione, ognuna delle quali può essere gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric può distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, può essere usato per distribuire ASP.NET Core 1, Node.js, VM Java, script o qualsiasi elemento costitutivo dell'applicazione.
 
-Per altre informazioni sulla gestione del ciclo di vita dell'applicazione, leggere [Ciclo di vita di un’applicazione](service-fabric-application-lifecycle.md) e sulla distribuzione di qualsiasi codice vedere [Distribuire un’app eseguibile guest](service-fabric-deploy-existing-app.md)
+Per altre informazioni sulla gestione del ciclo di vita delle applicazioni, vedere [Ciclo di vita dell'applicazione di Service Fabric](service-fabric-application-lifecycle.md). Per la distribuzione di qualsiasi codice, vedere [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md)
 
 ## Funzionalità principali
 Usando Service Fabric è possibile:
@@ -105,9 +105,9 @@ Usando Service Fabric è possibile:
 * Per altre informazioni:
     * [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
     * [Panoramica della terminologia](service-fabric-technical-overview.md)
-* Configurazione dell'[ambiente di sviluppo](service-fabric-get-started.md) di Service Fabric  
-* [Scelta di un framework del modello di programmazione](service-fabric-choose-framework.md) per il servizio
+* Configurazione dell'[ambiente di sviluppo](service-fabric-get-started.md) di Service Fabric
+* [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) per il servizio
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

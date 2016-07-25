@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2016" 
-	ms.author="guayan"/>
+	ms.author="rachelap"/>
 
 # Trigger delle app per le API del servizio app di Azure
 
@@ -39,8 +39,8 @@ Si supponga, ad esempio, che il codice client usi l'[app per le API Twitter Conn
 
 Attualmente sono supportati due tipi di trigger:
 
-- Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato 
-- Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento 
+- Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato
+- Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento
 
 ### Trigger di polling
 
@@ -342,4 +342,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

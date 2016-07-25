@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform | Microsoft Azure" 
     description="Informazioni su come usare SAP HANA Cloud Platform con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform
   
@@ -70,7 +70,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **SAP HANA Cloud Platform** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **SAP HANA Cloud Platform** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configura accesso Single Sign-On")
 
@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configura accesso Single Sign-On")
 
-3.  In una diversa finestra del Web browser, accedere al pannello di controllo di SAP HANA Cloud Platform in https://account.\<landscape host>.ondemand.com/cockpit (ad esempio: **https://account.hanatrial.ondemand.com/cockpit*).
+3.  In una diversa finestra del Web browser, accedere al pannello di controllo di SAP HANA Cloud Platform in https://account.\<landscape host>.ondemand.com/cockpit (ad esempio: *https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Scegliere la scheda **Trust**.
 
@@ -91,11 +91,11 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1.  Fare clic sulla scheda **Local Service Provider**.
     2.  Per scaricare il file di metadati di SAP HANA Cloud Platform, fare clic su **Get Metadata**.
 
-6.  Nella pagina **Configura URL app** del portale di Azure Active Directory, eseguire la procedura seguente e fare clic su **Avanti**.
+6.  Nella pagina **Configura URL app** del portale di Azure Active classico, eseguire la procedura seguente e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **SAP HANA Cloud Platform**. Questo è l'URL specifico dell'account di una risorsa protetta dell'applicazione SAP HANA Cloud Platform. L'URL è basato sul modello seguente: *https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (ad esempio, **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **SAP HANA Cloud Platform**. Questo è l'URL specifico dell'account di una risorsa protetta dell'applicazione SAP HANA Cloud Platform. L'URL è basato sul modello seguente: *https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (ad esempio, *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
 		>[AZURE.NOTE]Questo è l'URL dell'applicazione SAP HANA Cloud Platform che richiede l’autenticazione dell’utente.
 
@@ -128,7 +128,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Gestione relazione di trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Gestione relazione di trust")
 
-    >[AZURE.NOTE]Dopo aver caricato il file di metadati, i valori per **URL Single Sign-On**, **URL disconnessione singola** e **Certificato di firma** vengono popolati automaticamente.
+    >[AZURE.NOTE] Dopo aver caricato il file di metadati, i valori per **URL Single Sign-On**, **URL disconnessione singola** e **Certificato di firma** vengono popolati automaticamente.
 
 11. Fare clic sulla scheda **Attributes**.
 
@@ -140,9 +140,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
         |Attributo di asserzione| Attributo di entità|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]La configurazione degli attributi dipende da come le applicazioni per HPC vengono sviluppate, vale a dire quali attributi sono previsti nella risposta SAML e con quale nome (attributo di entità) accedono a questo attributo nel codice.
     >  
@@ -150,7 +148,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     >
     >b. I nomi e i valori per l’**attributo di entità** illustrati nella schermata dipendono dal modo in cui viene sviluppata l'applicazione. È possibile che l'applicazione richieda mapping diversi.
 
-13. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in SAP HANA Cloud Platform** del portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa**.
+13. Nella pagina della finestra di dialogo **Configure single sign-on at SAP HANA Cloud Platform** (Configura accesso Single Sign-On in SAP HANA Cloud Platform) del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configura accesso Single Sign-On")
   
@@ -158,7 +156,7 @@ Come passaggio facoltativo, è possibile configurare gruppi basati su asserzione
 
 >[AZURE.NOTE]L’uso dei gruppi in SAP HANA Cloud Platform consente di assegnare dinamicamente uno o più utenti a uno o più ruoli nelle applicazioni SAP HANA Cloud Platform, determinate dai valori degli attributi nell'asserzione SAML 2.0. Ad esempio, se l'asserzione contiene l'attributo "*contract=temporary*", è possibile volere che tutti i utenti vengano aggiunti al gruppo"*TEMPORARY*". Il gruppo "*TEMPORARY*" può contenere uno o più ruoli da uno o più applicazioni distribuite nell'account di SAP HANA Cloud Platform.
 >  
->Utilizzare i gruppi basati su asserzione per l'assegnazione in blocco di molti utenti a uno o più ruoli delle applicazioni nell'account di SAP HANA Cloud Platform. Se si desidera assegnare un solo utente o un numero contenuto di utenti a specifici ruoli si consiglia di assegnarli direttamente nella scheda "**Autorizzazioni**" del pannello di controllo di SAP HANA Cloud Platform.
+>Utilizzare i gruppi basati su asserzione per l'assegnazione in blocco di molti utenti a uno o più ruoli delle applicazioni nell'account di SAP HANA Cloud Platform. Se si desidera assegnare un solo utente o un numero contenuto di utenti a specifici ruoli si consiglia di assegnarli direttamente nella scheda "**Authorizations**" (Autorizzazioni) del pannello di controllo di SAP HANA Cloud Platform.
 
 ##Assegnazione di un ruolo a un utente
   
@@ -184,7 +182,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a SAP HANA Cloud Platform, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione di **SAP HANA Cloud Platform**, fare clic su **Assegna utenti**.
 
@@ -196,4 +194,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

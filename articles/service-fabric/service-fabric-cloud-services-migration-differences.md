@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
@@ -37,7 +37,7 @@ Lo stesso Service Fabric è un livello della piattaforma di applicazioni eseguit
 
  - Tempi di distribuzione rapidi. La creazione di istanze di macchina virtuale può richiedere tempi lunghi. In Service Fabric le macchine virtuali sono distribuite solo una volta per formare un cluster che ospita la piattaforma di applicazioni di Service Fabric. Da quel momento, i pacchetti di applicazioni possono essere distribuiti nel cluster molto rapidamente.
  - Hosting ad alta densità. In Servizi cloud una macchina virtuale con ruolo di lavoro ospita un carico di lavoro. In Service Fabric le applicazioni sono separate dalle macchine virtuali che le eseguono, quindi è possibile distribuire un numero elevato di applicazioni in un numero limitato di macchine virtuali, con la possibilità di ridurre il costo complessivo per le distribuzioni estese.
- - La piattaforma di Service Fabric può essere eseguita ovunque sia disponibile un computer con Windows Server o Linux, sia in Azure che in locale. La piattaforma offre un livello di astrazione dall'infrastruttura sottostante, consentendo l'esecuzione dell'applicazione in ambienti diversi. 
+ - La piattaforma di Service Fabric può essere eseguita ovunque sia disponibile un computer con Windows Server o Linux, sia in Azure che in locale. La piattaforma offre un livello di astrazione dall'infrastruttura sottostante, consentendo l'esecuzione dell'applicazione in ambienti diversi.
  - Gestione delle applicazioni distribuite. Service Fabric è una piattaforma che ospita non solo le applicazioni distribuite, ma consente anche di gestire il relativo ciclo di vita indipendentemente dalla macchina virtuale che le ospita o dal ciclo di vita del computer.
 
 ## Architettura dell'applicazione
@@ -50,7 +50,12 @@ Le applicazioni di Service Fabric possono anche scegliere di usare gli stessi se
 
 ![Architettura di Service Fabric dopo una migrazione semplice][10]
 
-In questa fase il sistema continuerà a funzionare come prima. Sfruttando le funzionalità con stato di Service Fabric, è possibile internalizzare gli archivi stati esterni come servizi con stato, se applicabile. Questo approccio è più complesso di una semplice migrazione di ruoli di lavoro e Web a servizi senza stato di Service Fabric, perché richiede la scrittura di servizi personalizzati che forniscono funzionalità equivalenti all'applicazione come avveniva in precedenza con i servizi esterni. I vantaggi di questa operazione includono la rimozione delle dipendenze esterne e l'unificazione dei modelli di distribuzione, gestione a aggiornamento. Un'architettura di esempio risultante dall'internalizzazione di questi servizi può avere un aspetto simile al seguente:
+In questa fase il sistema continuerà a funzionare come prima. Sfruttando le funzionalità con stato di Service Fabric, è possibile internalizzare gli archivi stati esterni come servizi con stato, se applicabile. Questo approccio è più complesso di una semplice migrazione di ruoli di lavoro e Web a servizi senza stato di Service Fabric, perché richiede la scrittura di servizi personalizzati che forniscono funzionalità equivalenti all'applicazione come avveniva in precedenza con i servizi esterni. I vantaggi di questa operazione includono:
+
+ - Rimozione delle dipendenze esterne
+ - Unificazione dei modelli di distribuzione, gestione e aggiornamento
+ 
+Un'architettura di esempio risultante dall'internalizzazione di questi servizi può avere un aspetto simile al seguente:
 
 ![Architettura di Service Fabric dopo una migrazione completa][11]
 
@@ -66,7 +71,7 @@ Con la comunicazione diretta i livelli possono comunicare direttamente tramite l
 
  La comunicazione diretta è un modello di comunicazione comune in Service Fabric. La differenza principale tra Service Fabric e Servizi cloud è che in Servizi cloud ci si connette a una macchina virtuale, mentre in Service Fabric ci si connette a un servizio. Questa è una distinzione importante per due motivi:
 
- - I servizi di Service Fabric non sono associati alle macchine virtuali che li ospitano. I servizi possono spostarsi all'interno del cluster e, in effetti, è previsto che si spostino per vari motivi, ovvero per bilanciamento delle risorse, failover, aggiornamenti di applicazioni e infrastruttura e vincoli di bilanciamento di carico o selezione. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento. 
+ - I servizi di Service Fabric non sono associati alle macchine virtuali che li ospitano. I servizi possono spostarsi all'interno del cluster e, in effetti, è previsto che si spostino per vari motivi, ovvero per bilanciamento delle risorse, failover, aggiornamenti di applicazioni e infrastruttura e vincoli di bilanciamento di carico o selezione. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento.
  - Una macchina virtuale in Service Fabric può ospitare più servizi, ognuno con un endpoint univoco.
 
 Service Fabric fornisce un meccanismo di individuazione del servizio, detto Naming Service, che può essere usato per risolvere gli indirizzi degli endpoint dei servizi.
@@ -100,4 +105,4 @@ Il percorso di migrazione più semplice da Servizi cloud a Service Fabric consis
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati
@@ -40,14 +40,14 @@ In questo articolo viene illustrato come calcolare e ottimizzare la query per in
 ## Processo perfettamente parallelo
 Il processo perfettamente parallelo è lo scenario più scalabile che può presentarsi in Analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Per ottenere un tale livello di parallelismo, è necessario che siano soddisfate alcune condizioni:
 
-1.  Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per Hub eventi, questo significa che per i dati di evento è necessario che sia impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questo requisito è costituito dalla query select/project/filter.  
-2.	Quando i dati sono disposti correttamente a livello di input, è necessario verificare che la query sia partizionata. A questo scopo, sarà necessario usare la clausola **Partition By** in ogni passaggio. È possibile eseguire più passaggi, ma è necessario che tutti siano partizionati con la stessa chiave. Un altro aspetto da tenere in considerazione è che, al momento, per ottenere un processo perfettamente parallelo, la chiave di partizionamento deve essere impostata su **PartitionId**.  
-3.	Solo Hub eventi e BLOB supportano attualmente l'output partizionato. Per l'output di Hub eventi, è necessario configurare il campo **PartitionKey** su **PartitionId**. Per BLOB, non è necessario eseguire alcuna operazione.  
-4.	Un'altra cosa di cui tenere conto è che il numero di partizioni di input deve essere uguale al numero di partizioni di output. L'output di BLOB attualmente non supporta le partizioni, ma questo non comporta alcun problema, perché lo schema di partizionamento viene ereditato dalla query a monte. Esempi di valori di partizione che consentono un processo perfettamente parallelo:  
+1.  Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per Hub eventi, questo significa che per i dati di evento è necessario che sia impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questo requisito è costituito dalla query select/project/filter.
+2.	Quando i dati sono disposti correttamente a livello di input, è necessario verificare che la query sia partizionata. A questo scopo, sarà necessario usare la clausola **Partition By** in ogni passaggio. È possibile eseguire più passaggi, ma è necessario che tutti siano partizionati con la stessa chiave. Un altro aspetto da tenere in considerazione è che, al momento, per ottenere un processo perfettamente parallelo, la chiave di partizionamento deve essere impostata su **PartitionId**.
+3.	Solo Hub eventi e BLOB supportano attualmente l'output partizionato. Per l'output di Hub eventi, è necessario configurare il campo **PartitionKey** su **PartitionId**. Per BLOB, non è necessario eseguire alcuna operazione.
+4.	Un'altra cosa di cui tenere conto è che il numero di partizioni di input deve essere uguale al numero di partizioni di output. L'output di BLOB attualmente non supporta le partizioni, ma questo non comporta alcun problema, perché lo schema di partizionamento viene ereditato dalla query a monte. Esempi di valori di partizione che consentono un processo perfettamente parallelo:
 	1.	8 partizioni di input di Hub eventi e 8 partizioni di output di Hub eventi
-	2.	8 partizioni di input di Hub eventi e 8 di output di BLOB  
-	3.	8 partizioni di input di BLOB e 8 di output di BLOB  
-	4.	8 partizioni di input di BLOB e 8 partizioni di output di Hub eventi  
+	2.	8 partizioni di input di Hub eventi e 8 di output di BLOB
+	3.	8 partizioni di input di BLOB e 8 di output di BLOB
+	4.	8 partizioni di input di BLOB e 8 partizioni di output di Hub eventi
 
 Di seguito sono riportati alcuni esempi di scenari perfettamente paralleli.
 
@@ -88,7 +88,7 @@ Input: Hub eventi con 8 partizioni. Output: Hub eventi con 8 partizioni
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presenta laclausola **Partition By** di **PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output, è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
+Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presente la clausola **Partition By** di **PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
 
 
 ## Esempi di scenari NON perfettamente paralleli
@@ -128,7 +128,7 @@ Per il momento fare riferimento alle indicazioni generali riportate di seguito.
 Il numero totale di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni per ogni passaggio.
 
 ### Passaggi in una query
-Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery definita mediante la parola chiave **WITH**. Anche l'unica query esterna alla parola chiave **WITH** viene contata come passaggio; ad esempio, l'istruzione **SELECT** nella query seguente:
+Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery definita mediante la parola chiave **WITH**. Anche l'unica query esterna alla parola chiave **WITH** viene contata come passaggio. Ad esempio, l'istruzione **SELECT** nella query seguente:
 
 	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
@@ -326,7 +326,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 - [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
-- [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
@@ -351,4 +350,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

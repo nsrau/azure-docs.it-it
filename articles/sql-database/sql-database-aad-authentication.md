@@ -97,9 +97,8 @@ Creare un'istanza di Azure Active Directory e popolarla con utenti e gruppi. Ope
 
 - Creare il dominio gestito di Azure AD iniziale.
 - Attuare la federazione di un'istanza di Servizi di dominio Active Directory locale con Azure Active Directory.
-- Usando lo strumento **AD FS**, nella sezione **Servizio**, **Endpoint** abilitare **WS-Trust 1.3** per il percorso URL **/adfs/services/trust/13/windowstransport**.
 
-Per altre informazioni, vedere gli articoli [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione con Active Directory di Windows Server in Microsoft Azure), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Assicurarsi che il database SQL sia in un database SQL di Azure versione 12.
 
@@ -218,7 +217,7 @@ L'esempio seguente illustra come rimuovere un amministratore di Azure AD:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
-È anche possibile effettuare il provisioning di un amministratore di Azure Active Directory usando le API REST. Per altre informazioni, vedere il [riferimento all'API REST di gestione dei servizi e alle operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+È anche possibile effettuare il provisioning di un amministratore di Azure Active Directory usando le API REST. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di gestione dei servizi e le operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
 ## 5\. Configurare i computer client
 
@@ -252,7 +251,7 @@ Per verificare che l'amministratore di Azure AD sia configurato correttamente, c
 
 Usare questo metodo se si è connessi a Windows con le credenziali di Azure Active Directory da un dominio federato.
 
-1. Avviare SQL Server Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è richiesta e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
+1. Avviare Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è necessaria e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
 
 2. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -262,9 +261,9 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 
 Usare questo metodo se si è connessi a Windows con le credenziali di un dominio non federato con Azure o quando si usa l'autenticazione di Azure AD con Azure AD basato sul dominio iniziale o client.
 
-1. Avviare SQL Server Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
+1. Avviare Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
 2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
-3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o per l'account di dominio federato. ![Selezionare Autenticazione della password di Active Directory][12]
+3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato. ![Selezionare Autenticazione della password di Active Directory][12]
 
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -341,7 +340,7 @@ Questo tipo di autenticazione consente ai servizi di livello intermedio di conne
 3. Creare un certificato nel computer client che eseguirà l'applicazione.
 4. Aggiungere il certificato come chiave per l'applicazione.
 
-Per altre informazioni, vedere il [blog sulla sicurezza di SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/) (Blog sulla sicurezza di SQL Server).
 
 ## Vedere anche
 
@@ -367,4 +366,4 @@ Per altre informazioni, vedere il [blog sulla sicurezza di SQL Server](https://b
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

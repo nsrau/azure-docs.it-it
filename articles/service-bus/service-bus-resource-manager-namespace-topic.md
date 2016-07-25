@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione usando un modello di Azure Resource Manager
 
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio con un argomento e una sottoscrizione. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][].
+Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
 
 Per il modello completo, vedere il [modello dello spazio dei nomi con argomento e sottoscrizione del bus di servizio][] su GitHub.
 
@@ -31,15 +31,13 @@ Per il modello completo, vedere il [modello dello spazio dei nomi con argomento 
 >-    [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 >-    [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 >
->Per verificare gli ultimi modelli, vedere i [modelli di avvio rapido di Azure][] e cercare il bus di servizio.
+>Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
 
 ## Distribuzione
 
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con un argomento e una sottoscrizione.
 
-Gli argomenti e le sottoscrizioni offrono una forma di comunicazione one to many, in un schema di *pubblicazione/sottoscrizione*.
-
-[Informazioni su argomenti e sottoscrizioni del bus di servizio][].
+Gli [argomenti e le sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) offrono una forma di comunicazione uno-a-molti, in un schema di *pubblicazione/sottoscrizione*.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -49,7 +47,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
-Di seguito viene fornita la descrizione di ogni parametro del modello.
+Il modello definisce i parametri seguenti.
 
 ### serviceBusNamespaceName
 
@@ -156,10 +154,10 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 
 
   [Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/
-  [Informazioni su argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
+  [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello dello spazio dei nomi con argomento e sottoscrizione del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -92,9 +92,9 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 
 |Comando|Descrizione|
 |-------|-----------|
-|[ALTER DATABASE (database SQL di Azure)]https://msdn.microsoft.com/it-IT/library/mt574871.aspx)|Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati|
-|[ALTER DATABASE (database SQL di Azure)]https://msdn.microsoft.com/it-IT/library/mt574871.aspx)|Usare FAILOVER o FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS per passare un database secondario al ruolo di database primario per avviare il failover
-|[ALTER DATABASE (database SQL di Azure)]https://msdn.microsoft.com/it-IT/library/mt574871.aspx)|Usare REMOVE SECONDARY ON SERVER per terminare la replica dei dati tra un database SQL e il database secondario specificato.|
+|[ALTER DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati|
+|[ALTER DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Usare FAILOVER o FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS per passare un database secondario al ruolo di database primario per avviare il failover
+|[ALTER DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Usare REMOVE SECONDARY ON SERVER per terminare la replica dei dati tra un database SQL e il database secondario specificato.|
 |[sys.geo\_replication\_links (database SQL di Azure)](https://msdn.microsoft.com/library/mt575501.aspx)|Restituisce informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico del database SQL di Azure.|
 |[sys.dm\_geo\_replication\_link\_status (database SQL di Azure)](https://msdn.microsoft.com/library/mt575504.aspx)|Ottiene l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica per un database SQL specificato.|
 |[sys.dm\_operation\_status (database SQL di Azure)](https://msdn.microsoft.com/library/dn270022.aspx)|Mostra lo stato per tutte le operazioni di database, incluso lo stato dei collegamenti di replica.|
@@ -116,7 +116,7 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 
 |API|Descrizione|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, aggiorna o ripristina un database primario o secondario.|
+|[Creare o aggiornare database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, aggiorna o ripristina un database primario o secondario.|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Restituisce lo stato durante un'operazione di creazione.|
 |[Set Secondary Database as Primary (Planned Failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Innalza di livello un database secondario in una relazione di replica geografica in modo che diventi il nuovo database primario.|
 |[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Per forzare un failover nel database secondario e impostare il database secondario come database primario.|
@@ -128,10 +128,10 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 
 ## Passaggi successivi
 
-- Per una panoramica sulla continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
-- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
-- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
+- Per una panoramica della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale del database SQL di Azure](sql-database-business-continuity-scenarios.md).
+- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md).
+- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

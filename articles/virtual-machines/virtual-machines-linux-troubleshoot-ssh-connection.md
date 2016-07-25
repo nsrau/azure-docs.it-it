@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure | Microsoft Azure"
+	pageTitle="La connessione SSH a una VM Linux è stata rifiutata, ha esito negativo o genera errori | Microsoft Azure"
 	description="Risolvere i problemi e correggere gli errori SSH, ad esempio una connessione SSH non riuscita o rifiutata per una macchina virtuale di Azure che esegue Linux."
-	keywords="connessione SSH rifiutata,errore SSH,SSH Azure,connessione SSH non riuscita"
+	keywords="connessione SSH rifiutata, errore SSH, SSH Azure, connessione SSH non riuscita"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Risoluzione dei problemi di connessione SSH a una VM di Azure
+# Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, è stata rifiutata o genera errori
 
-Sono vari i motivi per cui potrebbero verificarsi errori Secure Shell (SSH) durante il tentativo di connessione a una macchina virtuale (VM) di Azure basata su Linux. Questo articolo consente di individuare i problemi e correggerli.
+Sono vari i motivi per cui potrebbero verificarsi errori Secure Shell (SSH), la connessione SSH non riesce o viene rifiutata durante il tentativo di connessione a una macchina virtuale di Azure basata su Linux. Questo articolo consente di individuare i problemi e correggerli.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 	- Reimpostare la configurazione SSH.
 
 - Controllare l'integrità delle risorse della VM per eventuali problemi di piattaforma.<br> Selezionare **Sfoglia** > **Macchine virtuali (classico)** > *macchina virtuale Linux* > **Impostazioni** > **Controlla integrità**.
-	 
+
 
 ## Risorse aggiuntive
 
@@ -134,4 +134,4 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 
 - Per ulteriori informazioni sulla risoluzione dei problemi di macchine virtuali create con il modello di distribuzione classica, vedere l'articolo su come [reimpostare una password o SSH per macchine virtuali basate su Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

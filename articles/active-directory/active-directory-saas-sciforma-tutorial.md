@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Sciforma
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Sciforma, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Sciforma tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Sciforma** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Sciforma** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configura accesso Single Sign-On")
 
@@ -98,7 +98,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Sciforma, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Sciforma** fare clic su **Assegna utenti**.
 
@@ -110,4 +110,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

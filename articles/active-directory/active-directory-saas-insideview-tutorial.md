@@ -3,14 +3,15 @@
     description="Informazioni su come usare InsideView con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con InsideView
@@ -36,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Insi
 
 ###Per abilitare l'integrazione dell'applicazione per InsideView, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
 
@@ -67,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **InsideView** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **InsideView** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configura accesso Single Sign-On")
 
@@ -94,28 +95,28 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Add a New SAML](./media/active-directory-saas-insideview-tutorial/IC794136.png "Add a New SAML")
 
     1.  Nella casella di testo **Nome STS** digitare un nome per la configurazione.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in InsideView** del portale di Azure copiare il valore di **Endpoint inizializzato da provider di servizi** e incollarlo nella casella di testo **SamlP/WS-Fed Unsolicated EndPoint**.
-    3.  Creare un file **con codifica Base 64** dal certificato scaricato.
+    2.  Nella finestra di dialogo **Configure single sign-on at InsideView** (Configura accesso Single Sign-On in InsideView) del portale di Azure classico copiare il valore di **Endpoint avviato da provider di servizi** e incollarlo nella casella di testo **SamlP/WS-Fed Unsolicated EndPoint** (Endpoint non richiesto SamlP/WS-Fed).
+    3.  Creare un file con **codifica Base 64** dal certificato scaricato.
         
 		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato STS**.
-    5.  Nella casella di testo **Crm User Id Mapping** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-6.  Nella casella di testo **Mapping dell’email Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Nella casella di testo **Mapping del nome Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Nella casella di testo **Mapping del cognome Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Fare clic su **Save**.
+    5.  Nella casella di testo **Crm User Id Mapping** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  Nella casella di testo **Mapping dell’email Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Nella casella di testo **Mapping del nome Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    8.  Nella casella di testo **Mapping del cognome Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    9.  Fare clic su **Save**.
 
-8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a InsideView, è necessario eseguirne il provisioning in InsideView. Nel caso di InsideView, il provisioning è un'attività manuale.
   
-Per creare utenti o contatti in InsideView, contattare il responsabile della soddisfazione del cliente o inviare un messaggio di posta elettronica a ****support@insideview.com**.
+Per creare utenti o contatti in InsideView, contattare il responsabile della soddisfazione del cliente o inviare un messaggio di posta elettronica a **support@insideview.com**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da InsideView per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da InsideView per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
   
@@ -123,7 +124,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a InsideView, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **InsideView** fare clic su **Assegna utenti**.
 
@@ -135,4 +136,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

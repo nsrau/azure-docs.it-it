@@ -3,9 +3,9 @@
    description="Utilizzando i test chaos dell'infrastruttura di servizi e gli scenari dei test di failover per provocare gli errori e verificare l'affidabilità dei servizi."
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmolah"
+   authors="motanv"
    manager="timlt"
-   editor="vturecek"/>
+   editor="toddabel"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
-   ms.author="anmola"/>
+   ms.date="07/08/2016"
+   ms.author="motanv"/>
 
 # Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.
@@ -247,4 +247,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

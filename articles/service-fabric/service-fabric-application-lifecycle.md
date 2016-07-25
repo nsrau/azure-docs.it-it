@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 
@@ -100,7 +100,7 @@ Per gli esempi, vedere l'articolo relativo all'[esercitazione sull'aggiornamento
 5. Quando nel cluster vengono aggiunti nuovi nodi o rimossi nodi esistenti, Service Fabric esegue automaticamente il bilanciamento del carico delle applicazioni in esecuzione in tutti i nodi del cluster per ottenere prestazioni ottimali.
 
 ## Rimuovere
-1. Un *operatore* può eliminare un'istanza specifica di un servizio in esecuzione nel cluster senza rimuovere l'intera applicazione usando il metodo [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), il cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) o l'operazione [**Delete Service** REST](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
+1. Un *operatore* può eliminare un'istanza specifica di un servizio in esecuzione nel cluster senza rimuovere l'intera applicazione usando il metodo [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), il cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) o l'operazione [**Delete Service** REST](https://msdn.microsoft.com/library/azure/dn707687.aspx).
 
 2. Un *operatore* può anche eliminare un'istanza di un'applicazione e tutti i relativi servizi usando il metodo [**DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), il cmdlet [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) o l'operazione [**Delete Application** REST](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
@@ -121,4 +121,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 - [Panoramica di Testabilità](service-fabric-testability-overview.md)
 - [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

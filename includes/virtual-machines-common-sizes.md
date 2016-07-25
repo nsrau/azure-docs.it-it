@@ -36,7 +36,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 * Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU più veloci ma che non necessitano della stessa memoria o unità SSD locale per core di CPU. Carichi di lavoro come server Web, analisi, giochi ed elaborazione batch trarranno vantaggio dal valore della serie F.
 
-*   Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
+*   Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <nome macchina virtuale>** o **Impossibile creare la macchina virtuale <nome macchina virtuale>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
 
 
 ## Considerazioni sulle prestazioni
@@ -122,12 +122,12 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_D2\_v2 |2|7 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
 |Standard\_D3\_v2 |4|14 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
 |Standard\_D4\_v2 |8|28 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
-|Standard\_D5\_v2 |16|56 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
+|Standard\_D5\_v2 |16|56 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| estremamente alta |
 |Standard\_D11\_v2 |2|14 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
 |Standard\_D12\_v2 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
 |Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
-|Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
-|Standard\_D15\_v2 |20|140 GB|10|Temporaneo (SSD) = 1 TB |40|40x500| molto alta |
+|Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| estremamente alta |
+|Standard\_D15\_v2 |20|140 GB|10|Temporaneo (SSD) = 1 TB |40|40x500| estremamente alta |
 
 
 ## Serie DS*
@@ -143,7 +143,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_DS13 |8|56|8|Disco SSD locale = 112 GB |16|288| 25\.600 256 MB al secondo | alto |
 |Standard\_DS14 |16|112|8|Disco SSD locale = 224 GB |32|576| 51\.200 512 MB al secondo | molto alta |
 
-**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+*Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Serie DSv2*
@@ -154,15 +154,15 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_DS2\_v2 |2|7|2|Disco SSD locale = 14 GB |4|86| 6\.400 96 MB al secondo | alto |
 |Standard\_DS3\_v2 |4|14|4|Disco SSD locale = 28 GB |8|172| 12\.800 192 MB al secondo | alto |
 |Standard\_DS4\_v2 |8|28|8|Disco SSD locale = 56 GB |16|344| 25\.600 384 MB al secondo | alto |
-|Standard\_DS5\_v2 |16|56|8|Disco SSD locale = 112 GB |32|688| 51\.200 768 MB al secondo | alto |
+|Standard\_DS5\_v2 |16|56|8|Disco SSD locale = 112 GB |32|688| 51\.200 768 MB al secondo | estremamente alta |
 |Standard\_DS11\_v2 |2|14|2|Disco SSD locale = 28 GB |4|72| 6\.400 96 MB al secondo | alto |
 |Standard\_DS12\_v2 |4|28|4|Disco SSD locale = 56 GB |8|144| 12\.800 192 MB al secondo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD locale = 112 GB |16|288| 25\.600 384 MB al secondo | alto |
-|Standard\_DS14\_v2 |16|112|8|Disco SSD locale = 224 GB |32|576| 51\.200 768 MB al secondo | molto alta |
-|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD locale = 280 GB |40| 720|64\.000 960 MB al secondo | molto alta |
+|Standard\_DS14\_v2 |16|112|8|Disco SSD locale = 224 GB |32|576| 51\.200 768 MB al secondo | estremamente alta |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD locale = 280 GB |40| 720|64\.000 960 MB al secondo | estremamente alta |
 
 
-**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+*Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Serie F
@@ -174,7 +174,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_F2 | 2 | 4 GB | 2 | Temporaneo (SSD) = 32 GB | 4 | 4x500 | alto |
 | Standard\_F4 | 4 | 8 GB | 4 | Temporaneo (SSD) = 64 GB | 8 | 8x500 | alto |
 | Standard\_F8 | 8 | 16 GB | 8 | Temporaneo (SSD) = 128 GB | 16 | 16x500 | alto |
-| Standard\_F16 | 16 | 32 GB | 8 | Temporaneo (SSD) = 256 GB | 32 | 32x500 | molto alta |
+| Standard\_F16 | 16 | 32 GB | 8 | Temporaneo (SSD) = 256 GB | 32 | 32x500 | estremamente alta |
 
 
 
@@ -186,11 +186,11 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_F2s | 2 | 4 | 2 | Disco SSD locale = 8 GB | 4 | 24 | 6\.400 96 MB al secondo | alto |
 | Standard\_F4s | 4 | 8 | 4 | Disco SSD locale = 16 GB | 8 | 48 | 12\.800 192 MB al secondo | alto |
 | Standard\_F8s | 8 | 16 | 8 | Disco SSD locale = 32 GB | 16 | 96 | 25\.600 384 MB al secondo | alto |
-| Standard\_F16s | 16 | 32 | 8 | Disco SSD locale = 64 GB | 32 | 192 | 51\.200 768 MB al secondo | molto alta |
+| Standard\_F16s | 16 | 32 | 8 | Disco SSD locale = 64 GB | 32 | 192 | 51\.200 768 MB al secondo | estremamente alta |
 
 
 
-**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una VM serie Fs dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+*Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una VM serie Fs dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
 
@@ -227,7 +227,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in Powershell e nell’interfaccia della riga di comando:
 
-* Standard\_A0 è ExtraSmall 
+* Standard\_A0 è ExtraSmall
 * Standard\_A1 è Small
 * Standard\_A2 è Medium
 * Standard\_A3 è Large
@@ -236,7 +236,7 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 ## Passaggi successivi
 
-- Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
-- Altre informazioni sulle [istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
+- Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
+- Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Envoy
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Envo
 
 ###Per abilitare l'integrazione dell'applicazione per Envoy, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-envoy-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Envoy** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Envoy** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Abilita Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776778.png "Abilitare l'autenticazione Single Sign-On")
 
@@ -102,16 +102,16 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![SAML Authentication](./media/active-directory-saas-envoy-tutorial/IC776785.png "SAML Authentication")
 
-    >[AZURE.NOTE]Il valore dell'ID della sede centrale viene generato automaticamente dall'applicazione.
+    >[AZURE.NOTE] Il valore dell'ID della sede centrale viene generato automaticamente dall'applicazione.
 
-    1.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale**.  
+    1.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale**.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Envoy** del portale di Azure copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **URL del provider di identità HTTP SAML**.
+    2.  Nella finestra di dialogo **Configure single sign-on at Envoy** (Configura accesso Single Sign-On in Envoy) del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Identity Provider HTTP SAML URL** (URL del provider di identità HTTP SAML).
     3.  Fare clic su **Salva modifiche**.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -123,7 +123,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Envoy, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Envoy** fare clic su **Assegna utenti**.
 
@@ -135,4 +135,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -3,8 +3,8 @@
 	description="Illustra il funzionamento dello script PowerShell nel progetto di distribuzione del gruppo di risorse di Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Panoramica dello script di distribuzione del progetto di gruppo di risorse di Azure
 
@@ -73,7 +73,7 @@ La descrizione seguente illustra il funzionamento di alcune sezioni dello script
 
 1.	Convertire eventuali variabili con percorsi relativi in percorsi assoluti. Ad esempio, cambiare un percorso quale `..\Tools\AzCopy.exe` in `C:\YourFolder\Tools\AzCopy.exe`. Inizializzare anche le variabili *ArtifactsLocationName* e *ArtifactsLocationSasTokenName* impostandole su Null. *ArtifactsLocation* e *SaSToken* possono essere parametri per il modello. Se i rispettivi valori sono Null dopo la lettura del file dei parametri, lo script genererà automaticamente valori per queste variabili.
 
-    Gli Strumenti di Azure usano i valori di parametro *\_artifactsLocation* e *\_artifactsLocationSasToken* nel modello per gestire gli elementi. Se lo script PowerShell trova parametri con questi nomi, ma non sono stati forniti valori per i parametri, lo script caricherà gli elementi e restituirà i valori appropriati per questi parametri. I valori vengono quindi passati al cmdlet tramite `@OptionsParameters`.
+    Gli strumenti di Azure usano i valori di parametro *\_artifactsLocation* e *\_artifactsLocationSasToken* nel modello per gestire gli elementi. Se lo script PowerShell trova parametri con questi nomi, ma non sono stati forniti valori per i parametri, lo script caricherà gli elementi e restituirà i valori appropriati per questi parametri. I valori vengono quindi passati al cmdlet tramite `@OptionsParameters`.
 
 	|Variabile|Descrizione|
     |---|---|
@@ -264,4 +264,4 @@ Per altre informazioni su Gestione risorse di Azure, vedere [Panoramica di Gesti
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

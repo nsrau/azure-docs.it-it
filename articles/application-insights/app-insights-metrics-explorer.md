@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="02/06/2016" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -114,9 +114,13 @@ Eventuali [metriche personalizzate][track] codificate nell'app, ad esempio chiam
 
 ## Segmentare i dati
 
+È possibile suddividere una metrica per la proprietà, ad esempio eseguire un confronto delle visualizzazioni di una pagina sui client con sistemi operativi differenti.
+
 Selezionare un grafico o una griglia, attivare il raggruppamento e scegliere una proprietà in base a cui eseguire il raggruppamento:
 
 ![Attivare il raggruppamento e poi selezionare una proprietà in Raggruppa per](./media/app-insights-metrics-explorer/15-segment.png)
+
+> [AZURE.NOTE] Quando si utilizza la funzione di raggruppamento, i grafici ad area e a barre forniscono una visualizzazione in pila, che risulta ottimale se il metodo di aggregazione selezionato è Somma. Ma se il tipo di aggregazione selezionato è Media, è consigliabile scegliere i tipi di visualizzazione a righe o a griglia.
 
 Se eventuali [metriche personalizzate][track] codificate nell'app includono i valori delle proprietà, sarà possibile selezionare la proprietà nell'elenco.
 
@@ -181,7 +185,7 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 Flusso di metriche live mostra le metriche dell’applicazione in questo esatto momento, con una latenza quasi in tempo reale di 1 secondo. Ciò è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
 
-![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
+![Nel pannello Panoramica fare clic su Flusso attivo](./media/app-insights-metrics-explorer/live-stream.png)
 
 A differenza di Esplora metriche, Flusso di metriche live consente di visualizzare un set fisso di metriche. I dati vengono mantenuti solo intanto che si trovano nel grafico, poi vengono eliminati.
 
@@ -218,13 +222,13 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
 ## Analytics
 
-[Analisi](app-insights-analytics.md) è un modo più versatile per analizzare i dati di telemetria usando un linguaggio di query avanzato. Usare l'opzione se si desidera combinare o calcolare i risultati delle metriche oppure per eseguire un'analisi approfondita delle prestazioni recenti dell'applicazione. Usare Esplora metriche se si desiderano l'aggiornamento automatico, i grafici sul dashboard e gli avvisi.
+[Analytics](app-insights-analytics.md) è un modo più versatile per analizzare i dati di telemetria usando un linguaggio di query avanzato. Usare l'opzione se si desidera combinare o calcolare i risultati delle metriche oppure per eseguire un'analisi approfondita delle prestazioni recenti dell'applicazione. Usare Esplora metriche se si desiderano l'aggiornamento automatico, i grafici sul dashboard e gli avvisi.
 
 ## Risoluzione dei problemi
 
 *All'interno del grafico non vengono visualizzati dati.*
 
-* I filtri si applicano a tutti i grafici del pannello. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico. 
+* I filtri si applicano a tutti i grafici del pannello. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico.
 
     Se si desidera impostare filtri diversi nei vari grafici, creare grafici in diversi pannelli e salvarli come Preferiti separati. Se si desidera, è possibile impostarli sul dashboard in modo da visualizzarli uno accanto all'altro.
 
@@ -247,4 +251,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

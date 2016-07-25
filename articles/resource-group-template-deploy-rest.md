@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/11/2016"
    ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli e l'API REST di Resource Manager
@@ -93,4 +93,4 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

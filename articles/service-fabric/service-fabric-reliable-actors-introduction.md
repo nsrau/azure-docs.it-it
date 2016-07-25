@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introduzione a Service Fabric Reliable Actors
@@ -105,7 +105,7 @@ La classe `ActorProxy` sul lato client esegue la risoluzione necessaria per indi
 
 Il runtime di Reliable Actors rappresenta un modello semplice di accesso a turno per accedere ai metodi degli attori. Ciò significa che, in qualsiasi momento, all'interno del codice oggetto dell'attore non può essere attivo più di un thread. L'accesso a turno semplifica notevolmente i sistemi simultanei, poiché non occorrono meccanismi di sincronizzazione per l'accesso ai dati. I sistemi devono inoltre essere progettati tenendo in particolare considerazione la natura di accesso a thread singolo di ogni istanza dell'attore.
 
- - Un'istanza di un solo attore non può elaborare più di una richiesta alla volta. Se si prevede di gestire richieste simultanee, un'istanza di un attore può causare un collo di bottiglia della velocità effettiva. 
+ - Un'istanza di un solo attore non può elaborare più di una richiesta alla volta. Se si prevede di gestire richieste simultanee, un'istanza di un attore può causare un collo di bottiglia della velocità effettiva.
  - Gli attori possono bloccarsi a vicenda se esiste una richiesta circolare tra due attori mentre viene eseguita una richiesta esterna a uno degli attori. Il runtime dell'attore causa automaticamente il timeout delle chiamate dell'attore e genera un'eccezione al chiamante per interrompere le possibili situazioni di deadlock.
 
 ![Comunicazioni di Reliable Actors][3]
@@ -158,4 +158,4 @@ Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

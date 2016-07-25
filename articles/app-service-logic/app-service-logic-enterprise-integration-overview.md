@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica di Enterprise Integration | Servizio app di Microsoft Azure" 
+	pageTitle="Panoramica di Enterprise Integration | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Usare le funzionalità di Enterprise Integration per abilitare processi aziendali e scenari di integrazione tramite le app per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Panoramica di Enterprise Integration Pack
@@ -35,7 +35,7 @@ A livello di architettura, Enterprise Integration Pack è basato su **account di
 ## Introduzione all'uso di Enterprise Integration
 È possibile compilare e gestire le applicazioni B2B in Enterprise Integration Pack tramite la finestra di progettazione dell'app per la logica del **portale di Azure**.
 
-Di seguito viene fornita una panoramica della procedura da eseguire prima di creare app nel portale di Azure: ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+Di seguito viene fornita una panoramica della procedura da eseguire prima di creare app nel portale di Azure: ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## Alcuni scenari comuni
 
@@ -44,23 +44,21 @@ Enterprise Integration supporta gli standard del settore seguenti:
 - EDI: Electronic Data Interchange
 - EAI: Enterprise Application Integration
 
-## Quanto costa?
-Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello di servizio, vedere le [Informazioni sui prezzi di Servizio app di Azure](https://azure.microsoft.com/pricing/details/app-service/).
-
 ## Elementi necessari per iniziare
 - Una sottoscrizione ad Azure con account di integrazione
 - Visual Studio 2015 per creare mappe e schemi
-- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) (Strumenti di Enterprise Integration per le app per la logica di Microsoft Azure per Visual Studio 2015 2.0)
+- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Strumenti di Enterprise Integration per le app per la logica di Microsoft Azure per Visual Studio 2015 2.0)](https://aka.ms/vsmapsandschemas)
 
 ## Altre informazioni su:
-- [Schemi](./app-service-logic-enterprise-integration-schemas.md "Informazioni sugli schemi di Enterprise Integration")
-- [Mappe](./app-service-logic-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")
-- [Certificati](./app-service-logic-enterprise-integration-certificates.md "Informazioni sui certificati di Enterprise Integration")
-- [Partner](./app-service-logic-enterprise-integration-partners.md "Informazioni sui partner di Enterprise Integration")
 - [Contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
-- [Account di integrazione](./app-service-logic-enterprise-integration-accounts.md "Informazioni sugli account di integrazione")
 - [Scenari Business to Business (B2B)](./app-service-logic-enterprise-integration-b2b.md "Informazioni su come creare app per la logica con funzionalità B2B")
-- [Convalida dei messaggi XML](./app-service-logic-enterprise-integration-xml.md "Informazioni su come convalidare i messaggi XML con le app per la logica")
+- [Certificati](./app-service-logic-enterprise-integration-certificates.md "Informazioni sui certificati di Enterprise Integration")
 - [Codifica/decodifica dei file flat](./app-service-logic-enterprise-integration-flatfile.md "Informazioni su come codificare e decodificare il contenuto dei file flat")
+- [Account di integrazione](./app-service-logic-enterprise-integration-accounts.md "Informazioni sugli account di integrazione")
+- [Mappe](./app-service-logic-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")
+- [Partner](./app-service-logic-enterprise-integration-partners.md "Informazioni sui partner di Enterprise Integration")
+- [Schemi](./app-service-logic-enterprise-integration-schemas.md "Informazioni sugli schemi di Enterprise Integration")
+- [Convalida dei messaggi XML](./app-service-logic-enterprise-integration-xml.md "Informazioni su come convalidare i messaggi XML con le app per la logica")
+- [XML transform](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle mappe di Enterprise Integration")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

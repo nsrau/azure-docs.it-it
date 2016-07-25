@@ -426,7 +426,17 @@ Il comportamento predefinito per un dispositivo che usa il protocollo HTTP per c
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere [Azure IoT Gateway SDK][lnk-sdk].
+Per ottenere informazioni più avanzate sul Gateway SDK e provare alcuni esempi di codice, vedere le seguenti risorse ed esercitazioni per gli sviluppatori:
+
+- [Gestione di un dispositivo gateway][lnk-manage-devices]
+- [SDK per gateway IoT di Azure][lnk-gateway-sdk]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -441,4 +451,11 @@ Per altre informazioni, vedere [Azure IoT Gateway SDK][lnk-sdk].
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

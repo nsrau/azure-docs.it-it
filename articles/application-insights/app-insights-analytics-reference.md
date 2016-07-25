@@ -729,20 +729,21 @@ Alias di [limit](#limit-operator)
 
 ### Operatore top
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Restituisce i primi *N* record ordinati in base alle colonne specificate.
 
 
 **Sintassi**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Argomenti**
 
 * *NumberOfRows:* numero di righe di *T* da restituire.
 * *Sort\_expression:* espressione in base alla quale ordinare le righe. In genere è semplicemente un nome di colonna. È possibile specificare più di un elemento sort\_expression.
 * `asc` o `desc` (valore predefinito) può essere visualizzato per controllare se la selezione nell'intervallo è effettivamente in ordine crescente o decrescente.
+* `nulls first` o i controlli `nulls last` in cui sono presenti valori null. `First` è il valore predefinito per `asc`, `last` è il valore predefinito per `desc`.
 
 
 **Suggerimenti**
@@ -853,7 +854,7 @@ Righe in *T* per cui *Predicate* è `true`.
 
 Per ottenere prestazioni ottimali:
 
-* **Usare confronti semplici** tra nomi di colonna e costanti. Con "costante" si intende costante nella tabella, quindi `now()` e `ago()` sono validi e sono dunque valori scalari assegnati con una clausola [`let`](#let-clause).
+* **Usare confronti semplici** tra i nomi di colonna e le costanti. Con "costante" si intende costante nella tabella, quindi `now()` e `ago()` sono validi e sono dunque valori scalari assegnati con una [clausola `let`](#let-clause).
 
     Ad esempio, preferire `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -907,7 +908,7 @@ traces
 
 Trova una riga del gruppo che riduce al minimo o aumenta al massimo *ExprToMaximize* e restituisce il valore di *ExprToReturn* (o `*` per restituire l'intera riga).
 
-**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per verificare di usare i nomi corretti, esaminare i risultati con `take 5` prima di inviare i risultati in pipe a un altro operatore.
+**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per verificare di usare i nomi corretti, esaminare i risultati usando `take 5` prima di inviare pipe dei risultati in un altro operatore.
 
 **esempi**
 
@@ -1029,9 +1030,9 @@ Equivalgono a un subset di annotazioni di tipo TypeScript, codificato come valor
 
     count([ Predicate ])
 
-Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`. Se *Predicate* non viene specificato, restituisce il numero totale di record del gruppo.
+Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`. Se *Predicate* non viene specificato, restituisce il numero totale di record del gruppo.
 
-**Suggerimento per le prestazioni**: usare `summarize count(filter)` invece di `where filter | summarize count()`
+**Suggerimento per le prestazioni**: usare `summarize count(filter)` anziché `where filter | summarize count()`
 
 > [AZURE.NOTE] Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati conservato in Application Insights sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
 
@@ -1039,9 +1040,9 @@ Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`. Se 
 
     countif(Predicate)
 
-Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`.
+Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`.
 
-**Suggerimento per le prestazioni**: usare `summarize countif(filter)` invece di `where filter | summarize count()`
+**Suggerimento per le prestazioni**: usare `summarize countif(filter)` anziché `where filter | summarize count()`
 
 > [AZURE.NOTE] Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
 
@@ -1051,11 +1052,11 @@ Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`.
 
 Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per visualizzare un elenco dei valori distinct, usare [`makeset`](#makeset).
 
-*Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
+*Accuracy*, se specificato, controlla il rapporto tra velocità e accuratezza.
 
- * `0` = il calcolo meno preciso e più veloce.
- * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8% circa.
- * `2` = il calcolo più preciso e più lento. Errore dello 0,4% circa.
+ * `0` = il calcolo meno accurato e più veloce.
+ * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo. Errore dello 0,8 % circa.
+ * `2` = il calcolo più accurato e più lento. Errore dello 0,4 % circa.
 
 **Esempio**
 
@@ -1091,7 +1092,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui
 
 Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo.
 
-* *MaxListSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti (il valore predefinito è *128*).
+* *MaxListSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti; il valore predefinito è *128*.
 
 ### makeset
 
@@ -1099,7 +1100,7 @@ Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo.
 
 Restituisce una matrice `dynamic` (JSON) del set di valori distinct che *Expr* inserisce nel gruppo. Suggerimento: per conteggiare solo i valori distinct, usare [`dcount`](#dcount).
   
-*  *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti (il valore predefinito è *128*).
+*  *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti; il valore predefinito è *128*.
 
 **Esempio**
 
@@ -1242,7 +1243,7 @@ Restituisce la somma di *Expr* per il gruppo.
 
 ## Scalari
 
-[cast](#casts) | [confronti](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 I tipi supportati sono:
 
@@ -1461,17 +1462,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 ### abs
@@ -1712,7 +1703,7 @@ Il numero ordinale del giorno del mese.
 
 **Argomenti**
 
-* `a_date`: valore `datetime`.
+* `a_date`: A `datetime`.
 
 
 ### dayofweek
@@ -1727,7 +1718,7 @@ Numero intero di giorni a partire dalla domenica precedente, come `timespan`.
 
 **Argomenti**
 
-* `a_date`: valore `datetime`.
+* `a_date`: A `datetime`.
 
 **Restituisce**
 
@@ -1753,7 +1744,7 @@ Il numero ordinale del giorno nell'anno.
 
 **Argomenti**
 
-* `a_date`: valore `datetime`.
+* `a_date`: A `datetime`.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
 ### endofday, endofweek, endofmonth, endofyear
@@ -1896,20 +1887,26 @@ h"hello"
 Operatore|Descrizione|Distinzione maiuscole/minuscole|Esempio true
 ---|---|---|---
 `==`|Uguale a |Sì| `"aBc" == "aBc"`
-`<>`|Non uguale a|Sì| `"abc" <> "ABC"`
+`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`
 `=~`|Uguale a |No| `"abc" =~ "ABC"`
 `!~`|Non uguale a |No| `"aBc" !~ "xyz"`
 `has`|RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side)|No| `"North America" has "america"`
 `!has`|RHS non è un termine completo in LHS|No|`"North America" !has "amer"` 
+`hasprefix`|RHS è un prefisso di termine in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS non è un prefisso di termine in LHS|No|`"North America" !hasprefix "mer"`
 `contains` | RHS si verifica come sottosequenza di LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
 `containscs` | RHS si verifica come sottosequenza di LHS|Sì| `"FabriKam" contains "Kam"`
 `!containscs`| RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS è una sottosequenza iniziale di LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS non è una sottosequenza iniziale di LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS è una sottosequenza terminale di LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS non è una sottosequenza terminale di LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`
+`in`|Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`
+`!in`|Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`
 
-
-Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` viene eseguito più rapidamente di `contains` o `startswith`. La prima delle query seguenti viene eseguita più rapidamente:
+Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` viene eseguito più rapidamente di `contains`, `startswith` o `endswith`. La prima delle query seguenti viene eseguita più rapidamente:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -2166,7 +2163,7 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici, oggetti e dynamic
 
-[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[Valori letterali](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
@@ -2493,4 +2490,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

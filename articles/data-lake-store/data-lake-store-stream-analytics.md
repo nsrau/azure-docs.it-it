@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 
 In questo articolo viene descritto come usare Archivio Azure Data Lake come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB di Archiviazione di Azure (input) e scritti in Archivio Data Lake (output).
 
->[AZURE.NOTE] Attualmente la creazione e la configurazione di output di Archivio Data Lake per l'Analisi di flusso è supportata solo nel [portale di Azure classico](manage.windowsazure.com). Di conseguenza, alcune parti di questa esercitazione useranno il portale di Azure classico.
+>[AZURE.NOTE] Attualmente la creazione e la configurazione di output di Archivio Data Lake per l'Analisi di flusso è supportata solo nel [portale di Azure classico](https://manage.windowsazure.com). Di conseguenza, alcune parti di questa esercitazione useranno il portale di Azure classico.
 
 ## Prerequisiti
 
@@ -95,7 +95,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
 	* **Immettere un alias di output**. Si tratta di un nome univoco specificato per l'output del processo.
 	* **Specificare un account Archivio Data Lake**. Questo account dovrebbe essere già stato creato, come indicato nel prerequisito.
-	* **Specificare uno schema prefisso percorso**. Questo schema è necessario per identificare i file di output che vengono scritti in Archivio Data Lake dal processo di Analisi di flusso. Poiché i titoli degli output scritti dal processo sono in formato GUID, l'inclusione di un prefisso consente di identificare l'output scritto. Per includere un indicatore di data e ora come parte del prefisso, verificare che `{date}/{time}` sia incluso nello schema prefisso. Se si include questo indicatore, i campi **Formato data **e **Formato ora** sono abilitati ed è possibile selezionare il formato desiderato.
+	* **Specificare uno schema prefisso percorso**. Questo schema è necessario per identificare i file di output che vengono scritti in Archivio Data Lake dal processo di Analisi di flusso. Poiché i titoli degli output scritti dal processo sono in formato GUID, l'inclusione di un prefisso consente di identificare l'output scritto. Per includere un indicatore di data e ora come parte del prefisso, verificare che `{date}/{time}` sia incluso nello schema prefisso. Se si include questo indicatore, i campi **Formato data** e **Formato ora** sono abilitati ed è possibile selezionare il formato desiderato.
 
 	Fare clic sulla freccia Avanti.
 
@@ -119,7 +119,7 @@ Dopo l'avvio del processo, fare clic sulla scheda **Monitoraggio** per visualizz
 
 ![Monitorare il processo](./media/data-lake-store-stream-analytics/run.query.3.png "Monitorare il processo")
 
-Infine, è possibile usare il [portale di Azure](portal.azure.com) per aprire l'account di Archivio Data Lake e verificare se i dati sono stati scritti correttamente nell'account.
+Infine, è possibile usare il [portale di Azure](https://portal.azure.com) per aprire l'account di Archivio Data Lake e verificare se i dati sono stati scritti correttamente nell'account.
 
 ![Verificare l'output](./media/data-lake-store-stream-analytics/run.query.4.png "Verificare l'output")
 
@@ -129,4 +129,4 @@ Nel riquadro Data Explorer l'output viene scritto in una cartella come specifica
 
 * [Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

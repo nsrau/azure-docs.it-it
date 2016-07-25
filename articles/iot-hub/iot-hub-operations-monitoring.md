@@ -13,29 +13,30 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introduzione al monitoraggio delle operazioni
 
 Il monitoraggio delle operazioni dell'hub IoT consente agli utenti di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni e gli utenti possono scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. Gli utenti possono monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
-L'hub IoT Hub monitora quattro categorie di eventi:
+L'hub IoT monitora cinque categorie di eventi:
 
-- Operazioni di identità del dispositivo
+- Operazioni relative alle identità dei dispositivi
 - Telemetria dei dispositivi
 - Comandi da cloud a dispositivo
 - Connessioni
+- Caricamenti di file
 
 ## Come abilitare il monitoraggio delle operazioni
 
-1. Creare un hub IoT. È possibile trovare istruzioni su come creare un hub IoT in [Introduzione all'hub IoT di Azure][lnk-get-started].
+1. Creare un hub IoT. È possibile trovare le istruzioni su come creare un hub IoT nella [Guida introduttiva][lnk-get-started].
 
-2. Aprire il pannello dell'hub IoT. Nel pannello fare clic su **Tutte le impostazioni** e quindi su **Monitoraggio operazioni**.
+2. Aprire il pannello dell'hub IoT. Nel pannello fare clic su **Tutte le impostazioni**, quindi selezionare **Monitoraggio operazioni**.
 
     ![][1]
 
-3. Selezionare le categorie di monitoraggio da controllare e quindi fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint IoT Hub è chiamato `messages/operationsmonitoringevents`.
+3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -143,11 +144,14 @@ La categoria di caricamenti dei file tiene traccia degli errori che si verifican
 
 ## Passaggi successivi
 
-Al termine di questa panoramica del monitoraggio delle operazioni, è possibile usare i collegamenti seguenti per altre informazioni:
+Dopo questa panoramica sul monitoraggio delle operazione, vedere [Gestire l'accesso all'hub IoT][lnk-itpro] per ottenere maggiori informazioni sulla gestione dell'hub IoT.
 
-- [Metrica di diagnostica dell'hub IoT][lnk-diagnostic-metrics]
-- [Ridimensionamento dell'hub IoT][lnk-scaling]
-- [Disponibilità elevata e ripristino di emergenza dell'hub IoT][lnk-dr]
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,4 +162,11 @@ Al termine di questa panoramica del monitoraggio delle operazioni, è possibile 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

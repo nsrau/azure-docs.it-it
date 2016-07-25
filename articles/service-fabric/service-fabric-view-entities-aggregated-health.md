@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Come visualizzare i report sull'integrità di Service Fabric
@@ -70,7 +70,7 @@ Le query di integrità richiedono il passaggio nell'identificatore dell'entità,
 
 L'integrità di un'entità include le informazioni seguenti:
 
-- Lo stato di integrità aggregato dell'entità. Viene calcolato dall'archivio integrità in base ai report sull'integrità dell'entità, gli stati di integrità degli elementi figlio, se applicabili, e i criteri di integrità. Per altre informazioni, vedere [valutazione dell'integrità dell'entità](service-fabric-health-introduction.md#entity-health-evaluation).  
+- Lo stato di integrità aggregato dell'entità. Viene calcolato dall'archivio integrità in base ai report sull'integrità dell'entità, gli stati di integrità degli elementi figlio, se applicabili, e i criteri di integrità. Per altre informazioni, vedere [valutazione dell'integrità dell'entità](service-fabric-health-introduction.md#entity-health-evaluation).
 
 - Gli eventi di integrità dell'entità.
 
@@ -642,7 +642,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ### PowerShell
 Il cmdlet per ottenere l'integrità dell'applicazione distribuita è [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Per sapere dove viene distribuita un'applicazione, eseguire [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) e osservare gli elementi figlio dell'applicazione distribuita.
 
-Il cmdlet seguente ottiene l'integrità dell'applicazione **fabric:/WordCount** distribuita nel nodo **\_Node\_2**.
+Il cmdlet seguente ottiene l'integrità dell'applicazione **fabric:/WordCount** distribuita in **_Node_2**.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
@@ -692,9 +692,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### PowerShell
-Il cmdlet per ottenere l'integrità del pacchetto del servizio distribuito è [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Per vedere dove viene distribuita un'applicazione, eseguire [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) e osservare le applicazioni distribuite. Per vedere quali pacchetti di servizi sono contenuti in un'applicazione, esaminare gli elementi figlio del pacchetto del servizio distribuito nell'output di [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx).
+Il cmdlet per ottenere l'integrità del pacchetto del servizio distribuito è [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Per verificare dove viene distribuita un'applicazione, eseguire [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) e osservare le applicazioni distribuite. Per verificare quali pacchetti di servizi sono contenuti in un'applicazione, esaminare gli elementi figlio del pacchetto del servizio distribuito nell'output di [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx).
 
-Il cmdlet seguente ottiene l'integrità del pacchetto del servizio **WordCountServicePkg** dell'applicazione **fabric:/WordCount** distribuita nel nodo **\_Node\_2**. L'entità include report **System.Hosting** per l'attivazione corretta del pacchetto del servizio e del punto di ingresso, nonché la registrazione corretta del tipo di servizio.
+Il cmdlet seguente ottiene l'integrità del pacchetto del servizio **WordCountServicePkg** dell'applicazione **fabric:/WordCount** distribuita in **_Node_2**. L'entità include report **System.Hosting** per l'attivazione corretta del pacchetto del servizio e del punto di ingresso, nonché per la registrazione corretta del tipo di servizio.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -776,7 +776,7 @@ Restituisce lo stato dell'entità del cluster e contiene blocchi di stato dell'i
 
 - [Facoltativo] Mappa dei criteri di integrità dell'applicazione con criteri di integrità usati per sostituire i criteri del manifesto dell'applicazione.
 
-- [Facoltativo] Filtri per i nodi e per le applicazioni che specificano le voci di interesse e da restituire nel risultato. I filtri sono specifici per un'entità/un gruppo di entità o sono applicabili a tutte le entità a tale livello. L'elenco di filtri può contenere un filtro generale e/o un filtro per identificatori specifici per entità dettagliate restituite dalla query. Se l'elenco è vuoto, gli elementi figlio non vengono restituiti per impostazione predefinita. Altre informazioni sui filtri per [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) e [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). I filtri dell'applicazione possono specificare in modo ricorsivo filtri avanzati per gli elementi figlio.
+- [Facoltativo] Filtri per i nodi e per le applicazioni che specificano le voci di interesse e da restituire nel risultato. I filtri sono specifici per un'entità/un gruppo di entità o sono applicabili a tutte le entità a tale livello. L'elenco di filtri può contenere un filtro generale e/o un filtro per identificatori specifici per entità dettagliate restituite dalla query. Se l'elenco è vuoto, gli elementi figlio non vengono restituiti per impostazione predefinita. Per altre informazioni sui filtri, vedere [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) e [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). I filtri dell'applicazione possono specificare in modo ricorsivo filtri avanzati per gli elementi figlio.
 
 I risultati del blocco includono gli elementi figlio che rispettano i filtri.
 
@@ -978,13 +978,13 @@ ApplicationHealthStateChunks :
 ```
 
 ## Query generali
-Le query generali restituiscono l'elenco delle entità di Service Fabric di un tipo specificato. Le query vengono esposte tramite l'API, con metodi su **FabricClient.QueryManager**, i cmdlet di PowerShell e REST. Queste query aggregano sottoquery da più componenti. Uno di questi è l'[archivio integrità](service-fabric-health-introduction.md#health-store), che popola lo stato di integrità aggregato per i risultati di ogni query.
+Le query generali restituiscono l'elenco delle entità di Service Fabric di un tipo specificato. Le query vengono esposte tramite l'API (con metodi su **FabricClient.QueryManager**), i cmdlet di PowerShell e REST. Queste query aggregano sottoquery da più componenti. Uno di questi è l'[archivio integrità](service-fabric-health-introduction.md#health-store), che inserisce lo stato di integrità aggregato per il risultato di ogni query.
 
 > [AZURE.NOTE] Le query generali restituiscono lo stato di integrità aggregato dell'entità e non contengono i dati di integrità complessi. Se un'entità non è integra, è possibile procedere con query di integrità per ottenere tutte le informazioni di integrità, come gli eventi, gli stati di integrità degli elementi figlio e le valutazioni non integre.
 
 Se le query generali restituiscono uno stato di integrità sconosciuto per un'entità, è possibile che l'archivio integrità non abbia dati completi sull'entità. È anche possibile che una sottoquery nell'archivio integrità non sia riuscita, ad esempio, si è verificato un errore di comunicazione o l'archivio integrità è stato limitato. Procedere con una query di integrità per l'entità. Se la sottoquery ha rilevato errori temporanei, ad esempio problemi di rete, questa query di completamento può riuscire. Può anche fornire altri dettagli dall'archivio integrità sui motivi che impediscono l'esposizione dell'entità.
 
-Di seguito sono elencate le query che contengono **HealthState** per le entità:
+Di seguito sono elencate le query che contengono **HealthState** per le entità.
 
 - Elenco di nodi: restituisce i nodi elencati nel cluster (di paging).
   - API: [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
@@ -1128,8 +1128,10 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 
 [Aggiungere report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
 
+[Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

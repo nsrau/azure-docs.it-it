@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/11/2016"
 	ms.author="stefsch"/>
 
 # Introduzione all'ambiente del servizio app
@@ -58,7 +58,7 @@ Per informazioni dettagliate sulla quantità di risorse di calcolo disponibili p
 Per informazioni dettagliate sulle dimensioni delle risorse di calcolo disponibili supportate in un ambiente del servizio app, visitare la pagina [Dettagli prezzi del servizio app][AppServicePricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app nel piano tariffario Premium.
 
 ## Supporto della rete virtuale ##
-È possibile creare un ambiente del servizio app in una rete virtuale regionale classica preesistente “v1”o in una nuova rete virtuale regionale “v1” ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]). Poiché un ambiente del servizio app è sempre incluso in una rete virtuale regionale, e più precisamente, all'interno di una subnet di una rete virtuale regionale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.
+Un ambiente del servizio app può essere creato **in** una rete virtuale di Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica. [Ulteriori informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]. Poiché un ambiente del servizio app è sempre incluso in una rete virtuale, e più precisamente, all'interno di una subnet di una rete virtuale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.
 
 È possibile usare i [gruppi di sicurezza di rete][NetworkSecurityGroups] per limitare le comunicazioni di rete in ingresso alla subnet in cui risiede un ambiente del servizio app. In questo modo è possibile eseguire le app protette da dispositivi e servizi upstream, quali firewall per applicazioni Web e provider di servizi SaaS di rete.
 
@@ -66,11 +66,11 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 
 Per ulteriori informazioni sul funzionamento di ambienti di servizio app con reti virtuali e reti locali, consultare i seguenti articoli su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic], e [connettersi in modo sicuro al back-end][SecurelyConnectingToBackends].
 
-**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2".
-
 ## Introduzione
 
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
+
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
 
@@ -108,4 +108,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

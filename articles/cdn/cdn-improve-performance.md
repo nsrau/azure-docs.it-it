@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # Compressione dei file per migliorare le prestazioni
@@ -114,15 +114,16 @@ Le tabelle seguenti descrivono il comportamento della compressione della rete CD
 |----------------|-----------|------------|-----|
 |Compresso|Compresso|Compresso|Transcodifica della rete CDN tra formati supportati|
 |Compresso|Non compresso|Compresso|Compressione da parte della rete CDN|
-|Compresso|Non memorizzato nella cache|Compresso|La rete CDN esegue la compressione se l'origine restituisce Non compresso|
-|Non compresso|Compresso|Non compressa|Decompressione da parte della rete CDN|
+|Compresso|Non memorizzato nella cache|Compresso|La rete CDN esegue la compressione se l'origine restituisce Non compresso. **La rete CDN di Azure da Verizon** effettuerà il passaggio del file non compresso per la prima richiesta, per poi eseguire la compressione e la memorizzazione nella cache del file per le richieste successive. I file con l'intestazione `Cache-Control: no-cache` non verranno mai compressi. 
+|Non compressa|Compresso|Non compressa|Decompressione da parte della rete CDN|
 |Non compresso|Non compressa|Non compressa| |	
-|Non compresso|Non memorizzato nella cache|Non compressa| |	
+|Non compresso|Non memorizzato nella cache|Non compressa| |
 
-## Note
-1. Per endpoint di streaming abilitati alla rete CDN dei servizi multimediali, la compressione è abilitata per impostazione predefinita per i seguenti tipi di contenuto: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Non è possibile attivare o disattivare la compressione per i tipi indicati tramite il portale di Azure.  
+## Compressione della rete CDN dei servizi multimediali
+
+Per endpoint di streaming abilitati alla rete CDN dei servizi multimediali, la compressione è abilitata per impostazione predefinita per i seguenti tipi di contenuto: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Non è possibile attivare o disattivare la compressione per i tipi indicati tramite il portale di Azure.
 
 ## Vedere anche
-- [Risoluzione dei problemi della compressione dei file CDN](cdn-troubleshoot-compression.md)    
+- [Risoluzione dei problemi della compressione dei file CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

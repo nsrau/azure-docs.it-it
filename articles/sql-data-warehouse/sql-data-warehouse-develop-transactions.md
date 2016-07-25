@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/11/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transazioni in SQL Data Warehouse
@@ -43,6 +43,8 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 | DW1200 | 9 | 60 | 540 | 36\.000.000 | 2\.160.000.000 |
 | DW1500 | 11,25 | 60 | 675 | 45\.000.000 | 2\.700.000.000 |
 | DW2000 | 15 | 60 | 900 | 60\.000.000 | 3\.600.000.000 |
+| DW3000 | 22,5 | 60 | 1\.350 | 90\.000.000 | 5\.400.000.000 |
+| DW6000 | 45 | 60 | 2\.700 | 180\.000.000 | 10\.800.000.000 |
 
 Il limite delle dimensioni delle transazioni viene applicato per transazione o per operazione. Non viene applicato in tutte le transazioni simultanee. A ogni transazione è quindi consentito scrivere questa quantità di dati nel log.
 
@@ -145,4 +147,4 @@ Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzaz
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

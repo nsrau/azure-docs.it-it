@@ -25,8 +25,8 @@ In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione, ad
 L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta numerosi vantaggi:
 
 - Disponibilità elevata. Le applicazioni in esecuzione in Service Fabric sono caratterizzate da disponibilità elevata per impostazione predefinita. Service Fabric garantisce che un'istanza di un'applicazione sia sempre in esecuzione.
-- Monitoraggio dell’integrità. Il monitoraggio predefinito di Service Fabric rileva se un'applicazione è in esecuzione e fornisce informazioni di diagnostica in caso di errore.   
-- Gestione del ciclo di vita delle applicazioni. Oltre a garantire aggiornamenti senza tempi di inattività, Service Fabric consente inoltre di eseguire il rollback alla versione precedente se si verifica un problema durante l'aggiornamento.    
+- Monitoraggio dell’integrità. Il monitoraggio predefinito di Service Fabric rileva se un'applicazione è in esecuzione e fornisce informazioni di diagnostica in caso di errore.
+- Gestione del ciclo di vita delle applicazioni. Oltre a garantire aggiornamenti senza tempi di inattività, Service Fabric consente inoltre di eseguire il rollback alla versione precedente se si verifica un problema durante l'aggiornamento.
 - Densità. È possibile eseguire più applicazioni in un cluster, eliminando la necessità che ogni applicazione venga eseguita nel proprio hardware.
 
 Questo articolo illustra i passaggi di base per creare il pacchetto di un eseguibile guest e distribuirlo in Service Fabric.
@@ -52,12 +52,12 @@ Per distribuire un'applicazione nell'infrastruttura di servizi, l'applicazione d
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -308,4 +308,4 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 - [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

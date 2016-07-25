@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # In quali paesi e aree geografiche Microsoft Azure è attualmente disponibile in commercio e quali valute possono essere usate per acquistare Azure?
@@ -171,4 +171,4 @@
 | Zambia | USD |
 | Zimbabwe | USD |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

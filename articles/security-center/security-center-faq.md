@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/11/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -126,12 +126,10 @@ Macchine virtuali di Linux supportate:
 
 - Versioni di Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versioni di Debian 7, 8
-- Versioni di CentOS 6.\*, 7.*
-- Versioni di Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-- Versioni di SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+- Versioni di CentOS 6.*, 7.*
+- Versioni di Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versioni di SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
 Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
 
-La raccomandazione del Centro sicurezza relativa all'[applicazione degli aggiornamenti di sistema](security-center-recommendations.md) suggerisce di distribuire gli aggiornamenti di sicurezza del sistema e critici mancanti alle macchine virtuali. Per le macchine virtuali nei servizi cloud, la raccomandazione relativa all'**aggiornamento della versione del sistema operativo** suggerisce l'aggiornamento del sistema operativo alla versione più recente.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

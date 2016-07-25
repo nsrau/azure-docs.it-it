@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Autenticazione dell'entità servizio per app per le API nel servizio app di Azure
 
@@ -415,4 +415,4 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Distribuire l'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

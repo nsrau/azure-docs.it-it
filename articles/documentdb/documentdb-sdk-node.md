@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/07/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB SDK
@@ -37,9 +37,17 @@
 
 ##Note sulla versione
 
+###<a name="1.9.0"/>1.9.0</a>
+
+- Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, DocumentDB esegue nove tentativi per ogni richiesta quando viene rilevato il codice di errore 429, rispettando il tempo di RetryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Ora, DocumentDB attende al massimo 30 secondi per ciascuna richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
+
+- DocumentDB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il conteggio dei tentativi di limitazione di ripetere conteggio e il tempo cumulativo di attesa della richiesta tra i tentativi.
+
+- La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
+
 ###<a name="1.8.0"/>1.8.0</a>
 
-  - Aggiunta del supporto per gli account di database con più aree.
+ - Aggiunta del supporto per gli account di database con più aree.
 
 ###<a name="1.7.0"/>1.7.0</a>
 
@@ -137,31 +145,7 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |--- 
-| [1\.5.6](#1.5.6) | 8 marzo 2016 |--- 
-| [1\.5.5](#1.5.5) | 2 febbraio 2016 |--- 
-| [1\.5.4](#1.5.4) | 1 febbraio 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 6 ottobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 6 ottobre 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 settembre 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 5 agosto 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 luglio 2015 |--- 
-| [1\.0.3](#1.0.3) | 4 giugno 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 maggio 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 maggio 2015 |--- 
-| [1\.0.0](#1.0.0) | 8 aprile 2015 |--- 
-| 0.9.4 - versione preliminare | 6 aprile 2015 | 29 febbraio 2016 
-| 0.9.3 - versione preliminare | 14 gennaio 2015 | 29 febbraio 2016 
-| 0.9.2 - versione preliminare | 18 dicembre 2014 | 29 febbraio 2016 
-| 0.9.1-versione preliminare | 22 agosto 2014 | 29 febbraio 2016 
-| 0.9.0 - versione preliminare | 21 agosto 2014 | 29 febbraio 2016
+| [1\.9.0](#1.9.0) | 07 luglio 2016 |--- | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.0](#1.6.0) | 29 marzo 2016 |--- | [1\.5.6](#1.5.6) | 08 marzo 2016 |--- | [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- | [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- | [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- | [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- | [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- | [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- | [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- | [1\.2.2](#1.2.2) | 10 settembre 2015 |--- | [1\.2.1](#1.2.1) | 15 agosto 2015 |--- | [1\.2.0](#1.2.0) | 05 agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 luglio 2015 |--- | [1\.0.3](#1.0.3) | 04 giugno 2015 |--- | [1\.0.2](#1.0.2) | 23 maggio 2015 |--- | [1\.0.1](#1.0.1) | 15 maggio 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile, 2015 |--- | 0.9.4-versione non definitiva | 06 aprile, 2015 | 29 febbraio, 2016 | 0.9.3-versione non definitiva | 14 gennaio, 2015 | 29 febbraio, 2016 | 0.9.2-versione non definitiva | 18 dicembre, 2014 | 29 febbraio, 2016 | 0.9.1-versione non definitiva | 22 agosto, 2014 | 29 febbraio, 2016 | 0.9.0-versione non definitiva | 21 agosto, 2014 | 29 febbraio, 2016
 
 
 ## Domande frequenti
@@ -171,4 +155,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

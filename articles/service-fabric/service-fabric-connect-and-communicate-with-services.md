@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
-   ms.author="mfussell"/>
+   ms.date="07/05/2016"
+   ms.author="vturecek"/>
 
 # Connettersi e comunicare con i servizi in Service Fabric
 In Service Fabric un servizio viene eseguito in una posizione nel cluster di Service Fabric, in genere distribuito su più macchine virtuali. Può essere spostato da una posizione all'altra, dal proprietario del servizio o automaticamente da Service Fabric. I servizi non sono statisticamente associati a un computer o a un indirizzo specifico.
@@ -139,4 +139,4 @@ Per altre informazioni sui concetti e sulle API disponibili, vedere il [modello 
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

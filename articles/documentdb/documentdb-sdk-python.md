@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/07/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,6 +36,13 @@
 
 ## Note sulla versione
 
+### <a name="1.9.0"/>[1\.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
+- Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, DocumentDB esegue nove tentativi per ogni richiesta quando viene rilevato il codice di errore 429, rispettando il tempo di RetryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Ora, DocumentDB attende al massimo 30 secondi per ciascuna richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
+
+- DocumentDB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il conteggio dei tentativi di limitazione di ripetere conteggio e il tempo cumulativo di attesa della richiesta tra i tentativi.
+
+- Rimozione della classe RetryPolicy e della proprietà corrispondente (retry\_policy) esposta nella classe document\_client e introduzione di una classe RetryOptions che espone la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l’override di alcune opzioni di ripetizione dei tentativi predefinite.
+
 ### <a name="1.8.0"/>[1\.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
   - Aggiunta del supporto per gli account di database con più aree.
 
@@ -46,7 +53,7 @@
 - Correzioni di bug relativi al partizionamento lato server per consentire caratteri speciali nel percorso partitionkey.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md). 
+- Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md).
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Aggiungi resolver per partizioni hash e a intervalli come supporto per applicazioni di partizionamento orizzontale in più partizioni.
@@ -83,22 +90,7 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 giugno 2016 |---
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |---
-| [1\.6.1](#1.6.1) | 08 aprile 2016 |---
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |---
-| [1\.5.0](#1.5.0) | 03 gennaio 2016 |---
-| [1\.4.2](#1.4.2) | 06 ottobre 2015 |---
-| [1\.4.1](#1.4.1) | 06 ottobre 2015 |---
-| [1\.2.0](#1.2.0) | 06 agosto 2015 |---
-| [1\.1.0](#1.1.0) | 09 luglio 2015 |---
-| [1\.0.1](#1.0.1) | 25 maggio 2015 |--- 
-| [1\.0.0](#1.0.0) | 07 aprile 2015 |---
-| 0.9.4-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016
-| 0.9.3-versione non definitiva | 09 dicembre 2014 | 29 febbraio 2016
-| 0.9.2-versione non definitiva | 25 novembre 2014 | 29 febbraio 2016
-| 0.9.1-versione non definitiva | 23 settembre 2014 | 29 febbraio 2016
-| 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
+| [1\.9.0](#1.9.0) | 07 luglio 2016 |--- | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.1](#1.6.1) | 08 aprile 2016 |--- | [1\.6.0](#1.6.0) | 29 marzo 2016 |--- | [1\.5.0](#1.5.0) | 03 gennaio 2016 |--- | [1\.4.2](#1.4.2) | 06 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 06 ottobre 2015 |--- | [1\.2.0](#1.2.0) | 06 agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 luglio 2015 |--- | [1\.0.1](#1.0.1) | 25 maggio 2015 |--- |[1\.0.0](#1.0.0) | 07 aprile, 2015 |--- | 0.9.4-versione non definitiva | 14 gennaio, 2015 | 29 febbraio, 2016 | 0.9.3-versione non definitiva | 09 dicembre, 2014 | 29 febbraio, 2016 | 0.9.2-versione non definitiva | 25 novembre, 2014 | 29 febbraio, 2016 | 0.9.1-versione non definitiva | 23 settembre, 2014 | 29 febbraio, 2016 | 0.9.0-versione non definitiva | 21 agosto, 2014 | 29 febbraio, 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -107,4 +99,4 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

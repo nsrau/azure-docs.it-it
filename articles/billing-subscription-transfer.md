@@ -1,19 +1,20 @@
 <properties
    pageTitle="Trasferimento di proprietà di una sottoscrizione di Azure | Microsoft Azure"
    description="Come trasferire una sottoscrizione di Azure a un altro utente e alcune domande frequenti sul processo"
-   services="billing"
+   services=""
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor=""/>
+   editor="n/a"
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
-   ms.date="07/04/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Trasferimento di proprietà di una sottoscrizione di Azure
@@ -27,12 +28,9 @@ Se:
 
 Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera. Ora il trasferimento degli acquisti di Azure Marketplace è supportato anche per questi tipi di sottoscrizione.
 
-**Nota:** è necessario essere amministratore account per eseguire un trasferimento di proprietà. È possibile confermare chi sia l'amministratore account della sottoscrizione come segue:
+> [AZURE.NOTE]  Per altre informazioni su come modificare la sottoscrizione a un'offerta diversa, vedere [ Passaggio a un'offerta di Azure diversa](billing-how-to-switch-azure-offer.md).
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu Hub, selezionare **Sottoscrizione**.
-3. Selezionare la sottoscrizione da controllare e quindi selezionare **Impostazioni**. ![Scheda Impostazioni](./media/billing-subscription-transfer/settings.png)
-4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione verrà visualizzato nella casella **Amministratore account**. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+> È necessario essere amministratore account per eseguire un trasferimento di proprietà. Per altre informazioni su come individuare l'amministratore account della sottoscrizione, vedere le [Domande frequenti](#faq).
 
 ## Trasferimento di proprietà di una sottoscrizione di Azure
 
@@ -62,7 +60,17 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 7. Completamento della procedura La sottoscrizione è ora trasferita.
 
+<a id="faq"></a>
 ## Domande frequenti
+
+-   **È possibile confermare chi sia l'amministratore account della sottoscrizione?**
+
+    È possibile confermare chi sia l'amministratore account della sottoscrizione come segue:
+
+    1. Accedere al [portale di Azure](https://portal.azure.com).
+    2. Nel menu Hub, selezionare **Sottoscrizione**.
+    3. Selezionare la sottoscrizione da controllare e quindi selezionare **Impostazioni**.
+    4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione verrà visualizzato nella casella **Amministratore account**.
 
 -   **Il trasferimento della sottoscrizione comporta tempi di inattività del servizio?**
 
@@ -123,4 +131,4 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

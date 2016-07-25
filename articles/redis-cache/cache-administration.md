@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Come amministrare Cache Redis di Azure
@@ -80,7 +80,7 @@ Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comun
 
 ### È possibile riavviare la cache usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?
 
-In questo momento non è possibile, ma la funzionalità sarà presto disponibile.
+Sì, per istruzioni relative a PowerShell vedere [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache) (Per riavviare una Cache Redis).
 
 ### Con quali piani tariffari è possibile usufruire della funzionalità di riavvio?
 
@@ -116,4 +116,4 @@ La funzionalità di pianificazione degli aggiornamenti è disponibile solo per i
 
 -	Esplorare le funzionalità del [piano Premium della cache Redis di Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

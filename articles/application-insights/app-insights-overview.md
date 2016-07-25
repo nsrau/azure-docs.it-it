@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="awills"/>
  
 # Informazioni su Azure Application Insights
@@ -27,7 +27,7 @@ Può essere usato con app Web e autonome su una vasta gamma di piattaforme, ovve
 
 Application Insights è destinato ai team di sviluppo. Consente di eseguire le operazioni seguenti:
 
-* [Analizzare i modelli di utilizzo][knowUsers] per una migliore comprensione degli utenti e per il miglioramento continuo dell'app. 
+* [Analizzare i modelli di utilizzo][knowUsers] per una migliore comprensione degli utenti e per il miglioramento continuo dell'app.
  * Conteggi delle visualizzazioni pagina, utenti nuovi e abituali, georilevazione, piattaforme e altre statistiche di utilizzo principali.
  * Rilevamento dei percorsi di utilizzo per valutare la riuscita di ogni funzionalità.
 * [Rileva, valuta e diagnostica][detect] i problemi di prestazioni e li risolve prima che vengano individuati dalla maggior parte degli utenti.
@@ -118,8 +118,6 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
  * [Risoluzione dei problemi][qna]
  * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bug:
- * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggerimenti:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
@@ -158,4 +156,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

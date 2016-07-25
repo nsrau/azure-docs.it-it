@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Jive
@@ -33,7 +33,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Jive
 
 ###Per abilitare l'integrazione dell'applicazione per Jive, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.png "Active Directory")
 
@@ -62,9 +62,9 @@ La schermata seguente mostra un esempio della finestra di dialogo correlata in A
 
 ![Configura provisioning utenti](./media/active-directory-saas-jive-tutorial/IC698794.png "Configura provisioning utenti")
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###Per configurare il provisioning utente, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Jive** nel portale di gestione di Azure fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
+1.  Nella pagina di integrazione dell'applicazione **Jive** nel portale di Azure classico fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
 
 2.  Nella pagina **Immettere le credenziali Jive per abilitare il provisioning utenti automatico** specificare le impostazioni di configurazione seguenti:
 
@@ -74,7 +74,7 @@ La schermata seguente mostra un esempio della finestra di dialogo correlata in A
 
     3.  Nella casella di testo **URL tenant di Jive** digitare l'URL del tenant di Jive.
 
-        >[AZURE.NOTE]L'URL del tenant di Jive è l'URL usato dall'organizzazione per accedere a Jive. L'URL in genere ha il formato seguente: **www.<organizzazione>.jive.com**.
+        >[AZURE.NOTE] L'URL del tenant di Jive è l'URL usato dall'organizzazione per accedere a Jive. L'URL in genere ha il formato seguente: **www.<organizzazione>.jive.com**.
 
     4.  Fare clic su **Convalida** per verificare la configurazione.
 
@@ -84,4 +84,4 @@ La schermata seguente mostra un esempio della finestra di dialogo correlata in A
   
 È ora possibile creare un account di test. Attendere 10 minuti e quindi verificare che l'account sia stato sincronizzato con Jive.com.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

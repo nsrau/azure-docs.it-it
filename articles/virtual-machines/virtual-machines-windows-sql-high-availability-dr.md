@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
-	ms.author="mikeray" />
+	ms.date="07/12/2016"
+	ms.author="MikeRayMSFT" />
 
 # Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
 
@@ -153,4 +153,4 @@ Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtual
 - [Installare una nuova foresta Active Directory in Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Creare cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->
