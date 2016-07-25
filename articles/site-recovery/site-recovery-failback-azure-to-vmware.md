@@ -252,4 +252,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!----HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->
