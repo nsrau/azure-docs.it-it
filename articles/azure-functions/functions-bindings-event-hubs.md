@@ -34,8 +34,8 @@ Il trigger di Hub eventi di Azure può essere usato per rispondere a un evento i
 Il file *function.json* per un trigger di Hub eventi di Azure specifica le proprietà seguenti:
 
 - `type`: deve essere impostato su *eventHubTrigger*.
-- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi. 
-- `direction`: deve essere impostato su *in*. 
+- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
+- `direction`: deve essere impostato su *in*.
 - `path`: nome di Hub eventi.
 - `connection` : nome di un'impostazione dell'applicazione che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.
 
@@ -82,10 +82,10 @@ L'associazione di output di Hub eventi di Azure viene usata per scrivere eventi 
 Il file *function.json* per un'associazione di output di Hub eventi di Azure specifica le proprietà seguenti:
 
 - `type`: deve essere impostato su *eventHub*.
-- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi. 
+- `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
 - `path`: nome di Hub eventi.
 - `connection` : nome di un'impostazione dell'applicazione che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di Hub eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
-- `direction`: deve essere impostato su *out*. 
+- `direction`: deve essere impostato su *out*.
 
 	    {
 	      "type": "eventHub",
@@ -134,4 +134,4 @@ Il codice di funzione Node.js di esempio seguente illustra la scrittura di un ev
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

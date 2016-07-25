@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/27/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Scalare un'app Web in Servizio app di Azure
 
@@ -60,8 +60,7 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
 ### Monitoraggio
 
 - Attraverso il portale di Azure, è possibile [aggiungere metriche delle prestazioni](web-sites-monitor.md) quali utilizzo della CPU e numero di richieste dei client.
-- Per maggiori dettagli, utilizzare New Relic per il monitoraggio e la gestione delle prestazioni. Vedere [.NET web app nel servizio di applicazione Azure con gestione delle prestazioni delle applicazioni di New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
-- [Applicare la scalabilità al proprio sito Web](web-sites-scale.md) per rispondere al traffico. A seconda del livello, è possibile applicare la scalabilità al numero di VM e/o le dimensioni delle istanze delle VM. Nel piano Standard, è inoltre possibile impostare la scalabilità automatica da applicare automaticamente ai siti secondo una pianificazione fissa o in risposta al carico.  
+- [Applicare la scalabilità al proprio sito Web](web-sites-scale.md) per rispondere al traffico. A seconda del livello, è possibile applicare la scalabilità al numero di VM e/o le dimensioni delle istanze delle VM. Nel piano Standard, è inoltre possibile impostare la scalabilità automatica da applicare automaticamente ai siti secondo una pianificazione fissa o in risposta al carico.
  
 ### Backups
 
@@ -70,7 +69,7 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
 
 ### Risoluzione dei problemi
 
-- In caso di problemi, procedere con la [risoluzione dei problemi in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), utilizzando log di diagnostica e debug attivo nel cloud. 
+- In caso di problemi, procedere con la [risoluzione dei problemi in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), utilizzando log di diagnostica e debug attivo nel cloud.
 - Oltre a Visual Studio, esistono diversi modi per ottenere i log di diagnostica. Vedere [Abilitazione della registrazione diagnostica per app Web nel servizio app di Azure](web-sites-enable-diagnostic-log.md).
 - Per le applicazioni Node.js, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](web-sites-nodejs-debug.md).
 
@@ -87,7 +86,7 @@ Valutare l'opportunità di applicare una [distribuzione a fasi](web-sites-staged
 
 Se si utilizza Visual Studio Team Services, è possibile configurare la distribuzione continua dal controllo codice sorgente:
 
-- [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
@@ -98,4 +97,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

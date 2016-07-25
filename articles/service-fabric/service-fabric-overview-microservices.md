@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Perché usare un approccio ai microservizi per la compilazione di applicazioni
@@ -140,15 +140,16 @@ Service Fabric offre due vaste aree per facilitare la compilazione di applicazio
 
 È possibile. Si è potuto osservare che molti dei sempre più numerosi team Microsoft incaricati di compilare prodotti per il cloud per motivi aziendali, hanno sfruttato i vantaggi offerti da un approccio orientato ai microservizi. Bing, ad esempio, applica da anni questo approccio nella ricerca. Per altri team si è trattato di un'assoluta novità. Si sono trovati ad affrontare molti problemi difficili che dovevano essere risolti, cosa che non rientrava nelle loro competenze di base. Ecco perché Service Fabric si è affermato come tecnologia preferita per la compilazione di servizi.
 
-L'obiettivo di Service Fabric è ridurre le complessità della compilazione di applicazioni con un approccio ai microservizi, evitando di dover affrontare molte attività di riprogettazione costose. Iniziare con piccole soluzioni, ridimensionarle secondo le esigenze, deprecare servizi, aggiungerne di nuovi ed evolversi secondo le esigenze di utilizzo del cliente, ecco l'approccio. Si è consapevoli del fatto che, in realtà, molti altri problemi devono ancora essere risolti per rendere i microservizi più accessibili per la maggior parte degli sviluppatori. I contenitori e il modello di programmazione basato su attori sono esempi di piccoli passi in questa direzione e sicuramente emergeranno molte innovazioni per rendere tutto questo più facile.
+L'obiettivo di Service Fabric è ridurre le complessità della compilazione di applicazioni con un approccio ai microservizi, evitando di dover affrontare molte attività di riprogettazione costose. Iniziare con piccole soluzioni, ridimensionarle secondo le esigenze, deprecare servizi, aggiungerne di nuovi ed evolversi secondo le esigenze di utilizzo del cliente, ecco l'approccio. Si è consapevoli del fatto che, in realtà, molti altri problemi devono ancora essere risolti per rendere i microservizi più accessibili per la maggior parte degli sviluppatori. I contenitori e il modello di programmazione basato su attori sono esempi di piccoli passi in questa direzione e sicuramente emergeranno molte innovazioni per rendere tutto questo più facile.  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 * Per altre informazioni:
     * [Panoramica di Service Fabric](service-fabric-overview.md)
-    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/it-IT/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

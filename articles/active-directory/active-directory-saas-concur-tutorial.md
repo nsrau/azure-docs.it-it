@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Concur  
@@ -31,7 +31,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 
 ![Scenario](./media/active-directory-saas-concur-tutorial/IC769766.png "Scenario")
 
->[AZURE.NOTE]La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
+>[AZURE.NOTE] La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
 
 ##Abilitazione dell'integrazione dell'applicazione Concur
 
@@ -39,7 +39,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Conc
 
 ###Per abilitare l'integrazione dell'applicazione per Concur, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
 
@@ -64,11 +64,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Conc
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Concur tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
->[AZURE.NOTE]La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
+>[AZURE.NOTE] La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Concur** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Concur** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-concur-tutorial/IC769767.png "Configura accesso Single Sign-On")
 
@@ -86,9 +86,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     1.  Fare clic su Scarica metadati e salvare il file di dati nel computer.
     2.  Contattare il team di supporto di Concur per configurare SSO per il tenant.
-    3.  Selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.  
+    3.  Selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-	>[AZURE.NOTE]La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
+	>[AZURE.NOTE] La configurazione della sottoscrizione di Concur per SSO federato tramite SAML è un'attività separata per la cui esecuzione è necessario contattare Concur.
 
 ##Configurazione del provisioning utente
 
@@ -126,7 +126,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
     ![Conferma dell'operazione](./media/active-directory-saas-concur-tutorial/IC721732.png "Conferma dell'operazione")
 
-6.  Nel portale di gestione di Azure selezionare **Concur** dall'elenco delle applicazioni per visualizzare la finestra di dialogo **Concur**.
+6.  Nel portale di Azure classico selezionare **Concur** dall'elenco delle applicazioni per visualizzare la finestra di dialogo **Concur**.
 
 7.  Per aprire la pagina della finestra di dialogo **Configura provisioning utenti** fare clic su **Configura provisioning utenti**.
 
@@ -141,9 +141,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Concur seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **Concur** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Concur** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-concur-tutorial/IC769771.png "Assegna utenti")
 
@@ -155,4 +155,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

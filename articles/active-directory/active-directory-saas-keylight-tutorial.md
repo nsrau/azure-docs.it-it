@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ L'integrazione di Keylight con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Keylight.
 - È possibile abilitare gli utenti per l'accesso automatico a Keylight (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Keylight in Azure AD, è necessario aggiungere
 
 **Per aggiungere Keylight dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -99,12 +99,12 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Keylight, è 
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Keylight.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Keylight.
 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Keylight, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Keylight** del portale di Azure fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Keylight** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
 	![Configura accesso Single Sign-On][6]
 
@@ -184,7 +184,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
    
   
-6. Nel portale di Azure selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -196,7 +196,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale di Azure classico.
 
 Nell'elenco di utenti selezionare **Britta Simon**.
 
@@ -206,7 +206,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png)
 
@@ -277,7 +277,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 **Per assegnare Britta Simon a Keylight, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
 	![Assegna utente][201]
 
@@ -329,4 +329,4 @@ Quando si fa clic sul riquadro Keylight nel pannello di accesso, si dovrebbe acc
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

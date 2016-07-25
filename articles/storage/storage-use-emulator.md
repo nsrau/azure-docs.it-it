@@ -169,7 +169,7 @@ Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istan
 
 - A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta RA-GRS (replica con ridondanza geografica in sola lettura). Nell'emulatore, RA-GRS è abilitato per tutti gli account e non esiste mai una discordanza tra le repliche primaria e secondaria. Le operazioni Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta `LastSyncTime` come ora corrente in base al database SQL sottostante.
 
-	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 - Gli endpoint del servizio file e del servizio protocollo SMB non sono attualmente supportati nell'emulatore di archiviazione.
 
@@ -203,6 +203,14 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## Note sulla versione dell'emulatore di archiviazione
 
+### Versione 4.4
+
+- L'operazione di Garbage Collection dell'emulatore di archiviazione dei dati BLOB è ora più efficiente quando si lavora con un numero elevato di BLOB.
+
+- Risolto un bug che ha causato la convalida del contenitore ACL XML in modo leggermente diverso dal servizio di archiviazione.
+
+- Risolto un bug che a volte ha causato la segnalazione di valori DateTime max e min nel fuso orario non corretto.
+
 ### Versione 4.3
 
 - L'emulatore di archiviazione supporta ora la versione 2015-07-08 dei servizi di archiviazione su endpoint di servizio BLOB, di accodamento e tabelle.
@@ -213,7 +221,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ### Versione 4.1
 
-- L'emulatore di archiviazione supporta ora la versione 2015-02-21 di servizi di archiviazione su BLOB, code ed endpoints di servizio tabelle, fatta eccezione per le nuove funzionalità di BLOB di Accodamento . 
+- L'emulatore di archiviazione supporta ora la versione 2015-02-21 di servizi di archiviazione su BLOB, code ed endpoints di servizio tabelle, fatta eccezione per le nuove funzionalità di BLOB di Accodamento .
 
 - L'emulatore di archiviazione restituisce ora un messaggio di errore significativo se si utilizza una versione dei servizi di archiviazione che non è ancora supportata da tale versione dell'emulatore. È consigliabile utilizzare la versione più recente dell'emulatore. Se si verifica un errore VersionNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida), è necessario scaricare la versione più recente dell'emulatore di archiviazione.
 
@@ -224,16 +232,19 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 - L'emulatore di archiviazione eseguibile è stato rinominato in *AzureStorageEmulator.exe*.
 
 ### Versione 3.2
+
 - L'emulatore di archiviazione supporta ora la versione 2014-02-14 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle. Si noti che gli endpoint del servizio file non sono attualmente supportati nell'emulatore di archiviazione. Vedere [Controllo delle versioni per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) per informazioni dettagliate sulla versione 2014-02-14.
 
 ### Versione 3.1
+
 - Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le API Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere il materiale di riferimento della libreria client di archiviazione di Microsoft Azure per .NET.
 
 ### Versione 3.0
+
 - L'emulatore di archiviazione di Azure non è più disponibile nello stesso pacchetto dell'emulatore di calcolo.
 
 - L'interfaccia utente grafica dell'emulatore di archiviazione è deprecata a favore di un'interfaccia della riga di comando configurabile tramite script. Per informazioni dettagliate sull'interfaccia della riga di comando, vedere Riferimenti allo strumento da riga di comando emulatore di archiviazione. L'interfaccia grafica continuerà a essere presente nella versione 3.0, ma è possibile accedervi solo quando è installato l'emulatore di calcolo facendo clic con il pulsante destro del mouse sull'icona della barra delle applicazioni e selezionando Mostra interfaccia utente emulatore di archiviazione.
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

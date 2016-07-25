@@ -103,9 +103,11 @@ La libreria client di Gestione dei dispositivi ha due responsabilità principali
 
 Per altre informazioni su queste responsabilità e sull'implementazione nel dispositivo fisico, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C][lnk-library-c].
 
-## Passaggio successivo
+## Passaggi successivi
 
-Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure).
+Per implementare le applicazioni client su una vasta gamma di piattaforme hardware e sistemi operativi per dispositivi, è possibile usare gli SDK per dispositivi IoT. GLI SDK per dispositivi IoT includono librerie che facilitano l'invio di dati di telemetria a un hub IoT e la ricezione di comandi da cloud a dispositivo. Quando si utilizzano gli SDK, è possibile scegliere tra una serie di protocolli di rete per comunicare con l’hub IoT. Per ulteriori informazioni, vedere [Informazioni sugli SDK del dispositivo][lnk-device-sdks].
+
+Per ottenere altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Introduzione a Gestione dei dispositivi dell'hub IoT di Azure][lnk-get-started].
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -118,5 +120,6 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

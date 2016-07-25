@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/15/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
@@ -118,6 +118,8 @@ Per gli scenari che dispongono di grandi quantità di dati non strutturati da ar
 
 È importante notare che il timestamp predefinito degli eventi dell'archivio BLOB nell'analisi di flusso sia il timestamp con cui è stato modificato l'ultima volta il BLOB, e cioè *BlobLastModifiedUtcTime*. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+Si noti inoltre che gli input in formato CSV **richiedono** una riga di intestazione per definire i campi per il set di dati. Altri campi di righe di intestazione devono essere tutti **univoci**.
+
 > [AZURE.NOTE] Analisi di flusso non supporta l'aggiunta di contenuto a un BLOB esistente. Analisi di flusso si limita a visualizzare un BLOB una sola volta. Tutte le modifiche apportate successivamente a questa lettura non verranno elaborate. La procedura consigliata consiste nel caricare tutti i dati in una sola volta e non aggiungere altri eventi all'archivio BLOB.
 
 La tabella seguente illustra ciascuna proprietà nella scheda di input dell'archivio BLOB con la relativa descrizione:
@@ -211,4 +213,4 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

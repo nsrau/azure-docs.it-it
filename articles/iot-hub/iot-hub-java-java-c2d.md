@@ -41,9 +41,9 @@ Al termine di questa esercitazione si eseguiranno due applicazioni console Java:
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Java per questa esercitazione in Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Java per questa esercitazione in Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Maven per questa esercitazione in Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Maven per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
@@ -153,7 +153,7 @@ In questa sezione si creerà un'app console Java che invia messaggi da cloud a d
     }
     ```
 
-    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
 
 ## Eseguire le applicazioni
 
@@ -177,18 +177,11 @@ A questo punto è possibile eseguire le applicazioni.
 
 ## Passaggi successivi
 
-In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT con le esercitazioni seguenti:
+In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo.
 
-- [Elaborare messaggi da dispositivo a cloud dell'hub IoT] illustra come elaborare in modo affidabile dati di telemetria e messaggi interattivi provenienti dai dispositivi.
-- [Caricamento di file da dispositivi] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
+Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
 
-Altre informazioni sull'hub IoT:
-
-* [Panoramica dell'hub IoT]
-* [Guida per sviluppatori di hub IoT]
-* [Linee guida dell'hub IoT]
-* [Piattaforme e linguaggi di dispositivi supportati]
-* [Centro per sviluppatori Azure IoT]
+Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
 
 <!-- Images -->
@@ -200,16 +193,17 @@ Altre informazioni sull'hub IoT:
 [Introduzione all'hub IoT di Azure per Java]: iot-hub-java-java-getstarted.md
 [Introduzione all’hub IoT]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Elaborare messaggi da dispositivo a cloud dell'hub IoT]: iot-hub-csharp-csharp-process-d2c.md
-[Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
-[Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
-[Linee guida dell'hub IoT]: iot-hub-guidance.md
-[Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
-[Piattaforme e linguaggi di dispositivi supportati]: iot-hub-supported-devices.md
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
+[Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portale di Azure]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

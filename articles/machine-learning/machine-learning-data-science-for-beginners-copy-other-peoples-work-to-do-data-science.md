@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copiare il lavoro di altre persone per l'analisi scientifica dei dati: Analisi scientifica dei dati per principianti | Microsoft Azure"
+   pageTitle="Copiare il lavoro di altri utenti per l'analisi scientifica dei dati - esempio di esperimento | Microsoft Azure"
    description="Il segreto commerciale dell'analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. È possibile visualizzare degli esempi nella raccolta di Cortana Analytics, come un esempio di algoritmo di clustering."
    keywords="esempi di analisi scientifica dei dati, esempio di algoritmo, esempio di esperimento, esempio di apprendimento automatico, algoritmo di clustering"
    services="machine-learning"
@@ -94,4 +94,4 @@ Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dat
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

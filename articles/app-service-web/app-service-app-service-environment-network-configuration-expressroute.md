@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/11/2016" 
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -21,7 +21,7 @@
 ## Panoramica ##
 I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'infrastruttura di rete virtuale per estendere la rete locale ad Azure. Un ambiente del servizio app può essere creato in una subnet di questa infrastruttura di [rete virtuale][virtualnetwork]. Le app in esecuzione nell'ambiente del servizio app possono quindi stabilire connessioni sicure a risorse back-end accessibili solo tramite la connessione ExpressRoute.
 
-**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2". Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.
+Un ambiente del servizio app può essere creato **in** una rete virtuale di Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica. Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti anche nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -31,7 +31,7 @@ Esistono requisiti di connettività di rete per gli ambienti del servizio app ch
 
 -  Connettività di rete in uscita per endpoint di archiviazione di Azure su entrambe le porte, 80 e 443. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
 -  Connettività di rete in uscita verso il servizio File di Azure sulla porta 445.
--  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*. Ciò richiede l'apertura dell'accesso alle porte 1433, 11000-11999 e 14000-14999. Per altri dettagli, vedere [questo articolo sull'utilizzo delle porte per il database SQL versione 12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*. Ciò richiede l'apertura dell'accesso alle porte 1433, 11000-11999 e 14000-14999. Per altri dettagli, vedere [questo articolo sull'uso delle porte per il database SQL versione 12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
 -  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*.
 -  Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. È necessario per supportare la funzionalità SSL.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
@@ -58,9 +58,9 @@ Se possibile, è consigliabile utilizzare la seguente configurazione:
 
 L'effetto combinato di questi passaggi è che il livello di subnet UDR avrà la precedenza sul tunneling forzato di ExpressRoute, garantendo l'accesso a Internet in uscita dall'ambiente di servizio app.
 
-**IMPORTANTE:** le route definite in un UDR **devono** essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio di seguito viene utilizzato l'intervallo di indirizzi ampio 0.0.0.0/0 e pertanto può essere accidentalmente sottoposto a override dagli annunci di route mediante più intervalli di indirizzi specifici.
-
-**MOLTO IMPORTANTE:** gli ambienti di servizio app non sono supportati con le configurazioni di ExpressRoute che **erroneamente annunciano incrociando route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute che dispongono di peering pubblico configurato, riceveranno gli annunci di route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell’ambiente di servizio app servizio verranno erroneamente sottoposti a tunneling forzato verso l’infrastruttura di rete locale del cliente. Questo flusso di rete interromperà gli ambienti di servizio app. La soluzione a questo problema consiste nell'interrompere l’annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
+> [AZURE.IMPORTANT] Le route definite in un UDR **devono** essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio di seguito viene utilizzato l'intervallo di indirizzi ampio 0.0.0.0/0 e pertanto può essere accidentalmente sottoposto a override dagli annunci di route mediante più intervalli di indirizzi specifici.
+>
+>Gli ambienti del servizio app non sono supportati con le configurazioni di ExpressRoute che **erroneamente annunciano incrociando route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute che dispongono di peering pubblico configurato, riceveranno gli annunci di route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell’ambiente di servizio app servizio verranno erroneamente sottoposti a tunneling forzato verso l’infrastruttura di rete locale del cliente. Questo flusso di rete interromperà gli ambienti di servizio app. La soluzione a questo problema consiste nell'interrompere l’annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
 
 Le informazioni generali sulle route definite dall'utente sono disponibili in questa [panoramica][UDROverview].
 
@@ -70,7 +70,7 @@ Le informazioni dettagliate sulla creazione e la configurazione di route definit
 
 **Prerequisiti**
 
-1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] \(con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
+1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] (con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
 
 2. È consigliabile creare una subnet univoca da usare esclusivamente in un ambiente del servizio app. In questo modo le route UDR applicate alla subnet apriranno solo il traffico in uscita per l'ambiente del servizio app.
 3. **Importante**: distribuire l'ambiente del servizio app solo **dopo** avere eseguito i seguenti passaggi di configurazione. Questo assicura che la connettività di rete in uscita sia disponibile prima di tentare di distribuire un ambiente del servizio app.
@@ -140,4 +140,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

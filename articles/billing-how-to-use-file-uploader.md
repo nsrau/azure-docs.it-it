@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
@@ -30,7 +30,7 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 - Non è possibile caricare più di un file.
 - Le dimensioni del file non devono superare i 4 MB.
 
-## Tabella delle estensioni di file
+## Tabella delle estensioni dei nomi di file consentite
 
 | 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -63,4 +63,4 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | | | | | | | zix |
 | | | | | | | zzz |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

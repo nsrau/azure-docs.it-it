@@ -27,7 +27,7 @@ Questo articolo illustra come eseguire il backup di file e cartelle di Windows S
 
 ![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 ## Prima di iniziare
 Per eseguire il backup di un server o un client in Azure, è necessario un account Azure. Se non si ha un account, è possibile crearne uno[gratuito](https://azure.microsoft.com/free/) in pochi minuti.
@@ -184,9 +184,11 @@ Per completare il backup iniziale, si usa l'agente di Backup di Microsoft Azure.
 
 L'agente di backup consente di limitare la larghezza di banda. La limitazione controlla l'uso della larghezza di banda della rete durante il trasferimento dati. Questo controllo può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione si applica alle attività di backup e ripristino.
 
+>[AZURE.NOTE] La limitazione di rete non è disponibile su Windows Server 2008 R2 SP1, Windows Server 2008 SP2 o Windows 7 (con i pacchetti di servizio). La funzione di limitazione della rete di Backup di Azure attiva il QoS ( Quality of Service) sul sistema operativo locale. Anche se il Backup di Azure è in grado di proteggere questi sistemi operativi, la versione del QoS disponibile su queste piattaforme non funziona con la limitazione di rete di Backup di Azure. La limitazione di rete può essere utilizzata in tutti gli altri [sistemi operativi supportati](backup-azure-backup-faq.md#installation-amp-configuration).
+
 **Per abilitare la limitazione larghezza di banda**
 
-1. Nell'agente di backup fare clic su **Modifica proprietà**.
+1. Nell'agente di Backup, fare clic su **Modifica proprietà**.
 
     ![Modifica proprietà](./media/backup-configure-vault/change-properties.png)
 
@@ -202,7 +204,7 @@ L'agente di backup consente di limitare la larghezza di banda. La limitazione co
 
 ### Per eseguire il backup di file e cartelle per la prima volta
 
-1. Nell'agente di backup fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
+1. Nell'agente di Backup fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
 
     ![Eseguire ora il backup di Windows Server](./media/backup-configure-vault/backup-now.png)
 
@@ -210,7 +212,7 @@ L'agente di backup consente di limitare la larghezza di banda. La limitazione co
 
 3. Fare clic su **Chiudi** per chiudere la procedura guidata. Se quest'operazione viene svolta prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
 
-Al termine del backup iniziale, nella console Backup apparirà lo stato **Processo completato**.
+Al termine del backup iniziale, nella console Backup comparirà lo stato **Processo completato**.
 
 ![Completamento infrarossi](./media/backup-configure-vault/ircomplete.png)
 
@@ -220,7 +222,7 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 ## Passaggi successivi
 Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro, vedere:
 
-- Dopo aver eseguito il backup dei file e delle cartelle, è possibile [gestire gli insiemi di credenziali e i server](backup-azure-manage-windows-server.md).
-- Se è necessario ripristinare un backup, questo articolo illustra come [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
+- Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
+- Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

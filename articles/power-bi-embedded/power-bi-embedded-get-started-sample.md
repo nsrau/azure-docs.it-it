@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Introduzione all'esempio di Microsoft Power BI Embedded
+# Introduzione all'esempio di Power BI Embedded
 
-La **versione di anteprima di Microsoft Power BI Embedded** consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti. Di seguito sono elencate alcune risorse utili per integrare i report di Power BI nelle app:
+**Microsoft Power BI Embedded** consente di integrare i report di Power BI direttamente nelle applicazioni Web o per dispositivi mobili. In questo articolo verrà presentato l'esempio introduttivo per **Power BI Embedded**.
+
+Prima di continuare, è consigliabile salvare le risorse seguenti, che risulteranno utili durante l'integrazione dei report di Power BI nell'app di esempio e nelle app personalizzate.
 
  -	[App Web dashboard di esempio](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[.NET SDK Power BI Embedded (disponibile tramite NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
+ -	[Power BI Embedded .NET SDK](http://go.microsoft.com/fwlink/?LinkId=746472) (disponibile tramite NuGet)
 
-In questo articolo viene presentato l'**esempio d'introduzione a Power BI Embedded**. Per poter eseguire l'app Web di esempio, è prima necessario configurarla.
 
-> [AZURE.NOTE] Prima di poter configurare ed eseguire l'esempio d'introduzione a Power BI Embedded, è necessario creare almeno una **raccolta di aree di lavoro** nella sottoscrizione di Azure. Per informazioni su come creare una **raccolta di aree di lavoro** nel portale di Azure, vedere [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+
+> [AZURE.NOTE] Prima di poter configurare ed eseguire l'esempio d'introduzione a Power BI Embedded, è necessario creare almeno una **raccolta di aree di lavoro** nella sottoscrizione di Azure. Per informazioni su come creare una **Raccolta di aree di lavoro** nel portale di Azure, vedere [Introduzione a Microsoft Power BI Embedded - Anteprima](power-bi-embedded-get-started.md).
 
 ## Configurare l'app di esempio
 
-Di seguito viene spiegata la procedura di configurazione dell'ambiente di sviluppo di Visual Studio, necessario per accedere ai componenti della versione di anteprima richiesti per eseguire l'app di esempio.
+La procedura dettagliata seguente illustra la configurazione dell'ambiente di sviluppo di Visual Studio per l'accesso ai componenti necessari per eseguire l'app di esempio.
 
 1. Scaricare e decomprimere l'esempio [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) su GitHub.
 
@@ -40,11 +42,11 @@ Di seguito viene spiegata la procedura di configurazione dell'ambiente di svilup
 
 4. Eseguire l'applicazione console **ProvisionSample**. Nell'applicazione console di esempio, effettuare il provisioning di un'area di lavoro e importare un file PBIX.
 
-5. Per eseguire il provisioning di una nuova **area di lavoro**, selezionare l'opzione **5. Provision a new workspace in an existing workspace collection**.
+5. Per effettuare il provisioning di una nuova **Area di lavoro**, selezionare l'opzione 5, **Provision a new workspace in an existing workspace collection**.
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) in Introduzione alla versione di anteprima di Microsoft Power BI Embedded.
+6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) nell'introduzione a Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -65,16 +67,14 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] Se il file PBIX contiene connessioni tramite query diretta, eseguire l'opzione 7 per aggiornare le stringhe di connessione.
 
-A questo punto il report di Power BI in formato PBIX è stato importato nell'**area di lavoro**. La sezione successiva descrive come eseguire l'app Web di esempio d'introduzione a **Power BI Embedded** e e come eseguire l'app Web di esempio.
+A questo punto il report di Power BI in formato PBIX è stato importato nell'**area di lavoro**. Viene ora illustrato come eseguire l'app Web dell'esempio introduttivo di **Power BI Embedded**.
 
 ## Eseguire l'app Web di esempio
 
-L'app Web di esempio è un dashboard che esegue il rendering dei report importati nell'**area di lavoro**.
-
-Di seguito viene spiegato come configurare l'app Web di esempio.
+L'app Web di esempio è un dashboard che esegue il rendering dei report importati nell'**area di lavoro**. Di seguito viene spiegato come configurare l'app Web di esempio.
 
 1. Nella soluzione **PowerBI Embedded** in Visual Studio fare clic con il pulsante destro del mouse sull'applicazione Web **EmbedSample** e scegliere **Imposta come progetto di avvio**.
-2. In **web.config**, nell'applicazione Web **EmbedSample** modificare il nome **appSettings**: **AccessKey**, **WorkspaceCollection** e il valore **WorkspaceId**.
+2. Nel file **web.config** nell'applicazione Web **EmbedSample** modificare il nome **appSettings**: **AccessKey**, **WorkspaceCollection** e il valore **WorkspaceId**.
 
     ```
     <appSettings>
@@ -86,7 +86,7 @@ Di seguito viene spiegato come configurare l'app Web di esempio.
     ```
 3. Eseguire l'applicazione Web **EmbedSample**.
 
-Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato ad esempio importato l'[esempio Analyzing Sales Data PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web sarà simile alla seguente:
+Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato importato il file [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web di esempio avrà un aspetto simile al seguente:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -94,12 +94,11 @@ Dopo aver selezionato un report, l'applicazione Web **EmbedSample** sarà simile
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
-Nella sezione successiva viene analizzato il codice di esempio di **Power BI Embedded**.
 
 ## Esplorare il codice di esempio
-L'esempio della versione di anteprima di **Microsoft Power BI Embedded** è un'app Web dashboard che illustra come integrare report di **Power BI** nella propria app. Usa un modello di progettazione MVC (Model-View-Controller) per illustrare le procedure consigliate. In questa sezione vengono analizzate le parti del codice di esempio che è possibile esplorare nella soluzione di app Web di **Power BI Embedded**. Il modello MVC separa la modellazione del dominio, la presentazione e le azioni in base all'input dell'utente in tre classi distinte, ovvero modellazione, visualizzazione e controller. Per altre informazioni sul modello MVC, vedere le [informazioni su ASP.NET](http://www.asp.net/mvc).
+L'esempio di **Microsoft Power BI Embedded** è un'app Web dashboard di esempio che illustra come integrare report di **Power BI** nella propria app. Usa un modello di progettazione MVC (Model-View-Controller) per illustrare le procedure consigliate. Questa sezione evidenzia parti del codice di esempio che è possibile esplorare nella soluzione di app Web di **PowerBI Embedded**. Il modello MVC separa la modellazione del dominio, la presentazione e le azioni in base all'input dell'utente in tre classi distinte, ovvero modellazione, visualizzazione e controller. Per altre informazioni sul modello MVC, vedere [Learn About ASP.NET](http://www.asp.net/mvc) (Informazioni su ASP.NET).
 
-Il codice di esempio della versione di anteprima di **Microsoft Power BI Embedded** è suddiviso come di seguito descritto. Ogni sezione contiene il nome del file nella soluzione PowerBI-embedded.sln in modo che sia possibile trovare facilmente il codice nell'esempio.
+Il codice di esempio di **Microsoft Power BI Embedded** è suddiviso come indicato di seguito. Ogni sezione contiene il nome del file nella soluzione PowerBI-embedded.sln in modo che sia possibile trovare facilmente il codice nell'esempio.
 
 > [AZURE.NOTE] Questa sezione è un riepilogo del codice di esempio e illustra in che modo è stato scritto. L'esempio sarà descritto più nel dettaglio con il passaggio alla disponibilità generale. Per visualizzare l'esempio completo, caricare la soluzione PowerBI-embedded.sln in Visual Studio.
 
@@ -123,7 +122,7 @@ L'esempio è composto da **ReportsViewModel** e **ReportViewModel**.
     }
 
 ### Visualizza
-La **visualizzazione** gestisce la visualizzazione di **report** di Power BI e di un **report** di Power BI.
+La **visualizzazione** gestisce la visualizzazione di più **report** di Power BI e di un **report** di Power BI.
 
 **Reports.cshtml**: esegue l'iterazione di **Model.Reports** per creare un elemento **ActionLink**. L'elemento **ActionLink** è costituito da:
 
@@ -159,7 +158,7 @@ Report.cshtml: imposta **Model.AccessToken** e l'espressione lambda per **PowerB
 
 ### Controller
 
-**DashboardController.cs**: crea un'istanza di PowerBIClient per il passaggio di un **token delle app**. Dalla **chiave di firma** viene generato un token JWT (JSON Web Token) per ottenere le **credenziali**. Le **credenziali** servono per creare un'istanza di **PowerBIClient**. Per altre informazioni sui **token delle app**, vedere l'articolo relativo al [funzionamento dei token delle app](#key-flow). Dopo aver creato un'istanza di **PowerBIClient**, è possibile chiamare i metodi GetReports() e GetReportsAsync().
+**DashboardController.cs**: crea un'istanza di PowerBIClient per il passaggio di un **token dell'app**. Dalla **Chiave di firma** viene generato un token JSON Web (JWT) per ottenere le **Credenziali**. Le **Credenziali** servono per creare un'istanza di **PowerBIClient**. Per altre informazioni sui **token dell'app**, vedere [How does app token flow work?](#key-flow) (Funzionamento del flusso dei token dell'app). Dopo aver creato un'istanza di **PowerBIClient**, è possibile chiamare i metodi GetReports() e GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -217,14 +216,14 @@ Task<ActionResult> Report(string reportId)
 
 ### Integrare un report nell'app
 
-Dopo aver creato un **report**, viene usato un **IFrame** per incorporare il **report** di Power BI. Ecco un frammento di codice di powerbi.js nell'esempio della versione di anteprima di **Microsoft Power BI Embedded**.
+Dopo aver creato un **report**, viene usato un **IFrame** per incorporare il **report** di Power BI. Ecco un frammento di codice da powerbi.js nell'esempio di **Microsoft Power BI Embedded**.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
 ## Filtrare i report incorporati nell'applicazione
 
-È possibile filtrare un report incorporato tramite una sintassi dell'URL. A tale scopo, aggiungere un parametro della stringa di query **$filter** con un operatore **eq** all'URL iFrame src specificando il filtro. Di seguito è riportata la sintassi della query del filtro:
+È possibile filtrare un report incorporato tramite una sintassi dell'URL. A questo scopo, aggiungere un parametro della stringa di query **$filter** con un operatore **eq** all'URL iFrame src specificando il filtro. Di seguito è riportata la sintassi della query del filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -237,9 +236,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 ## Vedere anche
 
-- [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Scenari comuni della versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-- [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+- [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

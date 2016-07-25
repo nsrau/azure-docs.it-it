@@ -3,14 +3,15 @@
     description="Informazioni su come utilizzare Lucidchart con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="jeevansd"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Lucidchart
@@ -36,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Lucidchart, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-lucidchart-tutorial/IC700993.png "Active Directory")
 
@@ -65,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Lucidchart tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Lucidchart** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Lucidchart** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Configura accesso Single Sign-On")
 
@@ -75,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a Lucidchart** digitare l'URL utilizzato dagli utenti per accedere all’applicazione Lucidchart (ad esempio: "**https://chart2.office.lucidchart.com/saml/sso/azure*")), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app**, nella casella di testo **Lucidchart Sign On URL** (URL di accesso a Lucidchart) digitare l'URL usato dagli utenti per accedere all'applicazione Lucidchart, ad esempio "*https://chart2.office.lucidchart.com/saml/sso/azure*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configura URL app")
 
@@ -112,7 +113,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Lucidchart eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Lucidchart** fare clic su **Assegna utenti**.
 
@@ -124,4 +125,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

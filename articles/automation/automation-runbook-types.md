@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Tipi di runbook di Automazione di Azure"
-   description="Descrive i diversi tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni di cui tenere conto per determinare il tipo da usare."
+   description="Descrive i diversi tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni di cui tenere conto per determinare il tipo da usare. "
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="07/06/2016"
    ms.author="bwren" />
 
 # Tipi di runbook di Automazione di Azure
@@ -52,7 +52,7 @@ I runbook di PowerShell sono basati su Windows PowerShell. È possibile modifica
 
 ### Vantaggi
 
-- Implementazione di tutta la logica complessa con codice di PowerShell senza le complessità aggiuntive del flusso di lavoro PowerShell. 
+- Implementazione di tutta la logica complessa con codice di PowerShell senza le complessità aggiuntive del flusso di lavoro PowerShell.
 - Avvio del runbook più rapido rispetto ai runbook grafici o del flusso di lavoro PowerShell poiché non è necessaria la compilazione prima dell'esecuzione.
 
 ### Limitazioni
@@ -67,7 +67,7 @@ Di seguito sono descritti i problemi noti correnti relativi ai runbook di PowerS
 
 - I runbook di PowerShell non sono in grado di recuperare un [asset di tipo variabile](automation-variables.md) non crittografato con valore Null.
 - I runbook di PowerShell non sono in grado di recuperare un [asset di tipo variabile](automation-variables.md) con *~* nel nome.
-- Get-Process in un ciclo in un runbook di PowerShell può arrestarsi in modo anomalo dopo circa 80 iterazioni. 
+- Get-Process in un ciclo in un runbook di PowerShell può arrestarsi in modo anomalo dopo circa 80 iterazioni.
 - Un runbook di PowerShell può avere esito negativo se tenta di scrivere una quantità elevata di dati nel flusso di output in una sola volta. È possibile risolvere questo problema in genere restituendo solo le informazioni necessarie quando si usano oggetti di grandi dimensioni. Anziché restituire ad esempio *Get-Process*, è possibile restituire solo i campi con *Get-Process | Select ProcessName, CPU*.
 
 ## Runbook del flusso di lavoro PowerShell
@@ -104,4 +104,4 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 - Per comprendere le differenze tra PowerShell e i flussi di lavoro di PowerShell per i runbook, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
 - Per ulteriori informazioni su come creare o importare un runbook, vedere [Creazione o importazione di un runbook](automation-creating-importing-runbook.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

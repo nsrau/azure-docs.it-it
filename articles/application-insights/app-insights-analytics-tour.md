@@ -111,7 +111,7 @@ Usare [`project`](app-insights-analytics-reference.md#project-operator) per sele
 ![risultato](./media/app-insights-analytics-tour/270.png)
 
 * I [nomi di colonna](app-insights-analytics-reference.md#names) possono includere spazi o simboli se sono racchiusi tra parentesi quadre, ad esempio: `['...']` o `["..."]`
-* `%` è il consueto operatore modulo. 
+* `%` è il consueto operatore modulo.
 * `1d` (la cifra uno seguita da "d") è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonda un'ora per difetto al secondo più vicino.
 
@@ -208,7 +208,7 @@ Si noti che è possibile usare `name=` per impostare il nome di una colonna di r
 
 `sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma quando nell’operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti `itemCount` eventi per ogni punto dati visualizzato.
 
-Ad esempio, se il campionamento elimina il 75% degli eventi originali, allora itemCount==4 nei record mantenuti; ciò significa che per ogni record mantenuto c’erano quattro record originali.
+Ad esempio, se il campionamento elimina il 75% degli eventi originali, allora itemCount==4 nei record mantenuti; ciò significa che per ogni record mantenuto erano presenti quattro record originali.
 
 Il campionamento adattivo causa un valore itemCount più elevato durante i periodi in cui l'applicazione viene utilizzata di frequente.
 
@@ -412,7 +412,7 @@ Viene inoltre rimosso il limite superiore nella clausola where in modo da ottene
 
 È possibile osservare che:
 
-* Il 5% delle sessioni ha una durata inferiore a 3 minuti e 34 secondi; 
+* Il 5% delle sessioni ha una durata inferiore a 3 minuti e 34 secondi;
 * Il 50% delle sessioni dura meno di 36 minuti;
 * Il 5% delle sessioni dura più di 7 giorni
 
@@ -455,7 +455,7 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 
 ## [Let](app-insights-analytics-reference.md#let-clause): assegna un risultato a una variabile
 
-Utilizzare [let](./app-insights-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
+Usare [let](./app-insights-analytics-reference.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
 ```AIQL
 
@@ -472,4 +472,4 @@ Utilizzare [let](./app-insights-analytics-syntax.md#let-statements) per separare
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

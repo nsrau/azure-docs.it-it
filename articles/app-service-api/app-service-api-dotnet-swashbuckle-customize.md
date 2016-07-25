@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/22/2016" 
-	ms.author="bradyg"/>
+	ms.author="rachelap"/>
 
 # Personalizzare le definizioni delle API generate da Swashbuckle 
 
@@ -24,7 +24,7 @@
 Questo articolo illustra come personalizzare Swashbuckle per gestire scenari comuni in cui è possibile modificare il comportamento predefinito:
 
 * Swashbuckle genera identificatori di operazione duplicati per gli overload dei metodi del controller
-* Swashbuckle presuppone che l'unica risposta valida restituita da un metodo sia HTTP 200 (OK) 
+* Swashbuckle presuppone che l'unica risposta valida restituita da un metodo sia HTTP 200 (OK)
  
 ## Personalizzare la generazione di identificatori di operazione
 
@@ -46,7 +46,7 @@ In alternativa, è possibile estendere Swashbuckle in modo che generi automatica
 
 I passaggi seguenti illustrano come personalizzare Swashbuckle usando il file *SwaggerConfig.cs* incluso nel progetto dal modello di progetto di anteprima delle app per le API di Visual Studio. È anche possibile personalizzare Swashbuckle in un progetto API Web configurato per la distribuzione come app per le API.
 
-1. Creare un'implementazione personalizzata di `IOperationFilter` 
+1. Creare un'implementazione personalizzata di `IOperationFilter`
 
 	L'interfaccia `IOperationFilter` fornisce un punto di estendibilità per gli utenti di Swashbuckle che vogliono personalizzare diversi aspetti del processo di metadati di Swagger. Il codice seguente illustra un metodo di modifica del comportamento di generazione dell'ID operazione. Il codice aggiunge nomi di parametro alla fine del nome dell'ID operazione.
 
@@ -134,7 +134,7 @@ In Swashbuckle sono disponibili due metodi per personalizzare l'elenco dei codic
 
 Usare questo metodo per specificare i codici di risposta se la versione di Swashbuckle è precedente alla versione 5.1.5.
 
-1. In primo luogo, aggiungere i commenti della documentazione XML sopra i metodi per cui specificare i codici di risposta HTTP. Prendendo l'azione API Web di esempio illustrata in precedenza e applicandovi la documentazione XML, si otterrà un codice simile a quello riportato nell'esempio seguente. 
+1. In primo luogo, aggiungere i commenti della documentazione XML sopra i metodi per cui specificare i codici di risposta HTTP. Prendendo l'azione API Web di esempio illustrata in precedenza e applicandovi la documentazione XML, si otterrà un codice simile a quello riportato nell'esempio seguente.
 
 		/// <summary>
 		/// Returns the specified contact.
@@ -162,7 +162,7 @@ Usare questo metodo per specificare i codici di risposta se la versione di Swash
 
 1. Aggiungere le istruzioni nel file *SwaggerConfig.cs* per indicare a Swashbuckle di usare il file di documentazione XML.
 
-	* Aprire *SwaggerConfig.cs* e creare un metodo nella classe *SwaggerConfig* per specificare il percorso del file di documentazione XML. 
+	* Aprire *SwaggerConfig.cs* e creare un metodo nella classe *SwaggerConfig* per specificare il percorso del file di documentazione XML.
 
 			private static string GetXmlCommentsPath()
 			{
@@ -207,7 +207,7 @@ Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](ht
 
 L'attributo [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) è disponibile in Swashbuckle 5.1.5 e versioni successive. Nel caso in cui si ha una versione precedente del progetto, questa sezione inizia illustrando come aggiornare il pacchetto NuGet Swashbuckle in modo da poter usare questo attributo.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto API Web e scegliere **Gestisci pacchetti NuGet**. 
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto API Web e scegliere **Gestisci pacchetti NuGet**.
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
 
@@ -250,4 +250,4 @@ Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](ht
 Questo articolo ha illustrato come personalizzare il modo in cui Swashbuckle genera gli ID operazione e i codici di risposta validi. Per altre informazioni, vedere [Swashbuckle su GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

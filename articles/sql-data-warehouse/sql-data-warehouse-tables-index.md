@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Indicizzazione di tabelle in SQL Data Warehouse
@@ -22,8 +22,8 @@
 - [Panoramica][]
 - [Tipi di dati][]
 - [Distribuzione][]
-- [Indice][]
-- [Partizione][]
+- [Index][]
+- [Partition][]
 - [Statistiche][]
 - [Temporanee][]
 
@@ -232,7 +232,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Passaggio 2: Ricompilare gli indici columnstore cluster con un utente che usa una classe di risorse superiore
 Accedere con le credenziali dell'utente indicato nel passaggio 1, ad esempio LoadUser, che ora usa una classe di risorse superiore e quindi eseguire le istruzioni ALTER INDEX. Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice. Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
 
-In alternativa, anziché ricompilare l'indice è possibile copiare la tabella in una nuova tabella con [CTAS][]. Qual è il modo migliore? Per grandi volumi di dati, [CTAS][] è in genere più veloce di [ALTER INDEX][]. Per volumi di dati più piccoli, [ALTER INDEX][] è più facile da usare e non richiede la sostituzione della tabella. Per altre informazioni su come ricompilare gli indici con CTAS, vedere **Ricompilazione degli indici con CTAS e cambio della partizione** più avanti.
+In alternativa, invece di ricompilare l'indice è possibile copiare la tabella in una nuova tabella con [CTAS][]. Qual è il modo migliore? Per grandi volumi di dati [CTAS][] è in genere più veloce di [ALTER INDEX][]. Per volumi di dati più piccoli, [ALTER INDEX][] è più facile da usare e non richiede la sostituzione della tabella. Per altre informazioni su come ricompilare gli indici con CTAS, vedere **Ricompilazione degli indici con CTAS e cambio della partizione** più avanti.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -244,7 +244,17 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
-La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] \(Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
+La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] (Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
  
 ### Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 Eseguire nuovamente la query che ha identificato la tabella con una qualità scadente dei segmenti e verificare che la qualità sia migliorata. Se la qualità dei segmenti non è migliorata, le righe della tabella potrebbero essere troppo larghe. È consigliabile usare una classe di risorse superiore o una DWU durante la ricompilazione degli indici. Se è necessaria una quantità di memoria maggiore,
@@ -296,7 +306,7 @@ Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse), [Tipi di dati per le tabelle in SQL Data Warehouse][Data Types], [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Partitioning tables in SQL Data Warehouse][Partition] \(Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] \(Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse), [Tipi di dati per le tabelle in SQL Data Warehouse][Data Types], [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Partitioning tables in SQL Data Warehouse][Partition] (Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] (Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -307,15 +317,15 @@ Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Ware
 [Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Distribuzione]: ./sql-data-warehouse-tables-distribute.md
-[Indice]: ./sql-data-warehouse-tables-index.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Partizione]: ./sql-data-warehouse-tables-partition.md
 [partizioni]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Statistiche]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporanee]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Procedure consigliate per Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -328,4 +338,4 @@ Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Ware
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

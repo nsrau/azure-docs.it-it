@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica delle mappe di Enterprise Integration Pack | Servizio app di Microsoft Azure" 
+	pageTitle="Panoramica delle mappe di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Informazioni su come usare le mappe con Enterprise Integration Pack e le app per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Informazioni sulle mappe ed Enterprise Integration Pack
@@ -47,15 +47,15 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, seguire questi
 4. Selezionare il file di mappa da caricare usando la finestra selettore file che si apre e poi selezionare **Apri** nel selettore file ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. Dopo il caricamento della mappa verrà visualizzato un popup di notifica.
 
-
 ## Come eliminare una mappa?
 1. Selezionare il riquadro **Mappe**
 2. Quando si apre il pannello Mappe selezionare la mappa da eliminare
 3. Selezionare il collegamento **Elimina** ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. Confermare che si intende eliminare la mappa. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## Passaggi successivi
+- [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 - [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
+- [Altre informazioni sulle trasformazioni](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

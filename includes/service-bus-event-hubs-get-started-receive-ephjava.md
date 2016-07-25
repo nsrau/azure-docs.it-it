@@ -28,6 +28,11 @@ La libreria client Java per Hub eventi è disponibile per l'uso in progetti Mave
 	<artifactId>azure-eventhubs</artifactId>
 	<version>0.7.2</version>
 </dependency>
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs-eph</artifactId>
+	<version>0.7.2</version>
+</dependency>
 ```
  
 Per diversi tipi di ambienti di compilazione, è possibile ottenere in modo esplicito i più recenti file JAR rilasciati dal [Repository centrale Maven][Maven Package] o dal [punto di distribuzione rilascio in GitHub](https://github.com/Azure/azure-event-hubs/releases).
@@ -193,4 +198,4 @@ Per diversi tipi di ambienti di compilazione, è possibile ottenere in modo espl
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

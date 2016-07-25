@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="07/08/2016"
     ms.author="sethm" />
 
 # Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio
@@ -81,7 +81,7 @@ Quando si crea un client di coda o sottoscrizione, è possibile specificare una 
 
 Quando la modalità di ricezione è impostata su [ReceiveAndDelete][], entrambi i passaggi vengono combinati in una singola richiesta. Questo permette di ridurre il numero complessivo di operazioni e di migliorare la velocità effettiva dei messaggi. Questo miglioramento delle prestazioni tuttavia comporta il rischio di perdere alcuni messaggi.
 
-Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. Inoltre, è necessaria la semantica peek-lock (blocco anteprima) per qualsiasi scenario in cui il client voglia posticipare l'invio di un messaggio o inserirlo nella coda dei messaggi non recapitabili.
+Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. La semantica peek-lock (blocco di visualizzazione) è inoltre necessaria per qualsiasi scenario in cui il client vuole posticipare l'invio di un messaggio o inserirlo nella [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md).
 
 ## Invio in batch sul lato client
 
@@ -291,4 +291,4 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
   [Entità di messaggistica partizionate]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

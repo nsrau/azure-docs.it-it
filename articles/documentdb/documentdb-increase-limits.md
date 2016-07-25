@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -39,19 +39,19 @@ I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
 	![Schermata di avvio di Guida e supporto](media/documentdb-increase-limits/helpsupport.png)
 
-2. Nel pannello **Guida e supporto** fare clic su **Supporto tecnico**.
+2. Nel pannello **Guida e supporto tecnico**, fare clic su **Crea un ticket di supporto**.
 
 	![Schermata di creazione di un ticket di supporto](media/documentdb-increase-limits/getsupport.png)
 
-3. Nel pannello **Nuova richiesta di assistenza**, fare clic su **Nozioni di base**. Successivamente, impostare **Tipo di rilascio** su **Quota**, **Sottoscrizione** su sottoscrizione che ospita l’account DocumentDB, **Servizio** su **DocumentDB**, e **Piano di supporto** su **SUPPORTO Quota - compreso**. Infine, fare clic su **Next**.
+3. Nel pannello **Nuova richiesta di assistenza**, fare clic su **Nozioni di base**. Successivamente, impostare **Tipo di rilascio** su **Quota**, **Sottoscrizione** su sottoscrizione che ospita l’account DocumentDB, **Tipo di quota** su **DocumentDB** e **Piano di supporto** su **SUPPORTO Quota - compreso**. Infine, fare clic su **Next**.
 
 	![Schermata del tipo di richiesta del ticket di supporto](media/documentdb-increase-limits/supportrequest1.png)
 
-4. Nel pannello **Problema**, scegliere un livello di gravità. Impostare **Tipo di problema** su **DocumentDB** e inserire informazioni sull'aumento della quota in **Dettagli**. Fare clic su **Avanti**.
+4. Nel pannello **Problema**, scegliere una gravità e includere le informazioni sull'aumento di quota in **Dettagli**. Fare clic su **Avanti**.
 
 	![Schermata di selezione della sottoscrizione del ticket di supporto](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Infine, inserire le informazioni di contatto nel pannello **Informazioni di contatto**.
+5. Infine, inserire le informazioni di contatto nel pannello **Informazioni di contatto** e fare clic su **Crea**.
 
 	![Schermata di selezione delle risorse del ticket di supporto](media/documentdb-increase-limits/supportrequest3.png)
 
@@ -63,4 +63,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

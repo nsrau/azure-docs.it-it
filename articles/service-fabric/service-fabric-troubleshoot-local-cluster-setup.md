@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Risolvere i problemi di configurazione del cluster di sviluppo locale
@@ -92,10 +92,11 @@ Questo errore si verifica in genere quando si tenta di avviare manualmente un pr
 
 Assicurarsi di non disporre di progetti di servizio impostati come progetti di avvio nella soluzione. Solo i progetti di applicazione di Infrastruttura di servizi devono essere impostati come progetti di avvio.
 
+>[AZURE.TIP] Se, in seguito alla configurazione, il cluster locale inizia a presentare un comportamento anomalo, può essere ripristinato con l'applicazione dell'area di notifica Local Cluster Manager. In questo modo verrà rimosso il cluster esistente e ne verrà configurato uno nuovo. Si noti che tutte le applicazioni distribuite e i dati associati verranno rimossi.
 
 ## Passaggi successivi
 
 - [Comprendere e risolvere i problemi del cluster con report di integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

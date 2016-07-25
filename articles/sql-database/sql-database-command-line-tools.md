@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestire il database SQL di Azure con PowerShell" 
-	description="Gestione del database SQL di Azure con PowerShell" 
+	description="Gestione del database SQL di Azure con PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Gestire il database SQL di Azure con PowerShell
@@ -53,7 +53,7 @@ Quando si esegue questo comando, viene visualizzata una finestra in cui vengono 
 
 Per creare una regola del firewall per accedere al server, usare il comando [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Eseguire il comando seguente sostituendo gli indirizzi IP di inizio e fine con i valori validi per il client.
 
-Se il server deve consentire l'accesso ad altri servizi Azure, aggiungere lo switch **- AllowAllAzureIPs**, che aggiungerà una regola firewall speciale e consentirà l’accesso al server per tutto il traffico Azure.
+Se il server deve consentire l'accesso ad altri servizi di Azure, aggiungere l'opzione **- AllowAllAzureIPs**, che aggiungerà una speciale regola del firewall e consentirà l'accesso al server per tutto il traffico Azure.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -83,18 +83,18 @@ Per creare un database, usare il comando [New-AzureRmSqlDatabase](https://msdn.m
 
 È inoltre possibile eliminare un server con il comando [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). Nell'esempio seguente viene eliminato un server denominato server12.
 
+
+>[AZURE.NOTE]  L'operazione di eliminazione è asincrona e può richiedere tempo. Verificare quindi che l'operazione sia completata prima di eseguire eventuali operazioni aggiuntive che dipendono dall'eliminazione completa del server (come ad esempio la creazione di un nuovo server con lo stesso nome).
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Se si prevede di creare nuovamente queste risorse SQL di Azure o risorse simili, è possibile:
-
-- Salvare il codice come file di script di PowerShell (*.ps1).
-- Salvare il codice come runbook di Automazione di Azure nella sezione Automazione del portale di Azure classico. 
 
 ## Passaggi successivi
 
-Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si trova tra le virgolette, inclusi i caratteri < and >, con i propri valori per creare un server, una regola del firewall e un database:
+Combinare i comandi e automatizzare. Per creare un server, una regola del firewall e un database, ad esempio, sostituire tutto ciò che si trova tra le virgolette, inclusi i caratteri < e >, con i propri valori:
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 
 - [Cmdlet del database SQL di Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

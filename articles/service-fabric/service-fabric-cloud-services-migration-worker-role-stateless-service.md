@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
@@ -38,7 +38,7 @@ Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, 
 
 Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di lavoro senza stato e quindi concettualmente può essere associato anch'esso a un servizio senza stato di Service Fabric. Tuttavia, a differenza dei ruoli Web, Service Fabric non supporta IIS. Per eseguire la migrazione di un'applicazione Web da un ruolo Web a un servizio senza stato è necessario passare prima a un framework Web che possa essere self-hosted e non dipenda da IIS o System.Web, ad esempio ASP.NET Core 1.
 
-**Applicazione** | **Supportata** | **Percorso di migrazione**
+**Applicazione** | **Supportato** | **Percorso di migrazione**
 --- | --- | ---
 Web Form ASP.NET | No | Convertire in ASP.NET Core 1 MVC
 ASP.NET MVC | Con migrazione | Aggiornare ad ASP.NET Core 1
@@ -112,9 +112,9 @@ Entrambi hanno un override "Run" primario in cui iniziare l'elaborazione. I serv
 
 Esistono alcune differenze principali tra il ciclo di vita e la durata dei servizi di Service Fabric e dei ruoli di lavoro:
 
- - **Ciclo di vita:** la differenza principale è che un ruolo di lavoro è una macchina virtuale e quindi il ciclo di vita è associato alla macchina virtuale, che include gli eventi relativi all'avvio e all'arresto della macchina virtuale. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
+ - **Ciclo di vita:** la differenza principale è che un ruolo di lavoro è una VM e quindi il ciclo di vita è associato alla VM e include gli eventi relativi all'avvio e all'arresto della VM. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
 
- - **Durata:** un'istanza del ruolo di lavoro verrà riciclata se il metodo `Run` viene chiuso. Il `RunAsync` metodo in un servizio di Service Fabric può tuttavia possibile essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa.
+ - **Durata:** un'istanza del ruolo di lavoro verrà riciclata se il metodo `Run` viene chiuso. Il metodo `RunAsync` in un servizio di Service Fabric può tuttavia essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa.
 
 Service Fabric fornisce un punto di ingresso facoltativo di configurazione della comunicazione per i servizi in ascolto delle richieste client. Sia il punto di ingresso di comunicazione che quello di RunAsync sono sostituzioni facoltative nei servizi di Service Fabric, ovvero il servizio può scegliere di restare in ascolto solo delle richieste client o eseguire solo un ciclo di elaborazione oppure entrambi, motivo per cui il metodo RunAsync può terminare senza riavviare l'istanza del servizio, perché può continuare a rimanere in ascolto delle richieste client.
 
@@ -160,7 +160,7 @@ Alle impostazioni di configurazione è possibile accedere all'interno di ogni is
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -204,7 +204,7 @@ Questi eventi sono disponibili per l'utilizzo in caso di modifiche nei pacchetti
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -277,4 +277,4 @@ Altre informazioni su Reliable Services di Service Fabric e le differenze fondam
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

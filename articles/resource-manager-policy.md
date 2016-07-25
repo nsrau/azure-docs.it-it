@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
@@ -97,7 +97,7 @@ Le condizioni vengono create usando campi e origini. Un campo rappresenta le pro
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.** e **alias proprietà**.
+Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.*** e **property alias**.
 
 ### Alias delle proprietà 
 L'alias delle proprietà è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto di PowerShell verrà aggiunto in futuro:
@@ -155,7 +155,7 @@ Il criterio supporta tre tipi di effetto: **negazione**, **controllo** e **aggiu
 
 - La negazione genera un evento nel log di controllo e nega la richiesta
 - Il controllo genera un evento nel log di controllo, ma non nega la richiesta
-- L'aggiunta aggiunge il set di campi definiti alla richiesta 
+- L'aggiunta aggiunge il set di campi definiti alla richiesta
 
 In caso di **aggiunta** è necessario specificare i dettagli illustrati di seguito:
 
@@ -468,4 +468,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

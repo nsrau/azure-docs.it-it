@@ -8,7 +8,7 @@ Nella tabella seguente sono elencati i requisiti per i gateway VPN basati su cri
 | **Metodo di autenticazione** | Chiave condivisa | Chiave precondivisa per la connettività da sito a sito, Certificati per la connettività da punto a sito | Chiave precondivisa per la connettività da sito a sito, Certificati per la connettività da punto a sito | Chiave precondivisa per la connettività da sito a sito, Certificati per la connettività da punto a sito |
 | **Numero massimo di connessioni Site-to-Site** | 1 | 10 | 10 | 30 |
 | **Numero massimo di connessioni Point-to-Site** | Non supportato | 128 | 128 | 128 |
-|**Supporto routing attivo (BGP)** | Non supportato | Non supportato | Non supportato | Non supportato |
+|**Supporto routing attivo (BGP)** | Non supportato | Non supportato | Supportato | Supportato |
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

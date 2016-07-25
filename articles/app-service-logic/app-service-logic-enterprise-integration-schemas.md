@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica degli schemi ed Enterprise Integration Pack | Servizio app di Microsoft Azure" 
+	pageTitle="Panoramica degli schemi e di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Informazioni su come usare gli schemi con Enterprise Integration Pack e le app per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Informazioni sugli schemi ed Enterprise Integration Pack  
@@ -53,8 +53,8 @@ Nel portale di Azure:
 
 ## Passaggi successivi
 
-- [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
+- [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
       
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

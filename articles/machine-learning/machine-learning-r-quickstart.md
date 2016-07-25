@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
@@ -1296,13 +1296,13 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base sull'ambito di utilizzo del linguaggio R con Azure Machine Learning Studio. Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
-- R for Beginners di Emmanuel Paradis, per iniziare, all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+- R for Beginners di Emmanuel Paradis, per iniziare, all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.
 
 - An Introduction to R di W. N. Venables et. al., con informazioni un po' più approfondite, all'indirizzo http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Sono disponibili molti libri con informazioni introduttive su R. Di seguito sono elencati quelli che ritengo più utili:
 
-- The Art of R Programming: A Tour of Statistical Software Design di Norman Matloff, un'eccellente introduzione alla programmazione in R.  
+- The Art of R Programming: A Tour of Statistical Software Design di Norman Matloff, un'eccellente introduzione alla programmazione in R.
 
 - R Cookbook di Paul Teetor, che offre un approccio problema-soluzione all'uso di R.
 
@@ -1318,7 +1318,7 @@ Il libro Introductory Time Series with R di Paul Cowpertwait e Andrew Metcalfe f
 
 Alcune importanti risorse su Internet:
 
-- DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Per esercitazioni interattive di R gratuite, visitare https://www.datacamp.com/courses/introduction-to-r  
+- DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Per esercitazioni interattive di R gratuite, visitare https://www.datacamp.com/courses/introduction-to-r
 
 - A quick R tutorial di Kelly Black della Clarkson University http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

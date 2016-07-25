@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Panoramica dell'API Hub eventi
 
-In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: gestione e API di runtime. Le API di Runtime sono costituite da tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
+In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
-Scenari di monitoraggio comprendono gestione e runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere i riferimenti [.NET del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Gli scenari di monitoraggio comprendono sia la gestione che il runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere i riferimenti [.NET del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API di gestione
 
@@ -47,7 +47,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
-### Elimina
+### Delete
 
 ```
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
@@ -189,4 +189,4 @@ I riferimenti API .NET sono qui:
 - [Riferimenti API .NET di Hub eventi e del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

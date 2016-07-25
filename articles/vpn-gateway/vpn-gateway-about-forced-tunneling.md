@@ -140,15 +140,15 @@ La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione p
 
 	Nell'esempio di cmdlet riportato di seguito viene aggiunta una route predefinita alla tabella di routing creata nel passaggio 1. L'unica route supportata è il prefisso di destinazione di "0.0.0.0/0" sul nexthop "VPNGateway".
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Associare la tabella di routing alle subnet.
 
 	Dopo aver creato una tabella di routing e aggiunto una route, utilizzare il cmdlet riportato di seguito per aggiungere o associare la tabella route a una subnet della rete virtuale. Negli esempi riportati di seguito viene aggiunta una tabella route "MyRouteTable" alle subnet di livello intermedio e back-end della rete virtuale multilivello.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Assegnare un sito predefinito per il tunneling forzato.
 
@@ -161,7 +161,7 @@ La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione p
 
 ### Per eliminare una tabella route
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### Per elencare una tabella route
 
@@ -173,14 +173,14 @@ La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione p
 
 ### Per rimuovere una route da una subnet
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Per elencare la tabella route associata a una subnet
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Per rimuovere un sito predefinito da un gateway VPN della rete virtuale
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

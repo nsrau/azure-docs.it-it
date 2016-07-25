@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Panoramica di Enterprise Integration Pack | Servizio app di Microsoft Azure" 
-	description="Usare le funzionalità di Enterprise Integration Pack per abilitare processi aziendali e scenari di integrazione tramite il Servizio app di Microsoft Azure" 
+	pageTitle="Informazioni su come codificare o decodificare i file flat usando Enterprise Integration Pack e le app per la logica | Servizio app di Microsoft Azure | Microsoft Azure" 
+	description="Usare le funzionalità di Enterprise Integration Pack e delle app per la logica per codificare o decodificare i file flat" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise Integration con file flat
@@ -65,4 +65,4 @@ A questo punto la configurazione del connettore di decodifica file flat è compl
 ## Altre informazioni
 - [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

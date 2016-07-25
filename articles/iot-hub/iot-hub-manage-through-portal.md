@@ -94,7 +94,7 @@ Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'
 
 - Fare clic su **Aggiungi** per aprire un pannello in cui è possibile immettere il nome dei nuovi criteri e le autorizzazioni da associare a questi criteri, come illustrato nella figura seguente.
 
-	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
+	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema ** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
 
  	I criteri **Connessione servizio** concedono l'autorizzazione di accesso agli endpoint sul lato cloud, ad esempio al gruppo di consumer per i servizi che si connettono all'hub IoT, mentre i criteri di **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi negli endpoint sul lato dispositivo dell'hub IoT.
 
@@ -157,10 +157,19 @@ Il passaggio da un piano più elevato (S2 o S3) a un piano inferiore (S1 o S2) �
 
 ## Passaggi successivi
 
-Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
+Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
-- [Introduzione all'hub IoT (esercitazione)][lnk-get-started]
-- [Che cos'è l'hub IoT Azure?][]
+- [Gestire in blocco i dispositivi IoT][lnk-bulk]
+- [Metriche di utilizzo][lnk-metrics]
+- [Monitoraggio delle operazioni][lnk-monitor]
+- [Gestire l'accesso all'hub IoT][lnk-itpro]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -173,6 +182,16 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
   [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

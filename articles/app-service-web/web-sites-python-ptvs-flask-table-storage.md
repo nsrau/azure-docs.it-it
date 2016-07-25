@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/20/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
@@ -32,10 +32,10 @@ Vedere il [Centro per sviluppatori Python] per consultare altri articoli che tra
 
 ## Prerequisiti
 
- - Visual Studio 2013 o 2015
+ - Visual Studio 2015
  - [Python Tools 2.2 per Visual Studio]
  - [VSIX degli esempi di Python Tools 2.2 per Visual Studio]
- - [Strumenti di Azure SDK per VS 2013] o [Strumenti di Azure SDK per VS 2015]
+ - [Strumenti di Azure SDK per Visual Studio 2015]
  - [Python 2.7 a 32 bit] o [Python 3.4 a 32 bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -48,7 +48,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
 1.  In Visual Studio selezionare **File**, **Nuovo progetto**.
 
-1.  I modelli di progetto del pacchetto PTVS Samples VSIX sono disponibili in **Python**, **Esempi**. Selezionare **Polls Flask Web Project** e fare clic su OK per creare il progetto.
+1.  I modelli di progetto di [VSIX degli esempi di Python Tools 2.2 per Visual Studio] sono disponibili in **Python**, **Esempi**. Selezionare **Polls Flask Web Project** e fare clic su OK per creare il progetto.
 
   	![Finestra di dialogo Nuovo progetto](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskNewProject.png)
 
@@ -74,9 +74,13 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
+  	![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
 
-5. Fare clic sulla sezione **Impostazioni** del pannello dell'account di archiviazione. Prendere nota del nome dell'account e della chiave primaria.
+	Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
+
+5. Fare clic sulla sezione **Chiavi di accesso** del pannello dell'account di archiviazione. Prendere nota del nome dell'account e della chiave denominata key1.
+
+  	![Chiavi](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageKeys.png)
 
 	Queste informazioni sono necessarie per configurare il progetto nella sezione successiva.
 
@@ -110,21 +114,25 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
 ## Esplorare l'archiviazione tabelle di Azure
 
-È facile visualizzare e modificare le tabelle di archiviazione tramite Esplora server in Visual Studio. In questa sezione si userà Esplora server per visualizzare il contenuto delle tabelle dell'applicazione di sondaggio.
+È facile visualizzare e modificare le tabelle di archiviazione tramite Cloud Explorer in Visual Studio. In questa sezione si userà Esplora server per visualizzare il contenuto delle tabelle dell'applicazione di sondaggio.
 
 > [AZURE.NOTE] A tale scopo, è necessario che siano installati gli strumenti di Microsoft Azure, disponibili come parte di [Azure SDK per .NET].
 
-1.  Aprire **Esplora server**. Espandere **Azure**, **Archiviazione**, l'account di archiviazione e quindi **Tabelle**.
+1.  Aprire **Cloud Explorer**. Espandere **Account di archiviazione**, l'account di archiviazione di riferimento e quindi **Tabelle**.
 
-  	<!-- ![Server Explorer](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorer.png) -->
+  	![Cloud Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
 
 1.  Fare doppio clic sulla tabella **polls** o **choices** per visualizzare i contenuti della tabella in una finestra di documento e per aggiungere, rimuovere o modificare entità.
 
-  	<!-- ![Table Query Results](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png) -->
+  	![Risultati della query relativa alla tabella](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
 ## Pubblicare l'app Web nel servizio app di Azure
 
 L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio app di Azure.
+
+1.  In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Pubblica**.
+
+  	![Finestra di dialogo Pubblica sito Web](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
 
 1.  Fare clic su **App Web di Microsoft Azure**.
 
@@ -137,8 +145,6 @@ L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio
 	-	**Area**
 	-	Lasciare **Server database** impostato su **Nessun database**
 
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonCreateWebSite.png) -->
-
 1.  Accettare tutte le altre impostazioni predefinite e fare clic su **Pubblica**.
 
 1.  L'app Web pubblicata verrà aperto automaticamente nel Web browser. Se si passa alla pagina relativa alle informazioni, si noterà che viene usato il repository **in memoria** anziché il repository di **archiviazione tabelle di Azure**.
@@ -149,19 +155,15 @@ L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio
 
 In questa sezione verranno configurate le variabili dell'istanza di App Web.
 
-1.  Nel [portale di Azure](https://portal.azure.com) aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome dell'app Web.
+1.  Nel [portale di Azure](https://portal.azure.com) aprire il pannello dell'app Web facendo clic su **Sfoglia** > **Servizi app** > nome dell'app Web.
 
 1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** e quindi su **Impostazioni applicazione**.
 
-  	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
+1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY\_NAME**, **STORAGE\_NAME** e **STORAGE\_KEY**, come descritto nella sezione precedente **Configurare il progetto**.
 
-1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY\_NAME**, **STORAGE\_NAME** e **STORAGE\_KEY** come descritto nella sezione precedente.
+  	![Impostazioni app](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
-  	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
-
-1. Fare clic su **SALVA**, **RIAVVIA** e quindi su **SFOGLIA**.
-
-  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
+1.  Fare clic su **Save**. Dopo aver ricevuto le notifiche relative all'applicazione delle modifiche, fare clic su **Sfoglia** dal pannello principale dell'app Web.
 
 1.  L'app Web dovrebbe funzionare come previsto, usando il repository di **archiviazione tabelle di Azure**.
 
@@ -198,8 +200,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX degli esempi di Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Strumenti di Azure SDK per VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Strumenti di Azure SDK per VS 2015]: http://go.microsoft.com/fwlink/?linkid=518003
+[Strumenti di Azure SDK per Visual Studio 2015]: http://go.microsoft.com/fwlink/?linkid=518003
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
@@ -211,4 +212,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

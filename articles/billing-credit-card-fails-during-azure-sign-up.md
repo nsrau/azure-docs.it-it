@@ -1,12 +1,13 @@
 <properties
-	pageTitle="La carta di credito non viene accettata quando si tenta iscriversi ad Azure | Microsoft Azure"
-	description="Vengono illustrate le cause più comuni dei problemi relativi all'iscrizione a Microsoft Azure con una carta di credito o di debito."
+	pageTitle="Carta di credito o debito rifiutata al momento dell'iscrizione | Microsoft Azure"
+	description="Vengono illustrate le cause più comuni dei problemi relativi all'iscrizione a Microsoft Azure con una carta di credito o di debito che viene rifiutata."
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# La carta di credito non viene accettata quando si tenta iscriversi ad Azure
-Al momento come opzioni di pagamento valide sono accettate soltanto carte di credito e di debito che non siano virtuali o prepagate. I fornitori di carte di credito e di debito accettati variano in base al paese.
+# La carta di credito o di debito viene rifiutata quando si tenta di eseguire l'iscrizione ad Azure
+Se la carta di credito o di debito è stata rifiutata, è possibile che si stia usando una carta prepagata o virtuale. Al momento Microsoft riconosce la maggior parte delle carte di credito e debito, ma non quelle virtuali o prepagate. Queste ultime non sono accettate come opzione di pagamento. I fornitori di carte di credito e di debito accettati variano in base al paese. Nell'elenco a discesa per la scelta della carta di credito vengono visualizzate solo le opzioni valide per il paese selezionato.
 
-Assicurarsi che il metodo di pagamento sia attivo e che la banca non blocchi le transazioni online per i criteri di sicurezza.
+Se si sta usando una carta di credito o debito della cui validità si è certi, verificare che il metodo di pagamento sia attivo e che la banca non blocchi le transazioni online per i criteri di sicurezza.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
@@ -40,4 +41,4 @@ Per avvalersi dell'opzione di pagamento della fattura è necessario rappresentar
 
 Per informazioni dettagliate su come avviare il processo di configurazione di una fattura, vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

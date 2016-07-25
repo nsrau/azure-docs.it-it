@@ -174,7 +174,7 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 | MemoryFree | Lettura | Integer | KB | Memoria attualmente disponibile stimata dello spazio di archiviazione per memorizzare dati e software nel dispositivo |
 | MemoryTotal | Lettura | Integer | KB | Quantità totale di spazio di archiviazione per memorizzare dati e software nel dispositivo |
 | BatteryLevel | Lettura | Integer | 0-100% | Livello di batteria corrente espresso come percentuale (da 0 a 100) |
-| BatteryStatus | Lettura | Integer | 0-6 | **0**: la batteria funziona normalmente e non è collegata alla rete elettrica.<br/>**1**: la batteria si sta ricaricando.<br/>**2**: la batteria è completamente carica ed è collegata alla rete elettrica.<br/>**3**: la batteria è danneggiata.<br/>**4**: la batteria è quasi scarica.<br/>**5**: la batteria non è presente.<br/> **6**: informazioni sulla batteria non disponibili. |
+| BatteryStatus | Lettura | Integer | 0-6 | **0**: la batteria funziona normalmente e non è collegata alla rete elettrica.<br/>**1**: la batteria si sta ricaricando<br/>**2**: la batteria è completamente carica ed è collegata alla rete elettrica.<br/>**3**: la batteria è danneggiata.<br/>**4**: la batteria è quasi scarica.<br/>**5**: la batteria non è presente.<br/> **6**: informazioni sulla batteria non disponibili. |
 
 ### Oggetto di aggiornamento del firmware
 
@@ -204,6 +204,15 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 | Valore | Lettura Scrittura | String | | Identifica in modo univoco il valore della configurazione da leggere o aggiornare. |
 | Applica | Esegui | | | Applica la modifica alla configurazione nel dispositivo. |
 
+## Passaggi successivi
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -216,10 +225,14 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

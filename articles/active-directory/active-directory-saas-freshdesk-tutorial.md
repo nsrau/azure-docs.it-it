@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Freshdesk
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Fres
 
 ###Per abilitare l'integrazione dell'applicazione per Freshdesk, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-freshdesk-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Freshdesk** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Freshdesk** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Configura accesso Single Sign-On")
 
@@ -100,15 +100,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     1.  Per **Single Sign On (SSO)**, selezionare **On**.
     2.  Selezionare **SAML SSO**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Freshdesk** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **SAML Login URL**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Freshdesk** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Logout URL**.
-    5.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Security Certificate Fingerprint**.  
+    3.  Nella finestra di dialogo **Configure single sign-on at Freshdesk** (Configura accesso Single Sign-On in Freshdesk) del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **SAML Login URL** (URL accesso SAML).
+    4.  Nella finestra di dialogo **Configure single sign-on at Freshdesk** (Configura accesso Single Sign-On in Freshdesk) del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Logout URL** (URL di disconnessione).
+    5.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronte digitali del certificato di sicurezza**.
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     6.  Fare clic su **Save**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -141,9 +141,9 @@ Per consentire agli utenti di Azure AD di accedere a Freshdesk, è necessario es
     4.  Selezionare **Agents role** e quindi fare clic su **Assign**.
     5.  Fare clic su **Save**.
     
-        >[AZURE.NOTE]Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account.
+        >[AZURE.NOTE] Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Freshdesk per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Freshdesk per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -151,7 +151,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Freshdesk, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Freshdesk** fare clic su **Assegna utenti**.
 
@@ -163,4 +163,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

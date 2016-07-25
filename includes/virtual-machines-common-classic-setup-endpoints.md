@@ -12,7 +12,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 
 ## Creare un endpoint
 
-1.	Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
+1.	Accedere al [portale di Azure classico](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
 3.	Fare clic su **Endpoint**. Nella pagina **Endpoint** sono elencati tutti gli endpoint correnti per la macchina virtuale. Questo esempio è relativo a una VM Windows. Una macchina virtuale Linux mostrerà per impostazione predefinita un endpoint per SSH.
 
@@ -60,4 +60,4 @@ Se la macchina virtuale si trova in una rete virtuale di Azure, è consigliabile
 
 Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere ordinate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](../articles/virtual-network/virtual-networks-acl.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

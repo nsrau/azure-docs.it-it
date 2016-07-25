@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Risoluzione dettagliata del Desktop remoto | Microsoft Azure"
-	description="Passaggi della risoluzione dettagliata dei problemi per le connessioni RDP a una macchina virtuale di Azure che esegue Windows."
+	pageTitle="Procedura dettagliata per la risoluzione dei problemi: non è possibile connettersi a Remote Desktop della macchina virtuale | Microsoft Azure"
+	description="Risolvere i problemi di Remote Desktop nel caso in cui non sia possibile usare Remote Desktop per connettersi a macchine virtuali Windows in Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="non è possibile connettersi a Remote Desktop, risolvere i problemi di Remote Desktop, Remote Desktop non riesce a connettersi, errori di Remote Desktop, risoluzione dei problemi di Remote Desktop, problemi di Remote Desktop"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Risoluzione dettagliata dei problemi relativi a connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows
+# Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
 
@@ -102,7 +103,7 @@ Per le macchine virtuali create mediante il modello di distribuzione classico, v
 
 > [AZURE.NOTE] Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#nsgs).
 
-Se non si ha un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una nuova usando la procedura descritta in [Creare una macchina virtuale che esegue Windows in Azure](virtual-machines-windows-hero-tutorial.md). Eliminare la macchina virtuale aggiuntiva al completamento del test.
+Se non si ha un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una nuova usando la procedura descritta in [Creare la prima macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md). Eliminare la macchina virtuale aggiuntiva al completamento del test.
 
 Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare quanto segue:
 
@@ -113,7 +114,15 @@ Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint co
 
 ### <a id="nsgs"></a>Origine 4: gruppi di sicurezza di rete
 
-I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Verificare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico di Desktop remoto da Internet.
+I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Verificare le regole del gruppo di sicurezza di rete per assicurarsi che sia consentito il traffico di Desktop remoto da Internet:
+
+- Nel portale di Azure selezionare la macchina virtuale.
+- Fare clic su **Tutte le impostazioni** | **Interfacce di rete** e selezionare la propria interfaccia di rete.
+- Fare clic su **Tutte le impostazioni** | **Gruppo di sicurezza di rete** e selezionare il proprio gruppo di sicurezza di rete.
+- Fare clic su **Tutte le impostazioni** | **Regole di sicurezza in ingresso** e assicurarsi che sia disponibile una regola che consente RDP sulla porta TCP 3389.
+	- Se non è presente alcuna regola, fare clic su **Aggiungi** per creare una nuova regola. Immettere **TCP** per il protocollo e quindi **3389** per l'intervallo di porte di destinazione.
+	- Assicurarsi che l'azione sia impostata su **Consenti** e fare clic su OK per salvare la nuova regola in ingresso.
+
 
 Per altre informazioni, vedere [Che cos'è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
@@ -139,7 +148,7 @@ Successivamente, installare Azure PowerShell, se non è stato già installato. V
 
 Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1**. Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-Successivamente, immettere il nome della sottoscrizione di Azure, il nome del servizio cloud e il nome della macchina virtuale (rimuovendo i caratteri < and >), quindi eseguire questi comandi.
+Immettere quindi il nome della sottoscrizione di Azure, il nome del servizio cloud e il nome della macchina virtuale (rimuovendo i caratteri < and >) e infine eseguire questi comandi.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -195,4 +204,4 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

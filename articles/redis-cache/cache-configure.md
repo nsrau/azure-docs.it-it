@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/29/2016"
+	ms.date="07/07/2016"
 	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
@@ -63,6 +63,8 @@ Fare clic su **Risoluzione dei problemi** per conoscere i problemi comuni e le s
 Fare clic su **Log di controllo** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'uso dei log di controllo, vedere [Visualizzare eventi e log di controllo](../azure-portal/insights-debugging-with-events.md) e [Operazioni di controllo con Resource Manager](../resource-group-audit.md). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
 
 **Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
+
+>[AZURE.NOTE] Integrità risorsa non è attualmente in grado di segnalare l'integrità delle istanze della Cache Redis di Azure ospitate in una rete virtuale. Per altre informazioni, vedere [Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 Fare clic su **Nuova richiesta di supporto** per aprire una richiesta di supporto per la cache.
 
@@ -143,7 +145,7 @@ Per altre informazioni, vedere il pannello **Raccomandazioni**.
 
 ![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
-È possibile monitorare le metriche nelle sezioni [Grafici di monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Grafici di utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
+È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
 Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e larghezza di banda. Se la cache rasenta la capacità massima di queste metriche per un periodo prolungato, viene creata una raccomandazione. Per altre informazioni sulle metriche e sui limiti considerati dallo strumento **Raccomandazioni**, vedere la tabella seguente.
 
@@ -234,7 +236,7 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 
 ### Reboot
 
-Il pannello **Reboot** (Riavvio) consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
+Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -242,13 +244,13 @@ Se si dispone di una cache Premium con clustering abilitato, è possibile selezi
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot** (Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Reboot** (Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
+Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Riavvia**. Se si ha una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Riavvia**. Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
->[AZURE.IMPORTANT] La funzionalità di riavvio è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Riavvio](cache-administration.md#reboot).
+>[AZURE.IMPORTANT] La funzionalità di riavvio è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Riavvia](cache-administration.md#reboot).
 
 ### Pianificare gli aggiornamenti
 
-Il pannello **Schedule updates** (Pianificazione aggiornamenti) consente di progettare un intervallo di manutenzione per gli aggiornamenti del server Redis della cache.
+Il pannello **Pianifica aggiornamenti** consente di progettare un intervallo di manutenzione per gli aggiornamenti del server Redis della cache.
 
 >[AZURE.IMPORTANT] Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.
 
@@ -291,7 +293,7 @@ La sezione **Blocchi** consente di bloccare una sottoscrizione, una risorsa o un
 
 La sezione **Utenti** fornisce il supporto del controllo di accesso in base al ruolo (RBAC) nel portale di Azure per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere[Controllo di accesso in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
 
-Fare clic su **Esporta modello** per compilare ed esportare un modello delle risorse distribuite per le distribuzioni future. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager](../resource-group-template-deploy.md).
+Fare clic su **Esporta modello** per compilare ed esportare un modello delle risorse distribuite per le distribuzioni future. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../resource-group-template-deploy.md).
 
 ## Configurazione predefinita del server Redis
 
@@ -328,7 +330,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 	-	P2 (13 GB - 130 GB): fino a 32 database
 	-	P3 (26 GB - 260 GB): fino a 48 database
 	-	P4 (53 GB - 530 GB): fino a 64 database
-	-   Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](http://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+	-   Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](http://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering) (È necessario apportare modifiche all'applicazione client per usare il clustering?)
 
 
 >[AZURE.NOTE] L'impostazione `databases` può essere configurata solo durante la creazione della cache e solo usando PowerShell, l'interfaccia della riga di comando o altri client di gestione. Per un esempio di configurazione di `databases` durante la creazione della cache con PowerShell, vedere [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
@@ -396,4 +398,4 @@ Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'alt
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

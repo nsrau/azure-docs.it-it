@@ -1,4 +1,4 @@
-Esistono vari motivi per cui è possibile avere problemi nel connettersi a un'applicazione in esecuzione su una macchina virtuale di Azure (VM), ad esempio che l'applicazione non sia in esecuzione e in ascolto sulle porte previste o che le regole per l'applicazione non consentano un corretto passaggio del traffico di rete. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
+Esistono vari motivi per cui non è possibile avviare o connettersi a un'applicazione in esecuzione in una macchina virtuale di Azure, ad esempio l'applicazione non è in esecuzione e in ascolto sulle porte previste, la porta in ascolto è bloccata o le regole di rete non consentono il passaggio corretto del traffico all'applicazione. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
 
 Se si sono verificati problemi durante la connessione alla macchina virtuale tramite RDP o SSH, consultare prima uno dei seguenti articoli:
 
@@ -29,14 +29,14 @@ Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività de
 
 Esistono quattro aree principali per risolvere i problemi di accesso di un'applicazione che è in esecuzione in una macchina virtuale di Azure.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![risolvere il problema che impedisce l'avvio dell'applicazione](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	L’applicazione in esecuzione nella macchina virtuale di Azure.
 	- L'applicazione viene eseguita correttamente?
 2.	La macchina virtuale di Azure.
 	- La macchina virtuale viene eseguita correttamente e soddisfa le richieste?
 3.	Gli endpoint di Azure per il servizio cloud che contiene la macchina virtuale per le macchine nel modello di distribuzione classica, le regole NAT in ingresso per le macchine virtuali nel modello di distribuzione di Resource Manager e i gruppi di sicurezza di rete.
-	- Il traffico riesce a fluire dagli utenti alla VM/applicazione sulle porte previste?
+	- Il traffico riesce a fluire dagli utenti alla macchina virtuale/applicazione sulle porte previste?
 4.	Il dispositivo periferico di Internet.
 	- Le regole del firewall applicate impediscono al traffico di fluire in modo corretto?
 
@@ -46,7 +46,7 @@ Per i computer client che accedono all'applicazione tramite una connessione site
 
 Provare ad accedere all'applicazione con il programma client appropriato dalla macchina virtuale in cui è in esecuzione. Usare il nome host locale, l'indirizzo IP locale o l'indirizzo di loopback (127.0.0.1).
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![avviare l'applicazione direttamente dalla macchina virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 Ad esempio, se l'applicazione è un server Web, aprire un browser nella VM e provare ad accedere a una pagina Web ospitata nella VM.
 
@@ -57,13 +57,13 @@ Se non è possibile accedere all'applicazione, verificare quanto segue:
 - Che l’applicazione sia in esecuzione nella macchina virtuale.
 - Che l'applicazione sia in ascolto sulle porte TCP e UDP previste.
 
-Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netstat - a** per visualizzare le porte di ascolto attive. Esaminare l'output per le porte previste sulle quali l’applicazione dovrebbe essere in ascolto. Riavviare l'applicazione oppure configurarla per usare le porte previste in base alle esigenze e provare di nuovo l'accesso all'applicazione in locale.
+Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netstat - a** per visualizzare le porte di ascolto attive. Esaminare l'output per le porte previste sulle quali l’applicazione dovrebbe essere in ascolto. Riavviare l'applicazione oppure configurarla per usare le porte previste in base alle esigenze e provare di nuovo ad accedere all'applicazione in locale.
 
 ## <a id="step2"></a>Passaggio 2: È possibile accedere all'applicazione da un'altra macchina virtuale nella stessa rete virtuale?
 
 Provare ad accedere all'applicazione da una macchina virtuale diversa, ma nella stessa rete virtuale, usando il nome host della macchina virtuale o l'indirizzo IP pubblico, privato o del provider assegnato da Azure. Per le macchine virtuali create con il modello di distribuzione classica, non usare l'indirizzo IP pubblico del servizio cloud.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![applicazione avviata da una macchina virtuale diversa](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 Ad esempio, se l'applicazione è un server Web, provare ad accedere a una pagina Web da un browser presente in un'altra macchina virtuale nella stessa rete virtuale.
 
@@ -84,7 +84,7 @@ In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicu
 
 Provare ad accedere all'applicazione da un computer all'esterno della rete virtuale come macchina virtuale in cui è in esecuzione l'applicazione, ma che non si trova nella stessa rete del computer client originale.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Ad esempio, se l'applicazione è un server web, tentare di accedere a una pagina web da un browser in esecuzione su un computer che non è presente nella rete virtuale.
 
@@ -94,7 +94,7 @@ Se non è possibile accedere all'applicazione, verificare quanto segue:
 	- La configurazione dell'endpoint per la VM consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
 	- Gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscono il traffico in ingresso da Internet.
 	- Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-	
+
 - Per le VM create con il modello di distribuzione di Resource Manager:
 	- La configurazione della regola NAT in ingresso consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
 	- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
@@ -118,4 +118,4 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

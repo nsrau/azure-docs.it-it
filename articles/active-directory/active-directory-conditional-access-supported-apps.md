@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 
@@ -57,7 +57,9 @@ In Exchange esistono due categorie principali di revisione dei protocolli e occo
 
 
 ### Regole di AD FS di esempio
-Le seguenti regole consentono di impedire ai protocolli legacy di accedere ad AD FS in due configurazioni comuni. Opzione 1: consentire Exchange ActiveSync e solo le applicazioni legacy nella Intranet.
+Le seguenti regole consentono di impedire ai protocolli legacy di accedere ad AD FS in due configurazioni comuni.
+
+### Opzione 1: consentire Exchange ActiveSync e solo le applicazioni legacy nella intranet
 
 Applicando le tre regole seguenti al trust della relying party di AD FS per la piattaforma di identità di Microsoft Office 365, il traffico di Exchange ActiveSync sarà consentito, insieme al traffico di autenticazione moderna e del browser. Le applicazioni legacy verranno bloccate dalla rete Extranet.
 
@@ -105,4 +107,4 @@ Regola 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

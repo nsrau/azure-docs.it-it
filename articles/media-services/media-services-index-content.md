@@ -272,7 +272,7 @@ Codice | Nome | Possibili cause
 2005 | Tipo di file non supportato | Il tipo di file multimediale di input non è supportato.
 2006 | Troppi file di input | Sono presenti oltre 10 file nel manifesto di input.
 3000 | Impossibile decodificare il file multimediale | Codec multimediale non supportato <br/>oppure<br/> File multimediale danneggiato <br/>oppure<br/> Nessun flusso audio nei file multimediali di input.
-4000 | Indicizzazione batch parzialmente completata | Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="output_files">File di output</a>.
+4000 | Indicizzazione batch parzialmente completata | Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="#output_files">File di output</a>.
 Altro | Errori interni | Contattare il team di supporto. indexer@microsoft.com
 
 
@@ -298,4 +298,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 [Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

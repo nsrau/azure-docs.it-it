@@ -26,7 +26,7 @@ I requisiti di sistema includono:
 
 - **Requisiti software per i client di archiviazione**: descrive i sistemi operativi supportati e gli eventuali requisiti aggiuntivi per tali sistemi.
 - **Requisiti di rete per il dispositivo StorSimple**: fornisce informazioni sulle porte che devono essere aperte nel firewall per consentire il traffico iSCSI, cloud o di gestione.
-- **Requisiti di disponibilità elevata per StorSimple**: descrive i requisiti di disponibilità elevata e le procedure consigliate per il dispositivo StorSimple e il computer host. 
+- **Requisiti di disponibilità elevata per StorSimple**: descrive i requisiti di disponibilità elevata e le procedure consigliate per il dispositivo StorSimple e il computer host.
 
 
 ## Requisiti software per i client di archiviazione
@@ -87,7 +87,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure| Interfacce di rete abilitate per il cloud |
 |`https://*.backup.windowsazure.com`|Registrazione del dispositivo| Solo DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revoca del certificato |Interfacce di rete abilitate per il cloud |
-| `https://*.core.windows.net/*` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> | Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
 | `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
@@ -96,7 +96,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 Una metrica di routing è associata alle interfacce e al gateway che instrada i dati alle reti specificate. La metrica di routing è usata dal protocollo di routing per calcolare il percorso migliore per una determinata destinazione, se apprende dell'esistenza di più percorsi per la stessa destinazione. Minore è la metrica di routing, maggiore è la preferenza.
 
-Nel contesto di StorSimple, se sono configurate più interfacce di rete e gateway per il traffico del canale, le metriche di routing entreranno in gioco per determinare l'ordine relativo in cui le interfacce verranno usate. Le metriche di routing non possono essere modificate dall'utente. È tuttavia possibile usare il cmdlet `Get-HcsRoutingTable` per stampare la tabella di routing (e le metriche) sul dispositivo StorSimple. Altre informazioni sul cmdlet Get-HcsRoutingTable sono disponibili in [Risoluzione dei problemi di distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
+Nel contesto di StorSimple, se sono configurate più interfacce di rete e gateway per il traffico del canale, le metriche di routing entreranno in gioco per determinare l'ordine relativo in cui le interfacce verranno usate. Le metriche di routing non possono essere modificate dall'utente. È tuttavia possibile usare il cmdlet `Get-HcsRoutingTable` per stampare la tabella di routing (e le metriche) sul dispositivo StorSimple. Altre informazioni sul cmdlet Get-HcsRoutingTable disponibili in [Risoluzione dei problemi di distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
 Gli algoritmi delle metriche di routing sono diversi a seconda della versione del software in esecuzione sul dispositivo StorSimple.
 
@@ -120,7 +120,7 @@ Sono comprese le versioni software come 1, 1.1 e 1.2. L'ordine in base alle metr
 
 L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metriche di routing sono cambiate. Il comportamento può essere spiegato come segue.
 
-- È stato assegnato un set di valori predefiniti alle interfacce di rete. 	
+- È stato assegnato un set di valori predefiniti alle interfacce di rete.
 
 - Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati qui sono puramente esemplificativi.
 
@@ -131,7 +131,7 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 	| Data 1 | 2 | 20 |
 	| Data 2 | 3 | 30 |
 	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 | 
+	| Data 4 | 5 | 50 |
 	| Data 5 | 6 | 60 |
 
 
@@ -280,4 +280,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

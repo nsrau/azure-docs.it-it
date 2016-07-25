@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Mimecast Personal Portal
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Mimecast Personal Portal, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Mimecast Personal Portal tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Mimecast Personal Portal** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Mimecast Personal Portal** nel portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.png "Configura accesso Single Sign-On")
 
@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a Mimecast Personal Portal**, digitare l’URL utilizzato dagli utenti per accedere all’applicazione Mimecast Personal Portal (ad esempio, “https://webmail-uk.mimecast.com” o “https://webmail-us.mimecast.com”), quindi fare clic su **Avanti**.
 
-    >[AZURE.NOTE]L’URL di accesso è specifico dell’area geografica.
+    >[AZURE.NOTE] L’URL di accesso è specifico dell’area geografica.
 
     ![Configura URL app](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configura URL app")
 
@@ -107,21 +107,21 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1.  Nella casella di testo **Description** digitare un nome per la configurazione.
     2.  Selezionare **Enforce SAML Authentication for Mimecast Personal Portal**.
     3.  Come **Provider** selezionare **Azure Active Directory**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Mimecast Personal Portal** del portale di Azure, copiare il valore **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer URL**.
-    5.  Nella pagina **Configura accesso Single Sign-On in Mimecast Personal Portal** del portale di Azure copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
-    6.  Nella pagina **Configura accesso Single Sign-On in Mimecast Personal Portal** del portale di Azure copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **Logout URL**.  
+    4.  Nella pagina **Configure single sign-on at Mimecast Personal Portal** (Configura accesso Single Sign-On in Mimecast Personal Portal) del portale di Azure classico copiare il valore **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer URL** (URL autorità di certificazione).
+    5.  Nella pagina **Configure single sign-on at Mimecast Personal Portal** (Configura accesso Single Sign-On in Mimecast Personal Portal) del portale di Azure classico copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
+    6.  Nella pagina **Configure single sign-on at Mimecast Personal Portal** (Configura accesso Single Sign-On in Mimecast Personal Portal) del portale di Azure classico copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **Logout URL** (URL di disconnessione).
 
-        >[AZURE.NOTE]Il valore dell’URL di accesso e il valore dell'URL disconnessione per l’accesso Single Sign-On in Mimecast Personal Portal sono identici.
+        >[AZURE.NOTE] Il valore dell’URL di accesso e il valore dell'URL disconnessione per l’accesso Single Sign-On in Mimecast Personal Portal sono identici.
 
     7.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Aprire il certificato con codifica Base 64 nel Blocco note, rimuovere la prima riga (“*--*“) e l’ultima riga (“*--*“), copiare il contenuto rimanente negli Appunti e incollarlo nella casella di testo **Identity Provider Certificate (Metadata)**.
+    8.  Aprire il certificato con codifica Base 64 nel Blocco note, rimuovere la prima riga ("*--*") e l'ultima riga ("*--*"), copiare il contenuto rimanente negli Appunti e incollarlo nella casella di testo **Identity Provider Certificate (Metadata)** (Certificato del provider di identità (Metadati)).
     9.  Selezionare **Allow Single Sign On**.
     10. Fare clic su **Save**.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -161,7 +161,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Mimecast Personal Portal, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Mimecast Personal Portal** fare clic su **Assegna utenti**.
 
@@ -173,4 +173,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

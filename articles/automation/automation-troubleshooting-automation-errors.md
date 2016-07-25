@@ -1,36 +1,37 @@
 <properties
-   pageTitle="Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure| Microsoft Azure"
-   description="Questo articolo fornisce le procedure di base per la risoluzione dei problemi che consentono di correggere gli errori comuni in cui è possibile incorrere durante l'utilizzo di Automazione di Azure."
+   pageTitle="Gestione degli errori di Automazione di Azure | Microsoft Azure"
+   description="Questo articolo fornisce le procedure di base sulla gestione degli errori al fine di risolvere e correggere gli errori più comuni di Automazione di Azure."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
    manager="stevenka"
    editor="tysonn"
-   tags="top-support-issue"/>
+   tags="top-support-issue"
+   keywords="errore di automazione, gestione degli errori"/>
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="07/06/2016"
    ms.author="sngun; v-reagie"/>
 
-# Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure
+# Suggerimenti sulla gestione degli errori comuni relativi ad Automazione di Azure
 
-Questo articolo illustra alcuni degli errori più comuni che possono verificarsi quando si lavora con Automazione di Azure e suggerisce procedure di correzione possibili.
+Questo articolo illustra alcuni degli errori più comuni che possono verificarsi in Automazione di Azure e suggerisce le possibili procedure di gestione di tali errori.
 
 ## Risolvere gli errori di autenticazione durante l'utilizzo runbook di Automazione di Azure  
 
 ### Scenario: Accesso all'account Azure non riuscito
 
-**Errore:** viene visualizzato l'errore "Unknown\_user\_type: tipo di utente sconosciuto" quando si usa il cmdlet Add-AzureAccount o Login-AzureRmAccount.
+**Errore:** viene visualizzato l'errore "Unknown\_user\_type: tipo di utente sconosciuto" quando si utilizza il cmdlet Add-AzureAccount o Login-AzureRmAccount.
 
 **Motivo dell'errore:** questo errore si verifica se il nome dell'asset delle credenziali non è valido o se il nome utente e la password usati per impostare l'asset delle credenziali di automazione non sono validi.
 
 **Suggerimenti sulla risoluzione dei problemi:** per determinare la causa del problema, seguire questa procedura:
 
-1. Assicurarsi che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.  
+1. Assicurarsi che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.
 
 2. Verificare che sia possibile usare il nome utente e la password archiviati nelle credenziali di Automazione di Azure nell'editor di PowerShell ISE locale. A questo scopo è possibile eseguire i cmdlet seguenti in PowerShell ISE:
 
@@ -51,11 +52,11 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Suggerimenti per la risoluzione dei problemi:** per determinare se l'autenticazione in Azure è stata eseguita correttamente e se si ha accesso alla sottoscrizione che si sta tentando di selezionare, seguire questa procedura:
 
-1. Assicurarsi di eseguire il cmdlet **Add-AzureAccount** prima del cmdlet **Select-AzureSubscription**.  
+1. Assicurarsi di eseguire il cmdlet **Add-AzureAccount** prima del cmdlet **Select-AzureSubscription**.
 
 2. Se viene ancora visualizzato questo messaggio di errore, modificare il codice aggiungendo il cmdlet **Get-AzureSubscription** dopo **Add-AzureAccount** e quindi eseguire il codice. A questo punto, verificare se l'output di Get-AzureSubscription contiene i dettagli della sottoscrizione.
-    * Se nell'output non vengono visualizzati i dettagli della sottoscrizione, significa che non è ancora stata inizializzata.  
-    * Se nell'output vengono visualizzati i dettagli della sottoscrizione, assicurarsi di usare il nome o l'ID della sottoscrizione corretto con il cmdlet **Select-AzureSubscription**.   
+    * Se nell'output non vengono visualizzati i dettagli della sottoscrizione, significa che non è ancora stata inizializzata.
+    * Se nell'output vengono visualizzati i dettagli della sottoscrizione, assicurarsi di usare il nome o l'ID della sottoscrizione corretto con il cmdlet **Select-AzureSubscription**.
 
 
 ### Scenario: L'autenticazione in Azure non è riuscita perché è abilitata l'autenticazione a più fattori
@@ -77,24 +78,24 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Suggerimenti sulla risoluzione dei problemi:** una qualsiasi delle tre soluzioni seguenti consente di correggere questo problema.
 
-1. Se si inviano tramite pipe oggetti complessi da un cmdlet a altro, eseguire il wrapping dei cmdlet in un InlineScript.  
-2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.  
+1. Se si inviano tramite pipe oggetti complessi da un cmdlet a altro, eseguire il wrapping dei cmdlet in un InlineScript.
+2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.
 
 3. Usare un runbook di PowerShell invece di un runbook del flusso di lavoro PowerShell.
 
 
 ### Scenario: Processo del Runbook non riuscito per il superamento della quota allocata
 
-**Errore:** il processo del runbook ha esito negativo e restituisce un errore simile al seguente "È stata raggiunta la quota per il tempo di esecuzione totale mensile dei processi per la sottoscrizione".
+**Errore:** il processo del runbook non riesce con l'errore "È stata raggiunta la quota per il tempo di esecuzione totale mensile dei processi per la sottoscrizione".
 
 **Motivo dell'errore:** questo errore si verifica quando l'esecuzione del processo supera la quota disponibile di 500 minuti per l'account. Questa quota si applica a tutti i tipi di attività di esecuzione del processo, ad esempio il test di un processo, l'avvio di un processo dal portale, l'esecuzione di un processo con webhook e la pianificazione di un processo da eseguire tramite il portale di Azure o nel proprio data center. Per altre informazioni sui prezzi relativi all'automazione, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
 
-**Suggerimenti per la risoluzione dei problemi:** se si vogliono usare più di 500 minuti di elaborazione al mese, si dovrà modificare la sottoscrizione dal livello Free al livello Basic. È possibile eseguire l'aggiornamento al livello Basic seguendo questa procedura.
+**Suggerimenti sulla risoluzione dei problemi:** se si vogliono usare più di 500 minuti di elaborazione al mese, si dovrà modificare la sottoscrizione dal livello gratuito al livello Basic. È possibile eseguire l'aggiornamento al livello Basic seguendo questa procedura.
 
-1. Accedere alla sottoscrizione di Azure.  
-2. Selezionare l'account di automazione che si vuole aggiornare.  
-3. Fare clic su **Impostazioni** > **Piano tariffario e utilizzo** > **Piano tariffario**.  
-4. Nel pannello **Scegliere il piano tariffario** selezionare **Basic**.    
+1. Accedere alla sottoscrizione di Azure.
+2. Selezionare l'account di automazione che si vuole aggiornare.
+3. Fare clic su **Impostazioni** > **Piano tariffario e utilizzo** > **Piano tariffario**.
+4. Nel pannello **Scegliere il piano tariffario** selezionare **Basic**.
 
 
 ### Scenario: Cmdlet non riconosciuto durante l'esecuzione di un runbook
@@ -105,7 +106,7 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 
-- Verificare di aver immesso correttamente il nome del cmdlet.  
+- Verificare di aver immesso correttamente il nome del cmdlet.
 
 - Assicurarsi che il cmdlet esista nell'account di automazione e che non siano presenti conflitti. Per verificare se il cmdlet è presente, aprire un runbook in modalità di modifica e cercare il cmdlet nella libreria o eseguire **Get-Command ``<CommandName>``**. Dopo aver verificato che il cmdlet è disponibile per l'account e che non ci sono conflitti di nomi con altri cmdlet o runbook, aggiungerlo all'area di disegno e assicurarsi di usare un set di parametri valido nel runbook.
 
@@ -129,7 +130,7 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Motivo dell'errore:** di seguito sono elencati alcuni motivi comuni che possono causare un'importazione errata di un modulo in Automazione di Azure.
 
-- La struttura non corrisponde a quella in cui il modulo dovrebbe essere incluso ai fini dell'automazione.  
+- La struttura non corrisponde a quella in cui il modulo dovrebbe essere incluso ai fini dell'automazione.
 
 - Il modulo è dipendente da un altro modulo che non è stato distribuito nel proprio account di automazione.
 
@@ -150,16 +151,16 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 ### Scenario: Lo stato di Node risulta non riuscito con un errore "Non trovato"
 
-**Errore:** il nodo presenta un report con stato **Non riuscito** contenente un errore simile al seguente "Non è stato possibile recuperare l'azione dal server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid> perché non è stata trovata alcuna configurazione valida".
+**Errore:** il nodo presenta un report con stato **Non riuscito** contenente un errore simile al seguente "Non è stato possibile recuperare l’azione dal server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>".
 
 **Motivo dell'errore:** questo errore si verifica in genere quando al nodo viene assegnato un nome di configurazione, ad esempio ABC, anziché un nome di configurazione nodo, ad esempio ABC.WebServer.
 
 **Suggerimenti per la risoluzione dei problemi:**
 
-- Assicurarsi di assegnare al nodo un "nome di configurazione di nodo" e non un "nome di configurazione".  
+- Assicurarsi di assegnare al nodo un "nome di configurazione di nodo" e non un "nome di configurazione".
 
 - È possibile assegnare a un nodo una configurazione di nodo usando il portale di Azure o un cmdlet di PowerShell.
-    - Per assegnare a un nodo una configurazione nodo mediante il portale di Azure, aprire il pannello **Nodi DSC**, selezionare un nodo e quindi fare clic sul pulsante **Assegna configurazione nodo**.  
+    - Per assegnare a un nodo una configurazione nodo mediante il portale di Azure, aprire il pannello **Nodi DSC**, selezionare un nodo e quindi fare clic sul pulsante **Assegna configurazione nodo**.
     - Per assegnare a un nodo una configurazione nodo mediante PowerShell, usare il cmdlet **Set-AzureRmAutomationDscNode**.
 
 
@@ -171,7 +172,7 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 
-- Verificare che l'espressione accanto alla parola chiave **Node** nella definizione di configurazione non restituisca $null.  
+- Verificare che l'espressione accanto alla parola chiave **Node** nella definizione di configurazione non restituisca $null.
 - Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
@@ -206,4 +207,4 @@ Se sono state seguite le procedure precedenti per la risoluzione dei problemi e 
 
 - Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum dedicato ai [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

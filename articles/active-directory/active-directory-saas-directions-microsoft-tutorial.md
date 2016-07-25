@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Directions on Microsoft
@@ -21,7 +21,7 @@ Questa esercitazione descrive l'integrazione di Azure Active Directory e Directi
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Directions on Microsoft
 
-Se ancora non si ha una sottoscrizione federata di Directions on Microsoft, inviare una richiesta all'indirizzo "*service@DirectionsOnMicrosoft.com*”.
+Se ancora non si ha una sottoscrizione federata di Directions on Microsoft, inviare una richiesta all'indirizzo "*service@DirectionsOnMicrosoft.com*".
 
 Al termine dell'esercitazione, gli utenti di Azure Active Directory assegnati a Directions on Microsoft potranno eseguire l'accesso Single Sign-On all'applicazione usando Single Sign-On.
 
@@ -39,7 +39,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Dire
 
 ###Per abilitare l'integrazione dell'applicazione per Directions on Microsoft, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-directions-microsoft-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft** nel portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Abilitazione dell'accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Abilitazione dell'accesso Single Sign-On")
 
@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Single Sign-On di Microsoft Azure AD")
 
-3.  Nella pagina **Configura URL app** digitare ****https://www.directionsonmicrosoft.com/user/login** nella casella di testo URL di accesso e quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** digitare **https://www.directionsonmicrosoft.com/user/login** nella casella di testo URL di accesso e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configura URL app")
 
@@ -86,11 +86,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configura accesso Single Sign-On")
 
-5.  Inviare il file di metadati al team di supporto di Directions on Microsoft (**service@DirectionsOnMicrosoft.com*). Per consentire al team di supporto di Directions on Microsoft di trovare l'appartenenza al sito federato, includere nel messaggio di posta elettronica le informazioni relative alla società.
+5.  Inviare il file di metadati al team di supporto di Directions on Microsoft (*service@DirectionsOnMicrosoft.com*). Per consentire al team di supporto di Directions on Microsoft di trovare l'appartenenza al sito federato, includere nel messaggio di posta elettronica le informazioni relative alla società.
 
-    >[AZURE.NOTE]L'accesso Single Sign-On per Directions on Microsoft deve essere abilitato dal team di supporto di Directions on Microsoft. Quando l'accesso Single Sign-On verrà abilitato, si riceverà una notifica.
+    >[AZURE.NOTE] L'accesso Single Sign-On per Directions on Microsoft deve essere abilitato dal team di supporto di Directions on Microsoft. Quando l'accesso Single Sign-On verrà abilitato, si riceverà una notifica.
 
-6.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -102,9 +102,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Directions on Microsoft seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Directions on Microsoft ** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assegna utenti")
 
@@ -112,4 +112,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sì")
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

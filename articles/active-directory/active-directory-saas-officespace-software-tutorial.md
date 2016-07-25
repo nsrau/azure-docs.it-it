@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software
@@ -37,7 +37,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per OfficeSpace Software, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
@@ -66,9 +66,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a OfficeSpace Software tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per OfficeSpace Software richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **OfficeSpace Software** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **OfficeSpace Software** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign=On](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configura accesso Single Sign=On")
 
@@ -76,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a OfficeSpace Software** digitare l'URL utilizzato dagli utenti per accedere all’applicazione OfficeSpace Software (ad esempio: "**https://company.officespacesoftware.com*")), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app**, nella casella di testo **OfficeSpace Software Sign On URL** (URL di accesso a OfficeSpace Software) digitare l'URL usato dagli utenti per accedere all'applicazione OfficeSpace Software, ad esempio: "*https://company.officespacesoftware.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configura URL app")
 
@@ -98,15 +98,16 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configurazione SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Configurazione SAML")
 
-    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in OfficeSpace Software** del portale di Azure, copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **URL provider disconnessione**.
-    2.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in OfficeSpace Software** del portale di Azure copiare il valore **URL disconnessione remota** e incollarlo nella casella di testo **URL di destinazione client IDP**.
-    3.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa all'**impronta digitale del certificato client IDP**.  
+    1.  Nella pagina della finestra di dialogo **Configure single sign-on at OfficeSpace Software** (Configura accesso Single Sign-On in OfficeSpace Software) del portale di Azure classico copiare il valore **URL accesso remoto** e incollarlo nella casella di testo **Logout provider url** (URL provider disconnessione).
+    2.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in OfficeSpace Software** (Configura accesso Single Sign-On in OfficeSpace Software) del portale di Azure classico copiare il valore **URL disconnessione remota** e incollarlo nella casella di testo **Client idp target url** (URL di destinazione client IDP).
+    3.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa all'**impronta digitale del certificato client IDP**.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]
+        Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     4.  Fare clic su **Salva impostazioni**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -121,7 +122,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a OfficeSpace Software eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **OfficeSpace Software** fare clic su **Assegna utenti**.
 
@@ -133,4 +134,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

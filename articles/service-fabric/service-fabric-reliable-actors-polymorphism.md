@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Polimorfismo nel framework Reliable Actors
@@ -35,7 +35,7 @@ Per il framework Reliable Actors è necessario definire almeno un'interfaccia da
 public abstract class Shape : Actor, IShape
 {
     public abstract Task<int> GetVerticeCount();
-    
+
     public abstract Task<double> GetAreaAsync();
 }
 ```
@@ -75,12 +75,4 @@ Si noti l’attributo `ActorService` nel tipo di attore. Questo attributo indica
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-## Passaggi successivi
- - [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
- - [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
- - [Timer e promemoria degli attori](service-fabric-reliable-actors-timers-reminders.md)
- - [Eventi relativi agli attori](service-fabric-reliable-actors-events.md)
- - [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
- - [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

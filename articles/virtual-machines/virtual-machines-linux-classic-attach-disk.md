@@ -122,7 +122,7 @@
 
 11. Aggiungere la nuova unità a /etc/fstab:
 
-	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
+	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Questo evita che venga montato il disco non corretto in una posizione specificata, se il sistema operativo rileva un errore del disco durante l'avvio, e l'assegnazione di tali ID dispositivo agli eventuali dischi dati rimanenti. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
 
 		# sudo -i blkid
 
@@ -173,4 +173,4 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

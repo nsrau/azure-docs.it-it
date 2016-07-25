@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Condivisione dello stato in modelli di Gestione risorse di Azure
@@ -426,4 +426,4 @@ Quando si definisce la macchina virtuale, si imposta **osProfile** sulla variabi
 - Per informazioni sulle sezioni del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per tutte le funzioni disponibili in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

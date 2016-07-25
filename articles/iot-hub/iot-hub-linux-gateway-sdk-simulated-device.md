@@ -121,7 +121,18 @@ Per eseguire l'esempio:
 
 ## Passaggi successivi
 
-Per informazioni su come usare l'SDK per gateway, vedere la pagina sugli [Azure IoT SDK per gateway][lnk-gateway-sdk] in GitHub.
+Per ottenere informazioni più avanzate sul Gateway SDK e provare alcuni esempi di codice, vedere le seguenti risorse ed esercitazioni per gli sviluppatori:
+
+- [Invio di messaggi da un dispositivo reale al cloud con Gateway SDK][lnk-physical-device]
+- [Gestione di un dispositivo gateway][lnk-manage-devices]
+- [SDK per gateway IoT di Azure][lnk-gateway-sdk]
+
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+
+- [Progettare una soluzione][lnk-design]
+- [Guida per sviluppatori][lnk-devguide]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -130,4 +141,12 @@ Per informazioni su come usare l'SDK per gateway, vedere la pagina sugli [Azure 
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

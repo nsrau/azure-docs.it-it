@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -47,8 +47,8 @@ Se queste operazioni non sono state ancora eseguite, completarle:
 * Aggiungere Application Insights SDK al progetto:
  * [Progetto ASP.NET][greenbrown]
  * [Progetto Windows][windows]
- * [Progetto Java][java] 
- * [JavaScript in ogni pagina Web][client]   
+ * [Progetto Java][java]
+ * [JavaScript in ogni pagina Web][client]
 
 * Nel dispositivo o nel codice del server Web includere:
 
@@ -505,7 +505,35 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
 > [AZURE.WARNING] Non riutilizzare la stessa istanza dell'elemento di telemetria, `event` in questo esempio, per chiamare Track*() più volte. Potrebbe causare l'invio della telemetria con una configurazione errata.
 
-#### <a name="timed"></a> Temporizzazione degli eventi
+## Contesto dell'operazione
+
+Quando l'applicazione Web riceve una richiesta HTTP, il modulo di rilevamento delle richieste di Application Insights assegna un ID alla richiesta e imposta lo stesso valore come ID operazione corrente. L'ID operazione viene cancellato quando viene inviata la risposta alla richiesta. Alle chiamate di rilevamento effettuate durante l'operazione viene assegnato lo stesso ID operazione (a condizione che utilizzino il valore predefinito TelemetryContext). Ciò consente di correlare gli eventi relativi a una particolare richiesta quando si esegue la verifica nel portale.
+
+![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)
+
+Se si esegue il monitoraggio degli eventi non associati a una richiesta HTTP, o se non si utilizza il modulo di rilevamento delle richieste (ad esempio, se si sta monitorando un processo back-end) è possibile configurare il contesto dell'operazione utilizzando questo modello:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+Oltre a configurare un contesto dell'operazione, `StartOperation` crea un elemento di telemetria del tipo specificato e lo invia quando l'operazione viene eliminata o se si chiama in modo esplicito `StopOperation`. Se si utilizza `RequestTelemetry` come tipo di telemetria, allora il valore Durata viene impostato sull’intervallo di tempo tra l’inizio e la fine.
+
+I contesti dell’operazione non possono essere annidati. Se è già presente un contesto dell'operazione, il suo ID corrispondente viene associato a tutti gli elementi contenuti, compreso l'elemento creato con StartOperation.
+
+
+## <a name="timed"></a> Temporizzazione degli eventi
 
 A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un'azione. Ad esempio, si potrebbe voler sapere quanto tempo occorre agli utenti per scegliere tra le opzioni disponibili in un gioco. Questo è un esempio utile dell'uso del parametro di misurazione.
 
@@ -576,7 +604,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 È possibile scrivere il codice per elaborare i dati di telemetria prima che venga inviato da SDK. L'elaborazione include i dati inviati dai moduli telemetria standard come la raccolta delle richieste HTTP e la raccolta delle dipendenze.
 
-* [È possibile aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando ad esempio `ITelemetryInitializer`, se si vuole aggiungere numeri di versione o valori calcolati da altre proprietà. 
+* [È possibile aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando ad esempio `ITelemetryInitializer`, se si vuole aggiungere numeri di versione o valori calcolati da altre proprietà.
 * Con il [filtro](app-insights-api-filtering-sampling.md#filtering) è possibile modificare o rimuovere i dati di telemetria prima che vengano inviati dal SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
 * Il [campionamento](app-insights-api-filtering-sampling.md#sampling) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale, senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati come eccezioni, richieste e visualizzazioni di pagina.
 
@@ -617,7 +645,7 @@ Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline 
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -672,11 +700,11 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 * **Percorso** identifica la posizione geografica del dispositivo.
 * **Operazione** nelle app Web, la richiesta HTTP corrente. In altri tipi di app è possibile impostarla in modo da raggruppare gli eventi tra loro.
  * L'**ID**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare "Elementi correlati"
- * **Nome**: un identificatore, in genere l'URL della richiesta HTTP. 
+ * **Nome**: un identificatore, in genere l'URL della richiesta HTTP.
  * **SyntheticSource**: se non è null o vuota, questa stringa indica che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita, viene esclusa dai calcoli in Esplora metriche.
 * **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. È possibile eseguire l'override di questo valore in singole chiamate Track*.
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo specifico.
-* **Utente**: le informazioni dell'utente. 
+* **Utente**: le informazioni dell'utente.
 
 ## Limiti
 
@@ -685,7 +713,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
 *Come è possibile evitare di raggiungere il limite di velocità dei dati?*
 
-* Usare il [campionamento](app-insights-sampling.md).
+* Utilizzare [Campionamento](app-insights-sampling.md).
 
 *Per quanto tempo vengono conservati i dati?*
 
@@ -750,4 +778,4 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

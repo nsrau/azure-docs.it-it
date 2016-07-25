@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Tangoe Command Premium Mobile in Azure AD, è 
 
 **Per aggiungere Tangoe Command Premium Mobile dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -142,7 +142,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Fare clic su **Avanti**.
 
 
-5.  Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il supporto tecnico ADP Tangoe e fornire i seguenti elementi:
+5.  Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il supporto tecnico di Tangoe e fornire i seguenti elementi:
 
 
     - Il file dei metadati scaricato
@@ -187,7 +187,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_04.png)
 
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_05.png)
 
@@ -197,7 +197,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
+6.  Nella pagina **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png)
 
@@ -211,11 +211,11 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png)
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
  
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_08.png)
 
@@ -255,7 +255,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+2. Fare clic su **Assegna** nella barra degli strumenti in basso.
 
 ![Assegna utente][205]
 
@@ -265,7 +265,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Tangoe Command Premium Mobile nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Tangoe Command Premium Mobile.
+Quando si fa clic sul riquadro Tangoe Command Premium Mobile nel pannello di accesso, viene effettuato automaticamente l'accesso all'applicazione Tangoe Command Premium Mobile.
 
 
 ## Risorse aggiuntive
@@ -293,4 +293,4 @@ Quando si fa clic sul riquadro Tangoe Command Premium Mobile nel pannello di acc
 [204]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

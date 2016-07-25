@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Procedura: Modificare o reimpostare la password di Azure AD | Microsoft Azure" 
-	description="Informazioni su come registrarsi per reimpostare o modificare la password e come reimpostarla in caso di password dimenticata." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Procedura: Modificare o reimpostare la password di Azure AD | Microsoft Azure"
+	description="Informazioni su come registrarsi per reimpostare o modificare la password e come reimpostarla in caso di password dimenticata."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Come aggiornare la password
@@ -32,20 +32,20 @@ Il modo più rapido per registrarsi per la reimpostazione della password è anda
  1. Accedere a http://aka.ms/ssprsetup.
  2. Immettere nome utente e password.
  3. Scegliere un'opzione per la registrazione facendo clic su **Imposta ora**. In questo caso viene illustrata la registrazione del **Telefono per l'autenticazione**.
- 
+
     ![][011]
-   
+
  4. Selezionare il codice paese nell'elenco a discesa e immettere il **numero di telefono esteso + indicativo di località**.
- 
+
     ![][012] ![][013]
-   
+
  5. Selezionare una opzione tra **Invia messaggio di testo** e **Chiama**. In questo caso viene selezionato **Invia messaggio di testo**. In questo modo verrà inviato un codice di 6 cifre al numero di telefono indicato. Attendere la ricezione del codice sul telefono.
- 
+
     ![][014]
- 
+
  6. Immettere il codice ricevuto nella casella di input, quindi fare clic su "Verifica".
  7. Quando viene visualizzato il messaggio **Grazie**, l'operazione è terminata. Ora è possibile usare i dati ottenuti con la registrazione per reimpostare la password in qualsiasi momento, visitando il sito https://passwordreset.microsoftonline.com.
- 
+
     ![][015]
 
  >[AZURE.IMPORTANT] Se l'amministratore consente di registrarsi per più di una opzione, è consigliabile registrare anche un'opzione di backup nel caso in cui si perda il telefono o non sia possibile accedere alla posta elettronica.
@@ -68,7 +68,7 @@ Seguire questa procedura per modificare la password dell'account aziendale o del
  3. Fare clic sul riquadro di **modifica della password** sul lato destro dello schermo.
  4. Digitare la vecchia password, quindi digitare una nuova password e confermarla.
  5. Fare clic su **Save**.
- 
+
  In caso di problemi nella modifica della password, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
 ## Come reimpostare la password
@@ -77,16 +77,16 @@ Seguire questa procedura per modificare la password dell'account aziendale o del
 Seguire questa procedura per reimpostare la password dell'account aziendale o dell'istituto di istruzione da qualsiasi schermata di accesso dell'account.
 
  >[AZURE.IMPORTANT] Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. È possibile contattare l'amministratore usando l'apposito collegamento, in questo caso per chiedere di sbloccare l'account.<br><br>Se questa funzionalità è stata abilitata dall'amministratore, per usarla è necessario prima di tutto effettuare l'iscrizione. A questo scopo, accedere a: http://aka.ms/ssprsetup.
- 
+
 
  1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Nella pagina "Identificarsi" immettere l'ID dell'account aziendale o dell'istituto di istruzione e rispondere al test captcha.
- 
+
     ![][002]
- 
+
  3. Fare clic sul pulsante "Avanti".
  4. Scegliere un'opzione per reimpostare la password. In base alla configurazione del sistema da parte dell'amministratore, viene visualizzata una o più delle opzioni seguenti:
      * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**: invia un messaggio di posta elettronica con un codice di 6 cifre all'**indirizzo di posta elettronica alternativo** o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
@@ -96,28 +96,28 @@ Seguire questa procedura per reimpostare la password dell'account aziendale o de
 	 * **Rispondi alle domande di sicurezza**: consente di visualizzare le domande di sicurezza registrate in precedenza per poter rispondere.
 
     ![][003]
-	 
+
  5. Come esempio viene usata l'opzione "Invia SMS sul telefono cellulare". Se si usa un'opzione basata sul telefono, è necessario verificare il numero di telefono prima che sia possibile ricevere un SMS. Immettere il numero di telefono completo e quindi fare clic su **Avanti** per verificare che sia corretto e ricevere un SMS.
- 
+
     ![][004]
- 
+
  6. Dopo aver ricevuto il messaggio di testo, assicurarsi di usare il codice di verifica contenuto nel corpo del messaggio, non il numero da cui il codice è stato inviato. Potrebbero passare alcuni minuti prima di ricevere il messaggio di testo.
- 
+
     ![][009]
- 
+
  8. A questo punto, immettere il codice ricevuto sul telefono nella casella di input della pagina.
- 
+
     ![][005]
- 
+
  9. L'amministratore può richiedere un secondo passaggio di verifica. In tal caso, ripetere il passaggio 4 selezionando un'opzione diversa.
  10. Nella schermata "Scegliere una nuova password", selezionare una nuova password e confermarla, quindi fare clic su **Fine**.
- 
+
     ![][006] ![][007]
-  
+
  11. Quando viene visualizzata la pagina di notifica dell'esito positivo, l'operazione è terminata. Ora è possibile eseguire l'accesso con la nuova password.
- 
+
     ![][008]
- 
+
 In caso di problemi nella reimpostazione della password, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
 ## Come sbloccare l'account
@@ -127,13 +127,13 @@ Seguire questa procedura per sbloccare l'account locale da qualsiasi schermata d
 
 
  1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Nella pagina "Identificarsi" immettere l'ID dell'account aziendale o dell'istituto di istruzione e rispondere al test captcha.
- 
+
     ![][002]
- 
+
  3. Fare clic sul pulsante "Avanti".
  4. Scegliere un'opzione per sbloccare l'account. In base alla configurazione del sistema da parte dell'amministratore, viene visualizzata una o più delle opzioni seguenti:
      * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**: invia un messaggio di posta elettronica con un codice di 6 cifre all'**indirizzo di posta elettronica alternativo** o all'**indirizzo di posta elettronica per l'autenticazione** (scegliere l'opzione preferita).
@@ -143,27 +143,27 @@ Seguire questa procedura per sbloccare l'account locale da qualsiasi schermata d
 	 * **Rispondi alle domande di sicurezza**: consente di visualizzare le domande di sicurezza registrate in precedenza per poter rispondere.
 
     ![][003]
-	 
+
  5. Come esempio viene usata l'opzione "Invia SMS sul telefono cellulare". Se si usa un'opzione basata sul telefono, è necessario verificare il numero di telefono prima che sia possibile ricevere un SMS. Immettere il numero di telefono completo e quindi fare clic su **Avanti** per verificare che sia corretto e ricevere un SMS.
- 
+
     ![][004]
- 
+
  6. Dopo aver ricevuto il messaggio di testo, assicurarsi di usare il codice di verifica contenuto nel corpo del messaggio, non il numero da cui il codice è stato inviato. Potrebbero passare alcuni minuti prima di ricevere il messaggio di testo.
- 
+
     ![][009]
- 
+
  8. A questo punto, immettere il codice ricevuto sul telefono nella casella di input della pagina.
- 
+
     ![][005]
- 
+
  9. L'amministratore può richiedere un secondo passaggio di verifica. In tal caso, ripetere il passaggio 4 selezionando un'opzione diversa.
- 
+
  11. Quando viene visualizzata la pagina di notifica dell'esito positivo, l'operazione è terminata. L'account locale è stato sbloccato ed è nuovamente possibile eseguire l'accesso.
- 
+
     ![][010]
-  
+
  >[AZURE.IMPORTANT] Tenere sempre aggiornati tutti i dispositivi con la password più recente. Accade spesso, infatti, che la causa del problema sia un'app con una password vecchia (ad esempio il client di posta elettronica del telefono) che ha provocato il blocco dell'account.
- 
+
 In caso di problemi nello sblocco dell'account, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
 ## Problemi frequenti e relative soluzioni
@@ -222,6 +222,7 @@ Di seguito sono riportati alcuni degli errori più comuni e le relative soluzion
           </tr>
         </tbody></table>
 
+
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
@@ -252,4 +253,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

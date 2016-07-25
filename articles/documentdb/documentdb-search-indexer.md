@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="06/20/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori
@@ -134,6 +134,8 @@ Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponib
 
 
 Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema dei documenti JSON di origine oppure con l'output della proiezione di query personalizzata.
+
+>[AZURE.NOTE] Per le raccolte partizionate, la chiave del documento predefinita è la proprietà `_rid` di DocumentDB, che viene rinominata `rid` in Ricerca di Azure. Inoltre, i valori `_rid` di DocumentDB contengono caratteri non validi nelle chiavi di ricerca di Azure; pertanto, i valori `_rid` sono codificati Base64.
 
 ###Figura A: mapping tra tipi di dati JSON e tipi di dati di Ricerca di Azure
 
@@ -270,8 +272,8 @@ La cronologia di esecuzione contiene fino alle 50 più recenti esecuzioni comple
 
 Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerca di Azure usando l'indicizzatore per DocumentDB.
 
- - Per altre informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
+ - Per ulteriori informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
  - Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ Questo documento illustra come usare C# con Hive e Pig.
 
 ##Prerequisiti
 
-* Windows 7, Windows 8 o Windows 8.1.
+* Windows 7 o versioni successive.
 
 * Visual Studio con le seguenti versioni:
 
@@ -34,7 +34,7 @@ Questo documento illustra come usare C# con Hive e Pig.
 
 	* Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
-	* Visual Studio 2015 Preview
+	* Visual Studio 2015
 
 * Cluster Hadoop in HDInsight. Per la procedura per la creazione di un cluster, vedere [Provisioning di un cluster HDInsight](hdinsight-provision-clusters.md).
 
@@ -241,4 +241,4 @@ Per informazioni su altri modi per usare Pig e Hive e sull'uso di MapReduce, ved
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->
