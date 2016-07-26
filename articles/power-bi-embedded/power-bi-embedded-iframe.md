@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/19/2016"
    ms.author="owend"/>
 
 # Incorporare un report di Power BI con un oggetto IFrame
@@ -28,23 +28,23 @@ Di seguito sono descritti i passaggi da eseguire per integrare un report:
 - Passaggio 1: [Ottenere un report in un'area di lavoro](#GetReport). In questo passaggio si userà un flusso di token dell'app per ottenere un token di accesso per chiamare l'operazione REST [Ottieni report](https://msdn.microsoft.com/library/mt711510.aspx). Dopo aver ottenuto un report dall'elenco generato da **Ottieni report**, si incorporerà il report in un'app con un elemento **IFrame**.
 - Passaggio 2: [Incorporare un report in un'app](#EmbedReport). In questo passaggio si userà un token di incorporamento per un report, codice JavaScript e un elemento IFrame per integrare, ovvero incorporare, un report in un'app Web.
 
-Se si vuole eseguire l'esempio per vedere come integrare un report, scaricare l'esempio per [integrare un report con un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) in GitHub e configurare tre impostazioni di Web.config:
+Se si vuole eseguire l'esempio, scaricare l'esempio per [integrare un report con un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) in GitHub e configurare tre impostazioni di Web.config:
 
-- **AccessKey**: un elemento **AccessKey** viene usato per generare un token JSON Web (JWT) usato per ottenere e incorporare report. Per altre informazioni su **AccessKey**, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceName**: per informazioni su come ottenere un elemento **WorkspaceName**, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceId**: per informazioni su come ottenere un elemento **WorkspaceId**, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **AccessKey**: un elemento **AccessKey** viene usato per generare un token JSON Web (JWT) usato per ottenere e incorporare report.
+- **Workspace Collection Name**: identifica l'area di lavoro.
+- **Workspace Id**: ID univoco dell'area di lavoro
 
-Le sezioni successive illustrano il codice necessario per integrare un report.
+Per informazioni su come ottenere i valori di AccessKey, Workspace Collection Name e Workspace Id dal portale di Azure, vedere [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 <a name="GetReport"/>
 ## Ottenere un report in un'area di lavoro
 
-Per integrare un report in un'app è necessario un **ID** e un **embedUrl** del report. Per ottenere un **ID** e un **embedUrl** del report, chiamare l'operazione REST [Ottieni report](https://msdn.microsoft.com/library/mt711510.aspx) e scegliere un report dall'elenco JSON. In [Incorporare un report in un'app](#EmbedReport) si usa un **ID** e un **embedUrl** per incorporare il report in un'app.
+Per integrare un report in un'app sono necessari gli elementi **ID** e **embedUrl** del report. Per ottenere questi elementi, chiamare l'operazione REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) e scegliere un report dall'elenco JSON.
 
 ### Ottenere report di risposta JSON
 ```
 {
-  "@odata.context":"https://api.powerbi.com/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
     {
       "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
     },{
@@ -55,25 +55,13 @@ Per integrare un report in un'app è necessario un **ID** e un **embedUrl** del 
 
 ```
 
-Per chiamare l'operazione REST [Ottieni report](https://msdn.microsoft.com/library/mt711510.aspx), usare un token dell'app. Per altre informazioni sul flusso di token dell'app, vedere [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md). Il codice seguente descrive come ottenere un elenco di report JSON. Per incorporare un report, vedere [Incorporare un report in un'app](#EmbedReport).
+Per chiamare l'operazione REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) usare un token dell'app. Per altre informazioni sul flusso del token dell'app, vedere [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md). Il codice seguente descrive come ottenere un elenco di report JSON.
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
 {
-    //Get an app token to generate a JSON Web Token (JWT). An app token flow is a claims-based design pattern.
-    //To learn how you can code an app token flow to generate a JWT, see the PowerBIToken class.
-    var appToken = PowerBIToken.CreateDevToken(workspaceName, workspaceId);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = appToken.Generate(accessKey);
-
-    //Set app token textbox to JWT string to show that the JWT was generated
-    appTokenTextbox.Text = jwt;
-
     //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/beta/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
 
     //Configure reports request
     System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
@@ -82,7 +70,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 
     //Set the WebRequest header to AppToken, and jwt
     //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppToken {0}", jwt));
+    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
 
     //Get reports response from request.GetResponse()
     using (var response = request.GetResponse() as System.Net.HttpWebResponse)
@@ -104,12 +92,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
         }
     }
 }
+
 ```
 
 <a name="EmbedReport"/>
 ## Incorporare un report in un'app
 
-Prima di incorporare un report nell'app, è necessario un token di incorporamento per un report. Questo token è simile a un token dell'app usato per chiamare operazioni REST **Power BI Embedded**, ma viene generato per una risorsa del report invece di una risorsa REST. Ecco il codice per ottenere un token dell'app per un report. Per usare il token dell'app per il report, vedere [Incorporare report nell'app](#EmbedReportJS).
+Prima di incorporare un report nell'app, è necessario un token di incorporamento per un report. Questo token è simile a un token dell'app usato per chiamare operazioni REST di Power BI Embedded, ma viene generato per una risorsa del report invece di una risorsa REST. Ecco il codice per ottenere un token dell'app per un report.
 
 <a name="EmbedReportToken"/>
 ### Ottenere un token dell'app per un report
@@ -223,4 +212,4 @@ Questo articolo ha illustrato il codice per l'integrazione di un report di **Pow
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

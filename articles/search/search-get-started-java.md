@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="07/14/2016"
 	ms.author="evboyle"/>
 
 # Introduzione a Ricerca di Azure in Java
@@ -69,7 +69,7 @@ Per tutte le chiamate API REST a Ricerca di Azure è necessario specificare l'UR
 
 ## Scaricare i file di esempio
 
-1. Passare a [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) su GitHub.
+1. Passare a [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) su GitHub.
 
 2. Fare clic su **Scarica ZIP**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti. È consigliabile estrarre i file nell'area di lavoro Java per trovare più facilmente il progetto in un secondo momento.
 
@@ -203,4 +203,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0720_2016-->

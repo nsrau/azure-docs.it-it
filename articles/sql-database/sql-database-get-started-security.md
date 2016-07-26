@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="07/19/2016"
 	ms.author="carlrab"/>
 
 # Esercitazione sul database SQL: Creare account utente del database SQL per accedere a un database e gestirlo con il portale di Azure
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come usare il portale di Azure per:
 - Accedere al database SQL con un accesso entità a livello di server
 - Creare un account utente del database SQL
 - Concedere a un account utente del database SQL le autorizzazioni dbo in un database utente
-- Connettersi a un database SQL con un account utente diverso da un'entità a livello di server 
+- Connettersi a un database SQL con un account utente diverso da un'entità a livello di server
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -50,4 +50,4 @@ In questa esercitazione si apprenderà come usare il portale di Azure per:
 ## Passaggi successivi
 Dopo avere completato questa esercitazione sul database SQL e avere creato un account utente e concesso all'account utente le autorizzazioni dbo, è possibile saperne di più sulla [sicurezza del database SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

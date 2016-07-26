@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Guida introduttiva a Storage Explorer (anteprima)
@@ -166,7 +166,7 @@ Per illustrare questo concetto, si supponga che l'utente A sia un amministratore
 
 ## Collegare il servizio usando la firma di accesso condiviso
 
-La sezione [Collegare l'account usando la firma di accesso condiviso](#attach-account-using-sas) illustra come l'amministratore di una sottoscrizione di Azure può concedere l'accesso temporaneo a un account di archiviazione generando (e condividendo) una firma di accesso condiviso per l'account di archiviazione. Analogamente, una firma di accesso condiviso può essere generata per un servizio specifico (contenitore BLOB, coda o tabella) in un account di archiviazione.
+La sezione [Collegare l'account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas) illustra come l'amministratore di una sottoscrizione di Azure può concedere l'accesso temporaneo a un account di archiviazione generando (e condividendo) una firma di accesso condiviso per l'account di archiviazione. Analogamente, una firma di accesso condiviso può essere generata per un servizio specifico (contenitore BLOB, coda o tabella) in un account di archiviazione.
 
 ### Generare una firma di accesso condiviso per il servizio che si vuole condividere
 
@@ -226,4 +226,4 @@ Per cancellare i criteri di ricerca, selezionare **x** nella casella di ricerca.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

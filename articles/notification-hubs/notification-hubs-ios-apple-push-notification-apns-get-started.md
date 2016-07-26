@@ -168,9 +168,11 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 
 ## (Facoltativo) Inviare notifiche push dall'app
 
+>[AZURE.IMPORTANT] Questo esempio di invio di notifiche dall'app client è descritto solo a scopo didattico. Essendo necessario l'elemento `DefaultFullSharedAccessSignature` nell'app client, l'hub di notifica viene esposto al rischio che un utente acceda per inviare notifiche non autorizzate ai client.
+
 Questa sezione fornisce un esempio di invio di notifiche push dall'interno di un'app tramite l'interfaccia REST.
 
-1. In Xcode aprire `Main.storyboard` e aggiungere i componenti dell'interfaccia utente riportati di seguito dalla libreria di oggetti, per consentire all'utente di inviare notifiche push nell'app.
+1. In Xcode aprire `Main.storyboard` e aggiungere i componenti dell'interfaccia utente riportati di seguito dalla libreria di oggetti, per consentire all'utente di inviare notifiche push nell'app:
 
 	- Etichetta senza testo. Sarà usata per segnalare errori di invio di notifiche. La proprietà **Lines** deve essere impostata su **0**, in modo da limitare automaticamente le dimensioni ai margini destro e sinistro e alla parte superiore della visualizzazione.
 	- Campo di testo con testo **segnaposto** impostato su **Enter Notification Message**. Vincolare il campo sotto l'etichetta, come illustrato di seguito. Impostare il controller di visualizzazione come delegato di uscita.
@@ -459,7 +461,7 @@ Per testare le notifiche push in iOS, è necessario distribuire l'app in un disp
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche push sono state trasmesse a tutti i dispositivi iOS registrati. Come passaggio successivo nella formazione, vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET], che illustra la creazione di un back-end per l'invio di notifiche push tramite tag.
+In questo semplice esempio le notifiche push sono state trasmesse a tutti i dispositivi iOS registrati. Come passaggio successivo nella formazione, vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET], che illustra la creazione di un back-end per l'invio di notifiche push con tag.
 
 Per segmentare gli utenti per gruppi di interesse, è possibile vedere anche l'esercitazione [Usare Hub di notifica per inviare le ultime notizie].
 
@@ -506,4 +508,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
  services=""
  suite="iot-suite"
  documentationCenter=""
- authors="stevehob"
+ authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
@@ -14,33 +14,38 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/23/2016"
- ms.author="stevehob"/>
+ ms.date="07/18/2016"
+ ms.author="dobett"/>
 
 # Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto
 
 ## Introduzione
 
-La soluzione preconfigurata di monitoraggio remoto IoT Suite consente il monitoraggio end-to-end di base per uno scenario aziendale in cui si gestiscono più computer in località remote. La soluzione combina i servizi chiave di Azure IoT Suite per fornire un'implementazione generica dello scenario aziendale ed è un punto di partenza per i clienti che intendono implementare questo tipo di soluzione IoT per soddisfare i propri requisiti aziendali specifici.
+La [soluzione preconfigurata][lnk-preconfigured-solutions] per il monitoraggio remoto IoT Suite è un'implementazione di una soluzione di monitoraggio end-to-end per più computer in località remote. La soluzione combina i servizi chiave di Azure per offrire un'implementazione generica dello scenario aziendale ed è un punto di partenza per la propria implementazione. È possibile [personalizzare][lnk-customize] la soluzione per soddisfare requisiti aziendali specifici.
+
+Questo articolo illustra alcuni degli elementi principali della soluzione di monitoraggio remoto per comprenderne il funzionamento. Queste informazioni sono utili per risolvere i problemi con la soluzione, pianificare la personalizzazione della soluzione in base alle esigenze specifiche e per pianificare la soluzione IoT che usa i servizi di Azure.
 
 ## Architettura logica
 
 Il diagramma seguente illustra i componenti logici della soluzione preconfigurata:
 
-![](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Architettura logica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 
-### Dispositivi simulati
+## Dispositivi simulati
 
-Nella soluzione preconfigurata il dispositivo simulato rappresenta un dispositivo di raffreddamento (ad esempio, un condizionatore d'aria di un edificio o un'unita di trattamento aria di una struttura). Ogni dispositivo simulato invia i messaggi di telemetria seguenti all'hub IoT:
+Nella soluzione preconfigurata il dispositivo simulato rappresenta un dispositivo di raffreddamento (ad esempio, un condizionatore d'aria di un edificio o un'unita di trattamento aria di una struttura). Quando si distribuisce la soluzione preconfigurata, viene effettuato automaticamente anche il provisioning di quattro dispositivi simulati eseguiti in un [processo Web di Azure][lnk-webjobs]. I dispositivi simulati semplificano l'esplorazione del comportamento della soluzione senza la necessità di distribuire dispositivi fisici. Per distribuire un dispositivo fisico reale, vedere l'esercitazione [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto][lnk-connectyourdevice].
 
+Ogni dispositivo simulato può inviare i messaggi seguenti all'hub IoT:
 
 | Message | Descrizione |
 |----------|-------------|
 | Startup | Quando il dispositivo viene avviato, invia un messaggio **device-info** contenente informazioni su se stesso, ad esempio l'ID del dispositivo, i metadati, un elenco di comandi supportati dal dispositivo e la relativa configurazione corrente. |
+| Presenza | Un dispositivo invia periodicamente un messaggio di **presenza** per segnalare se il dispositivo può rilevare o meno la presenza di un sensore. |
+| Telemetria | Un dispositivo invia periodicamente un messaggio di **telemetria** che segnala i valori simulati per la temperatura e l'umidità raccolti dai sensori simulati connessi al dispositivo simulato. |
 
 
-I dispositivi simulati inviano le proprietà del dispositivo seguenti come metadati:
+I dispositivi simulati inviano le proprietà del dispositivo seguenti in un messaggio **device-info**:
 
 | Proprietà | Scopo |
 |------------------------|--------- |
@@ -61,7 +66,7 @@ I dispositivi simulati inviano le proprietà del dispositivo seguenti come metad
 Il simulatore effettua il seeding di queste proprietà nei dispositivi simulati con valori di esempio. Ogni volta che il simulatore inizializza un dispositivo simulato, quest'ultimo registra i metadati predefiniti nell'hub IoT. Si noti che questa registrazione sovrascrive gli eventuali aggiornamenti di metadati eseguiti nel portale per il dispositivo.
 
 
-I dispositivi simulati possono gestire i comandi seguenti inviati da un hub IoT:
+I dispositivi simulati possono gestire i comandi seguenti inviati dal dashboard della soluzione tramite l'hub IoT:
 
 | Comando | Descrizione |
 |------------------------|-----------------------------------------------------|
@@ -72,20 +77,25 @@ I dispositivi simulati possono gestire i comandi seguenti inviati da un hub IoT:
 | DiagnosticTelemetry | Attiva il simulatore del dispositivo per l'invio di un valore di telemetria aggiuntivo (externalTemp) |
 | ChangeDeviceState | Modifica una proprietà di stato estesa per il dispositivo e invia il messaggio di informazioni sul dispositivo dal dispositivo. |
 
+L'acknowledgment dei comandi del dispositivo nel back-end della soluzione viene fornito tramite l'hub IoT.
 
-Il riconoscimento di comando del dispositivo viene fornito tramite l'hub IoT.
+## Hub IoT
 
+L'[hub IoT][lnk-iothub] acquisisce i dati inviati dai dispositivi nel cloud e li rende disponibili per i processi di Analisi di flusso di Azure (ASA). L'hub IoT invia anche i comandi ai dispositivi per conto del portale dei dispositivi. Ogni processo di Analisi di flusso di Azure usa un gruppo di consumer dell'hub IoT separato per leggere il flusso dei messaggi dai dispositivi.
 
-### Processi di Analisi di flusso di Azure
+## Azure Stream Analytics
 
+Nella soluzione di monitoraggio remoto, i messaggi che l'hub IoT riceve dai dispositivi vengono inviati da [Analisi di flusso di Azure][lnk-asa] ad altri componenti di back-end per l'elaborazione o l'archiviazione. I diversi processi di Analisi di flusso di Azure eseguono operazioni specifiche in base al contenuto dei messaggi.
 
-**Processo 1: Informazioni sul dispositivo** filtra i messaggi informativi sul dispositivo dal flusso di messaggi in arrivo e li invia a un endpoint dell'hub eventi. Un dispositivo invia messaggi di informazioni di dispositivo all'avvio e in risposta a un comando **SendDeviceInfo**. Questo processo usa la definizione di query seguente:
+**Processo 1: Informazioni sul dispositivo** filtra i messaggi informativi sul dispositivo dal flusso di messaggi in arrivo e li invia a un endpoint dell'hub eventi. Un dispositivo invia messaggi di informazioni di dispositivo all'avvio e in risposta a un comando **SendDeviceInfo**. Questo processo usa la definizione di query seguente per identificare i messaggi **device-info**:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-**Processo 2: Regole** restituisce valori di telemetria in entrata relativi a temperatura e umidità rispetto alle soglie per dispositivo. I valori di soglia vengono impostati nell'editor delle regole incluso nella soluzione. Ogni coppia dispositivo/valore viene archiviata in base al timestamp in un BLOB che viene letto in Analisi di flusso come **Dati di riferimento**. Il processo confronta tutti i valori non vuoti rispetto alla soglia impostata per il dispositivo. Se supera la condizione ' >', il processo genera un evento di **allarme** che indica che la soglia è stata superata e fornisce il dispositivo, il valore e i valori di timestamp. Questo processo usa la definizione di query seguente:
+Questo processo invia l'output a un hub eventi per un'ulteriore elaborazione.
+
+**Processo 2: Regole** restituisce valori di telemetria in entrata relativi a temperatura e umidità rispetto alle soglie per dispositivo. I valori di soglia vengono impostati nell'editor delle regole incluso nel dashboard della soluzione. Ogni coppia dispositivo/valore viene archiviata in base al timestamp in un BLOB che viene letto in Analisi di flusso come **dati di riferimento**. Il processo confronta tutti i valori non vuoti rispetto alla soglia impostata per il dispositivo. Se supera la condizione ' >', il processo genera un evento di **allarme** che indica che la soglia è stata superata e indica il dispositivo, il valore e i valori di timestamp. Questo processo usa la definizione di query seguente per identificare i messaggi di telemetria che devono attivare un allarme:
 
 ```
 WITH AlarmsData AS 
@@ -126,7 +136,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-**Processo 3: Telemetria** agisce in due modi sul flusso in entrata dei dati di telemetria del dispositivo. Il primo invia tutti i messaggi di telemetria dai dispositivi all'archivio BLOB permanente. Il secondo calcola i valori di umidità media, minima e massima in una finestra temporale scorrevole di cinque minuti. I dati vengono inviati anche all'archivio BLOB. Questo processo usa la definizione di query seguente:
+Il processo invia l'output a un hub eventi per un'ulteriore elaborazione e salva i dettagli di ogni avviso nell'archivio BLOB da cui il dashboard della soluzione può leggere le informazioni dell'avviso.
+
+**Processo 3: Telemetria** agisce in due modi sul flusso in entrata dei dati di telemetria del dispositivo. Il primo invia tutti i messaggi di telemetria dai dispositivi all'archivio BLOB permanente per l'archiviazione a lungo termine. Il secondo calcola i valori di umidità media, minima e massima in una finestra temporale scorrevole di cinque minuti e invia questi dati all'archivio BLOB. Il dashboard della soluzione legge i dati di telemetria dall'archivio BLOB per popolare i grafici. Questo processo usa la definizione di query seguente:
 
 ```
 WITH 
@@ -164,73 +176,54 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-### Processore di eventi
+## Hub eventi
 
-Il **processore di eventi** gestisce i messaggi informativi sul dispositivo e le risposte ai comandi. Usa:
+I processi **Informazioni sul dispositivo** e **Regole** di Analisi di flusso di Azure inviano i dati ad Hub eventi per l'inoltro affidabile al **processore eventi** in esecuzione nel processo Web.
+
+## Archiviazione di Azure
+
+La soluzione usa l'archivio BLOB di Azure per rendere persistenti tutti i dati di telemetria non elaborati e sintetizzati dai dispositivi presenti nella soluzione. Il dashboard legge i dati di telemetria dall'archivio BLOB per popolare i grafici. Per visualizzare gli avvisi, il dashboard legge i dati dall'archivio BLOB che registra quando i valori dei dati di telemetria hanno superato i valori soglia configurati. La soluzione usa anche l'archivio BLOB per registrare i valori soglia impostati da un utente nel dashboard.
+
+## WebJobs
+
+Oltre a ospitare i simulatori dei dispositivi, i processi Web nella soluzione ospitano il **processore di eventi** eseguito in un processo Web di Azure che gestisce i messaggi informativi dei dispositivi e le risposte dei comandi. Usa:
 
 - Messaggi informativi sul dispositivo per aggiornare il registro del dispositivo (archiviato nel database DocumentDB) con le informazioni correnti sul dispositivo.
 - Messaggi di risposta ai comandi per aggiornare la cronologia dei comandi dispositivo (archiviata nel database DocumentDB).
 
-## Ecco come iniziare
+## DocumentDB
 
-In questa sezione illustra i componenti della soluzione, viene descritto il caso di utilizzo previsto e fornisce esempi.
+La soluzione usa un database DocumentDB per archiviare le informazioni sui dispositivi connessi alla soluzione, ad esempio i metadati dei dispositivi e la cronologia dei comandi inviati ai dispositivi dal dashboard.
+
+## App Web
 
 ### Dashboard di monitoraggio remoto
-Questa pagina dell'applicazione Web usa i controlli javascript di PowerBI (vedere la pagina relativa al [repository di elementi visivi di PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) per visualizzare i dati di output dei processi di Analisi di flusso nell'archivio BLOB.
+Questa pagina dell'applicazione Web usa i controlli javascript di PowerBI (vedere la pagina relativa al [repository di elementi visivi di PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) per visualizzare i dati di telemetria inviati dai dispositivi. La soluzione usa il processo di telemetria di Analisi di flusso di Azure per scrivere i dati di telemetria nell'archivio BLOB.
 
 
 ### Portale di amministrazione dei dispositivi
 
 Questa app Web consente di:
 
-- Effettuare il provisioning di un nuovo dispositivo che imposta l'ID univoco del dispositivo e genera la chiave di autenticazione.
-- Gestire le proprietà del dispositivo che include la visualizzazione delle proprietà esistenti e l'aggiornamento con nuove proprietà.
+- Effettuare il provisioning di un nuovo dispositivo. per impostare l'ID univoco del dispositivo e generare la chiave di autenticazione. Le informazioni sul dispositivo verranno scritte sia nel registro delle identità dell'hub IoT che nel database DocumentDB specifico della soluzione.
+- Gestire le proprietà dei dispositivi. Include la visualizzazione delle proprietà esistenti e l'aggiornamento con nuove proprietà.
 - Inviare comandi a un dispositivo.
 - Visualizzare la cronologia dei comandi per un dispositivo.
-
-### Osservare il comportamento della soluzione cloud
-È possibile visualizzare le risorse con provisioning visitando il [portale di Azure](https://portal.azure.com) e passando al gruppo di risorse con il nome della soluzione specificata.
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
-
-Quando si esegue l'esempio per la prima volta, sono disponibili quattro dispositivi simulati e preconfigurati:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_01.png)
-
-Per aggiungere un nuovo dispositivo simulato, è possibile usare il portale di amministrazione dei dispositivi:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_02.png)
-
-Inizialmente, lo stato del nuovo dispositivo nel portale di amministrazione dei dispositivi è **in sospeso**:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_03.png)
-
-Quando l'applicazione ha completato la distribuzione del dispositivo simulato, si vedrà che lo stato del dispositivo cambia in **In esecuzione** nel portale di amministrazione dei dispositivi, come illustrato nella schermata seguente. Il processo **DeviceInfo** di Analisi di flusso invia informazioni sullo stato dal dispositivo al portale di amministrazione dei dispositivi.
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_04.png)
-
-Tramite il portale della soluzione è possibile inviare comandi, ad esempio **ChangeSetPointTemp** al dispositivo:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_05.png)
-
-Quando il dispositivo segnala che il comando è stato eseguito correttamente, lo stato cambia in **Operazione riuscita**:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_06.png)
-
-Tramite il portale della soluzione è possibile cercare i dispositivi con caratteristiche specifiche, ad esempio un numero di modello:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_07.png)
-
-È possibile disabilitare un dispositivo e dopo aver disabilitato è possibile rimuoverlo:
-
-![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
-
+- Abilitare e disabilitare i dispositivi.
 
 ## Passaggi successivi
 
-I post del blog TechNet forniscono altri dettagli sulla soluzione preconfigurata di monitoraggio remoto:
+I post del blog TechNet offrono altri dettagli sulla soluzione preconfigurata per il monitoraggio remoto:
 
 - [Approfondimento sul monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [Aggiunta di dispositivi veri e simulati per il monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-connectyourdevice]: iot-suite-connecting-devices.md
+[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+
+<!---HONumber=AcomDC_0720_2016-->

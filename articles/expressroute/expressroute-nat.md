@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Requisiti NAT di ExpressRoute
@@ -52,7 +52,7 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
 
 #### Traffico proveniente da Microsoft e destinato alla propria rete
 
-- Per alcuni scenari è necessario che Microsoft avvii la connettività agli endpoint di servizio ospitati nella propria rete. Un esempio tipico di scenario è rappresentato dalla connettività a server ADFS ospitati nella propria rete da Office 365. In questi casi, è necessario inviare prefissi appropriati dalla propria rete al peering Microsoft. 
+- Per alcuni scenari è necessario che Microsoft avvii la connettività agli endpoint di servizio ospitati nella propria rete. Un esempio tipico di scenario è rappresentato dalla connettività a server ADFS ospitati nella propria rete da Office 365. In questi casi, è necessario inviare prefissi appropriati dalla propria rete al peering Microsoft.
 
 - È necessario inviare tramite SNAT il traffico destinato agli indirizzi IP nella propria rete da Microsoft.
 
@@ -66,4 +66,4 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

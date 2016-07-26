@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologie di connessione del gateway VPN di Azure
+# Connessioni del gateway VPN di Azure
 
 Questo articolo illustra le topologie di connessione di base del gateway VPN. Le descrizioni e i grafici forniti permettono di selezionare la topologia di configurazione più adatta alle proprie esigenze. L'articolo descrive le principali topologie di base, ma è possibile creare topologie più complesse usando i diagrammi come riferimento.
 
 Ogni topologia contiene una tabella che elenca il modello di distribuzione per cui la topologia è disponibile e gli strumenti di distribuzione che è possibile usare per configurarla. Contiene anche un collegamento diretto all'eventuale articolo disponibile. Le tabelle vengono aggiornate di frequente in base alla disponibilità di nuovi articoli e strumenti di distribuzione da usare.
 
-Per altre informazioni sui gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
-
-
+Le istruzioni usate per creare il gateway VPN dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare il gateway VPN si useranno le linee guida e le istruzioni per il modello di distribuzione classica. Non è possibile creare un gateway VPN di Azure Resource Manager per una rete virtuale creata con il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione, vedere l'articolo relativo ai [modelli di distribuzione classica e di Azure Resource Manager](../resource-manager-deployment-model.md).
 
 ## Da sito a sito e multisito
 
@@ -104,4 +102,4 @@ Per una migliore comprensione dei gateway VPN è opportuno acquisire familiarit�
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

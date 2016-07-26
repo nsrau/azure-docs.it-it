@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Configurare connessioni coesistenti da sito a sito ed ExpressRoute per il modello di distribuzione di Azure Resource Manager
@@ -34,7 +34,7 @@ La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre dive
 ## Limiti e limitazioni
 
 - **Il routing di transito non è supportato:** Azure non consente il routing tra la rete locale connessa tramite VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
-- **Non è possibile abilitare il tunneling forzato sul gateway VPN da sito a sito:** è possibile solo "forzare" tutto il traffico associato a Internet verso la rete locale tramite ExpressRoute. 
+- **Non è possibile abilitare il tunneling forzato sul gateway VPN da sito a sito:** è possibile solo "forzare" tutto il traffico associato a Internet verso la rete locale tramite ExpressRoute.
 - **Solo gateway standard o ad alte prestazioni:** è necessario usare un gateway standard o ad alte prestazioni sia per il gateway ExpressRoute che per il gateway VPN da sito a sito. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Solo gateway VPN basato su route:** è necessario usare un gateway VPN basato su route. Per informazioni sul gateway VPN basato su route, vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Requisito di route statica:** se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
@@ -143,7 +143,7 @@ Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa trami
 
 >[AZURE.NOTE] Quando si elimina il gateway esistente, gli ambienti locali perderanno la connessione alla rete virtuale mentre si lavora a questa configurazione.
 
-1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
+1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni.
 
 2. Eliminare il gateway ExpressRoute o VPN da sito a sito esistente.
 
@@ -169,7 +169,7 @@ Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa trami
 ## Per aggiungere una configurazione da punto a sito al gateway VPN
 Per aggiungere una configurazione da punto a sito al gateway VPN in una configurazione di coesistenza, è possibile seguire questa procedura.
 
-1. Aggiungere un pool di indirizzi client VPN. 
+1. Aggiungere un pool di indirizzi client VPN.
 
 		$azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
 		Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
@@ -194,4 +194,4 @@ Per altre informazioni sulle VPN da punto a sito, vedere [Configurare una connes
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->
