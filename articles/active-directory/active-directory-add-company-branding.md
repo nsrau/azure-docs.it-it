@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
@@ -42,7 +42,7 @@ Se sono state apportate modifiche alla pagina di accesso, potrebbe trascorrere f
 
 Una pagina di accesso personalizzata viene visualizzata quando si visita un servizio con un URL specifico del tenant, ad esempio https://outlook.com/**contoso**.com o https://mail.**contoso**.com.
 
-Quando si visita un servizio con URL non specifici del tenant (ad esempio, https://mail.office365.com)), viene visualizzata una pagina di accesso non personalizzata. In questo caso, la personalizzazione viene visualizzata dopo avere immesso il proprio ID utente o avere selezionato un'icona utente.
+Quando si visita un servizio con URL non specifici del tenant, ad esempio https://mail.office365.com, viene visualizzata una pagina di accesso non personalizzata. In questo caso, la personalizzazione viene visualizzata dopo avere immesso il proprio ID utente o avere selezionato un'icona utente.
 
 > [AZURE.NOTE]
 >
@@ -120,8 +120,8 @@ Se, ad esempio, si configura un logo del banner predefinito senza immagine di gr
 
 Si immagini la configurazione seguente:
 
-- Un logo del banner predefinito e testo della pagina di accesso in inglese 
-- Testo della pagina di accesso specifica della lingua per il tedesco 
+- Un logo del banner predefinito e testo della pagina di accesso in inglese
+- Testo della pagina di accesso specifica della lingua per il tedesco
 
 Se la lingua preferita è il tedesco, viene visualizzato il logo del banner predefinito, ma il testo è in tedesco.
 
@@ -177,8 +177,8 @@ Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per 
 
 **Per verificare se la personalizzazione è stata applicata:**
 
-1. Aprire una sessione del browser in incognito o InPrivate. 
-2. Passare a https://outlook.com/contoso.com, sostituendo contoso.com con il dominio personalizzato. 
+1. Aprire una sessione del browser in incognito o InPrivate.
+2. Passare a https://outlook.com/contoso.com, sostituendo contoso.com con il dominio personalizzato.
 
 Questo metodo funziona con i domini simili a contoso.onmicrosoft.com.
 
@@ -219,4 +219,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -58,4 +58,4 @@ Dopo due riavvii, se si verificano ancora problemi di connettività tra più sed
 	
 Per altre informazioni su questo cmdlet, vedere [Riferimenti PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

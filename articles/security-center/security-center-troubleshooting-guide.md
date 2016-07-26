@@ -13,19 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/20/2016"
    ms.author="yurid"/>
 
 # Guida alla risoluzione dei problemi del Centro sicurezza di Azure
-Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure.
+Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
 
 > [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
-## Che cos'è il Centro sicurezza di Azure?
-Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
-
 ## Guida per la risoluzione dei problemi
-Questa guida illustra come risolvere i problemi correlati al Centro sicurezza di Azure. La maggior parte delle attività di risoluzione dei problemi eseguite nel Centro sicurezza di Azure avviene osservando prima di tutto i record del [Log di controllo](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) del componente in cui si è verificato il problema. Tramite i log di controllo, è possibile determinare:
+Questa guida illustra come risolvere i problemi correlati al Centro sicurezza. La maggior parte delle attività di risoluzione dei problemi nel Centro sicurezza di Azure viene eseguita osservando prima di tutto i record del [log di controllo](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) del componente in cui si è verificato il problema. Tramite i log di controllo, è possibile determinare:
 
 - Quali operazioni sono state eseguite.
 - Chi ha avviato l'operazione.
@@ -51,7 +48,7 @@ Se l'installazione riesce, nei log di controllo per la macchina virtuale di dest
 
 È anche possibile ottenere altre informazioni sul processo di installazione nei log dell'agente, disponibili nel percorso *%systemdrive%\\windowsazure\\logs*, ad esempio C:\\WindowsAzure\\Logs.
 
-[AZURE.NOTE] Se l'agente del Centro sicurezza di Azure non funziona correttamente, sarà necessario riavviare la macchina virtuale di destinazione, perché non esiste un comando per arrestare e avviare l'agente.
+> [AZURE.NOTE] Se l'agente del Centro sicurezza di Azure non funziona correttamente, sarà necessario riavviare la macchina virtuale di destinazione, perché non esiste un comando per arrestare e avviare l'agente.
 
 ## Risoluzione dei problemi di installazione dell'agente monitoraggio in Linux
 Nel caso di risoluzione dei problemi di installazione dell'agente di macchine virtuali in un sistema Linux, è necessario assicurarsi che l'estensione sia stata scaricata in/var/lib/waagent/. Per verificare se è stato installato, è possibile eseguire il comando seguente:
@@ -69,12 +66,12 @@ In un sistema funzionante si noterà una connessione al processo mdsd su TCP 291
 
 ## Contattare il supporto tecnico Microsoft
 
-Alcuni problemi possono essere identificati usando le linee guida fornite in questo articolo, altri sono documentati nel [Forum](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureSecurityCenter) pubblico del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il portale di Azure, come illustrato di seguito:
+Alcuni problemi possono essere identificati usando le linee guida contenute in questo articolo, altri sono documentati nel [forum](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureSecurityCenter) pubblico del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il portale di Azure, come illustrato di seguito:
 
 ![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## Passaggi successivi
+## Vedere anche
 
 In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
@@ -85,4 +82,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

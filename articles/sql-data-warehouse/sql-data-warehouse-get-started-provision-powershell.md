@@ -28,7 +28,7 @@ Prima di iniziare, verificare che siano soddisfatti i prerequisiti seguenti.
 
 - **Account Azure**: vedere [Versione di valutazione gratuita][] o [Credito Azure mensile per sottoscrittori di Visual Studio][] per creare un account.
 - **Server SQL Azure V12**: vedere [Creare un server logico del database SQL di Azure con il portale di Azure][] o [Creare un server logico del database SQL di Azure con PowerShell][].
-- **Nome gruppo di risorse**: usare lo stesso gruppo di risorse del server SQL Azure versione 12 o vedere [Gruppi di risorse][] per creare un nuovo gruppo di risorse.
+- **Nome gruppo di risorse**: usare lo stesso gruppo di risorse del server di Azure SQL versione 12 o vedere [Creare un gruppo di risorse][] per creare un nuovo gruppo di risorse.
 - **PowerShell versione 1.0.3 o successiva**: è possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
 
 > [AZURE.NOTE] La creazione di un nuovo database di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile. Per informazioni dettagliate sui prezzi, vedere [Prezzi di SQL Data Warehouse][].
@@ -84,7 +84,7 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, v
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Creare un server logico del database SQL di Azure con il portale di Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Creare un server logico del database SQL di Azure con PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Gruppi di risorse]: ../azure-portal/resource-group-portal.md
+[Creare un gruppo di risorse]: ../resource-group-template-deploy-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -97,4 +97,4 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, v
 [Versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Credito Azure mensile per sottoscrittori di Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

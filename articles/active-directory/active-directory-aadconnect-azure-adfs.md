@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS in Azure 
+# Distribuzione di AD FS in Azure 
 
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria. Distribuire AD FS in Azure offre diverse vantaggi. Di seguito ne sono elencati alcuni.
 
@@ -259,11 +259,9 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	Consente la comunicazione HTTPS alla rete perimetrale | In ingresso |
 |DenyAllFromDMZ| Questa regola blocca tutto il traffico dalla rete perimetrale alla subnet interna. La regola AllowHTTPSFromDMZ garantisce il passaggio della comunicazione HTTPS e qualsiasi altro tipo di comunicazione viene bloccato da questa regola | In ingresso |
-|AllowHTTPSToDMZ| Questa regola permette di consentire la comunicazione HTTPS verso la rete perimetrale | In uscita |
-|DenyDMZAll| Tutto il traffico non HTTPS verso la rete perimetrale viene bloccato da questa regola | In uscita |
 |DenyInternetOutbound| Nessun accesso a Internet | In uscita |
 
-![Regole di accesso interno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![Regole di accesso interno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[commento]: <> (![Regole di accesso interno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [commento]: <> (![Regole di accesso interno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Proteggere la subnet perimetrale**
 
@@ -271,13 +269,12 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Consente il traffico HTTPS dalla rete virtuale | In ingresso |
 |AllowHTTPSInternet| Consente il traffico HTTPS da Internet alla rete perimetrale | In ingresso|
-|DenyingressexceptHTTPS|	Blocca tutto il traffico non HTTPS da Internet | In ingresso |
-|AllowOutToADFS| Consente il traffico HTTPS verso la subnet interna | In uscita |
-|AllowHTTPSToInternet| Consente il traffico HTTPS verso Internet | In uscita |
+|DenyingressexceptHTTPS| Blocca tutto il traffico non HTTPS da Internet | In ingresso |
 |DenyOutToInternet|	Tutto il traffico non HTTPS verso Internet viene bloccato | In uscita |
 
-![Regole di accesso esterno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![Regole di accesso esterno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[commento]: <> (![Regole di accesso esterno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [commento]: <> (![Regole di accesso esterno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] Se è necessaria l'autenticazione del certificato utente client (autenticazione clientTLS con i certificati utente X509), AD FS richiede l'abilitazione della porta TCP 49443 per l'accesso in ingresso.
 
 ###10\. Testare l'accesso ad AD FS
 
@@ -306,4 +303,4 @@ Dopo l'accesso, verrà visualizzato un messaggio di completamento dell'operazion
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Configurazione e gestione di AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

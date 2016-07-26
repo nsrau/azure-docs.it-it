@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Registrazione dell'insieme di credenziali delle chiavi di Azure #
@@ -34,6 +34,8 @@ Usare questa esercitazione per un'introduzione all'uso della registrazione dell'
 >
 >Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece queste istruzioni per Azure PowerShell.
 
+I log raccolti possono essere visualizzati con Log Analytics da Operations Management Suite. Per altre informazioni, vedere [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (Soluzione Insieme di credenziali delle chiavi di Azure (anteprima) in Log Analytics).
+
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
 ## Prerequisiti
@@ -41,7 +43,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Insieme di credenziali delle chiavi esistente e già in uso.
-- Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.
+- Azure PowerShell ** versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.
 - Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
 
@@ -77,7 +79,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 
 ## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log ##
 
-Nell'esercitazione introduttiva il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**, perciò si continuerà a usarlo e si archivieranno i dettagli in una variabile denominata **kv**:
+Nell'esercitazione introduttiva, il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**, quindi si continuerà a usarlo e si archivieranno i dettagli in una variabile denominata **kv**:
 
 	$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -127,10 +129,10 @@ L'output sarà simile al seguente:
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
-Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ID risorsa ARM>/y=<anno>/m=<mese>/d=<giorno del mese>/h=<ora>/m=<minuti>/filename.json**
+Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ID risorsa di Azure Resource Manager>/y=<anno>/m=<mese>/d=<giorno del mese>/h=<ora>/m=<minuti>/filename.json**
 
 I valori di data e ora sono nel formato UTC.
 
@@ -270,6 +272,6 @@ Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell�
 
 Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Per un'esercitazione sulla rotazione delle chiavi e il controllo del registro con l'insieme di credenziali delle chiavi di Azure, vedere [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo end-to-end).
+Per un'esercitazione sulla rotazione delle chiavi e il controllo del log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

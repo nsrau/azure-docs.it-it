@@ -238,6 +238,6 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Una volta completate le attività, eliminare il gruppo di risorse che contiene l'app Web e le eventuali risorse di Azure correlate.
 
-	Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../resource-group-portal.md).
+	Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
