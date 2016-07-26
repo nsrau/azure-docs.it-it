@@ -193,7 +193,7 @@ In questa sezione si usa il portale di Azure per creare una nuova app per le API
 
 6. Nell'elenco a discesa **Gruppo di risorse** fare clic su **Nuovo** e quindi in **Nuovo nome gruppo di risorse** immettere "NodejsAPIAppGroup" o un altro nome, se si preferisce.
 
-	Un [gruppo di risorse](../azure-portal/resource-group-portal.md) è una raccolta di risorse di Azure, ad esempio app per le API, database e VM. Per questa esercitazione è consigliabile creare un nuovo gruppo di risorse, per eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio.
+	Un [gruppo di risorse](../resource-group-overview.md) è una raccolta di risorse di Azure, ad esempio app per le API, database e macchine virtuali. Per questa esercitazione è consigliabile creare un nuovo gruppo di risorse, per eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio.
 
 4. Fare clic su **Piano di servizio app/Località** e quindi su **Crea nuovo**.
 
@@ -312,4 +312,4 @@ Ora che il recapito continuo è stato associato, è possibile apportare modifich
 
 A questo punto sono state completate la creazione di un'app per le API e la distribuzione in tale app del codice di un'API Node.js. L'esercitazione successiva mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

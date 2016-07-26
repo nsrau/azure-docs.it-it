@@ -66,7 +66,7 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 
 6. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
-	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
+	Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 7. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
@@ -225,4 +225,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

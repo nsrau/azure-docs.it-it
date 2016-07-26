@@ -88,13 +88,17 @@ Con il gateway dovrebbero funzionare anche altre soluzioni software VPN, purché
 
 Sono supportati i sistemi operativi seguenti:
 
-- Windows 7 (solo versione a 64 bit)
+- Windows 7 (a 32 e 64 bit)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (solo a 64 bit)
 
-- Windows 8 (solo versione a 64 bit)
+- Windows 8 (a 32 e 64 bit)
 
-- Windows Server 2012
+- Windows 8.1 (a 32 e 64 bit)
+
+- Windows Server 2012 (solo a 64 bit)
+
+- Windows Server 2012 R2 (solo a 64 bit)
 
 - Windows 10
 
@@ -279,4 +283,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creare un semplice esperimento in Machine Learning Studio | Microsoft Azure"
-	description="Una prima esercitazione di Machine Learning per creare un semplice esperimento per eseguire il training e il test di un modello semplice in Azure Machine Learning Studio."
-	keywords="esperimento, regressione lineare, algoritmi di machine learning, esercitazione su machine learning, tecniche di modellazione predittiva"
+	pageTitle="Esperimento semplice in Machine Learning Studio | Microsoft Azure"
+	description="Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione."
+	keywords="esperimento,regressione lineare,algoritmi di machine learning,esercitazione su machine learning,tecniche di modellazione predittiva,esperimento di analisi scientifica dei dati"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
-# Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
+# Esercitazione di Machine Learning: Creare il primo esperimento di analisi scientifica dei dati in Azure Machine Learning Studio
 
-Nella prima esercitazione di Machine Learning, verrà creato un modello di regressione lineare che stima il prezzo di un'automobile in base a diverse variabili, come la marca e le specifiche tecniche. A tale scopo, si userà Azure Machine Learning Studio per sviluppare un semplice esperimento di analisi predittiva ed eseguirne l'iterazione.
+Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà creato un modello di regressione lineare che stima il prezzo di un'automobile in base a diverse variabili, come la marca e le specifiche tecniche. A tale scopo, si userà Azure Machine Learning Studio per sviluppare un semplice esperimento di analisi predittiva ed eseguirne l'iterazione.
+
+L'*analisi predittiva* è un tipo di analisi scientifica dei dati che usa dati correnti per prevedere risultati futuri. Per un esempio molto semplice di analisi predittiva, vedere il video 4 della serie sull'analisi scientifica dei dati per principianti: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (Prevedere una risposta con un modello semplice), durata 7:42.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un esperimento di Machine Learning Studio consiste nel trascinare e rilasciare componenti in un'area di disegno e connetterli per *creare un modello*, *eseguire il training del modello* e *generare un punteggio e testare il modello*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
+## Vantaggi di Machine Learning Studio
 
-Accedere a Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante **Get started**. È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
+Machine Learning Studio semplifica la configurazione di un esperimento grazie a moduli a trascinamento preprogrammati con tecniche di modellazione predittiva. Per eseguire l'esperimento e prevedere una risposta, si userà Machine Learning Studio per *creare un modello*, *eseguire il training del modello* e infine *assegnare un punteggio al modello e provarlo*.
 
-Per informazioni più generali su Machine Learning Studio, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
+Accedere a Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Se è già stato effettuato l'accesso a Machine Learning Studio in precedenza, fare clic su **Sign in here** (Accedere qui). In caso contrario fare clic su **Sign Up** (Iscrizione) e scegliere tra opzioni gratuite e a pagamento.
 
->[AZURE.TIP] Per scaricare e stampare un diagramma che include una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-
+Per informazioni più generali su Machine Learning Studio, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
 
 ## Cinque passaggi per la creazione di un esperimento
 
@@ -66,7 +67,11 @@ In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed �
 
 	![Set di dati][screen1]
 
-Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati relativo alle automobili e selezionare **Visualize**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra (colonna 26 e intitolata "price") è la variabile di destinazione che verrà stimata.
+Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati relativo alle automobili e selezionare **Visualize**.
+
+![Porta di output modulo][screen1c]
+
+Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra (colonna 26 e intitolata "price") è la variabile di destinazione che verrà stimata.
 
 ![Visualizzazione set di dati][screen1b]
 
@@ -80,12 +85,13 @@ Prima di poter analizzare un set di dati è in genere necessario pre-elaborarlo.
 
 Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno rimosse tutte le righe con dati mancanti.
 
-1. Digitare **select columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati), quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
+1. Digitare **select columns** (seleziona colonne) nella casella di ricerca nella parte superiore del pannello dei moduli per trovare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati), quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
-2. Selezionare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Proprietà**.
+2. Selezionare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Properties** (Proprietà).
 
-	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) analizzerà tutte le colonne, ad eccezione di quelle che verranno escluse.
-	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
+	- A sinistra, fare clic su **With rules** (Con regole)
+	- In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). In questo modo, [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) analizzerà tutte le colonne, ad eccezione di quelle che verranno escluse.
+	- Negli elenchi a discesa selezionare **Exclude** (Escludi) e **column names** (nomi colonna), quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
 	- Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne.
 
     ![Selezione colonne][screen3]
@@ -112,21 +118,26 @@ A questo punto, una volta puliti i dati è possibile specificare le caratteristi
 
 ## Passaggio 3: Definire le caratteristiche
 
-In Machine Learning le *caratteristiche* sono singole proprietà misurabili di un elemento a cui si è interessati. Nel set di dati corrente ogni riga rappresenta un'automobile e ogni colonna è una caratteristica di tale automobile. Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Inoltre, alcune caratteristiche sono strettamente correlate ad altre (ad esempio city-mpg e highway-mpg), di conseguenza non aggiungono nuove informazioni al modello e possono essere rimosse.
+In Machine Learning le *caratteristiche* sono singole proprietà misurabili di un elemento a cui si è interessati. Nel set di dati corrente ogni riga rappresenta un'automobile e ogni colonna è una caratteristica di tale automobile.
 
-Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Come prima ipotesi verranno selezionate le caratteristiche (colonne) seguenti con il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Tenere presente che per il training del modello è necessario includere il valore *price* relativo al prezzo che si intende stimare.
+Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Inoltre, alcune caratteristiche sono strettamente correlate ad altre (ad esempio city-mpg e highway-mpg), di conseguenza non aggiungono nuove informazioni al modello e possono essere rimosse.
+
+Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Per iniziare verranno tuttavia provate le funzionalità seguenti:
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Trascinare un altro modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) nell'area di disegno dell'esperimento e connetterlo alla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti). Fare doppio clic sul modulo e digitare "Selezionare le caratteristiche per la stima".
 
 2. Fare clic su **Launch column selector** nel riquadro **Properties**.
 
-3. Nel selettore di colonna, selezionare **No columns** per **Begin With** e quindi selezionare **Include** e **column names** nella riga del filtro. Immettere l'elenco di nomi di colonna. In tal modo il modulo passerà solo nelle colonne specificate.
+3. Fare clic su **With rules** (Con regole).
 
-	> [AZURE.TIP] Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) a [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti), il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
+4. In **Begin With** (Inizia con) fare clic su **No columns** (Nessuna colonna) e quindi selezionare **Include** (Includi) e **column names** (nomi colonna) nella riga del filtro. Immettere l'elenco di nomi di colonna. In tal modo il modulo passerà solo nelle colonne specificate.
 
-4. Fare clic sul pulsante di segno di spunta (OK).
+	> [AZURE.TIP] Con l'esecuzione dell'esperimento, le definizioni di colonna vengono passate dal set di dati attraverso il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti). Ciò significa che anche altri moduli connessi riceveranno le informazioni dal set di dati.
+
+5. Fare clic sul pulsante di segno di spunta (OK).
 
 ![Selezione colonne][screen6]
 
@@ -134,13 +145,13 @@ Si ottiene in tal modo il set di dati che verrà usato nell'algoritmo di apprend
 
 ## Passaggio 4: Scegliere e applicare un algoritmo di apprendimento
 
-I dati sono pronti, di conseguenza la creazione del modello predittivo implica la fase di training e test. I dati verranno usati per il training del modello e quindi il modello verrà testato per determinare la precisione di stima dei prezzi.
+I dati sono pronti, di conseguenza la creazione del modello predittivo implica la fase di training e test. I dati verranno usati per il training del modello e quindi il modello verrà testato per determinare la precisione di stima dei prezzi. Per il momento non è importante trattare i motivi per i quali è necessario eseguire il training e quindi il test di un modello.
 
-La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Learning controllato. La classificazione viene usata per effettuare una stima in base a un insieme di valori definiti, ad esempio un colore (rosso, blu o verde). La regressione viene invece usata per effettuare una stima in base a un insieme continuo di valori, ad esempio l'età di una persona.
+La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Learning controllato. La classificazione stima una risposta da un set di categorie definito, ad esempio un colore (rosso, blu o verde). La regressione viene usata per stimare un numero.
 
-Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi, si userà un modello basato su regressione. Per questo esempio, verrà eseguito il training di un semplice modello di *regressione lineare*, che verrà testato nel passaggio successivo.
+Poiché si vuole stimare il prezzo, ovvero un numero, si userà un modello di regressione. Per questo esempio, verrà eseguito il training di un semplice modello di *regressione lineare*, che verrà testato nel passaggio successivo.
 
-1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] (Dividi dati) nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
+1. I dati vengono usati sia per il training che per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] (Dividi dati) nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
 
 	> [AZURE.TIP] Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
@@ -166,7 +177,7 @@ Il risultato è un modello di regressione basato su training che può essere usa
 
 Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile usarlo per classificare il restante 25% e verificarne il funzionamento.
 
-1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test (porta destra) del modulo [Split Data][split].  
+1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test (porta destra) del modulo [Split Data][split].
 
 	![Modulo Score Model][screen8a]
 
@@ -212,6 +223,7 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [screen1]: ./media/machine-learning-create-experiment/screen1.png
 [screen1a]: ./media/machine-learning-create-experiment/screen1a.png
 [screen1b]: ./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]: ./media/machine-learning-create-experiment/screen2.png
 [screen3]: ./media/machine-learning-create-experiment/screen3.png
 [screen4]: ./media/machine-learning-create-experiment/screen4.png
@@ -234,4 +246,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

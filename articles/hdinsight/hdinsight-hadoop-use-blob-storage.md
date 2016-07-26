@@ -27,11 +27,7 @@ L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con 
 
 L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-> [AZURE.NOTE]	La sintassi **asv://* non è supportata nei cluster HDInsight versione 3.0. Questo significa che i processi inviati a un cluster HDInsight 3.0 che usano esplicitamente la sintassi **asv://* avranno esito negativo. Sarà pertanto necessario usare la sintassi **wasb://*. Avrà inoltre esito negativo qualsiasi processo inviato a un cluster HDInsight 3.0 e creato con un metastore esistente che contiene riferimenti espliciti a risorse che usano la sintassi asv://. Sarà necessario ricreare i metastore in modo da fare riferimento alle risorse utilizzando la sintassi wasb://.
-
-> In HDInsight sono attualmente supportati solo i BLOB in blocchi.
-
-> La maggior parte dei comandi HDFS, ad esempio <b>ls</b>, <b>copyFromLocal</b> e <b>mkdir</b>, funziona come previsto. Solo i comandi specifici dell'implementazione HDFS nativa (denominata DFS) ad esempio <b>fschk</b> e <b>dfsadmin</b>, mostreranno un comportamento diverso nell'archiviazione BLOB di Azure.
+> [AZURE.IMPORTANT] In HDInsight sono supportati solo i BLOB in blocchi. Non sono supportati BLOB di pagine o BLOB di aggiunta.
 
 Per informazioni sulla creazione di un cluster HDInsight, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Creazione di cluster HDInsight][hdinsight-creation].
 
@@ -49,6 +45,7 @@ HDInsight offre inoltre la possibilità di accedere ai dati archiviati nell'arch
 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] Nelle versioni di HDInsight precedenti alla 3.0 veniva usato `asv://` al posto di `wasb://`. Non usare `asv://` con i cluster HDInsight 3.0 o versione successiva perché si verificherà un errore.
 
 Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione di HDInsight, vengono designati come file system predefinito un account di archiviazione di Azure e un contenitore di archiviazione BLOB specifico di tale account.
 
@@ -83,7 +80,7 @@ L'archiviazione dei dati nell'archiviazione BLOB di Azure anziché in HDFS offre
 
 Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non vale la pena di archiviare nell'archiviazione BLOB di Azure. In questo caso, è possibile scegliere di archiviare i dati nel file system HDFS locale. In effetti, HDInsight usa DFS per molti di questi risultati intermedi nei processi Hive e in altri processi.
 
-
+> [AZURE.NOTE] La maggior parte dei comandi HDFS, ad esempio <b>ls</b>, <b>copyFromLocal</b> e <b>mkdir</b>, funziona come previsto. Solo i comandi specifici dell'implementazione HDFS nativa (denominata DFS) ad esempio <b>fschk</b> e <b>dfsadmin</b>, mostreranno un comportamento diverso nell'archiviazione BLOB di Azure.
 
 ## Creare dei contenitori BLOB
 
@@ -304,4 +301,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

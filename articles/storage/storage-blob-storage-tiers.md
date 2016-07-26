@@ -120,7 +120,7 @@ Gli account di archiviazione BLOB usano un nuovo modello di determinazione prezz
 - **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 - **Modifica del livello di archiviazione**: la modifica del livello di archiviazione da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di archiviazione da frequente a sporadico è gratuito.
 
-> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di archiviazione da sporadico a frequente non viene applicato fino al 30 giugno 2016. A partire dal 1ª luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di archiviazione da sporadico a frequente non viene applicato fino al 30 giugno 2016. A partire dal 1° luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Avvio rapido
 
@@ -161,7 +161,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 8. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Gestire le risorse di Azure mediante il portale](../azure-portal/resource-group-portal.md).
+9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 10. Selezionare l'area per l'account di archiviazione.
 
@@ -340,4 +340,4 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](st
 
 [Visualizzare ed esplorare gli account di archiviazione](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -51,7 +51,7 @@ Per agevolare la configurazione del dispositivo VPN, fare riferimento ai collega
 | Citrix | Dispositivo MPX CloudBridge o dispositivo virtuale VPX | N/D | [Istruzioni di integrazione](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatibile |
 | Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Istruzioni di configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Non compatibile |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [Istruzioni di configurazione](http://docs.fortinet.com/fortigate/admin-guides) | [Istruzioni di configurazione](http://docs.fortinet.com/fortigate/admin-guides) |
+| Fortinet | FortiGate | FortiOS 5.0.7 | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Istruzioni di configurazione](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Non compatibile |
 | Juniper | SRX | JunOS 10.2 (basato su criteri), JunOS 11.4 (basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | Serie J | JunOS 10.4r9 (basato su criteri), JunOS 11.4 (basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -97,7 +97,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 
 ## Parametri IPsec
 
->[AZURE.NOTE] Anche se i valori elencati di seguito sono supportati dal Gateway VPN di Azure, attualmente non è possibile specificare o selezionare una combinazione specifica dal Gateway VPN di Azure. È necessario specificare tutti i vincoli dal dispositivo VPN locale.
+>[AZURE.NOTE] Anche se i valori elencati di seguito sono supportati dal Gateway VPN di Azure, attualmente non è possibile specificare o selezionare una combinazione specifica dal Gateway VPN di Azure. È necessario specificare tutti i vincoli dal dispositivo VPN locale. È inoltre necessario limitare MSS a 1350.
 
 ### Configurazione fase 1 IKE
 
@@ -118,10 +118,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | Versione IKE | IKEv1 | IKEv2 |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
 | Durata (tempo) associazione di sicurezza (SA) fase 2 | 3\.600 secondi | 3\.600 secondi |
-| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - |
-| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (più avanti) |
-| Perfect Forward Secrecy (PFS) | No | Sì (DH Group1, 2, 5, 14, 24) |
-| Dead Peer Detection | Non supportato | Supportato |
+| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - | | Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (più avanti) | | Perfect Forward Secrecy (PFS) | No | Sì (DH Group1, 2, 5, 14, 24) | | Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
 
@@ -145,12 +142,11 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 14 | AH MD5 con ESP DES Null HMAC, nessuna durata proposta | AH MD5 con ESP DES MD5, nessuna durata |
 | 15 | AH SHA1 con ESP DES SHA1, nessuna durata | ESP SHA, nessuna durata |
 | 16 | AH MD5 con ESP DES MD5, nessuna durata | ESP MD5, nessuna durata |
-| 17 | - | AH SHA, nessuna durata |
-| 18 | - | AH MD5, nessuna durata |
+| 17 | - | AH SHA, nessuna durata | | 18 | - | AH MD5, nessuna durata |
 
 
 - È possibile specificare la crittografia NULL ESP IPsec con gateway VPN basati su route e con prestazioni elevate. La crittografia basata su null non fornisce protezione ai dati in transito e deve essere usata solo quando sono richieste una velocità effettiva massima e una latenza minima. I client possono scegliere di usare questa crittografia in scenari di comunicazione tra reti virtuali oppure quando la crittografia viene applicata in un'altra posizione nella soluzione.
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

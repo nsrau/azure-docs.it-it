@@ -65,7 +65,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
-	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
+	Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 5. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
@@ -128,4 +128,4 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
