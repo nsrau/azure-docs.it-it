@@ -184,7 +184,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 
 1.  Creare un nuovo account di automazione. Usare la stessa area geografica/area in cui sono stati creati gli account dell'appliance cloud StorSimple e di archiviazione.
 
-2.  Fare clic su **Nuovo** & gt; **Servizi app** & gt; **Automazione** & gt; **Runbook** & gt; **Da raccolta** per importare tutti i runbook richiesti nell'account di automazione.
+2.  Fare clic su **Nuovo** &gt; **Servizi app** &gt; **Automazione** &gt; **Runbook** &gt; **Da raccolta** per importare tutti i runbook richiesti nell'account di automazione.
 
 	![](./media/storsimple-dr-using-asr/image3.png)
 
@@ -207,11 +207,11 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 
 	 ![](./media/storsimple-dr-using-asr/image5.png)
 
-1.  Nell'account di automazione passare alla scheda **Asset**, fare clic su **Aggiungi impostazione** & gt; **Aggiungi credenziali** e aggiungere le credenziali di Azure (denominare l'asset AzureCredential).
+1.  Nell'account di automazione passare alla scheda **Asset**, fare clic su **Aggiungi impostazione** &gt; **Aggiungi credenziali** e aggiungere le credenziali di Azure (denominare l'asset AzureCredential).
 
 	Usare le credenziali di Windows PowerShell. Queste credenziali devono contenere un nome utente ID organizzazione e una password con accesso alla sottoscrizione di Azure e Multi-Factor Authentication disabilitata. Si tratta di un passaggio necessario per eseguire l'autenticazione per conto dell'utente durante i failover e per visualizzare i volumi del file server nel sito di ripristino di emergenza.
 
-1.  Nell'account di automazione, selezionare la scheda **Asset**, quindi fare clic su **Aggiungi impostazione** & gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
+1.  Nell'account di automazione, selezionare la scheda **Asset**, quindi fare clic su **Aggiungi impostazione** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
 	-   *RecoveryPlanName***-StorSimRegKey**: la chiave di registrazione per il servizio StorSimple Manager.
 
@@ -233,7 +233,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 
 	-   *RecoveryPlanName***-ScriptContainer**: il nome del contenitore in cui lo script verrà archiviato nel cloud. Se il contenitore non esiste, verrà creato.
 
-	-   *RecoveryPlanName***-VMGUIDS**: al momento di proteggere una VM, Azure Site Recovery assegna a ogni VM virtuale un ID univoco che fornisce i dettagli della VM sottoposta a failover. Per ottenere il VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** & gt; **Gruppi protezione** & gt; **Computer** & gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
+	-   *RecoveryPlanName***-VMGUIDS**: al momento di proteggere una VM, Azure Site Recovery assegna a ogni VM virtuale un ID univoco che fornisce i dettagli della VM sottoposta a failover. Per ottenere il VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi protezione** &gt; **Computer** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
 
 	-   *RecoveryPlanName***-AutomationAccountName**: il nome dell'account di automazione in cui sono stati aggiunti i runbook e gli asset.
 
@@ -403,4 +403,4 @@ La pianificazione della capacità prevede almeno due processi importanti:
 
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
