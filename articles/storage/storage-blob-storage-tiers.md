@@ -161,7 +161,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 8. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Gestire le risorse di Azure mediante il portale](../azure-portal/resource-group-portal.md).
+9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 10. Selezionare l'area per l'account di archiviazione.
 
@@ -340,4 +340,4 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](st
 
 [Visualizzare ed esplorare gli account di archiviazione](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

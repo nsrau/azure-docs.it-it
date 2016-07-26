@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="07/14/2016"
 	ms.author="evboyle"/>
 
 # Introduzione a Ricerca di Azure in NodeJS
@@ -54,12 +54,11 @@ Dopo aver creato il servizio, tornare al portale per ottenere l'URL o `api-key`.
 
 Utilizzare uno degli approcci seguenti per scaricare l'esempio.
 
-1. Andare a [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+1. Andare a [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
 2. Fare clic su **Download ZIP**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti.
 
 Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate sui file in questa cartella.
 
-In alternativa, se si dispone di GIT nell’istruzione del percorso, è possibile aprire una finestra di PowerShell e digitare `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ## Aggiornare config.js. con l'URL del servizio di ricerca e la chiave api
 
@@ -121,4 +120,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0720_2016-->

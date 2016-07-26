@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="07/18/2016"
     ms.author="yuaxu;ricksal"/>
 
 #Creare un'app per Android
@@ -54,4 +54,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

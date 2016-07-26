@@ -75,7 +75,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 1. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
-	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure][ResourceGroups].
+	Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager][ResourceGroups].
 
 	![Configurare il gruppo di risorse per l'app Web][ConfigResourceGroup]
 
@@ -153,7 +153,7 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [portale di Azure]: https://portal.azure.com/
@@ -180,4 +180,4 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

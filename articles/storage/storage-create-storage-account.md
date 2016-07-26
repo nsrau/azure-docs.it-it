@@ -65,7 +65,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 	>  
 	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome dell'account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 	> [AZURE.NOTE] Gli account di archiviazione BLOB possono essere creati solo usando il modello di distribuzione di Resource Manager.
 
@@ -79,7 +79,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 9. Selezionare la posizione geografica dell'account di archiviazione. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
@@ -157,4 +157,4 @@ Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure]
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

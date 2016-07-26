@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare il routing per un circuito ExpressRoute
@@ -62,7 +62,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento secondario. Non deve far parte di alcuno spazio indirizzi riservato per le reti virtuali.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
 	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È possibile usare il numero AS privato per questo peering. Assicurarsi di non usare il numero 65515.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 
 
 3. Selezionare la riga del peering privato di Azure, come illustrato di seguito.
@@ -113,12 +113,12 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 2. Configurare il peering pubblico di Azure per il circuito. Prima di procedere con i passaggi successivi, verificare che siano presenti gli elementi seguenti:
 
-	- Una subnet /30 per il collegamento primario. 
-	- Una subnet /30 per il collegamento secondario. 
+	- Una subnet /30 per il collegamento primario.
+	- Una subnet /30 per il collegamento secondario.
 	- Tutti gli indirizzi IP usati per configurare questo peering devono essere indirizzi IPv4 pubblici validi.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
 	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 
 3. Selezionare la riga del peering pubblico di Azure, come illustrato di seguito.
 	
@@ -237,4 +237,4 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

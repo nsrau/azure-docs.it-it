@@ -239,7 +239,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	Un gruppo di risorse è una raccolta di risorse di Azure, ad esempio app per le api, database, VM e così via. Per questa esercitazione è consigliabile creare un nuovo gruppo di risorse, per eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio.
 
-	Questa casella consente di selezionare un [gruppo di risorse](../azure-portal/resource-group-portal.md) esistente o crearne uno nuovo digitando un nome diverso da qualsiasi gruppo di risorse esistente nella sottoscrizione.
+	Questa casella consente di selezionare un [gruppo di risorse](../resource-group-overview.md) esistente o crearne uno nuovo digitando un nome diverso da qualsiasi gruppo di risorse esistente nella sottoscrizione.
 
 4. Fare clic sul pulsante **Nuovo** accanto all'elenco a discesa **Piano di servizio app**.
 
@@ -491,4 +491,4 @@ Per creare nuovi progetti di app per le API da zero, usare il modello**App per l
 
 Scegliere il modello di progetto **App per le API di Azure** equivale a scegliere il modello di ASP.NET 4.5.2 **Vuoto**, fare clic sulla casella di controllo per aggiungere il supporto per l'API Web e installare il pacchetto NuGet Swashbuckle. Il modello aggiunge anche un codice di configurazione di Swashbuckle progettato per evitare la creazione di ID operazione di Swagger duplicati. Una volta creato un progetto di app per le API, è possibile distribuirlo in un'app per le API nello stesso modo illustrato in questa esercitazione.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

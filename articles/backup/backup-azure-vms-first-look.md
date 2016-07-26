@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Proteggere macchine virtuali in Azure con Backup di Azure | Microsoft Azure"
+	pageTitle="Primi passi: proteggere macchine virtuali in Azure con Backup di Azure | Microsoft Azure"
 	description="Proteggere macchine virtuali di Azure con il servizio Backup di Azure. Esercitazione che illustra come creare un insieme di credenziali, registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primo approccio: Backup di macchine virtuali di Azure
 
 > [AZURE.SELECTOR]
-- [Backup di VM di Azure Resource Manager](backup-azure-vms-first-look-arm.md)
+- [Eseguire il backup delle macchine virtuali di Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Backup di VM in modalità classica](backup-azure-vms-first-look.md)
 
-Questa esercitazione illustra i passaggi per eseguire il backup di una macchina virtuale (VM)di Azure in Azure. Per completare questa esercitazione, è necessario rispettare i prerequisiti seguenti:
+Questa esercitazione illustra i passaggi per eseguire il backup di una macchina virtuale di Azure in un insieme di credenziali di backup in Azure. Questo articolo descrive il modello classico o il modello di distribuzione di Service Manager per il backup delle macchine virtuali. Per informazioni sul backup di una macchina virtuale in un insieme di credenziali dei servizi di ripristino appartenente a un gruppo di risorse, vedere l'altra scheda, Eseguire il backup delle macchine virtuali di Resource Manager. Per completare questa esercitazione, è necessario rispettare i prerequisiti seguenti:
 
 - È stata creata una VM nella sottoscrizione di Azure.
 - La VM può connettersi agli indirizzi IP pubblici di Azure. Per altre informazioni, vedere [Connettività di rete](./backup-azure-vms-prepare.md#network-connectivity).
@@ -213,4 +213,4 @@ Ora che è stato eseguito il backup di una macchina virtuale, sono disponibili d
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->
