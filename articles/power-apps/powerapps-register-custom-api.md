@@ -100,9 +100,12 @@ Ora che il file Swagger (file JSON) è stato generato per l'API personalizzata, 
 
 	> [AZURE.NOTE] Per il momento le API personalizzate possono essere usate solo nel portale Web di PowerApps. Non possono essere usate nel client PowerApps.
 
-2. Selezionare **Connessioni** (Connessioni) e quindi selezionare **Add a connection** (Aggiungi connessione): ![](./media/powerapps-register-custom-api/createnewconnection.png "Creare un'API personalizzata")
+2. Selezionare **Connessioni** (Connessioni) e quindi selezionare **Add a connection** (Aggiungi connessione):  
+	![](./media/powerapps-register-custom-api/createnewconnection.png "Creare un'API personalizzata")  
 
-3. Selezionare **Add a custom API** (Aggiungi un'API personalizzata): ![](./media/powerapps-register-custom-api/connecttocustomapi.png "Creare un'API personalizzata") Aggiungere le proprietà dell'API, inclusi i file JSON e dell'icona. Selezionare quindi **Next** (Avanti):
+3. Selezionare **Add a custom API** (Aggiungi un'API personalizzata):  
+	![](./media/powerapps-register-custom-api/connecttocustomapi.png "Creare un'API personalizzata")  
+	Aggiungere le proprietà dell'API, inclusi i file JSON e dell'icona. Selezionare quindi **Next** (Avanti):  
 
 	|Proprietà|Descrizione|
 |---|---|
@@ -122,9 +125,9 @@ Ora che il file Swagger (file JSON) è stato generato per l'API personalizzata, 
 
 	Se il file JSON non usa l'oggetto ```securityDefintions```, non saranno necessari valori aggiuntivi.
 
-5. Selezionare **Create**. L'API personalizzata ora è visualizzata in **Available Connections** (Connessioni disponibili):
+5. Selezionare **Create**. L'API personalizzata ora è visualizzata in **Available Connections** (Connessioni disponibili):  
 
-	![](./media/powerapps-register-custom-api/mycustomapi.png "Connessioni disponibili")
+	![](./media/powerapps-register-custom-api/mycustomapi.png "Connessioni disponibili")  
 
 
 > [AZURE.TIP] Se la convalida dei file Swagger non riesce, potrebbero essere presenti caratteri aggiuntivi. Ad esempio, la maggior parte dei dati deve essere tra virgolette, inclusi i siti Web. Se quindi `https://mywebapi.mywebsite.com` non è racchiuso tra virgolette, la convalida del file non riesce.
@@ -140,11 +143,14 @@ In questo passaggio si crea un flusso logico molto semplice che illustra come ag
 2. In **Make a logic flow** (Crea un flusso logico) selezionare **Attività iniziali**.
 3. In questa finestra sono disponibili diversi modelli di flusso logico già creati che usano alcuni scenari comuni. È possibile usarne uno qualsiasi e aggiungervi l'API personalizzata. È anche possibile scegliere **Crea da zero** per creare un flusso logico da zero.
 
-	Il modo più rapido per aggiungere l'API personalizzata è selezionare **Crea da zero**. In questo modo viene aperto il flusso logico seguente: ![](./media/powerapps-register-custom-api/createfromblank.png "Avvio di un flusso logico")
+	Il modo più rapido per aggiungere l'API personalizzata è selezionare **Crea da zero**. In questo modo viene aperto il flusso logico seguente:  
+	![](./media/powerapps-register-custom-api/createfromblank.png "Avvio di un flusso logico")
 
-4. Selezionare **Ricorrenza** e impostare la frequenza su 1 minuto: ![](./media/powerapps-register-custom-api/logicrecurrence.png "Selezionare una ricorrenza")
+4. Selezionare **Ricorrenza** e impostare la frequenza su 1 minuto:    
+	![](./media/powerapps-register-custom-api/logicrecurrence.png "Selezionare una ricorrenza")  	
 
-5. Selezionare il segno più (![](./media/powerapps-register-custom-api/flowplussign.png)) e selezionare **Aggiungi un'azione**. Nell'elenco viene inserita l'API personalizzata: ![](./media/powerapps-register-custom-api/logicflow.png "API personalizzata")
+5. Selezionare il segno più (![](./media/powerapps-register-custom-api/flowplussign.png)) e selezionare **Aggiungi un'azione**. Nell'elenco viene inserita l'API personalizzata:  
+![](./media/powerapps-register-custom-api/logicflow.png "API personalizzata")
 
 I passaggi successivi dipendono dalle operazioni che possono essere eseguite dall'API. In un esempio relativo al meteo l'API potrebbe ottenere la temperatura corrente e quindi inviare un messaggio di posta elettronica con Office 365:
 
@@ -157,10 +163,14 @@ In questo passaggio si crea una PowerApp molto semplice che illustra come aggiun
 
 > [AZURE.NOTE] Per il momento le API personalizzate possono essere usate solo nel portale Web di PowerApps. Non possono essere usate nel client PowerApps.
 
-1. Nel [portale Web][9] di PowerApps selezionare **New PowerApp** (Nuova PowerApp): ![](./media/powerapps-register-custom-api/newpowerapp.png "Selezionare New PowerApp")
-2. Viene aperta una nuova scheda nel browser. In questa nuova scheda viene automaticamente creata una PowerApp vuota. Selezionare **connect to data** (connettersi ai dati): ![](./media/powerapps-register-custom-api/blankpowerapp.png "Selezionare connect to data")
-3. Nella scheda **Contenuto** selezionare **Origini dati**: ![](./media/powerapps-register-custom-api/datasources.png "Selezionare connect to data")
-4. Nella nuova schermata selezionare l'API personalizzata in **Connessioni personali**: ![](./media/powerapps-register-custom-api/screencustomapi.png "Selezionare l'API personalizzata.")
+1. Nel [portale Web][9] di PowerApps selezionare **New PowerApp** (Nuova PowerApp):  
+	![](./media/powerapps-register-custom-api/newpowerapp.png "Selezionare New PowerApp")
+2. Viene aperta una nuova scheda nel browser. In questa nuova scheda viene automaticamente creata una PowerApp vuota. Selezionare **connect to data** (connettersi ai dati):  
+![](./media/powerapps-register-custom-api/blankpowerapp.png "Selezionare connect to data")  
+3. Nella scheda **Contenuto** selezionare **Origini dati**:  
+![](./media/powerapps-register-custom-api/datasources.png "Selezionare connect to data")  
+4. Nella nuova schermata selezionare l'API personalizzata in **Connessioni personali**:  
+![](./media/powerapps-register-custom-api/screencustomapi.png "Selezionare l'API personalizzata.") 
 5. Selezionare **Aggiungi origine dati**.
 
 Una volta aggiunta l'API personalizzata, è possibile usarla nella barra delle funzioni, in una casella di testo e altro. Nella barra delle funzioni, ad esempio, è possibile iniziare a digitare **MySampleWebAPI** per visualizzare le funzioni disponibili. Per un esempio dell'uso dell'API di Office 365, vedere [Show data from Office 365][12] (Visualizzare i dati da Office 365).
