@@ -99,20 +99,21 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 8.  Nella finestra di dialogo **Accedi usando SAML** eseguire la procedura seguente, quindi fare clic su **Salva modifiche**:
 
     1.  Fare clic su **Abilita Single Sign-On con SAML**.
-    
+
     	![Accesso tramite SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Accesso tramite SAML")
     2.  Nella finestra di dialogo **Configure single sign-on at Samanage** (Configura accesso Single Sign-On in Samanage) del portale di Azure classico copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **Identity Provider URL ** (URL provider di identità).  
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configura accesso Single Sign-On")
+    	![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configura accesso Single Sign-On")
 
-    3.  Nella pagina della finestra di dialogo **Configure single sign-on at Samanage** (Configura accesso Single Sign-On in Samanage) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
-    4.  Nella pagina della finestra di dialogo **Configure single sign-on at Samanage** (Configura accesso Single Sign-On in Samanage) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL disconnessione).
-    5.  Creare un file con **codifica Base 64** dal certificato scaricato.
+    3.  Nella pagina della finestra di dialogo **Configure single sign-on at Samanage** (Configura accesso Single Sign-On in Samanage) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).  
+    4.  Nella pagina della finestra di dialogo **Configure single sign-on at Samanage** (Configura accesso Single Sign-On in Samanage) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL disconnessione).  
+    5.  Creare un file con **codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
-    7.  Fare clic su **Crea utenti se non presenti in Samanage**. ![Aggiornamento](./media/active-directory-saas-samanage-tutorial/IC771722.png "Aggiornamento")
+    7.  Fare clic su **Crea utenti se non presenti in Samanage**.
+    	![Aggiornamento](./media/active-directory-saas-samanage-tutorial/IC771722.png "Aggiornamento")
     8.  Fare clic su **Aggiorna**.
 
 9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.

@@ -248,7 +248,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 In questa sezione viene creato un utente di nome Britta Simon in BetterWorks.
 
-Per l'aggiunta di utenti alla piattaforma BetterWorks, rivolgersi al team di supporto di BetterWorks tramite < mailto:support@betterworks.com>.
+Per l'aggiunta di utenti alla piattaforma BetterWorks, rivolgersi al team di supporto di BetterWorks tramite <mailto:support@betterworks.com>.
 
 
 ### Assegnazione dell'utente test di Azure AD
