@@ -2,7 +2,7 @@
 	pageTitle="CDN: Risoluzione dei problemi di compressione dei file"
 	description="Risolvere i problemi relativi alla compressione dei file CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Risoluzione dei problemi della compressione dei file CDN
@@ -79,7 +79,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 Usando gli strumenti per sviluppatori del browser, controllare le intestazioni di risposta per verificare se il file è memorizzato nella cache nell'area in cui viene richiesto.
 
 - Controllare l'intestazione di risposta **Server**. L'intestazione deve avere il formato **Piattaforma (POP/Server ID)**, come illustrato nell'esempio seguente.
-- Controllare l'intestazione di risposta **X-Cache**. L'intestazione deve corrispondere a **HIT**.  
+- Controllare l'intestazione di risposta **X-Cache**. L'intestazione deve corrispondere a **HIT**.
 
 ![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@ Per poter eseguire la compressione, la dimensione del file deve soddisfare i req
 - Maggiore di 128 byte.
 - Minore di 1 MB.
 
-<!---HONumber=AcomDC_0518_2016-->
+### Cercare nelle richieste nel server di origine un'intestazione **Tramite**
+
+L'intestazione HTPP **ramite** indica al server Web che la richiesta viene passata da un server proxy. I server Web IIS Microsoft per impostazione predefinita non comprimere le risposte quando la richiesta contiene un'intestazione **Tramite**. Per eseguire l'override di questo comportamento, eseguire queste operazioni:
+
+- **IIS 6**: [impostare HcNoCompressionForProxies = "FALSE" nelle proprietà della Metabase di IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 e versioni successive**: [impostare sia **noCompressionForHttp10** che **noCompressionForProxies** su False nella configurazione del server](http://www.iis.net/configreference/system.webserver/httpcompression)
+
+<!---HONumber=AcomDC_0720_2016-->

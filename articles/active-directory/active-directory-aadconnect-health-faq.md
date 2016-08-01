@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -35,7 +35,7 @@ Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD
 
 **D: Qual è l'impatto dell'installazione dell'agente di Azure AD Connect Health in singoli server?**
 
-L'impatto dell'installazione dell'agente per l'integrità delle identità Microsoft nei server ADFS è minimo per quanto riguarda CPU, utilizzo della memoria, larghezza di banda di rete e archiviazione.
+L'impatto dell'installazione dell'agente per l'integrità delle identità Microsoft nei server AD FS è minimo per quanto riguarda CPU, utilizzo della memoria, larghezza di banda della rete e archiviazione.
 
 I numeri indicati di seguito sono approssimativi.
 
@@ -70,6 +70,13 @@ Se è necessario configurare un proxy durante la registrazione dell'agente, occo
 No. Non è attualmente supportato alcun meccanismo per specificare in modo arbitrario un nome utente o una password per l'autenticazione di base.
 
 
+**D: Quali versioni di Servizi di dominio Active Directory sono supportate da Azure AD Connect Health per Servizi di dominio Active Directory?**
+
+Il monitoraggio di Servizi di dominio Active Directory è supportato durante l'installazione nelle versioni del sistema operativo seguenti:
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## Domande sulle operazioni
 
@@ -104,6 +111,7 @@ Quando si rimuove un agente da un server, il server non viene rimosso automatica
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
+* [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

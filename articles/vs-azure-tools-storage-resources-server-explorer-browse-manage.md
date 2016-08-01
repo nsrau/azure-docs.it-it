@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # Esplorazione e gestione delle risorse di archiviazione con Esplora server
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## Panoramica
 Se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile visualizzare i dati BLOB, della coda e della tabella dagli account di archiviazione per Azure. Il nodo Archiviazione di Azure in Esplora server mostra i dati presenti nell'account dell'emulatore di archiviazione locale e negli altri account di archiviazione di Azure.
 
 Per visualizzare Esplora Server in Visual Studio, nella barra dei menu scegliere **Visualizza**, **Esplora server**. Il nodo di archiviazione mostra tutti gli account di archiviazione esistenti in ogni sottoscrizione/certificato di Azure a cui si è connessi. Se l'account di archiviazione non è visualizzato, è possibile aggiungerlo seguendo le istruzioni riportate [più avanti in questo argomento](#add-storage-accounts-by-using-server-explorer).
@@ -314,4 +317,4 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="msStevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 # Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
@@ -139,7 +139,7 @@ Prima di attivare l'ispezione approfondita si consiglia di comunicare le proprie
 ### Problemi noti e svantaggi
 In alcuni casi, l'intercettazione TLS potrebbe influire negativamente sull'esperienza dell'utente finale:
 
-- Con i certificati di convalida estesa, la barra degli indirizzi del Web browser assume un colore verde per indicare che si sta visitando un sito Web attendibile. L'ispezione TLS non può duplicare la convalida estesa del certificato rilasciato al client, quindi i siti Web che usano i certificati di convalida estesa funzionano normalmente ma la barra degli indirizzi non risulterà verde.  
+- Con i certificati di convalida estesa, la barra degli indirizzi del Web browser assume un colore verde per indicare che si sta visitando un sito Web attendibile. L'ispezione TLS non può duplicare la convalida estesa del certificato rilasciato al client, quindi i siti Web che usano i certificati di convalida estesa funzionano normalmente ma la barra degli indirizzi non risulterà verde.
 
 - L'associazione della chiave pubblica, nota anche come associazione del certificato, è progettata per proteggere gli utenti da attacchi man-in-the-middle e autorità di certificazione non autorizzate. Quando il certificato radice di un sito aggiunto non corrisponde a una delle Autorità di certificazione valide note, il browser impedisce la connessione e restituisce un errore. Dal momento che l'intercettazione TLS è di fatto paragonabile a un attacco man-in-the-middle, queste connessioni non riusciranno.
 
@@ -180,4 +180,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

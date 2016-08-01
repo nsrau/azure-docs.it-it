@@ -13,50 +13,14 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="juliako"/>
-
 
 # Note sulla versione di Servizi multimediali di Azure
 
 Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto alle versioni precedenti e i problemi noti.
 
 >[AZURE.NOTE] Microsoft invita i clienti a segnalare i problemi che si verificano e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum di MSDN sui Servizi multimediali di Azure].
-
-- [Problemi noti correnti](#issues)
-- [Cronologia delle versioni dell'API REST](#rest_version_history)
-- [Versione di luglio 2016](#july_changes16)
-- [Versione di aprile 2016](#apr_changes16)
-- [Versione di febbraio 2016](#feb_changes16)
-- [Versione di gennaio 2016](#jan_changes_16)
-- [Versione di dicembre 2015](#dec_changes_15)
-- [Versione di novembre 2015](#nov_changes_15)
-- [Versione ottobre 2015](#oct_changes_15)
-- [Versione di settembre 2015](#september_changes_15)
-- [Versione di agosto 2015](#august_changes_15)
-- [Versione di luglio 2015](#july_changes_15)
-- [Versione di giugno 2015](#june_changes_15)
-- [Versione di maggio 2015](#may_changes_15)
-- [Versione di aprile 2015](#april_changes_15)
-- [Versione di marzo 2015](#march_changes_15)
-- [Versione di febbraio 2015](#february_changes_15)
-- [Versione di gennaio 2015](#january_changes_15)
-- [Versione di dicembre 2014](#december_changes_14)
-- [Versione di novembre 2014](#november_changes_14)
-- [Versione di ottobre 2014](#october_changes_14)
-- [Versione di settembre 2014](#september_changes_14)
-- [Versione di agosto 2014](#august_changes_14)
-- [Versione di luglio 2014](#july_changes_14)
-- [Versione di maggio 2014](#may_changes_14)
-- [Versione di aprile 2014](#april_changes_14)
-- [Versioni di gennaio/febbraio 2014](#jan_feb_changes_14)
-- [Versione di dicembre 2013](#december_changes_13)
-- [Versione di novembre 2013](#november_changes_13)
-- [Versione di agosto 2013](#august_changes_13)
-- [Versione di giugno 2013](#june_changes_13)
-- [Versione di dicembre 2012](#december_changes_12)
-- [Versione di novembre 2012](#november_changes_12)
-- [Versione di anteprima di giugno 2012](#june_changes_12)
 
 
 ##<a id="issues"></a>Problemi noti correnti
@@ -70,13 +34,8 @@ La codifica di un asset con un nome di file contenente caratteri di escape, (ad 
 Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
 Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
 Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-Modifiche alla versione del manifesto Smooth Streaming|Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
-
-### <a id="dotnet_issues"></a>Problemi relativi all'SDK di Servizi multimediali per .NET
-
-Problema|Descrizione
----|---
-Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializzati e di conseguenza non funzionano con Caching di Azure.|Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione.
+Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming.|Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
+Gli oggetti nel modulo .NET SDK di Servizi multimediali di Azure non possono essere serializzati e di conseguenza non funzionano con Caching di Azure.|Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione.
 
 ##<a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 
@@ -86,7 +45,7 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 
 ###Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
 
-Quando viene inviata a Media Encoder Standard o Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
+Quando viene inviata a Media Encoder Standard o ad Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
 
 >[AZURE.NOTE]La sintassi del file manifesto di streaming (con estensione ism) è riservata per l'uso interno ed è soggetta a modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
 
@@ -98,7 +57,9 @@ A partire dalla versione del servizio più recente, dopo il completamento di un'
 
 Per altre informazioni, vedere [questo blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
-Per verificare i problemi noti, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
+### Problemi noti
+
+Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
 
 ##<a id="apr_changes16"></a>Versione di aprile 2016
 
@@ -441,7 +402,7 @@ Per altre informazioni, vedere [Logica di retry in Media Services SDK for .NET].
 
 Le modifiche apportate alle versioni 3.0.0.1 e 3.0.0.2 includono:
 
-* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
+* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
 
 * Soluzioni di test in [GitHub] divise in test basati su unità e test basati su scenario.
 
@@ -684,4 +645,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

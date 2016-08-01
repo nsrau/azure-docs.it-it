@@ -3,8 +3,8 @@
 	description="Informazioni su come automatizzare la replica delle macchine virtuali Hyper-V nei cloud VMM usando Azure Site Recovery e PowerShell."
 	services="site-recovery"
 	documentationCenter=""
-	authors="csilauraa"
-	manager="jwhit"
+	authors="bsiva"
+	manager="abhiag"
 	editor="tysonn"/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="lauraa"/>
+	ms.date="07/12/2016"
+	ms.author="bsiva"/>
 
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell - Distribuzione classica
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](site-recovery-vmm-to-azure.md)
-- [PowerShell - Azure Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Portale classico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
 
@@ -46,7 +46,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 
 ### Prerequisiti di Azure
 
-- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
+- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/storage-introduction.md).
 - È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -60,7 +60,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 ### Prerequisiti di Hyper-V
 
 - I server Hyper-V host devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e disporre degli ultimi aggiornamenti installati.
-- Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se viene usato un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. A tale scopo, in Gestione server > Gestione cluster di failover, connettersi al cluster, fare clic su **Configura ruolo** e selezionare **Gestore replica Hyper-V** nella schermata **Seleziona ruolo** della procedura guidata Disponibilità elevata. 
+- Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se viene usato un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. A tale scopo, in Gestione server > Gestione cluster di failover, connettersi al cluster, fare clic su **Configura ruolo** e selezionare **Gestore replica Hyper-V** nella schermata **Seleziona ruolo** della procedura guidata Disponibilità elevata.
 - Qualsiasi server o cluster Hyper-V per cui si vuole gestire la protezione deve essere incluso in un cloud VMM.
 
 ### Prerequisiti di mapping di rete
@@ -449,4 +449,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 [Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

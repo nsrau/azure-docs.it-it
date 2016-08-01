@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Abilitare il controllo dei server SQL nel Centro sicurezza di Azure
@@ -28,10 +28,10 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
 ## Implementare la raccomandazione
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui server SQL**. Verrà visualizzato il pannello **Abilita il controllo sui server SQL**. ![][1]
+1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui server SQL**. Verrà visualizzato il pannello **Abilita il controllo sui server SQL**. ![Abilitare il controllo sui server SQL][1]
 
-2. Selezionare un server SQL su cui abilitare il controllo. Viene visualizzato il pannello **Impostazioni del servizio di controllo**. ![][2]
-3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**. ![][3]
+2. Selezionare un server SQL su cui abilitare il controllo. Verrà visualizzato il pannello **Impostazioni del servizio di controllo**. ![Impostazioni del servizio di controllo][2]
+3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**. ![Attivare le impostazioni del servizio di controllo][3]
 
 4. Seguire la procedura in [Introduzione al controllo del database SQL](../sql-database/sql-database-auditing-get-started.md) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
 
@@ -58,4 +58,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

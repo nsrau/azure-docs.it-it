@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -41,7 +41,7 @@ Media Encoder Standard viene configurato mediante un set di impostazioni descrit
 
 Quando si codifica un asset di input (o asset) tramite MES, al completamento dell'attività di codifica si ottiene un asset di output. L'asset di output contiene video, audio, anteprime, manifesto e così via a seconda del set di impostazioni di codifica che si usa.
 
-L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: <asset_id>\_metadata.xml (ad esempio 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), dove <asset_id> è il valore AssetId dell'asset di input. Lo schema del file XML dei metadati di input viene descritto [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: <asset\_id>\_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), dove <asset\_id> è il valore AssetId dell'asset di input. Lo schema di questo file XML di metadati di input è descritto [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
 L'asset di output include anche un file contenente i metadati dell'asset di output. Il nome del file XML dei metadati ha il seguente formato: <source_file_name>\_manifest.xml (ad esempio BigBuckBunny\_manifest.xml). Lo schema del file XML dei metadati di output viene descritto [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
@@ -58,7 +58,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
 - Specificare l'utilizzo del set di impostazioni "H264 più velocità in bit 720p". È possibile visualizzare tutti i set di impostazioni [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). È inoltre possibile esaminare lo schema al quale questi set predefiniti devono essere conformi [qui](https://msdn.microsoft.com/library/mt269962.aspx).
-- Aggiungere una singola attività di codifica al processo. 
+- Aggiungere una singola attività di codifica al processo.
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
@@ -150,4 +150,4 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 [Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

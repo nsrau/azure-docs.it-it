@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Supporto di MQTT nell'hub IoT
@@ -38,6 +38,7 @@ La tabella seguente include i collegamenti a esempi di codice per ogni linguaggi
 | [Java][lnk-sample-java] | IotHubClientProtocol.MQTT |
 | [C][lnk-sample-c] | MQTT\_Protocol |
 | [C#][lnk-sample-csharp] | TransportType.Mqtt |
+| [Python][lnk-sample-python] | IoTHubTransportProvider.MQTT |
 
 ## Uso del protocollo MQTT direttamente
 
@@ -52,18 +53,18 @@ Se un dispositivo non può usare gli SDK per client per dispositivi, può comunq
 
     Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza hub IoT][lnk-sas-tokens].
     
-    Durante il test, è anche possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
+    Durante il test, è anche possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare direttamente nel codice:
     
-    1. Accedere alla scheda **Management** di Device Explorer.
+    1. Andare alla scheda **Management** di Device Explorer.
     2. Fare clic su **SAS Token** in alto a destra.
-    3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il **TTL**.
+    3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il valore **TTL**.
     4. Fare clic su **Generate** per creare il token.
     
     Il token di firma di accesso condiviso generato avrà l'aspetto seguente: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
-    La parte di token da usare nel campo **Password** per connettersi usando MQTT è: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
+    La porzione da usare nel campo **Password** per connettersi usando MQTT è: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
-Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale del **monitoraggio delle operazioni**.
+Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni**.
 
 ### Invio di messaggi all'hub IoT
 
@@ -79,7 +80,7 @@ L'applicazione client del dispositivo può usare anche `devices/{device_id}/mess
 
 ### Ricezione di messaggi
 
-Per ricevere messaggi dall'hub IoT un dispositivo deve eseguire la sottoscrizione con `devices/{device_id}/messages/devicebound/#”` come **filtro dell'argomento**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie di chiave/valore con codifica URL di proprietà del messaggio. Nel contenitore delle proprietà sono incluse solo le proprietà dell'applicazione e le proprietà di sistema definibili dall'utente, come ad esempio **messageId** o **correlationId**. I nomi delle proprietà di sistema hanno il prefisso **$**, le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
+Per ricevere messaggi dall'hub IoT un dispositivo deve eseguire la sottoscrizione con `devices/{device_id}/messages/devicebound/#”` come **filtro dell'argomento**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie di chiave/valore con codifica URL di proprietà del messaggio. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$**. Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
 
 ## Passaggi successivi
 
@@ -94,10 +95,10 @@ Per ulteriori informazioni sulla pianificazione della distribuzione dell'hub IoT
 - [Eseguire il confronto con Hub eventi][lnk-compare]
 - [Scalabilità, disponibilità elevata e ripristino di emergenza][lnk-scaling]
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Guida per sviluppatori][lnk-devguide]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
@@ -108,6 +109,7 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
@@ -121,4 +123,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

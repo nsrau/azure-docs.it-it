@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/18/2016" 
 	ms.author="naziml"/>
 
 # Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
@@ -99,4 +99,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

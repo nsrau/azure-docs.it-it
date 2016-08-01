@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Requisiti di sistema StorSimple Virtual Array
@@ -69,14 +69,22 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | Internet Explorer | Versione più recente | Testato con Internet Explorer 11 |
 | Google Chrome | Versione più recente | Testato con Chrome 46 |
 
-### Versioni SMB supportate
+### Client di archiviazione supportati 
 
-| **Versione** |
+I seguenti requisiti software si riferiscono agli iniziatori iSCSI che accedono all'array virtuale StorSimple (configurato come server iSCSI).
+
+| **Sistemi operativi supportati** | **Versione richiesta** | **Requisiti aggiuntivi/note** |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |StorSimple consente di creare volumi di thin provisioning o di provisioning completo. Non è possibile creare volumi con provisioning parziale. I volumi iSCSI StorSimple sono supportati solo nei seguenti casi: <ul><li>Volumi semplici su dischi di base di Windows.</li><li>Windows NTFS per la formattazione di un volume.</li>|
+
+I seguenti requisiti software si riferiscono ai client SMB che accedono all'array virtuale StorSimple (configurato come file server).
+
+| **Versione SMB** |
 |-------------|
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
-
+ 
 ## Requisiti di rete 
 
 La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico iSCSI, SMB, cloud o di gestione. In questa tabella, *in* *ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
@@ -123,4 +131,4 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 -   [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

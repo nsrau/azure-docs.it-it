@@ -19,12 +19,40 @@
 # Azure Data Factory: log delle modifiche dell'API .NET 
 In questo articolo vengono fornite informazioni sulle modifiche apportate all'SDK di Azure Data Factory in una versione specifica. La versione più recente del pacchetto NuGet per Azure Data Factory è disponibile [qui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
 
+## Versione 4.9.1
+_Data di rilascio: 05.07.2016_
+
+### Correzione di bug
+
+- Deprecazione dell'autenticazione basata su WebApi per [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx).
+
+## Versione 4.9.0
+_Data di rilascio: 10.06.2016_
+
+### Aggiunte di funzionalità
+
+- Aggiunta delle proprietà [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) e [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) a CopyActivity. Per i dettagli relativi alla funzione, vedere l'articolo sulla [copia di staging](data-factory-copy-activity-performance.md#staged-copy).
+
+
+### Correzione di bug
+
+- Introduzione di un overload del metodo [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) che usa un'istanza [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx).
+- Contrassegno di [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) e [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) come facoltativi in CopySink.
+
+## Versione 4.8.0
+_Data di rilascio: 25.05.2016_
+
+### Aggiunte di funzionalità
+- Le proprietà facoltative seguenti sono state aggiunte al tipo di attività copia per abilitare l'ottimizzazione delle prestazioni di copia:
+	- [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+
 ## Versione 4.7.0
 Data di rilascio: 20/05/2016
 
 ### Aggiunte di funzionalità
-* Aggiunti i nuovi tipi StorageFormat e [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) per la copia dei file in formato ORC (Optimized Row Columnar).
-* Aggiunte le proprietà [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) e PolyBaseSettings a SqlDWSink.
+* Aggiunta del nuovo tipo StorageFormat [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) per la copia dei file nel formato Optimized Row Columnar (ORC).
+* Aggiunta delle proprietà [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) e PolyBaseSettings a SqlDWSink.
     * Abilita l'uso di PolyBase per la copia di dati in SQL Data Warehouse.
 
 ## Versione 4.6.1
@@ -45,13 +73,13 @@ Data di rilascio: 14/04/2016
 	- [Set di dati](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 - Le proprietà seguenti sono state aggiunte a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
 	- [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-- Aggiunti i nuovi tipi [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) e [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) per definire i set di dati con dati in formato JSON.
+- Aggiunta del nuovo tipo [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) per definire i set di dati con dati in formato JSON.
 
 ## Versione 4.5.0
 Data di rilascio: 24/02/2016
 
 ### Aggiunte di funzionalità
-* Aggiunte [operazioni elenco per la finestra attività](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
+* Aggiunta di [operazioni di elenco per la finestra attività](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
     * Aggiunti metodi di recupero delle finestre attività con filtri basati sui tipi di entità, ad esempio data factory, set di dati, pipeline e attività.
 * Sono stati aggiunti i seguenti tipi di servizi collegati:
     * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
@@ -66,7 +94,7 @@ Data di rilascio: 28/01/2016
 ### Aggiunte di funzionalità
 
 - Il seguente tipo di servizio collegato è stato aggiunto come origini dati e sink per le attività di copia:
-	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Per informazioni concettuali ed esempi, vedere [Servizio collegato di firma di accesso condiviso di Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Per informazioni concettuali ed esempi, vedere l'articolo dedicato al [servizio collegato di firma di accesso condiviso di Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
 
 ## Versione 4.3.0
 Data di rilascio: 25/11/2015
@@ -74,8 +102,8 @@ Data di rilascio: 25/11/2015
 ### Aggiunte di funzionalità
 
 - I seguenti tipi di servizi collegati sono stati aggiunti come origini dati per le attività di copia:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Per informazioni concettuali ed esempi, vedere [Spostare dati da HDFS con Data Factory](data-factory-hdfs-connector.md).
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Per informazioni concettuali ed esempi, vedere [Spostare dati da archivi dati ODBC con Azure Data Factory](data-factory-odbc-connector.md).
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Per informazioni concettuali ed esempi, vedere l'articolo dedicato allo [spostamento dei dati da HDFS mediante Data Factory](data-factory-hdfs-connector.md).
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Per informazioni concettuali ed esempi, vedere l'articolo dedicato allo [spostamento dei dati da archivi dati ODBC mediante Azure Data Factory](data-factory-odbc-connector.md).
 
 ## Versione 4.2.0
 Data di rilascio: 10/11/2015
@@ -164,4 +192,4 @@ Data di rilascio: 02/10/2015
 
 - Ora è supportata l'esecuzione di stored procedure su origini di database SQL di Azure e SQL Data Warehouse di Azure come parte dell'attività di copia. Per garantire tale supporto, le classi [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) dispongono delle seguenti proprietà: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Vedere gli articoli [Database SQL di Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL Data Warehouse di Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) su Azure.com per informazioni dettagliate su queste proprietà.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

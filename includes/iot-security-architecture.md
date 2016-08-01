@@ -188,7 +188,9 @@ Spoofing, ovvero il furto di identità: un utente malintenzionato potrebbe estra
 
 **Denial of Service**, ovvero il rifiuto del servizio: il dispositivo potrebbe essere spento oppure commutato in una modalità in cui la comunicazione non è possibile (il che è intenzionale in molti macchinari industriali).
 
-**Tampering**, ovvero la manomissione dei dati: il dispositivo può essere riconfigurato in modo da operare in uno stato sconosciuto al sistema di controllo (al di fuori dei parametri di calibrazione noti) e quindi offrire dati che possono essere interpretati erroneamente Elevazione dei privilegi: è possibile forzare un dispositivo che svolge una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
+**Tampering**, ovvero la manomissione dei dati: il dispositivo può essere riconfigurato in modo da operare in uno stato sconosciuto al sistema di controllo (al di fuori dei parametri di calibrazione noti) e quindi offrire dati che possono essere interpretati erroneamente.
+
+**Elevation of Privilege**, ovvero elevazione dei privilegi: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
 **Denial of Service**, ovvero il rifiuto del servizio: il dispositivo può essere commutato in uno stato in cui la comunicazione non è possibile.
 
@@ -250,4 +252,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Architettura di riferimento di Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

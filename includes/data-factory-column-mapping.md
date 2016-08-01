@@ -3,14 +3,14 @@ Mapping di colonne utilizzabile per specificare come le colonne specificate nell
 
 Il mapping di colonne supporta gli scenari seguenti:
 
-1.	Tutte le colonne nella tabella di origine “struttura” vengono mappate a tutte le colonne nella tabella di sink “struttura”.
-2.	Un subset delle colonne nella tabella di origine "struttura" viene mappato a tutte le colonne alla tabella di sink "struttura".
+- Tutte le colonne nella tabella di origine “struttura” vengono mappate a tutte le colonne nella tabella di sink “struttura”.
+- Un subset delle colonne nella tabella di origine "struttura" viene mappato a tutte le colonne alla tabella di sink "struttura".
 
 Le seguenti sono condizioni di errore e genereranno un'eccezione:
 
-1.	Un numero inferiore o superiore di colonne nella "struttura" della tabella di sink di quanto specificato nel mapping.
-2.	Mapping duplicato.
-3.	Il risultato della query SQL non ha un nome colonna specificato nel mapping.
+- Un numero inferiore o superiore di colonne nella "struttura" della tabella di sink di quanto specificato nel mapping.
+- Mapping duplicato.
+- Il risultato della query SQL non ha un nome colonna specificato nel mapping.
 
 ## Esempi di mapping di colonne
 > [AZURE.NOTE] Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. È necessario modificare i set di dati e le definizioni dei servizi collegati negli esempi riportati di seguito per puntare a dati nell'origine dati pertinente.
@@ -149,4 +149,4 @@ In questo caso, i risultati della query vengono prima mappati alle colonne speci
 
 ![Flusso del mapping di colonne-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

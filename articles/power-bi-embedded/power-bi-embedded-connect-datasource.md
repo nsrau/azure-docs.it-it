@@ -46,10 +46,10 @@ L'uso di **DirectQuery** presenta due i vantaggi principali:
 <a name="measures"/>
 ## DirectQuery e misure
 
-Per garantire che le prestazioni delle query inviate all'origine dati sottostante siano accettabili, vengono imposte limitazioni alle misure. In **Power BI Desktop** gli utenti esperti possono scegliere di ignorare questa limitazione selezionando **File > Opzioni e impostazioni > Opzioni**. Scegliere **DirectQuery** e selezionare l'opzione **Consenti misure senza limitazioni in modalità DirectQuery** dalla finestra di dialogo **Opzioni**. Se tale opzione viene selezionata, è possibile usare qualsiasi espressione DAX valida per una misura. È tuttavia necessario sapere che alcune espressioni che funzionano molto bene quando i dati sono importati possono invece rallentare considerevolmente le query all'origine back-end se si usa la modalità **DirectQuery**. Per altre informazioni su come usare **Power BI Desktop**, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/).
+Per garantire che le prestazioni delle query inviate all'origine dati sottostante siano accettabili, vengono imposte limitazioni alle misure. In **Power BI Desktop** gli utenti esperti possono scegliere di ignorare questa limitazione selezionando **File > Opzioni e impostazioni > Opzioni**. Scegliere **DirectQuery** e selezionare l'opzione **Consenti misure senza limitazioni in modalità DirectQuery** dalla finestra di dialogo **Opzioni**. Se tale opzione viene selezionata, è possibile usare qualsiasi espressione DAX valida per una misura. È tuttavia necessario sapere che alcune espressioni che funzionano molto bene quando i dati sono importati possono invece rallentare considerevolmente le query all'origine back-end se si usa la modalità **DirectQuery**.
 
 ## Vedere anche
 - [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,5 +19,6 @@
 |Australia sudorientale|Australia orientale |
 |Canada orientale |Canada centrale |
 |Canada centrale |Canada orientale |
+|Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Aggiungere una singola attività di codifica al processo. 
+- Aggiungere una singola attività di codifica al processo.
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
@@ -382,4 +382,4 @@ Si applicano le considerazioni seguenti:
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

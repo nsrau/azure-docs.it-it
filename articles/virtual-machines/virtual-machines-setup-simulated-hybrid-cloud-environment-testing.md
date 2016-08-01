@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test
@@ -40,7 +40,7 @@ La configurazione di questo ambiente di test cloud ibrido comprende quattro fasi
 1.	Configurare la rete virtuale TestLab.
 2.	Creare la rete virtuale cross-premise.
 3.	Creare la connessione VPN da rete virtuale a rete virtuale.
-4.	Configurare DC2. 
+4.	Configurare DC2.
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,7 +62,7 @@ Ottenere il nome della sottoscrizione usando il comando seguente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure. Usare la stessa sottoscrizione usata per la compilazione della configurazione di base. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure. Usare la stessa sottoscrizione usata per la compilazione della configurazione di base. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -129,7 +129,7 @@ Questa è la configurazione corrente.
  
 ##Fase 3: Creare la connessione da rete virtuale a rete virtuale
 
-Richiedere all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creare una stringa casuale per una chiave precondivisa IPsec) per ottenere una chiave precondivisa.
+Richiedere all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo su come [creare una stringa casuale per una chiave precondivisa IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) per ottenere una chiave precondivisa.
 
 Usare i comandi seguenti per creare la connessione VPN da sito a sito. L'operazione potrebbe richiedere alcuni minuti.
 
@@ -213,4 +213,4 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 - [Aggiungere una nuova macchina virtuale](virtual-machines-windows-ps-create.md) alla subnet TestVNET, ad esempio una VM che esegue Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

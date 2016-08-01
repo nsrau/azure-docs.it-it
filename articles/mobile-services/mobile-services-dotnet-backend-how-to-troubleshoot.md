@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor="mollybos"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016" 
+	ms.date="07/13/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Risolvere i problemi del back-end .NET di Servizi mobili
@@ -36,7 +36,7 @@ Lo sviluppo con Servizi mobili è di solito facile e senza problemi, ma talvolta
 
 Quando si sviluppano app con Servizi mobili, di solito si sfrutta l'SDK del client di Servizi mobili per la piattaforma in uso (Windows Store, iOS, Android, ecc.). A volte, però, è utile scendere fino al livello HTTP e osservare le chiamate non elaborate durante la loro esecuzione in rete. Questo approccio è particolarmente utile durante il debug dei problemi di connettività e serializzazione. Con il back-end .NET di Servizi mobili è possibile usare questo approccio in combinazione con il debug locale e remoto di Visual Studio (di cui si discuterà più ampiamente nella sezione successiva) per farsi un'idea globale del percorso effettuato da una chiamata HTTP prima di richiamare il codice di servizio.
 
-È possibile usare qualsiasi debugger HTTP per inviare e ispezionare il traffico HTTP. [Fiddler](http://www.telerik.com/fiddler) è un popolare strumento comunemente usato dagli sviluppatori a tale scopo. Per facilitare l'operato degli sviluppatori, Servizi mobili aggrega un debugger HTTP basato su Web (chiamato anche "client di prova") direttamente al servizio mobile, riducendo la necessità di strumenti esterni. Quando il servizio mobile è ospitato in locale, sarà disponibile a un URI simile a [http://localhost:59233](http://localhost:59233), mentre quando è ospitato nel cloud, l'URI sarà nel formato [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). I passaggi seguenti funzionano in maniera analoga, indipendentemente dalla posizione in cui è ospitato il servizio:
+È possibile usare qualsiasi debugger HTTP per inviare e ispezionare il traffico HTTP. [Fiddler](http://www.telerik.com/fiddler) è un popolare strumento comunemente usato dagli sviluppatori a tale scopo. Per facilitare l'operato degli sviluppatori, Servizi mobili aggrega un debugger HTTP basato su Web (chiamato anche "client di prova") direttamente al servizio mobile, riducendo la necessità di strumenti esterni. Quando il servizio mobile è ospitato in locale, sarà disponibile a un URI simile a `http://localhost:59233`, mentre quando è ospitato nel cloud, il formato dell'URI sarà `http://todo-list.azure-mobile.net`. I passaggi seguenti funzionano in maniera analoga, indipendentemente dalla posizione in cui è ospitato il servizio:
 
 1. Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versione successiva. Se non è disponibile alcun progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Microsoft Azure**.
 2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**.
@@ -74,7 +74,7 @@ Una delle principali funzionalità del back-end .NET è la capacità di eseguire
 
     ![Configurare il caricamento del simbolo][SymbolLoading]
 
-3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server [SymbolSource] usando l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
+3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server [SymbolSource] usando l'URI`http://srv.symbolsource.org/pdb/Public`. I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
 
     ![Configurare il server dei simboli][SymbolServer]
 
@@ -162,6 +162,6 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 
 
 <!-- Links -->
-[SymbolSource]: http://symbolsource.org
+[SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

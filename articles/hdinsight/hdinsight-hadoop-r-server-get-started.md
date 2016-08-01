@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/19/2016"
    ms.author="jeffstok"
 />
 
@@ -80,25 +80,25 @@ L'offerta del piano Premium per HDInsight include R Server nell'ambito del clust
 
 	Per creare e utilizzare una coppia di chiavi pubblica/privata, selezionare 'CHIAVE PUBBLICA' e continuare come segue. Queste istruzioni presuppongono che Cygwin con ssh-keygen o equivalente sia già installato.
 
-	- Dal prompt dei comandi sul computer portatile, generare una coppia di chiavi pubblica/privata:
+	-    Dal prompt dei comandi sul computer portatile, generare una coppia di chiavi pubblica/privata:
 	  
-			````ssh-keygen -t rsa -b 2048 –f <private-key-filename>````
+		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+      
+    -    Viene creato un file di chiave privata e un file di chiave pubblica con il nome <private-key-filename>.pub, ad esempio davec e davec.pub. Successivamente, specificare il file di chiave pubblica (*. pub) quando si assegnano le credenziali del cluster HDI:
+      
+		![Pannello Credenziali](./media/hdinsight-getting-started-with-r/publickeyfile.png)
+      
+	-    Modificare le autorizzazioni per il file di chiave privata sul computer portatile
+      
+			chmod 600 <private-key-filename>
+      
+	-    Utilizzare il file di chiave privata con SSH per l'accesso remoto, ad esempio
+	  
+			ssh –i <private-key-filename> remoteuser@<hostname public ip>
+      
+	  o come parte della definizione del contesto di calcolo di Hadoop Spark per R Server sul client (vedere la sezione Using Microsoft R Server as a Hadoop Client (Usare Microsoft R Server come un client Hadoop) nella sezione [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Creazione di un contesto di calcolo per Spark) della [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Guida introduttiva in linea RevoScaleR Hadoop Spark)).
 
-    - Viene creato un file di chiave privata e un file di chiave pubblica con il nome <private-key-filename>.pub, ad esempio davec e davec.pub. Successivamente, specificare il file di chiave pubblica (*. pub) quando si assegnano le credenziali del cluster HDI:
-    
-	![Pannello Credenziali](./media/hdinsight-getting-started-with-r/publickeyfile.png)
-
-	- Modificare le autorizzazioni per il file di chiave privata sul computer portatile
-    
-			````chmod 600 <private-key-filename>````
-
-	- Utilizzare il file di chiave privata con SSH per l'accesso remoto, ad esempio
-	
-			````ssh –i <private-key-filename> remoteuser@<hostname public ip>````
-
-	  O come parte della definizione del contesto di calcolo di Hadoop Spark per R Server sul client (vedere la sezione Utilizzare Microsoft R Server come un client Hadoop nella creazione di un contesto di calcolo per Spark della Guida introduttiva in linea RevoScaleR Hadoop Spark.)
-
-7. Selezionare **Origine dati** per selezionare un'origine dati per il cluster. Selezionare un account di archiviazione esistente scegliendo __Selezionare l’account di archiviazione__ e quindi selezionare l'account oppure creare un nuovo account usando il link __Nuovo__ nella sezione __Selezionare l’account di archiviazione__.
+7. Selezionare **Origine dati** per selezionare un'origine dati per il cluster. Selezionare un account di archiviazione esistente scegliendo __Selezionare l'account di archiviazione__ e quindi scegliere l'account oppure creare un nuovo account usando il link __Nuovo__ nella sezione __Selezionare l'account di archiviazione__.
 
     Se si seleziona __Nuovo__, è necessario immettere un nome per il nuovo account di archiviazione. Se il nome viene accettato, verrà visualizzato un segno di spunta verde.
 
@@ -117,14 +117,17 @@ L'offerta del piano Premium per HDInsight include R Server nell'ambito del clust
 	> [AZURE.NOTE] Se necessario, è possibile ridimensionare il cluster in un secondo momento tramite il portale (Cluster -> Impostazioni -> Scala Cluster) per aumentare o ridurre il numero di nodi di lavoro. Questo può essere utile per nascondere il cluster quando non è in uso o per aggiungere capacità al fine di soddisfare le esigenze delle attività più grandi.
 
 	Ecco alcuni fattori da tenere presente quando si modificano le dimensioni del cluster, dei nodi di dati e del nodo perimetrale:
-
-	• Le prestazioni delle analisi R Server distribuite in Spark sono proporzionali al numero di nodi di lavoro quando i dati sono di grosse dimensioni. • Le prestazioni delle analisi R Server sono lineari con le dimensioni dei dati analizzati. • Per i dati di piccole o medie dimensioni, le prestazioni saranno ottimali durante l'analisi in un contesto di calcolo locale sul nodo perimetrale. Per ulteriori informazioni sugli scenari in cui i contesti di calcolo locali e Spark funzionano al meglio, vedere Opzioni dei contesti di calcolo per R Server in HDInsight • Se si accede al nodo perimetrale e si esegue lo script R, tutte le funzioni tranne quelle ScaleR rx vengono eseguite **localmente** sul nodo perimetrale così che la memoria e il numero di core del nodo perimetrale vengono ridimensionati di conseguenza. Lo stesso vale se si utilizza R Server su HDI come contesto di calcolo remoto dal computer portatile.
-
+   
+    - Quando la quantità di dati è ingente, le prestazioni delle analisi R Server distribuite in Spark sono proporzionali al numero di nodi di lavoro.
+    - Le prestazioni delle analisi Server R sono proporzionali alle dimensioni dei dati analizzati. ad esempio:
+        - Per quantità di dati di piccole e medie dimensioni, le prestazioni sono migliori se l'analisi avviene in un contesto di calcolo locale sul nodo perimetrale. Per altre informazioni sugli scenari in cui i contesti di calcolo Spark e locale funzionano meglio, vedere Opzioni del contesto di calcolo per R Server su HDInsight.<br>
+        - Se si accede al nodo perimetrale e si esegue lo script R, tutte le funzioni, ad eccezione delle funzioni ScaleR rx, verranno eseguite <strong>localmente</strong> sul nodo perimetrale in modo tale che la memoria e il numero di core del nodo perimetrale vengano ridimensionati secondo le esigenze. Lo stesso vale se si utilizza R Server su HDI come contesto di calcolo remoto dal computer portatile.
+    
     ![Pannello livelli dei prezzi di nodo](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
     Usare il pulsante **Seleziona** per salvare la configurazione dei piani tariffari del nodo.
     
-9. Nel pannello **Nuovo cluster HDInsight** assicurarsi che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata e quindi scegliere **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster è in fase di creazione e verrà visualizzata l'icona di HDInsight al termine dell'operazione.
+9. Nel pannello **Nuovo cluster HDInsight** verificare che l'opzione **Pin to Startboard** (Aggiungi alla Schermata iniziale) sia selezionata e quindi scegliere **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster è in fase di creazione e verrà visualizzata l'icona di HDInsight al termine dell'operazione.
 
     | Durante la creazione | Creazione completata |
     | ------------------ | --------------------- |
@@ -197,27 +200,31 @@ Una volta effettuata la connessione, verrà visualizzato un prompt come quello c
 
 ## Utilizzare R Server in HDI da un'istanza remota di Microsoft R Server o Microsoft R Client
 
-Per la sezione riportata sopra sull'utilizzo delle coppie di chiavi pubblica/privata per accedere al cluster, è possibile configurare l'accesso al contesto di calcolo Hadoop Spark HDI da un'istanza remota di Microsoft R Server o Microsoft R Client in esecuzione su un computer desktop o portatile (vedere la sezione Utilizzare Microsoft R Server come un client Hadoop nella creazione di un contesto di calcolo per Spark della Guida introduttiva in linea RevoScaleR Hadoop Spark). A tale scopo è necessario specificare le opzioni seguenti quando si definisce il contesto di calcolo RxSpark sul computer portatile: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. ad esempio:
+Per la sezione riportata sopra sull'uso delle coppie di chiavi pubblica/privata per accedere al cluster, è possibile configurare l'accesso al contesto di calcolo Hadoop Spark HDI da un'istanza remota di Microsoft R Server o Microsoft R Client in esecuzione su un computer desktop o portatile (vedere la sezione Using Microsoft R Server as a Hadoop Client (Usare Microsoft R Server come un client Hadoop) nella sezione [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Creazione di un contesto di calcolo per Spark) della [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Guida introduttiva in linea RevoScaleR Hadoop Spark)). A tale scopo è necessario specificare le opzioni seguenti quando si definisce il contesto di calcolo RxSpark sul computer portatile: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. ad esempio:
 
     
-        mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
-        mySshUsername  <- 'remoteuser'# HDI SSH username
-        mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
-    
-        myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-        myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
-    
-        mySparkCluster <- RxSpark(
-          hdfsShareDir = myhdfsShareDir,
-          shareDir = myShareDir,
-          sshUsername  = mySshUsername,
-          sshHostname  = mySshHostname,
-          sshSwitches  = mySshSwitches,
-          sshProfileScript = '/etc/profile',
-          nameNode = myNameNode,
-          port = myPort,
-          consoleOutput= TRUE
-        )
+    myNameNode <- "default"
+    myPort <- 0 
+ 
+    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+ 
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+ 
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
+
     
  
 ## Usare un contesto di calcolo
@@ -325,7 +332,7 @@ Un contesto di calcolo consente di controllare se il calcolo verrà eseguito loc
         # Display a summary
         summary(modelSpark)
 
-    > [AZURE.NOTE] È anche possibile usare MapReduce per distribuire il calcolo sui nodi del cluster. Per altre informazioni sul contesto di calcolo, vedere [Opzioni del contesto di calcolo per R Server su HDInsight ](hdinsight-hadoop-r-server-compute-contexts.md).
+    > [AZURE.NOTE] È anche possibile usare MapReduce per distribuire il calcolo sui nodi del cluster. Per altre informazioni sul contesto di calcolo, vedere [Opzioni del contesto di calcolo per R Server su HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ## Distribuire il codice R su più nodi
 
@@ -365,19 +372,19 @@ Le azioni di script sono script Bash usati per apportare modifiche di configuraz
 
     ![Immagine del pannello Azioni script](./media/hdinsight-getting-started-with-r/newscriptaction.png)
 
-3. Immettere le informazioni seguenti dal pannello __Invia azione di script__.
+3. Immettere le informazioni seguenti dal pannello __Invia azione script__.
 
     * __Nome__: un nome descrittivo per identificare lo script
-    * __URI di script Bash__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
+    * __URI script Bash__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
     * __Head__: questa opzione deve essere __deselezionata__
     * __Ruolo di lavoro__: questa opzione deve essere __selezionata__
     * __Zookeeper__: questa opzione deve essere __deselezionata__
     * __Parametri__: i pacchetti R da installare. Ad esempio, `bitops stringr arules`
-    * __Continua questa azione di script...__: questa opzione deve essere __selezionata__
+    * __Salvare questa azione script...__: questa opzione deve essere __selezionata__
     
     > [AZURE.IMPORTANT] Se i pacchetti R installati richiedono l'aggiunta di librerie di sistema, è necessario scaricare lo script di base usato qui e continuare la procedura per installare le librerie di sistema. È quindi necessario caricare lo script modificato in un contenitore BLOB pubblico su Archiviazione di Azure e usare lo script modificato per installare i pacchetti.
     >
-    >Per altre informazioni su come sviluppare azioni script, vedere l'articolo sullo [sviluppo di azioni script](hdinsight-hadoop-script-actions-linux.md).
+    >Per altre informazioni su come sviluppare azioni script, vedere l'articolo [Sviluppo di azioni script](hdinsight-hadoop-script-actions-linux.md).
     
     ![Aggiunta di un'azione script](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
@@ -402,6 +409,6 @@ Se si intende automatizzare la creazione di R Server in HDInsight tramite modell
 
 Entrambi i modelli creano un nuovo cluster HDInsight e un account di archiviazione associato e possono essere usati dall'Interfaccia della riga di comando di Azure, da Azure PowerShell o dal portale di Azure.
 
-Per informazioni generali sull'uso dei modelli ARM, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Per informazioni generali sull'uso dei modelli di Azure Resource Manager, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

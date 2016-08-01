@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="dhanyahk"/>
 
 # Introduzione all'API di creazione report di Azure Active Directory
@@ -108,7 +108,7 @@ Modificare uno degli script seguenti in modo che funzioni con la directory, sost
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/reports/auditEvents?api-version=beta&`$filter=eventTime gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -219,4 +219,4 @@ Lo script restituisce l'output del report auditEvents in formato JSON. Crea anch
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph di Azure AD, vedere [Reports and events (preview) | Graph API concepts](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) (Report ed eventi - anteprima | Concetti dell'API Graph).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

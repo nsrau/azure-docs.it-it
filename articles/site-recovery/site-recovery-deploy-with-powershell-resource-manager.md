@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/15/2016"
+	ms.date="07/12/2016"
 	ms.author="bsiva"/>
 
 # Eseguire la replica tra macchine virtuali Hyper-V locali e Azure con PowerShell e Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - Azure Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Gestione risorse](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Portale classico](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
@@ -257,4 +257,4 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

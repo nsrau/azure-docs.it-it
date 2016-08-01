@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/15/2016" 
     ms.author="markvi" />
 
 
@@ -96,7 +96,8 @@ Per altre informazioni, vedere l'articolo sulla [personalizzazione delle pagine 
 ### Supporto dei client Exchange ActiveSync 
 
 
-Alcune applicazioni Exchange ActiveSync sono supportate in iOS 9 o versioni successive. Per determinare se l'applicazione di posta elettronica supporta questa funzionalità, contattare lo sviluppatore dell'applicazione. Per questo scenario l'autenticazione federata con un certificato client non è supportata.
+Alcune applicazioni Exchange ActiveSync sono supportate in iOS 9 o versioni successive. Per determinare se l'applicazione di posta elettronica supporta questa funzionalità, contattare lo sviluppatore dell'applicazione.
+
 
 
 ## Introduzione 
@@ -270,4 +271,4 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
 
 La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente (non sulla data indicata dal comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

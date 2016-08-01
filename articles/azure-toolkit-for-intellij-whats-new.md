@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # Novità del Toolkit di Azure per IntelliJ
 
@@ -32,15 +32,15 @@ La versione del Toolkit di Azure per IntelliJ rilasciata a giugno 2016 include i
 * **Supporto per i JDK di Java più recenti**. Le versioni più recenti dei JDK di Java sono ora supportate dal Toolkit di Azure per IntelliJ.
 * **Supporto per Azure SDK versione 2.9.1**. La versione più recente di Azure SDK è ora il prerequisito minimo per il Toolkit di Azure per IntelliJ.
 * **Campioni integrati**. Il Toolkit di Azure per IntelliJ presenta adesso numerose applicazioni campione per fornire supporto agli sviluppatori nella fase iniziale.
-* **Integrazione dello strumento HDInsight**. Gli strumenti HDInsight di Azure sono adesso contenuti nel Toolkit di Azure per IntelliJ.
-* **Debug remoto delle App Web Java**. Il Toolkit di Azure per IntelliJ supporta adesso il debug remoto delle App Web Java nel servizio app di Azure.
+* **Integrazione dello strumento HDInsight**. Gli strumenti HDInsight di Azure sono adesso contenuti nel Toolkit di Azure per IntelliJ. Per altre informazioni, vedere il [plug-in degli strumenti HDInsight per IntelliJ].
+* **Debug remoto delle app Web Java**. Il Toolkit di Azure per IntelliJ supporta adesso il debug remoto delle App Web Java nel servizio app di Azure.
 
 ### 12 aprile 2016
 
 La versione del Toolkit di Azure per IntelliJ rilasciata ad aprile 2016 include i miglioramenti seguenti:
 
 * **Supporto per Azure SDK versione 2.9.0**. La versione più recente di Azure SDK è ora il prerequisito minimo per il Toolkit di Azure per IntelliJ.
-* **Vari miglioramenti di usabilità, velocità di risposta e prestazioni relativamente al supporto di App Web di Azure**. Prestazioni ottimizzate relativamente alla comunicazione tra il Toolkit e il risultato di Azure in un'interfaccia utente più reattiva.
+* **Vari miglioramenti di usabilità, velocità di risposta e prestazioni relativamente al supporto di app Web di Azure**. Prestazioni ottimizzate relativamente alla comunicazione tra il Toolkit e il risultato di Azure in un'interfaccia utente più reattiva.
 * **Possibilità di eliminare un contenitore di applicazioni Web in Azure da IntelliJ**. Il Toolkit di Azure per IntelliJ consente ora di eliminare un contenitore Web di Azure esistente senza uscire da IntelliJ.
 
 ## Vedere anche ##
@@ -56,7 +56,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
   - [Creare un'App Web Hello World per Azure in IntelliJ]
   - *Novità del Toolkit di Azure per IntelliJ (questo articolo)*
 
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
+Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
@@ -71,4 +71,6 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-<!---HONumber=AcomDC_0706_2016-->
+[plug-in degli strumenti HDInsight per IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->

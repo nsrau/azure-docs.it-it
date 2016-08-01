@@ -20,7 +20,7 @@
 
 # Criteri di indicizzazione di DocumentDB
 
-Anche se molti clienti sono felici del fatto che DocumentDB gestisca automaticamente [tutti gli aspetti dell'indicizzazione](documentdb-indexing.md), DocumentDB supporta anche l'impostazione di**criteri d’indicizzazione**personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database, perché consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Per apprendere come eseguire l’indicizzazione in DocumentDB, è necessario comprendere che con la gestione dei criteri di indicizzazione è possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.
+Anche se molti clienti sono felici del fatto che Azure DocumentDB gestisca automaticamente [tutti gli aspetti dell'indicizzazione](documentdb-indexing.md), DocumentDB supporta anche l'impostazione di **criteri d'indicizzazione** personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database, perché consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Per apprendere come eseguire l’indicizzazione in DocumentDB, è necessario comprendere che con la gestione dei criteri di indicizzazione è possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.
 
 In questo articolo vengono presentati i criteri di indicizzazione di DocumentDB, il procedimento per personalizzare i criteri di indicizzazione e i compromessi associati.
 
@@ -38,7 +38,7 @@ Gli sviluppatori possono personalizzare i compromessi tra archiviazione, prestaz
 
 - **Includi/escludi documenti e percorsi da/a indice**. Gli sviluppatori possono scegliere determinati documenti da escludere o includere nell'indice al momento del loro inserimento o sostituzione nella raccolta. Gli sviluppatori possono inoltre scegliere di includere o escludere determinate proprietà JSON, anche note come percorsi (inclusi i modelli con caratteri jolly) da indicizzare in documenti che sono inclusi in un indice.
 - **Configurazione di vari tipi di indice**. Per ognuno dei percorsi inclusi, gli sviluppatori possono inoltre specificare il tipo di indice richiesto su una raccolta in base ai loro dati, al carico di lavoro previsto della query e alla "precisione" numerica/stringa per ogni percorso.
-- **Configurazione delle modalità di aggiornamento dell’indice**. DocumentDB supporta tre modalità di indicizzazione che possono essere configurate tramite criteri di indicizzazione in una raccolta di DocumentDB: Coerente, Differita e Nessuna. 
+- **Configurazione delle modalità di aggiornamento dell’indice**. DocumentDB supporta tre modalità di indicizzazione che possono essere configurate tramite criteri di indicizzazione in una raccolta di DocumentDB: Coerente, Differita e Nessuna.
 
 Il frammento di codice .NET seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta. Qui vengono impostati i criteri con l'indice di tipo Range per stringhe e numeri con la precisione massima. Questi criteri consentono di eseguire query orderby sulle stringhe.
 
@@ -296,7 +296,7 @@ DocumentDB modella i documenti JSON e l'indice come strutture ad albero e consen
 
 I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
 
-I percorsi di indice possono anche usare il carattere jolly * per specificare un comportamento ricorsivo al di sotto del prefisso. Ad esempio, /"payload"/* può essere usato per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
+I percorsi di indice possono anche usare il carattere jolly * per specificare un comportamento ricorsivo al di sotto del prefisso. Ad esempio, /payload/* può essere usato per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
 
 Di seguito sono indicati i modelli comuni per la definizione di percorsi di indice:
 
@@ -462,7 +462,7 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
 Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che è possibile usare per configurare i criteri di indicizzazione per un percorso. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:
 
 - Tipo di dati: **String**, **Number** o **Point** (può contenere una sola voce per tipo di dati per percorso)
-- Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali) 
+- Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali)
 - Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
 
 #### Tipologia di indice
@@ -600,8 +600,8 @@ Quando si modifica il criterio di indicizzazione, il modo in cui vengono applica
 
 È tuttavia possibile spostarsi alla modalità di indicizzazione differita o nessuna di indicizzazione durante il corso di una trasformazione.
 
-- Quando ci si sposta nella modalità differita, la modifica dei criteri dell'indice viene resa effettiva immediatamente e DocumentDB ricrea l'indice in modo asincrono. 
-- Quando ci si sposta alla modalità nessuna, l'indice viene eliminato immediatamente. Lo spostamento verso la modalità nessuna è utile quando si desidera annullare una trasformazione in corso e avviare l’aggiornamento con criteri diversi di indicizzazione. 
+- Quando ci si sposta nella modalità differita, la modifica dei criteri dell'indice viene resa effettiva immediatamente e DocumentDB ricrea l'indice in modo asincrono.
+- Quando ci si sposta alla modalità nessuna, l'indice viene eliminato immediatamente. Lo spostamento verso la modalità nessuna è utile quando si desidera annullare una trasformazione in corso e avviare l’aggiornamento con criteri diversi di indicizzazione.
 
 Se si utilizza SDK di .NET, è possibile avviare una modifica dei criteri di un'indicizzazione dei criteri utilizzando il nuovo metodo **ReplaceDocumentCollectionAsync** e rilevando la percentuale dello stato di avanzamento della trasformazione dell’indice utilizzando la proprietà di risposta **IndexTransformationProgress** da una chiamata **ReadDocumentCollectionAsync**. Altri SDK e l'API REST supportano metodi e proprietà equivalenti per apportare modifiche ai criteri di indicizzazione.
 
@@ -759,4 +759,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

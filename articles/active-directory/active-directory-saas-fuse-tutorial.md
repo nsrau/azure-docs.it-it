@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Fuse in Azure AD, è necessario aggiungere Fus
 
 **Per aggiungere Fuse dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -137,10 +137,10 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Copiare **URL dell’autorità di certificazione**, **URL servizio Single Sign-On** e **URL servizio di Single Sign-Out**.
 
    
-5. Per ottenere l’accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Fuse all’indirizzo * ***support@fusion-universal.com**, allegare il file di certificato scaricato e includere **URL dell’ISS**, **URL servizio Single Sign-On** e **URL servizio Single Sign-Out**.
+5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Fuse all'indirizzo **support@fusion-universal.com**, allegare il file del certificato scaricato e includere l'**URL dell'autorità di certificazione**, l'**URL del servizio Single Sign-On** e l'**URL servizio Single Sign-Out**.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -166,7 +166,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l’elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_03.png)
 
@@ -174,7 +174,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina **Informazioni sull’utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_05.png)
 
@@ -231,7 +231,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 	![Assegna utente][201]
 
-2. Nell'elenco di applicazioni selezionare **Fuse**.
+2. Nell'elenco delle applicazioni selezionare **Fuse**.
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_50.png)
 
@@ -241,7 +241,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+2. Fare clic su **Assegna** nella barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -278,4 +278,4 @@ Quando si fa clic sul riquadro Fuse nel pannello di accesso, si dovrebbe acceder
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

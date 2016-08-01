@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="07/20/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -21,8 +21,13 @@
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
 
 
+## Cosa fare se non è disponibile una risposta alla domanda?
 
+Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela affinché possiamo fornire il nostro aiuto.
 
+-	È possibile pubblicare una domanda nel [thread Disqus](#comments) alla fine del presente documento di FAQ e interagire con il team di Cache di Azure e altri membri della community in merito a questo articolo.
+-	È possibile pubblicare una domanda sul [Forum MSDN di Cache di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e interagire con il team di Cache di Azure e altri membri della community.
+-	È possibile inviare un messaggio di posta elettronica all'indirizzo relativo al [feedback esterno su Cache di Azure](mailto:azurecache@microsoft.com).
 
 ## Domande frequenti sulla pianificazione
 
@@ -137,7 +142,7 @@ Uno dei principali vantaggi di Redis è la presenza di numerosi client che suppo
 <a name="cache-emulator"></a>
 ### Esiste un emulatore locale per la cache Redis di Azure?
 
-Non esiste un emulatore locale per la cache Redis di Azure, ma è possibile eseguire la versione MSOpenTech di redis-server.exe dagli [strumenti della riga di comando Redis](https://github.com/MSOpenTech/redis/releases/) sul computer locale e connettersi per ottenere un'esperienza simile a un emulatore cache locale, come illustrato nell'esempio seguente.
+Non esiste un emulatore locale per Cache Redis di Azure, ma è possibile eseguire la versione MSOpenTech di redis-server.exe dagli [strumenti della riga di comando Redis](https://github.com/MSOpenTech/redis/releases/) sul computer locale e connettersi per ottenere un'esperienza simile a un emulatore cache locale, come illustrato nell'esempio seguente.
 
 
 	private static Lazy<ConnectionMultiplexer>
@@ -157,7 +162,7 @@ Non esiste un emulatore locale per la cache Redis di Azure, ma è possibile eseg
 	    }
 
 
-Facoltativamente, è possibile configurare un file [redis.conf](http://redis.io/topics/config) per avvicinarsi maggiormente alle [impostazioni della cache predefinite](cache-configure.md#default-redis-server-configuration) per la cache Redis di Azure online, se si desidera.
+Facoltativamente, è possibile configurare un file [redis.conf](http://redis.io/topics/config) in modo che si avvicini maggiormente alle [impostazioni della cache predefinite](cache-configure.md#default-redis-server-configuration) per Cache Redis di Azure online.
 
 <a name="cache-commands"></a>
 ### Come si eseguono i comandi Redis?
@@ -176,7 +181,7 @@ Facoltativamente, è possibile configurare un file [redis.conf](http://redis.io/
 <a name="cache-reference"></a>
 ### Perché la Cache Redis di Azure non offre un riferimento alla libreria di classi MSDN, analogamente ad altri servizi di Azure?
 
-Cache Redis di Microsoft Azure si basa sulla rinomata Cache Redis open source, a cui è possibile accedere da un'ampia gamma di [client Redis](http://redis.io/clients) disponibili per numerosi linguaggi di programmazione. Ogni client ha un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](http://redis.io/commands).
+Cache Redis di Microsoft Azure si basa sulla nota Cache Redis open source, a cui è possibile accedere da un'ampia gamma di [client Redis](http://redis.io/clients) disponibili per numerosi linguaggi di programmazione. Ogni client ha un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](http://redis.io/commands).
 
 Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, sono disponibili alcune esercitazioni che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi. Per accedere a queste esercitazioni, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e fare clic sul linguaggio desiderato dallo strumento di selezione del linguaggio all'inizio dell'articolo.
 
@@ -238,9 +243,9 @@ Il pool di thread fornisce nuovi thread di lavoro o thread di completamento I/O 
 Quando il numero di thread esistenti, o occupati, raggiunge il minimo, l'oggetto ThreadPool limita la frequenza di inserimento dei nuovi thread a uno ogni 500 millisecondi. Ciò significa che se il sistema riceve un picco di lavoro che necessita di un thread IOCP, il lavoro viene elaborato molto rapidamente. Tuttavia, se il picco di lavoro è superiore all'impostazione minima configurata, ci sarà un ritardo nell'elaborazione di una parte del lavoro mentre l'oggetto ThreadPool attende che si verifichi una delle condizioni seguenti.
 
 1. Un thread esistente diventa disponibile per elaborare il lavoro.
-1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
+1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
 
-In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
+In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
 
 Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.0.450 o versione successiva, si noterà che ora le statistiche dell'oggetto ThreadPool vengono stampate. Di seguito sono riportati i dettagli relativi a IOCP e WORKER.
 
@@ -249,7 +254,7 @@ Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.
 	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
 	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
+Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
 
 Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
 
@@ -297,7 +302,7 @@ La sezione **Supporto e risoluzione dei problemi** del pannello **Impostazioni**
 
 -	**Risoluzione dei problemi** fornisce informazioni sui problemi comuni e sulle strategie per risolverli.
 -	**Log di controllo** fornisce informazioni sulle azioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse.
--	**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
+-	**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
 -	**Nuova richiesta di supporto** fornisce opzioni per aprire una richiesta di supporto per la cache.
 
 Questi strumenti permettono di monitorare l'integrità delle istanze della Cache Redis di Azure e semplificano la gestione delle applicazioni di memorizzazione nella cache. Per altre informazioni, vedere [Supporto e impostazioni di risoluzione dei problemi](cache-configure.md#support-amp-troubleshooting-settings).
@@ -315,6 +320,8 @@ Le cache nella stessa area e sottoscrizione condividono le stesse impostazioni d
 ### Perché vengono visualizzati timeout?
 
 I timeout si verificano nel client usato per comunicare con Redis. Nella maggior parte dei casi, non si verifica il timeout del server Redis. Quando un comando viene inviato al server Redis, il comando viene accodato e il server Redis preleva il comando e lo esegue. È tuttavia possibile che durante questo processo si verifichi il timeout del client e in tale caso viene generata un'eccezione sul lato del chiamante. Per altre informazioni sulla risoluzione dei problemi di timeout, vedere [Risoluzione dei problemi lato client](cache-how-to-troubleshoot.md#client-side-troubleshooting) e [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+
+'<-- Commento di localizzazione: collegamento interrotto: [Eccezioni timeout StackExchange.Redis](Risoluzione dei problemi lato client](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(Risoluzione dei problemi lato client]" deve essere rimosso. -->'
 
 <a name="cache-disconnect"></a>
 ### Perché il client è stato disconnesso dalla cache?
@@ -369,4 +376,4 @@ Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, ve
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # Operazioni di Azure AD Connect Health
@@ -52,11 +52,20 @@ Quando si elimina un server, tenere presente quanto segue:
 
 #### Per eliminare un server dal servizio Azure AD Connect Health
 
+Azure AD Connect Health per AD FS e Azure AD Connect (Sincronizzazione):
+
 1. Aprire il pannello Server dal pannello Elenco server selezionando il nome del server da rimuovere.
 2. Nel pannello Server fare clic sul pulsante "Elimina" sulla barra delle azioni.
 3. Confermare l'azione di eliminazione del server digitando il nome del server nella casella di conferma.
 4. Fare clic sul pulsante "Elimina".
 
+Azure AD Connect Health per Servizi di dominio Active Directory:
+
+1. Aprire il dashboard dei controller di dominio.
+2. Selezionare il controller di dominio da rimuovere.
+3. Fare clic sul pulsante "Elimina elemento selezionato" sulla barra delle azioni.
+4. Confermare l'azione per eliminare il server.
+5. Fare clic sul pulsante "Elimina".
 
 ### Eliminare un'istanza del servizio dal servizio Azure AD Connect Health
 
@@ -109,10 +118,11 @@ L'autorizzazione viene concessa se un utente finale dispone di accesso a livello
 #### Passaggio 1: Selezionare l'ambito di accesso appropriato
 Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio* dall'interno di Azure AD Connect Health, aprire il pannello principale in Azure AD Connect Health.<br>
 #### Passaggio 2: Aggiungere utenti, gruppi e assegnare ruoli
-1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br>
+1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br>  
 ![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selezionare "Aggiungi"
-3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+3. Selezionare il "Ruolo", ad esempio "Proprietario"<br>
+![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su "seleziona". ![Selezionare utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selezionare "Ok".<br>
 
@@ -126,8 +136,7 @@ Con questi passaggi verrà consentito l'accesso agli utenti e ai gruppi in base 
 
 #### Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
 1. Dopo l'assegnazione delle autorizzazioni, un utente può accedere ad Azure AD Connect Health passando a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br>
-![Pannello Pin del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br> ![Pannello Pin del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
 >[AZURE.NOTE] Un utente assegnato al ruolo "Lettore" non potrà eseguire l'operazione di creazione per recuperare l'estensione Azure AD Connect Health da Azure Marketplace. L'utente potrà comunque ancora accedere al pannello tramite il collegamento sopra riportato. Per gli utilizzi successivi, l'utente può aggiungere il pannello al dashboard.
@@ -144,7 +153,8 @@ Per rimuovere un utente o un gruppo aggiunto alla parte del controllo degli acce
 * [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
+* [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

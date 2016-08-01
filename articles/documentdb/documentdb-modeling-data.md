@@ -18,14 +18,14 @@
 	ms.author="stbaro"/>
 
 #Modellazione dei dati in DocumentDB#
-Anche se con i database privi di schema, come DocumentDB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.
+Anche se con i database privi di schema, come Azure DocumentDB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.
 
 Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? L'applicazione esegue un'intensa attività di lettura o un'intensa attività di scrittura?
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 - Come si deve considerare un documento in un database di documenti?
-- Cos'è la modellazione dei dati e perché è importante? 
+- Cos'è la modellazione dei dati e perché è importante?
 - Come si distingue la modellazione dei dati in un database di documenti da quella in un database relazionale?
 - Come si esprimono le relazioni tra i dati in un database non relazionale?
 - Quando si incorporano i dati e quando si creano i collegamenti ai dati?
@@ -393,4 +393,4 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 E infine, per informazioni aggiuntive sulla modellazione di dati e il partizionamento orizzontale per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

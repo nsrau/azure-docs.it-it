@@ -24,7 +24,7 @@
 - [Portale di Azure](documentdb-create-account.md)
 - [Interfaccia della riga di comando di Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
-In questo articolo viene illustrato come creare un account DocumentDB utilizzando modelli di Gestione risorse di Azure o l'interfaccia della riga di comando di Azure (CLI). Per creare un account DocumentDB nel portale di Azure, vedere [Creare un account database di DocumentDB nel portale di Azure](documentdb-create-account.md).
+In questo articolo viene illustrato come creare un account Azure DocumentDB usando modelli di Azure Resource Manager o l'interfaccia della riga di comando di Azure (CLI). Per creare un account DocumentDB nel portale di Azure, vedere [Creare un account database di DocumentDB nel portale di Azure](documentdb-create-account.md).
 
 - [Creazione di un account DocumentDB mediante interfaccia della riga di comando](#quick-create-documentdb-account)
 - [Creazione di un account di DocumentDB tramite un modello ARM](#deploy-documentdb-from-a-template)
@@ -111,7 +111,7 @@ Per creare un nuovo gruppo di risorse, eseguire il comando seguente, specificare
 
 	azure group create <resourcegroupname> <resourcegrouplocation>
 
- - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto. 
+ - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto.
  - `<resourcegrouplocation>` deve essere una delle aree in cui DocumentDB è generalmente disponibile. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 Input di esempio:
@@ -142,7 +142,7 @@ Creare un account DocumentDB nel gruppo di risorse nuovo o esistente immettendo 
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
- - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto. 
+ - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto.
  - `<databaseaccountname>` possono contenere solo lettere minuscole, numeri, il carattere '-' e devono essere compresi fra 3 e 50 caratteri.
  - `<databaseaccountlocation>` deve essere una delle aree in cui DocumentDB è generalmente disponibile. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
@@ -239,7 +239,7 @@ Per creare un nuovo gruppo di risorse, eseguire il comando seguente, specificare
 
 	azure group create <resourcegroupname> <databaseaccountlocation>
 
- - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto. 
+ - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto.
  - `<databaseaccountlocation>` deve essere una delle aree in cui DocumentDB è generalmente disponibile. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 Input di esempio:
@@ -272,7 +272,7 @@ Per utilizzare un file dei parametri:
 
  - `<PathToTemplate>` è il percorso del file azuredeploy.json creato nel passaggio 1. Se il nome del percorso include spazi, racchiudere il parametro tra virgolette doppie.
  - `<PathToParameterFile>` è il percorso del file azuredeploy.parameters.json creato nel passaggio 1. Se il nome del percorso include spazi, racchiudere il parametro tra virgolette doppie.
- - `<resourcegroupname>` è il nome del gruppo di risorse esistente in cui si desidera aggiungere un account database di DocumentDB. 
+ - `<resourcegroupname>` è il nome del gruppo di risorse esistente in cui si desidera aggiungere un account database di DocumentDB.
  - `<deploymentname>` è il nome facoltativo della distribuzione.
 
 Input di esempio:
@@ -346,7 +346,7 @@ Ora che avete un account di DocumentDB, il passaggio successivo consiste nel cre
 
 - Portale di Azure, come descritto in [Creare un database DocumentDB usando il portale di Azure](documentdb-create-database.md).
 - Esempi di C# .NET nel progetto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repository [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) su GitHub.
-- Gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
+- Gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript.
 
 Dopo avere creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database e quindi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte.
 
@@ -359,4 +359,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
 Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

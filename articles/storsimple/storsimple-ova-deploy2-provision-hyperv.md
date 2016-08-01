@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V
@@ -131,11 +131,11 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Esaminare la pagina **Riepilogo** e quindi fare clic su **Fine** per creare la macchina virtuale.
+1.  Esaminare la pagina **Riepilogo** e quindi fare clic su **Fine** per creare la macchina virtuale. Per poter proseguire, è necessario aggiungere alcuni core CPU e una seconda unità.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  Per soddisfare i requisiti minimi, sono necessarie 4 memorie centrali. Per aggiungere 4 processori virtuali, con il sistema host selezionato nella finestra **Console di gestione di Hyper-V**, nell'elenco di **Macchine virtuali** del riquadro di destra, individuare la macchina virtuale appena creata. Selezionare e fare clic con il pulsante destro del mouse sul nome della macchina, quindi selezionare **Impostazioni**.
+1.  Per soddisfare i requisiti minimi, sono necessarie 4 memorie centrali. Per aggiungere processori virtuali, con il sistema host selezionato nella finestra **Console di gestione di Hyper-V**, nell'elenco di **Macchine virtuali** del riquadro di destra, individuare la macchina virtuale appena creata. Selezionare e fare clic con il pulsante destro del mouse sul nome della macchina, quindi selezionare **Impostazioni**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
@@ -156,7 +156,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 
 1.  Nella pagina **Prima di iniziare** della Creazione guidata disco rigido virtuale fare clic su **Avanti**.
 
-1.  Nella pagina **Selezione formato disco** accettare l'opzione di formato predefinita **VHDX**. Fare clic su **Avanti**. Se si esegue Windows Server 2008 R2, questa schermata non verrà visualizzata.
+1.  Nella pagina **Selezione formato disco** accettare l'opzione di formato predefinita **VHDX**. Fare clic su **Avanti**. Questa schermata non verrà visualizzata se si esegue Windows Server 2012 R2 o Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
@@ -267,4 +267,4 @@ Guardare il video per vedere come è possibile eseguire il provisioning di StorS
 
 -   [Configurare StorSimple Virtual Array come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

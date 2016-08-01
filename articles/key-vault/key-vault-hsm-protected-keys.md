@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 #Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -47,7 +47,7 @@ Altre informazioni su generazione e trasferimento di una chiave HSM protetta tra
 
 Thales e-Security è un fornitore leader a livello mondiale di soluzioni di crittografia dei dati e di sicurezza informatica per i settori finanziario, tecnologico, manifatturiero e pubblico. Basate su un'esperienza di 40 anni nella protezione di informazioni aziendali e degli enti pubblici, le soluzioni Thales vengono usate da quattro delle cinque maggiori società dei settori energetico e aerospaziale, in 22 paesi NATO, e consentono di proteggere più dell'80 percento delle transazioni di pagamento in tutto il mondo.
 
-Microsoft ha collaborato con Thales per migliorare il livello tecnologico dei moduli di protezione hardware per consentire all'utente di sfruttare i vantaggi tipici dei servizi ospitati senza perdere il controllo sulle proprie chiavi. In particolare, tali miglioramenti consentono a Microsoft di gestire i moduli di protezione hardware in modo che questa operazione non debba essere eseguita dall'utente. In quanto servizio cloud, l'insieme di credenziali delle chiavi di Azure è in grado di supportare la scalabilità verticale con breve preavviso per soddisfare i picchi d'uso dell'organizzazione. Contemporaneamente, la chiave è protetta all'interno dei moduli di protezione hardware di Microsoft e l'utente mantiene il controllo sul ciclo di vita della chiave, perché genera la chiave e la trasferisce ai moduli di protezione hardware di Microsoft.
+Microsoft ha collaborato con Thales per migliorare il livello tecnologico dei moduli di protezione hardware per consentire all'utente di sfruttare i vantaggi tipici dei servizi ospitati senza perdere il controllo sulle proprie chiavi. In particolare, tali miglioramenti consentono a Microsoft di gestire i moduli di protezione hardware in modo che questa operazione non debba essere eseguita dall'utente. In quanto servizio cloud, l'insieme di credenziali delle chiavi di Azure è in grado di supportare la scalabilità verticale con breve preavviso per soddisfare i picchi d'uso dell'organizzazione. Contemporaneamente, la chiave è protetta all'interno dei moduli di protezione hardware di Microsoft e l'utente mantiene il controllo sul ciclo di vita della chiave, perché genera la chiave e la trasferisce ai moduli di protezione hardware di Microsoft.
 
 ##Implementazione di BYOK (Bring Your Own Key) per l'insieme di credenziali delle chiavi di Azure
 
@@ -63,7 +63,7 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 |Sottoscrizione di Azure|Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)|
 |insieme di credenziali delle chiavi di Azure che supporta moduli di protezione hardware|Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/).|
 |Moduli di protezione hardware Thales, smart card e software di supporto|È necessario avere l'accesso ai moduli di protezione hardware Thales e averne una conoscenza a livello operativo. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere la pagina relativa ai [moduli di protezione hardware Thales](https://www.thales-esecurity.com/msrms/buy).|
-|Componenti hardware e software seguenti:<ol><li>Workstation x64 offline con sistema operativo Windows 7 o versioni successive e software nShield di Thales versione 11.50 o successive.<br/><br/>Se nella workstation è in esecuzione Windows 7, sarà necessario [installare Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Workstation connessa a Internet con sistema operativo Windows 7 o versioni successive.</li><li>Unità USB o altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol>|Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa condizione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti a questa workstation si fa riferimento come workstation disconnessa.</p></blockquote><br/>Se inoltre la propria chiave del tenant è destinata a essere usata in una rete di produzione, si consiglia di usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti alla seconda workstation si fa riferimento come workstation connessa a Internet.</p></blockquote><br/>|
+|Componenti hardware e software seguenti:<ol><li>Workstation x64 offline con sistema operativo Windows 7 o versioni successive e software nShield di Thales versione 11.50 o successive.<br/><br/>Se nella workstation è in esecuzione Windows 7, sarà necessario [installare Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Workstation connessa a Internet con sistema operativo Windows 7 o versioni successive.</li><li>Unità USB o altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol>|Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa condizione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti a questa workstation si fa riferimento come workstation disconnessa.</p></blockquote><br/>Se inoltre la propria chiave del tenant è destinata a essere usata in una rete di produzione, si consiglia di usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti alla seconda workstation si fa riferimento come workstation connessa a Internet.</p></blockquote><br/>|
 
 ##Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
 
@@ -190,7 +190,7 @@ Il set di strumenti include gli elementi seguenti:
 
 - Un pacchetto di chiavi per lo scambio di chiavi (KEK) con un nome che inizia con **BYOK-KEK-pkg-.**
 - Un pacchetto relativo all'ambiente di sicurezza con un nome che inizia con **BYOK-SecurityWorld-pkg-.**
-- Script python denominato v**erifykeypackage.py**.
+- Uno script python denominato v**erifykeypackage.py.**
 - File eseguibile dalla riga di comando denominato **KeyTransferRemote.exe** e DLL associate.
 - Componente Visual C++ Redistributable Package denominato **vcredist\_x64.exe.**
 
@@ -201,7 +201,7 @@ Copiare il pacchetto in un'unità USB o in un altro dispositivo di archiviazione
 Per questo secondo passaggio eseguire le procedure seguenti nella workstation non connessa alla rete (Internet o la rete interna).
 
 
-###Passaggio 2.1: Preparare la workstation disconnessa con il modulo di protezione hardware Thales
+###Passaggio 2.1: Preparare la workstation disconnessa con il modulo di protezione hardware Thales
 
 Installare il software di supporto nCipher (Thales) in un computer Windows, quindi collegare un modulo di protezione hardware Thales a tale computer.
 
@@ -308,7 +308,7 @@ Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
 >[AZURE.IMPORTANT] Quando in seguito si trasferisce la chiave all'insieme di credenziali delle chiavi di Azure, Microsoft non può esportarla nuovamente nei dispositivi dell'utente, quindi è estremamente importante eseguire il backup della chiave e dell'ambiente di sicurezza in modo sicuro. Per ottenere informazioni aggiuntive e procedure consigliate per eseguire il backup della chiave, contattare Thales.
 
-È ora possibile trasferire la chiave all'insieme di credenziali delle chiavi di Azure.
+È ora possibile trasferire la chiave all'insieme di credenziali delle chiavi di Azure.
 
 ##Passaggio 4: Preparare la chiave per il trasferimento
 
@@ -431,4 +431,4 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM) ** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

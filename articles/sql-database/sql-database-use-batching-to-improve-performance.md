@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill" />
 
 # Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
@@ -31,8 +31,8 @@ L'invio in batch di chiamate a un servizio remoto è una strategia nota per migl
 In questo articolo si esamineranno diversi scenari e strategie di invio in batch al database SQL. Queste strategie sono importanti anche per le applicazioni locali che usano SQL Server, tuttavia ci sono diversi motivi per evidenziare l'uso dell'invio in batch per il database SQL:
 
 - La latenza di rete per l'accesso al database SQL è potenzialmente maggiore, in particolare se si accede dall'esterno dello stesso data center di Microsoft Azure.
-- Le caratteristiche multi-tenant del database SQL indicano che l'efficienza del livello di accesso ai dati è correlata alla scalabilità generale del database. Il database SQL deve impedire che qualsiasi tenant/utente singolo monopolizzi le risorse del database a scapito di altri tenant. In risposta all'utilizzo eccessivo di quote predefinite, il database SQL può ridurre la velocità effettiva o rispondere con eccezioni di limitazione delle richieste. Strategie efficienti, come l'invio in batch, consentono di effettuare un maggior numero di operazioni sul database SQL prima di raggiungere questi limiti. 
-- L'invio in batch è efficace anche per le architetture che usano più database (partizionamento orizzontale). L'efficienza dell'interazione con ogni unità database rimane comunque un fattore chiave ai fini della scalabilità generale. 
+- Le caratteristiche multi-tenant del database SQL indicano che l'efficienza del livello di accesso ai dati è correlata alla scalabilità generale del database. Il database SQL deve impedire che qualsiasi tenant/utente singolo monopolizzi le risorse del database a scapito di altri tenant. In risposta all'utilizzo eccessivo di quote predefinite, il database SQL può ridurre la velocità effettiva o rispondere con eccezioni di limitazione delle richieste. Strategie efficienti, come l'invio in batch, consentono di effettuare un maggior numero di operazioni sul database SQL prima di raggiungere questi limiti.
+- L'invio in batch è efficace anche per le architetture che usano più database (partizionamento orizzontale). L'efficienza dell'interazione con ogni unità database rimane comunque un fattore chiave ai fini della scalabilità generale.
 
 Uno dei vantaggi che derivano dall'uso del database SQL consiste nel non dover gestire i server che ospitano il database. Tuttavia, questa infrastruttura gestita implica anche una diversa concezione delle ottimizzazioni del database. Non è più possibile migliorare l'hardware o l'infrastruttura di rete del database. Gli ambienti sono controllati da Microsoft Azure. L'area principale su cui è possibile esercitare un controllo è la modalità di interazione dell'applicazione con il database SQL. L'invio in batch è una di queste ottimizzazioni.
 
@@ -594,7 +594,7 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 - Per operazioni di aggiornamento ed eliminazione, usare parametri con valori di tabella con la logica della stored procedure che determini il corretto funzionamento in ogni riga del parametro della tabella.
 - Linee guida sulle dimensioni dei batch:
 	- Usare batch di grandi dimensioni considerando i requisiti delle applicazioni e aziendali.
-	- Bilanciare il miglioramento delle prestazioni dei batch di grandi dimensioni e i rischi di errori temporanei o irreversibili. Qual è la conseguenza di più tentativi o di perdita dei dati nel batch? 
+	- Bilanciare il miglioramento delle prestazioni dei batch di grandi dimensioni e i rischi di errori temporanei o irreversibili. Qual è la conseguenza di più tentativi o di perdita dei dati nel batch?
 	- Testare i batch con le massime dimensioni per verificare che il database SQL non li rifiuti.
 	- Creare le impostazioni di configurazione che controllano l'invio in batch, ad esempio le dimensioni dei batch o la finestra temporale di buffering. Queste impostazioni offrono flessibilità. È possibile modificare il comportamento di invio in batch in produzione senza ridistribuire il servizio cloud.
 - Evitare l'esecuzione parallela di batch che operano su una singola tabella in un database. Se si sceglie di dividere un singolo batch tra più thread di lavoro, eseguire i test per determinare il numero ideale di thread. Dopo una soglia non specificata, più thread determinano una riduzione delle prestazioni invece di un aumento.
@@ -604,4 +604,4 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 
 Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi di migliorare le prestazioni e la scalabilità, vedere [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) e [Considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

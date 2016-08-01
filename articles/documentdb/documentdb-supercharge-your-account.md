@@ -18,7 +18,7 @@
 
 # Potenziare l'account DocumentDB
 
-Seguire questa procedura per ottenere una maggiore velocità effettiva per l'account DocumentDB S1. È possibile aumentare la velocità effettiva dell'account S1 esistente da 250 [UR/sec](documentdb-request-units.md) a oltre 400 UR/sec senza alcun costo aggiuntivo o con un costo aggiuntivo minimo.
+Seguire questa procedura per ottenere una maggiore velocità effettiva per l'account Azure DocumentDB S1. È possibile aumentare la velocità effettiva dell'account S1 esistente da 250 [UR/sec](documentdb-request-units.md) a oltre 400 UR/sec senza alcun costo aggiuntivo o con un costo aggiuntivo minimo.
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
@@ -51,4 +51,4 @@ Per altre informazioni sulle modifiche alla velocità effettiva definita dall'ut
 
 Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per creare una raccolta partizionata, vedere [Come creare una raccolta DocumentDB usando il portale di Azure](documentdb-create-collection.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

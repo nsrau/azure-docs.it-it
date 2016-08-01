@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/06/2016"
 	ms.author="garye;raymondl"/>
 
 # Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web
+
+>[AZURE.NOTE] Questo argomento descrive le tecniche applicabili a un servizio Web classico.
 
 Dopo aver sviluppato il modello predittivo e averlo distribuito come un servizio web di Azure mediante Machine Learning Studio o mediante strumenti come R o Python, è possibile accedere al modello operazionalizzato utilizzando un'API REST.
 
@@ -125,4 +127,4 @@ Per altre informazioni su...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 # Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
@@ -137,7 +137,7 @@ Usare la procedura seguente per eseguire una query Hive che verrà eseguita con 
 
     > [AZURE.NOTE] Come per il menu precedente, è possibile scorrere la visualizzazione colonne per Tasks, Task Attempts e Sources & Sinks per visualizzare i collegamenti ad altre informazioni per ogni elemento.
 
-10. Selezionare __Tasks__ e quindi selezionare l'elemento denominato __00\_000000__. Verranno visualizzati i dati di __Task Details__ per questa attività. Da questa schermata è possibile visualizzare __Task Counters__ e __Task Attempts__.
+10. Selezionare __Tasks__ (Attività) e quindi selezionare l'elemento denominato __00_000000_\_. Verranno visualizzati i dati di __Task Details__ (Dettagli attività) per questa attività. Da questa schermata è possibile visualizzare __Task Counters (Contatori attività) __ e __Task Attempts (Tentativi attività)\_\_.
 
     ![Dettagli dell'attività](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
@@ -147,4 +147,4 @@ A questo punto, dopo avere appreso come usare la visualizzazione Tez, è possibi
 
 Per informazioni tecniche più dettagliate su Tez, vedere la [pagina di Tez in Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

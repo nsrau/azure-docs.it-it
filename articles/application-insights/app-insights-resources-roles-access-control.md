@@ -104,8 +104,8 @@ Se l'utente desiderato non è nella directory, è possibile invitare chiunque di
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-portal/resource-group-portal.md
+[group]: ../resource-group-overview.md
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

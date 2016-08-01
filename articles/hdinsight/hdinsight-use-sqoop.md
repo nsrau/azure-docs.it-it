@@ -64,11 +64,11 @@ Sarà necessario innanzitutto esportare *sample.log* e *hivesampletable* nel dat
 
 Questa sezione spiega come creare un cluster e gli schemi del database SQL per eseguire l'esercitazione con il portale di Azure e un modello ARM. Se si preferisce usare Azure PowerShell, vedere l'[appendice A](#appendix-a---a-powershell-sample).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.         
+1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Il modello ARM è disponibile in un contenitore BLOB pubblico, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Il modello ARM è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     Il modello di Azure Resource Manager chiama un pacchetto bacpac per distribuire gli schemi della tabella nel database SQL. Anche il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
     
@@ -93,7 +93,7 @@ Questa sezione spiega come creare un cluster e gli schemi del database SQL per e
     
 3\. Fare clic su **OK** per salvare i parametri.
 
-4\. Nel pannello **Distribuzione personalizzata** fare clic sulla casella a discesa **Gruppo di risorse** e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
+4\. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella di riepilogo a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
 
 5\. Fare clic su **Note legali** e quindi su **Crea**.
 
@@ -101,7 +101,7 @@ Questa sezione spiega come creare un cluster e gli schemi del database SQL per e
 
 Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL di Microsoft
 
-- **Database SQL di Azure**: è necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere [Introduzione al database SQL di Azure][sqldatabase-get-started]. 
+- **Database SQL di Azure**: è necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere [Introduzione al database SQL di Azure][sqldatabase-get-started].
 
     > [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
 
@@ -132,6 +132,12 @@ HDInsight è in grado di eseguire processi Sqoop in vari modi. Usare la tabella 
 | [.NET SDK per Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) | & nbsp; | ✔ | Linux o Windows | Windows (per ora) |
 | [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) | &nbsp; | ✔ | Linux o Windows | Windows |
 
+##Limitazioni
+
+* Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
+
+* Invio in batch: con HDInsight basato su Linux, quando si usa il comando `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
+
 ##Passaggi successivi
 
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
@@ -149,7 +155,7 @@ L'esempio di PowerShell esegue questa procedura:
 
 1. Connettersi ad Azure.
 2. Creare un gruppo di risorse di Azure. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-3. Creare un server di Database SQL di Azure, un database SQL Azure e due tabelle. 
+3. Creare un server di Database SQL di Azure, un database SQL Azure e due tabelle.
 
 	Se invece si utilizza SQL Server, utilizzare le istruzioni seguenti per creare le tabelle:
 	
@@ -623,4 +629,4 @@ L'esempio di PowerShell esegue questa procedura:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

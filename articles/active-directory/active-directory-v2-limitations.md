@@ -56,6 +56,29 @@ Analogamente, le app registrate nel nuovo portale di registrazione delle app non
 
 Le app registrate nel nuovo portale di registrazione delle app sono attualmente limitate a un set ristretto di valori di URI di reindirizzamento. L'URI di reindirizzamento per app e servizi Web deve iniziare con lo schema o `https`, mentre l'URI di reindirizzamento per tutte le altre piattaforme deve usare il valore hardcoded `urn:ietf:oauth:2.0:oob`.
 
+## Limitazioni relative agli URI di reindirizzamento
+Per le app Web, tutti i valori degli URI di reindirizzamento devono condividere un singolo dominio DNS. Ad esempio, non è possibile registrare un'app Web con gli URI di reindirizzamento seguenti:
+
+`https://login-east.contoso.com` `https://login-west.contoso.com`
+
+Il sistema di registrazione confronta il nome DNS intero dell'URI di reindirizzamento esistente con il nome DNS dell'URI di reindirizzamento da aggiungere. Se il nome DNS intero del nuovo URI di reindirizzamento non corrisponde esattamente al nome DNS dell'URI di reindirizzamento esistente o non è un suo sottodominio, la richiesta di aggiunta avrà esito negativo. Ad esempio, se l'URI di reindirizzamento corrente dell'applicazione è:
+
+`https://login.contoso.com`
+
+è possibile aggiungere:
+
+`https://login.contoso.com/new`
+
+che corrisponde esattamente al nome DNS, oppure:
+
+`https://new.login.contoso.com`
+
+che è un sottodominio DNS di login.contoso.com. Per fare in modo che un'applicazione abbia login-east.contoso.com e login-west.contoso.com come URI di reindirizzamento, è necessario aggiungere questi URI di reindirizzamento nell'ordine seguente:
+
+`https://contoso.com` `https://login-east.contoso.com` `https://login-west.contoso.com`
+
+È possibile aggiungere gli ultimi due perché si tratta di sottodomini del primo URI di reindirizzamento, contoso.com. Questa limitazione verrà rimossa in una versione futura.
+
 Per informazioni su come registrare un'app nel nuovo portale di registrazione delle app, fare riferimento a [questo articolo](active-directory-v2-app-registration.md).
 
 ## Restrizioni relative ai servizi e alle API
@@ -63,7 +86,7 @@ L'endpoint 2.0 attualmente supporta l'accesso di qualsiasi app registrata nel nu
 
 - L'app che ha richiesto il token. Un'app può acquisire un token di accesso per se stessa, se l'app logica è costituita da diversi componenti o livelli. Per vedere questo scenario, consultare le esercitazioni nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
 - Le API REST di Posta, Calendario e Contatti di Outlook che si trovano in https://outlook.office.com. Per informazioni su come scrivere un'app che accede a queste API, fare riferimento alle esercitazioni nella sezione [introduttiva di Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-- Le API Microsoft Graph. Per informazioni su Microsoft Graph e su tutti i dati disponibili, visitare la pagina [https://graph.microsoft.io](https://graph.microsoft.io).
+- Le API Microsoft Graph. Per informazioni su Microsoft Graph e su tutti i dati disponibili, vedere [https://graph.microsoft.io](https://graph.microsoft.io).
 
 Attualmente non sono supportati altri servizi. In futuro verranno aggiunti altri servizi online Microsoft nonché il supporto per le API Web e i servizi personalizzati.
 
@@ -98,4 +121,4 @@ Nel servizio Azure Active Directory è disponibile un set di funzionalità per s
 - Attestazioni di gruppo per utenti di Azure AD
 - Ruoli applicazione e attestazioni basate sui ruoli
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

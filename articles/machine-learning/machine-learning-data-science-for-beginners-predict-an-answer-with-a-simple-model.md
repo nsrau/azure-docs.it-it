@@ -14,16 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Analisi scientifica dei dati per principianti, video 4: Prevedere una risposta con un modello semplice
+# Prevedere una risposta con un modello semplice
+
+## Video 4: Analisi scientifica dei dati per principianti
 
 È possibile scoprire come creare un modello semplice per prevedere il prezzo di un diamante guardando il quarto video della serie Analisi scientifica dei dati per principianti. Verrà rappresentato un modello di regressione con i dati di destinazione.
 
 Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+
+## Altri video della serie
+
+*Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
+
+  * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+  * Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
+  * Video 4: Prevedere una risposta con un modello semplice
+  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## Trascrizione: Prevedere una risposta con un modello semplice
 
@@ -123,19 +135,10 @@ Oggi l'argomento del video è stata la creazione di una regressione lineare e la
 Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 
 
-## Altri video della serie
-
-*Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
-
-  * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Video 4: Prevedere una risposta con un modello semplice
-  * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Passaggi successivi
 
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

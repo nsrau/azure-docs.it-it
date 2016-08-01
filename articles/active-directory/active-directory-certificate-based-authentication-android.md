@@ -94,11 +94,6 @@ Per altre informazioni, vedere l'articolo sulla [personalizzazione delle pagine 
 Alcune applicazioni Exchange ActiveSync sono supportate in Android 5.0 (Lollipop) o versioni successive. Per determinare se l'applicazione di posta elettronica supporta questa funzionalità, contattare lo sviluppatore dell'applicazione.
 
 
-### Limitazioni  
-
-L'autenticazione federata con un certificato client non è supportata.
-
-
 
 ## Introduzione 
 
@@ -246,11 +241,11 @@ Per testare l'autenticazione basata su certificati con un'applicazione in Androi
 
 ## Revoca
 
-Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà **Effective Date** (Data di validità) nel CRL viene usata per assicurare la validità del CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
+Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà **Effective Date** (Data di validità), in CRL viene usato per assicurare la validità di CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
 
-Se è necessaria una revoca più immediata (ad esempio in caso di smarrimento del dispositivo da parte di un utente), il token di autorizzazione dell'utente può essere annullato. Per annullare il token di autorizzazione, impostare il campo **StsRefreshTokenValidFrom** per questo particolare utente mediante Windows PowerShell. È necessario aggiornare il campo **StsRefreshTokenValidFrom** per ogni utente a cui revocare l'accesso.
+Se è necessaria una revoca più immediata (ad esempio in caso di smarrimento del dispositivo da parte di un utente), il token di autorizzazione dell'utente può essere annullato. Per annullare il token di autorizzazione, impostare il campo **StsRefreshTokenValidFrom** per questo particolare utente usando Windows PowerShell. È necessario aggiornare il campo **StsRefreshTokenValidFrom** per ogni utente a cui revocare l'accesso.
  
-Per garantire che la revoca persista, è necessario impostare la proprietà **Effective Date** (Data di validità) dell'elenco CRL a una data successiva al valore impostato da **StsRefreshTokenValidFrom** e assicurarsi che il certificato in questione sia nel CRL.
+Per fare in modo che la revoca persista, è necessario impostare la proprietà **Effective Date** (Data di validità) di CRL su una data successiva al valore impostato da **StsRefreshTokenValidFrom** e assicurarsi che il certificato in questione sia in CRL.
  
 I passaggi seguenti illustrano il processo per aggiornare e annullare il token di autorizzazione impostando il campo **StsRefreshTokenValidFrom**.
 
@@ -270,6 +265,6 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
 		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 
-La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente (non sulla data indicata dal comando Set-MsolUser).
+La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente, non sulla data indicata dal comando Set-MsolUser.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

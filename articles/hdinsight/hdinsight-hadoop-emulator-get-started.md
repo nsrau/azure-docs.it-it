@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Introduzione a un emulatore di Hadoop per HDInsight | Microsoft Azure"
-	description="Utilizzare un emulatore installato con un'esercitazione MapReduce e altri esempi per informazioni sull'ecosistema di Hadoop. L’emulatore di HDInsight funziona come un ambiente sandbox di Hadoop."
-	keywords="emulatore, ecosistema di hadoop, ambiente sandbox di hadoop, esercitazione mapreduce"
+	pageTitle="Usare un ambiente sandbox Hadoop per informazioni su Hadoop | Microsoft Azure"
+	description="Per iniziare ad apprendere l'uso dell'ecosistema Handoop, è possibile impostare un ambiente sandbox Hadoop di Hortonworks in una macchina virtuale Azure. "
+	keywords="emulatore hadoop, sandbox hadoop"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -14,14 +14,16 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="05/05/2016"
 	ms.author="nitinme"/>
 
-# Introduzione all'ecosistema Hadoop con un ambiente sandbox Hadoop
+# Introduzione all'ecosistema Hadoop con un ambiente sandbox Hadoop su una macchina virtuale
 
-È possibile impostare un ambiente sandbox Hadoop (di Hortonworks) in una macchina virtuale per acquisire familiarità con l'ecosistema di Hadoop. L'ambiente sandbox è un ambiente di sviluppo locale per Hadoop, Hadoop Distributed File System (HDFS), l'invio di processi e così via. Per iniziare a usare un ambiente Hadoop Sandbox di Hortonworks, vedere [Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) e vedere la sezione **Hortonworks Sandbox on a VM**. È consigliabile eseguire le esercitazioni disponibili con l'ambiente sandbox per ottenere informazioni su HDFS, su come inviare processi a un cluster, su come monitorare i processi in esecuzione su un cluster e così via.
+È possibile impostare un ambiente sandbox da Hadoop di Hortonworks in una macchina virtuale per acquisire familiarità con l'ecosistema di Hadoop. L'ambiente sandbox è un ambiente di sviluppo locale per informazioni su Hadoop, Hadoop Distributed File System (HDFS) e l'invio di processi.
 
-Dopo aver acquisito familiarità con Hadoop è possibile iniziare a usare Hadoop in Azure creando un cluster HDInsight. Per altre informazioni sulle attività iniziali, vedere l'articolo [Introduzione all'uso di Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+Per iniziare a usare un ambiente Hadoop Sandbox di Hortonworks, vedere [Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) (Sandbox Hortonworks) e la sezione **Hortonworks Sandbox on a VM** (Sandbox Hortonworks su una VM). È consigliabile eseguire le esercitazioni disponibili con l'ambiente sandbox per ottenere informazioni su HDFS, su come inviare processi a un cluster, su come monitorare i processi in esecuzione su un cluster e così via.
 
-<!---HONumber=AcomDC_0511_2016-->
+Dopo aver acquisito familiarità con Hadoop è possibile iniziare a usare Hadoop in Azure creando un cluster HDInsight. Per altre informazioni sulle attività iniziali, vedere l'articolo [Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
+<!---HONumber=AcomDC_0720_2016-->

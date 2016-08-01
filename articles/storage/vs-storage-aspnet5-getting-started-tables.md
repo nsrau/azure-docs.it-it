@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Panoramica
 
@@ -24,7 +26,7 @@ In questo articolo viene descritto come iniziare a utilizzare l'archiviazione ta
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
-L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e aggiunge la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
+L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
 Per ulteriori informazioni generali sull'utilizzo dell'archiviazione tabelle di Azure, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
 
@@ -189,4 +191,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

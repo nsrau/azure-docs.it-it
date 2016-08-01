@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Progettare la soluzione
@@ -23,6 +23,7 @@ Questo articolo offre indicazioni su come progettare le funzionalità seguenti n
 - Provisioning di dispositivi
 - Gateway sul campo
 - Autenticazione del dispositivo
+- Heartbeat dispositivo
 
 ## Provisioning di dispositivi
 
@@ -59,7 +60,7 @@ Un gateway sul campo differisce da un semplice dispositivo di routing del traffi
 
 ## Autenticazione personalizzata del dispositivo
 
-È possibile usare il [registro delle identità dei dispositivi][lnk-devguide-identityregistry] dell'hub IoT di Azure per configurare il controllo dell'accesso e le credenziali di sicurezza per ogni dispositivo. Tuttavia, se una soluzione IoT dispone già di un investimento significativo in un registro personalizzato delle identità dei dispositivi e/o in uno schema di autenticazione, è possibile integrare l'infrastruttura esistente con l'hub IoT creando un *servizio token*. In questo modo, è possibile usare altre funzionalità IoT nella soluzione.
+È possibile usare il [registro delle identità dei dispositivi][lnk-devguide-identityregistry] dell'hub IoT di Azure per configurare il controllo dell'accesso e le credenziali di sicurezza per ogni dispositivo usando i [token][lnk-sas-token]. Tuttavia, se una soluzione IoT dispone già di un investimento significativo in un registro personalizzato delle identità dei dispositivi e/o in uno schema di autenticazione, è possibile integrare l'infrastruttura esistente con l'hub IoT creando un *servizio token*. In questo modo, è possibile usare altre funzionalità IoT nella soluzione.
 
 Un servizio token è un servizio cloud personalizzato. Usa i *criteri di accesso condivisi* dell'hub IoT con autorizzazioni **DeviceConnect** per creare token *basati sul dispositivo*. Questi token abilitano la connessione di un dispositivo all'hub IoT.
 
@@ -80,9 +81,9 @@ Perché un dispositivo si connetta all'hub, è comunque necessario aggiungerlo a
 
 ### Confronto con un gateway personalizzato
 
-Il modello di servizio token è il metodo consigliato per implementare uno schema di autenticazione/registro di identità personalizzato con l'hub IoT. È consigliabile perché l'hub IoT continua a gestire la maggior parte del traffico della soluzione. Tuttavia, in alcuni casi lo schema di autenticazione personalizzato è talmente legato al protocollo che è necessario un servizio che elabora tutto il traffico (*gateway personalizzato*). Esempi di servizio sono le [chiavi precondivise e Transport Layer Security][lnk-tls-psk]. Per altre informazioni, vedere l'argomento relativo al [gateway del protocollo][lnk-gateway].
+Il modello di servizio token è il metodo consigliato per implementare uno schema di autenticazione/registro di identità personalizzato con l'hub IoT. È consigliabile perché l'hub IoT continua a gestire la maggior parte del traffico della soluzione. Tuttavia, in alcuni casi lo schema di autenticazione personalizzato è talmente legato al protocollo che è necessario un servizio che elabora tutto il traffico (*gateway personalizzato*). Esempi di servizio sono le [chiavi precondivise e Transport Layer Security][lnk-tls-psk]. Per altre informazioni, vedere l'argomento relativo al [gateway del protocollo][lnk-protocols].
 
-## Heartbeat dei dispositivi <a id="heartbeat"></a>
+## Heartbeat dispositivo <a id="heartbeat"></a>
 
 Il [registro delle identità dell'hub IoT][lnk-devguide-identityregistry] contiene un campo denominato **connectionState**. È consigliabile usare il campo **connectionState** solo durante lo sviluppo e il debug ed evitare che le soluzioni IoT eseguano query su quel campo in fase di esecuzione, ad esempio per verificare se un dispositivo è connesso al fine di stabilire se inviare un messaggio da cloud a dispositivo o un SMS. Se è necessario che la soluzione IoT stabilisca se un dispositivo è connesso, in fase di esecuzione o con un'accuratezza maggiore di quella offerta dalla proprietà **connectionState**, dovrà implementare il *modello di heartbeat*.
 
@@ -102,10 +103,10 @@ Per ulteriori informazioni sulla pianificazione della distribuzione dell'hub IoT
 - [Eseguire il confronto con Hub eventi][lnk-compare]
 - [Scalabilità, disponibilità elevata e ripristino di emergenza][lnk-scaling]
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Guida per sviluppatori][lnk-devguide]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal-manage]
 
@@ -114,17 +115,10 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
-[lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
 [lnk-portal]: https://portal.azure.com
-[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
-[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
-[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
@@ -140,5 +134,6 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
+[lnk-sas-token]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

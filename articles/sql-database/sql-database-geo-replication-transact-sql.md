@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.workload="sqldb-bcdr"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # Configurare la replica geografica per il database SQL di Azure con Transact-SQL
@@ -163,6 +163,23 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 
 9. Fare clic su **Execute** per eseguire la query.
 
+## Aggiornare un database secondario da non leggibile a leggibile
+
+Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura. Se al momento si utilizzano database secondari non leggibili e si desidera aggiornarli per renderli leggibili, per ogni database secondario è possibile eseguire la semplice procedura descritta di seguito.
+
+> [AZURE.IMPORTANT] Non esiste alcun metodo self-service per aggiornare sul posto un database secondario da non leggibile a leggibile. Se si elimina l'unico database secondario, il database primario non sarà più protetto fino alla completa sincronizzazione del nuovo database secondario. Se il contratto di servizio dell'applicazione richiede che il database primario sia sempre protetto, prima di applicare le operazioni di aggiornamento descritte in precedenza è consigliabile creare un database secondario parallelo in un altro server. Tenere presente che ogni database primario può avere fino a 4 database secondari.
+
+
+1. Per prima cosa, eseguire la connessione al server *secondario* ed eliminare il database secondario non leggibile:
+        
+        DROP DATABASE <MyNonReadableSecondaryDB>;
+
+2. Dopodiché, stabilire la connessione al server *primario* e aggiungere un nuovo database secondario leggibile.
+
+        ALTER DATABASE <MyDB>
+            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
+
+
 
 
 ## Passaggi successivi
@@ -170,4 +187,4 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 - Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

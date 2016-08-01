@@ -11,15 +11,15 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con AnswerHub
 
-Questa esercitazione descrive l'integrazione di Azure e AnswerHub. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software). Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
--   Sottoscrizione AnswerHub abilitata per l'accesso Single Sign-On
+-   Sottoscrizione di [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software) abilitata per l'accesso Single Sign-On
 
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati ad AnswerHub potranno accedere all'applicazione tramite il sito aziendale di AnswerHub (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
 
@@ -31,6 +31,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 4.  Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Scenario")
+
 ##Abilitazione dell'integrazione dell'applicazione per AnswerHub
 
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per AnswerHub.
@@ -62,6 +63,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Answ
 7.  Nel riquadro dei risultati selezionare **AnswerHub** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
+
 ##Configurazione dell'accesso Single Sign-On
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione ad AnswerHub tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
@@ -76,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** nella casella di testo **AnswerHub Sign In URL** (URL di accesso ad AnswerHub) digitare l'URL usando il modello "*https://company.answerhub.com*" e fare clic su **Avanti**.
+3.  Nella casella di testo **URL accesso AnswerHub ** della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.answerhub.com*" e fare clic su **Avanti*.
 
     ![Configura URL app](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configura URL app")
 
@@ -85,6 +87,14 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configura accesso Single Sign-On")
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di AnswerHub come amministratore.
+    >[AZURE.NOTE] Per ottenere assistenza nella configurazione di AnswerHub, contattare il [team di supporto di AnswerHub](mailto:success@answerhub.com.).
+
+
+
+
+
+
+
 
 6.  Passare a **Administration**.
 
@@ -98,9 +108,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![SAML Setup](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
 
-    1.  Nella finestra di dialogo **Configure single sign-on at AnswerHub** (Configura accesso Single Sign-On in AnswerHub) del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IDP Login URL** (URL di accesso IDP).
-    2.  Nella finestra di dialogo **Configure single sign-on at AnswerHub** (Configura accesso Single Sign-On in AnswerHub) del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **IDP Logout URL** (URL disconnessione IDP).
-    3.  Nella finestra di dialogo **Configure single sign-on at AnswerHub** (Configura accesso Single Sign-On in AnswerHub) del portale di Azure classico copiare il valore di **Formato identificatore nome** e incollarlo nella casella di testo **IDP Name Identifier Format** (Formato identificatore nome IDP).
+    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in AnswerHub** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IDP Login URL** (URL di accesso IdP).
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in AnswerHub** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **IDP Logout URL** (URL disconnessione IdP).
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in AnswerHub** del portale di Azure classico copiare il valore di **Formato identificatore nome** e incollarlo nella casella di testo **IDP Name Identifier Format** (Formato identificatore nome IdP).
     4.  Fare clic su **Keys and Certificates**.
 
 11. Nella scheda Keys and Certificates seguire questa procedura:
@@ -119,6 +129,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 13. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configura accesso Single Sign-On")
+
 ##Configurazione del provisioning utente
 
 Per consentire agli utenti di Azure AD di accedere ad AnswerHub, è necessario eseguirne il provisioning in AnswerHub. Nel caso di AnswerHub, il provisioning è un'attività manuale.
@@ -157,4 +168,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

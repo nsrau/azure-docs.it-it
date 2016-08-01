@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/15/2016" 
 	ms.author="stefsch"/>
 
 # Documentazione relativa agli ambienti del servizio app
@@ -35,7 +35,8 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 * [Che cos'è un ambiente del servizio app?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Creazione di un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Creazione di app in un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Configurazione di un ambiente del servizio app](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Creazione e uso di un servizio di bilanciamento del carico interno con ambienti del servizio App](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [Configurazione di un ambiente del servizio app](../app-service-web/app-service-web-configure-an-app-service-environment.md)
 * [Scalabilità di app in un ambiente del servizio app](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Sicurezza di rete e architettura](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
@@ -59,4 +60,4 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

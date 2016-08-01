@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Debug di un'App Web Java su Azure in Eclipse
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione sarà simile a quanto illustr
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 * Un progetto Web dinamico creato e distribuito al Servizio app di Azure; ad esempio vedere [Creare un'app Web Hello World per Azure in Eclipse].
 
@@ -104,4 +104,4 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

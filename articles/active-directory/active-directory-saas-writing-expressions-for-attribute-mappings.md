@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,10 +29,10 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 
 La sintassi per le espressioni per i mapping degli attributi è simile a quella delle funzioni di Visual Basic for Applications (VBA).
 
-- L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br> *NomeFunzione(<<argument 1>>,<<argument N>>)*
+- L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br> *NomeFunzione(<<argomento 1>>,<<argomento N>>)*
 
 
-- È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(<<argument1>>))*
+- È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunzioneUno(FunzioneDue(<<argomento1>>))*
 
 
 - È possibile passare tre tipi diversi di argomenti nelle funzioni:
@@ -41,7 +41,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
    2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
 
-   3. Altre funzioni. Ad esempio: FunzioneUno(<<argument1>>, FunzioneDue(<<argument2>>))
+   3. Altre funzioni. Ad esempio: FunzioneUno(<<argomento1>>, FunzioneDue(<<argomento2>>))
 
 
 - Eventuali barre rovesciate ( \\ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \\ ) come carattere di escape. Ad esempio: "Nome società: "Contoso""
@@ -103,7 +103,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obbligatorio | String | Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori di stringa da unire. |
+| **source1 … sourceN ** | Obbligatorio per un numero variabile di volte | String | Valori stringa da unire. |
 
 
 
@@ -315,4 +315,4 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

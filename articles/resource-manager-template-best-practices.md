@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
 # Procedure consigliate per la creazione di modelli di Azure Resource Manager
@@ -34,15 +34,15 @@ Per informazioni sulla creazione di una convenzione di denominazione, vedere [In
 
 È necessario fornire un nome univoco per qualsiasi tipo di risorsa con un endpoint di accesso ai dati. Alcuni tipi comuni che richiedono un nome univoco includono:
 
-- Archiviazione
-- App Web
-- SQL Server
-- Insieme di credenziali di chiave
+- Account di archiviazione
+- Sito Web
+- Server SQL
+- Insieme di credenziali delle chiavi
 - Cache Redis
-- Batch
+- Account Batch
 - Gestione traffico
 - Servizio di ricerca
-- HDInsight
+- Cluster HDInsight
 
 I nomi di account di archiviazione devono essere formati da lettere minuscole, un massimo di 24 caratteri e non devono includere alcun trattino.
 
@@ -361,4 +361,4 @@ Per altre informazioni, vedere [Uso di modelli collegati con Gestione risorse di
 2. Per indicazioni sulla configurazione di un account di archiviazione, vedere [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](./storage/storage-performance-checklist.md).
 3. Per assistenza con le reti virtuali, vedere [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md) (Linee guida sull'infrastruttura di rete).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth"/>
 
 # Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (Resource Manager)
@@ -310,4 +310,4 @@ Lo script seguente contiene lo script PowerShell completo per l'esercitazione. S
 ## Passaggi successivi
 Dopo la creazione della macchina virtuale, è possibile connettersi alla macchina virtuale mediante RDP e configurare la connettività. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -62,7 +62,7 @@ Assicurarsi di disporre della versione di produzione più recente del modulo Azu
 
 ### Passaggio 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -70,7 +70,7 @@ Assicurarsi di disporre della versione di produzione più recente del modulo Azu
 
 Controllare le sottoscrizioni per l'account
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
@@ -79,7 +79,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Creare un gruppo di risorse per il servizio di bilanciamento del carico
 
@@ -87,7 +87,7 @@ Scegliere quali sottoscrizioni Azure usare. <BR>
 
 Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo di risorse esistente)
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
 
@@ -189,7 +189,7 @@ In questo passaggio viene creata una seconda interfaccia di rete, assegnata allo
 Il risultato finale sarà simile al seguente:
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Output previsto:
 
@@ -267,13 +267,13 @@ Caricare l'interfaccia di rete già creata in una variabile. Il nome della varia
 
 Modificare la configurazione back-end nell'interfaccia di rete.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Passaggio 5 
 
 Salvare l'oggetto interfaccia di rete.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Dopo che un'interfaccia di rete viene aggiunta al pool di back-end di bilanciamento del carico, inizia a ricevere il traffico di rete in base alle regole di bilanciamento del carico per la risorsa di bilanciamento carico.
 
@@ -316,4 +316,4 @@ Usare il comando Remove-AzureRmLoadBalancer per eliminare un servizio di bilanci
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

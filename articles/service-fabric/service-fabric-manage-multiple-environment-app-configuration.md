@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="07/19/2016"
    ms.author="seanmck"/>
 
 # Gestire i parametri dell'applicazione per più ambienti
@@ -127,11 +127,11 @@ Lo script `Deploy-FabricApplication.ps1` di PowerShell incluso nel modello del p
 
 ## Passaggi successivi
 
-Per altre informazioni su alcuni concetti di base illustrati in questo argomento, vedere [Service Fabric technical overview](service-fabric-technical-overview.md) (Panoramica tecnica di Service Fabric). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell'infrastruttura di servizi](service-fabric-manage-application-in-visual-studio.md).
+Per altre informazioni su alcuni concetti di base illustrati in questo argomento, vedere [Panoramica della terminologia di Service Fabric](service-fabric-technical-overview.md). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni di Service Fabric](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

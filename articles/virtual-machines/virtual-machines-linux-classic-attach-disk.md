@@ -160,6 +160,28 @@
 
 >[AZURE.NOTE] Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni fstab `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di errore di montaggio in fase di avvio. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
+### Supporto delle funzioni TRIM/UNMAP per Linux in Azure
+Alcuni kernel di Linux supporteranno operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse. Così facendo, è possibile risparmiare sui costi quando si creano file di grandi dimensioni per poi eliminarli.
+
+Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la distribuzione per stabilire l'approccio consigliato:
+
+- Utilizzare l'opzione di montaggio `discard` in `/etc/fstab`, ad esempio:
+
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+- In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo alla scheda cronologica per eseguirlo a intervalli regolari:
+
+	**Ubuntu**
+
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
+
+	**RHEL/CentOS**
+
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
+
+
 ## Passaggi successivi
 Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 
@@ -173,4 +195,4 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

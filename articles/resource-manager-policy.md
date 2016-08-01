@@ -254,7 +254,7 @@ L'esempio seguente illustra un criterio che negherà tutte le richieste con posi
 
 ### Controllo dei servizi: selezione del catalogo dei servizi
 
-L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo le azioni sui servizi di tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/*. Qualsiasi altra azione verrà negata.
+L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo le azioni sui servizi di tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Qualsiasi altra azione verrà negata.
 
     {
       "if" : {

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
@@ -50,6 +50,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 
 | Problema | Risoluzione |
 | :----------------------------------| :---------------------------------------------- |
+| Messaggio 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Ridurre il [DWU][] del database che si sta tentando di creare oppure [richiedere un aumento della quota][].|
 | Analisi dell'uso dello spazio | Per comprendere l'uso dello spazio nel sistema, vedere la [tabella sulle dimensioni][].|
 | Aiuto nella gestione delle tabelle | Per aiuto nella gestione delle tabelle, vedere l'articolo [Panoramica delle tabelle][Overview]. Questo articolo comprende anche collegamenti ad argomenti dettagliati come quelli su [tipi di dati delle tabelle][Data types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition], [conservazione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary].|
 
@@ -71,6 +72,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 | Istruzione MERGE non supportata | Vedere [Soluzioni alternative MERGE][].|
 | Limitazioni delle stored procedure | Per capire alcune limitazioni delle stored procedure, vedere [Limitazioni delle stored procedure][].|
 | Le UDF non supportano istruzioni SELECT | Si tratta di una limitazione corrente delle UDF. Per conoscere la sintassi supportata, vedere [CREATE FUNCTION][]. |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Passaggi successivi
 
@@ -91,6 +93,8 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [Panoramica della sicurezza]: ./sql-data-warehouse-overview-manage-security.md
 [Creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [ridimensionando SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[richiedere un aumento della quota]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [imparare a monitorare le query]: ./sql-data-warehouse-manage-monitor.md
 [Procedura di configurazione del provisioning]: ./sql-data-warehouse-get-started-provision.md
 [Configurare l'accesso al firewall del server per l'indirizzo IP del client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
@@ -113,7 +117,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [Soluzioni alternative UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [Soluzioni alternative DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [Soluzioni alternative MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitazioni delle stored procedure]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Limitazioni delle stored procedure]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Autenticazione in Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Risolvere il requisito PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

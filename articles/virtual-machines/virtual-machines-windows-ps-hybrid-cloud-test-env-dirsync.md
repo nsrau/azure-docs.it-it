@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test
@@ -80,7 +80,7 @@ Questa è la configurazione corrente.
 
 Dal portale di Azure avviare il computer DC2, se necessario.
 
-Creare quindi una macchina virtuale di Azure per DS1 con questi comandi al prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri < and >.
+Creare quindi una macchina virtuale di Azure per DS1 con questi comandi al prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri <and>.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
@@ -130,7 +130,7 @@ Successivamente, abilitare la sincronizzazione delle directory per la versione d
 4.	Quando viene visualizzato il messaggio **Attivare la sincronizzazione di Active Directory?**, fare clic su **Attiva**. Al termine, viene visualizzato il messaggio **Sincronizzazione di Active Directory attivata** al passaggio 3.
 5.	Lasciare la pagina **Impostazione e gestione della sincronizzazione di Active Directory** aperta in CLIENT1.
 
-Al prompt di Windows PowerShell in DC1 eseguire questi comandi **uno alla volta** per creare una nuova unità organizzativa denominata contoso\_users e aggiungere due nuovi account utente per Marci Kaufman e Lynda Meyer.
+Al prompt di Windows PowerShell in DC1 eseguire questi comandi **uno alla volta** per creare una nuova unità organizzativa denominata utenti\_contoso e aggiungere due nuovi account utente per Marci Kaufman e Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -179,4 +179,4 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
 - Distribuire il carico di lavoro [nell'ambiente di produzione](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

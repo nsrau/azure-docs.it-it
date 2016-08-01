@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="07/20/2016"
 	ms.author="larryfr"/>
 
 #Usare Sqoop con Hadoop in HDInsight (SSH)
@@ -147,7 +147,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     Per altre informazioni sulla creazione e la configurazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
-* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
+* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
 
 * Potrebbe essere necessario configurare SQL Server affinché accetti le connessioni remote. Per altre informazioni, vedere l'argomento relativo alla [risoluzione dei problemi di connessione al motore di database di SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
@@ -168,9 +168,15 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
         [sessionid] [bigint],
         [sessionpagevieworder] [bigint])
 
-* Quando ci si connette a SQL Server da HDInsight, potrebbe essere necessario usare l'indirizzo IP di SQL Server, a meno che non sia stato configurato un sistema DNS (Domain Name) per risolvere i nomi nella rete virtuale di Azure. Ad esempio:
+* Quando ci si connette a SQL Server da HDInsight, potrebbe essere necessario usare l'indirizzo IP di SQL Server, a meno che non sia stato configurato un sistema DNS (Domain Name) per risolvere i nomi nella rete virtuale di Azure. ad esempio:
 
         sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+
+##Limitazioni
+
+* Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
+
+* Invio in batch: con HDInsight basato su Linux, quando si usa il comando `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
 
 ##Passaggi successivi
 
@@ -200,4 +206,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

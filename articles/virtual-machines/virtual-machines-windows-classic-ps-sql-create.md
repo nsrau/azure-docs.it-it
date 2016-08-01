@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)
@@ -173,4 +173,4 @@ Se si è interessati anche all'uso del portale di Azure per creare macchine virt
 
 Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

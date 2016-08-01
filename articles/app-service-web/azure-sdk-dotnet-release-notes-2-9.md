@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
 # Note sulla versione di Azure SDK per .NET 2.9
@@ -33,13 +33,13 @@ Questo aggiornamento include le correzioni di bug seguenti:
 
 Questo aggiornamento include la nuova funzionalità seguente:
 
-- Supporto per Servizi app secondari nella scheda "Servizi" della finestra di dialogo Provisioning del servizio app. 
+- Supporto per Servizi app secondari nella scheda "Servizi" della finestra di dialogo Provisioning del servizio app.
 
 ##Strumenti di Azure Data Lake per Visual Studio 2015 Update 2
  
 Questi aggiornamenti includono quanto segue:
 
-- **Strumenti di Azure Data Lake** per Visual Studio è ora unito alla versione Azure SDK per .NET. Lo strumento viene installato automaticamente quando si installa Azure SDK. 
+- **Strumenti di Azure Data Lake** per Visual Studio è ora unito alla versione Azure SDK per .NET. Lo strumento viene installato automaticamente quando si installa Azure SDK.
 
 	Lo strumento viene aggiornato frequentemente, fare clic [qui](http://aka.ms/datalaketool) per ottenere gli aggiornamenti.
 
@@ -59,4 +59,4 @@ Questa versione aggiunge il supporto [Insieme di credenziali delle chiavi](../re
 
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

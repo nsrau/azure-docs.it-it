@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Panoramica
 
@@ -229,4 +231,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/27/2016"
+    ms.date="07/19/2016"
     ms.author="carlrab"/>
 
 # Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL
@@ -102,4 +102,4 @@ Usare la procedura seguente per avviare un failover non pianificato.
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/services/sql-database/)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

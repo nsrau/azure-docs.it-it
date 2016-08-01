@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -22,6 +22,7 @@
 - [Portale](azure-portal/resource-group-portal.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -221,7 +222,7 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
         Tags              : {System.Collections.Hashtable}
         ...
 	        
-- È possibile usare i tag per organizzare in modo logico le risorse della sottoscrizione, quindi recuperare le risorse con i cmdlet **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
+- È possibile usare i tag per organizzare in modo logico le risorse della sottoscrizione e quindi recuperarle con i cmdlet **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
 
         Find-AzureRmResource -TagName displayName -TagValue Website
 
@@ -386,4 +387,4 @@ Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

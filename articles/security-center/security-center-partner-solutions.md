@@ -4,16 +4,16 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="07/19/2016"
    ms.author="terrylan"/>
 
 # Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure
@@ -21,9 +21,6 @@
 Questo documento contiene informazioni dettagliate su come monitorare lo stato di integrità delle soluzioni dei partner nel Centro sicurezza di Azure.
 
 > [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
-
-## Che cos'è il Centro sicurezza?
- Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ## Monitoraggio delle soluzioni dei partner
 
@@ -49,13 +46,13 @@ Per visualizzare l'integrità delle soluzioni dei partner:
 
 3. Tornare al pannello **F5-WAF2** e selezionare **Collega app**. Verrà visualizzato il pannello**Collega applicazioni**. In questo pannello è possibile connettere risorse alla soluzione del partner. ![Collegare risorse alla soluzione di un partner][5]
 
-## Passaggi successivi
+## Vedere anche
 Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni contribuiscono alla protezione delle risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
 - [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e come rispondervi.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
@@ -66,4 +63,4 @@ Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicu
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

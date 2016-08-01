@@ -98,11 +98,13 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 ## Domande frequenti
 
 ### È possibile usare Gestione traffico con endpoint di più sottoscrizioni?
-Sì. La procedura varia a seconda che si usino Azure Service Management API oppure API di Resource Manager per Gestione traffico. Il [portale di Azure](https://portal.azure.com) usa Azure Resource Manager, mentre il [portale classico](https://manage.windowsazure.com) usa Azure Service Management.
+Per le app Web di Azure, non è possibile. Questo perché ogni nome di dominio personalizzato usato nelle app Web deve essere usato solo all'interno di una singola sottoscrizione. Non essendo possibile usare le app Web da più sottoscrizioni con lo stesso nome di dominio, le app Web non possono essere utilizzate con Gestione traffico.
 
-In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo degli accessi in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. La procedura varia a seconda che si usino Azure Service Management API oppure API di Resource Manager per Gestione traffico. Il [portale di Azure](https://portal.azure.com) usa Azure Resource Manager, mentre il [portale classico](https://manage.windowsazure.com) usa Azure Service Management.
 
-In Service Management è necessario che tutti i servizi cloud e le app Web configurati come endpoint di Azure si trovino nella stessa sottoscrizione del profilo di Gestione traffico. È possibile aggiungere endpoint del servizio cloud di altre sottoscrizioni a Gestione traffico come endpoint esterni. Verranno comunque fatturati alla tariffa degli endpoint interni. Non è possibile usare app Web di altre sottoscrizioni.
+In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+
+In Service Management è necessario che tutti i servizi cloud e le app Web configurati come endpoint di Azure si trovino nella stessa sottoscrizione del profilo di Gestione traffico. È possibile aggiungere endpoint del servizio cloud di altre sottoscrizioni a Gestione traffico come endpoint esterni. Verranno comunque fatturati alla tariffa degli endpoint interni.
 
 ### È possibile usare Gestione traffico con slot di staging del servizio cloud?
 Sì. Gli slot di staging del servizio cloud possono essere configurati come endpoint esterni in Gestione traffico.
@@ -142,4 +144,4 @@ Per quanto riguarda le app Web, gli endpoint di Azure di Gestione traffico non p
 
 - Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) di Gestione traffico.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

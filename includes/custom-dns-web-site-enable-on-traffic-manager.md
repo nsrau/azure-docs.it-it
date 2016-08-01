@@ -8,22 +8,22 @@ Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è nece
 
 1. Accedere al [portale di Azure](https://portal.azure.com) dal browser.
 
-2. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati e SSL**.
+1. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati e SSL**.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. Nel pannello **Domini personalizzati e SSL** fare clic su **Porta domini esterni**.
+1. Nel pannello **Domini personalizzati e SSL** fare clic su **Porta domini esterni**.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-4. Usare le caselle di testo **NOMI DI DOMINIO** per immettere il nome di dominio di Gestione traffico (contoso.trafficmanager.net) per l'associazione con questa app Web.
+1. Usare le caselle di testo **NOMI DI DOMINIO** per immettere il nome di dominio di Gestione traffico per l'associazione con questa app Web.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-5. Fare clic su **Salva** per salvare la configurazione del nome di dominio.
+1. Fare clic su **Salva** per salvare la configurazione del nome di dominio.
 
 	Al termine della configurazione, il nome di dominio personalizzato sarà elencato nella sezione **nomi di dominio** dell'app Web.
 
-A questo punto sarà possibile immettere il nome di dominio di Gestione traffico (contoso.trafficmanager.net) nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
+A questo punto sarà possibile immettere il nome di dominio di Gestione traffico nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

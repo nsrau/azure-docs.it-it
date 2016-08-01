@@ -69,12 +69,12 @@ Dopo la creazione dell'applicazione Azure Active Directory e l'installazione del
 	    {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var result = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (result == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
-          return token;
+          return result;
         }
 	
     Sostituire {client-id} con l'identificatore dell'applicazione Azure Active Directory, {client-secret} con la chiave di accesso dell'applicazione di Active Directory e {tenant-id} con l'identificatore del tenant per la sottoscrizione. Per trovare l'ID tenant, eseguire Get-AzureRmSubscription. È possibile trovare la chiave di accesso mediante il portale di Azure.
@@ -432,4 +432,4 @@ Questo esempio mostra come modificare le dimensioni di una macchina virtuale in 
 
 Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Utilizzare Analytics - Il potente strumento di ricerca di Application Insights | Microsoft Azure" 
-	description="Utilizzare Analytics: lo strumento di ricerca diagnostica incluso in Application Insights" 
+	description="Utilizzare Analytics: lo strumento di ricerca diagnostica incluso in Application Insights " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -12,10 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="awills"/>
-
-
+	ms.date="07/15/2016" 
+	ms.author="danha"/>
 
 
 # Uso di Analytics in Application Insights
@@ -34,34 +32,83 @@ L'esercitazione in linea fornisce alcune informazioni su come procedere.
 
 È disponibile una [panoramica più ampia qui](app-insights-analytics-tour.md).
 
-## Scrivere query
+## Eseguire query sui dati di telemetria
 
-Scrivere una query iniziando con uno dei nomi delle tabelle elencate a sinistra. Utilizzare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators).
-
+### Scrivere una query
 
 ![](./media/app-insights-analytics-using/150.png)
 
-* Non inserire righe vuote nella query.
-* Nelle query è possibile usare interruzioni di riga.
-* È possibile mantenere più query nella finestra, separate da righe vuote.
-* Per eseguire una query, **posizionare il cursore all'interno o alla fine della query** e fare clic su Vai.
+Iniziare con i nomi delle tabelle elencate a sinistra oppure con gli operatori [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator). Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators). IntelliSense suggerirà gli operatori e alcuni degli elementi delle espressioni che è possibile usare.
+
+Vedere [Presentazione dello strumento Analisi in Application Insights](app-insights-analytics-tour.md) e il [riferimento al linguaggio](app-insights-analytics-reference.md).
+
+### Eseguire una query
+
+![Esecuzione di una query](./media/app-insights-analytics-using/130.png)
+
+1. Nelle query è possibile usare interruzioni di riga.
+2. Posizionare il cursore all'interno o alla fine della query da eseguire.
+3. Fare clic su Vai per eseguire la query.
+4. Non inserire righe vuote nella query. È possibile mantenere più query separate in un'unica scheda di query, separandole con righe vuote. Verrà eseguita solo quella con il cursore.
+
+### Salvare una query
+
+![Salvataggio di una query](./media/app-insights-analytics-using/140.png)
+
+1. Salvare il file di query corrente.
+2. Aprire un file di query salvato.
+3. Creare un nuovo file di query.
 
 
-![](./media/app-insights-analytics-using/130.png)
+## Visualizzare i dettagli
 
-* È possibile salvare e richiamare il contenuto della finestra della query.
+Espandere una riga dei risultati per visualizzarne l'elenco completo delle proprietà. È possibile espandere ulteriormente qualsiasi proprietà che sia un valore strutturato, ad esempio le dimensioni personalizzate o l'elenco in pila di un'eccezione.
 
-![](./media/app-insights-analytics-using/140.png)
+![Espandere una riga](./media/app-insights-analytics-using/070.png)
 
-## Ordinare i risultati
+ 
 
-È possibile scegliere le colonne che si desidera visualizzare. Espandere gli elementi per visualizzare tutti i valori della colonna restituiti.
+## Disporre i risultati
 
-![](./media/app-insights-analytics-using/030.png)
+È possibile ordinare, filtrare, impaginare e raggruppare i risultati restituiti dalla query.
 
-> [AZURE.NOTE] Fare clic sull'intestazione di una colonna per riordinare velocemente i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Pertanto, questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. A tale scopo, utilizzare l'operatore [top](app-insights-analytics-reference.md#top-operator) o [sort](app-insights-analytics-reference.md#sort-operator).
+> [AZURE.NOTE] Le operazioni di ordinamento, raggruppamento e filtro nel browser non eseguono nuovamente la query, ma riorganizzano i risultati restituiti dall'ultima query.
+> 
+> Per eseguire queste attività nel server prima che vengano restituiti i risultati, scrivere la query usando gli operatori [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) e [where](app-insights-analytics-reference.md#where-operator).
 
-È buona norma, tuttavia, usare gli operatori [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) o [summarize](app-insights-analytics-reference.md#summarize-operator) per evitare di scaricare tabelle di grandi dimensioni dal server. È comunque previsto un limite automatico di circa 10.000 righe per ogni query.
+Selezionare le colonne da visualizzare, trascinare le intestazioni di colonna per ridisporle e ridimensionare le colonne trascinandone i bordi.
+
+![Disporre le colonne](./media/app-insights-analytics-using/030.png)
+
+### Ordinare e filtrare elementi
+
+Ordinare i risultati facendo clic sull'intestazione di una colonna. Fare clic di nuovo per applicare l'ordinamento opposto. Fare clic una terza volta per ripristinare l'ordine originale restituito dalla query.
+
+Usare l'icona del filtro per perfezionare la ricerca.
+
+![Ordinare e filtrare le colonne](./media/app-insights-analytics-using/040.png)
+
+
+
+### Raggruppare elementi
+
+Per ordinare più di una colonna, usare il raggruppamento. Abilitare il raggruppamento e quindi trascinare le intestazioni di colonna nello spazio sopra la tabella.
+
+![Gruppo](./media/app-insights-analytics-using/060.png)
+
+
+
+### Mancano alcuni risultati?
+
+È previsto un limite di 10.000 righe di risultati restituiti dal portale. Se il numero di risultati supera il limite verrà visualizzato un avviso. In tal caso, l'ordinamento dei risultati nella tabella non permette sempre di visualizzare i primo o gli ultimi risultati effettivi.
+
+È consigliabile evitare di raggiungere il limite. Usare operatori quali:
+
+* [timestamp where > ago(3d)](app-insights-analytics-reference.md#where-operator)
+* [timestamp top 100 by](app-insights-analytics-reference.md#top-operator)
+* [take 100](app-insights-analytics-reference.md#take-operator)
+* [summarize](app-insights-analytics-reference.md#summarize-operator)
+
 
 
 ## Diagrammi
@@ -70,11 +117,9 @@ Selezionare il tipo di diagramma desiderato:
 
 ![](./media/app-insights-analytics-using/230.png)
 
-Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi x e y e una colonna di dimensioni per dividere i risultati in base a:
+Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi X e Y e una colonna di dimensioni in base alla quale dividere i risultati.
 
-![](./media/app-insights-analytics-using/100.png)
-
-Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma è possibile utilizzare la [direttiva render](app-insights-analytics-reference.md#render-directive) alla fine di una query.
+Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma è possibile usare la [direttiva render](app-insights-analytics-reference.md#render-directive) alla fine di una query.
 
 ## Eseguire l'esportazione in Excel
 
@@ -90,7 +135,7 @@ Dopo aver eseguito una query, è possibile scaricare un file con estensione csv.
 
 3. Copiare lo script del linguaggio M nell'editor di query avanzato di Power BI Desktop.
  * Aprire il file esportato.
- * In Power BI Desktop selezionare: **Recupera dati, Query vuota, Editor avanzato** e incollare lo script del linguaggio M.
+ * In Power BI Desktop selezionare **Recupera dati, Query vuota, Editor avanzato** e incollare lo script del linguaggio M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -103,4 +148,4 @@ Dopo aver eseguito una query, è possibile scaricare un file con estensione csv.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

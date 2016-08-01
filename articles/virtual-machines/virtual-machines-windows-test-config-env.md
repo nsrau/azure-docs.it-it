@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Ambiente di test della configurazione di base
@@ -66,7 +66,7 @@ Ottenere il nome della sottoscrizione usando il comando seguente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -75,7 +75,7 @@ Successivamente, creare un nuovo gruppo di risorse per il testing della configur
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
-Creare il nuovo gruppo di risorse con questi comandi. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Creare il nuovo gruppo di risorse con questi comandi. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$rgName="<resource group name>"
 	$locName="<location name, such as West US>"
@@ -92,7 +92,7 @@ Creare un nuovo account di archiviazione per il nuovo ambiente di test usando i 
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Creare quindi la rete virtuale di Azure TestLab che ospiterà la subnet Corpnet della configurazione di base e proteggerla con un gruppo di sicurezza di rete.
+Creare quindi la rete virtuale di TestLab che ospiterà la subnet Corpnet della configurazione di base e proteggerla con un gruppo di sicurezza di rete.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
@@ -135,8 +135,8 @@ Innanzitutto, specificare il nome del gruppo di risorse, il percorso Azure e il 
 
 Successivamente, connettersi alla macchina virtuale DC1.
 
-1.	Nel portale di Azure fare clic su **Macchine virtuali** e quindi sulla macchina virtuale **DC1**.  
-2.	Nel riquadro **DC1** fare clic su **Connetti**.
+1.	Nel portale di Azure fare clic su **Macchine virtuali** e quindi sulla macchina virtuale **DC1**.
+2.	Nel riquadro **DC1**, fare clic su **Connetti**.
 3.	Quando richiesto, aprire il file DC1.rdp scaricato.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
@@ -284,8 +284,8 @@ Dopo il riavvio di CLIENT1, connettersi utilizzando il nome dell'account CORP\\U
 Successivamente, verificare che sia possibile accedere al Web e alle risorse di condivisione file in APP1 da CLIENT1.
 
 1.	In Server Manager, nel riquadro dell'albero, fare clic su **Server locale**.
-2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a **Configurazione sicurezza avanzata IE**.
-3.	In **Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
+2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a ** Configurazione sicurezza avanzata IE**.
+3.	In ** Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
 4.	Dalla schermata Start, fare clic su **Internet Explorer**, quindi su **OK**.
 5.	Nella barra degli indirizzi digitare **http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1.
 6.	Sulla barra delle applicazioni desktop, fare clic sull'icona Esplora File.
@@ -333,4 +333,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -99,6 +99,11 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 	> [AZURE.NOTE] È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Vedere <a href="hdinsight-upload-data.md" target="\_blank" per altre informazioni.
 
+##Limitazioni
+
+* Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
+
+* Invio in batch: con HDInsight basato su Linux, quando si usa il comando `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
 
 ##Riepilogo
 
@@ -145,4 +150,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
