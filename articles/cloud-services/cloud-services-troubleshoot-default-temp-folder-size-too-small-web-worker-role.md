@@ -71,7 +71,7 @@ namespace WorkerRole1
 
 ## Passaggi successivi
 
-Vedere il blog [How to increase the size of the Windows Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx) (Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
+Vedere il blog [How to increase the size of the Microsoft Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx) (Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
 
 Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 

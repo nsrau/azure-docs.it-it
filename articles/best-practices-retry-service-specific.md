@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+   
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -17,6 +18,7 @@
    ms.date="07/13/2016"
    ms.author="masashin"/>
 
+   
 # Indicazioni specifiche del servizio per la ripetizione di tentativi
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

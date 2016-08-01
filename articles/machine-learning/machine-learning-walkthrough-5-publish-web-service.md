@@ -48,7 +48,7 @@ Si supponga che il modello di albero con boosting sia il modello più indicato. 
 
 - [Two-Class Support Vector Machine][two-class-support-vector-machine]
 - I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
-- [Normalize Data][normalize-data] (entrambi)
+- [Normalize Data][normalize-data] \(entrambi)
 - [Evaluate Model][evaluate-model]
 
 Selezionare il modulo e premere il tasto CANC oppure fare clic con il pulsante destro del mouse sul modulo e selezionare **Elimina**.
@@ -91,7 +91,8 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-## Distribuire il servizio web
+##
+Distribuire il servizio web
 
 È possibile distribuire l'esperimento come un servizio Web classico o un nuovo servizio Web basato su Azure Resource Manager.
 

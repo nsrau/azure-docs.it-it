@@ -96,7 +96,8 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 
 Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable] su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 Questo è il modello tipizzato di serializzazione. Viene supportato anche un modello di serializzazione non tipizzato. Quanto segue consente di [creare un riferimento a una tabella non tipizzata]\:
 
@@ -121,7 +122,8 @@ Questa sezione descrive come eseguire query nel back-end di App per dispositivi 
 
 Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione [Where] applica un predicato di filtro di riga alla query sulla tabella.
 
-	// This query filters out completed TodoItems and items without a timestamp.
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -140,7 +142,8 @@ La funzione passata al metodo `Where` può avere un numero di condizioni arbitra
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false
+		    && todoItem.Text != null)
 	   .ToListAsync();
 
 Viene convertita in una query SQL da un SDK del server simile al seguente:

@@ -129,7 +129,7 @@ Per preparare la distribuzione è necessario:
 ### Configurare un account di archiviazione di Azure
 
 - Per contenere i dati replicati in Azure, è necessario un account di archiviazione di Azure Standard o Premium. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Azure Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
-- Se si usa un account Premium per i dati replicati, è necessario creare un account Standard aggiuntivo per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali.
+- Se si usa un account Premium per i dati replicati, è necessario creare un account Standard aggiuntivo per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali.  
 
 ### Preparare un account per l'individuazione automatica
 
@@ -338,7 +338,7 @@ Verificare di avere un 'account di archiviazione per la replica e una rete di Az
 
 	![Destinazione](./media/site-recovery-vmware-to-azure/gs-target.png)
 
-4.	Per creare un account di archiviazione con Azure Resource Manager, se non è già stato fatto, fare clic su **+ Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
+4.	Per creare un account di archiviazione con Azure Resource Manager, se non è già stato fatto, fare clic su **+Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 
 	![Archiviazione](./media/site-recovery-vmware-to-azure/gs-createstorage.png)
 

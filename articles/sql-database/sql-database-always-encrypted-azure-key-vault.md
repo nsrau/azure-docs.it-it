@@ -67,8 +67,8 @@ Per questa esercitazione occorrono:
 7. Copia l'**ID CLIENT**. Sarà necessario immettere questo valore nel codice in un secondo momento.
 8. Nella sezione delle chiavi, impostare l'elenco a discesa **Seleziona durata** su **1 anno**. La chiave verrà copiata dopo aver salvato come indicato sotto.
 11. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
-12. Lasciare **MOSTRA** impostato su **App Microsoft**, quindi individuare e selezionare **Gestione servizi di Windows Azure** e fare clic sul segno di spunta per continuare.
-13. Nella riga **Gestione servizi di Windows Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a Gestione dei servizi di Azure**.
+12. Lasciare **MOSTRA** impostato su **App Microsoft**, quindi individuare e selezionare **Gestione servizi di Microsoft Azure** e fare clic sul segno di spunta per continuare.
+13. Nella riga **Gestione servizi di Microsoft Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a Gestione dei servizi di Azure**.
 14. Fare clic su **SALVA** nella parte inferiore della pagina.
 15. Dopo aver completato il salvataggio, individuare e copiare il valore della chiave nella sezione **Chiavi**. Sarà necessario immettere questo valore nel codice in un secondo momento.
 

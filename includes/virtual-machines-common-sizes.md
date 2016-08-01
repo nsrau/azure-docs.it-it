@@ -65,6 +65,8 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
+
+
 ## Tabelle delle dimensioni
 
 Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dimensione.

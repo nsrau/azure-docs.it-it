@@ -1683,7 +1683,17 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a 
+|`>` |Maggiore 
+|`>=`|Maggiore o uguale a 
+|`<>`|Non uguale a 
+|`!=`|Non uguale a
 
 
 ### abs
@@ -2151,7 +2161,7 @@ Conta le occorrenze di una sottostringa in una stringa. Le corrispondenze di str
 
 * *text:* stringa.
 * *search:* stringa di testo normale o espressione regolare da ricercare in *text*.
-* *kind:* `"normal"|"regex"` valore predefinito `normal`.
+* *kind:* `"normal"|"regex"` valore predefinito `normal`. 
 
 **Restituisce**
 
@@ -2640,7 +2650,7 @@ La funzione `range()`, da non confondere con l'operatore `range`, genera una mat
 
 **Argomenti**
 
-* *start:* valore del primo elemento nella matrice risultante.
+* *start:* valore del primo elemento nella matrice risultante. 
 * *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
 * *step:* differenza tra due elementi consecutivi della matrice.
 

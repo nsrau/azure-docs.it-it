@@ -19,7 +19,7 @@
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -38,7 +38,7 @@ In questo articolo viene illustrata la sequenza delle singole attività da esegu
 
 Gli elementi seguenti devono essere configurati prima di creare un servizio di bilanciamento del carico interno:
 
-- Configurazione di IP front-end: configurazione dell'indirizzo IP privato per il traffico di rete in ingresso.
+- Configurazione di IP front-end: configurazione dell'indirizzo IP privato per il traffico di rete in ingresso. 
 
 - Pool di indirizzi back end: configurazione delle interfacce di rete che riceveranno il traffico con carico bilanciato proveniente dal pool di indirizzi IP front end.
 

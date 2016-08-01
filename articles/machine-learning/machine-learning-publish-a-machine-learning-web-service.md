@@ -59,7 +59,7 @@ I seguenti passaggi descrivono la distribuzione di un esperimento predittivo com
 
 Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile distribuirlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
-Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New] (Distribuisci servizio Web [Nuovo])**. Verrà aperta la pagina di distribuzione del portale dei servizi Web di Azure Machine Learning.
+Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New] \(Distribuisci servizio Web [Nuovo])**. Verrà aperta la pagina di distribuzione del portale dei servizi Web di Azure Machine Learning.
 
 ### Pagina Deploy Experiment (Sperimentazione distribuzione) del portale dei servizi Web di Azure Machine Learning
 Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web. Selezionare un piano tariffario. Se è disponibile un piano tariffario, è possibile selezionarlo; in caso contrario è necessario creare un nuovo piano tariffario per il servizio.

@@ -43,7 +43,7 @@ Esportare il database di produzione in un file bacpac usando:
 - La funzionalità [Esporta](sql-database-export.md) nel [portale](https://portal.azure.com/).
 
 - La funzionalità **Esporta l'applicazione livello dati** in una versione [aggiornata di SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
- 1. In **Esplora oggetti ** espandere il nodo **Database**.
+ 1. In **Esplora oggetti** espandere il nodo **Database**.
  2. Fare clic con il pulsante destro del mouse sul nodo del database.
  3. Fare clic su **Attività** > **Esporta l'applicazione livello dati**.
  4. Usare la finestra della procedura guidata visualizzata.
@@ -59,7 +59,7 @@ Importare il file bacpac in un nuovo database Premium.
  - Selezionare un piano tariffario Premium.
 
 2. Usare SSMS per importare il file bacpac:
- - In **Esplora oggetti ** fare clic con il pulsante destro del mouse sul nodo **Database**.
+ - In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo **Database**.
  - Fare clic su **Importa applicazione livello dati**.
  - Usare la finestra della procedura guidata visualizzata.
 
@@ -69,7 +69,7 @@ Importare il file bacpac in un nuovo database Premium.
 SSMS include un report **Panoramica analisi delle prestazioni per le transazioni** che è possibile eseguire su un database con un carico di lavoro attivo. Il report identifica le tabelle e le stored procedure candidate per la migrazione a OLTP in memoria.
 
 In SSMS, per generare il report:
-- In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo del database.
+- In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo del database. 
 - Fare clic su **Report** > **Report standard** > **Panoramica dell'analisi delle prestazioni transazioni**.
 
 Per altre informazioni, vedere [Determinare se una tabella o una stored procedure deve essere trasferita a OLTP in memoria](http://msdn.microsoft.com/library/dn205133.aspx).

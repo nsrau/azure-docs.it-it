@@ -115,13 +115,13 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 - Si noti quanto segue nell'output dell'esempio:
 	
 	- La prima colonna è per la convalida di macchine virtuali, dischi e varianza.
-	- Per cinque macchine virtuali sono necessari due account di archiviazione standard e un account di archiviazione premium.
+	- Per cinque macchine virtuali sono necessari due account di archiviazione standard e un account di archiviazione premium. 
 	-  La VM3 non è idonea alla protezione perché uno o più dischi sono superiori a 1 TB.
 	-  La VM1 e la VM2 possono usare il primo account di archiviazione standard.
 	-  La VM4 può usare il secondo account di archiviazione standard.
 	-  Per la VM5 e la VM6 è necessario un account di archiviazione premium ed entrambe possono usare un singolo account.
 
-	>[AZURE.NOTE]  Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è in grado di gestire fino a 500 operazioni totali di input/output per disco. Se le operazioni totali di input/output per disco sono superiori a 500, sarà necessaria l’archiviazione premium. Tuttavia se le operazioni totali di input/output per disco sono superiori a 500 ma le operazioni totali di input/output per il numero totale di dischi della macchina virtuale rientrano nei limiti di supporto standard delle macchine virtuali di Azure (dimensione VM, numero di dischi, numero di schede di rete, CPU, memorie), la pianificazione sceglie una macchina virtuale standard e non le serie DS o GS. Sarà necessario aggiornare manualmente la cella relativa al mapping della dimensione di Azure con le macchine virtuali delle serie DS o GS appropriate
+	>[AZURE.NOTE]Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è in grado di gestire fino a 500 operazioni totali di input/output per disco. Se le operazioni totali di input/output per disco sono superiori a 500, sarà necessaria l’archiviazione premium. Tuttavia se le operazioni totali di input/output per disco sono superiori a 500 ma le operazioni totali di input/output per il numero totale di dischi della macchina virtuale rientrano nei limiti di supporto standard delle macchine virtuali di Azure (dimensione VM, numero di dischi, numero di schede di rete, CPU, memorie), la pianificazione sceglie una macchina virtuale standard e non le serie DS o GS. Sarà necessario aggiornare manualmente la cella relativa al mapping della dimensione di Azure con le macchine virtuali delle serie DS o GS appropriate
 
 5. Dopo aver fornito tutti i dettagli, fare clic su **Submit data to the planner tool** per aprire il foglio di lavoro **Capacity Planner**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
 
@@ -129,7 +129,7 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 ### Inviare i dati nello strumento di pianificazione
 
 1.	Quando si apre il foglio di lavoro **Capacity Planner** viene compilato in base alle impostazioni specificate. Il termine "Workload" viene visualizzato nel campo **Infra inputs source** per indicare che l'input è dato dal foglio di lavoro **Workload Qualification**.
-2.	Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** e fare clic di nuovo su Submit data To the planner tool.
+2.	Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** e fare clic di nuovo su Submit data To the planner tool.  
 
 	![Strumento di pianificazione della capacità](./media/site-recovery-capacity-planner/capacity-planner.png)
 

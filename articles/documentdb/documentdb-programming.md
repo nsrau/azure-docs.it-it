@@ -479,7 +479,9 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 ## API della Language-Integrated Query di JavaScript
 Oltre a eseguire una query utilizzando la sintassi SQL del DocumentDB, il SDK sul lato server consente di eseguire query ottimizzate tramite un'interfaccia intuitiva JavaScript senza alcuna conoscenza di SQL. L'API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente utilizzando gli indici di DocumentDB.
 
-> [AZURE.NOTE] `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`. <br/> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
+> [AZURE.NOTE] `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`.
+> <br/>
+> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
 
 Tra le funzioni supportate:
 <ul>
@@ -544,7 +546,7 @@ Produce un nuovo set di documenti ordinandoli nel flusso di documenti di input i
 
 Quando inclusi all'interno delle funzioni predicato e/o selettore, i seguenti costrutti JavaScript vengono automaticamente ottimizzati per l'esecuzione diretta sugli indici DocumentDB:
 
-* Operatori semplici: = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Operatori semplici: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * Valori letterali, incluso il valore letterale dell'oggetto: {}
 * var, return
 
@@ -857,7 +859,8 @@ Tutte le operazioni di DocumentDB possono essere eseguite in modalità RESTful. 
 	}
 
 
-La stored procedure viene registrata eseguendo una richiesta POST nell'URI dbs/testdb/colls/testColl/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs. Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
+La stored procedure viene registrata eseguendo una richiesta POST nell'URI dbs/testdb/colls/testColl/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs.
+Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

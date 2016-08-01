@@ -95,7 +95,9 @@ Durante la copia di un database nel database SQL di Azure, possono essere rileva
 
 ## Errori di governance delle risorse
 
+
 I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utilizzo del database SQL di Azure, ad esempio:
+
 
 - La transazione è rimasta aperta troppo a lungo.
 - La transazione contiene troppi blocchi.
@@ -153,7 +155,9 @@ Argomenti correlati:
 
 ## Errori generali
 
+
 I seguenti errori non rientrano nelle categorie precedenti.
+
 
 |Codice di errore|Gravità|Descrizione|
 |---:|---:|:---|
@@ -221,6 +225,7 @@ I seguenti errori non rientrano nelle categorie precedenti.
 |40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "secure" nel server FQDN - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.|
 |45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare.|
 |45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare.|
+
 
 ## Collegamenti correlati
 

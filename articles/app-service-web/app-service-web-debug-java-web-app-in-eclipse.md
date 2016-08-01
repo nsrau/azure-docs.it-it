@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione sarà simile a quanto illustr
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 * Un progetto Web dinamico creato e distribuito al Servizio app di Azure; ad esempio vedere [Creare un'app Web Hello World per Azure in Eclipse].
 

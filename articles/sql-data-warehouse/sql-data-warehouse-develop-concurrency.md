@@ -381,7 +381,7 @@ FROM	sys.dm_pdw_wait_stats w;
 
 ## Passaggi successivi
 
-Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] (Ricompilazione degli indici per migliorare la qualità del segmento).
+Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] \(Ricompilazione degli indici per migliorare la qualità del segmento).
 
 <!--Image references-->
 

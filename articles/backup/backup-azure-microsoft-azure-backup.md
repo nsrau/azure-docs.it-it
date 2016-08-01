@@ -122,7 +122,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 5. Nella finestra Attività iniziali viene automaticamente selezionata la schermata Obiettivi di Backup. ![Backup-obiettivi-predefinito-aperto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-    Nella sezione **Obiettivi di Backup** selezionare *locale* per * la posizione in cui viene eseguito il carico di lavoro*.
+    Nella sezione **Obiettivi di Backup** selezionare *locale* per *la posizione in cui viene eseguito il carico di lavoro*.
 
     ![locale e carichi di lavoro come obiettivi](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 

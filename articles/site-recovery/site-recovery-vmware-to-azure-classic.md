@@ -43,7 +43,7 @@ Questo articolo contiene istruzioni relative alla distribuzione avanzata nel por
 
 La distribuzione avanzata è un aggiornamento importante. Di seguito è riportato un riepilogo dei miglioramenti apportati:
 
-- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.
+- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.  
 - **Installazione unificata**: un'unica installazione garantisce la scalabilità per i componenti locali e ne semplifica la configurazione.
 - **Distribuzione protetta**: tutto il traffico viene crittografato e le comunicazioni relative alla gestione della replica vengono inviate tramite HTTPS 443.
 - **Punti di ripristino**: supporto per punti di ripristino per l'arresto anomalo del sistema e coerenti con l'applicazione per ambienti Windows e Linux. Sono supportate configurazioni coerenti con VM singole e multiple.
@@ -309,8 +309,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
-
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
+	 
 
 
 ### Eseguire l'installazione dalla riga di comando
@@ -463,8 +466,8 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
-Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 

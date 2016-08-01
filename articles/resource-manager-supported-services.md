@@ -37,7 +37,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Set di scalabilità | Sì | [Scale Set REST](https://msdn.microsoft.com/library/azure/mt705635.aspx) (API REST dei set di scalabilità delle macchine virtuali) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) | 
 | Service Fabric | Sì | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Macchine virtuali | Sì | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
-| Macchine virtuali (versione classica) | Limitato | - | - | - | | App remote | No | - | - | - | | Servizi cloud (versione classica) | Limitato (vedere si seguito) | - | - | - |
+| Macchine virtuali (versione classica) | Limitato | - | - | - |
+| App remote | No | - | - | - |
+| Servizi cloud (versione classica) | Limitato (vedere si seguito) | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
