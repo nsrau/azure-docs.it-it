@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
 # Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia del database e archiviare le chiavi di crittografia nell'archivio certificati di Windows
@@ -39,8 +39,6 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
     - Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Creare una tabella di database e crittografare alcune colonne.
 - Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
-
-> [AZURE.NOTE] La crittografia sempre attiva per il database SQL di Azure è attualmente in modalità di anteprima.
 
 
 ## Prerequisiti
@@ -536,7 +534,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
 ## Passaggi successivi
 Dopo aver creato un database che usa la crittografia sempre attiva, è possibile eseguire le operazioni seguenti:
 
-- Eseguire questo esempio da un altro computer. Non avrà accesso alle chiavi di crittografia e quindi non avrà accesso ai dati non crittografati e non verrà eseguito correttamente. 
+- Eseguire questo esempio da un altro computer. Non avrà accesso alle chiavi di crittografia e quindi non avrà accesso ai dati non crittografati e non verrà eseguito correttamente.
 - [Ruotare e pulire le chiavi](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Eseguire la migrazione dei dati già crittografati con la crittografia sempre attiva](https://msdn.microsoft.com/library/mt621539.aspx)
 - Distribuire i certificati della crittografia sempre attiva ad altri computer client
@@ -550,4 +548,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

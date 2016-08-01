@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Passaggio a un'offerta di Azure diversa | Microsoft Azure"
+	pageTitle="Trasferire la sottoscrizione di Azure a un'altra offerta | Microsoft Azure"
 	description="Descrive come i sottoscrittori di Azure possono passare a un'offerta di Azure diversa"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Passaggio a un'offerta di Azure diversa
+# Trasferire la sottoscrizione di Azure a un'altra offerta
 
 È possibile trasferire la sottoscrizione esistente a un'offerta più favorevole senza tempi di inattività del servizio. Il passaggio a un'altra offerta può essere preso in considerazione per uno dei motivi seguenti:
 
@@ -75,4 +75,4 @@ Di seguito sono riportati i percorsi attualmente supportati nel [Centro account]
 -	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) all'offerta [con 12 mesi prepagati](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) a una delle [offerte di credito mensile di Azure per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

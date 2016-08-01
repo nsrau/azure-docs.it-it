@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -28,16 +28,16 @@
 
 Questo argomento illustra come eseguire le seguenti attività di gestione di Servizi multimediali:
 
-- Ottenere un riferimento a un asset 
-- Ottenere un riferimento a un processo 
-- Elencare tutti gli asset 
-- Elencare i processi e gli asset 
-- Elencare tutti i criteri di accesso 
+- Ottenere un riferimento a un asset
+- Ottenere un riferimento a un processo
+- Elencare tutti gli asset
+- Elencare i processi e gli asset
+- Elencare tutti i criteri di accesso
 - Elencare tutti i localizzatori
 - Enumerazione di grandi raccolte di entità
-- Eliminare un asset 
-- Eliminare un processo 
-- Eliminare un criterio di accesso 
+- Eliminare un asset
+- Eliminare un processo
+- Eliminare un criterio di accesso
 
 ##Prerequisiti 
 
@@ -381,4 +381,4 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

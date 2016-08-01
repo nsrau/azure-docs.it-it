@@ -49,18 +49,18 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 |Famiglia SKU |ACU/Core |
 |---|---|
-|[Standard\_A0](#a-series)	|50 |
-|[Standard\_A1-4](#a-series)	|100 |
-|[Standard\_A5-7](#a-series)	|100 |
-|[A8-A11](#a-series)	|225*|
-|[D1-14](#d-series)	|160 |
-|[D1-15v2](#dv2-series)	|210 - 250*|
-|[DS1-14](#ds-series)	|160 |
-|[DS1-15v2](#dsv2-series)	|210-250* |
-|[F1-F16](#f-series)	| 210-250*|
-|[F1s-F16s](#fs-series)	| 210-250*|
-|[G1-5](#g-series)	|180 - 240*|
-|[GS1-5](#gs-series)	|180 - 240*|
+|[Standard\_A0](#a-series) |50 |
+|[Standard\_A1-4](#a-series) |100 |
+|[Standard\_A5-7](#a-series) |100 |
+|[A8-A11](#a-series) |225*|
+|[D1-14](#d-series) |160 |
+|[D1-15v2](#dv2-series) |210 - 250*|
+|[DS1-14](#ds-series) |160 |
+|[DS1-15v2](#dsv2-series) |210-250* |
+|[F1-F16](#f-series) | 210-250*|
+|[F1s-F16s](#fs-series) | 210-250*|
+|[G1-5](#g-series) |180 - 240*|
+|[GS1-5](#gs-series) |180 - 240*|
 
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
@@ -222,10 +222,10 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 
 
-## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e Powershell 
+## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell 
 
 
-Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in Powershell e nell’interfaccia della riga di comando:
+Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell’interfaccia della riga di comando:
 
 * Standard\_A0 è ExtraSmall
 * Standard\_A1 è Small
@@ -239,4 +239,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

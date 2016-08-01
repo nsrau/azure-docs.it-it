@@ -100,7 +100,7 @@ No.
 
 Sì. Le subnet possono essere aggiunte alle reti virtuali in qualsiasi momento, purché l'indirizzo della subnet non faccia parte di un'altra subnet nella rete virtuale.
 
-### È possibile modificare le dimensioni della rete virtuale dopo averla creata?
+### È possibile modificare le dimensioni della subnet dopo averla creata?
 
 È possibile aggiungere, rimuovere, espandere o compattare una subnet se non sono presenti macchine virtuali o servizi distribuiti al suo interno utilizzando i cmdlet di PowerShell o il file NETCFG. È inoltre possibile aggiungere, rimuovere, espandere o compattare qualsiasi prefisso purché le subnet che contengono macchine virtuali o servizi non siano interessate dalla modifica.
 
@@ -270,4 +270,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@ Il dashboard nella soluzione di monitoraggio remoto consente di visualizzare la 
 
 ## Inviare un comando al dispositivo
 
-Il dashboard nella soluzione di monitoraggio remoto consente di richiedere l’hub IoT per inviare comandi ai dispositivi. Ad esempio, nella soluzione di monitoraggio remota, è possibile inviare un comando per impostare la temperatura interna di un dispositivo.
+Il dashboard nella soluzione di monitoraggio remoto consente di inviare comandi ai dispositivi tramite l'hub IoT. Ad esempio, nella soluzione di monitoraggio remota, è possibile inviare un comando per impostare la temperatura interna di un dispositivo.
 
 1. Nel dashboard della soluzione di monitoraggio remoto, fare clic su **Dispositivi** nel pannello di sinistra per passare all’**Elenco di dispositivi**.
 
@@ -41,6 +41,5 @@ L'articolo [Personalizzazione delle soluzioni preconfigurate][lnk-customize] des
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

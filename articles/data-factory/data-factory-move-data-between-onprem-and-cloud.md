@@ -107,9 +107,9 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 	È inoltre possibile eseguire le operazioni seguenti nella scheda **Diagnostica**:
 	
-		- Use *Test Connection** section to an on-premises data source using the gateway.
-		- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
-		- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
+	- Usare la sezione **Testare la connessione** su un'origine dati locale con il gateway.
+	- Fare clic su **Visualizza log** per vedere il log del Gateway di gestione dati in una finestra del Visualizzatore eventi.
+	- Fare clic su **Invia log** per caricare un file zip dei log degli ultimi 7 giorni sul sito Microsoft al fine di facilitare la risoluzione dei problemi.
 10. Nel portale di Azure fare clic su **OK** nel pannello **Configura** e quindi nel pannello **Nuovo gateway dati**.
 6. Verrà visualizzato **adftutorialgateway** in **Gateway dati** nella visualizzazione albero a sinistra. Se si fa clic su di esso, viene visualizzato l'oggetto JSON associato.
 	
@@ -147,7 +147,7 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
 	
-		Le credenziali saranno **crittografate** con un certificato di proprietà del servizio Data Factory. Se invece si intende usare il certificato associato a Gateway di gestione dati, vedere [Impostare le credenziali e la sicurezza](#set-credentials-and-security).
+		Le credenziali saranno **crittografate** con un certificato di proprietà del servizio Data Factory. Se invece si intende usare il certificato associato a Gateway di gestione dati, vedere le informazioni su come [impostare le credenziali in modo sicuro](#set-credentials-and-security).
     
 2.	Fare clic su **Distribuisci** nella barra dei comandi per distribuire il servizio collegato di SQL Server.
 
@@ -339,8 +339,8 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
  
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink** come **tipo di sink**.
-	- La query SQL *select * from emp* viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+	- Nella sezione **transformation** sono specificati **SqlSource** come **tipo di origine** e **BlobSink** come **tipo di sink**.
+	- La query SQL *select * from emp* è specificata per la proprietà **sqlReaderQuery** di **SqlSource****.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
@@ -416,7 +416,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 ## Passaggi successivi
 
-- Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.
-- Vedere [Copiare i dati dal BLOB di Azure a SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink in generale.
+- Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.
+- Per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink in generale, vedere l'articolo sulla [copia dei dati da un archivio BLOB di Azure a SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

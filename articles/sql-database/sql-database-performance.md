@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="07/19/2016"
    ms.author="sstein"/>
 
 # Informazioni dettagliate sulle prestazioni del database SQL
@@ -68,4 +68,4 @@ Facendo clic su **Panoramica** o sul riquadro **Prestazioni** viene visualizzato
 - [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md)
 - [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Richiedere un aumento dei limiti di account DocumentDB | Microsoft Azure"
-	description="Informazioni su come richiedere una modifica ai limiti di DocumentDB, ad esempio il numero di raccolte consentite, di stored procedure e di clausole di query."
+	pageTitle="Richiedere un aumento delle quote dell'account DocumentDB | Microsoft Azure"
+	description="Informazioni su come richiedere una modifica delle quote del database DocumentDB, ad esempio l'archiviazione di documenti e la velocità effettiva per raccolta."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) ha un set di limiti predefiniti e di applicazioni delle quote. Diverse quote possono essere modificate contattando il supporto tecnico Azure. Questo articolo spiega come richiedere un aumento del limite di account.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) dispone di un set di quote predefinite che è possibile modificare contattando il supporto tecnico di Azure. Questo articolo spiega come richiedere un aumento delle quote.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
--	Quali quote dell'account DocumentDB possono essere modificate contattando il supporto tecnico Azure?
+-	Quali quote del database DocumentDB possono essere modificate contattando il supporto tecnico Azure?
 -	Come è possibile richiedere una modifica delle quote dell'account DocumentDB?
 
 ##<a id="Quotas"></a> Quote dell'account DocumentDB
@@ -63,4 +63,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

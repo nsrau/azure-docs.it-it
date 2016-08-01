@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/18/2016"
 	ms.author="jodebrui"/>
 
 
@@ -43,7 +43,7 @@ Esportare il database di produzione in un file bacpac usando:
 - La funzionalità [Esporta](sql-database-export.md) nel [portale](https://portal.azure.com/).
 
 - La funzionalità **Esporta l'applicazione livello dati** in una versione [aggiornata di SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
- 1. In **Esplora oggetti** espandere il nodo **Database**.
+ 1. In **Esplora oggetti ** espandere il nodo **Database**.
  2. Fare clic con il pulsante destro del mouse sul nodo del database.
  3. Fare clic su **Attività** > **Esporta l'applicazione livello dati**.
  4. Usare la finestra della procedura guidata visualizzata.
@@ -59,7 +59,7 @@ Importare il file bacpac in un nuovo database Premium.
  - Selezionare un piano tariffario Premium.
 
 2. Usare SSMS per importare il file bacpac:
- - In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo **Database**.
+ - In **Esplora oggetti ** fare clic con il pulsante destro del mouse sul nodo **Database**.
  - Fare clic su **Importa applicazione livello dati**.
  - Usare la finestra della procedura guidata visualizzata.
 
@@ -237,4 +237,4 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 
 - [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

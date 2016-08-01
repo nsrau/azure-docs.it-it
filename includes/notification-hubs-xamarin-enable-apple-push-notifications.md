@@ -35,9 +35,9 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continue**:
 
 	* **Name**: digitare un nome descrittivo per l'app nel campo **Name** della sezione **App ID Description**.
-	
-	* **Bundle Identifier**: nella sezione **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nel documento [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Questo valore deve corrispondere al valore usato nel progetto XCode o Xamarin per l'applicazione.
-	 
+
+	* **Bundle Identifier**: nella sezione **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nel documento [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Questo valore deve corrispondere al valore usato nel progetto XCode, Xamarin o Cordova per l'applicazione.
+
 	* **Push Notifications**: selezionare l'opzione **Push Notifications** nella sezione **App Services**.
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -54,7 +54,7 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
    	Verrà visualizzato l'assistente "Add iOS Certificate".
 
-    > [AZURE.NOTE]Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
+    > [AZURE.NOTE] Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
 
 7. Fare clic su **Choose File**, passare al percorso in cui è stato salvato il file CSR e quindi fare clic su **Generate**.
 
@@ -68,13 +68,13 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato **aps\_development.cer**.
+    > [AZURE.NOTE] Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato **aps\_development.cer**.
 
 9. Fare doppio clic sul certificato push scaricato **aps\_development.cer**. Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE]Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
+    > [AZURE.NOTE] Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
 
 10. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push appena creato nella categoria **Certificati**. Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi fare clic su **Salva**.
 
@@ -110,4 +110,4 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0720_2016-->

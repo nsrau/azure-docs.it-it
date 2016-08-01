@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="07/14/2016"
    ms.author="telmos" />
 
 #Analisi dei log per i gruppi di sicurezza di rete
 
-In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gruppi di sicurezza di rete. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
+In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gruppi di sicurezza di rete. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
 - **Log di controllo:** è possibile usare i [log di controllo di Azure](../azure-portal/insights-debugging-with-events.md) (noti in precedenza come log operativi) per visualizzare tutte le operazioni da inviare alle sottoscrizioni di Azure e il relativo stato. I log di controllo sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di anteprima di Azure.
 - **Registri eventi:** è possibile usare questi log per visualizzare quali regole dei gruppi di sicurezza di rete sono applicate alle VM e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
@@ -41,7 +41,7 @@ La registrazione di controllo viene abilitata automaticamente in qualsiasi momen
 	![Portale di anteprima - Impostazioni dei gruppi di sicurezza di rete](./media/virtual-network-nsg-manage-log/portal-enable2.png)
 
 4. Nel pannello **Impostazioni** fare clic su **Diagnostica** e quindi nel riquadro **Diagnostica** fare clic su **OK** accanto a **Stato**
-5. Nel pannello **Impostazioni** fare clic su **Account di archiviazione** e selezionare un account di archiviazione esistente o crearne uno nuovo.  
+5. Nel pannello **Impostazioni** fare clic su **Account di archiviazione** e selezionare un account di archiviazione esistente o crearne uno nuovo.
 
 >[AZURE.INFORMATION] I log di controllo non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione eventi e regole è previsto un addebito.
 
@@ -105,13 +105,17 @@ Questi log vengono generati solo se sono stati abilitati per ogni gruppo di sicu
 - **Power BI:** se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Con il [pacchetto di contenuto dei log di controllo di Azure per Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con dashboard preconfigurati utilizzabili così come sono o personalizzabili.
 
 ## Visualizzare e analizzare il registro contatori ed eventi
-È necessario connettersi all'account di archiviazione e recuperare le voci di log JSON per i registri eventi e contatori. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
+
+Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) consente di raccogliere i file del contatore e del registro eventi dall'account di archiviazione BLOB e include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
+
+È inoltre possibile connettersi all'account di archiviazione e recuperare le voci di log JSON per i registri eventi e contatori. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 
 >[AZURE.TIP] Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in Github.
 
 ## Passaggi successivi
 
+- Visualizzare il registro contatori ed eventi con [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 - Post di blog sulla [visualizzazione dei log di controllo di Azure con Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Post di blog su [visualizzazione e analisi dei log di controllo di Azure in Power BI e altri strumenti](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

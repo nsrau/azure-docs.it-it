@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Per configurare l'integrazione di Domo in Azure AD, è necessario aggiungere Dom
 
 **Per aggiungere Domo dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -100,28 +100,53 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Domo, è nece
 
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Domo.
 
+L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **Attribute** (Attributo) dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
 
+![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png)
 
 **Per configurare Single Sign-On di Azure AD con Domo, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Domo** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+
+1. Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **Domo** del portale di Azure classico fare clic su **Attributi**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_general_80.png)
+
+
+1. Nella finestra di dialogo **Attributi token SAML**, per ogni riga della tabella seguire questa procedura:
+
+	| Nome attributo | Valore attributo |
+	| --- | --- |    
+	| name | user.displayname |
+	| email | user.mail |
+
+	a. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_general_81.png)
+
+	b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo indicato per quella riga.
+
+    c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
+
+    d. Fare clic su **Complete**.
+
+2. Nella pagina di integrazione dell'applicazione **Domo** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
 	![Configura accesso Single Sign-On][6]
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Domo** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+3. Nella pagina **Stabilire come si desidera che gli utenti accedano a Domo** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png)
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+4. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png)
 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Domo adottando il modello seguente: `https://<company name>.domo.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Domo usando il modello seguente: `https://<company name>.domo.com`
 
     b. Fare clic su **Avanti**.
 
-4. Nella pagina **Configura accesso Single Sign-On in Domo** seguire questa procedura:
+5. Nella pagina **Configura accesso Single Sign-On in Domo** seguire questa procedura:
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_05.png)
 
@@ -130,14 +155,14 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di Domo all'indirizzo [support@domo.com](mailto: support@domo.com), allegare il certificato scaricato e specificare **URL autorità di certificazione**, **URL SSO SAML** e **URL disconnessione**.
+6. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Domo all'indirizzo [support@domo.com](mailto: support@domo.com), allegare il certificato scaricato e specificare l'**URL dell'autorità di certificazione**, l'**URL SSO SAML** e l'**URL di disconnessione**.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+7. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+8. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
 	![Accesso Single Sign-On di Azure AD][11]
 
@@ -161,7 +186,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_04.png)
 
@@ -175,7 +200,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_06.png)
 
@@ -189,7 +214,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea**, fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_07.png)
 
@@ -220,7 +245,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 **Per assegnare Britta Simon a Domo, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory scegliere **Applicazioni** dal menu in alto.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
 	![Assegna utente][201]
 
@@ -269,4 +294,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-domo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-domo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

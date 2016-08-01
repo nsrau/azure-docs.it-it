@@ -13,12 +13,12 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/18/2016" 
+ms.date="07/14/2016" 
 ms.author="eugenesh" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Questa versione dell'API aggiunge un indicizzatore di archiviazione BLOB di Azure con estrazione di documenti e altri miglioramenti.
+> [AZURE.NOTE] Questo articolo descrive gli indicizzatori nell'[API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure DocumentDB.
 
 ## Panoramica ##
 
@@ -28,7 +28,7 @@ Un **indicizzatore** è una risorsa che connette le origini dati agli indici di 
 
 - Eseguire una copia occasionale dei dati per popolare un indice.
 - Sincronizzare un indice con le modifiche nell'origine dati in base a una pianificazione. La pianificazione fa parte della definizione dell'indicizzatore.
-- Chiamare aggiornamenti su richiesta in un indice in base alle esigenze. 
+- Chiamare aggiornamenti su richiesta in un indice in base alle esigenze.
 
 Un **indicizzatore** è utile quando si desidera eseguire aggiornamenti regolari a un indice. È possibile impostare una pianificazione inline come parte di una definizione di indicizzatore oppure eseguire una pianificazione su richiesta usando l'operazione di [esecuzione di un indicizzatore](#RunIndexer).
 
@@ -36,8 +36,8 @@ Un'**origine dati** specifica i dati da indicizzare, le credenziali per accedere
 
 Sono attualmente supportate le origini dati seguenti:
 
-- **Database SQL di Azure** e **SQL Server in macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
-- **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](../documentdb/documentdb-search-indexer). 
+- **Database SQL di Azure** e **SQL Server in macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+- **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](../documentdb/documentdb-search-indexer.md).
 - **Archiviazione BLOB di Azure**, inclusi i seguenti formati di documenti: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP e file di testo normale (incluso JSON). Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-blob-storage.md).
 	 
 La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
@@ -85,21 +85,20 @@ Per tutte le richieste del servizio, è necessario usare il protocollo HTTPS. La
 
 Il nome dell'origine dati deve essere scritto in caratteri minuscoli, iniziare con una lettera o un numero, non deve contenere barre o punti e deve avere una lunghezza inferiore ai 128 caratteri. Dopo l'iniziale costituita da una lettera o un numero, il resto del nome può includere qualsiasi lettera, numero e trattino, purché i trattini non siano consecutivi. Per informazioni dettagliare, vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 **Intestazioni della richiesta**
 
 L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facoltative.
 
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
-- `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
+- `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel [portale di gestione di Azure](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel [portale di Azure](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintassi del corpo della richiesta**
 
 Il corpo della richiesta contiene una definizione dell'origine dati, che include il tipo di origine dati, le credenziali per leggere i dati, oltre a criteri facoltativi di rilevamento delle modifiche dei dati e dell'eliminazione dei dati usati per identificare in modo efficiente i dati modificati o eliminati nell'origine dati, quando vengono usati con un indicizzatore pianificato periodicamente.
-
 
 La sintassi per la strutturazione del payload della richiesta è la seguente: Più avanti in questo argomento è riportata una richiesta di esempio.
 
@@ -116,26 +115,26 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 La richiesta contiene le proprietà seguenti:
 
 - `name`: elemento obbligatorio. nome dell'origine dati. Il nome di un'origine dati deve contenere solo lettere minuscole, cifre o trattini, non può iniziare o terminare con trattini e deve avere una lunghezza massima di 128 caratteri.
-- `description`: descrizione facoltativa. 
+- `description`: descrizione facoltativa.
 - `type`: elemento obbligatorio. Deve essere uno dei tipi di origine dati supportati:
 	- `azuresql` - database SQL di Azure e SQL Server in macchine virtuali di Azure
 	- `documentdb` - Azure DocumentDB
 	- `azureblob` - Archiviazione BLOB di Azure
 - `credentials`:
-	- La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati: 
+	- La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati:
 		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
-		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure](https://portal.azure.com/).  
-		- Per l'archiviazione BLOB di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.  
+		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure](https://portal.azure.com/).
+		- Per l'archiviazione BLOB di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.
 		
 - `container`, elemento obbligatorio: specifica i dati da indicizzare mediante le proprietà `name` e `query`:
 	- `name`, elemento obbligatorio:
 		- SQL Azure: specifica la tabella o la vista. È possibile usare nomi completi di schema, ad esempio `[dbo].[mytable]`.
-		- DocumentDB: specifica la raccolta. 
-		- Archiviazione BLOB di Azure: specifica il contenitore di archiviazione. 
+		- DocumentDB: specifica la raccolta.
+		- Archiviazione BLOB di Azure: specifica il contenitore di archiviazione.
 	- `query`, elemento facoltativo:
-		- DocumentDB: consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.  
+		- DocumentDB: consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.
 		- Archiviazione BLOB di Azure: consente di specificare una cartella virtuale all'interno del contenitore BLOB. Ad esempio, per il percorso BLOB `mycontainer/documents/blob.pdf` è possibile usare `documents` come cartella virtuale.
-		- SQL Azure: la query non è supportata. Se questa funzionalità è necessaria, usare [questo suggerimento](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
+		- SQL Azure: la query non è supportata. Se questa funzionalità è necessaria, votare per [questo suggerimento](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
    
 - Le proprietà facoltative `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritte di seguito.
 
@@ -147,8 +146,8 @@ Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di ide
 
 Usare questi criteri quando l'origine dati contiene una colonna o una proprietà che soddisfa le condizioni seguenti:
  
-- Tutti gli inserimenti specificano un valore per la colonna. 
-- Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna. 
+- Tutti gli inserimenti specificano un valore per la colonna.
+- Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna.
 - Il valore di questa colonna aumenta in base alla modifica apportata.
 - Le query che usano una clausola di filtro simile a `WHERE [High Water Mark Column] > [Current High Water Mark Value]` possono essere eseguite in modo efficiente.
 
@@ -169,7 +168,9 @@ Questi criteri possono essere specificati come indicato di seguito:
 
 Se il database SQL supporta il [rilevamento delle modifiche](https://msdn.microsoft.com/library/bb933875.aspx), è consigliabile usare i criteri di rilevamento delle modifiche integrati di SQL. Questi criteri favoriscono il rilevamento delle modifiche più efficiente e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
 
-I criteri di rilevamento delle modifiche integrati sono supportati a partire dalle versioni del database SQL seguenti: - SQL Server 2008 R2, se si usa SQL Server in macchine virtuali di Azure - Versione 12 del database SQL di Azure, se si usa il database SQL di Azure.
+Il rilevamento delle modifiche integrato è supportata a partire dalle seguenti versioni di database di SQL Server:
+- SQL Server 2008 R2 e versioni successive, se si usa SQL Server nelle VM di Azure.
+- Database SQL di Azure V12, se si utilizza il database SQL di Azure SQL.
 
 Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate.
 
@@ -242,7 +243,7 @@ La sintassi del corpo della richiesta è analoga a quella indicata nell'operazio
 Alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
 
 > [AZURE.NOTE]
-Se non si desidera modificare la stringa di connessione per un'origine dati esistente, è possibile specificare il valore letterale `<unchanged>` per la stringa di connessione. Questo accorgimento è utile nelle situazioni in cui è necessario aggiornare un'origine dati ma non si dispone dell'accesso alla stringa di connessione poiché si tratta di dati con esigenze particolari a livello di sicurezza.
+Se non si vuole modificare la stringa di connessione per un'origine dati esistente, è possibile specificare il valore letterale `<unchanged>` per la stringa di connessione. Questo accorgimento è utile nelle situazioni in cui è necessario aggiornare un'origine dati ma non si dispone dell'accesso alla stringa di connessione poiché si tratta di dati con esigenze particolari a livello di sicurezza.
 
 **Risposta**
 
@@ -256,7 +257,7 @@ L'operazione per **elencare le origini dati** restituisce un elenco delle origin
     GET https://[service name].search.windows.net/datasources?api-version=[api-version]
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -295,7 +296,7 @@ L'operazione per **ottenere un'origine dati** ottiene la definizione dell'origin
     GET https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -332,7 +333,7 @@ L'operazione di **eliminazione di un'origine dati** rimuove un'origine dati da R
 
 > [AZURE.NOTE] Se alcuni indicizzatori fanno riferimento all'origine dati da eliminare, l'operazione di eliminazione continuerà comunque. Questi indicizzatori, tuttavia, effettueranno una transizione a uno stato di errore all'esecuzione successiva.
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -355,7 +356,7 @@ In alternativa, è possibile usare una richiesta PUT e specificare il nome dell'
 
 > [AZURE.NOTE] Il numero massimo di indicizzatori consentiti varia in base al piano tariffario. Nel servizio gratuito sono consentiti fino a 3 indicizzatori. Nel servizio standard sono consentiti 50 indicizzatori. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quotas-capacity.md).
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -382,7 +383,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `"P[nD][T[nH][nM]]"`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `"P[nD][T[nH][nM]]"`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore.
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -390,7 +391,7 @@ Facoltativamente, un indicizzatore può specificare una pianificazione. Se è pr
 
 Un indicizzatore può facoltativamente specificare diversi parametri che ne influenzano il comportamento. Tutti i parametri sono facoltativi.
 
-- `maxFailedItems`: numero di elementi per cui l'indicizzazione può avere esito negativo prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0. Le informazioni sugli elementi non riusciti vengono restituite dall'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus). 
+- `maxFailedItems`: numero di elementi per cui l'indicizzazione può avere esito negativo prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0. Le informazioni sugli elementi non riusciti vengono restituite dall'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus).
 
 - `maxFailedItemsPerBatch`: numero di elementi per cui l'indicizzazione può avere esito negativo in ogni batch prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0.
 
@@ -453,7 +454,7 @@ Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Cre
     Content-Type: application/json
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -517,7 +518,7 @@ L'operazione per **ottenere un indicizzatore** recupera la definizione dell'indi
     GET https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -547,7 +548,7 @@ L'operazione di **eliminazione di un indicizzatore** rimuove un indicizzatore da
 
 Quando viene eliminato un indicizzatore, le esecuzioni dell'indicizzatore in corso verranno completate, ma non verranno pianificate altre esecuzioni. I tentativi di utilizzare un indicizzatore inesistente restituiscono un codice di stato HTTP 404 Pagina non trovata.
  
-L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -563,7 +564,7 @@ Oltre a essere eseguito periodicamente in base a una pianificazione, un indicizz
 	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -580,7 +581,7 @@ L'operazione per **ottenere lo stato di un indicizzatore** recupera la cronologi
     api-key: [admin key]
 
 
-L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -622,7 +623,7 @@ Un corpo della risposta di esempio è simile al seguente:
 
 Lo stato dell'indicizzatore può avere uno dei valori seguenti:
 
-- `running` indica che l'indicizzatore viene eseguito normalmente. Si noti che è possibile che si verifichino comunque errori nelle esecuzioni dell'indicizzatore. È quindi consigliabile controllare anche la proprietà `lastResult`. 
+- `running` indica che l'indicizzatore viene eseguito normalmente. Si noti che è possibile che si verifichino comunque errori nelle esecuzioni dell'indicizzatore. È quindi consigliabile controllare anche la proprietà `lastResult`.
 
 - `error` indica che nell'indicizzatore si è verificato un errore che non può essere corretto senza un intervento da parte dell'utente. È ad esempio possibile che le credenziali dell'origine dati siano scadute o che lo schema dell'origine dati o dell'indice di destinazione sia cambiato in modo significativo.
 
@@ -632,7 +633,7 @@ Il risultato dell'esecuzione dell'indicizzatore contiene informazioni su una sin
 
 Il risultato dell'esecuzione dell'indicizzatore contiene le proprietà seguenti:
 
-- `status`: stato di questa esecuzione. Per informazioni dettagliate, vedere [Stato di esecuzione dell'indicizzatore](#IndexerExecutionStatus) più avanti. 
+- `status`: stato di questa esecuzione. Per informazioni dettagliate, vedere [Stato di esecuzione dell'indicizzatore](#IndexerExecutionStatus) più avanti.
 
 - `errorMessage`: messaggio di errore per un'esecuzione non riuscita.
 
@@ -672,7 +673,7 @@ L'operazione di **reimpostazione di un indicizzatore** reimposta lo stato di ril
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
-L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
+L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`.
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
@@ -797,4 +798,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

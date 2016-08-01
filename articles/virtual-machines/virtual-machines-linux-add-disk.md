@@ -218,10 +218,33 @@ boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
 > [AZURE.NOTE] È inoltre possibile connettersi alla macchina virtuale Linux usando una chiave SSH per l'identificazione. Per informazioni dettagliate, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md).
 
+
+### Supporto delle funzioni TRIM/UNMAP per Linux in Azure
+Alcuni kernel di Linux supporteranno operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse. Così facendo, è possibile risparmiare sui costi quando si creano file di grandi dimensioni per poi eliminarli.
+
+Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la distribuzione per stabilire l'approccio consigliato:
+
+- Utilizzare l'opzione di montaggio `discard` in `/etc/fstab`, ad esempio:
+
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+- In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo alla scheda cronologica per eseguirlo a intervalli regolari:
+
+	**Ubuntu**
+
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
+
+	**RHEL/CentOS**
+
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
+
+
 ## Passaggi successivi
 
 - Tenere presente che il nuovo disco non è in genere disponibile sulla macchina virtuale se la macchina virtuale viene riavviata, a meno che non si scrivano queste informazioni nel file [fstab](http://en.wikipedia.org/wiki/Fstab).
 - Esaminare le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale Linux](virtual-machines-linux-optimization.md) per garantire che la VM Linux sia configurata correttamente.
 - Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

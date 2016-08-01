@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # Toolkit di Azure per IntelliJ
 
@@ -31,6 +31,13 @@ Gli articoli seguenti consentiranno di iniziare a usare il Toolkit di Azure per 
 * [Novità del Toolkit di Azure per IntelliJ]
 * [Installazione del Toolkit di Azure per IntelliJ]
 * [Creare un'App Web Hello World per Azure in IntelliJ]
+
+## Uso di Azure Toolkit for IntelliJ
+
+Gli articoli seguenti illustrano l'uso di Azure Toolkit for IntelliJ per aggiungere funzionalità di Azure ai progetti Java:
+
+* [Debug di un'App Web Java su Azure in IntelliJ]
+* [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per creare applicazioni Spark per il cluster HDInsight Spark Linux][HDInsight Tools Plugin for IntelliJ]
 
 ## Vedere anche
 
@@ -60,4 +67,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
-<!---HONumber=AcomDC_0706_2016-->
+[Debug di un'App Web Java su Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->

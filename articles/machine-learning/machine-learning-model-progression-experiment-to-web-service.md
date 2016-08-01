@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -21,11 +21,11 @@
 
 Un ***esperimento*** è un canvas in Azure Machine Learning Studio che consente di sviluppare in modo interattivo, eseguire, testare ed eseguire l'iterazione di un modello di analisi predittiva mentre lo si crea. È disponibile un'ampia gamma di moduli che è possibile usare per inserire i dati nell'esperimento, manipolare i dati, eseguire il training di un modello con gli algoritmi di Machine Learning, assegnare un punteggio al modello, valutare i risultati e generare l'output dei valori finali.
 
-Una volta verificato l'esperimento, è possibile distribuirlo come ***servizio Web di Azure*** a cui gli utenti possono inviare nuovi dati e da cui possono ricevere i risultati.
+Una volta verificato l'esperimento, è possibile distribuirlo come ***servizio Web classico di Azure*** o come ***nuovo servizio Web di Azure*** a cui gli utenti possono inviare i nuovi dati e da cui possono ricevere i risultati.
 
 In questo articolo verrà fornita una panoramica dei meccanismi in base ai quali il modello di Machine Learning passa da un esperimento di sviluppo a un servizio Web operativo.
 
->[AZURE.NOTE] È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per informazioni su come creare un servizio Web predittivo con R, vedere il post di blog sulla [compilazione e la distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>[AZURE.NOTE] È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per informazioni su come creare un servizio Web predittivo classico con R, vedere il post di blog sulla [compilazione e distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 
 Anche se Azure Machine Learning Studio è progettato principalmente per sviluppare e distribuire un *modello di analisi predittiva*, è possibile usare Studio per sviluppare un esperimento che non include un modello di analisi predittiva. Un esperimento, ad esempio, potrebbe limitarsi a inserire i dati, manipolarli e quindi generare l'output dei risultati. Proprio come un esperimento di analisi predittiva, è possibile distribuirlo come esperimento non predittivo, ma il processo è più semplice perché l'esperimento non eseguirà il training né assegnerà un punteggio a un modello di Machine Learning. Anche se non è l'uso tipico di Studio, verrà incluso nella spiegazione seguente per poter offrire una panoramica completa del funzionamento di Studio.
 
@@ -61,16 +61,16 @@ In questo processo di conversione l'esperimento di training non viene rimosso. A
 
 ### Servizio Web
 
-Una volta verificato che l'esperimento predittivo sia pronto, fare clic su **Deploy Web Service** per rendere operativo il modello distribuendolo come ***servizio Web di Azure***. Gli utenti ora possono inviare i dati al modello con l'API REST del servizio Web e ricevere i risultati. Per altre informazioni in proposito, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
+Dopo aver verificato che l'esperimento predittiva è pronto, è possibile distribuire il servizio come un servizio Web classico o un nuovo servizio Web basato su Azure Resource Manager. Per rendere operativo il modello distribuendolo come *servizio Web classico*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). Per distribuire come *nuovo servizio Web*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Gli utenti ora possono inviare i dati al modello con l'API REST del servizio Web e ricevere i risultati. Per altre informazioni in proposito, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
 Una volta distribuito il servizio Web, l'esperimento predittivo e il servizio Web rimangono connessi ed è possibile passare dall'uno all'altro:
 
-|***In questa pagina…***|***fare clic su…***|***per aprire questa pagina…***|
+| ***In questa pagina…*** | ***fare clic su…*** | ***per aprire questa pagina…*** |
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
-|web service configuration in Studio|**Manage endpoints…**|endpoint management nel portale di Azure classico|
-|endpoint management nel portale di Azure classico|**Edit in Studio**|experiment canvas in Studio|
+|configurazione del servizio Web in Studio (solo servizio Web classico)|**Manage endpoints…**|endpoint management nel portale di Azure classico|
+|endpoint management nel portale di Azure classico (solo servizio Web classico)|**Edit in Studio**|experiment canvas in Studio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -86,7 +86,7 @@ Dopo avere eseguito l'iterazione dell'esperimento e averlo verificato:
 
 2.  Fare clic su **Run**
 
-3.  Fare clic su **Deploy Web Service**
+3. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) a seconda dell'ambiente in cui si desidera eseguire la distribuzione.
 
 Il servizio Web ora è distribuito ed è possibile accedervi e gestirlo proprio come un servizio Web predittivo.
 
@@ -106,8 +106,10 @@ Se l'esperimento esegue il training di un modello predittivo e gli assegna un pu
 |Esperimento di training|**Set Up Web Service**|Fornisce due opzioni|
 |&nbsp;|- **Update Predictive Experiment**|Aggiorna l'esperimento predittivo associato con le modifiche apportate all'esperimento di training|
 |&nbsp;|- **Retraining Web Service**|Converte l'esperimento di training in un esperimento di ripetizione del training (vedere la sezione "Aggiornamento" più avanti)|
-|&nbsp;|-*oppure*- **Deploy Web Service**|Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come servizio Web|
-|Esperimento predittivo|**Deploy Web Service**|Distribuisce l'esperimento predittivo come servizio Web|
+|& nbsp;|*oppure* **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come servizio Web classico|
+|& nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come nuovo servizio Web|
+|Esperimento predittivo|**Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) |Distribuisce l'esperimento predittivo come servizio Web classico|
+|Esperimento predittivo|**Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) |Distribuisce l'esperimento predittivo come nuovo servizio Web|
 
 **L'esperimento *non* contiene un modello predittivo**
 
@@ -116,7 +118,8 @@ Se l'esperimento non esegue il training di un modello predittivo né gli assegna
 |**Tipo di esperimento**|**Pulsante**|**Risultato**|
 | -------------------- | -------- | -------------- |
 |Esperimento in fase di sviluppo|**Set Up Web Service**|Prepara l'esperimento per la distribuzione come servizio Web|
-|Esperimento preparato per la distribuzione|**Deploy Web Service**|Distribuisce l'esperimento come servizio Web, apre la pagina di configurazione del servizio Web|
+|Esperimento preparato per la distribuzione|***Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico])|Distribuisce l'esperimento come servizio Web, apre la pagina di configurazione del servizio Web classico|
+|& nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo])| Distribuisce come nuovo servizio Web|
 
 ## Aggiornamento del servizio Web
 
@@ -126,9 +129,9 @@ Dipende da che cosa è necessario aggiornare:
 
 **Si vuole cambiare l'input o l'output oppure si vuole modificare il modo in cui il servizio Web manipola i dati**
 
-Se non si intende cambiare il modello, ma solo il modo in cui il servizio Web gestisce i dati, è possibile modificare l'esperimento predittivo e quindi fare ancora clic su **Deploy Web Service**. Il servizio Web si arresterà, l'esperimento predittivo aggiornato verrà distribuito e il servizio Web verrà nuovamente avviato.
+Se non si intende cambiare il modello, ma solo il modo in cui il servizio Web gestisce i dati, è possibile modificare l'esperimento predittivo e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare di nuovo **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il servizio Web si arresterà, l'esperimento predittivo aggiornato verrà distribuito e il servizio Web verrà nuovamente avviato.
 
-Ecco un esempio: si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile che si preferisca che il servizio Web restituisca solo il risultato. È possibile aggiungere un modulo **Select Columns in Dataset** nell’esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quelle del risultato. Quando si fa di nuovo clic su **Deploy Web Service**, il servizio Web viene aggiornato.
+Ecco un esempio: si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile che si preferisca che il servizio Web restituisca solo il risultato. È possibile aggiungere un modulo **Project Columns** nell'esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quella del risultato. Quando si fa clic su **Deploy Web Service** (Distribuisci servizio Web) e si seleziona di nuovo **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]), il servizio Web viene aggiornato.
 
 **Si vuole ripetere il training del modello con i nuovi dati**
 
@@ -160,4 +163,4 @@ Per esempi dell'intero processo, vedere:
 
 -   [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

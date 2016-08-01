@@ -26,8 +26,8 @@ La guida alla risoluzione dei problemi seguente semplifica la comprensione delle
 È in genere necessario eseguire le verifiche seguenti:
 
 1. Assicurarsi di avere eseguito tutti i passaggi necessari per l'integrazione, come illustrato nelle [Esercitazioni introduttive](mobile-engagement-windows-store-dotnet-get-started.md).
-2. Verificare di usare la versione più recente degli SDK della piattaforma. 
-3. Eseguire il test in un dispositivo effettivo e in un emulatore, perché alcuni problemi sono specifici solo dell'emulatore. 
+2. Verificare di usare la versione più recente degli SDK della piattaforma.
+3. Eseguire il test in un dispositivo effettivo e in un emulatore, perché alcuni problemi sono specifici solo dell'emulatore.
 4. Assicurarsi di non superare alcun limite/limitazione di Mobile Engagement illustrato [qui](../azure-subscription-service-limits.md).
 5. Se non si riesce a connettersi al back-end del servizio Mobile Engagement o se i dati non vengono caricati in modo continuo, assicurarsi che non siano in corso incidenti del servizio verificando [qui](https://azure.microsoft.com/status/).
 
@@ -38,7 +38,7 @@ La scheda Monitoraggio mostra i dispositivi connessi alla piattaforma Mobile Eng
 
 Se il dispositivo non viene visualizzato nella scheda Monitoraggio, si tratta probabilmente di un problema di integrazione dell'SDK. Ecco alcuni passaggi da eseguire per risolvere i problemi:
 
-1. Assicurarsi di usare la stringa di connessione corretta nell'app per dispositivi mobili e che la stringa provenga dalla sezione delle chiavi dell'SDK, non dalla sezione delle chiavi API. La stringa di connessione connette l'app per dispositivi mobili all'istanza dell'app Mobile Engagement in cui verrà visualizzato il dispositivo nella scheda Monitoraggio. 
+1. Assicurarsi di usare la stringa di connessione corretta nell'app per dispositivi mobili e che la stringa provenga dalla sezione delle chiavi dell'SDK, non dalla sezione delle chiavi API. La stringa di connessione connette l'app per dispositivi mobili all'istanza dell'app Mobile Engagement in cui verrà visualizzato il dispositivo nella scheda Monitoraggio.
 2. Per la piattaforma Windows: se la pagina esegue l'override del metodo `OnNavigatedTo`, assicurarsi di chiamare `base.OnNavigatedTo(e)`.
 3. Se si sta integrando Mobile Engagement in un'app per dispositivi mobili esistente, sarà possibile anche assicurarsi di non tralasciare alcun passaggio esaminando i passaggi di integrazione avanzati [qui](mobile-engagement-windows-store-integrate-engagement.md).
 4. Assicurarsi di inviare almeno una schermata/attività eseguendo l'override della pagina con EngagementActivity in base alla piattaforma usata, come illustrato nelle [Esercitazioni introduttive](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -63,34 +63,34 @@ La creazione di un segmento non è attualmente in tempo reale. Viene calcolato c
 
 ### I messaggi push non vengono recapitati 
 
-1. Provare a inviare notifiche per testare prima di tutto un dispositivo, per assicurarsi che tutti i componenti, ovvero l'app per dispositivi mobili, l'SDK e il servizio, siano connessi correttamente e riescano a recapitare notifiche push. 
-2. Inviare sempre la più semplice 'notifica out-of-app' prima di tutto tramite una campagna non pianificata e priva di criteri specifici per i destinatari. Ciò consente di verificare il corretto funzionamento della connettività per le notifiche. 
-3. Se si verificano problemi di recapito delle notifiche in-app, è comunque consigliabile provare a inviare prima di tutto una notifica out-of-app. 
+1. Provare a inviare notifiche per testare prima di tutto un dispositivo, per assicurarsi che tutti i componenti, ovvero l'app per dispositivi mobili, l'SDK e il servizio, siano connessi correttamente e riescano a recapitare notifiche push.
+2. Inviare sempre la più semplice 'notifica out-of-app' prima di tutto tramite una campagna non pianificata e priva di criteri specifici per i destinatari. Ciò consente di verificare il corretto funzionamento della connettività per le notifiche.
+3. Se si verificano problemi di recapito delle notifiche in-app, è comunque consigliabile provare a inviare prima di tutto una notifica out-of-app.
 4. Assicurarsi che il 'Push nativo' sia configurato correttamente per l'app per dispositivi mobili. In base alla piattaforma, saranno necessarie chiavi (Android, Windows) o certificati (iOS). Vedere [Interfaccia utente - Impostazioni](mobile-engagement-user-interface-settings.md).
-5. È anche possibile che le notifiche out-of-app siano bloccate dall'utente tramite il sistema operativo del dispositivo mobile, quindi occorre assicurarsi che non siano bloccate. 
-6. Assicurarsi che l'opzione *Ignora i destinatari. Il push verrà inviato agli utenti tramite l'API* della sezione **Campagna** di una campagna di copertura non sia impostata, perché ciò consentirà l'invio di notifiche push solo tramite le API. 
+5. È anche possibile che le notifiche out-of-app siano bloccate dall'utente tramite il sistema operativo del dispositivo mobile, quindi occorre assicurarsi che non siano bloccate.
+6. Assicurarsi che l'opzione *Ignora i destinatari. Il push verrà inviato agli utenti tramite l'API* della sezione **Campagna** di una campagna di copertura non sia impostata, perché ciò consentirà l'invio di notifiche push solo tramite le API.
 7. Assicurarsi di testare la campagna push con un dispositivo connesso tramite WiFi e con una rete di operatore telefonico per eliminare la connessione di rete come possibile origine dei problemi.
-8. Assicurarsi che la data/ora d sistema nel dispositivo/emulatore sia corretta, perché eventuali dispositivi non sincronizzati interferiranno anche con la capacità del servizio di notifica push di recapitare le notifiche. 
+8. Assicurarsi che la data/ora d sistema nel dispositivo/emulatore sia corretta, perché eventuali dispositivi non sincronizzati interferiranno anche con la capacità del servizio di notifica push di recapitare le notifiche.
 
 Ecco altre istruzioni per la risoluzione dei problemi specifiche per le piattaforme:
 
-1. **iOS** 
+1. **iOS**
 
-	- Assicurarsi che i certificati siano validi e non siano scaduti per le notifiche push iOS. 
-	- Assicurarsi che un certificato di *produzione* sia configurato correttamente nell'app Mobile Engagement. 
+	- Assicurarsi che i certificati siano validi e non siano scaduti per le notifiche push iOS.
+	- Assicurarsi che un certificato di *produzione* sia configurato correttamente nell'app Mobile Engagement.
 	- Assicurarsi di eseguire il test su un *dispositivo fisico reale.* Il simulatore iOS non è in grado di elaborare i messaggi push.
 	- Assicurarsi che l'identificatore del bundle sia configurato correttamente nell'app per dispositivi mobili. Le istruzioni sono disponibili [qui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 	- Durante il test, utilizzare la distribuzione "Ad Hoc" nel profilo di provisioning per dispositivi mobili. Non sarà possibile ricevere una notifica se l'applicazione viene compilata con "Debug"
 
 2. **Android**
 
-	- Assicurarsi di avere specificato il numero di progetto corretto nel file AndroidManifest.xml dell'app per dispositivi mobili, seguito dal carattere \\n. 
+	- Assicurarsi di avere specificato il numero di progetto corretto nel file AndroidManifest.xml dell'app per dispositivi mobili, seguito dal carattere \\n.
 	
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Assicurarsi che tutte le autorizzazioni necessarie nel file manifesto Android siano presenti e siano configurate correttamente
-	- Assicurarsi che il numero di progetto da aggiungere all'app client provenga dallo stesso account da cui è stata ottenuta la chiave del server GCM. Se i due account non corrispondono, i push non potranno uscire. 
-	- Se si ricevono le notifiche del sistema, ma non le notifiche in-app, vedere la sezione [Specificare un'icona per le notifiche](mobile-engagement-android-get-started.md), perché è probabile che non sia stata specificata l'icona corretta nel file manifesto Android. 
+	- Assicurarsi che il numero di progetto da aggiungere all'app client provenga dallo stesso account da cui è stata ottenuta la chiave del server GCM. Se i due account non corrispondono, i push non potranno uscire.
+	- Se si ricevono le notifiche del sistema, ma non le notifiche in-app, vedere la sezione [Specificare un'icona per le notifiche](mobile-engagement-android-get-started.md), perché è probabile che non sia stata specificata l'icona corretta nel file manifesto Android.
 	- Se si invia una notifica BigPicture, assicurarsi che eventuali server di immagini esterni disponibili riescano a supportare HTTP "GET" e "HEAD".
 
 3. **Windows**
@@ -110,9 +110,9 @@ La **campagna** creata in Mobile Engagement viene definita in questo modo perch�
 
 Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzioni seguenti:
 
-1. Cercare il problema specifico nei thread esistenti nel forum StackOverflow e nel [forum su MSDN](https://social.msdn.microsoft.com/Forums/windows/it-IT/home?forum=azuremobileengagement). Se il problema non è già stato segnalato, inviare una domanda ai forum. 
+1. Cercare il problema specifico nei thread esistenti nel forum StackOverflow e nel [forum su MSDN](https://social.msdn.microsoft.com/Forums/windows/it-IT/home?forum=azuremobileengagement). Se il problema non è già stato segnalato, inviare una domanda ai forum.
 2. Se si ritiene che manchi una funzionalità, aggiungere/votare la relativa richiesta nel [forum UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
-3. Se si ha diritto al Supporto Microsoft, aprire una richiesta di assistenza, fornendo i dettagli seguenti: 
+3. Se si ha diritto al Supporto Microsoft, aprire una richiesta di assistenza, fornendo i dettagli seguenti:
 	- ID sottoscrizione di Azure
 	- Piattaforma (ad esempio iOS, Android e così via)
 	- ID app
@@ -121,4 +121,4 @@ Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzi
 	- Versione di Mobile Engagement SDK (ad esempio Android SDK v2.1.0)
 	- Dettagli dell'errore con messaggio di errore esatto e scenario
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0720_2016-->

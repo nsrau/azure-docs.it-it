@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/18/2016"
    ms.author="ryanwi"/>
 
 # Connettersi a un cluster sicuro
-Quando un client si connette a un nodo di un cluster Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita mediante la sicurezza dei certificati. Ciò garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere stata attivata in precedenza sul cluster durante la creazione del cluster stesso. Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md).
+Quando un client si connette a un nodo di un cluster Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita mediante la sicurezza dei certificati. Ciò garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere stata attivata in precedenza sul cluster durante la creazione del cluster stesso. È necessario usare almeno due certificati per proteggere il cluster, uno per il certificato del server e del cluster e un altro per l'accesso client. È consigliabile usare anche altri certificati secondari e certificati di accesso client. Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md).
 
-Per proteggere le comunicazioni tra un client e un nodo del cluster mediante la sicurezza basata su certificati, è innanzitutto necessario ottenere e installare il certificato client nell'archivio personale nel computer locale o nell'archivio personale per l'utente corrente.
+Per proteggere le comunicazioni tra un client e un nodo del cluster mediante la sicurezza basata su certificati, è innanzitutto necessario ottenere e installare il certificato client nell'archivio personale nel computer locale o nell'archivio personale per l'utente corrente. È necessaria anche l'identificazione personale del certificato del server in modo che il client possa autenticare il cluster.
 
-Per configurare il certificato nel computer che si userà per accedere al cluster, eseguire il seguente cmdlet PowerShell.
+Per configurare il certificato del client nel computer che si userà per accedere al cluster, eseguire il cmdlet PowerShell seguente.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -50,25 +50,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Ad esempio, il comando di PowerShell precedente sarà simile a quello riportato di seguito.
+Ad esempio, il comando di PowerShell precedente sarà simile a quello riportato di seguito. *ServerCertThumbprint* è l'identificazione personale del certificato del server installato nei nodi del cluster, *FindValue* è l'identificazione personale del certificato del client di amministrazione.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-          -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
           -StoreLocation CurrentUser -StoreName My
 ```
 
 ## Connettersi a un cluster sicuro mediante le API FabricClient
-Il [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN venga visualizzato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo consente l'autenticazione reciproca tra il client e il nodo del cluster.
+Il valore [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN venga visualizzato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo consente l'autenticazione reciproca tra il client e il nodo del cluster.
 
 ```csharp
-string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
+string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-X509Credentials xc = GetCredentials(thumb, CommonName);
+X509Credentials xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 FabricClient fc = new FabricClient(xc, connection);
 Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
 try
@@ -87,15 +88,20 @@ catch (Exception e)
 
 ...
 
-static X509Credentials GetCredentials(string thumb, string name)
+static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
 {
     X509Credentials xc = new X509Credentials();
+
+    // Client certificate
     xc.StoreLocation = StoreLocation.CurrentUser;
     xc.StoreName = "MY";
     xc.FindType = X509FindType.FindByThumbprint;
     xc.FindValue = thumb;
+
+    // Server certificate
     xc.RemoteCertThumbprints.Add(thumb);
     xc.RemoteCommonNames.Add(name);
+
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
 }
@@ -109,4 +115,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 - [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

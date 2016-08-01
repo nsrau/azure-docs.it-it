@@ -161,7 +161,7 @@ L'elemento `Name` consente di specificare il nome della directory nel pacchetto 
 ```
 L'elemento SetupEntrypoint consente di specificare un file eseguibile o un file batch da eseguire prima dell'avvio del codice del servizio. È un elemento facoltativo perciò non è necessario includerlo se non esiste alcuna inizializzazione/installazione richiesta. L'elemento SetupEntryPoint viene eseguito ogni volta che il servizio viene riavviato.
 
-Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. Analogamente all'elemento SetupEntryPoint, SetupEntrypoint può eseguire qualsiasi tipo di file, ad esempio file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente l'elemento SetupEntrypoint è basato su un file batch LaunchConfig.cmd, che si trova nella sottodirectory `scripts` della directory code, presupponendo che l'elemento WorkingFolder sia impostato su code.
+Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. L'elemento SetupEntrypoint può eseguire qualsiasi tipo di file, ovvero file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente l'elemento SetupEntrypoint è basato su un file batch LaunchConfig.cmd, che si trova nella sottodirectory `scripts` della directory code, presupponendo che l'elemento WorkingFolder sia impostato su code.
 
 ### Entrypoint
 
@@ -308,4 +308,4 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 - [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -18,7 +18,7 @@
 
 # Procedura di creazione di un account DocumentDB con supporto del protocollo per MongoDB usando il portale di Azure
 
-Per creare un account DocumentDB con supporto del protocollo per MongoDB è necessario:
+Per creare un account Azure DocumentDB con supporto del protocollo per MongoDB è necessario:
 
 - Avere un account Azure. È possibile ottenere un [account Azure gratuito](https://azure.microsoft.com/free/) se non se ne ha già uno.
 
@@ -78,4 +78,4 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

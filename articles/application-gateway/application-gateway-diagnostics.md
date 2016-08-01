@@ -14,27 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/11/2016"
+   ms.date="07/14/2016"
    ms.author="amitsriva" />
 
 #Registrazione diagnostica per il gateway applicazione
 
-In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
+In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
 - **Log di controllo:** è possibile usare i [log di controllo di Azure](../azure-portal/insights-debugging-with-events.md) (noti in precedenza come log operativi) per visualizzare tutte le operazioni da inviare alle sottoscrizioni di Azure e il relativo stato. I log di controllo sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di anteprima di Azure.
 - **Log di accesso:** è possibile usare questo log per visualizzare il modello di accesso del gateway applicazione e analizzare informazioni importanti, inclusi IP del chiamante, URL richiesto, latenza della risposta, codice restituito, byte in ingresso e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà 'instanceId'.
-- **Log delle prestazioni:** è possibile usare questo log per visualizzare la modalità di esecuzione delle istanze del gateway applicazione. Questo log acquisisce le informazioni sulle prestazioni di ogni singola istanza, inclusi totale delle richieste servite, velocità effettiva in byte, numero di richieste non riuscite e numero di istanze di back-end corrette e non corrette. Il log delle prestazioni viene raccolto ogni 60 secondi.
+- **Log delle prestazioni:** è possibile usare questo log per visualizzare le prestazioni delle istanze del gateway applicazione. Questo log acquisisce le informazioni sulle prestazioni di ogni singola istanza, inclusi totale delle richieste servite, velocità effettiva in byte, numero di richieste non riuscite e numero di istanze di back-end corrette e non corrette. Il log delle prestazioni viene raccolto ogni 60 secondi.
 
 >[AZURE.WARNING] I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere l'articolo [Comprendere la distribuzione di Gestione risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 ##Abilitazione della registrazione
 La registrazione di controllo viene abilitata automaticamente in qualsiasi momento per ogni risorsa di Gestione risorse. È necessario abilitare la registrazione degli accessi e delle prestazioni per iniziare a raccogliere i dati disponibili in tali log. Per abilitare la registrazione, seguire questa procedura.
 
-1. Prendere nota dell'ID di risorsa dell'account di archiviazione in cui verranno archiviati i dati di log. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. È possibile usare il portale di anteprima per reperire queste informazioni.
-![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Prendere nota dell'ID di risorsa dell'account di archiviazione in cui verranno archiviati i dati di log. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Storage/storageAccounts/<nome account di archiviazione>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. Per reperire queste informazioni è possibile usare il portale di anteprima. ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. È possibile usare il portale di anteprima per reperire queste informazioni.
-![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Network/applicationGateways/<nome gateway applicazione>. Per reperire queste informazioni è possibile usare il portale di anteprima. ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente.
 
@@ -98,14 +96,17 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 - **Strumenti di Azure:** recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di anteprima di Azure. Per istruzioni dettagliate per ogni metodo, vedere l'articolo [Operazioni di controllo con Gestione risorse](../resource-group-audit.md).
 - **Power BI:** se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Con il [pacchetto di contenuto dei log di controllo di Azure per Power BI](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con dashboard preconfigurati utilizzabili così come sono o personalizzabili.
 
-## Visualizzare e analizzare il registro contatori ed eventi 
-È necessario connettersi all'account di archiviazione e recuperare le voci di log JSON per i registri eventi e contatori. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
+## Visualizzare e analizzare il log di accesso e delle prestazioni 
+Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) consente di raccogliere i file del log contatori e del log eventi dall'account di archiviazione BLOB e include visualizzazioni e funzionalità di ricerca avanzate per l'analisi dei log.
+
+È anche possibile connettersi all'account di archiviazione e recuperare le voci del log JSON per i log di accesso e delle prestazioni. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 
 >[AZURE.TIP] Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in Github.
 
 ## Passaggi successivi
 
+- Visualizzare il log contatori e il log eventi con [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 - Post di blog sulla [visualizzazione dei log di controllo di Azure con Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Post di blog su [visualizzazione e analisi dei log di controllo di Azure in Power BI e altri strumenti](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

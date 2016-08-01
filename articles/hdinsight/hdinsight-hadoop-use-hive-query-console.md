@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="07/19/2016"
    ms.author="larryfr"/>
 
 # Eseguire query Hive usando Query Console
@@ -36,7 +36,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="run"></a> Eseguire query Hive usando Query Console
 
-1. Aprire un Web browser e passare a \_\___https://CLUSTERNAME.azurehdinsight.net__ dove __CLUSTERNAME__è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
+1. Aprire un Web browser e passare a __https://CLUSTERNAME.azurehdinsight.net__, dove __CLUSTERNAME\_\_ è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 
 
 2. Nei collegamenti nella parte superiore della pagina fare clic su **Hive Editor**. Verrà visualizzato un modulo che può essere usato per immettere le istruzioni HiveQL che si desidera eseguire nel cluster HDInsight.
@@ -128,4 +128,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -36,7 +36,7 @@ Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indir
 
 ## Hub IoT e sicurezza
 
-Solo i dispositivi registrati con un hub IoT possono comunicare con tale hub IoT. Un dispositivo registrato deve disporre dell’autorizzazione *DeviceConnect*. Un dispositivo si identifica includendo un token che incapsula l'ID univoco del dispositivo in ogni richiesta effettuata e l'hub controlla la validità del token e che il dispositivo non sia bloccato (autorizzazione *DeviceConnect* revocata).
+Solo i dispositivi registrati con un hub IoT possono comunicare con tale hub IoT. Un dispositivo registrato deve disporre dell’autorizzazione *DeviceConnect*. Un dispositivo si identifica includendo un token che incapsula l'ID univoco del dispositivo in ogni richiesta effettuata e l'hub controlla la validità del token e che il dispositivo non sia bloccato (autorizzazione *DeviceConnect* revocata). Per informazioni sui token supportati dall'hub IoT, vedere [Usare i token di sicurezza hub IoT e i certificati X.509][lnk-tokens]
 
 L'accesso ad altri endpoint di gestione in un hub IoT viene controllato anche tramite un set di autorizzazioni: *iothubowner*, *servizio*, *registryRead* e *registryReadWrite*. Qualsiasi applicazione di gestione di client che si connette a un hub IoT deve includere un token con le autorizzazioni appropriate.
 
@@ -48,16 +48,15 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
-[lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: iot-hub-manage-through-portal.md
 
 [lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

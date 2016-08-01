@@ -52,8 +52,12 @@ Questo esempio descrive le modifiche necessarie in un'applicazione Entity Framew
 
 Questo esempio è un'applicazione Web multi-tenant, chiamata Surveys, che consente agli utenti di creare sondaggi online. L'esempio illustra alcuni dei principali problemi quando si gestiscono le identità utente in un'applicazione multi-tenant, tra cui iscrizione, autenticazione, autorizzazione e i ruoli dell'app. Per eseguire questo esempio, vedere [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) (Come eseguire l'applicazione di esempio Tailspin Surveys).
 
+## Applicazione dimostrativa di Contoso
+
+In questo esempio vengono illustrate le funzionalità di protezione del database SQL di Azure (V12). Per eseguire questo esempio, vedere l'articolo sull'[applicazione dimostrativa di Contoso](https://github.com/Microsoft/azure-sql-security-sample).
+
 ## Passaggi successivi
 
 [Esplorare le esercitazioni del database SQL di Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

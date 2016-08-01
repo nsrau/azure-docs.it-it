@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Abilitare il controllo sui database SQL nel Centro sicurezza di Azure
@@ -28,14 +28,13 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
 ## Implementare la raccomandazione
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui database SQL**. Verrà visualizzato il pannello **Abilita il controllo sui database SQL**. ![][1]
+1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui database SQL**. Verrà visualizzato il pannello **Abilita il controllo sui database SQL**. ![Abilitare il controllo sui database SQL][1]
 
-2. Selezionare un database SQL su cui abilitare il controllo. Viene visualizzato il pannello **Controllo e rilevamento minacce**. ![][2]
-3. Nel pannello **Controllo e rilevamento minacce** selezionare **ON** in **Controllo**. ![][3]
+2. Selezionare un database SQL su cui abilitare il controllo. Verrà visualizzato il pannello **Controllo e rilevamento minacce**. ![Controllo e rilevamento minacce][2]
+3. Nel pannello **Controllo e rilevamento minacce** selezionare **ON** in **Controllo**. ![Attivare il controllo e rilevamento minacce][3]
 
-4. Seguire la procedura in [Introduzione al controllo del database SQL](../sql-database/sql-database-auditing-get-started.md) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
 
-5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection-get-started.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
+5. Seguire i passaggi in [Introduzione al rilevamento delle minacce nel database SQL](../sql-database/sql-database-threat-detection-get-started.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
 
 ## Passaggi successivi
 
@@ -47,8 +46,8 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
@@ -58,4 +57,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

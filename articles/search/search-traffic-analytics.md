@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
@@ -69,9 +69,7 @@ Percorso di esempio: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/
 
 ### Log
 
-I BLOB dei log contengono i log di traffico del servizio di ricerca.
-
-Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
+I BLOB dei log contengono i log di traffico del servizio di ricerca. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log. Ogni BLOB contiene record su tutta l'operazione eseguita alla stessa ora.
 
 ####Schema del log
 
@@ -98,12 +96,15 @@ properties |object |vedere di seguito |Oggetto contenente dati specifici dell'op
 
 ### Metriche
 
-I BLOB delle metriche contengono i valori aggregati per il servizio di ricerca. In ogni file è presente un oggetto radice denominato **record** contenente una matrice di oggetti di metrica.
+I BLOB delle metriche contengono i valori aggregati per il servizio di ricerca. In ogni file è presente un oggetto radice denominato **record** contenente una matrice di oggetti di metrica. Questo oggetto radice contiene metriche per ogni minuto per il quale i dati erano disponibili.
 
 Metriche disponibili:
 
-- Latency
-- SearchQueriesPerSecond
+- SearchLatency: tempo di cui il servizio di ricerca necessita per elaborare la query di ricerca, aggregato per minuto.
+- SearchQueriesPerSecond: numero di query di ricerca ricevute al secondo, aggregato per minuto.
+- ThrottledSearchQueriesPercentage: percentuale di query di ricerca che sono state limitate, aggregata per minuto.
+
+> [AZURE.IMPORTANT] La limitazione si verifica quando viene inviato un numero eccessivo di query, esaurendo la capacità delle risorse di provisioning del servizio. È possibile aggiungere più repliche al servizio.
 
 ####Schema delle metriche
 
@@ -118,6 +119,12 @@ Metriche disponibili:
 |total |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
 |count |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
 |timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601|
+
+Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica esporrà quindi i valori minimo, massimo e medio al minuto.
+
+Nel caso della metrica SearchQueriesPerSecond, il valore minimo è il valore minimo di query di ricerca al secondo registrato durante questo minuto; lo stesso vale anche per il valore massimo. Il valore medio è l'aggregato nel corso dell'intero minuto. Considerare questo scenario: durante un minuto è possibile avere 1 secondo di carico molto elevato che sarà il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e 1 secondo con una sola query, che sarà il valore minimo.
+
+Per ThrottledSearchQueriesPercentage, i valori minimo, massimo, medio e totale corrisponderanno tutti allo stesso valore, vale a dire alla percentuale di query di ricerca che sono state limitate, in base al numero totale di query di ricerca durante un minuto.
 
 ## Analisi dei dati
 
@@ -221,4 +228,4 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

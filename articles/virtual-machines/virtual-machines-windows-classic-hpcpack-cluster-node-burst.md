@@ -13,10 +13,10 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro) come risorse di calcolo a un cluster HPC Pack in Azure
+# Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 
 
 
@@ -26,15 +26,15 @@ In questo articolo viene illustrato come aggiungere nodi "burst" di Azure (istan
 
 ![Nodi burst][burst]
 
->[AZURE.TIP] Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
-
 I passaggi descritti in questo articolo consentiranno di aggiungere nodi di Azure rapidamente a una macchina virtuale del nodo head HPC Pack basato su cloud per una distribuzione di test o con modello di verifica. La procedura è essenzialmente identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-Se si desidera usare le dimensioni di istanze a elevato utilizzo di calcolo A8 o A9, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Per valutare se usare le dimensioni di istanze a elevato utilizzo di calcolo A8 o A9 per i nodi burst, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisiti
 
-* **Nodo head HPC Pack distribuito in una macchina virtuale di Azure**: vedere [Distribuire un nodo head di HPC Pack in una VM di Azure](virtual-machines-windows-hpcpack-cluster-headnode.md) per la procedura di creazione di un nodo head del cluster nel modello di distribuzione classica.
+* **Distribuzione di un nodo head HPC Pack in una VM Azure**: è possibile utilizzare una VM del nodo head autonoma oppure una che fa parte di un cluster più esteso. Per creare un nodo head autonomo, vedere l'argomento su come [distribuire un nodo head HPC Pack in una VM Azure](virtual-machines-windows-hpcpack-cluster-headnode.md). Per conoscere le opzioni di distribuzione di un cluster HPC Pack, vedere [Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+
+    >[AZURE.TIP] Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
 
 * **Sottoscrizione di Azure** - Per aggiungere nodi di Azure, è possibile scegliere la stessa sottoscrizione usata per distribuire la macchina virtuale del nodo head oppure una o più sottoscrizioni diverse.
 
@@ -62,7 +62,7 @@ Usare il Portale di Azure classico o strumenti equivalenti per configurare gli e
 
 Per aggiungere nodi di Azure come risorse di calcolo, sarà necessario disporre di un certificato di gestione nel nodo head e caricare un certificato corrispondente nella sottoscrizione di Azure usata per la distribuzione.
 
-Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare semplicemente il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione.
+Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare semplicemente il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione. Per farlo, visitare il [portale di Azure classico](https://manage.windowsazure.com). Fare clic su **Impostazioni**, quindi su **Certificati di gestione**.
 
 Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
@@ -89,4 +89,4 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Ris
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

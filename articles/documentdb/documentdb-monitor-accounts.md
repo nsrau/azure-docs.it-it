@@ -18,7 +18,7 @@
 
 # Monitorare le richieste, l'uso e l'archiviazione di DocumentDB
 
-È possibile monitorare gli account DocumentDB nel [portale di Microsoft Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
+È possibile monitorare gli account Azure DocumentDB nel [portale di Microsoft Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 
 ## Visualizzare le metriche delle prestazioni nel portale 
 1.	In una nuova finestra, aprire il [portale di Azure](https://portal.azure.com/) e fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
@@ -33,7 +33,7 @@
 
 
 3.	Se si fa clic sul riquadro **Richieste**, **Totale UR** o **Archiviazione**, verrà visualizzato un pannello **Metrica** dettagliato.
-4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
+4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.
 
 	![Schermata del pannello Metrica che include le richieste limitate](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
@@ -45,7 +45,7 @@
 2.	Nel pannello **Modifica grafico** sono disponibili le opzioni per modificare le metriche visualizzate all'interno del grafico, nonché il relativo intervallo di tempo. ![Schermata del pannello Modifica grafico](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Per modificare le metriche visualizzate nel grafico, selezionare/deselezionare le metriche delle prestazioni disponibili e quindi fare clic su **OK** nella parte inferiore del pannello.
-4.	Per modificare l'intervallo di tempo, scegliere un intervallo diverso, ad esempio **Personalizzato** e fare clic su **OK** nella parte inferiore del pannello.  
+4.	Per modificare l'intervallo di tempo, scegliere un intervallo diverso, ad esempio **Personalizzato** e fare clic su **OK** nella parte inferiore del pannello.
 
 	![Schermata della parte Intervallo di tempo del pannello Modifica grafico che mostra come immettere un intervallo di tempo personalizzato](./media/documentdb-monitor-accounts/madocdb5.png)
 
@@ -111,4 +111,4 @@ Se il riquadro di monitoraggio visualizza il messaggio **Nessun dato disponibile
 ## Passaggi successivi
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -42,9 +42,9 @@ Dopo avere creato una struttura generale per l'applicazione, sarà possibile def
 Un modello di Gestione risorse di Azure definisce tutte le risorse di Azure utilizzate dall'applicazione. Esistono già alcuni modelli che possono essere distribuiti direttamente nel portale di Azure o scaricati, modificati e salvati in un sistema di controllo del codice sorgente con il codice dell'applicazione. Completare la procedura seguente per scaricare un modello esistente.
 
 1. Per un elenco di modelli disponibili, vedere i [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/) nel repository GitHub. L'elenco include una cartella "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)". Poiché molte applicazioni personalizzate includono un'applicazione Web e un database SQL, questo modello viene usato come esempio per il resto dell'articolo, per semplificare la comprensione dell'uso dei modelli. La spiegazione completa di tutti gli elementi creati e configurati da questo modello non rientra nell'ambito dell'articolo, ma se si prevede di usarlo per creare ambienti effettivi nell'organizzazione, è consigliabile ottenere informazioni dettagliate leggendo l'articolo [Eseguire il provisioning di un'app Web con un database SQL](app-service-web/app-service-web-arm-with-sql-database-provision.md).
-2. Fare clic sul file [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) file nella cartella 201-web-app-sql-database per visualizzarne il contenuto. Questo è il file modello di Gestione risorse di Azure. 
-3. Nella modalità di visualizzazione fare clic sul pulsante "[Non elaborato](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)". 
-4. Con il mouse selezionare il contenuto del file e salvarlo nel computer come file con nome "TestApp1-Template.json". 
+2. Fare clic sul file [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) file nella cartella 201-web-app-sql-database per visualizzarne il contenuto. Questo è il file modello di Gestione risorse di Azure.
+3. Nella modalità di visualizzazione fare clic sul pulsante "[Non elaborato](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)".
+4. Con il mouse selezionare il contenuto del file e salvarlo nel computer come file con nome "TestApp1-Template.json".
 5. Esaminare il contenuto del modello e tenere presente quanto segue:
  - Sezione **Resources**: definisce i tipi di risorse di Azure create da questo modello. Tra gli altri tipi di risorse, questo modello crea risorse di tipo [App Web di Azure](app-service-web/app-service-web-overview.md) e [Database SQL di Azure](sql-database/sql-database-technical-overview.md). Se si preferisce eseguire e gestire server Web e SQL in macchine virtuali, è possibile usare il modello "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)"o"[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)", ma le istruzioni riportate in questo articolo si basano sul modello [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database).
  - Sezione **Parameters**: definisce i parametri con cui è possibile configurare ogni risorsa. Alcuni parametri specificati nel modello hanno proprietà "defaultValue", altri no. Quando si distribuiscono risorse di Azure con un modello, è necessario fornire valori per tutti i parametri privi delle proprietà defaultValue specificate nel modello. Se non si forniscono valori per i parametri con proprietà defaultValue, verrà usato il valore specificato per il parametro defaultValue nel modello.
@@ -55,26 +55,26 @@ Un modello definisce le risorse di Azure create e i parametri con cui è possibi
 
 È probabile che si vogliano creare le *stesse* risorse di Azure in ogni ambiente, ma con una configurazione delle risorse *diversa* per ogni ambiente. I file di parametri servono a questo. Per creare file di parametri che contengono valori univoci in ogni ambiente, completare i passaggi seguenti.
 
-1. Visualizzare il contenuto del file [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json) nella cartella 201-web-app-sql-database. Questo è il file di parametri per il file modello salvato nella sezione precedente. 
-2. Nella modalità di visualizzazione fare clic sul pulsante "[Non elaborato](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.parameters.json)". 
+1. Visualizzare il contenuto del file [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json) nella cartella 201-web-app-sql-database. Questo è il file di parametri per il file modello salvato nella sezione precedente.
+2. Nella modalità di visualizzazione fare clic sul pulsante "[Non elaborato](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.parameters.json)".
 3. Con il mouse selezionare il contenuto del file e salvarlo nel computer in tre file separati con i nomi seguenti:
  - TestApp1-Parameters-Development.json
  - TestApp1-Parameters-Test.json
  - TestApp1-Parameters-Pre-Production.json
 
-3. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di sviluppo creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti: 
+3. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di sviluppo creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
  - **siteName**: *TestApp1DevApp*
  - **hostingPlanName**: *TestApp1DevPlan*
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *sostituire con la propria password*
+ - **administratorLoginPassword**: * sostituire con la propria password*
  - **databaseName**: *testapp1devdb*
 
 4. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di test creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
  - **siteName**: *TestApp1TestApp*
- - **hostingPlanName**: *TestApp1TestPla*
+ - **hostingPlanName**: *TestApp1TestPla*n
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
@@ -133,7 +133,7 @@ La tabella seguente elenca i valori predefiniti per i parametri specificati nel 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creare ambienti
-Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](./azure-portal/resource-group-portal.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
+Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](resource-group-overview.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
 
 Creare gruppi di risorse per ogni ambiente usando uno dei metodi seguenti. Tutti i metodi avranno lo stesso risultato.
 
@@ -191,7 +191,7 @@ Per creare il gruppo di risorse per l'ambiente di pre-produzione, immettere il c
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account [Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md), detto anche account aziendale o dell'istituto di istruzione. Fare clic su Nuovo--> Gestione--> Gruppo di risorse e immettere "TestApp1-Development" nella casella Nome gruppo di risorse, selezionare la sottoscrizione e "Central US" nella casella Località del gruppo di risorse, come illustrato nell'immagine seguente. ![Portale](./media/solution-dev-test-environments/rgcreate.png)
 2. Fare clic sul pulsante Crea per creare il gruppo di risorse.
-3. Fare clic su Sfoglia, scorrere l'elenco verso il basso fino a Gruppi di risorse e selezionare questa voce, come illustrato di seguito. ![Portale](./media/solution-dev-test-environments/rgbrowse.png) 
+3. Fare clic su Sfoglia, scorrere l'elenco verso il basso fino a Gruppi di risorse e selezionare questa voce, come illustrato di seguito. ![Portale](./media/solution-dev-test-environments/rgbrowse.png)
 4. Dopo aver fatto clic su Gruppi di risorse, verrà visualizzato il pannello Gruppi di risorse con il nuovo gruppo di risorse. ![Portale](./media/solution-dev-test-environments/rgview.png)
 5. Creare i gruppi di risorse TestApp1-Test e TestApp1-Pre-Production seguendo la stessa procedura usata per creare il gruppo di risorse TestApp1-Development precedente.
 
@@ -296,8 +296,8 @@ I file modello e di parametri possono essere sottoposti al controllo delle versi
 ## Gestire gli ambienti
 Durante lo sviluppo, la configurazione delle risorse di Azure nei diversi ambienti può essere resa incoerente in modo intenzionale o accidentale. Ciò può provocare attività superflue di risoluzione dei problemi durante il ciclo di sviluppo dell'applicazione.
 
-1. Modificare gli ambienti aprendo il [portale di Azure](https://portal.azure.com). 
-2. Accedere al portale con lo stesso account usato per completare i passaggi precedenti. 
+1. Modificare gli ambienti aprendo il [portale di Azure](https://portal.azure.com).
+2. Accedere al portale con lo stesso account usato per completare i passaggi precedenti.
 3. Come illustrato nella figura seguente, fare clic su Esplora--> Gruppi di risorse. Potrebbe essere necessario scorrere verso il basso per visualizzare Gruppi di risorse. ![Portale](./media/solution-dev-test-environments/rgbrowse.png)
 4. Dopo aver fatto clic su Gruppi di risorse nell'immagine precedente, verrà visualizzato il pannello Gruppi di risorse e i tre gruppi di risorse creati in un passaggio precedente, come illustrato nell'immagine seguente. Fare clic sul gruppo di risorse TestApp1-Development. Verrà visualizzato il pannello con l'elenco delle risorse create dal modello nella distribuzione del gruppo di risorse TestApp1-Development completata in un passaggio precedente. Eliminare la risorsa app Web TestApp1DevApp facendo clic su TestApp1DevApp nel pannello del gruppo di risorse TestApp1-Development e quindi facendo clic su Elimina nel pannello dell'app Web TestApp1DevApp. ![Portale](./media/solution-dev-test-environments/portal2.png)
 5. Fare clic su "Sì" quando il portale richiede di confermare l'eliminazione della risorsa. Chiudendo il pannello del gruppo di risorse TestApp1-Development e riaprendolo, l'app Web appena eliminata non sarà più visibile. I contenuti del gruppo di risorse sono ora diversi da quanto previsto. È possibile eseguire altre prove eliminando più risorse da più gruppi di risorse o addirittura modificando le impostazioni di configurazione per alcune risorse. Invece di usare il portale di Azure per eliminare una risorsa da un gruppo di risorse, è possibile usare il comando di PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) o il comando "azure resource delete" dall'interfaccia della riga di comando per eseguire la stessa attività.
@@ -342,7 +342,7 @@ Digitare quanto segue per eliminare gli ambienti rimanenti:
 
 ### Portale di Azure
 
-1. Nel portale di Azure passare a Gruppi di risorse come è stato fatto nei passaggi precedenti. 
+1. Nel portale di Azure passare a Gruppi di risorse come è stato fatto nei passaggi precedenti.
 2. Selezionare il gruppo di risorse TestApp1-Development e quindi fare clic su Elimina nel pannello del gruppo di risorse TestApp1-Development. Verrà visualizzato un nuovo pannello. Immettere il nome del gruppo di risorse e fare clic sul pulsante Elimina. ![Portale](./media/solution-dev-test-environments/rgdelete.png)
 3. Eliminare i gruppi di risorse TestApp1-Test e TestApp1-Pre-Production seguendo la stessa procedura usata per eliminare il gruppo di risorse TestApp1-Development.
 
@@ -361,4 +361,4 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - [Assegnare tag](resource-group-using-tags.md) ai gruppi di risorse per ogni ambiente e/o per le singole risorse. È possibile aggiungere un tag "Environment" ai gruppi di risorse e impostarne il valore in modo che corrisponda ai nomi di ambiente. I tag possono essere particolarmente utili quando occorre organizzare le risorse per la fatturazione o la gestione.
 - Monitorare gli avvisi e la fatturazione per le risorse del gruppo di risorse nel [portale di Azure](https://portal.azure.com).
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

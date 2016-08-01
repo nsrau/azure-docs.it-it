@@ -1,315 +1,409 @@
 <properties
-pageTitle="Aggiungere il connettore OneDrive a PowerApps Enterprise e alle app per la logica | Microsoft Azure"
-description="Panoramica del connettore OneDrive con i parametri dell'API REST."
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+	pageTitle="Aggiungere il connettore OneDrive nelle app per la logica | Microsoft Azure"
+	description="Panoramica del connettore OneDrive con i parametri dell'API REST."
+	services="app-servicelogic"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor=""
+	tags="connectors"/>
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
-ms.author="mandia"/>
+   ms.service="app-service-logic"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="07/19/2016"
+   ms.author="mandia"/>
 
 # Introduzione al connettore OneDrive
 
-Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. Il connettore OneDrive può essere usato da:
+Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. Con OneDrive è possibile:
 
-- App per la logica 
-- PowerApps
+- Creare un flusso di lavoro mediante l'archiviazione di file in OneDrive o aggiornare i file esistenti in OneDrive.
+- Usare trigger per avviare il flusso di lavoro quando un file viene creato o aggiornato in OneDrive.
+- Usare le azioni per creare un file, eliminarlo e così via. Ad esempio, creare un nuovo file in OneDrive (azione) quando viene ricevuto un nuovo messaggio di posta elettronica di Office 365 con un allegato (trigger).
 
-> [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/connectors-create-api-onedrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+Questo argomento illustra come usare il connettore OneDrive in un'app per la logica ed elenca i trigger e le azioni.
 
-&nbsp;
+>[AZURE.NOTE] Questa versione dell'articolo riguarda la disponibilità generale (GA) delle app per la logica.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
+## Connettersi a OneDrive
 
-Con OneDrive è possibile:
+Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare innanzitutto una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a OneDrive, è necessaria innanzitutto una *connessione* a OneDrive. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Pertanto, per creare la connessione a OneDrive, immettere le credenziali dell'account OneDrive.
 
-- Creare il flusso aziendale in base ai dati ottenuti da OneDrive. 
-- Usare i trigger quando un file viene creato o aggiornato.
-- Usare le azioni per creare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in OneDrive, è possibile inviare tale file come messaggio di posta elettronica tramite Office 365.
-- Aggiungere il connettore OneDrive a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
-
-Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-## Trigger e azioni
-Il connettore OneDrive include i trigger e le azioni seguenti.
-
-| Trigger | Azioni|
-| --- | --- |
-|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>List files in a folder</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>List root folder</li><li>Update file</li><li>When a file is modified</li></ul>
-
-Tutti i connettori supportano dati nei formati JSON e XML.
-
-## Creare una connessione a OneDrive
-
-Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a OneDrive.
-
-1. Accedere all'account OneDrive.
-2. Consentire alle app per la logica di connettersi e usare OneDrive. 
+### Creare la connessione
 
 >[AZURE.INCLUDE [Passaggi per creare una connessione a OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
->[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
+## Usare un trigger
 
-## Riferimento all'API REST di Swagger
-Si applica alla versione 1.0.
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Nell'app per la logica digitare "onedrive" per ottenere l'elenco dei trigger:
+
+	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+
+2. Selezionare **When a file is modified** (Quando un file viene modificato). Se esiste già una connessione, selezionare il pulsante **...** (Mostra selettore) per selezionare una cartella.
+
+	![](./media/connectors-create-api-onedrive/sample-folder.png)
+
+	Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo argomento elenca i passaggi necessari.
+
+	> [AZURE.NOTE] In questo esempio l'app per la logica viene eseguita quando viene aggiornato un file nella cartella scelta. Per vedere i risultati del trigger, aggiungere un'altra azione che invia un messaggio di posta elettronica al proprio indirizzo. Ad esempio, aggiungere l'azione di Office 365 Outlook *Send an email* (Invia messaggio di posta elettronica) che manda un messaggio di posta elettronica al proprio indirizzo quando un file viene aggiornato.
+
+3. **Salvare** le modifiche (angolo in alto a sinistra della barra degli strumenti). L'app per la logica viene salvata e può essere attivata automaticamente.
 
 
-### Recupera metadati di file tramite ID
-Recupera i metadati di un file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}```
+## Usare un'azione
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|id|string|yes|path|nessuno|Identificatore univoco del file in OneDrive|
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Risposte
+1. Selezionare il segno più. Sono disponibili varie opzioni: **Add an action** (Aggiungi azione), **Add a condition** (Aggiungi condizione) e le opzioni **More** (Altro).
+
+	![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Selezionare **Add an action** (Aggiungi azione).
+
+3. Nella casella di testo digitare "onedrive" per ottenere l'elenco di tutte le azioni disponibili.
+
+	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
+
+4. Per questo esempio scegliere **OneDrive - Create file** (OneDrive - Crea file). Se esiste già una connessione, selezionare il **percorso della cartella** in cui inserire il file, immettere il **nome del file** e scegliere il **contenuto del file** desiderato:
+
+	![](./media/connectors-create-api-onedrive/sample-action.png)
+
+	Se viene chiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo argomento descrive queste proprietà.
+
+	> [AZURE.NOTE] In questo esempio creiamo un nuovo file in una cartella di OneDrive. Per creare il file di OneDrive è possibile usare l'output di un altro trigger. Ad esempio aggiungere il trigger di Office 365 Outlook *When a new email arrives* (Quando arriva un nuovo messaggio di posta elettronica). Quindi aggiungere l'azione di OneDrive *Create file* (Crea file) che usa i campi Attachments (Allegati) e Content-Type (Tipo di contenuto) in un ciclo ForEach per creare il nuovo file in OneDrive.
+	> 
+	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Salvare** le modifiche (angolo in alto a sinistra della barra degli strumenti). L'app per la logica viene salvata e può essere attivata automaticamente.
+
+
+## Dettagli tecnici
+
+## Trigger
+
+|Trigger | Descrizione|
+|--- | ---|
+|[Quando un file viene creato](connectors-create-api-onedrive.md#when-a-file-is-created)|Questa operazione attiva un flusso quando viene creato un nuovo file in una cartella.|
+|[Quando un file viene modificato](connectors-create-api-onedrive.md#when-a-file-is-modified)|Questa operazione attiva un flusso quando viene modificato un file in una cartella.|
+
+
+## Azioni
+
+|Azione|Descrizione|
+|--- | ---|
+|[Ottenere i metadati del file](connectors-create-api-onedrive.md#get-file-metadata)|Questa operazione ottiene i metadati per un file.|
+|[Aggiorna file](connectors-create-api-onedrive.md#update-file)|Questa operazione aggiorna un file.|
+|[Elimina file](connectors-create-api-onedrive.md#delete-file)|Questa operazione elimina un file.|
+|[Recupera metadati di file tramite percorso](connectors-create-api-onedrive.md#get-file-metadata-using-path)|Questa operazione ottiene i metadati di un file usando il percorso.|
+|[Ottieni contenuto di file tramite percorso](connectors-create-api-onedrive.md#get-file-content-using-path)|Questa operazione ottiene il contenuto di un file usando il percorso.|
+|[Ottieni contenuto di file](connectors-create-api-onedrive.md#get-file-content)|Questa operazione ottiene il contenuto di un file.|
+|[Crea file](connectors-create-api-onedrive.md#create-file)|Questa operazione crea un file.|
+|[Copia file](connectors-create-api-onedrive.md#copy-file)|Questa operazione copia un file in OneDrive.|
+|[Elenca i file nella cartella](connectors-create-api-onedrive.md#list-files-in-folder)|Questa operazione ottiene l'elenco dei file e delle sottocartelle in una cartella.|
+|[Elenca i file nella cartella radice](connectors-create-api-onedrive.md#list-files-in-root-folder)|Questa operazione ottiene l'elenco dei file e delle sottocartelle nella cartella radice.|
+|[Estrai archivio in una cartella](connectors-create-api-onedrive.md#extract-archive-to-folder)|Questa operazione estrae un file di archivio in una cartella (ad esempio un file con l'estensione .zip).|
+
+### Informazioni dettagliate sulle azioni
+
+In questa sezione si vedranno i dettagli relativi a ogni azione, incluse le proprietà di input obbligatorie o facoltative e gli output corrispondenti associati al connettore.
+
+
+#### Ottenere i metadati del file
+Questa operazione ottiene i metadati per un file.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|File|Seleziona un file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|stringa|
+
+
+#### Aggiorna file
+Questa operazione aggiorna un file.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|File|Seleziona un file|
+|body*|Contenuto del file|Contenuto del file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Elimina file
+Questa operazione elimina un file.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|File|Seleziona un file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+Nessuna.
+
+#### Recupera metadati di file tramite percorso
+Questa operazione ottiene i metadati di un file usando il percorso.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|path*|Percorso del file|Seleziona un file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Ottieni contenuto di file tramite percorso
+Questa operazione ottiene il contenuto di un file usando il percorso.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|path*|Percorso del file|Seleziona un file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+Nessuna.
+
+
+#### Ottieni contenuto di file
+Questa operazione ottiene il contenuto di un file.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|File|Seleziona un file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+Nessuna.
+
+#### Crea file
+Questa operazione crea un file.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|folderPath*|Percorso della cartella|Seleziona una cartella|
+|name*|Nome file|Nome del file|
+|body*|Contenuto del file|Contenuto del file|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|stringa|
+
+
+#### Copia file
+Questa operazione copia un file in OneDrive.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|source*|URL di origine|URL del file di origine|
+|destination*|Percorso del file di destinazione|Percorso del file di destinazione, incluso il nome del file di destinazione|
+|overwrite|Sovrascrivere?|Sovrascrive il file di destinazione se è impostata su 'true'|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Quando un file viene creato
+Questa operazione attiva un flusso quando viene creato un nuovo file in una cartella.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|folderId*|Cartella|Seleziona una cartella|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+Nessuna.
+
+#### Quando un file viene modificato
+Questa operazione attiva un flusso quando viene modificato un file in una cartella.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|folderId*|Cartella|Seleziona una cartella|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+Nessuna.
+
+#### Elenca i file nella cartella
+Questa operazione ottiene l'elenco dei file e delle sottocartelle in una cartella.
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|id*|Cartella|Seleziona una cartella|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string||
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Elenca i file nella cartella radice
+Questa operazione ottiene l'elenco dei file e delle sottocartelle nella cartella radice.
+
+Non sono disponibili parametri per questa chiamata.
+
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|stringa|
+
+#### Estrai archivio in una cartella
+Questa operazione estrae un file di archivio in una cartella (ad esempio un file con l'estensione .zip).
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|source*|Percorso del file di archivio di origine|Percorso del file di archivio|
+|destination*|Percorso della cartella di destinazione|Percorso in cui estrarre il contenuto dell'archivio|
+|overwrite|Sovrascrivere?|Sovrascrive i file di destinazione se è impostata su 'true'|
+
+L'asterisco (*) indica che la proprietà è obbligatoria.
+
+##### Dettagli dell'output
+BlobMetadata
+
+| Nome proprietà | Tipo di dati |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Dimensione|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+## Risposte HTTP
+
+La tabella seguente riporta le risposte alle azioni e ai trigger e le descrizioni delle risposte:
+
 |Nome|Descrizione|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto|
 |default|Operazione non riuscita.|
-
-
-### Aggiorna file
-Aggiorna un file in OneDrive. ```PUT: /datasets/default/files/{id}```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|id|string|yes|path|nessuno|Identificatore univoco del file da aggiornare in OneDrive|
-|body| |sì|body|nessuno|Contenuto del file da aggiornare in OneDrive|
-
-
-### Risposta
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-### Elimina file
-Elimina un file da OneDrive. ```DELETE: /datasets/default/files/{id}```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|id|string|yes|path|nessuno|Identificatore univoco del file da eliminare da OneDrive|
-
-
-### Risposta
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-### Recupera metadati di file tramite percorso
-Recupera i metadati di un file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileByPath```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|path|string|yes|query|nessuno|Percorso univoco del file in OneDrive|
-
-
-### Risposta
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-
-### Recupera contenuto di file tramite percorso
-Recupera il contenuto dei file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|path|string|yes|query|nessuno|Percorso univoco del file in OneDrive|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-
-### Recupera contenuto di file tramite ID
-Recupera il contenuto dei file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|id|string|yes|path|nessuno|Identificatore univoco del file in OneDrive|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-
-### Crea file
-Carica un file in OneDrive. ```POST: /datasets/default/files```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|nessuno|Percorso della cartella per caricare il file in OneDrive|
-|name|string|yes|query|nessuno|Nome del file da creare in OneDrive|
-|body| |sì|body|nessuno|Contenuto del file da creare in OneDrive|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-### Copia file
-Copia un file in OneDrive. ```POST: /datasets/default/copyFile```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|source|string|yes|query|nessuno|URL del file di origine|
-|destination|string|yes|query|nessuno|Percorso file di destinazione in OneDrive incluso nome file di destinazione|
-|overwrite|boolean|no|query|false|Sovrascrive il file di destinazione se è impostata su 'true'|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-### Quando un file viene creato
-Attiva un flusso quando un nuovo file viene creato in una cartella di OneDrive. ```GET: /datasets/default/triggers/onnewfile```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|nessuno|Identificatore univoco della cartella in OneDrive.|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-### Quando un file viene modificato in una cartella di OneDrive, attiva un flusso
-Attiva un flusso quando un file viene modificato in una cartella di OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|nessuno|Identificatore univoco della cartella in OneDrive.|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-### Estrai cartella
-Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|source|string|yes|query|nessuno|Percorso del file di archivio|
-|destination|string|yes|query|nessuno|Percorso in OneDrive in cui estrarre il contenuto dell'archivio|
-|overwrite|boolean|no|query|false|Sovrascrive i file di destinazione se è impostata su 'true'|
-
-
-### Risposta
-
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|default|Operazione non riuscita.|
-
-
-
-## Definizioni oggetto
-
-#### DataSetsMetadata
-
-|Nome proprietà | Tipo di dati | Obbligatorio|
-|---|---|---|
-|tabular|non definito|no|
-|BLOB|non definito|no|
-
-
-#### TabularDataSetsMetadata
-
-|Nome proprietà | Tipo di dati |Obbligatorio|
-|---|---|---|
-|una sezione source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-|Nome proprietà | Tipo di dati |Obbligatorio|
-|---|---|---|
-|una sezione source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-
-#### BlobMetadata
-
-|Nome proprietà | Tipo di dati |Obbligatorio|
-|---|---|---|
-|ID|string|no|
-|Nome|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Dimensione|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 
 ## Passaggi successivi
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica esaminando il nostro [elenco di API](apis-list.md).
 
-Tornare all'[elenco di API](apis-list.md).
-
-[5]: https://account.live.com/developers/applications/create
-[6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
-[7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

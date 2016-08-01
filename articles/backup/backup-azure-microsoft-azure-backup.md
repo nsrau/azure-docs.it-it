@@ -72,7 +72,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 5. Fare clic su **Sottoscrizione** per visualizzare l'elenco di sottoscrizioni disponibili. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
-6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali.
 
@@ -122,7 +122,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 5. Nella finestra Attività iniziali viene automaticamente selezionata la schermata Obiettivi di Backup. ![Backup-obiettivi-predefinito-aperto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-    Nella sezione **Obiettivi di Backup** selezionare *locale* per *la posizione in cui viene eseguito il carico di lavoro*.
+    Nella sezione **Obiettivi di Backup** selezionare *locale* per * la posizione in cui viene eseguito il carico di lavoro*.
 
     ![locale e carichi di lavoro come obiettivi](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
@@ -235,7 +235,7 @@ Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, sarà ne
 
 - www.msftncsi.com
 - *.Microsoft.com
-- *windowsazure.com
+- windowsazure.com
 - *.microsoftonline.com
 - *.windows.net
 
@@ -264,4 +264,4 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 - [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

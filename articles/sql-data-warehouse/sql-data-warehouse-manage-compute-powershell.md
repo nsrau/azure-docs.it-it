@@ -47,7 +47,7 @@ Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][].
 
 Attività iniziali
 
-1. Aprire Azure PowerShell. 
+1. Aprire Azure PowerShell.
 2. Al prompt di PowerShell, eseguire questi comandi per accedere ad Azure Resource Manager e selezionare la sottoscrizione.
 
     ```PowerShell
@@ -125,6 +125,7 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
 [Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
+[Panoramica sulla gestione del calcolo]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 [Installazione guidata piattaforma Web]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

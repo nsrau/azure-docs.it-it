@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="07/19/2016"
     ms.author="sstein"/>
 
 # Avviare un failover pianificato o non pianificato per il database SQL di Azure con PowerShell
@@ -87,4 +87,4 @@ Il comando seguente cambia i ruoli del database denominato "mydb” in primario 
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

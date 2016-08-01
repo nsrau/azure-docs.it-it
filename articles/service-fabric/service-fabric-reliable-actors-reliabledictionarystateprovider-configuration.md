@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
 # Configurare ReliableDictionaryActorStateProvider di Reliable Actors
@@ -36,9 +36,9 @@ Il manifesto del cluster è un unico file XML che contiene le impostazioni e le 
 |Nome|Unità|Valore predefinito|Osservazioni|
 |----|----|-------------|-------|
 |WriteBufferMemoryPoolMinimumInKB|Kilobyte|8388608|Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco.|
-|WriteBufferMemoryPoolMaximumInKB|Kilobyte|Nessun limite|La dimensione massima raggiungibile dal pool di memoria del buffer di scrittura del logger.|
-|SharedLogId|GUID|""|Specifica un GUID utile per individuare il file di log condiviso predefinito utilizzato da tutti i Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogId nella configurazione specifica del servizio. Se viene specificato lo SharedLogId, deve anche essere specificato lo SharedLogPath.|
-|SharedLogPath|Nome di percorso completo|""|Specifica il percorso completo in cui il file di log condiviso viene utilizzato da tutti i Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogPath nella configurazione specifica del servizio. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId.|
+|WriteBufferMemoryPoolMaximumInKB|Kilobyte|Nessun limite|Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger.|
+|SharedLogId|GUID|""|Specifica un GUID univoco per individuare il file di log condiviso predefinito usato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano il parametro SharedLogId nella configurazione specifica del servizio. Se viene specificato lo SharedLogId, deve anche essere specificato lo SharedLogPath.|
+|SharedLogPath|Nome di percorso completo|""|Specifica il percorso completo in cui il file di log condiviso viene utilizzato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogPath nella configurazione specifica del servizio. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId.|
 |SharedLogSizeInMB|Megabyte|8192|Specifica il numero di MB di spazio su disco da allocare in modo statico per il log condiviso. Il valore deve essere maggiore di 2048.|
 
 ### Sezione manifesto del cluster di esempio
@@ -53,9 +53,9 @@ Il manifesto del cluster è un unico file XML che contiene le impostazioni e le 
 ```
 
 ### Osservazioni
-Il logger dispone di un pool di memoria globale allocato dalla memoria non di paging del kernel disponibile per tutti i Reliable Services su un nodo per il caching dei dati sullo stato prima che siano scritti sul log dedicato associato alla replica del Reliable Services. La dimensione del pool è controllata dalle impostazioni WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB specifica la dimensione iniziale del pool di memoria e la dimensione minima alla quale è possibile ridurre la memoria. WriteBufferMemoryPoolMaximumInKB è la dimensione massima che può raggiungere il pool di memoria. Ogni replica Reliable Services aperta può aumentare la dimensione del pool di memoria di una quantità determinata dal sistema, fino a WriteBufferMemoryPoolMaximumInKB. Qualora la domanda per la memoria sia superiore alla disponibilità del pool di memoria, le richieste per la memoria sono ritardate finché la memoria non è disponibile. Pertanto se il pool di memoria del buffer di scrittura è troppo piccolo per una configurazione specifica, le prestazioni potrebbero risentirne.
+Il logger dispone di un pool di memoria globale allocato dalla memoria non di paging del kernel disponibile per tutti i servizi Reliable Services su un nodo per il caching dei dati sullo stato prima che siano scritti sul log dedicato associato alla replica del servizio Reliable Services. La dimensione del pool è controllata dalle impostazioni WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB specifica la dimensione iniziale del pool di memoria e la dimensione minima alla quale è possibile ridurre la memoria. WriteBufferMemoryPoolMaximumInKB è la dimensione massima che può raggiungere il pool di memoria. Ogni replica del servizio Reliable Services aperta può aumentare la dimensione del pool di memoria di una quantità determinata dal sistema, fino a WriteBufferMemoryPoolMaximumInKB. Qualora la domanda per la memoria sia superiore alla disponibilità del pool di memoria, le richieste per la memoria sono ritardate finché la memoria non è disponibile. Pertanto se il pool di memoria del buffer di scrittura è troppo piccolo per una configurazione specifica, le prestazioni potrebbero risentirne.
 
-Le impostazioni SharedLogId e SharedLogPath vengono sempre utilizzate per definire GUID e percorso del log condiviso predefinito per tutti i nodi del cluster. Il log condiviso predefinito viene utilizzato per tutti i Reliable Services che non specificano le impostazioni nel file settings.xml per il servizio specifico. Per ottenere le migliori prestazioni, i file di log condivisi devono essere memorizzati su dischi riservati esclusivamente al file di log condiviso, in modo da ridurre le situazioni di contesa della testina.
+Le impostazioni SharedLogId e SharedLogPath vengono sempre utilizzate per definire GUID e percorso del log condiviso predefinito per tutti i nodi del cluster. Il log condiviso predefinito viene utilizzato per tutti i servizi Reliable Services che non specificano le impostazioni nel file settings.xml per il servizio specifico. Per ottenere le migliori prestazioni, i file di log condivisi devono essere memorizzati su dischi riservati esclusivamente al file di log condiviso, in modo da ridurre le situazioni di contesa della testina.
 
 SharedLogSizeInMB specifica la quantità di spazio su disco da preallocare per il log condiviso predefinito su tutti i nodi. Le impostazioni SharedLogId e SharedLogPath non devono essere specificate per specificare SharedLogSizeInMB.
 
@@ -75,7 +75,7 @@ Le configurazioni del replicatore vengono usate per configurare il replicatore r
 
 |Nome|Unità|Valore predefinito|Osservazioni|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Secondi|0,05|Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica.||
+|BatchAcknowledgementInterval|Secondi|0,015|Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica.||
 |ReplicatorEndpoint|N/D|Nessun valore predefinito: parametro obbligatorio|Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Questo dovrebbe fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per altre informazioni sulla definizione delle risorse dell'endpoint nel manifesto del servizio, vedere [Risorse del manifesto del servizio](service-fabric-service-manifest-resources.md). |
 |MaxReplicationMessageSize|Byte|50 MB|Dimensione massima dei dati di replica che è possibile trasmettere in un singolo messaggio.|
 |MaxPrimaryReplicationQueueSize|Numero di operazioni|8192|Numero massimo di operazioni nella coda principale. Un'operazione viene liberata quando il replicatore principale riceve un acknowledgement da tutti i replicatori secondari. Questo valore deve essere maggiore di 64 ed essere una potenza di 2.|
@@ -120,4 +120,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima dei record che 
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file per ridurre le situazioni di contesa della testina. È probabile che questi valori debbano essere modificati solo in rari casi.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

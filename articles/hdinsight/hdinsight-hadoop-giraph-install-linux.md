@@ -33,7 +33,11 @@ In questo argomento si apprenderà come installare Giraph usando le azioni scrip
 - Identificare la route più breve tra due computer di una rete.
 - Calcolare la posizione in classifica di pagine Web.
 
-##Funzionalità dello script
+> [AZURE.WARNING] I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+>
+> I componenti personalizzati, ad esempio Giraph, ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/).
+
+##Caratteristiche dello script
 
 Lo script esegue le azioni seguenti:
 
@@ -48,7 +52,7 @@ Uno script di esempio per l'installazione di Giraph in un cluster HDInsight è d
 
 Questa sezione descrive come usare lo script di esempio per creare il cluster con il portale di Azure.
 
-> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
@@ -127,7 +131,7 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 	Per altre informazioni su questi e altri parametri usati con gli esempi di Giraph, vedere la [Guida introduttiva a Giraph](http://giraph.apache.org/quick_start.html).
 
-5. Al termine del processo, i risultati verranno archiviati nella directory \_\___wasb:///example/out/shotestpaths__. I file creati inizieranno con __part-m-__ e termineranno con un numero che indica il primo file, il secondo e così via. Usare la stringa seguente per ver visualizzare l'output:
+5. Al termine del processo, i risultati verranno archiviati nella directory __wasb:///example/out/shotestpaths__. I file creati inizieranno con __part-m-\_\_ e termineranno con un numero che indica il primo file, il secondo e così via. Usare la stringa seguente per ver visualizzare l'output:
 
 		hadoop fs -text /example/output/shortestpaths/*
 
@@ -154,4 +158,4 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

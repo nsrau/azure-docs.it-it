@@ -19,7 +19,7 @@
 
 # Come gestire un account DocumentDB
 
-Informazioni su come impostare la coerenza globale e gestire più aree per la disponibilità globale dei dati. Include anche informazioni su come usare le chiavi ed eliminare un account nel portale di Azure.
+Informazioni su come impostare la coerenza globale e gestire più aree per la disponibilità globale dei dati in Azure DocumentDB. Include anche informazioni su come usare le chiavi ed eliminare un account nel portale di Azure.
 
 ## <a id="consistency"></a>Gestire le impostazioni di coerenza di DocumentDB
 
@@ -145,4 +145,4 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 [azureregions]: https://azure.microsoft.com/it-IT/regions/#services
 [offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

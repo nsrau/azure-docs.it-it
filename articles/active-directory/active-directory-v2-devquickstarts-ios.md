@@ -108,7 +108,7 @@ Per configurare la libreria NXOAuth2Client, sono necessari alcuni valori. Dopo a
 - Aggiungere alcuni valori al file `LoginViewController.m` per impostare il contesto per l'autenticazione e l'autorizzazione. I dettagli sui valori seguono il codice.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ Per configurare la libreria NXOAuth2Client, sono necessari alcuni valori. Dopo a
 
 Esaminiamo i dettagli del codice.
 
-La prima stringa è per `scopes`. Il valore `User.ReadBasic.All` consente di leggere il profilo di base di tutti gli utenti nella directory.
+La prima stringa è per `scopes`. Il valore `User.Read` consente di leggere il profilo di base dell'utente connesso.
 
 Per altre informazioni su tutti gli ambiti disponibili, vedere [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ambiti di autorizzazione di Microsoft Graph).
 
@@ -588,4 +588,4 @@ Se è stata usata la struttura o si è seguita la procedura dettagliata, l'appli
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

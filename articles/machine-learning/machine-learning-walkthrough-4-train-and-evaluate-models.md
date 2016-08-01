@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -66,14 +66,14 @@ Per configurare il modello SVM, procedere come segue:
 
 1.	Trovare il modulo [Macchina a vettori di supporto a due classi][two-class-support-vector-machine] nella tavolozza dei moduli e trascinarlo nell'area di disegno.
 2.	Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model], scegliere **Copy** e quindi fare clic con il pulsante destro del mouse sull'area di disegno e scegliere **Paste**. Si noti che la copia del modulo [Esegui training modello][train-model] presenta la stessa selezione di colonne dell'originale.
-3.	Connettere l'output del modulo Macchina a vettori di supporto alla porta di input sinistra ("Modello senza training") del modulo [Esegui training modello][train-model].
+3.	Connettere l'output del modulo SVM alla porta di input sinistra ("modello non sottoposto a training ") del secondo modulo [Train Model][train-model].
 4.	Trovare il modulo [Normalize Data][normalize-data] e trascinarlo nell'area di disegno.
 5.	Connettere l'input di questo modulo all'output sinistro del modulo [Execute R Script][execute-r-script] sinistro. Si noti che la porta di output di un modulo può essere connessa a più di un modulo.
-6.	Connettere la porta di output sinistra ("Transformed Dataset") del modulo [Normalize Data][normalize-data] alla porta di input destra ("Dataset") del modulo [Train Model][train-model].
+6.	Connettere la porta di output sinistra ("Transformed Dataset") del modulo [Normalize Data][normalize-data] alla porta di input destra ("Dataset") del secondo modulo [Train Model][train-model].
 7.	Nel riquadro **Properties** del modulo [Normalize Data][normalize-data] scegliere **Tanh** come parametro di **Transformation method**.
 8.	Fare clic su **Launch column selector**, selezionare "No columns" for **Begin With**, selezionare **Include** nel primo elenco a discesa, selezionare **column type** nel secondo elenco a discesa e selezionare **Numeric** nel terzo elenco a discesa. Questo specifica che tutte le colonne numeriche (ma solo quelle di questo tipo) verranno trasformate.
-9.	Fare clic sul segno più (+) a destra di questa riga per creare una nuova riga di elenchi a discesa. Selezionare **Exclude** nel primo elenco a discesa, selezionare **column names** nel secondo elenco a discesa e immettere "Credit risk" nel campo di testo (oppure selezionare **column indices** e immettere "21"). Questa impostazione specifica che la colonna Credit Risk deve essere ignorata (è necessario farlo perché la colonna è numerica e pertanto verrebbe trasformata).
-10.	Fare clic su **OK**.  
+9.	Fare clic sul segno più (+) a destra di questa riga per creare una nuova riga di elenchi a discesa. Selezionare **Exclude** (Escludi) nel primo elenco a discesa, selezionare **column names** (nomi colonne) nel secondo elenco a discesa e fare clic nel campo di testo e selezionare "Credit risk" (Rischio di credito) dall'elenco di colonne. Questa impostazione specifica che la colonna Credit Risk deve essere ignorata (è necessario farlo perché la colonna è numerica e pertanto verrebbe trasformata).
+10.	Fare clic su **OK**.
 
 
 Il modulo [Normalize Data][normalize-data] è ora impostato per eseguire una trasformazione tanh su tutte le colonne numeriche, a eccezione della colonna Credit Risk.
@@ -89,18 +89,18 @@ Verranno usati i dati di test separati dal modulo [Split Data][split] per assegn
 2.	Connettere la porta di input sinistra di questo modulo al modello di albero delle decisioni con boosting (connetterlo alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Albero delle decisioni con boosting a due classi][two-class-boosted-decision-tree]).
 3.	Connettere la porta di input destra del modulo [Score Model][score-model] all'output sinistro del modulo [Execute R Script][execute-r-script] destro.
 
-    Il modulo [Score Model][score-model] ora può prelevare le informazioni sul credito dai dati di test, eseguirle tramite il modello e confrontare le stime generate dal modello con la colonna Credit Risk dei dati di test.
+    Il modulo [Score Model][score-model] ora può prelevare le informazioni sul credito dai dati di test, eseguirle tramite il modello e confrontare le previsioni generate dal modello con la colonna relativa al rischio di credito dei dati di test.
 
 4.	Copiare e incollare il modulo [Calcola punteggio modello][score-model] per creare una seconda copia, oppure trascinare un nuovo modulo nell'area di disegno.
 5.	Connettere la porta di input sinistra di questo modulo al modello di macchina a vettori di supporto (connetterla alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Macchina a vettori di supporto a due classi][two-class-support-vector-machine]).
 6.	Per il modello SVM, è necessario eseguire la stessa trasformazione sui dati di test eseguita in precedenza sui dati di training. Copiare e incollare il modulo [Normalize Data][normalize-data] per creare una seconda copia e connetterla all'output sinistro del modulo [Execute R Script][execute-r-script] destro.
-7.	Connettere la porta di input destra del modulo [Score Model][score-model] all'output sinistro del modulo [Normalize Data][normalize-data].  
+7.	Connettere la porta di input destra del modulo [Score Model][score-model] all'output sinistro del modulo [Normalize Data][normalize-data].
 
 Per valutare i due risultati di punteggio verrà usato il modulo [Valuta modello][evaluate-model].
 
 1.	Trovare il modulo [Valuta modello][evaluate-model] e trascinarlo nell'area di disegno.
 2.	Connettere la porta di input sinistra alla porta di output del modulo [Calcola punteggio modello][score-model] associato al modello di albero delle decisioni con boosting.
-3.	Connettere la porta di input destra all'altro modulo [Calcola punteggio modello][score-model].  
+3.	Connettere la porta di input destra all'altro modulo [Calcola punteggio modello][score-model].
 
 Fare clic sul pulsante **ESEGUI** sotto l'area di disegno per eseguire l'esperimento. L'operazione potrebbe richiedere alcuni minuti. Verrà visualizzato un indicatore rotante su ogni modulo per indicare che il modulo è in esecuzione, quindi un segno di spunta verde quando l'esecuzione di un modulo è terminata. Quando tutti i moduli presentano il segno di spunta, l'esecuzione dell'esperimento sarà completa.
 
@@ -108,7 +108,7 @@ L'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Evaluating both models][3]
 
-Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare **Visualize**.
+Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare **Visualize** (Visualizza).
 
 Il modulo [Valuta modello][evaluate-model] produce un paio di curve e metriche che consentono di confrontare i risultati dei due modelli classificati. È possibile visualizzare i risultati come curve ROC (Receiver Operator Characteristic), curve precisione/recupero o curve di accuratezza. Altri dati visualizzati includono una matrice di confusione, valori cumulativi per l'area nella curva (AUC) e altra metrica. È possibile modificare il valore soglia spostando il dispositivo di scorrimento a sinistra o a destra e vedere come ciò influisce sul set della metrica.
 
@@ -143,4 +143,4 @@ Esaminando i valori è possibile decidere quale sia il modello che più si avvic
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
@@ -52,7 +52,9 @@ Gli articoli seguenti illustrano l'uso del Toolkit di Azure per Eclipse per aggi
 
 * [Visualizzare il contenuto Javadoc in Eclipse per il pacchetto per le librerie di Azure per Java]
 * [Distribuire distribuzioni di grandi dimensioni]
+* [Debug di un'App Web Java su Azure in Eclipse]
 * [Debug delle applicazioni di Azure in Eclipse]
+* [Usare il plug-in degli strumenti HDInsight per Eclipse per creare applicazioni Spark per il cluster HDInsight Spark Linux][HDInsight Tools Plugin for Eclipse]
 
 ## Vedere anche
 
@@ -89,11 +91,13 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Elenco di Account di archiviazione di Azure]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Creare un servizio cloud Hello World per Azure in Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Debug delle applicazioni di Azure in Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Debug di un'App Web Java su Azure in Eclipse]: ./app-service-web/app-service-web-debug-java-web-app-in-eclipse.md
 [Distribuire distribuzioni di grandi dimensioni]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Visualizzare il contenuto Javadoc in Eclipse per il pacchetto per le librerie di Azure per Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Abilitare l'accesso remoto per le distribuzioni di Azure in Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 [Abilitare l'affinità di sessione]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -103,4 +107,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

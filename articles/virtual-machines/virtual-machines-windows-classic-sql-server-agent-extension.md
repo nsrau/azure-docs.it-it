@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/16/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # Estensione SQL Server Agent per VM di SQL Server (distribuzione classica)
@@ -25,8 +25,7 @@
 
 L'Estensione Agente IaaS di SQL Server (SQLIaaSAgent) viene eseguita sulle macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo argomento fornisce una panoramica dei servizi supportati dall'estensione e delle istruzioni per l'installazione, lo stato e la rimozione.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
-Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Resource Manager).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Resource Manager).
 
 ## Servizi supportati
 
@@ -59,17 +58,19 @@ Requisiti per l'uso dell'Estensione Agente IaaS di SQL Server nella VM:
 
 **Agente guest della macchina virtuale**:
 
-- L'estensione BGInfo viene installata automaticamente sulle nuove VM di Azure.
+- Sulla macchina virtuale deve essere in esecuzione l'agente guest della VM. Tale agente viene installato automaticamente nelle nuove macchine virtuali di Azure, pertanto normalmente non è necessario eseguire manualmente questa operazione.
 
-## Installare
+## Installazione
 
 L'Estensione Agente IaaS di SQL Server viene installata automaticamente quando si esegue il provisioning di una delle immagini della galleria di macchine virtuali SQL Server.
 
-Se si crea una macchina virtuale con solo sistema operativo della linea Windows Server, è possibile installare l'estensione manualmente tramite il cmdlet di PowerShell **Set-AzureVMSqlServerExtension**. Usare il comando per configurare uno dei servizi dell'agente, ad esempio l'Applicazione automatica delle patch. La VM consente di installare l'agente se non è installato. Per istruzioni sull'uso di PowerShell **Set-AzureVMSqlServerExtension**, vedere i singoli argomenti nella sezione [Servizi supportati](#supported-services) di questo articolo.
+Se si crea una macchina virtuale con solo sistema operativo della linea Windows Server, è possibile installare l'estensione manualmente tramite il cmdlet di PowerShell **Set-AzureVMSqlServerExtension**. Ad esempio, il comando seguente consente di installare l'estensione in una VM con solo sistema operativo della linea Windows Server (distribuzione classica), denominandola "SQLIaaSExtension".
+
+	Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension --ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
 
 Se si esegue l'aggiornamento alla versione più recente dell'estensione dell'agente IaaS di SQL, è necessario riavviare la macchina virtuale dopo l'aggiornamento dell'estensione.
 
->[AZURE.NOTE] Se si installa manualmente l'estensione dell'agente IaaS di SQL Server in una VM, è necessario usare e gestire le funzionalità tramite i comandi di PowerShell. L'interfaccia del portale non è disponibile in questo scenario.
+>[AZURE.NOTE] Se si installa manualmente l'estensione dell'agente IaaS di SQL Server in una VM Windows Server, è necessario usare e gestire le funzionalità tramite i comandi di PowerShell. L'interfaccia del portale è disponibile solo per la raccolta immagini di SQL Server.
 
 ## Stato
 
@@ -97,4 +98,4 @@ Iniziare a usare uno dei servizi supportati dall'estensione. Per altre informazi
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

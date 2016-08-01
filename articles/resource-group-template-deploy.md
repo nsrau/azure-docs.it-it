@@ -23,6 +23,7 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -155,7 +156,7 @@ Configurare un account di archiviazione per i modelli nel modo seguente:
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Creare un nuovo contenitore. L'autorizzazione è impostata su **Off**, pertanto il contenitore è accessibile solo al proprietario.
+4. Creare un nuovo contenitore. L'autorizzazione è impostata su **Off**, quindi il contenitore è accessibile solo al proprietario.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -179,7 +180,7 @@ Per distribuire un modello privato in un account di archiviazione, recuperare un
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
-Per un esempio sull'uso di un token SAS con i modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
+Per un esempio sull'uso di un token di firma di accesso condiviso con modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
@@ -189,4 +190,4 @@ Per un esempio sull'uso di un token SAS con i modelli collegati, vedere [Uso di 
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

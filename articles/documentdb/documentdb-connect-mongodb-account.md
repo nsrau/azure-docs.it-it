@@ -19,7 +19,7 @@
 
 # Procedura di connessione a un account DocumentDB con supporto del protocollo per MongoDB
 
-Informazioni su come connettersi a un account DocumentDB con supporto del protocollo per MongoDB usando il formato URI della stringa di connessione standard di MongoDB.
+Informazioni su come connettersi a un account Azure DocumentDB con supporto del protocollo per MongoDB usando il formato URI della stringa di connessione standard di MongoDB.
 
 ## Ottenere informazioni sulla stringa di connessione dell'account
 
@@ -84,4 +84,4 @@ Come già accennato, tutti gli account di DocumentDB richiedono l'autenticazione
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

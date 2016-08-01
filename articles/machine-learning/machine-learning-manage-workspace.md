@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Gestire un'area di lavoro di Azure Machine Learning
+
+>[AZURE.NOTE] Le procedure descritte in questo articolo sono relative ai nuovi servizi Web classici di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici, vedere [Gestire un nuovo servizio Web di Machine Learning](machine-learning-manage-new-webservice.md).
+
 Tramite il portale di Azure classico è possibile gestire le aree di lavoro di Machine Learning per:
 
 - Monitorare la modalità d'uso dell'area di lavoro.
@@ -33,7 +36,7 @@ Nella scheda Dashboard viene inoltre fornita una panoramica dell'utilizzo dell'a
 
 Per gestire un'area di lavoro:
 
-1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com/) usando l'account Microsoft Azure. Usare l'account associato alla sottoscrizione di Azure.
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com/) usando l'account di Microsoft Azure associato alla sottoscrizione di Azure.
 2.	Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 3.	Fare clic sull'area di lavoro da gestire.
 
@@ -94,4 +97,4 @@ Fare clic sulla scheda **CONFIGURA** per modificare la descrizione, controllare 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->
