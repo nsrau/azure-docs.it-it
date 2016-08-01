@@ -14,6 +14,7 @@ Endpoint di streaming con stato in esecuzione per ogni account AMS </p></td>|2</
 Unità di streaming per endpoint di streaming </p></td>|10 </p></td>|N/D<sup>1</sup>
 Unità di codifica per ogni account AMS </p></td>|25</p></td>|N/D<sup>1</sup>
 Account di archiviazione | |1\.000<sup>5</sup>
+Criteri || 1\.000.000<sup>6</sup>
 
 <sup>1</sup> È possibile richiedere l'aggiornamento dei limiti per questa quota aprendo un ticket di supporto. Non creare altri account di Servizi multimediali di Azure per aumentare i limiti, ma inviare invece un ticket di supporto.
 
@@ -25,4 +26,6 @@ Account di archiviazione | |1\.000<sup>5</sup>
 
 <sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<sup>6</sup> è previsto un limite di 1.000.000 criteri per i diversi criteri di servizi multimediali di Azure (ad esempio, per i criteri Locator o ContentKeyAuthorizationPolicy). Se si utilizzano sempre gli stessi giorni, autorizzazioni di accesso e così via, è necessario utilizzare lo stesso ID criterio.
+
+<!---HONumber=AcomDC_0720_2016-->

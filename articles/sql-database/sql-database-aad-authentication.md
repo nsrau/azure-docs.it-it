@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="07/18/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory
@@ -83,11 +83,11 @@ Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure alt
 - È consigliabile impostare il timeout di connessione su 30 secondi.
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure Active Directory è supportata dal **provider di dati .NET Framework per SQL Server** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni livello dati (DAC e file con estensione bacpac) possono usare l'autenticazione di Azure Active Directory, ma **sqlcmd.exe** e **bcp.exe** non possono connettersi perché usano il provider ODBC.
 - SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
-- [Microsoft JDBC Driver 6.0 per SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/) supporta l'autenticazione di Azure Active Directory.
+- [Microsoft JDBC Driver 6.0 per SQL Server](https://www.microsoft.com/it-IT/download/details.aspx?id=11774) supporta l'autenticazione di Azure Active Directory. Vedere anche l'argomento su come [impostare le proprietà della connessione](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase non può eseguire l'autenticazione di Azure Active Directory.
 - SQL Server Management Studio non è supportato per SQL Data Warehouse. Usare SQL Server Data Tools.
 - Alcuni strumenti, come BI ed Excel, non sono supportati.
-- L'autenticazione a due fattori o altre forme di autenticazione interattiva non sono supportate.
+- L'autenticazione a più fattori (MFA/2FA) o altre forme di autenticazione interattiva non sono supportate.
 - L'autenticazione di Azure Active Directory è supportata per database SQL nei pannelli **Importa database** ed **Esporta database** del portale di Azure. L'importazione e l'esportazione tramite l'autenticazione di Azure Active Directory è supportata anche dal comando PowerShell.
 
 
@@ -98,7 +98,7 @@ Creare un'istanza di Azure Active Directory e popolarla con utenti e gruppi. Ope
 - Creare il dominio gestito di Azure AD iniziale.
 - Attuare la federazione di un'istanza di Servizi di dominio Active Directory locale con Azure Active Directory.
 
-Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione con Active Directory di Windows Server in Microsoft Azure), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), le informazioni sul [nuovo supporto per la federazione con Active Directory di Windows Server in Microsoft Azure](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Assicurarsi che il database SQL sia in un database SQL di Azure versione 12.
 
@@ -251,7 +251,7 @@ Per verificare che l'amministratore di Azure AD sia configurato correttamente, c
 
 Usare questo metodo se si è connessi a Windows con le credenziali di Azure Active Directory da un dominio federato.
 
-1. Avviare Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è necessaria e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
+1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è necessaria e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
 
 2. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -261,11 +261,9 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 
 Usare questo metodo se si è connessi a Windows con le credenziali di un dominio non federato con Azure o quando si usa l'autenticazione di Azure AD con Azure AD basato sul dominio iniziale o client.
 
-1. Avviare Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
+1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
 2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
-3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato.
-
-	![Selezionare Autenticazione della password di Active Directory][12]
+3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato. ![Selezionare Autenticazione della password di Active Directory][12]
 
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -368,4 +366,4 @@ Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.mic
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

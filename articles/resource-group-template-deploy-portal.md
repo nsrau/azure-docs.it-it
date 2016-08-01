@@ -23,6 +23,7 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
@@ -67,7 +68,7 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 
     ![visualizzare notifiche](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. Dopo aver distribuito le risorse, è possibile aggiungerne al gruppo di risorse usando il comando **Aggiungi** nel pannello del gruppo corrispondente.
+5. Dopo aver distribuito le risorse, è possibile aggiungerne altre al gruppo di risorse usando il comando **Aggiungi** nel pannello del gruppo corrispondente.
 
     ![aggiungere una risorsa](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -103,9 +104,9 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
 ## Distribuire risorse da un modello salvato nel proprio account
 
-Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'uso dei modelli salvati, consultare [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
+Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'utilizzo dei modelli salvati, vedere [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
-1. Per accedere ai modelli salvati, selezionare **Sfoglia** > **Modelli**.
+1. Per trovare i modelli salvati, selezionare **Sfoglia** > **Modelli**.
 
     ![esplorare i modelli](./media/resource-group-template-deploy-portal/browse-templates.png)
 
@@ -123,4 +124,4 @@ Il portale consente di salvare un modello nel proprio account Azure e di ridistr
 - Per risolvere gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Per recuperare un modello da un gruppo di risorse o di distribuzione, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

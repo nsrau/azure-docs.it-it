@@ -20,10 +20,12 @@
 # Spostare dati da e verso il BLOB di Azure mediante Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da e verso BLOB di Azure acquisendo i dati BLOB da un altro archivio dati. Questo articolo si basa sull'articolo relativo alle attività di spostamento dei dati, che offre una panoramica generale dello spostamento dei dati con l'attività di copia e delle combinazioni di archivio dati supportate.
 
-## Copia di dati guidata
-Il modo più semplice di creare una pipeline in grado di copiare i dati da/in Archiviazione BLOB di Azure consiste nell’utilizzare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+> [AZURE.NOTE] Questo connettore Blob di Azure attualmente supporta solo la copia da e verso i BLOB in blocchi. Supporta inoltre sia Archiviazione di Azure per scopi generici sia l'archiviazione BLOB a caldo e a freddo.
 
-Gli esempi di seguito forniscono le definizioni JSON campione da utilizzare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da/in Archiviazione BLOB di Azure e Database SQL Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+## Copia di dati guidata
+Il modo più semplice di creare una pipeline in grado di copiare i dati da/in Archiviazione BLOB di Azure consiste nell’utilizzare la procedura Copia di dati guidata. Per la procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
+
+Gli esempi riportati di seguito forniscono le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da/in Archiviazione BLOB di Azure e Database SQL Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 ## Esempio: Copiare i dati dal BLOB di Azure in SQL Azure
  
@@ -62,7 +64,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un BLOB di Azure a 
 	  }
 	}
 
-Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
 
 **Set di dati di input del BLOB di Azure:**
 
@@ -234,7 +236,7 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale da una ta
 	  }
 	}
 
-Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
 
 
 **Set di dati di input SQL Azure:**
@@ -390,7 +392,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- | 
 | folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\\myblobfolder\\ | Sì |
-| fileName | Nome del BLOB. Il valore fileName è facoltativo e fa distinzione tra maiuscole e minuscole.<br/><br/>Quando si specifica un nome file, l'attività (inclusa la copia) funziona sul BLOB specifico.<br/><br/>Quando fileName non viene specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato ha il formato seguente: Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
+| fileName | Nome del BLOB. Il valore fileName è facoltativo e fa distinzione tra maiuscole e minuscole.<br/><br/>Quando si specifica un nome di file, l'attività (inclusa la copia) opera sul BLOB specifico.<br/><br/>Quando fileName non viene specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato ha il formato seguente: Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione della proprietà [partitionedBy Leveraging](#Leveraging-partitionedBy-property) di seguito per informazioni dettagliate ed esempi. | No
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. La proprietà **type** in format deve essere impostata su uno di tali valori. Per informazioni dettagliate, vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat), [Specifica di JsonFormat](#specifying-jsonformat) e [Specifica di OrcFormat](#specifying-orcformat). Se si desidera copiare i file così come sono tra archivi basati su file (copia binaria), è possibile saltare la sezione formato sia nella definizione del set di dati di output che in quella di input.| No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate** e **BZip2** e i livelli supportati sono **Optimal** e **Fastest**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat** o **OrcFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
@@ -475,4 +477,4 @@ false | mergeFiles | Per una cartella di origine Cartella1 con la struttura segu
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

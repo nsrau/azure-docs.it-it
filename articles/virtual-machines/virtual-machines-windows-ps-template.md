@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Creare una macchina virtuale Windows con un modello di Gestione risorse
@@ -27,7 +27,7 @@ L'esecuzione della procedura illustrata in questo articolo richiede circa 20 min
 
 ## Passaggio 1: Creare il file del modello
 
-È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md). È anche possibile distribuire i modelli creati automaticamente per l'utente partendo da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). L'esempio illustrato in questo articolo è simile al modello descritto in [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/) (Distribuire una VM Windows semplice negli Stati Uniti occidentali).
+È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md). È anche possibile distribuire i modelli creati automaticamente per l'utente partendo da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
 1. Aprire l'editor di testo preferito e copiare le informazioni JSON in un nuovo file denominato *VirtualMachineTemplate.json*:
 
@@ -195,7 +195,7 @@ L'esecuzione della procedura illustrata in questo articolo richiede circa 20 min
           ]
         }
         
-    >[AZURE.NOTE] Questo articolo crea una macchina virtuale che esegue una versione del sistema operativo Windows Server. Per maggiori informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
+    >[AZURE.NOTE] Questo articolo crea una macchina virtuale che esegue una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
     
 2. Salvare il file di modello.
 
@@ -216,7 +216,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
           }
         }
 
-4. Salvare il file dei parametri.
+2. Salvare il file dei parametri.
 
 ## Passaggio 3: Installare Azure PowerShell
 
@@ -228,7 +228,7 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 
 1. Ottenere un elenco di località disponibili in cui possono essere create le risorse.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
 2. Sostituire il valore di **$locName** con una località dell'elenco, ad esempio **Stati Uniti centrali**. Creare la variabile.
 
@@ -247,15 +247,15 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Passaggio 7: Creare le risorse con il modello e i parametri
+### Passaggio 5: Creare le risorse con il modello e i parametri
 
-1. Sostituire il valore di **$deployName** con il nome della distribuzione. Sostituire il valore di **$templatePath** con il percorso e il nome del file del modello. Sostituire il valore di **$parameterFile** con il percorso e il nome del file dei parametri. Creare le variabili. 
+1. Sostituire il valore di **$deployName** con il nome della distribuzione. Sostituire il valore di **$templatePath** con il percorso e il nome del file del modello. Sostituire il valore di **$parameterFile** con il percorso e il nome del file dei parametri. Creare le variabili.
 
         $deployName="deployment name"
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Distribuire il modello.
+2. Distribuire il modello.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
@@ -281,7 +281,7 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 
 ## Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
+- Se si sono verificati problemi con la distribuzione, è consigliabile leggere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

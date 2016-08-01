@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Abilitare Transparent Data Encryption nel Centro sicurezza di Azure
@@ -26,14 +26,14 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
 ## Implementare la raccomandazione
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilita Transparent Data Encryption**. ![][1]
+1. Nel pannello **Raccomandazioni** selezionare **Abilita Transparent Data Encryption**. ![Abilitare Transparent Data Encryption][1]
 
-2. Viene visualizzato il pannello **Abilita Transparent Data Encryption nei database SQL**. Selezionare un database SQL su cui abilitare TDE. ![][2]
-3. Nel pannello **Transparent Data Encryption** selezionare **ON** in Crittografia dati e selezionare **Salva** nella barra multifunzione situata nella parte superiore del pannello. ![][3]
+2. Viene visualizzato il pannello **Abilita Transparent Data Encryption nei database SQL**. Selezionare un database SQL su cui abilitare la crittografiaTDE. ![Selezionare database SQL per abilitare la crittografia TDE][2]
+3. Nel pannello **Transparent Data Encryption** selezionare **ON** in Crittografia dati e selezionare **Salva** nella barra multifunzione situata nella parte superiore del pannello. ![Attivare la crittografia TDE][3]
 
   Dopo aver abilitato TDE nel database SQL selezionato, lo **Stato crittografia** diventerà **Crittografato**.
 
-  ![][4]
+  ![Stato della crittografia][4]
 
 ## Passaggi successivi
 
@@ -58,4 +58,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

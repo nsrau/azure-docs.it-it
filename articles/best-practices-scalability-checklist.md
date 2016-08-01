@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Elenco di controllo per la scalabilità
@@ -68,4 +68,4 @@
 - **Considerare la possibilità di ridurre al minimo il numero degli account del servizio**. Ad esempio, usare un account specifico per accedere alle risorse o ai servizi che impongono un limite per le connessioni o che vengono eseguiti in modo più efficiente dove vengono mantenute meno connessioni. Questo approccio è comune per i servizi, come ad esempio i database, ma può compromettere la possibilità di controllare accuratamente le operazioni a causa della rappresentazione dell'utente originale.
 - **Effettuare la profilatura delle prestazioni e il testing del carico** durante lo sviluppo come parte delle routine di test e prima del rilascio della versione finale per assicurarsi che l'applicazione venga eseguita e scalata come richiesto. Questo testing deve essere eseguito sullo stesso tipo di hardware disponibile nella piattaforma di produzione e con gli stessi tipi e quantità di dati e carico utente che si riscontreranno in produzione. Per altre informazioni, vedere [Test delle prestazioni di un servizio cloud](vs-azure-tools-performance-profiling-cloud-services.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

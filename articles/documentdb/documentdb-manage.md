@@ -18,7 +18,7 @@
 	ms.author="mimig"/>
 
 # Informazioni sull'archiviazione e sul provisioning con prestazioni stimabili in DocumentDB
-DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e completamente gestito per i documenti in formato JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software o monitorare database. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.
+Azure DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e completamente gestito per i documenti in formato JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software o monitorare database. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.
 
 È possibile iniziare a usare DocumentDB [creando un account database](documentdb-create-account.md) tramite il [portale di Azure](https://portal.azure.com/). DocumentDB è offerto in unità di risorse di archiviazione e velocità effettiva basate su unità SSD. Queste unità sono sottoposte a provisioning mediante la creazione di raccolte di database all'interno dell'account di database. Ogni raccolta ha una velocità effettiva riservata. Se i requisiti di velocità effettiva dell'applicazione cambiano, è possibile modificare dinamicamente questa impostazione configurando il [livello di prestazioni](documentdb-performance-levels.md) per ogni raccolta.
 
@@ -60,7 +60,7 @@ Ci sono diversi fattori che influiscono sulle unità di richiesta utilizzate per
 - Dimensioni del documento. Con l'aumento delle dimensioni del documento aumentano anche le unità utilizzate per leggere o scrivere i dati.
 - Numero delle proprietà. presupponendo l'indicizzazione predefinita di tutte le proprietà, le unità utilizzate per scrivere un documento aumenteranno con l'aumento del numero delle proprietà.
 - Coerenza dei dati. se si usano i livelli di coerenza dei dati Assoluta o Obsolescenza associata, verranno utilizzate ulteriori unità per leggere i documenti.
-- Proprietà indicizzate. I criteri di indicizzazione in ogni raccolta determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità di richiesta limitando il numero di proprietà indicizzate. 
+- Proprietà indicizzate. I criteri di indicizzazione in ogni raccolta determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità di richiesta limitando il numero di proprietà indicizzate.
 - Indicizzazione del documento. Per impostazione predefinita ogni documento viene indicizzato automaticamente, ma se si sceglie di non indicizzare alcuni documenti si utilizzeranno meno unità di richiesta.
 
 Per altre informazioni, vedere l'articolo relativo alle [unità richiesta di DocumentDB](documentdb-request-units.md).
@@ -132,4 +132,4 @@ Per istruzioni su come monitorare i livelli di prestazioni nel portale di Azure,
 Per altre informazioni sulla scelta dei livelli di prestazioni delle raccolte, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

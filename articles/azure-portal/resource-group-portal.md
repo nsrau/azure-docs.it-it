@@ -23,12 +23,13 @@
 - [Portale](azure-portal/resource-group-portal.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) per gestire le risorse di Azure. Per informazioni sulla distribuzione delle risorse mediante il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
+Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) per gestire le risorse di Azure. Per informazioni sulla distribuzione delle risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
 Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità dei portali di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -39,12 +40,12 @@ Il portale fornisce un dashboard che è possibile usare per il monitoraggio e la
 
 ![dashboard](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] Il modo migliore per acquisire familiarità con i dashboard è guardare il video sulla [creazione di dashboard personalizzati nel portale di Microsoft Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
+> [AZURE.TIP] Il modo migliore per acquisire familiarità con i dashboard è guardare il video [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) sulla creazione di dashboard personalizzati nel portale di Microsoft Azure.
 
 ### Condivisione dei dashboard di Azure e controllo di accesso
-Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure governa l'accesso alle informazioni visualizzate nei riquadri nel portale. Tutti i dashboard pubblicati sono implementati come risorse di Azure. Dal punto di vista del controllo di accesso, i dashboard non sono diversi da una macchina virtuale o da un account di archiviazione.
+Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure gestisce l'accesso alle informazioni visualizzate nei riquadri nel portale. Tutti i dashboard pubblicati sono implementati come risorse di Azure. Dal punto di vista del controllo di accesso, i dashboard non sono diversi da una macchina virtuale o da un account di archiviazione.
 
-Di seguito è fornito un esempio. Si supponga di avere una sottoscrizione di Azure e che a diversi membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione. Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio per risolvere un problema, ma non pubblicarle nel server. Hanno comunque la possibilità di creare una copia privata del dashboard per se stessi.
+Di seguito è fornito un esempio. Si supponga di avere una sottoscrizione di Azure e che a diversi membri del team siano stati assegnati i ruoli di **Proprietario**, **Collaboratore** o **Lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione. Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio per risolvere un problema, ma non pubblicarle nel server. Hanno comunque la possibilità di creare una copia privata del dashboard per se stessi.
 
 I singoli riquadri del dashboard applicano requisiti di controllo di accesso personalizzati in base alle risorse che visualizzano. Perciò è possibile progettare un dashboard condiviso più ampiamente, continuando comunque a proteggere i dati nei singoli riquadri.
 
@@ -129,6 +130,6 @@ Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute
 
 - Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](../resource-group-audit.md).
 - Per risolvere gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Per la distribuzione di risorse mediante il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
+- Per la distribuzione di risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

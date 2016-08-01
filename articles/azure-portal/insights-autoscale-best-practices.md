@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/15/2016"
 	ms.author="ashwink"/>
 
 # Procedure consigliate per la scalabilità automatica in Azure Insights
@@ -75,7 +75,7 @@ Per far comprendere meglio il comportamento, verrà illustrato con esempio.
 - Aumentare le istanze di 1 quando il conteggio dei messaggi della coda di archiviazione è >= 50
 - Ridurre le istanze di 1 quando il conteggio dei messaggi della coda di archiviazione è <= 10
 
-Si supponga di iniziare con 2 istanze. Si supponga ora che continuino ad arrivare messaggi e che, quando si controlla la coda di archiviazione, il conteggio totale sia pari a 50. Si potrebbe pensare che la scalabilità automatica debba avviare un'azione di aumento del numero di istanze. Si noti tuttavia che si tratta comunque di 50/2 = 25 messaggi per ogni istanza. L'aumento del numero di istanze non viene quindi eseguito. Perché venga eseguito il primo aumento del numero di istanze, il conteggio totale dei messaggi nella coda di archiviazione deve essere pari a 100. Si supponga ora che il conteggio totale dei messaggi raggiunga i 100. Viene aggiunta una terza istanza in seguito a un'azione di aumento del numero di istanze. L'azione successiva di aumento del numero di istanze verrà eseguita solo dopo che il conteggio totale dei messaggi nella coda avrà raggiunto il numero di 300. Ora verrà esaminata un'azione di riduzione del numero di istanze. Si supponga che il numero di istanze sia 3. La prima azione di riduzione del numero di istanze viene eseguita quando i messaggi totali nella coda raggiungono il numero di 30, ovvero 30/3 = 10 messaggi per istanza, che corrisponde alla soglia di riduzione del numero di istanze.
+Si supponga di iniziare con 2 istanze. Si supponga ora che continuino ad arrivare messaggi e che, quando si controlla la coda di archiviazione, il conteggio totale sia pari a 50. Si potrebbe pensare che la scalabilità automatica debba avviare un'azione di aumento del numero di istanze. Si noti tuttavia che si tratta comunque di 50/2 = 25 messaggi per ogni istanza. L'aumento del numero di istanze non viene quindi eseguito. Perché venga eseguito il primo aumento del numero di istanze, il conteggio totale dei messaggi nella coda di archiviazione deve essere pari a 100. Si supponga ora che il conteggio totale dei messaggi raggiunga i 100. Viene aggiunta una terza istanza in seguito a un'azione di aumento del numero di istanze. L'azione successiva di aumento del numero di istanze verrà eseguita solo dopo che il conteggio totale dei messaggi nella coda avrà raggiunto il numero di 150. Ora verrà esaminata un'azione di riduzione del numero di istanze. Si supponga che il numero di istanze sia 3. La prima azione di riduzione del numero di istanze viene eseguita quando i messaggi totali nella coda raggiungono il numero di 30, ovvero 30/3 = 10 messaggi per istanza, che corrisponde alla soglia di riduzione del numero di istanze.
 
 ### Considerazioni sul ridimensionamento quando vengono configurati più profili in un'impostazione di scalabilità automatica
 
@@ -126,4 +126,4 @@ La scalabilità automatica invia una notifica tramite posta elettronica agli amm
 - Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 - Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità. Oltre alle condizioni precedenti, è possibile configurare notifiche di posta elettronica o webhook per ricevere notifiche relative alle azioni di scalabilità riuscite.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

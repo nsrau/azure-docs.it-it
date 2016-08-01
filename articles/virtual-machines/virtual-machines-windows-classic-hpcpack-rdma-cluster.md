@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
 # Configurare un cluster RDMA Windows con HPC Pack e istanze di dimensioni A8 e A9 per l'esecuzione di applicazioni MPI
@@ -22,12 +22,12 @@ Configurare un cluster RDMA Windows in Azure con [Microsoft HPC Pack](https://te
 
 Per eseguire carichi di lavoro MPI in macchine virtuali Linux che accedono alla rete RDMS in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Opzioni di distribuzione del cluster HPC Pack
 Microsoft HPC Pack è uno strumento disponibile senza costi aggiuntivi per creare cluster HPC basati su Windows Server in Azure. HPC Pack include un ambiente di runtime per l'implementazione Microsoft di Message Passing Interface per Windows (MS-MPI). Se usato con istanze di dimensioni A8 e A9, HPC Pack offre un modo efficiente per eseguire applicazioni MPI basate su Windows che accedono alla rete RDMA in Azure.
 
-Questo articolo descrive due scenari per la distribuzione di istanze A8 e A9 in cluster con Microsoft HPC Pack.
+Questo articolo descrive due scenari e fornisce i collegamenti a indicazioni dettagliate per la distribuzione di istanze A8 e A9 in cluster con Microsoft HPC Pack.
 
 * Scenario 1. Distribuzione di istanze del ruolo di lavoro a elevato utilizzo di calcolo (PaaS)
 
@@ -50,10 +50,6 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 >[AZURE.NOTE] Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni nella procedura seguente si applicano specificatamente ai nodi di Azure di dimensioni A8 e A9.
 
 ![Burst in Azure][burst]
-
-### Considerazioni sull'uso di istanze A8 e A9
-
-* **Nodi proxy**: in ogni burst nella distribuzione di Azure con le istanze a elevato utilizzo di calcolo, HPC Pack distribuisce automaticamente minimo 2 istanze con dimensioni A8 come nodi proxy, oltre alle istanze del ruolo di lavoro di Azure specificate. I modi proxy usano core allocati alla sottoscrizione e comportano un addebito insieme alle istanze del ruolo di lavoro di Azure.
 
 ### Passaggi
 
@@ -80,6 +76,8 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
     Usare l'Aggiunta guidata nodi in Gestione cluster HPC. Per altre informazioni, vedere l'argomento relativo all'[aggiunta di nodi di Azure al cluster HPC Windows](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
 
     Quando si specificano le dimensioni dei nodi, selezionare A8 o A9.
+    
+    >[AZURE.NOTE]In ogni burst nella distribuzione di Azure con le istanze a elevato utilizzo di calcolo, HPC Pack distribuisce automaticamente minimo 2 istanze con dimensioni A8 come nodi proxy, oltre alle istanze del ruolo di lavoro di Azure specificate. I modi proxy usano core allocati alla sottoscrizione e comportano un addebito insieme alle istanze del ruolo di lavoro di Azure.
 
 9. **Avviare i nodi (effettuare il provisioning) e portarli online per eseguire i processi**
 
@@ -111,7 +109,9 @@ In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del
 
     Scaricare il pacchetto dello script di distribuzione IaaS di HPC Pack dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
-    Per preparare il computer client, creare il file di configurazione dello script ed eseguire lo script. Vedere [Creare un cluster HPC Windows con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). Per distribuire nodi di calcolo di dimensioni A8 e A9, si notino le considerazioni aggiuntive seguenti:
+    Per preparare il computer client, creare il file di configurazione dello script ed eseguire lo script. Vedere [Creare un cluster HPC Windows con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+    
+    Per distribuire nodi di calcolo di dimensioni A8 e A9, si notino le considerazioni aggiuntive seguenti:
     
     * **Rete virtuale**: specificare una nuova rete virtuale in un'area in cui sono disponibili le istanze A8 e A9.
 
@@ -164,7 +164,7 @@ Per eseguire mpipingpong sul cluster:
     In un cluster HPC Pack distribuito in macchine virtuali di Azure specificare un gruppo di nodi contenente le macchine virtuali del nodo di calcolo distribuite in un singolo servizio cloud e modificare il comando **mpiexec** come segue:
 
     ```
-    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
+    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
 
 3. Al termine del processo, per visualizzare l'output, in questo caso l'output dell'attività 1 del processo, digitare quanto riportato di seguito:
@@ -243,4 +243,4 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

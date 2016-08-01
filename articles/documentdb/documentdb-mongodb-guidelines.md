@@ -18,7 +18,7 @@
 
 # Visualizzare l'anteprima delle linee guida sullo sviluppo per account DocumentDB con supporto del protocollo per MongoDB
 
-È possibile comunicare con DocumentDB tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers/) open source del client MongoDB. Il supporto del protocollo per MongoDB presuppone che i driver del client MongoDB comunichino con un endpoint server MongoDB 2.6 o versione successiva. DocumentDB supporta tale approccio aderendo al [protocollo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/), di MongoDB versione 2.6. Si noti che il protocollo di rete versione 3.2 è quasi completamente supportato, ma alcune esperienze client, ad esempio le sessioni della shell di MongoDB versione 3.2, potrebbero indicare che "verrà effettuato il passaggio alla modalità legacy".
+È possibile comunicare con Azure DocumentDB tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers/) open source del client MongoDB. Il supporto del protocollo per MongoDB presuppone che i driver del client MongoDB comunichino con un endpoint server MongoDB 2.6 o versione successiva. DocumentDB supporta tale approccio aderendo al [protocollo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/), di MongoDB versione 2.6. Si noti che il protocollo di rete versione 3.2 è quasi completamente supportato, ma alcune esperienze client, ad esempio le sessioni della shell di MongoDB versione 3.2, potrebbero indicare che "verrà effettuato il passaggio alla modalità legacy".
 
 DocumentDB supporta le funzioni principali dell'API MongoDB, per eseguire operazioni CRUD (Create, Read, Update and Delete) sui dati, oltre ad eseguire query nel database. Le funzionalità implementate sono state classificate in base alle esigenze di piattaforme, framework, strumenti e modelli di applicazione comuni.
 
@@ -100,4 +100,4 @@ Diagnostic|listDatabases, collStats, dbStats| |Tutti gli altri elementi
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,10 +19,10 @@
 
 # Quote predefinite per DocumentDB
 
-Nella tabella seguente sono descritte le quote predefinite per le risorse di DocumentDB.
+Nella tabella seguente sono descritte le quote predefinite per le risorse del database di Azure DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

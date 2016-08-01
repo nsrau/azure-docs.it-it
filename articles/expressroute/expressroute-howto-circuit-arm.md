@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr"/>
 
 
@@ -313,7 +313,7 @@ La risposta ha un aspetto simile all'esempio seguente:
 - Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
 - Aumentare la larghezza di banda del circuito ExpressRoute. Si noti che il downgrade della larghezza di banda di un circuito non è supportato.
 - Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. Si noti che la modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
--  È possibile abilitare e disabilitare l'opzione *Allow Classic Operations* (Consenti operazioni classiche).
+-  È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
 
 Per altre informazioni su limiti e limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
@@ -412,4 +412,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ L'integrazione di GaggleAMP con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a GaggleAMP
 - È possibile abilitare gli utenti per l'accesso automatico a GaggleAMP (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure classico 
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -61,7 +61,7 @@ Per configurare l'integrazione di GaggleAMP in Azure AD, è necessario aggiunger
 
 **Per aggiungere GaggleAMP dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -137,7 +137,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. In un'altra istanza del browser, passare alla pagina dell'accesso Single Sign-On SAML creata dal team di supporto di Gaggle (ad esempio: **https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+5. In un'altra istanza del browser passare alla pagina dell'accesso Single Sign-On SAML creata dal team di supporto di Gaggle, ad esempio: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*.
 
 6. Nella pagina **SAML SSO** seguire questa procedura:
    
@@ -286,4 +286,4 @@ Quando si fa clic sul riquadro GaggleAMP nel pannello di accesso, si dovrebbe ac
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

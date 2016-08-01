@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
 
@@ -43,7 +43,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 -  [Passaggio 1: Completare l'installazione dell'interfaccia utente Web locale e registrare il dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [Passaggio 2: Completare l'installazione del dispositivo richiesta](#step-2-complete-the-required-device-setup)
 -  [Passaggio 3: Aggiungere un volume](#step-3-add-a-volume)
--  [Passaggio 4: Montare, inizializzare e formattare un volume](#step-4-mount-initialize-and-format-a-volume)  
+-  [Passaggio 4: Montare, inizializzare e formattare un volume](#step-4-mount-initialize-and-format-a-volume)
 
 ## Passaggio 1: Completare l'installazione dell'interfaccia utente Web locale e registrare il dispositivo 
 
@@ -87,16 +87,13 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     3. Specificare se si desidera che il dispositivo sia aggiunto al dominio. Se il dispositivo è un server iSCSI, l'aggiunta del dominio è facoltativa. Se si decide di non aggiungere il server iSCSI a un dominio, fare clic su **Applica**, attendere l'applicazione delle impostazioni, quindi andare al passaggio successivo.
 
-        Se si desidera aggiungere il dispositivo a un dominio. Immettere un **Nome di dominio** (riportato sotto).
+        Se si desidera aggiungere il dispositivo a un dominio. Immettere un **nome di dominio**, quindi fare clic su **Applica**.
 
-    4. Fare clic su **Apply**.
+        > [AZURE.NOTE] Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
 
     5. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
-        
-	   	> [AZURE.NOTE] Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
-	   
 
     6. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
  
@@ -106,7 +103,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     Nella pagina **Proxy Web**:
 
-    1. Fornire l'**URL proxy Web** in questo formato: *http://host-IP address* o *FDQN:Port number*. Notare che gli URL HTTPS non sono supportati.
+    1. Fornire l'**URL proxy Web** in questo formato: *http://host-IPaddress* o *FDQN:Port number*. Notare che gli URL HTTPS non sono supportati.
 
     2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
 
@@ -122,9 +119,9 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1. Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
 
-    2. Specificare un **Primary NTP server** (Server NTP primario) per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
+    2. Specificare un **Server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
 
-    3. Facoltativamente, specificare un **Secondary NTP server** (Server NTP secondario) per il dispositivo.
+    3. Facoltativamente, specificare un **Server NTP secondario** per il dispositivo.
 
     4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 
@@ -132,7 +129,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, vedere l'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -196,7 +193,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
         Al contrario, un volume a livelli viene sottoposto a thin provisioning e può essere creato molto velocemente. Quando si crea un volume a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli (perché il 10% non è disponibile).
 
-    4. Specificare la capacità sottoposta a provisioning per il volume. Notare che la capacità specificata deve essere inferiore rispetto alla capacità disponibile. Se si sta creando un volume a livelli, la dimensione deve essere compresa tra 500 GB e 20 TB. Per un volume aggiunto in locale, specificare una dimensione di volume tra 50 GB e 2 TB. Usare la capacità disponibile come guida per il provisioning di un volume. Se la capacità locale disponibile è di 0 GB, non è consentito eseguire il provisioning di un volume aggiunto in locale o a livelli.
+    4. Specificare la capacità sottoposta a provisioning per il volume. Notare che la capacità specificata deve essere inferiore rispetto alla capacità disponibile. Se si sta creando un volume a livelli, la dimensione deve essere compresa tra 500 GB e 5 TB. Per un volume aggiunto in locale, specificare una dimensione di volume tra 50 GB e 500 GB. Usare la capacità disponibile come guida per il provisioning di un volume. Se la capacità locale disponibile è di 0 GB, non è consentito eseguire il provisioning di un volume aggiunto in locale o a livelli.
 
         ![Impostazioni di base](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
@@ -284,7 +281,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## Passaggi successivi
 
-Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+[Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -303,4 +300,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

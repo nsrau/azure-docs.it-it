@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Esempi di configurazione del router per l'impostazione e la gestione del routing
@@ -210,4 +210,4 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
 
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

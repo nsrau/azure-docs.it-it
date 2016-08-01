@@ -25,12 +25,12 @@ Service Fabric consente di specificare due certificati (uno primario e uno secon
 ## Aggiungere un certificato secondario
 Per aggiungere un altro certificato come secondario, è necessario caricarlo in un insieme di credenziali delle chiavi di Azure e quindi distribuirlo per le macchine virtuali nel cluster. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-1. [Caricare un certificato X.509 nell’insieme di credenziali delle chiavi](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
+1. [Caricare un certificato X.509 nell’insieme di credenziali delle chiavi](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. Accedere al [portale di Azure](https://portal.azure.com/) e passare alla risorsa del cluster a cui si vuole aggiungere questo certificato.
 3. In **Impostazioni** fare clic sull'impostazione relativa ai certificati e immettere l'identificazione personale del certificato secondario.
 4. Fare clic su **Save**. Verrà avviata una distribuzione. Se questa viene completata correttamente, sarà possibile usare il certificato primario o quello secondario per eseguire operazioni di gestione sul cluster.
 
-![Schermata delle identificazioni personali del certificato nel portale][SecurityConfigurations_02]
+![Schermata delle identificazioni personali del certificato nel portale] [SecurityConfigurations\_02]
 
 ## Rimuovere un certificato
 Ecco la procedura per rimuovere un certificato precedente in modo che il cluster non lo usi:
@@ -49,4 +49,4 @@ Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

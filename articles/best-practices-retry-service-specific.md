@@ -8,15 +8,17 @@
    editor=""
    tags=""/>
 
+   
 <tags
    ms.service="best-practice"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
+   
 # Indicazioni specifiche del servizio per la ripetizione di tentativi
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
@@ -39,7 +41,7 @@ La tabella seguente riepiloga le caratteristiche dei meccanismi di ripetizione d
 | **[DocumentDB](#documentdb-pre-release-retry-guidelines)** | Native nel servizio | Non configurabili | Globale | TraceSource |
 | **[Ricerca](#search-retry-guidelines)** | Topaz* (con strategia di rilevamento personalizzata) | Dichiarativa e a livello di codice | Blocchi di codice | Personalizzate |
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con strategia di rilevamento personalizzata) | Dichiarativa e a livello di codice | Blocchi di codice | Personalizzate |
-**Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies), alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
+*Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies), alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
 
 > [AZURE.NOTE] Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
 
@@ -1107,4 +1109,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

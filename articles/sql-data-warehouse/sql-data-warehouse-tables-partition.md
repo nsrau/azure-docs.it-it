@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Tabelle di partizionamento in SQL Data Warehouse
@@ -145,6 +145,8 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## Cambio di partizione
+
+SQL Data Warehouse supporta la suddivisione, l'unione e il cambio di partizioni. Ognuna di queste funzioni viene eseguita utilizzando l'istruzione [ALTER TABLE][].
 
 Per il cambio di partizione tra due tabelle, è necessario verificare che le partizioni siano allineate sui rispettivi limiti e che le definizioni delle tabelle corrispondano. Poiché non sono disponibili vincoli CHECK per imporre l'intervallo di valori in una tabella, la tabella di origine deve contenere gli stessi limiti di partizione della tabella di destinazione. In caso contrario, il cambio di partizione non riuscirà, perché i metadati della partizione non verranno sincronizzati.
 
@@ -372,6 +374,7 @@ Per ulteriori informazioni, vedere gli articoli su [panoramica delle tabelle][Ov
 
 <!-- MSDN Articles -->
 [Tabelle e indici partizionati]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/it-IT/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [funzione di partizione]: https://msdn.microsoft.com/library/ms187802.aspx
 [schema di partizione]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -379,4 +382,4 @@ Per ulteriori informazioni, vedere gli articoli su [panoramica delle tabelle][Ov
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

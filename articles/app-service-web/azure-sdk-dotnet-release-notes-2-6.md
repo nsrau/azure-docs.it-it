@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
  
@@ -26,7 +26,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 ##Aggiornamenti al bus di servizio
 
-- Hub eventi: 
+- Hub eventi:
 
 	- È ora possibile un controllo degli accessi mirato quando si inviano eventi tramite l'esposizione di un endpoint dell'editore aggiuntivo per l'Hub eventi.
 	- Maggiore stabilità e altri miglioramenti aggiunti alla funzionalità Hub eventi.
@@ -48,15 +48,15 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 	HDInsight Tools per Visual Studio supporta ora i cluster Hadoop generici. È quindi possibile usare HDInsight Tools per Visual Studio per eseguire le operazioni seguenti:
 
-	- Connettersi al cluster 
-	- Scrivere una query Hive con supporto migliorato per IntelliSense/completamento automatico 
-	- Visualizzare tutti i processi del cluster con un'interfaccia utente intuitiva 
+	- Connettersi al cluster
+	- Scrivere una query Hive con supporto migliorato per IntelliSense/completamento automatico
+	- Visualizzare tutti i processi del cluster con un'interfaccia utente intuitiva
 
 	Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
 ##Aggiornamenti alla Cache nel ruolo
 
-- La **Cache nel ruolo** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo** ha usato Azure Storage SDK versione 1.7.
+- La **Cache nel ruolo ** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo ** ha usato Azure Storage SDK versione 1.7.
 
 	I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK.
 
@@ -72,7 +72,7 @@ Gli elementi seguenti sono stati aggiornati nella versione Azure SDK 2.6.
 - Funzionalità di provisioning delle app per le API per offrire la funzionalità di creazione e provisioning delle app per le API agli utenti.
 - Esplora server modificato per riflettere il nuovo nodo App Service, con app Web, mobili e per le API raggruppate in base a Gruppo di risorse.
 - Gesto Aggiungi client di app per le API di Azure aggiunto alla maggior parte dei progetti C# che permetteranno la generazione automatica di app per le API abilitate per Swagger in esecuzione nella sottoscrizione di Azure di un utente.
-- Gli strumenti delle app per le API e il nodo App Service in Esplora server sono disponibili solo in Visual Studio 2013. 
+- Gli strumenti delle app per le API e il nodo App Service in Esplora server sono disponibili solo in Visual Studio 2013.
 
 ##Aggiornamenti agli strumenti di Gestione risorse di Azure
 
@@ -93,7 +93,7 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
  
 ##Problemi noti
 
-- Per la raccolta di log di diagnostica nell'emulatore è necessario un sistema operativo a 64 bit. I log di diagnostica non verranno raccolti se si usa un sistema operativo a 32 bit. Ciò non influisce su altre funzionalità dell'emulatore. 
+- Per la raccolta di log di diagnostica nell'emulatore è necessario un sistema operativo a 64 bit. I log di diagnostica non verranno raccolti se si usa un sistema operativo a 32 bit. Ciò non influisce su altre funzionalità dell'emulatore.
 
 - La versione Azure SDK 2.6 rilasciata il 29/04/2015 presenta due problemi:
 
@@ -108,4 +108,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -33,7 +33,7 @@ Per creare un archivio di un database SQL di Azure, è possibile esportare lo sc
 - La dimensione massima di un file BACPAC salvato nell'archivio BLOB di Azure è pari a 200 GB. Per archiviare un file BACPAC più grande in un percorso locale, usare l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Questa utilità è disponibile sia in Visual Studio che in SQL Server. È inoltre possibile [scaricare](https://msdn.microsoft.com/library/mt204009.aspx) la versione più recente di SQL Server Data Tools per ottenere questa utilità.
 - L'archiviazione Premium di file BACPAC in Azure non è supportata.
 - Se l'operazione di esportazione dura oltre 20 ore, potrebbe essere annullata. Per migliorare le prestazioni durante l'esportazione è possibile:
- - Aumentare temporaneamente il livello di servizio. 
+ - Aumentare temporaneamente il livello di servizio.
  - Interrompere tutte le attività di lettura e scrittura durante l'esportazione.
  - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero.
 
@@ -42,7 +42,7 @@ Per creare un archivio di un database SQL di Azure, è possibile esportare lo sc
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure.
-- Database SQL di Azure. 
+- Database SQL di Azure.
 - Un [account di Archiviazione Standard di Azure](../storage/storage-create-storage-account.md) con un contenitore BLOB per archiviare il file BACPAC nella risorsa di archiviazione standard.
 
 ## Esportazione del database
@@ -104,4 +104,4 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con CloudPassage
 
-L'obiettivo di questa esercitazione è illustrare come integrare CloudPassage con Azure Active Directory (Azure AD).<br>L'integrazione di CloudPassage con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive l'integrazione di CloudPassage con Azure Active Directory (Azure AD). L'integrazione di CloudPassage con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a CloudPassage. 
+- È possibile controllare in Azure AD chi può accedere a CloudPassage.
 - È possibile abilitare gli utenti per l'accesso automatico a CloudPassage (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: Azure Active Directory 
-- 
+- È possibile gestire gli account da una posizione centrale: Azure Active Directory
+
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -42,13 +42,13 @@ Per configurare l'integrazione di Azure AD con CloudPassage, sono necessari gli 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di test di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non si dispone di un ambiente di test di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di CloudPassage dalla raccolta 
+1. Aggiunta di CloudPassage dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -57,22 +57,38 @@ Per configurare l'integrazione di CloudPassage in Azure AD, è necessario aggiun
 
 ### Per aggiungere CloudPassage dalla raccolta, seguire questa procedura:
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+ 
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br> ![Applicazioni][2]
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]
-6. Nella casella di ricerca digitare **CloudPassage**.<br><br> ![Applicazioni][5]
-7. Nel riquadro dei risultati selezionare **CloudPassage** e quindi fare clic su **Completa** per aggiungere l'applicazione.<br><br> ![Applicazioni][6]
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+
+	![Applicazioni][2]
+
+4. Fare clic su **Add** nella parte inferiore della pagina.
+
+	![Applicazioni][3]
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **CloudPassage**.
+
+	![Applicazioni][5]
+
+7. Nel riquadro dei risultati selezionare **CloudPassage** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Applicazioni][6]
 
 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con CloudPassage in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di CloudPassage che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CloudPassage.<br> La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **nome utente** in CloudPassage.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di CloudPassage che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CloudPassage. La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **nome utente** in CloudPassage.
  
 Per configurare e testare l'accesso Single Sign-On di Azure AD con CloudPassage, è necessario completare i blocchi predefiniti seguenti:
 
@@ -84,110 +100,166 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con CloudPassage,
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione CloudPassage.<br> L'applicazione CloudPassage prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente mostra un esempio di questa operazione. <br><br> ![Configura accesso Single Sign-On][21]
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione CloudPassage. L'applicazione CloudPassage prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione.
+
+![Configura accesso Single Sign-On][21]
 
 **Per configurare Single Sign-On di Azure AD con CloudPassage, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **CloudPassage** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][7]
+1. Nella pagina di integrazione dell'applicazione **CloudPassage** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a CloudPassage** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.<br><br> ![Configura accesso Single Sign-On][8]
+	![Configura accesso Single Sign-On][7]
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configurare le impostazioni dell'app][9]
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a CloudPassage** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On][8]
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configurare le impostazioni dell'app][9]
  
-     3\.1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione CloudPassage, ad esempio: **https://portal.cloudpassage.com/saml/init/accountid*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione CloudPassage, ad esempio: *https://portal.cloudpassage.com/saml/init/accountid*.
 
-     3\.2. Nella casella di testo URL di risposta digitare l'URL AssertionConsumerService, ad esempio: **https://portal.cloudpassage.com/saml/consume/accountid*). <br> È possibile ottenere il valore di questo attributo facendo clic su **SSO Setup documentation** nella sezione **Single Sign-On Settings** del portale CloudPassage. <br><br>![Configura accesso Single Sign-On][10]
+    b. Nella casella di testo **URL di risposta** digitare l'URL AssertionConsumerService, ad esempio: *https://portal.cloudpassage.com/saml/consume/accountid*. È possibile ottenere il valore di questo attributo facendo clic su **SSO Setup documentation* (Documentazione della configurazione SSO) nella sezione *Single Sign-On Settings* (Impostazioni Single Sign-On) del portale di CloudPassage. ![Configura accesso Single Sign-On][10]
 
-     3\.3. Fare clic su **Next**.
+    C. Fare clic su **Avanti**.
 
 
 
-4. Nella pagina **Configura accesso Single Sign-On in CloudPassage** fare clic su **Download certificato** e infine salvare il certificato localmente nel computer. <br><br>![Configura accesso Single Sign-On][11]
+4. Nella pagina **Configura accesso Single Sign-On in CloudPassage** fare clic su **Scarica certificato** e quindi salvare il file del certificato in locale nel computer.
+
+	![Configura accesso Single Sign-On][11]
 
 5. In un'altra finestra del Web browser accedere al sito aziendale di CloudPassage come amministratore.
 
-6. Nel menu in alto fare clic su **Settings** e quindi su **Site Administration**. <br><br> ![Configura accesso Single Sign-On][12]
+6. Nel menu in alto fare clic su **Settings** (Impostazioni) e quindi su **Site Administration** (Amministrazione sito).
 
-7. Fare clic sulla scheda **Authentication Settings**. <br><br> ![Configura accesso Single Sign-On][13]
+	![Configura accesso Single Sign-On][12]
+
+7. Fare clic sulla scheda **Authentication Settings** (Impostazioni autenticazione).
+
+	![Configura accesso Single Sign-On][13]
 
 
-8. Nella sezione **Single Sign-On Settings** seguire questa procedura: <br><br> ![Configura accesso Single Sign-On][14]
+8. Nella sezione **Single Sign-On Settings** (Impostazioni Single Sign-On) seguire questa procedura:
+
+	![Configura accesso Single Sign-On][14]
 
 
-     8\.1 Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **SAML issuer URL**.
+    a. Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **SAML issuer URL** (URL autorità di certificazione SAML).
 
-     8\.2. Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **Endpoint inizializzato da provider di servizi** e incollarlo nella casella di testo **SAML endpoint URL**.
+    b. Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **Endpoint avviato da provider di servizi** e incollarlo nella casella di testo **SAML endpoint URL** (URL endpoint SAML).
 
-     8\.3. Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **URL disconnessione** e incollarlo nella casella di testo **Logout landing page**.
+    c. Nella finestra di dialogo **Configura accesso Single Sign-On in CloudPassage** del portale di Azure classico copiare il valore di **URL disconnessione** e incollarlo nella casella di testo **Logout landing page** (Pagina di destinazione disconnessione).
 
-     8\.4. Creare un file con codifica **Base 64** dal certificato scaricato.
+    d. Creare un file con codifica **Base 64** dal certificato scaricato.
           
-      >[AZURE.TIP] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+    >[AZURE.TIP] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-     8\.5. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **x 509 certificate**.
+    e. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **x 509 certificate**.
 
-     8\.6. Fare clic su **Save**.
-
-
-9. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On][15]
+    f. Fare clic su **Save**.
 
 
-10. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br> ![Configura accesso Single Sign-On][16]
+9. Nel portale di Azure AD classico selezionare la conferma della configurazione e fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On][15]
+
+
+10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+
+	![Configura accesso Single Sign-On][16]
 
 
 
-11. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**. <br><br> ![Configura accesso Single Sign-On][17]
+11. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
 
-12. Per aggiungere gli attributi utente necessari, per ciascuna riga della tabella seguire questa procedura: <br>
+	![Configura accesso Single Sign-On][17]
 
-| Nome attributo | Valore attributo |
-| --- | --- |
-| firstname | user.givenname |
-| lastname | user.surname |
-| email | user.mail |  
+12. Per aggiungere gli attributi utente necessari, per ciascuna riga della tabella seguire questa procedura:
 
-     12.1. Click **add user attribute**. <br><br> ![Configure Single Sign-On][18]
+	| Nome attributo | Valore attributo |
+	| --- | --- |
+	| firstname | user.givenname |
+	| lastname | user.surname |
+	| email | user.mail |
 
-     12.2. In the **Attribute Name** textbox, type the attribute name shown for that row and as **Attribure Value**, select the attribute value shown for that row . <br><br> ![Configure Single Sign-On][19]
+ 
+
+	a. Fare clic su **Aggiungi attributo utente**.
+
+	![Configura accesso Single Sign-On][18]
+
+    b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo visualizzato per la riga. In **Valore attributo** selezionare il valore dell'attributo visualizzato per la riga.
+
+	![Configura accesso Single Sign-On][19]
      
-     12.2.3 Click **Complete**.
+    c. Fare clic su **Complete**.
 
 
-13. Scegliere quindi **Applica modifiche** dal menu inferiore. <br><br> ![Configura accesso Single Sign-On][20]
+13. Fare clic su **Applica modifiche** sulla barra degli strumenti in basso.
+
+	![Configura accesso Single Sign-On][20]
 
 
 
 ### Creazione di un utente test di Azure AD
 
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br><br> Nell'elenco utenti selezionare **Britta Simon**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
+
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.<br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
-  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-  3. Fare clic su Avanti.
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
-  1. Nella casella di testo **Nome** digitare **Britta**.  
-  2. Nella casella di testo **Cognome** digitare **Simon**.
-  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-  4. Nell'elenco **Ruolo** selezionare **Utente**.
-  5. Fare clic su **Avanti**.
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
+
+	a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+
+	b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+  
+	c. Fare clic su Avanti.
+
+6.  Nella pagina **Profilo utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
+  
+	a. Nella casella di testo **Nome** digitare **Britta**.
+  
+	b. Nella casella di testo **Cognome** digitare **Simon**.
+  
+	c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+  
+	d. Nell'elenco **Ruolo**, selezionare **Utente**.
+  
+	e. Fare clic su **Avanti**.
+
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
-  1. Prendere nota del valore in **Nuova password**.
-  2. Fare clic su **Complete**.   
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
+  
+	a. Prendere nota del valore visualizzato in **Nuova password**.
+  
+	b. Fare clic su **Complete**.
 
 
   
@@ -198,23 +270,29 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in CloudPass
 
 #### Per creare un utente test denominato Britta Simon in CloudPassage, seguire questa procedura:
 
-1.	Accedere al sito aziendale di **CloudPassage** come amministratore. 
+1.	Accedere al sito aziendale di **CloudPassage** come amministratore.
 
-2.	Nella barra degli strumenti in alto fare clic su **Settings** e quindi su **Site Administration**. <br>![Creazione di un utente test CloudPassage][22]
+2.	Nella barra degli strumenti in alto fare clic su **Settings** (Impostazioni) e quindi su **Site Administration** (Amministrazione sito).
 
-3.	Fare clic sulla scheda **Users** e quindi fare clic su **Add New User**. <br>![Creazione di un utente test CloudPassage][23]
+	![Creazione di un utente test CloudPassage][22]
+
+3.	Fare clic sulla scheda **Users** (Utenti) e quindi fare clic su **Add New User** (Aggiungi nuovo utente).
+
+	![Creazione di un utente test CloudPassage][23]
 	
-4.	Nella sezione **Add New User** seguire questa procedura: <br>![Creazione di un utente test CloudPassage][24]
+4.	Nella sezione **Aggiungi nuovo utente** eseguire la procedura seguente:
 
-     4\.1. Nella casella di testo **Nome** digitare Britta.
+	![Creazione di un utente test CloudPassage][24]
 
-     4\.2. Nella casella di testo **Cognome** digitare Simon.
+    a. Nella casella di testo **Nome** digitare Britta.
 
-     4\.3. Nelle caselle di testo **Username**, **Email** e **Retype Email** digitare il nome utente di Britta in Azure AD.
+    b. Nella casella di testo **Cognome** digitare Simon.
 
-     4\.4. In **Access Type** selezionare **Enable Halo Portal Access**.
+    c. Nelle caselle di testo **Username**, **Email** e **Retype Email** digitare il nome utente di Britta in Azure AD.
 
-     4\.5. Fare clic su **Add**.
+    d. In **Access Type** selezionare **Enable Halo Portal Access**.
+
+    e. Fare clic su **Aggiungi**.
 
 
 
@@ -227,22 +305,35 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in CloudPass
 
 ### Assegnazione dell'utente test di Azure AD
 
-Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a CloudPassage. <br><br>![Assegna utente][30]
+Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a CloudPassage.
+
+![Assegna utente][30]
 
 **Per assegnare Britta Simon ad Amazon Web Service (AWS), seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br> <br><br>![Assegna utente][26]
-2. Nell'elenco delle applicazioni selezionare **CloudPassage**. <br><br>![Assegna utente][27]
-1. Nel menu in alto fare clic su **Utenti**.<br> <br><br>![Assegna utente][25]
-1. Nell'elenco utenti selezionare **Britta Simon**.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][29]
+	![Assegna utente][26]
+
+2. Nell'elenco delle applicazioni selezionare **CloudPassage**.
+
+	![Assegna utente][27]
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][25]
+
+1. Nell'elenco di utenti selezionare **Britta Simon**.
+
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+
+	![Assegna utente][29]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro CloudPassage nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione CloudPassage.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro CloudPassage nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione CloudPassage.
 
 
 ## Risorse aggiuntive
@@ -282,4 +373,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -362,6 +362,9 @@ Per informazioni dettagliate sui prezzi per Archiviazione Premium e le VM serie 
 - [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
 - [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
+## Backup
+È possibile eseguire il backup delle macchine virtuali che utilizzano l'archiviazione Premium con Backup di Azure. [Altre informazioni](../backup/backup-azure-vms-first-look-arm.md).
+
 ## Avvio rapido
 
 ## Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale
@@ -388,7 +391,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 	>  
 	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome dell'account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **classico**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 5. Per il livello di prestazioni per l'account di archiviazione specificare **Premium**.
 
@@ -396,7 +399,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 
 7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 9. Selezionare la posizione geografica dell'account di archiviazione. È possibile verificare che Archiviazione Premium sia disponibile nella località selezionata facendo riferimento a [Servizi di Azure per area](https://azure.microsoft.com/regions/#services).
 
@@ -562,4 +565,4 @@ Per altre informazioni su Archiviazione Premium di Azure, vedere gli articoli se
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

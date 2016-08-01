@@ -864,7 +864,8 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
 	]
 
 
-###Operatore * L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
+###Operatore *
+L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
 
 **Query**
 

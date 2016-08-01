@@ -13,14 +13,14 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
 # Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configurare un computer client locale che esegue Windows per l'esecuzione di strumenti di invio di processi di HPC Pack che comunicano con un cluster HPC Pack in Azure tramite HTTPS. Per molti utenti cluster questa procedura rappresenta un modo semplice e flessibile per inviare processi a un cluster HPC Pack basato sul cloud senza la necessità di connettersi direttamente alla VM del nodo head o di accedere a una sottoscrizione di Azure per eseguire strumenti di invio di processi.
+Configurare un computer client locale che esegue Windows per l'esecuzione di strumenti di invio di processi di HPC Pack che comunicano tramite HTTPS con un cluster HPC Pack in Azure. Per molti utenti cluster questa procedura rappresenta un modo semplice e flessibile per inviare processi a un cluster HPC Pack basato sul cloud senza la necessità di connettersi direttamente alla VM del nodo head o di accedere a una sottoscrizione di Azure per eseguire strumenti di invio di processi.
 
 ![Invio di un processo a un cluster in Azure][jobsubmit]
 
@@ -28,10 +28,9 @@ Configurare un computer client locale che esegue Windows per l'esecuzione di str
 
 * **Nodo head HPC Pack distribuito in una VM di Azure**: si consiglia l'uso di strumenti automatizzati, ad esempio un [modello di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) o uno [script di Azure PowerShell](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per distribuire il nodo head e il cluster. Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
 
-* **Supporto di installazione di HPC Pack**: il pacchetto di installazione gratuito della versione più recente di HPC Pack (HPC Pack 2012 R2) è disponibile per il download nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Verificare di avere scaricato la stessa versione di HPC Pack installata nella VM del nodo head.
-
 * **Computer client**: è necessario un computer client Windows o Windows server in grado di eseguire le utilità client di HPC Pack (vedere i [requisiti di sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se si prevede di inviare i processi solo tramite il portale Web di HPC Pack o l'API REST, è possibile usare un computer client qualsiasi.
 
+* **Supporto di installazione di HPC Pack**: per installare il client di HPC Pack, è disponibile gratuitamente il pacchetto di installazione dell'ultima versione di HPC Pack (HPC Pack 2012 R2) è disponibile per il download nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Verificare di avere scaricato la stessa versione di HPC Pack installata nella VM del nodo head.
 
 ## Passaggio 1: installare e configurare i componenti Web nel nodo head
 
@@ -64,9 +63,9 @@ Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft H
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si usa lo script di distribuzione di HPC Pack IaaS per creare il cluster, il nome del certificato è nel formato CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di avvio rapido di Azure, il nome del certificato è nel formato CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
+4. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si distribuisce la VM del nodo head utilizzando il modello di distribuzione classica, il nome del certificato appare nel formato CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di distribuzione di Resource Manager, il nome del certificato appare nel formato CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE] È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
+    >[AZURE.NOTE] È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio di Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
 
 5. Per configurare il portale Web per l'invio di processi, digitare il comando seguente:
 
@@ -114,17 +113,17 @@ Per usare gli strumenti client di HPC Pack per inviare processi alla macchina vi
 
 
 
->[AZURE.SECURITY] Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non verrà riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
+>[AZURE.TIP] Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non verrà riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
 
 ## Passaggio 3: eseguire processi di prova sul cluster
 
-Per verificare la configurazione, provare a eseguire processi nel cluster in Azure usando il computer locale che esegue le utilità client di HPC Pack. È ad esempio possibile usare gli strumenti dell'interfaccia utente grafica o gli strumenti della riga di comando di HPC Pack per inviare i processi al cluster oppure un portale basato sul Web.
+Per verificare la configurazione, provare a eseguire processi nel cluster in Azure usando il computer locale. È ad esempio possibile usare gli strumenti dell'interfaccia utente grafica o gli strumenti della riga di comando di HPC Pack per inviare i processi al cluster oppure un portale basato sul Web.
 
 
 **Per eseguire comandi di invio processi nel computer client**
 
 
-1. Nel computer client, avviare un prompt dei comandi.
+1. In un computer client con installate le utilità client HPC Pack avviare un prompt dei comandi.
 
 2. Digitare un comando di esempio. Ad esempio, per elencare tutti i processi nel cluster, digitare un comando simile a uno dei seguenti in base al nome DNS completo del nodo head:
 
@@ -149,11 +148,11 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 
     b. Fare clic su **Credenziali Windows** e quindi su **Aggiungi credenziali generiche**.
 
-    c. Specificare l'indirizzo Internet, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), quindi specificare il nome utente, nel formato &lt;NomeDominio&gt;\\&lt;NomeUtente&gt;, e la password dell'amministratore del cluster HPC o di un altro utente del cluster configurato.
+    c. Specificare l'indirizzo Internet, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler, quindi specificare il nome utente, nel formato &lt;NomeDominio&gt;\\&lt;NomeUtente&gt;, e la password dell'amministratore del cluster HPC o di un altro utente del cluster configurato.
 
 2. Nel computer client avviare Gestione processi HPC.
 
-3. Nella finestra di dialogo **Seleziona nodo head** digitare l'URL del nodo head in Azure, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+3. Nella finestra di dialogo **Seleziona nodo head** digitare l'URL del nodo head in Azure, ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com.
 
     Verrà visualizzato il gestore dei processi HPC con un elenco dei processi sul nodo head.
 
@@ -188,4 +187,4 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

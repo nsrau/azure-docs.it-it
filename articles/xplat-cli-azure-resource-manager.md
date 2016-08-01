@@ -23,6 +23,7 @@
 - [Portale](azure-portal/resource-group-portal.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -31,7 +32,7 @@
 
 Questo articolo illustra i metodi comuni per creare e gestire risorse di Azure usando l'interfaccia della riga di comando di Azure in modalità Azure Resource Manager.
 
->[AZURE.NOTE] Per creare e gestire risorse di Azure dalla riga di comando, è necessaria una sottoscrizione di Azure ([fare clic qui per un account Azure gratuito](https://azure.microsoft.com/free/)). È anche necessario [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [accedere per usare le risorse di Azure associate all'account](xplat-cli-connect.md). Se queste operazioni sono già state eseguite, si è pronti per proseguire.
+>[AZURE.NOTE] Per creare e gestire risorse di Azure dalla riga di comando, è necessaria una sottoscrizione di Azure. [fare clic qui per un account Azure gratuito](https://azure.microsoft.com/free/). È anche necessario [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [accedere per usare le risorse di Azure associate all'account](xplat-cli-connect.md). Se queste operazioni sono già state eseguite, si è pronti per proseguire.
 
 ## Risorse di Azure
 
@@ -63,7 +64,7 @@ La maggior parte dei comandi di gestione risorse di Azure necessita di un percor
 
 	azure location list
 
-Questo comando elenca le aree di Azure disponibili, ad esempio "Stati Uniti occidentali", "Stati Uniti orientali" e così via. Per informazioni dettagliate sui provider di risorse disponibili e sulle posizioni in cui sono disponibili, usare il comando `azure provider list` seguito dal comando `azure provider show`. Il comando seguente, ad esempio, elenca le posizioni del servizio contenitore di Azure:
+Questo comando elenca le aree di Azure disponibili, ad esempio "Stati Uniti occidentali", "Stati Uniti orientali" e così via. Per informazioni dettagliate sui provider di risorse disponibili e sulle località in cui sono disponibili, usare il comando `azure provider list` seguito dal comando `azure provider show`. Il comando seguente, ad esempio, elenca le posizioni del servizio contenitore di Azure:
 
     azure provider show Microsoft.ContainerService 
 
@@ -238,4 +239,4 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 * Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
 * Per informazioni sull'uso di Azure Resource Manager dal portale di Azure, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

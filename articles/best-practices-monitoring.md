@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/06/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Indicazioni di monitoraggio e diagnostica
@@ -252,7 +252,7 @@ I dati di strumentazione devono essere aggregati per generare un'immagine delle 
 
 - Calcolare il numero totale delle richieste degli utenti durante il periodo specificato e determinare la frequenza della riuscita o dell'esito negativo di queste richieste.
 - Combinare i tempi di risposta delle richieste degli utenti per generare una panoramica globale dei tempi di risposta del sistema.
-- Analizzare lo stato delle richieste degli utenti per suddividere il tempo di risposta complessivo di una richiesta nei tempi di risposta per i singoli elementi di lavoro di tale richiesta.  
+- Analizzare lo stato delle richieste degli utenti per suddividere il tempo di risposta complessivo di una richiesta nei tempi di risposta per i singoli elementi di lavoro di tale richiesta.
 - Determinare la disponibilità complessiva del sistema sotto forma di percentuale del tempo di attività per un periodo specifico.
 - Analizzare la percentuale del tempo di disponibilità dei singoli componenti e dei singoli servizi del sistema. Questo potrebbe comportare l'analisi dei log generati dai servizi di terze parti.
 
@@ -423,7 +423,7 @@ Tutti i dati di monitoraggio devono riportare il timestamp nello stesso modo. Pe
 ### Informazioni da includere nei dati di strumentazione
 Quando si decide quali dati di strumentazione è necessario raccogliere, tenere presente quanto segue:
 
-- Assicurarsi che le informazioni acquisite dagli eventi di traccia siano leggibili per i computer e per gli utenti. Adottare schemi ben definiti per queste informazioni per facilitare l'elaborazione automatizzata tra sistemi diversi dei dati di log e garantire coerenza al personale operativo e tecnico che deve leggere i log. Includere informazioni ambientali, ad esempio l'ambiente di distribuzione, il computer in cui viene eseguito il processo, i dettagli del processo e lo stack di chiamate.  
+- Assicurarsi che le informazioni acquisite dagli eventi di traccia siano leggibili per i computer e per gli utenti. Adottare schemi ben definiti per queste informazioni per facilitare l'elaborazione automatizzata tra sistemi diversi dei dati di log e garantire coerenza al personale operativo e tecnico che deve leggere i log. Includere informazioni ambientali, ad esempio l'ambiente di distribuzione, il computer in cui viene eseguito il processo, i dettagli del processo e lo stack di chiamate.
 - Abilitare la profilatura solo se necessario, perché può sovraccaricare in modo significativo il sistema. La profilatura tramite strumentazione registra un evento, ad esempio la chiamata di un metodo, ogni volta che questo si verifica, mentre il campionamento registra solo eventi selezionati. La selezione potrebbe essere basata sul tempo (una volta ogni *n* secondi) o sulla frequenza (una volta ogni *n* richieste). Se gli eventi si verificano molto spesso, la profilatura tramite strumentazione potrebbe rappresentare un onere eccessivo e influire essa stessa sulle prestazioni globali. In questo caso è preferibile l'approccio tramite campionamento. Se la frequenza degli eventi è bassa, tuttavia, il campionamento potrebbe perderli. In questo caso, la strumentazione potrebbe essere l'approccio migliore.
 - Fornire un contesto sufficiente per consentire a uno sviluppatore o a un amministratore di determinare l'origine di ogni richiesta. Questo può includere una qualche forma di ID di attività che identifichi un'istanza specifica di una richiesta. Potrebbe includere anche informazioni utilizzabili per correlare l'attività con le operazioni di calcolo eseguite e le risorse usate. Si noti che queste operazioni possono svolgersi su più processi e in più computer. Per la misurazione, il contesto deve includere, direttamente o indirettamente tramite altre informazioni correlate, anche un riferimento al cliente che ha effettuato la richiesta. Questo contesto fornisce informazioni utili sullo stato dell'applicazione nel momento in cui sono stati acquisiti i dati di monitoraggio.
 - Registrare tutte le richieste e le posizioni o aree da cui queste richieste vengono effettuate. Queste informazioni rendono più semplice determinare l'eventuale presenza di aree sensibili specifiche di una posizione. Queste informazioni sono utili anche per stabilire se ripartizionare un'applicazione o i dati che questa usa.
@@ -473,7 +473,7 @@ Per i servizi e le applicazioni di Azure, Diagnostica di Azure fornisce una poss
 - Registri eventi di Windows
 - Contatori delle prestazioni
 - Dump di arresto anomalo del sistema
-- Log dell'infrastruttura Diagnostica di Azure  
+- Log dell'infrastruttura Diagnostica di Azure
 - Log degli errori personalizzati
 - EventSource .NET
 - ETW basato su manifesto
@@ -664,4 +664,4 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 - [Ricevere notifiche di avviso](./azure-portal/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

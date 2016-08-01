@@ -202,7 +202,7 @@ Se più client operano collettivamente al di sopra della frequenza delle richies
 
 ##Passaggi successivi
 
-Per altre informazioni sulla velocità effettiva riservata con Azure DocumentDB, vedere queste risorse:
+Per altre informazioni sulla velocità effettiva riservata con i database Azure DocumentDB, vedere queste risorse:
  
 - [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md)
@@ -220,4 +220,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

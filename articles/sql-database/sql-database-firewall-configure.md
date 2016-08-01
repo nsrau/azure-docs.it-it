@@ -66,9 +66,11 @@ Quando un computer tenta di connettersi al server di database da Internet, il fi
 
 Quando si tenta di connettersi al server di database da un'applicazione di Azure, il firewall verifica che le connessioni da Azure siano consentite. Un'impostazione del firewall con indirizzo iniziale e finale uguale a 0.0.0.0 indica che queste connessioni sono consentite. Se il tentativo di connessione non è consentito, la richiesta non raggiungerà il server di Database SQL di Azure.
 
+> [AZURE.IMPORTANT] Questa opzione consente di configurare il firewall in maniera tale da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
+
 È possibile abilitare le connessioni da Azure in due modi:
 
-- Nel [portale di Microsoft Azure](https://portal.azure.com/) selezionare la casella di controllo **Consenti ai servizi di Azure di accedere al server** durante la creazione di un nuovo server. **Importante:** questa opzione consente di configurare il firewall in maniera tale da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
+- Nel [portale di Microsoft Azure](https://portal.azure.com/) selezionare la casella di controllo **Consenti ai servizi di Azure di accedere al server** durante la creazione di un nuovo server.
 
 - Nel [portale classico](http://go.microsoft.com/fwlink/p/?LinkID=161793) nella scheda **Configura** di un server fare clic su **Sì** per **Servizi di Microsoft Azure** nella sezione **Servizi consentiti**.
 
@@ -156,4 +158,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
@@ -117,7 +117,9 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 ## Creare un ruolo personalizzato
 Per creare un ruolo personalizzato, usare il comando `New-AzureRmRoleDefinition`.
 
-Nell'esempio seguente viene creato un ruolo personalizzato denominato *Operatore macchina virtuale* che concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
+Quando si crea un ruolo personalizzato in PowerShell, è necessario iniziare con uno dei [ruoli predefiniti](role-based-access-built-in-roles.md). Modificare gli attributi e aggiungere Actions, notActions o gli ambiti desiderati e quindi salvare le modifiche come nuovo ruolo.
+
+L'esempio seguente inizia con il ruolo *Collaboratore Macchina virtuali* e lo usa per creare un ruolo personalizzato denominato *Operatore macchina virtuale*. Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
@@ -154,4 +156,4 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 ## Vedere anche
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

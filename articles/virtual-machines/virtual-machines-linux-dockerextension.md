@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="iainfou"/>
 
 # Uso dell'estensione di VM Docker per distribuire l'ambiente
@@ -22,7 +22,7 @@ Docker è una nota piattaforma di creazione dell'immagine e gestione di contenit
 
 - Per creare rapidamente il prototipo di un'app o se già si conosce e si usa Docker Machine, è possibile [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md) per distribuire host Docker in Azure.
 - Per una distribuzione del modello di base, è possibile usare l'estensione della VM Docker per le macchine virtuali di Azure. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso di base di ruolo, diagnostica e configurazione post-distribuzione.
-- L'estensione della VM Docker supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.  
+- L'estensione della VM Docker supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.
 - È anche possibile [distribuire un cluster Docker Swarm completo in servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che sfruttano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
 
 Questo articolo illustra l'uso di modelli di Resource Manager per distribuire l'estensione di VM Docker in un ambiente personalizzato, di produzione, definito dall'utente.
@@ -74,7 +74,7 @@ info:    group create command OK
 Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. Gli strumenti Docker sono già installati, quindi si proverà a creare un contenitore nginx:
 
 ```
-docker run -d -p 80:80 nginx
+sudo docker run -d -p 80:80 nginx
 ```
 
 L'output dovrebbe essere simile al seguente:
@@ -91,11 +91,11 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Esaminare il contenitore in esecuzione nell'host usando `docker ps`:
+Esaminare il contenitore in esecuzione nell'host usando `sudo docker ps`:
 
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
-b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   nostalgic_murdock
+b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
 Aprire un Web browser e immettere il nome DNS specificato durante la distribuzione per visualizzare il contenitore in azione:
@@ -134,9 +134,9 @@ Per altre procedure dettagliate relative all'uso di modelli di Resource Manager,
 
 Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 
-1. [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md)  
-2. [Uso dell'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+1. [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md)
+2. [Uso dell'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
 3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

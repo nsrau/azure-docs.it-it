@@ -21,7 +21,7 @@
 
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
 
-Con l'impostazione della durata (TTL), Microsoft Azure DocumentDB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, DocumentDB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
+Con l'impostazione della durata (TTL), Microsoft Azure DocumentDB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, DocumentDB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
 
 In DocumentDB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo viene usato il campo \_ts che esiste in ogni documento. Il campo \_ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e viene aggiornato ogni volta che si modifica un documento.
 
@@ -36,7 +36,7 @@ La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e
   
   * Se è presente e il valore è un numero "n", i documenti scadono "n" secondi dopo l'ultima modifica.
 
- 2.  TTL per i documenti: 
+ 2.  TTL per i documenti:
   * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
   
   * Esegue l'override del valore di DefaultTTL per la raccolta padre.
@@ -157,4 +157,4 @@ Sì. I [criteri di indicizzazione](documentdb-indexing-policies.md) della raccol
 
 Per altre informazioni su Azure DocumentDB, vedere la pagina della [*documentazione*](https://azure.microsoft.com/documentation/services/documentdb/) del servizio.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

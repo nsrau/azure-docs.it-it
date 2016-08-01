@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="glenga"/>
 
 # Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
@@ -97,7 +97,7 @@ Per abilitare le singole funzionalità, è necessario chiamare i metodi di esten
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Si noti che `MapApiControllers` esegue solo il mapping dei controller con l'attributo `[MobileAppController]`.
+Si noti che `MapApiControllers` esegue solo il mapping dei controller con l'attributo `[MobileAppController]`. Per eseguire il mapping di altri controller, usare il metodo [MapHttpAttributeRoutes].
 
 Molti metodi di estensione delle funzionalità sono disponibili tramite pacchetti NuGet aggiuntivi che è possibile includere, descritti nella sezione seguente.
 
@@ -134,7 +134,7 @@ I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionali
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Crea un controller che fornisce i dati ai Web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController**.
 
-- [Microsoft.Azure.Mobile.Server.Login] Offre il supporto per l'anteprima per l'autenticazione personalizzata con il metodo AppServiceLoginHandler.CreateToken(). Si tratta di un metodo statico che non è necessario abilitare nella configurazione.
+- [Microsoft.Azure.Mobile.Server.Login] Offre il supporto per l'autenticazione personalizzata con il metodo AppServiceLoginHandler.CreateToken(). Si tratta di un metodo statico che non è necessario abilitare nella configurazione.
 
 ## <a name="publish-server-project"></a>Procedura: Pubblicare il progetto server
 
@@ -190,7 +190,7 @@ Verificare che il valore di PageSize sia uguale o maggiore delle dimensioni che 
 
 ## Procedura: Definire un controller API personalizzato
 
-Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller API specifico per dispositivi mobili usando l'attributo [MobileAppController]. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
+Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller API specifico per dispositivi mobili usando l'attributo [MobileAppController]. Questo attributo registra la route, configura il serializzatore JSON delle app per dispositivi mobili e attiva i [controlli di versione client](app-service-mobile-client-and-server-versioning.md).
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sulla cartella Controller e quindi scegliere **Aggiungi** > **Controller**, selezionare **Controller API Web 2&mdash;Vuoto** e fare clic su **Aggiungi**.
 
@@ -200,7 +200,7 @@ Il controller API personalizzato fornisce le funzionalità di base per il back-e
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Applicare l'attributo **[MobileAppController]** alla definizione della classe controller API, come nell'esempio seguente:
+4. Applicare l'attributo **[MobileAppController]** alla definizione di classe controller API, come nell'esempio seguente:
 
 		[MobileAppController]
 		public class CustomController : ApiController
@@ -251,6 +251,8 @@ Sarà necessario fornire la propria logica per determinare se un utente deve ess
 
 L'autenticazione personalizzata viene esposta creando un nuovo ApiController ed esponendo le azioni di registrazione e accesso come quella seguente. Il client può tentare l'accesso raccogliendo le informazioni pertinenti dall'utente e inviando un POST HTTPS all'API con le informazioni utente nel corpo. Dopo la convalida dell'asserzione da parte del server, è possibile rilasciare un token con il metodo `AppServiceLoginHandler.CreateToken()`.
 
+Si noti che questo ApiController **non deve** usare l'attributo `[MobileAppController]` perché provoca errori nelle richieste di accesso del client. Per l'attributo `[MobileAppController]` è necessaria l'intestazione della richiesta [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) e questa intestazione **non** viene inviata dall'SDK per client per le route di accesso.
+
 Ecco un esempio di azione di accesso:
 
 		public IHttpActionResult Post([FromBody] JObject assertion)
@@ -287,7 +289,7 @@ Il metodo `AppServiceLoginHandler.CreateToken()` include un parametro _audience_
 
 È anche necessario fornire una durata per il token rilasciato, oltre a eventuali attestazioni che si vuole includere. È necessario fornire un'attestazione dell'oggetto, come mostrato nel codice di esempio.
 
-È anche possibile semplificare il codice client per usare il metodo `loginAsync()`, il cui nome può variare a seconda della piattaforma, anziché un HTTP POST manuale. Verrà usato l'overload che accetta un parametro token aggiuntivo e che è correlato all'oggetto di asserzione della richiesta POST. Il provider in questo caso deve essere un nome personalizzato a scelta. Nel server l'azione di accesso deve avvenire nel percorso _/.auth/login/{nomeProviderPersonalizzato}_ che include il nome personalizzato. Per inserire il controller in questo percorso, aggiungere una route a HttpConfiguration prima di applicare MobileAppConfiguration.
+È anche possibile semplificare il codice client per usare il metodo `loginAsync()`, il cui nome può variare a seconda della piattaforma, anziché un HTTP POST manuale. Verrà usato l'overload che accetta un parametro token aggiuntivo e che è correlato all'oggetto di asserzione della richiesta POST. Il provider in questo caso deve essere un nome personalizzato a scelta. Nel server, l'azione di accesso deve essere nel percorso _/.auth/login/{nomeProviderPersonalizzato}_ che include il nome personalizzato. Per inserire il controller in questo percorso, aggiungere una route a HttpConfiguration prima di applicare MobileAppConfiguration.
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
@@ -333,7 +335,7 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
 
 Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** funzioni, è necessario aggiungere un'istruzione using per `System.Security.Principal`.
 
-### <a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
+### <a name="authorize"></a>Procedura: Limitare l'accesso ai dati per gli utenti autorizzati
 
 Nella sezione precedente, è stato illustrato come recuperare l'ID utente di un utente autenticato. È possibile limitare l'accesso ai dati e ad altre risorse in base a questo valore. Ad esempio, l'aggiunta di una colonna ID utente alle tabelle e l’applicazione di filtri ai risultati delle query dell'utente in base all'ID utente sono modi semplici per limitare i dati restituiti solo agli utenti autorizzati. Il codice seguente restituisce righe di dati solo quando l'ID dell'utente corrente corrisponde al valore nella colonna UserId nella tabella TodoItem:
 
@@ -386,7 +388,7 @@ A seconda dello scenario specifico, è possibile creare tabelle di utenti e ruol
 
 A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo relativo all'[aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md) Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare l'invio di notifiche push mirate
+##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare le notifiche push mirate
 
 Hub di notifica consente di inviare notifiche mirate a registrazioni specifiche tramite tag. Un tag creato automaticamente è l'ID di installazione, che è specifico di un'istanza dell'app su un determinato dispositivo. Una registrazione con un ID di installazione viene definita anche *installazione*. È possibile usare l'ID di installazione per gestire l'installazione, ad esempio per l'aggiunta di tag. È possibile accedere all'ID di installazione dalla proprietà **installationId** in **MobileServiceClient**.
 
@@ -402,7 +404,7 @@ L'esempio seguente illustra come usare un ID di installazione per aggiungere un 
 	    }
 	});
 
-Si noti che i tag forniti dal client durante la registrazione per le notifiche push vengono ignorati dal back-end durante la creazione dell'installazione. Per consentire a un client di aggiungere tag all'installazione, è necessario creare una nuova API personalizzata che aggiunge tag tramite il modello precedente. Per un esempio di un controller di API personalizzato che consente ai client di aggiungere tag a un'installazione, vedere l'articolo relativo ai [tag di notifica push aggiunti dal client](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) nell'esempio di avvio rapido completato in app per dispositivi mobili del servizio app per back-end .NET.
+Si noti che i tag forniti dal client durante la registrazione per le notifiche push vengono ignorati dal back-end durante la creazione dell'installazione. Per consentire a un client di aggiungere tag all'installazione, è necessario creare una nuova API personalizzata che aggiunge tag tramite il modello precedente. Per un esempio di controller API personalizzato che consente ai client di aggiungere tag a un'installazione, vedere [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) (Tag di notifica push aggiunti dal client) nell'esempio di avvio rapido completato per le app per dispositivi mobili del servizio app per back-end .NET.
 
 ##<a name="push-user"></a>Procedura: Inviare notifiche push agli utenti autenticati
 
@@ -419,7 +421,7 @@ Se un utente autenticato esegue la registrazione per le notifiche push, viene au
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per altre informazioni, vedere [Eseguire il push agli utenti](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) nell'esempio di avvio rapido completato in app per dispositivi mobili del servizio app per back-end .NET.
+Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per altre informazioni, vedere [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) (Eseguire il push agli utenti) nell'esempio di avvio rapido completato per le app per dispositivi mobili del servizio app per back-end .NET.
 
 ## Procedura: Eseguire il debug e risolvere i problemi di .NET Server SDK
 
@@ -477,5 +479,6 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,19 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/03/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con TimeOffManager
   
-In questa esercitazione verrà illustrata l'integrazione di Azure e TimeOffManager.
+In questa esercitazione verrà illustrata l'integrazione di Azure e TimeOffManager.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
@@ -81,7 +81,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di risposta TimeOffManager** digitare l’URL TimeOffManager AssertionConsumerService (ad esempio: "*Esempio: https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di risposta TimeOffManager** della pagina **Configura URL app** digitare l'URL di TimeOffManager AssertionConsumerService, ad esempio: "*https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*"*, quindi fare clic su *Avanti*.
 
     ![Configura URL app](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configura URL app")
 
@@ -109,20 +109,20 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     b. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509**.
     
-    c. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Idp Issuer** (Autorità emittente IDP).
+    c. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Idp Issuer** (Autorità di certificazione IdP).
     
-    d. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IdP Endpoint URL** (URL endpoint IDP).
+    d. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IdP Endpoint URL** (URL endpoint IdP).
     
     e. Per **Enforce SAML**, selezionare **No**.
     
 
     f. Per **Auto-Create Users**, selezionare **Yes**.
     
-    g. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione**.
+    g. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL disconnessione).
     
     h. Fare clic su **Salva modifiche**.
 
-8.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa**.
+8.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Completa**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configura accesso Single Sign-On")
 
@@ -176,4 +176,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

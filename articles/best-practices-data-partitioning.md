@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/14/2016"
    ms.author="masashin"/>
 
 # Linee guida di partizionamento di dati
@@ -346,7 +346,7 @@ Questa struttura consente di distribuire il carico tra broker messaggi e archivi
 
 Il Bus di servizio assegna un messaggio a un frammento nel modo seguente:
 
-- Se il messaggio appartiene a una sessione, tutti i messaggi con lo stesso valore per la proprietà \_SessionId \_ vengono inviati allo stesso frammento.
+- Se il messaggio appartiene a una sessione, tutti i messaggi con lo stesso valore per la proprietà _ SessionId_ vengono inviati allo stesso frammento.
 - Se il messaggio non appartiene a una sessione, ma il mittente ha specificato un valore per la proprietà _PartitionKey_, tutti i messaggi con lo stesso valore _PartitionKey_ vengono inviati allo stesso frammento.
 
 	> [AZURE.NOTE] Se entrambe le proprietà _SessionId_ e _PartitionKey_ sono specificate, è necessario che siano impostate sullo stesso valore altrimenti il messaggio verrà rifiutato.
@@ -357,7 +357,7 @@ Quando si decide se e come partizionare una coda o un argomento dei messaggi del
 
 - Gli argomenti e le code del Bus di servizio vengono creati nell'ambito di uno spazio dei nomi del Bus di servizio. Il bus di servizio attualmente consente fino a 100 code o argomenti partizionati per spazio dei nomi.
 - Ogni spazio dei nomi del bus di servizio impone delle quote per le risorse disponibili, ad esempio il numero di sottoscrizioni per argomento, il numero di trasmissioni e ricezioni simultanee di richieste al secondo e il numero massimo di connessioni simultanee che possono essere stabilite. Queste quote sono documentate nel sito Web Microsoft alla pagina [Quote del bus di servizio]. Se si prevede di superare questi valori, è consigliabile creare ulteriori spazi dei nomi con le proprie code e argomenti e distribuire il lavoro tra questi spazi dei nomi. Ad esempio, in un'applicazione globale, è consigliabile creare spazi dei nomi separati in ogni area e configurare le istanze dell'applicazione per utilizzare le code e argomenti dello spazio dei nomi più vicino.
-- I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. La chiave può essere costituita da una proprietà _SessionId_, _PartitionKey_ o _MessageId_ Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione perché essi devono essere gestiti dallo stesso processo del gestore dei messaggi. È possibile inviare messaggi a diverse code o argomenti all'interno della stessa transazione.
+- I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. La chiave può essere costituita da una proprietà _SessionId_, _PartitionKey_ o _MessageId_. Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione perché essi devono essere gestiti dallo stesso processo del gestore dei messaggi. È possibile inviare messaggi a diverse code o argomenti all'interno della stessa transazione.
 - Code e argomenti partizionati non possono essere configurati per essere eliminati automaticamente quando diventano inattivi.
 - Se si creano soluzioni multipiattaforma o ibride, non è attualmente possibile usare code e argomenti partizionati con il protocollo AMQP (Advanced Message Queuing Protocol).
 
@@ -391,7 +391,7 @@ _Figura 9. Implementazione del partizionamento orizzontale usando un database Az
 
 Quando si decide come partizionare i dati con un database DocumentDB, tenere presente quanto riportato di seguito:
 
-- **Le risorse disponibili per un database di DocumentDB sono soggette alle limitazioni di quota dell'account DocumentDB**. Ogni database può contenere un numero di raccolte (anche in questo caso, esiste un limite) e ogni raccolta è associata a un livello di prestazioni che regola il limite di velocità RU (velocità effettiva riservata) per la raccolta. Per altre informazioni, visitare la pagina [Limiti e quote di DocumentDB] nel sito Web Microsoft.
+- **Le risorse disponibili per un database di DocumentDB sono soggette alle limitazioni di quota dell'account DocumentDB**. Ogni database può contenere un numero di raccolte (anche in questo caso, esiste un limite) e ogni raccolta è associata a un livello di prestazioni che regola il limite di velocità RU (velocità effettiva riservata) per la raccolta. Per altre informazioni, visitare la pagina [DocumentDB limiti e quote] nel sito Web Microsoft.
 - **Ogni documento deve avere un attributo da usare per identificare in modo univoco tale documento all'interno della raccolta in cui è contenuto**. Questo attributo è diverso dalla chiave di partizione che definisce la raccolta contenente il documento. Una raccolta può contenere un numero elevato di documenti. In teoria, l'unico limite è la lunghezza massima dell'ID di documento. L'ID di documento può contenere fino a 255 caratteri.
 - **Tutte le operazioni eseguite su un documento vengono eseguite nel contesto di una transazione. Le transazioni nei database DocumentDB sono limitate alla raccolta in cui è contenuto il documento.** Se un'operazione ha esito negativo, viene eseguito il rollback del lavoro che è stato eseguito. Quando viene eseguita un'operazione su un documento, tutte le modifiche apportate sono soggette all'isolamento a livello di snapshot. Questo meccanismo garantisce ad esempio che nel caso in cui una richiesta di creazione di un nuovo documento ha esito negativo, un altro utente che contemporaneamente esegue una query nel database non visualizzi un documento parziale che verrà in seguito rimosso.
 - **Le query del database DocumentDB sono anche limitate al livello di raccolta**. Una singola query può recuperare dati solo da una raccolta. Se è necessario recuperare dati da più raccolte, è necessario eseguire query in ogni raccolta singolarmente e incorporare i risultati nel codice dell'applicazione.
@@ -438,7 +438,7 @@ Questo modello viene implementato dal clustering Redis e viene descritto più de
 
 > [AZURE.IMPORTANT] La Cache Redis di Azure non supporta attualmente il clustering. Se si desidera implementare questo approccio con Azure, è necessario implementare i propri server Redis installando Redis in un set di macchine virtuali di Azure e configurandole manualmente. La pagina relativa all'[esecuzione di Redis in una macchina virtuale CentOS Linux in Azure] nel sito Web Microsoft descrive un esempio di creazione e configurazione di un nodo Redis in esecuzione come macchina virtuale di Azure.
 
-La pagina relativa al [partizionamento e alla suddivisione dei dati in più istanze di Redis] nel sito Web Redis fornisce altre informazioni sull'implementazione del partizionamento con Redis. Il resto di questa sezione presuppone l'implementazione di partizionamento sul lato client o assistito dal proxy.
+La pagina relativa al [partizionamento e alla suddivisione dei dati in più istanze di Redis] nel sito Web Redis fornisce ulteriori informazioni sull'implementazione del partizionamento con Redis. Il resto di questa sezione presuppone l'implementazione di partizionamento sul lato client o assistito dal proxy.
 
 Quando si decide come partizionare i dati con Cache Redis di Azure, tenere presente quanto riportato di seguito:
 
@@ -507,12 +507,12 @@ Per un esempio di soluzione che supporta la migrazione online, vedere l'articolo
 
 Quando si esaminano le strategie per l'implementazione della coerenza dei dati, anche i modelli seguenti possono essere rilevanti per il proprio scenario:
 
-- La pagina relativa alla [Introduzione alla coerenza dei dati] nel sito Web Microsoft descrive le strategie per la gestione della coerenza in un ambiente distribuito, ad esempio il cloud.
+- La pagina relativa alla [coerenza dei dati] nel sito Web Microsoft descrive le strategie per la gestione della coerenza in un ambiente distribuito, ad esempio il cloud.
 - La pagina [Linee guida di partizionamento di dati] nel sito Web Microsoft offre una panoramica generale sulla progettazione delle partizioni per soddisfare diversi criteri in una soluzione distribuita.
 - Il [modello di partizionamento orizzontale] descritto nel sito Web Microsoft riepiloga alcune strategie comuni per il partizionamento orizzontale dei dati.
 - L'[ITP (Index Table Pattern)] descritto nel sito Web Microsoft illustra come creare indici secondari nei dati. Un'applicazione consente di recuperare rapidamente i dati con questo approccio, usando le query che non fanno riferimento alla chiave primaria di una raccolta.
 - Il [modello di vista materializzata] descritto nel sito Web Microsoft illustra come generare viste prepopolate che riepilogano i dati per favorire operazioni di query rapide. Questo approccio può essere utile in un archivio dati partizionati se le partizioni che contengono dati riepilogati vengono distribuite tra più siti.
-- L'articolo [Uso della rete per la distribuzione di contenuti per Azure] nel sito Web Microsoft offre altre istruzioni per la configurazione e l'uso della rete di distribuzione dei contenuti di Azure.
+- L'articolo [Uso della rete CDN di Azure] nel sito Web Microsoft offre altre istruzioni per la configurazione e l'uso della rete per la distribuzione di contenuti di Azure.
 
 ## Altre informazioni
 
@@ -522,8 +522,8 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 - La pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx) nel sito Web Microsoft descrive gli attuali limiti di ridimensionamento e velocità effettiva dell'archiviazione di Azure.
 - La pagina [Esecuzione di transazioni di gruppi di entità] nel sito Web Microsoft offre informazioni dettagliate sull'implementazione di operazioni transazionali su entità archiviate nell'archiviazione tabelle di Azure.
 - L'articolo [Guida alla progettazione della tabella di archiviazione di Azure] nel sito Web Microsoft include informazioni dettagliate sul partizionamento dei dati nell'archiviazione tabelle di Azure.
-- La pagina [Uso della rete per la distribuzione di contenuti per Azure] nel sito Web Microsoft descrive come replicare i dati mantenuti nell'archiviazione BLOB di Azure usando la rete per la distribuzione di contenuti per Azure.
-- La pagina [Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB] nel sito Web Microsoft contiene informazioni su come i database DocumentDB Azure allocano le risorse.
+- La pagina [Uso della rete CDN di Azure] nel sito Web Microsoft descrive come replicare i dati presenti nell'archivio BLOB di Azure usando la rete per la distribuzione di contenuti di Azure.
+- La pagina che illustra come [gestire le esigenze di capacità di DocumentDB] nel sito Web Microsoft contiene informazioni sull'allocazione di risorse da parte dei database Azure DocumentDB.
 - La pagina [Che cos'è la Ricerca di Azure?] nel sito Web Microsoft offre una descrizione completa delle funzionalità disponibili in Ricerca di Azure.
 - La pagina [Limiti dei servizi in Ricerca di Azure] nel sito Web Microsoft include informazioni sulla capacità di ogni istanza di Ricerca di Azure.
 - La pagina [Tipi di dati supportati (Ricerca di Azure)] nel sito Web Microsoft riepiloga i tipi di dati che è possibile usare nei documenti e indici in cui è possibile eseguire ricerche.
@@ -542,11 +542,11 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Linee guida di partizionamento di dati]: https://msdn.microsoft.com/library/dn589795.aspx
 [tipi di dati]: http://redis.io/topics/data-types
 [DocumentDB limiti e quote]: documentdb/documentdb-limits.md
-[Limiti e quote di DocumentDB]: documentdb/documentdb-limits.md
 [Panoramica sulle funzionalità di database elastico]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [ITP (Index Table Pattern)]: http://aka.ms/Index-Table-Pattern
 [Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB]: documentdb/documentdb-manage.md
+[gestire le esigenze di capacità di DocumentDB]: documentdb/documentdb-manage.md
 [modello di vista materializzata]: http://aka.ms/Materialized-View-Pattern
 [Esecuzione di query su più partizioni]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [partizionamento e alla suddivisione dei dati in più istanze di Redis]: http://redis.io/topics/partitioning
@@ -555,7 +555,7 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Esercitazione del cluster Redis]: http://redis.io/topics/cluster-tutorial
 [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scalabilità tramite lo strumento di suddivisione-unione del database elastico]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Uso della rete per la distribuzione di contenuti per Azure]: cdn/cdn-create-new-endpoint.md
+[Uso della rete CDN di Azure]: cdn/cdn-create-new-endpoint.md
 [Quote del bus di servizio]: service-bus/service-bus-quotas.md
 [Limiti dei servizi in Ricerca di Azure]: search/search-limits-quotas-capacity.md
 [Modello di partizionamento orizzontale]: http://aka.ms/Sharding-Pattern
@@ -564,4 +564,4 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Che cos'è la Ricerca di Azure?]: search/search-what-is-azure-search.md
 [Informazioni sul database SQL]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

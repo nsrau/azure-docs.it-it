@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
@@ -148,4 +148,4 @@ Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni rel
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

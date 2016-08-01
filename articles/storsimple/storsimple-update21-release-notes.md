@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Note sulla versione dell'aggiornamento 2.1 di StorSimple serie 8000 | Microsoft Azure"
-   description="Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l'aggiornamento 2.1 per StorSimple serie 8000."
+   pageTitle="Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000 | Microsoft Azure"
+   description="Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l'aggiornamento 2.2 per StorSimple serie 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,35 +12,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/19/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
-# Note sulla versione dell'aggiornamento 2.1 di StorSimple serie 8000  
+# Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000  
 
 ## Panoramica
 
-Le note sulla versione seguenti illustrano le nuove funzionalità e indicano i problemi critici non risolti relativi all'aggiornamento 2.1 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione.
+Le note sulla versione seguenti illustrano le nuove funzionalità e indicano i problemi critici non risolti relativi all'aggiornamento 2.2 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione.
 
-L'aggiornamento 2.1 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 2. La versione del dispositivo associata all'aggiornamento 2.1 è 6.3.9600.17705.
+L'aggiornamento 2.2 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 2.1. La versione del dispositivo associata all'aggiornamento 2.2 è 6.3.9600.17708.
 
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
 >[AZURE.IMPORTANT]
 > 
-> - L'aggiornamento 2.1 include aggiornamenti solo per il software. L'installazione dell'aggiornamento richiede circa 1,5-2 ore. 
+> - L'aggiornamento 2.2 include aggiornamenti solo per il software. L'installazione dell'aggiornamento richiede circa 1,5-2 ore.
+
+> - Se si esegue ancora l'aggiornamento 2.1, si consiglia di applicare l'aggiornamento 2.2 appena possibile.
 
 > - Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Attendere alcuni giorni e quindi provare a cercare nuovamente gli aggiornamenti, perché verranno presto resi disponibili.
 
 
-## Novità dell'aggiornamento 2.1
+## Novità dell'aggiornamento 2.2
 
-L'aggiornamento 2.1 include gli importanti aggiornamenti seguenti.
+L'aggiornamento 2.2 include gli importanti aggiornamenti seguenti.
 
  
 - **Ottimizzazione del recupero automatizzato dello spazio**: quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
 
 
-- **Miglioramenti delle prestazioni dello snapshot**: l'aggiornamento 2.1 ha migliorato il tempo di elaborazione di uno snapshot cloud in determinati scenari in cui vengono usati volumi di grandi dimensioni e che includono una quantità minima di dati o nessun dato da modificare. Questo miglioramento risulta ad esempio utile per uno scenario relativo ai volumi di archiviazione.
+- **Miglioramenti delle prestazioni dello snapshot**: l'aggiornamento 2.2 ha migliorato il tempo di elaborazione di uno snapshot cloud in determinati scenari in cui vengono usati volumi di grandi dimensioni e che includono una quantità minima di dati o nessun dato da modificare. Questo miglioramento risulta ad esempio utile per uno scenario relativo ai volumi di archiviazione.
 
 
 - **Protezione avanzata per la raccolta di pacchetti per il supporto**: sono stati apportati miglioramenti ala modalità di raccolta e caricamento di pacchetti per il supporto in questa versione.
@@ -51,9 +53,9 @@ L'aggiornamento 2.1 include gli importanti aggiornamenti seguenti.
   
  
 
-## Problemi risolti nell'aggiornamento 2.1
+## Problemi risolti nell'aggiornamento 2.2
 
-Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento 2.1.
+Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiornamento 2.2 e 2.1.
 
 | No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
@@ -68,7 +70,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 | 9 | Pacchetto di supporto | In questa versione sono stati apportati miglioramenti alla modalità di raccolta e caricamento di pacchetti per il supporto. | Sì | Sì |
 
 
-## Problemi noti nell'aggiornamento 2.1
+## Problemi noti nell'aggiornamento 2.2
 
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
@@ -96,19 +98,19 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 20 |Volumi aggiunti in locale | Se si cerca di convertire un volume a livelli (creato e clonato con l'aggiornamento 1.2 o precedente) in un volume aggiunto in locale e il dispositivo sta esaurendo lo spazio o si verifica un'interruzione del cloud, i cloni possono risultare danneggiati.| Questo problema si verifica solo con i volumi che sono stati creati e clonati con software precedente all'aggiornamento 2.1. Si tratta di uno scenario poco frequente.|
 | 21 | Conversione del volume | Non aggiornare i record di controllo di accesso collegati a un volume mentre è in corso una conversione del volume (da volume a livelli a volume aggiunto in locale o viceversa). L'aggiornamento dei record di controllo di accesso potrebbe causare il danneggiamento dei dati. | Se necessario, aggiornare i record di controllo di accesso prima della conversione del volume e non eseguire altri aggiornamenti dei record di controllo di accesso mentre la conversione è in corso. |
 
-## Aggiornamenti firmware e controller presenti nell'aggiornamento 2.1
+## Aggiornamenti firmware e controller presenti nell'aggiornamento 2.2
 
 Questa versione include aggiornamenti solo per il software. Se tuttavia si esegue l'aggiornamento da una versione precedente all'aggiornamento 2, sarà necessario installare aggiornamenti per driver, Storport, Spaceport e in alcuni casi per firmware del disco nel dispositivo.
  
-Per altre informazioni su come installare gli aggiornamenti per driver, Storport, Spaceport e firmware del disco, vedere [Installare l'aggiornamento 2.1](storsimple-install-update-21.md) nel dispositivo StorSimple.
+Per altre informazioni su come installare gli aggiornamenti per driver, Storport, Spaceport e firmware del disco, vedere [Installare l'aggiornamento 2.2](storsimple-install-update-21.md) nel dispositivo StorSimple.
 
  
-## Aggiornamenti del dispositivo virtuale nell'aggiornamento 2.1
+## Aggiornamenti del dispositivo virtuale nell'aggiornamento 2.2
 
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali.
 
 ## Passaggio successivo
 
-Informazioni su come [Installare l'aggiornamento 2.1](storsimple-install-update-21.md) nel dispositivo StorSimple.
+Informazioni su come [Installare l'aggiornamento 2.2](storsimple-install-update-21.md) nel dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

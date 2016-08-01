@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute
@@ -153,4 +153,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

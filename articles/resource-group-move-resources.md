@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -44,7 +44,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di risorse e in una sottoscrizione nuovi:
 
 - Gestione API
-- App del servizio app: vedere [Limitazioni del servizio app](#app-service-limitations).
+- App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
 - Automazione
 - Batch
 - RETE CDN
@@ -272,4 +272,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

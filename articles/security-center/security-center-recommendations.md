@@ -13,17 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/20/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 
 Questo documento illustra come usare le raccomandazioni presenti nel Centro sicurezza di Azure per la protezione delle risorse di Azure.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
-
-## Informazioni sul Centro sicurezza PC di Azure
-Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
 
 ## Informazioni sulle raccomandazioni di sicurezza
 Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni. Queste raccomandazioni illustrano in dettaglio il processo di configurazione dei controlli necessari.
@@ -43,7 +40,7 @@ Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su agg
 ### Monitorare le raccomandazioni
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Il riquadro **Raccomandazioni** nel pannello **Centro sicurezza** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza.
 
-![Riquadro Raccomandazioni][2]
+![Riquadro Raccomandazioni][1]
 
 Per visualizzare i dettagli di ogni raccomandazione:
 
@@ -58,29 +55,32 @@ Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga
     - **In corso**: la raccomandazione è stata applicata alle risorse e non è richiesta alcuna azione da parte dell'utente.
     - **Risolta**: la raccomandazione è già stata completata. In questo caso, la riga sarà visualizzata in grigio.
 - **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
-    - **Alta**: esiste una vulnerabilità associata a una risorsa significativa, ad esempio un'applicazione, una macchina virtuale o un gruppo di sicurezza di rete, che richiede attenzione.
-    - **Media**: esiste una vulnerabilità e sono necessari passaggi aggiuntivi o non critici per eliminarla o per completare un processo.
-    - **Bassa**: esiste una vulnerabilità che è opportuno risolvere, ma che non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
+    - **Alta**: una vulnerabilità associata a una risorsa significativa, ad esempio un'applicazione, una macchina virtuale o un gruppo di sicurezza di rete, richiede attenzione.
+    - **Media**: per eliminare una vulnerabilità o per completare un processo sono necessari passaggi aggiuntivi o non critici.
+    - **Bassa**: una vulnerabilità che è opportuno risolvere, non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
 
 Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili e gli effetti che producono se si decide di metterle in pratica.
 
-> [AZURE.NOTE] È necessario conoscere i [modelli di distribuzione di Resource Manager e classico](../azure-classic-rm.md) per le risorse di Azure.
+> [AZURE.NOTE] È necessario conoscere i [modelli di distribuzione di Resource Manager e classici](../azure-classic-rm.md) per le risorse di Azure.
 
 |Raccomandazione|Descrizione|
 |-----|-----|
 |[Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md)|Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni.|
-|Risolvere la mancata corrispondenza alle regole della linea di base|Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password.|
+|[Remediate OS vulnerabilities](security-center-resolve-mismatch-baseline-rules.md) (Risolvi vulnerabilità del sistema operativo)|Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione raccomandate, ad esempio non consentire il salvataggio delle password.|
 |[Applicare gli aggiornamenti di sistema](security-center-apply-system-updates.md)|Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali.|
 |[Riavvia dopo gli aggiornamenti del sistema](security-center-apply-system-updates.md#reboot-after-system-updates)|Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema.|
 |[Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Per proteggere più applicazioni Web in Centro sicurezza, è possibile aggiungerle alle distribuzioni WAF esistenti. Le appliance WAF (create con il modello di distribuzione di Resource Manager) devono essere distribuite in una rete virtuale separata. Le appliance WAF (create con il modello di distribuzione classica) sono limitate all'uso di un gruppo di sicurezza di rete. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di un'appliance WAF (versione classica).|
 |[Finalizza la protezione dell'applicazione](security-center-add-web-application-firewall.md#finalize-application-protection)|Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Seguendo questa raccomandazione si completeranno le modifiche di configurazione necessarie.|
+|[Aggiungi un firewall di nuova generazione](security-center-add-next-generation-firewall.md)|Il Centro sicurezza di Azure consiglia di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare la protezione delle applicazioni Web.|
+|[Route traffic through NGFW only](security-center-route-traffic-through-ngfw-only.md) (Indirizza il traffico solo tramite il firewall di nuova generazione)|Consiglia di configurare le regole del gruppo di sicurezza di rete che forzano il traffico in ingresso alla VM tramite il firewall di nuova generazione.|
 |[Installa Endpoint Protection](security-center-install-endpoint-protection.md)|Suggerisce di effettuare il provisioning dei programmi antimalware nelle macchine virtuali (solo VM Windows).|
-|[Abilitare i gruppi di sicurezza di rete nelle subnet/interfacce di rete](security-center-enable-network-security-groups.md)|Consiglia di abilitare i gruppi di sicurezza di rete nelle subnet e nelle interfacce di rete.|
-|Limitare l'accesso tramite endpoint esterni pubblici|Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete.|
+|[Risolvi gli avvisi sull'integrità di Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)|Si consiglia di correggere gli errori relativi alla protezione degli endpoint.|
+|[Abilita i gruppi di sicurezza di rete sulle subnet o sulle macchine virtuali](security-center-enable-network-security-groups.md)|Consiglia di attivare i gruppo di sicurezza di rete sulle subnet o sulle macchine virtuali.|
+|[Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md) (Limita l'accesso tramite endpoint con connessione Internet)|Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete.|
 |[Abilitare il servizio di controllo SQL per i server](security-center-enable-auditing-on-sql-servers.md)|Suggerisce di attivare il controllo per i server SQL di Azure. Solo il servizio SQL di Azure, non SQL in esecuzione nelle macchine virtuali.|
 |[Abilitare il servizio di controllo SQL per i database](security-center-enable-auditing-on-sql-databases.md)|Suggerisce di attivare il controllo per i database SQL di Azure. Solo il servizio SQL di Azure, non SQL in esecuzione nelle macchine virtuali.|
 |[Abilitare Transparent Data Encryption sui database SQL](security-center-enable-transparent-data-encryption.md)|Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure).|
-|Distribuire l'agente di macchine virtuali|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali.|
+|[Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali.|
 | [Applicare Crittografia dischi](security-center-apply-disk-encryption.md) |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.|
 |[Specificare dettagli del contatto per la sicurezza](security-center-provide-security-contact-details.md) | Suggerisce di specificare le informazioni di contatto per la sicurezza per ogni sottoscrizione. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono. Le informazioni vengono usate per contattare l'utente se il team di sicurezza rileva risorse compromesse. |
 | [Aggiornare la versione sistema operativo](security-center-update-os-version.md) | Suggerisce di aggiornare la versione del sistema operativo per il servizio cloud alla versione più recente disponibile per la famiglia di sistemi operativi. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md). |
@@ -89,40 +89,30 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 
 1. Nel pannello **Raccomandazioni** fare clic su **Filtro**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
 
-    ![Filtrare le raccomandazioni][3]
+    ![Filtrare le raccomandazioni][2]
 
 2. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Uno consiste nel fare clic con il pulsante destro del mouse su un elemento e quindi scegliere **Ignora**. L'altro nel passare il puntatore del mouse su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e scegliendo **Ignorata**.
 
-    ![Ignorare una raccomandazione][4]
+    ![Ignorare una raccomandazione][3]
 
 ### Applicare le raccomandazioni
-Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime. Prendendo come esempio la raccomandazione **Enable Antimalware** (Abilita antimalware), viene illustrata di seguito la procedura da seguire per applicarla.
+Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime.
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilitare antimalware**. ![Selezionare l'abilitazione dell'antimalware][5]
+Nella tabella delle raccomandazioni precedente selezionare una raccomandazione e usarla come esempio di come applicare una raccomandazione.
 
-2. Nel pannello **Installa antimalware** selezionare una delle macchine virtuali senza antimalware abilitato incluse nell'elenco e fare clic su **Installa antimalware**.
-3. Viene visualizzato il pannello **Nuova risorsa**, che consente di selezionare la soluzione antimalware da usare. Selezionare **Microsoft Antimalware**.
-4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Create**.
-5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e selezionare **OK**. ![Installare l'antimalware][6]
-
-[Microsoft Antimalware](../security/azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
-
-
-## Passaggi successivi
+## Vedere anche
 Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->
-[2]: ./media/security-center-recommendations/recommendations-tile.png
-[3]: ./media/security-center-recommendations/filter-recommendations.png
-[4]: ./media/security-center-recommendations/dismiss-recommendations.png
-[5]: ./media/security-center-recommendations/select-enable-antimalware.png
-[6]: ./media/security-center-recommendations/install-antimalware.png
+[1]: ./media/security-center-recommendations/recommendations-tile.png
+[2]: ./media/security-center-recommendations/filter-recommendations.png
+[3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

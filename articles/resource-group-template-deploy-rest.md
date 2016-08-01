@@ -23,6 +23,7 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
@@ -52,7 +53,7 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
             }
           }
    
-3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida di una distribuzione di modello](https://msdn.microsoft.com/library/azure/dn790547.aspx). Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione [Convalidare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790547.aspx). Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
 3. Creare una nuova distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse da distribuire, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Si noti che la **modalità** è impostata su **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
     
@@ -93,4 +94,4 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

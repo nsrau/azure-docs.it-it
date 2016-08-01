@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Accesso ai log di diagnostica per Archivio Data Lake di Azure
@@ -50,15 +50,39 @@ Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i lo
 
 ## Visualizzare i log di diagnostica dell'account di Archivio Data Lake
 
-1. Nel pannello **Impostazioni** dell’account di Archivio Data Lake, fare clic su **Log di diagnostica**.
+Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
+
+* Dalla visualizzazione delle impostazioni dell'account Data Lake Store
+* Dall'account di Archiviazione di Azure dove sono archiviati i dati
+
+### Usando la visualizzazione Impostazioni dell'account Data Lake Store
+
+1. Nel pannello **Impostazioni** dell'account Data Lake Store, fare clic su **Log di diagnostica**.
 
 	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
 
-2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati in **Log di controllo** e **Log delle richieste**.
+2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati in **Log di controllo** e **Request Logs** (Log delle richieste).
 	* I log delle richieste acquisiscono tutte le richieste API fatte nell’account di Archivio Data Lake.
 	* I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni eseguite nell'account di Archivio Data Lake. Ad esempio, una singola chiamata API di caricamento nei log delle richieste potrebbe risultare in molteplici operazioni di "Aggiungi" nei log di controllo.
 
 3. Fare clic sul link **Scarica** di ogni voce di log per scaricare i log.
+
+### Dall'account di Archiviazione di Azure che contiene i dati di log
+
+1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Store per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
+
+	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
+
+	* Il contenitore **insights-logs-audit** contiene i log di controllo.
+	* Il contenitore **insights-logs-requests** contiene i log delle richieste.
+
+2. All'interno di questi contenitori i log vengono archiviati con la struttura seguente.
+
+	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visualizzare i log di diagnostica")
+
+	Ad esempio, il percorso completo a un log di controllo potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	Analogamente, il percorso completo a un log della richiesta potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Informazioni sulla struttura dei dati del log
 
@@ -157,9 +181,15 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 |------------|--------|------------------------------------------|
 | StreamName | String | Il percorso coinvolto nell'operazione |
 
+
+## Esempi per elaborare i dati di log
+
+Azure Data Lake Store fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio all'indirizzo [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+
+
 ## Vedere anche
 
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

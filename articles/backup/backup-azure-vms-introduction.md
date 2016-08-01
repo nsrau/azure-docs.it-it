@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
@@ -79,7 +79,7 @@ Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i b
 | Backup iniziale | 160 Mbps |
 | Backup incrementale (ripristino di emergenza) | 640 Mbps <br><br> Questo valore può diminuire in modo significativo in presenza di una varianza dislocata elevata sul disco di cui si deve eseguire il backup. |
 
-### Tempo totale di backup della macchina virtuale
+## Tempo totale di backup della macchina virtuale
 Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia dei dati, ci sono altre operazioni che influiscono sul tempo totale necessario per il backup di una macchina virtuale:
 
 - Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms).
@@ -131,4 +131,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

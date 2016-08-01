@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/02/2016"
+	ms.date="07/19/2016"
 	ms.author="carlrab" />
 
 
@@ -60,7 +60,7 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 | Area | Limite | Descrizione |
 |---|---|---|
 | Database che utilizzano l’esportazione automatizzata per ogni sottoscrizione | 10 | L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. Per ulteriori informazioni, vedere [Database SQL: supporto per le esportazioni automatizzate di Database SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
-| Database per server | Fino a 5000 | Nei server V12 sono permessi fino a 5000 database per server. In pratica è possibile che vengano applicati limiti più ridotti, a seconda dell'attività di accesso a tutti i database presenti sul server e all'uso di query sulle viste di sistema nel database master. Quando il numero di database in un server aumenta in modo significativo, si consiglia ai clienti di monitorare eventuali problemi nelle connessioni ai database. |  
+| Database per server | Fino a 5000 | Nei server V12 sono permessi fino a 5000 database per server. |  
 | DTU per server | 45000 | Nei server V12 sono disponibili 45000 DTU per server per il provisioning di database, pool elastici e data warehouse. |
 
 
@@ -73,4 +73,4 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

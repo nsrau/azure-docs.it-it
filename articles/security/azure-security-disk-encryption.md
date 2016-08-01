@@ -34,9 +34,9 @@ Azure Disk Encryption è una nuova funzionalità che consente di crittografare i
 La soluzione Crittografia dischi di Azure supporta i tre scenari dei clienti descritti di seguito:
 
 - Abilitare la crittografia delle nuove VM IaaS create da chiavi di crittografia e VHD pre-crittografati.
-- Abilitare la crittografia di nuove VM IaaS create da immagini della Raccolta di Azure. 
-- Abilitare la crittografia delle VM IaaS esistenti già in esecuzione in Azure. 
-- Disabilitare la crittografia nelle VM IaaS Windows  
+- Abilitare la crittografia di nuove VM IaaS create da immagini della Raccolta di Azure.
+- Abilitare la crittografia delle VM IaaS esistenti già in esecuzione in Azure.
+- Disabilitare la crittografia nelle VM IaaS Windows
 
 Se abilitata in Microsoft Azure, la soluzione supporta le funzionalità seguenti per le VM IaaS:
 
@@ -91,7 +91,7 @@ Quando si abilita e si distribuisce la crittografia del disco di Azure per le VM
 
 La soluzione Azure Disk Encryption per le VM IaaS per Windows e Linux include l'estensione di crittografia del disco per Windows, l'estensione di crittografia del disco per Linux, i cmdlet di crittografia del disco di PowerShell, i cmdlet di crittografia del disco per l'interfaccia della riga di comando e i modelli di crittografia del disco di Gestione risorse di Azure. La soluzione Azure Disk Encryption è supportata nelle VM IaaS che eseguono il sistema operativo Windows o Linux. Per altri dettagli sui sistemi operativi supportati, vedere la sezione relativa ai prerequisiti più avanti.
 
-**Nota:** non è previsto alcun addebito per la crittografia dei dischi delle VM con Crittografia dischi di Azure.
+**Nota: ** non è previsto alcun addebito per la crittografia dei dischi delle VM con Crittografia dischi di Azure.
 
 ### Proposta di valore
 
@@ -197,7 +197,7 @@ Crittografia dischi di Azure è supportato negli SKU client di Windows seguenti:
 
 - Usare la versione più recente della versione di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell versione 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e successive
 
-**Nota:** Crittografia dischi di Azure non è supportato in [Azure PowerShell SDK versione 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se viene visualizzato un errore relativo all'uso di Azure PowerShell 1.1.0, vedere l'articolo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Errore di Crittografia dischi di Azure correlato a Azure PowerShell 1.1.0).
+**Nota:** Crittografia dischi di Azure non è supportato in [Azure PowerShell SDK versione 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se viene visualizzato un errore relativo all'uso di Azure PowerShell 1.1.0, vedere l'articolo dedicato all'[errore di Crittografia dischi di Azure correlato a Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
 
 - Per eseguire uno qualsiasi dei comandi dell'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, è necessario installare prima di tutto la versione dell'interfaccia della riga di comando di Azure:
 
@@ -459,9 +459,9 @@ Usare la procedura seguente per abilitare la crittografia del disco per questo s
 
 1. Impostare i criteri di accesso nell'insieme di credenziali delle chiavi:
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- Impostare le autorizzazioni dell'app Azure AD per la scrittura delle chiavi private nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+3. Ottenere lo stato della crittografia: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create":
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -502,9 +502,9 @@ Seguire questa procedura per abilitare la crittografia nella VM IaaS Windows esi
 
 1. Impostare i criteri di accesso nell'insieme di credenziali delle chiavi:
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- Impostare le autorizzazioni dell'app Azure AD per la scrittura delle chiavi private nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+3. Ottenere lo stato della crittografia: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create":
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -537,9 +537,9 @@ La crittografia del disco può essere abilitata in un VHD crittografato del clie
 
 1. Impostare i criteri di accesso nell'insieme di credenziali delle chiavi:
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- Impostare le autorizzazioni dell'app Azure AD per la scrittura delle chiavi private nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: "azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json"
+3. Ottenere lo stato della crittografia: “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create".
 	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
 	- *disk-encryption-key-url <disk-encryption-key-url>*
@@ -679,13 +679,14 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint
     modprobe vfat >/dev/null 2>&1
+    modprobe ntfs >/dev/null 2>&1
     sleep 2
     OPENED=0
-    for SFS in /sys/block/sd*; do
-        DEV=`basename $SFS`
-        F=$SFS/${DEV}1/dev
+    cd /sys/block
+    for DEV in sd*; do
         echo "> Trying device: $DEV ..." >&2
-        mount /dev/${DEV}1 $MountPoint -t vfat -r >/dev/null
+        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null||
+        mount -t ntfs -r /dev/${DEV}1 $MountPoint >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
                 cat $MountPoint/$KeyFileName
                 umount $MountPoint 2>/dev/null
@@ -709,11 +710,19 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
 
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
-3\.Se si modifica *azure\_crypt\_key.sh* in Windows e si copia il valore in Linux, non dimenticare di eseguire *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4.Eseguire *update-initramfs -u -k all* per aggiornare initramfs e rendere effettivo il keyscript.
+3\.Se si modifica *azure\_crypt\_key.sh* in Windows e si copia il valore in Linux, non dimenticare di eseguire *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4.Modificare */etc/initramfs-tools/modules* accodando le righe:
+
+    vfat
+    ntfs
+    nls_cp437
+    nls_utf8
+    nls_iso8859-1
+
+5\.Eseguire *update-initramfs -u -k all* per aggiornare initramfs e rendere operativo il keyscript.
 
 ##### openSUSE 13.2.
 
-1\.Modificare /etc/dracut.conf add\_drivers+="vfat nls\_cp437 nls\_iso8859-1"
+1\.Modificare /etc/dracut.conf add\_drivers+="vfat ntfs nls\_cp437 nls\_iso8859-1"
 
 2\.Impostare come commento queste righe verso la fine del file "/usr/lib/dracut/modules.d/90crypt/module-setup.sh":
 
@@ -737,9 +746,11 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
        echo "> Trying device:$SFS..." >&2
-       mount ${SFS}1 $MountPoint -t vfat -r >&2
+       mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+       mount ${SFS}1 $MountPoint -t ntfs -r >&2
        if [ -f $MountPoint/$KeyFileName ]; then
           echo "> keyfile got..." >&2
           luksfile=$MountPoint/$KeyFileName
@@ -750,7 +761,7 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
 5\.Eseguire "dracut –f -v" per aggiornare initrd
 
 ##### CentOS 7
-1\.Modificare /etc/dracut.conf add\_drivers+=" vfat nls\_cp437 nls\_iso8859-1"
+1\.Modificare /etc/dracut.conf add\_drivers+=" vfat ntfs nls\_cp437 nls\_iso8859-1"
 
 2\.Impostare come commento queste righe verso la fine del file "/usr/lib/dracut/modules.d/90crypt/module-setup.sh":
 
@@ -775,9 +786,11 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
     echo "> Trying device:$SFS..." >&2
-    mount ${SFS}1 $MountPoint -t vfat -r >&2
+    mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+    mount ${SFS}1 $MountPoint -t ntfs -r >&2
     if [ -f $MountPoint/$KeyFileName ]; then
         echo "> keyfile got..." >&2
         luksfile=$MountPoint/$KeyFileName
@@ -845,4 +858,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

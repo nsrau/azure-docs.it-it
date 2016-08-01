@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="07/19/2016"
     ms.author="sstein"/>
 
 # Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure
@@ -61,4 +61,4 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,7 +19,7 @@
 
 # Livelli di coerenza in DocumentDB
 
-DocumentDB è stato progettato da zero pensando alla distribuzione globale. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Attualmente DocumentDB offre quattro livelli di coerenza: assoluta, con obsolescenza associata, sessione e finale. Oltre ai modelli di **coerenza assoluta** e **finale** offerti dai database NoSQL, DocumentDB offre anche due modelli di coerenza attentamente codificati e operativi: **con obsolescenza associata** e **sessione** e ha convalidato la loro utilità in casi reali. Questi quattro livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza.
+Azure DocumentDB è stato progettato da zero pensando alla distribuzione globale. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Attualmente DocumentDB offre quattro livelli di coerenza: assoluta, con obsolescenza associata, sessione e finale. Oltre ai modelli di **coerenza assoluta** e **finale** offerti dai database NoSQL, DocumentDB offre anche due modelli di coerenza attentamente codificati e operativi: **con obsolescenza associata** e **sessione** e ha convalidato la loro utilità in casi reali. Questi quattro livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza.
 
 ## Ambito di coerenza
 
@@ -33,38 +33,38 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 
 **Assoluta**:
 
-- la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un documento. 
-- la coerenza assoluta garantisce che una scrittura sia visibile solo dopo che ne è stato eseguito il commit in modo permanente dal quorum di maggioranza delle repliche. Una scrittura può ottenere o il commit sincrono e permanente da parte della replica primaria e della maggioranza delle repliche secondarie o l'interruzione. Una lettura viene sempre confermata dalla quorum di maggioranza per le letture: un client non potrà mai vedere una scrittura parziale o di cui non sia stato eseguito il commit e leggerà sempre la più recente scrittura confermata. 
-- Gli account DocumentDB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account DocumentDB. 
+- la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un documento.
+- la coerenza assoluta garantisce che una scrittura sia visibile solo dopo che ne è stato eseguito il commit in modo permanente dal quorum di maggioranza delle repliche. Una scrittura può ottenere o il commit sincrono e permanente da parte della replica primaria e della maggioranza delle repliche secondarie o l'interruzione. Una lettura viene sempre confermata dalla quorum di maggioranza per le letture: un client non potrà mai vedere una scrittura parziale o di cui non sia stato eseguito il commit e leggerà sempre la più recente scrittura confermata.
+- Gli account DocumentDB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account DocumentDB.
 - Il costo di un'operazione di lettura (in termini di [unità richiesta](documentdb-request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con obsolescenza associata.
  
 
 **Obsolescenza associata**:
 
-- La coerenza con obsolescenza associata garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un documento o all'intervallo di tempo *t*. 
-- Perciò, quando si sceglie l'obsolescenza associata, tale “obsolescenza” può essere configurata in due modi: 
+- La coerenza con obsolescenza associata garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un documento o all'intervallo di tempo *t*.
+- Perciò, quando si sceglie l'obsolescenza associata, tale “obsolescenza” può essere configurata in due modi:
     - Numero di versioni *K* del documento di cui le letture possono essere in ritardo rispetto alle scritture
-    - Intervallo di tempo *t* 
-- L'obsolescenza associata offre un ordine globale totale tranne all'interno della "finestra di obsolescenza". Si noti che la garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di obsolescenza". 
-- L'obsolescenza associata offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare l'obsolescenza associata per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza. 
-- Gli account DocumentDB configurati con la coerenza con obsolescenza associata possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB. 
+    - Intervallo di tempo *t*
+- L'obsolescenza associata offre un ordine globale totale tranne all'interno della "finestra di obsolescenza". Si noti che la garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di obsolescenza".
+- L'obsolescenza associata offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare l'obsolescenza associata per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza.
+- Gli account DocumentDB configurati con la coerenza con obsolescenza associata possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB.
 - Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
 **Sessione**:
 
-- a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con obsolescenza associata, la coerenza di "sessione" ha come ambito una sessione del client. 
-- La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW). 
-- La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura. 
-- Gli account DocumentDB configurati con la coerenza di sessione possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB. 
+- a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con obsolescenza associata, la coerenza di "sessione" ha come ambito una sessione del client.
+- La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW).
+- La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura.
+- Gli account DocumentDB configurati con la coerenza di sessione possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB.
 - Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza di sessione è minore rispetto ai livelli assoluto e con obsolescenza associata, ma maggiore rispetto al livello finale
  
 
 **Finale**:
 
-- la coerenza finale garantisce che, in assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno. 
+- la coerenza finale garantisce che, in assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno.
 - La coerenza finale è la forma più debole di coerenza, in cui un client può ottenere nel tempo valori obsoleti rispetto a quelli già visualizzati in passato.
 - La coerenza finale rappresenta il livello più debole, ma offre la latenza più bassa sia per le letture sia le per scritture.
-- Gli account DocumentDB che sono configurati con coerenza finale possono associare un numero qualsiasi di aree di Azure con il proprio account DocumentDB. 
+- Gli account DocumentDB che sono configurati con coerenza finale possono associare un numero qualsiasi di aree di Azure con il proprio account DocumentDB.
 - Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza finale è il più basso fra tutti i livelli di coerenza di DocumentDB.
 
 
@@ -122,4 +122,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

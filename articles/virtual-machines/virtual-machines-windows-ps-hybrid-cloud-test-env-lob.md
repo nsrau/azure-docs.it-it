@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
@@ -59,7 +59,7 @@ Questa è la configurazione corrente.
 
 Dal portale di Azure avviare il computer DC2, se necessario.
 
-Successivamente, creare una macchina virtuale di Azure per SQL1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri < and >.
+Successivamente, creare una macchina virtuale di Azure per SQL1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri <and>.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -86,7 +86,7 @@ Successivamente, creare una macchina virtuale di Azure per SQL1 con questi coman
 Usare il portale di Azure per connettersi a SQL1 con l'account amministratore locale.
 
 1.	Nel riquadro sinistro del portale di gestione di Azure, fare clic su **Macchine virtuali**, quindi su **In esecuzione** nella colonna Stato per SQL1.
-2.	Nella barra delle applicazioni fare clic su **Connetti**. 
+2.	Nella barra delle applicazioni fare clic su **Connetti**.
 3.	Quando viene richiesto di aprire SQL1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
@@ -136,7 +136,7 @@ Configurare quindi SQL Server 2014 in modo che usi l'unità F: per i nuovi datab
 2.	In **Connetti al Server**, fare clic su **Connetti**.
 3.	Nel riquadro dell'albero Esplora oggetti, fare doppio clic su **SQL1**, quindi fare clic su **Proprietà**.
 4.	Nella finestra **Proprietà server**, fare clic su **Impostazioni database**.
-5.	Individuare **Percorsi predefiniti del Database** e impostare i valori seguenti: 
+5.	Individuare **Percorsi predefiniti del Database** e impostare i valori seguenti:
 	- Per **Dati**, digitare il percorso **f:\\Data**.
 	- Per **Log**, digitare il percorso **f:\\Log**.
 	- Per **Backup**, digitare il percorso **f:\\Backup**.
@@ -216,6 +216,6 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 
 ## Passaggio successivo
 
-- Distribuire l'[ambiente di produzione](virtual-machines-windows-lob-overview.md).
+- Distribuire altri [carichi di lavoro](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) in questo ambiente.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
