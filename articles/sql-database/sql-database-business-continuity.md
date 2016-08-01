@@ -61,7 +61,7 @@ Si sta rilasciando un aggiornamento importante dell'applicazione che comporta mo
 La tabella seguente include un elenco delle funzionalità di continuità aziendale del database SQL e descrive le differenze dei vari [livelli di servizio](sql-database-service-tiers.md):
 
 | Funzionalità | Livello Basic | Livello Standard |Livello Premium
-| --- | --- | --- | ---
+| --- |--- | --- | ---
 | Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 35 giorni | Qualsiasi punto di ripristino entro 35 giorni
 | Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
 | Replica geografica attiva | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec
@@ -108,7 +108,7 @@ La [replica geografica attiva](sql-database-geo-replication-overview.md) consent
 
 È consigliabile utilizzare la replica geografica attiva se l’applicazione soddisfa i criteri seguenti:
 
-1. È considerata cruciale. Ha un contratto di servizio vincolante con valori RPO e RTO elevati. La perdita di dati e disponibilità comporta una responsabilità finanziaria.
+1. È considerata cruciale. La perdita di dati e disponibilità comporta una responsabilità finanziaria.
 2. La frequenza di modifica dei dati è alta (ad esempio, è espressa in termini di transazioni al minuto o al secondo). Un valore RPO di 1 ora associato alla protezione predefinita avrà come risultato una perdita di dati inaccettabile.
 3. Il costo legato all'uso della replica geografica è notevolmente inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
@@ -126,4 +126,4 @@ Per informazioni sulle strategie di ripristino dettagliate da usare con un pool 
 - Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

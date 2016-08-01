@@ -36,6 +36,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | America del Nord | Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
 | America del Nord | Stati Uniti orientali | Stati Uniti occidentali |
 | America del Nord | Stati Uniti orientali 2 | Stati Uniti centrali |
+|America del Nord | Stati Uniti occidentali 2 | Stati Uniti centro-occidentali |
 | Europa | Europa settentrionale | Europa occidentale |
 | Asia | Asia sudorientale | Asia orientale |
 | Cina | Cina orientale | Cina settentrionale |
@@ -45,6 +46,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Governo degli Stati Uniti | Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
 | India | India centrale | India meridionale |
 | Canada | Canada centrale | Canada orientale |
+
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
@@ -86,4 +88,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

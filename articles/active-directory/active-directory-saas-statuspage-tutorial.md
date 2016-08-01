@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ Questa esercitazione descrive l'integrazione di StatusPage con Azure Active Dire
 
 L'integrazione di StatusPage con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a StatusPage 
+- È possibile controllare in Azure AD chi può accedere a StatusPage
 - È possibile abilitare gli utenti per l'accesso automatico a StatusPage (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -43,7 +43,7 @@ Per configurare l'integrazione di Azure AD con StatusPage, sono necessari gli el
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
@@ -51,7 +51,7 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di StatusPage dalla raccolta 
+1. Aggiunta di StatusPage dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di StatusPage in Azure AD, è necessario aggiunge
 
 **Per aggiungere StatusPage dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -321,4 +321,4 @@ Quando si fa clic sul riquadro StatusPage nel pannello di accesso, si dovrebbe a
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

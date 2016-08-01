@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
@@ -24,17 +24,65 @@ Questo argomento illustra come risolvere alcuni errori comuni che possono verifi
 
 ## Risorsa o modello non valido
 
-Se viene visualizzato un errore indicante che una proprietà in una risorsa o un modello non è valido, potrebbe trattarsi di un carattere mancante nel modello. È facile incorrere in questo errore quando si usano le espressioni del modello perché l'espressione è racchiusa tra virgolette, JSON la convalida comunque e l'editor potrebbe non rilevare l'errore. Ad esempio, l'assegnazione di nome seguente per un account di archiviazione contiene un set di parentesi, tre funzioni, tre set di parentesi, un set di virgolette singole e una proprietà:
+Quando si distribuisce un modello, potrebbe essere visualizzato:
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+Se viene visualizzato un errore indicante che una proprietà in una risorsa o un modello non è valido, potrebbe trattarsi di un errore di sintassi nel modello. Non è insolito commettere questo errore, perché le espressioni del modello possono essere complesse. Ad esempio, l'assegnazione di nome seguente per un account di archiviazione contiene un set di parentesi, tre funzioni, tre set di parentesi, un set di virgolette singole e una proprietà:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 Se non si fornisce tutta la sintassi corrispondente, il modello produce un valore molto diverso dal previsto.
 
-A seconda della posizione del carattere mancante nel modello, viene visualizzato un errore indicante che il modello o una risorsa non è valida. L'errore può anche indicare che il processo di distribuzione non è riuscito a elaborare l'espressione del linguaggio del modello. Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione.
+Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione. È consigliabile usare un editor JSON come [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) o [Visual Studio Code](resource-manager-vs-code.md) che può segnalare gli errori di sintassi.
 
-## Resource name already exists or is already used by another resource (Il nome della risorsa esiste già o è già usato da un'altra risorsa)
+## Lunghezze di segmenti non valide
 
-Per alcune risorse, in particolare gli account di archiviazione, i server di database e i siti Web, è necessario specificare un nome che sia univoco all'interno di Azure. È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions.md#uniquestring).
+Un altro errore di modello non valido si verifica quando il nome della risorsa non è nel formato corretto.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+Una risorsa a livello di radice deve avere un segmento in meno nel nome rispetto al tipo di risorsa. Ogni segmento si differenzia mediante una barra. Nell'esempio seguente il tipo ha 2 segmenti e il nome 1 segmento, quindi è un **nome valido**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+L'esempio successivo invece **non è un nome valido**, perché ha lo stesso numero di segmenti del tipo.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+Per le risorse figlio il tipo e il nome devono avere lo stesso numero di segmenti. Ciò è utile perché il nome completo e il tipo dell'elemento figlio includono il nome e il tipo dell'elemento padre, quindi il nome completo ha comunque un segmento in meno rispetto al tipo completo.
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+Ottenere il numero di segmenti corretto può essere particolarmente difficile con i tipi di Resource Manager applicati ai provider di risorse. Ad esempio, l'applicazione di un blocco della risorsa a un sito Web richiede un tipo con segmenti di 4. Il nome è quindi formato da 3 segmenti:
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+
+## Il nome della risorsa esiste già o è già usato da un'altra risorsa
+
+Per alcune risorse, in particolare gli account di archiviazione, i server di database e i siti Web, è necessario specificare un nome che sia univoco all'interno di Azure. Se non si specifica un nome univoco, è possibile che venga visualizzato un errore:
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
+È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions.md#uniquestring).
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
@@ -70,7 +118,7 @@ Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad ese
 
     ![sku disponibili](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-2.	Se non si riesce a trovare uno SKU appropriato in tale area o un'area alternativa che soddisfi le esigenze aziendali, è possibile visitare la pagina del [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
+2.	Se non si riesce a trovare uno SKU appropriato in tale area o un'area alternativa che soddisfi le esigenze aziendali, vedere la pagina del [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 
 ## No registered provider found (Non è stato trovato un provider registrato)
@@ -168,7 +216,7 @@ In questi casi, si deve accedere al portale e rivolgersi all'assistenza per rich
 
 Si può ricevere un messaggio di errore durante la distribuzione perché l'account o l'entità servizio che prova a distribuire le risorse non ha l'accesso necessario per eseguire tali azioni. Azure Active Directory consente all'utente o all'amministratore di controllare con un'elevata precisione quali identità possono accedere e a quali risorse. Ad esempio, se l'account è assegnato al ruolo Lettore non può creare nuove risorse. In tal caso, viene visualizzato un messaggio di errore che indica che l'autorizzazione non è riuscita.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse di Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
 Oltre che dal controllo degli accessi in base al ruolo, le azioni di distribuzione possono essere limitate da criteri della sottoscrizione. Attraverso i criteri, l'amministratore può imporre convenzioni in tutte le risorse distribuite nella sottoscrizione. Ad esempio, un amministratore può richiedere che venga fornito un valore di tag specifico per un tipo di risorsa. Se non vengono soddisfatti i requisiti dei criteri, si riceve un messaggio di errore durante la distribuzione. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
@@ -213,4 +261,4 @@ Per impedire che Azure segnali lo stato di completamento della distribuzione, tu
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

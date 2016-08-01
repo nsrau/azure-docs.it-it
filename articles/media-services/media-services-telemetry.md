@@ -54,8 +54,8 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 - **ResultCode** ottiene il codice del risultato.
 - **RequestCount** ottiene il numero di richieste.
 - **BytesSent** ottiene i byte inviati.
-- **BytesSent** ottiene la latenza del server.
-- **BytesSent** ottiene il tempo di richiesta end-to-end.
+- **ServerLatency** ottiene la latenza del server.
+- **EndToEndLatency** ottiene il tempo di richiesta end-to-end.
 
 ###Esempio di risultati della query per l'endpoint di streaming
 
@@ -235,4 +235,4 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

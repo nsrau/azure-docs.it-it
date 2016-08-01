@@ -4,15 +4,15 @@
 	keywords="database elastici, database SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="srinia"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -53,6 +53,8 @@ I database che sono ottimi candidati per i pool di database elastici sono in gen
 
 [AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
+Se vengono utilizzate tutte le DTU di un pool elastico, ogni database del pool riceve un'uguale quantità di risorse per l'elaborazione di query. Il servizio di database SQL suddivide equamente le risorse fra i database con intervalli equivalenti per i tempi di calcolo. Questa condivisione equa delle risorse accompagna ogni quantità di risorse altrimenti garantita per ogni database quando il numero minimo di DTU per ogni database è impostato su un valore diverso da zero.
+
 ## Proprietà pool di database elastico
 
 ### Limiti per i pool elastici
@@ -81,7 +83,7 @@ I database che sono ottimi candidati per i pool di database elastici sono in gen
 
 L'uso di un pool permette di semplificare le attività di gestione con l'esecuzione di script in **[processi elastici](sql-database-elastic-jobs-overview.md)**. Un processo di database elastico elimina la maggior parte delle attività ripetitive associate a un elevato numero di database. Per iniziare, vedere [Introduzione ai processi di database elastici](sql-database-elastic-jobs-getting-started.md).
 
-Per informazioni sugli altri strumenti, vedere [Database SQL - Funzionalità e strumenti di database elastico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Per informazioni sugli altri strumenti, vedere l'argomento su [funzionalità e strumenti di database elastico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Funzionalità di continuità aziendale per i database in un pool
 
@@ -104,4 +106,4 @@ Per le applicazioni che hanno requisiti di ripristino più rigorosi rispetto all
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

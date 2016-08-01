@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="07/18/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** 
 
 Quando si creano asset, è possibile specificare le seguenti opzioni di crittografia.
 
-- **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+- **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 - **CommonEncryption**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 - **EnvelopeEncrypted**: usare questa opzione se si sta caricando contenuto HLS crittografato con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 - **StorageEncrypted**: crittografa il contenuto non crittografato localmente usando la crittografia AES a 256 bit, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in modo inattivo. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
@@ -54,7 +54,7 @@ Nel seguente codice di esempio viene usato l'SDK per .NET per eseguire le seguen
 - Creare un'istanza di AssetFile da associare all'asset.
 - Creare un'istanza di AccessPolicy che definisce le autorizzazioni e la durata dell'accesso all'asset.
 - Creare un'istanza di Locator che consente l'accesso all'asset.
-- Caricare in Servizi multimediali un singolo file multimediale. 
+- Caricare in Servizi multimediali un singolo file multimediale.
 
 		
 		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -315,4 +315,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

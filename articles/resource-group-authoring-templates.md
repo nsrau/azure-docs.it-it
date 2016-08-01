@@ -13,29 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
 
-In un modello di Azure Resource Manager si definiscono le risorse da distribuire per una soluzione e si specificano i parametri e le variabili che consentono di immettere i valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. In questo argomento vengono descritte le sezioni del modello.
+Questo argomento descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
 
-Visual Studio fornisce strumenti per la creazione di modelli. Per altre informazioni sull'utilizzo di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Per indicazioni sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md). Per altri suggerimenti, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](resource-manager-template-best-practices.md).
 
-Per indicazioni sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
-
-## Pianificare il modello
-
-Prima di iniziare a creare il modello, è consigliabile stabilire cosa distribuire e a quale uso sarà destinato il modello. In particolare, è opportuno prendere in considerazione:
-
-1. Tipi di risorse da distribuire
-2. Località in cui dovranno risiedere tali risorse
-3. Versione dell'API del provider di risorse da usare durante la distribuzione delle risorse
-4. Eventuale ordine di distribuzione delle risorse
-5. Valori da passare durante la distribuzione e valori da definire direttamente nel modello
-6. Eventuale necessità di valori restituiti dalla distribuzione
-
-Per scoprire quali tipi di risorse sono disponibili per la distribuzione, quali aree sono supportate per i tipi e le versioni di API disponibili per ogni tipo, vedere l'articolo relativo a [provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
+Un buon editor JSON può semplificare l'attività di creazione dei modelli. Per altre informazioni sull'uso di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Per informazioni sull'uso di Visual Studio Code con Resource Manager, vedere [Utilizzo dei modelli di Azure Resource Manager in Visual Studio Code](resource-manager-vs-code.md).
 
 È necessario limitare le dimensioni del modello a 1 MB e ogni file dei parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri.
 
@@ -165,7 +152,7 @@ Il seguente esempio mostra come definire i parametri:
       }
     }
 
-Per informazioni sull'immissione di valori di parametro durante la distribuzione vedere [Distribuire le risorse con i modelli di Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
+Per informazioni sull'immissione di valori di parametro durante la distribuzione vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md#parameter-file).
 
 ## Variabili
 
@@ -215,7 +202,7 @@ Nell'esempio successivo viene illustrata una variabile che rappresenta un tipo J
 
 ## Risorse
 
-Nella sezione delle risorse è possibile definire le risorse che vengono distribuite o aggiornate. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni utili sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
+Nella sezione delle risorse è possibile definire le risorse che vengono distribuite o aggiornate. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni utili sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 
 Le risorse vengono definite con la struttura seguente:
 
@@ -242,11 +229,11 @@ Le risorse vengono definite con la struttura seguente:
 | apiVersion | Sì | Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i numeri di versione disponibili per un determinato tipo, vedere [Versioni dell'API supportate](resource-manager-supported-services.md#supported-api-versions).
 | type | Sì | Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa che supporta il provider di risorse.
 | name | Sì | Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. Vedere [Controllare il nome della risorsa](https://msdn.microsoft.com/library/azure/mt219035.aspx).
-| location | Variabile | Aree geografiche supportate della risorsa specificata. Per determinare le posizioni disponibili vedere [Aree supportate](resource-manager-supported-services.md#supported-regions). La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono.
+| location | Variabile | Aree geografiche supportate della risorsa specificata. Per determinare le località disponibili, vedere [Aree supportate](resource-manager-supported-services.md#supported-regions). La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono.
 | tags | No | Tag associati alla risorsa.
 | commenti | No | Le note per documentare le risorse nel modello
 | dependsOn | No | Risorse da cui dipende la risorsa in via di definizione. Le dipendenze tra risorse vengono valutate e le risorse vengono distribuite in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, si cerca di distribuirle in parallelo. Il valore può essere un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse.
-| properties | No | Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli forniti nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. Per collegamenti alla documentazione dello schema di risorse o all'API REST, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
+| properties | No | Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli forniti nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. Per collegamenti alla documentazione dello schema di risorse o all'API REST, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 | resources | No | Risorse figlio che dipendono dalla risorsa in via di definizione. È possibile specificare solo i tipi di risorse consentiti dallo schema della risorsa padre. Il nome completo del tipo di risorsa figlio include il tipo di risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita, è necessario definirla in modo esplicito. 
 
 
@@ -281,7 +268,7 @@ La sezione resources contiene una matrice delle risorse da distribuire. All'inte
 
 
 
-L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**: Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
+L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
 
     "resources": [
       {
@@ -368,7 +355,7 @@ L'esempio seguente illustra un valore che viene restituito nella sezione dell'ou
        }
     }
 
-Per altre informazioni sull'uso dell'output, vedere [Condivisione dello stato in modelli di Azure Resource Manager](best-practices-resource-manager-state.md).
+Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello stato in modelli di Azure Resource Manager](best-practices-resource-manager-state.md).
 
 ## Passaggi successivi
 - Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
@@ -377,4 +364,4 @@ Per altre informazioni sull'uso dell'output, vedere [Condivisione dello stato in
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

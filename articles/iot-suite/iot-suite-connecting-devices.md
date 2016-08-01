@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Creare una soluzione di esempio C in Windows
 
-La procedura seguente illustra come creare una semplice applicazione client che comunica con la soluzione di monitoraggio remoto preconfigurata con un programma C in Visual Studio.
+La procedura seguente illustra come usare Visual Studio per creare una semplice applicazione client, scritta in C, che comunica con la soluzione di monitoraggio remoto preconfigurata.
 
 Creare un progetto iniziale in Visual Studio 2015 e aggiungere i pacchetti NuGet del client dispositivo hub IoT:
 
@@ -42,7 +42,13 @@ Creare un progetto iniziale in Visual Studio 2015 e aggiungere i pacchetti NuGet
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-## Aggiungere codice per specificare il comportamento del semplice dispositivo hub IoT
+6. In **Esplora soluzioni** fare clic sul progetto **RMDevice** e quindi scegliere **Proprietà** per aprire la finestra di dialogo **Pagine delle proprietà** del progetto. Per informazioni dettagliate, vedere [Setting Visual C++ Project Properties][lnk-c-project-properties] \(Impostazione delle proprietà dei progetti Visual C++).
+
+7. Fare clic sulla cartella **Linker** cartella, quindi fare clic sulla pagina delle proprietà **Input**.
+
+8. Aggiungere **crypt32.lib** alla proprietà **Dipendenze aggiuntive**. Fare clic su **OK** e quindi scegliere nuovamente **OK** per salvare i valori delle proprietà del progetto.
+
+## Specificare il comportamento del dispositivo hub IoT.
 
 Le librerie client dell'hub IoT usano un modello per specificare il formato dei messaggi che il dispositivo invia all'hub IoT e i comandi dall'hub IoT a cui risponde il dispositivo.
 
@@ -54,9 +60,11 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
+    #include "azure_c_shared_utility/threadapi.h"
+    #include "azure_c_shared_utility/platform.h"
     ```
 
-2. Aggiungere le seguenti dichiarazioni di variabili dopo le istruzioni `#include`. Sostituire i valori segnaposto [Id dispositivo] e [Chiave dispositivo] con i valori per il dispositivo dal dashboard della soluzione di monitoraggio remoto. Usare il Nome host hub IoT dal dashboard per sostituire [Nome IoTHub]. Ad esempio, se il nome host dell'hub IoT è **contoso.azure-devices.net**, sostituire [Nome IoTHub] con contoso:
+2. Aggiungere le seguenti dichiarazioni di variabili dopo le istruzioni `#include`. Sostituire i valori segnaposto [Id dispositivo] e [Chiave dispositivo] con i valori per il dispositivo dal dashboard della soluzione di monitoraggio remoto. Usare il Nome host hub IoT dal dashboard per sostituire [Nome IoTHub]. Ad esempio, se il nome host dell'hub IoT è **contoso.azure-devices.net**, sostituire [Nome IoTHub] con **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -104,11 +112,11 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
     END_NAMESPACE(Contoso);
     ```
 
-## Aggiungere codice per implementare il comportamento del dispositivo
+## Implementare il comportamento del dispositivo
 
-È ora necessario aggiungere codice che implementa il comportamento definito nel modello. Si aggiungeranno funzioni da eseguire quando il dispositivo riceve un comando dall'hub e il codice per inviare dati di telemetria simulati all'hub.
+È ora necessario aggiungere codice che implementa il comportamento definito nel modello.
 
-1. Aggiungere le funzioni seguenti che vengono eseguite quando il dispositivo riceve i comandi **SetTemperature** e **SetHumidity** definiti nel modello:
+1. Aggiungere le funzioni seguenti che vengono eseguite quando il dispositivo riceve i comandi **SetTemperature** e **SetHumidity** dall'hub IoT:
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -356,12 +364,13 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
     }
     ```
 
-6. Fare clic su **Compila**, quindi **Compila soluzione** per compilare l'applicazione del dispositivo.
+6. Fare clic su **Compila** e quindi **Compila soluzione** per compilare l'applicazione del dispositivo.
 
-7. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice**, scegliere **Debug** e quindi fare clic su **Avvia nuova istanza** per compilare ed eseguire l'esempio. La console visualizza i messaggi quando l'applicazione invia all'hub IoT un esempio di telemetria.
+7. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice**, scegliere **Debug** e quindi fare clic su **Avvia nuova istanza** per eseguire l'esempio. La console visualizza i messaggi quando l'applicazione invia all'hub IoT un esempio di telemetria e riceve i comandi.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
+
+<!---HONumber=AcomDC_0720_2016-->

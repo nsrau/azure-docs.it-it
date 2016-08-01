@@ -16,7 +16,7 @@
 	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
-# Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure
+# Procedure consigliate per la progettazione di modelli di Azure Resource Manager
 
 Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Adottando un approccio flessibile basato su modelli di Gestione risorse di Azure, è possibile distribuire topologie complesse in modo rapido e coerente e adattare facilmente queste distribuzioni all’evolvere delle offerte di core oppure adattare varianti per scenari di outlier o clienti.
 
@@ -382,4 +382,4 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 - Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 - Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

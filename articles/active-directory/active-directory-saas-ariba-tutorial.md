@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Ariba in Azure AD, è necessario aggiungere Ar
 
 **Per aggiungere Ariba dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -122,7 +122,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_04.png)
 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Ariba seguendo questo modello: **"https://<companyname>.sourcing.ariba.com"** o **"https://<CompanyName>.supplier.ariba.com"**.
+    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Ariba usando il modello seguente: **"https://<nomesocietà>.sourcing.ariba.com"** o **"https://<NomeSocietà>.supplier.ariba.com"**.
 
     b. Fare clic su **Avanti**.
 
@@ -135,13 +135,13 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Ariba al numero **1-866-218-2155**.
+5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Ariba al numero **1-866-218-2155**.
 
 
 > [AZURE.NOTE] Assicurarsi che il nome utente del sistema Ariba corrisponda a quello di Azure AD. In caso contrario, l'integrazione non funzionerà.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -169,11 +169,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_05.png)
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_06.png)
 
@@ -197,11 +197,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_07.png)
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/create_aaduser_08.png)
 
@@ -278,4 +278,4 @@ Quando si fa clic sul riquadro Ariba nel pannello di accesso, si dovrebbe accede
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

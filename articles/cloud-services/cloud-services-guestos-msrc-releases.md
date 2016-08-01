@@ -13,12 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/21/2016"
+   ms.date="07/19/2016"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di luglio 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-084 | [3169991] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.34, 3.41, 2.53 | 12 luglio 2016 |
+| MS16-087 | [3170005] | Aggiornamento della sicurezza per Spooler di stampa Microsoft | 4\.34, 3.41, 2.53 | 12 luglio 2016 |
+| MS16-090 | [3171481] | Aggiornamento della sicurezza per i driver in modalità kernel | 4\.34, 3.41, 2.53 | 12 luglio 2016 |
+| MS16-091 | [3170048] | Aggiornamento della sicurezza per .NET Framework | 4\.34, 3.41, 2.53 | 12 luglio 2016 |
+| MS16-092 | [3171910] | Aggiornamento della sicurezza per kernel Windows | 4\.34, 3.41 | 12 luglio 2016 |
+| MS16-094 | [3177404] | Aggiornamento della sicurezza per Avvio protetto | 4\.34, 3.41 | 12 luglio 2016 |
+| | [3162835] | Giugno 2016 Aggiornamento dell'ora legale e del fuso orario per Windows | 4\.34, 3.41, 2.53 | 12 luglio 2016 |
+| | [3156417] | Maggio 2016 Aggiornamento cumulativo per Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.53 | 12 luglio 2016 |
+| | [3161608] | Giugno 2016 Aggiornamento cumulativo per Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.53 | 12 luglio 2016 |
+| | [3161609] | Giugno 2016 Aggiornamento cumulativo per Windows Server 2012 | 3\.41 | 12 luglio 2016 |
+| | [3161606] | Giugno 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.34 | 12 luglio 2016 |
+| | [3139923] | Ripristino di Windows installer (MSI), non funziona quando il pacchetto MSI viene installato in una condivisione HTTP in Windows | 4\.34 | 12 luglio 2016 |
 
 ## Sistema operativo guest di giugno 
 
@@ -282,7 +299,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-014 | [3004361][3004361] | La vulnerabilità in SMB potrebbe consentire il bypass della funzionalità di sicurezza | 4\.17, 3.24, 2.36 | N/D |
 | MS15-015 | [3031432][3031432] | La vulnerabilità in Microsoft Windows potrebbe consentire l'elevazione dei privilegi | 4\.17, 3.24, 2.36 | N/D |
 | MS15-016 | [3029944][3029944] | La vulnerabilità nel componente grafico Microsoft potrebbe consentire la divulgazione di informazioni | 4\.17, 3.24, 2.36 | N/D |
-| N/D | [3004375][3004375] | Aggiornamento per migliorare il controllo della riga di comando di Windows<p/>**Nota**: questo componente è installato, ma la chiave di registro per abilitarlo è disattivata | 4\.17, 3.24, 2.36 | N/D |
+| N/D | [3004375][3004375] | Aggiornamento per migliorare il controllo della riga di comando di Windows<p/>**Nota**: questo componente è installato, ma la chiave del Registro di sistema per abilitarlo è disattivata | 4\.17, 3.24, 2.36 | N/D |
  
 
 ## Sistema operativo guest di gennaio
@@ -316,6 +333,21 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [3007054][3007054] | L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
+
+
+[3169991]: http://support.microsoft.com/kb/3169991
+[3170005]: http://support.microsoft.com/kb/3170005
+[3170050]: http://support.microsoft.com/kb/3170050
+[3171481]: http://support.microsoft.com/kb/3171481
+[3170048]: http://support.microsoft.com/kb/3170048
+[3171910]: http://support.microsoft.com/kb/3171910
+[3177404]: http://support.microsoft.com/kb/3177404
+[3162835]: http://support.microsoft.com/kb/3162835
+[3156417]: http://support.microsoft.com/kb/3156417
+[3161608]: http://support.microsoft.com/kb/3161608
+[3161609]: http://support.microsoft.com/kb/3161609
+[3161606]: http://support.microsoft.com/kb/3161606
+[3139923]: http://support.microsoft.com/kb/3139923
 
 
 [3141780]: http://support.microsoft.com/kb/3141780
@@ -544,4 +576,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

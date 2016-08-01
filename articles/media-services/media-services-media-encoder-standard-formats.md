@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Formati e codec Media Encoder Standard
@@ -88,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Sì
 Windows Media Audio|Sì 
 WAV/PCM|Sì 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Sì 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Sì 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sì 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Sì 
 AMR (velocità multipla adattiva)|Sì
 AES (SMPTE 331M e 302M, AES3-2003) |No 
@@ -123,4 +123,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

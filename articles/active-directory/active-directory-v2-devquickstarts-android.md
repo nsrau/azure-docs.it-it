@@ -148,12 +148,12 @@ Ora che `oidlib-sample` è correttamente in esecuzione, verranno modificati alcu
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-Il valore `User.ReadBasic.All` in `oidc_scopes` consente di leggere il profilo di base di tutti gli utenti nella directory. Per altre informazioni su tutti gli ambiti disponibili, vedere [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ambiti di autorizzazione di Microsoft Graph).
+Il valore `User.Read` in `oidc_scopes` consente di leggere il profilo di base dell'utente connesso. Per altre informazioni su tutti gli ambiti disponibili, vedere [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ambiti di autorizzazione di Microsoft Graph).
 
 Se si necessita di spiegazioni sugli ambiti `openid` o `offline_access` in OpenID Connect, vedere [Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -196,4 +196,4 @@ Una volta eseguita l'autenticazione, premere il pulsante **Request Protected Res
 
 È consigliabile ricevere notifiche sui problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

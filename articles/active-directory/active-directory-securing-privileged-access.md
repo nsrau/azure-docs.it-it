@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="mwahl"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 
 # Protezione dell'accesso con privilegi in Azure AD
 
-La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. La sicurezza della maggior parte o di tutti gli asset aziendali dipende dall'integrità degli account con privilegi che gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione.
+La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. Gli account con privilegi sono quelli che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
 
-La protezione dell'accesso amministrativo da utenti malintenzionati determinati richiede l'isolamento di account amministrativi e sistemi dai rischi. Il numero di utenti che ottiene l'accesso con privilegi tramite i servizi cloud è in aumento. Tra questi, sono inclusi gli amministratori globali di Office 365, gli amministratori delle sottoscrizioni di Azure e gli utenti che dispongono dell'accesso amministrativo alle macchine virtuali o alle app SaaS.
+Il numero di utenti che ottiene l'accesso con privilegi tramite i servizi cloud è in aumento. Tra questi, sono inclusi gli amministratori globali di Office 365, gli amministratori delle sottoscrizioni di Azure e gli utenti che dispongono dell'accesso amministrativo alle macchine virtuali o alle app SaaS.
 
 Microsoft consiglia di seguire questa guida di orientamento sulla [protezione dell'accesso con privilegi](https://technet.microsoft.com/library/mt631194.aspx).
 
@@ -63,11 +63,7 @@ Il controllo di accesso condizionale consente ad Azure Active Directory di contr
 ![Impostazione delle regole di accesso condizionale con MFA][4]
 
 
-## Modello di ruolo
-
-Per ridurre i rischi della sicurezza, esaminare i ruoli e il modello di delega per risolvere i problemi relativi ai ruoli amministrativi dei servizi cloud e incorporare l'usabilità dell'amministratore come principio fondamentale. Questo modello deve essere basato sulle funzionalità Just-In-Time.
-
-## Passaggi successivi
+## Articoli correlati
 
 - Abilitare [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 - Abilitare [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
@@ -75,7 +71,7 @@ Per ridurre i rischi della sicurezza, esaminare i ruoli e il modello di delega p
 - Abilitare i [controlli di accesso condizionale](active-directory-conditional-access.md)
 
 
-Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione relativa alla roadmap e alle responsabilità dei clienti nel documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer). Per altre informazioni sull'uso dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione "Customer responsibilities and roadmap" del documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer). Per altre informazioni sull'utilizzo dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -83,4 +79,4 @@ Per altre informazioni su come creare una guida di orientamento alla sicurezza c
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

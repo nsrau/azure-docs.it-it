@@ -69,7 +69,7 @@ Un modello definisce le risorse di Azure create e i parametri con cui è possibi
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *sostituire con la propria password*
+ - **administratorLoginPassword**: * sostituire con la propria password*
  - **databaseName**: *testapp1devdb*
 
 4. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di test creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
@@ -133,7 +133,7 @@ La tabella seguente elenca i valori predefiniti per i parametri specificati nel 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creare ambienti
-Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](./azure-portal/resource-group-portal.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
+Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](resource-group-overview.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
 
 Creare gruppi di risorse per ogni ambiente usando uno dei metodi seguenti. Tutti i metodi avranno lo stesso risultato.
 
@@ -361,4 +361,4 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - [Assegnare tag](resource-group-using-tags.md) ai gruppi di risorse per ogni ambiente e/o per le singole risorse. È possibile aggiungere un tag "Environment" ai gruppi di risorse e impostarne il valore in modo che corrisponda ai nomi di ambiente. I tag possono essere particolarmente utili quando occorre organizzare le risorse per la fatturazione o la gestione.
 - Monitorare gli avvisi e la fatturazione per le risorse del gruppo di risorse nel [portale di Azure](https://portal.azure.com).
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

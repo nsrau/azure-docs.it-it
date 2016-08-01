@@ -26,7 +26,7 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 **Let e set** [let](#let-clause) | [set](#set-clause)
 
 
-**Query e operatori** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [Direttiva render](#render-directive) | [Clausola restrict](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -175,6 +175,227 @@ Questa funzione restituisce una tabella con un solo record e una sola colonna di
 requests | count
 ```
 
+### Operatore evaluate
+
+`evaluate` è un meccanismo di estensione che consente di aggiungere algoritmi specializzati alla fine delle query.
+
+`evaluate` deve essere l'ultimo operatore nella pipeline della query, ad eccezione di un possibile `render`. Non deve comparire nel corpo funzione.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+AutoCluster trova modelli comuni di attributi discreti (dimensioni) nei dati e ridurrà i risultati della query originale (indipendentemente dal fatto che siano 100 o 100.000 righe) a un numero minore di modelli. AutoCluster è stato sviluppato per semplificare l'analisi degli errori, ad esempio eccezioni e arresti anomali, ma può potenzialmente funzionare su qualsiasi set di dati filtrato.
+
+**Sintassi**
+
+    T | evaluate autocluster( arguments )
+
+**Restituisce**
+
+AutoCluster restituisce un set di modelli solitamente di piccole dimensioni, che acquisisce parti dei dati con valori comuni condivisi tra più attributi discreti. Ogni modello è rappresentato da una riga nei risultati.
+
+Le prime due colonne indicano il numero e la percentuale di righe della query originale che vengono acquisite dal modello. Le colonne rimanenti provengono dalla query originale e il rispettivo valore è un valore specifico della colonna oppure '*', ovvero valori variabili.
+
+Si noti che i modelli non sono non contigui: è possibile che si sovrappongano e in genere non comprendono tutte le righe originali. È possibile che alcune righe non rientrino in alcun modello.
+
+**Suggerimenti**
+
+* Usare `where` e `project` nella pipeline di input per ridurre i dati ai soli dati rilevanti.
+* Quando si trova una riga interessante, è possibile che si voglia visualizzarne i dettagli, aggiungendo i rispettivi valori specifici al filtro `where`.
+
+**Argomenti (tutti facoltativi)**
+
+* `output=all | values | minimal`
+
+    Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati.
+
+ * `all`: vengono restituite tutte le colonne dell'input.
+ * `values`: consente di filtrare solo le colonne con '*' nei risultati.
+ * `minimal`: consente di filtrare anche le colonne identiche per tutte le righe della query originale.
+
+
+* `min_percent=`*double* (valore predefinito: 1)
+
+    Percentuale minima di copertura delle righe generate.
+
+    Esempio: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (valore predefinito: 25)
+
+    Il numero di valori di inizializzazione determina il numero di punti di ricerca locale iniziali dell'algoritmo. In alcuni casi, in base alla struttura dei dati, l'aumento del numero di valori di inizializzazione consente di aumentare il numero o la qualità dei risultati tramite uno spazio di ricerca maggiore ma con una query più lenta. L'argomento num\_seeds presenta risultati in diminuzione in entrambe le direzioni, quindi ridurlo a un valore inferiore a 5 consentirà di ottenere miglioramenti trascurabili delle prestazioni e aumentarlo a un valore superiore a 50 genererà raramente modelli aggiuntivi.
+
+    Esempio: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (valore predefinito: 0,5)
+
+    Consente di controllare parzialmente l'equilibrio tra generico (copertura elevata) e informativo (molti valori condivisi). L'aumento di size\_weight riduce in genere il numero di modelli e ogni modello tende a coprire una percentuale più ampia. La riduzione di size\_weight produce in genere modelli più specifici con più valori condivisi e una percentuale di copertura minore. La formula predefinita è una media geometrica ponderata tra il punteggio generico normalizzato e il punteggio informativo con size\_weight e 1-size\_weight per i pesi.
+
+    Esempio: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column\_name*
+
+    Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita, il peso di ogni riga è '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
+
+    Esempio: `T | evaluate autocluster("weight_column=sample_Count")`
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+Basket consente di trovare tutti i modelli frequenti di attributi discreti (dimensioni) nei dati e restituirà tutti i modelli frequenti che hanno superato la soglia di frequenza nella query originale. Basket assicura l'individuazione di tutti i modelli frequenti nei dati ma non assicura un runtime polinomiale. Il runtime della query è lineare nel numero di righe ma in alcuni casi può essere esponenziale nel numero di colonne (dimensioni). Basket è basato sull'algoritmo Apriori sviluppato originariamente per il data mining di basket analysis.
+
+**Restituisce**
+
+Tutti i modelli disponibili in più di una frazione specificata degli eventi (valore predefinito 0,05).
+
+**Argomenti (tutti facoltativi)**
+
+
+* `threshold=` *0,015<double<1* (valore predefinito: 0,05)
+
+    Imposta il rapporto minimo di righe da considerare frequenti. I modelli con rapporto inferiore non verranno restituiti.
+
+    Esempio: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column\_name*
+
+    Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita, il peso di ogni riga è '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
+
+    Esempio: T | evaluate basket("weight\_column=sample\_Count")
+
+
+* `max_dims=` *1<int* (valore predefinito: 5)
+
+    Imposta il numero massimo di dimensioni non correlate per basket, limitato per impostazione predefinita per diminuire il runtime di query.
+
+
+* `output=minimize` | `all`
+
+    Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati.
+
+ * `minimize`: consente di filtrare solo le colonne con '*' nei risultati.
+ * `all`: vengono restituite tutte le colonne dell'input.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+Diffpatterns confronta due set di dati della stessa struttura e trova modelli di attributi discreti (dimensioni) che caratterizzano le differenze tra i due set di dati. Diffpatterns è stato sviluppato per semplificare l'analisi degli errori, ad esempio confrontando gli errori con i non errori in un determinato intervallo di tempo, ma può potenzialmente trovare differenze tra qualsiasi set di dati della stessa struttura.
+
+**Sintassi**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Restituisce**
+
+Diffpatterns restituisce un set di modelli, in genere di piccole dimensioni, che acquisiscono diverse parti dei dati nei due set, ovvero un modello che acquisisce una percentuale elevata delle righe nel primo set di dati e una percentuale ridotta delle righe nel secondo set di dati. Ogni modello è rappresentato da una riga nei risultati.
+
+Le prime quattro colonne indicano il numero e la percentuale di righe della query originale che vengono acquisite dal modello in ogni set. La quinta colonna indica la differenza tra i due set, in punti percentuale assoluti. Le colonne rimanenti provengono dalla query originale e il rispettivo valore è un valore specifico della colonna oppure *, ovvero valori variabili.
+
+Si noti che i modelli non sono distinti: è possibile che si sovrappongano e in genere non comprendono tutte le righe originali. È possibile che alcune righe non rientrino in alcun modello.
+
+**Suggerimenti**
+
+* Usare where e project nella pipeline di input per ridurre i dati ai soli dati rilevanti.
+
+* Quando si trova una riga interessante, è possibile che si voglia visualizzarne i dettagli, aggiungendo i rispettivi valori specifici al filtro where.
+
+**Argomenti**
+
+* `split=` *nome colonna* (obbligatorio)
+
+    La colonna deve avere esattamente due valori. Se necessario, creare questa colonna:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/> `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Indica all'algoritmo di cercare solo i modelli con percentuale più elevata nel set di dati di destinazione. La destinazione deve essere uno dei due valori della colonna suddivisa.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0,015<double<1* (valore predefinito: 0,05)
+
+    Imposta la differenza minima tra modelli (rapporto) tra i due set.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    Formato dei risultati. Le colonne Count e Percent vengono sempre visualizzate nei risultati.
+
+ * `minimize`: consente di filtrare solo le colonne con '*' nei risultati.
+ * `all`: vengono restituite tutte le colonne dell'input.
+
+* `weight_column=` *column\_name*
+
+    Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+Extractcolumns viene usato per arricchire una tabella con più colonne semplici estratte dinamicamente da colonne (semi) strutturate in base al rispettivo tipo. Supporta attualmente solo le colonne JSON, ovvero serializzazioni dinamiche e di stringhe di JSON.
+
+
+* `max_columns=` *int* (valore predefinito: 10)
+
+    Il numero di nuove colonne aggiunte è dinamico e può essere molto elevato, perché si tratta in effetti del numero di chiavi distinte in tutti i record JSON, quindi deve essere limitato. Le nuove colonne vengono disposte in ordine decrescente in base alla rispettiva frequenza ed è possibile aggiungere fino a max\_columns alla tabella.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=`*double* (valore predefinito: 10,0)
+
+    Un altro modo per limitare le nuove colonne consiste nell'ignorare le colonne con frequenza inferiore a min\_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (valore predefinito: true)
+
+    Se true, il nome della colonna complessa verrà aggiunto come prefisso ai nomi delle colonne estratte.
+
+
+* `prefix_delimiter=` *string* (valore predefinito: "\_")
+
+    Se add\_prefix=true, questo parametro definisce il delimitatore che verrà usato per concatenare i nomi delle nuove colonne.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/> `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (valore predefinito: false)
+
+    Se true, le colonne originali (JSON) verranno mantenute nella tabella di output.
+
+
+* `output=query | table`
+
+    Formato dei risultati.
+
+ * `table`: l'output corrisponde alla stessa tabella ricevuta, meno le colonne di input specificate, più le nuove colonne estratte dalle colonne di input.
+ * `query`: l'output è una stringa che rappresenta la query da creare per ottenere i risultati sotto forma di tabella.
+
+
 
 
 ### Operatore extend
@@ -191,7 +412,7 @@ Aggiunge una o più colonne calcolate a una tabella.
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da aggiungere. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
+* *ColumnName:* nome delle colonne da aggiungere. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* calcolo eseguito sulle colonne esistenti.
 
 **Restituisce**
@@ -509,7 +730,7 @@ Selezionare le colonne da includere, rinominare o rimuovere e inserire le nuove 
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata una colonna con quel nome nell'input. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `["..."]` o `['...']` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
+* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata una colonna con quel nome nell'input. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* espressione scalare facoltativa che fa riferimento alle colonne di input.
 
     È consentito restituire una nuova colonna calcolata con lo stesso nome di una colonna esistente nell'input.
@@ -1052,11 +1273,11 @@ Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`
 
 Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per visualizzare un elenco dei valori distinct, usare [`makeset`](#makeset).
 
-*Accuracy*, se specificato, controlla il rapporto tra velocità e accuratezza.
+*Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
- * `0` = il calcolo meno accurato e più veloce.
- * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo. Errore dello 0,8 % circa.
- * `2` = il calcolo più accurato e più lento. Errore dello 0,4 % circa.
+ * `0` = il calcolo meno preciso e più veloce.
+ * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8 % circa.
+ * `2` = il calcolo più preciso e più lento. Errore dello 0,4% circa.
 
 **Esempio**
 
@@ -1076,7 +1297,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
  * `0` = il calcolo meno preciso e più veloce.
- * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8% circa.
+ * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8 % circa.
  * `2` = il calcolo più preciso e più lento. Errore dello 0,4% circa.
 
 **Esempio**
@@ -1092,7 +1313,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui
 
 Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo.
 
-* *MaxListSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti; il valore predefinito è *128*.
+* *MaxListSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti. Il valore predefinito è *128*.
 
 ### makeset
 
@@ -1100,7 +1321,7 @@ Restituisce una matrice `dynamic` (JSON) di tutti i valori di *Expr* nel gruppo.
 
 Restituisce una matrice `dynamic` (JSON) del set di valori distinct che *Expr* inserisce nel gruppo. Suggerimento: per conteggiare solo i valori distinct, usare [`dcount`](#dcount).
   
-*  *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti; il valore predefinito è *128*.
+*  *MaxSetSize* è un limite di tipo integer facoltativo per il numero massimo di elementi restituiti. Il valore predefinito è *128*.
 
 **Esempio**
 
@@ -1467,7 +1688,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 | / | Dividi |
 | % | Modulo |
 ||
-|`<` |Minore 
+|`<` |Minore
 |`<=`|Minore o uguale a 
 |`>` |Maggiore 
 |`>=`|Maggiore o uguale a 
@@ -1570,7 +1791,7 @@ Funzione della radice quadrata.
 
 **Argomenti**
 
-* *x:* Numero reale >= 0.
+* *x:* numero reale >= 0.
 
 **Restituisce**
 
@@ -1713,7 +1934,7 @@ Il numero ordinale del giorno del mese.
 
 **Argomenti**
 
-* `a_date`: A `datetime`.
+* `a_date`: valore `datetime`.
 
 
 ### dayofweek
@@ -1728,7 +1949,7 @@ Numero intero di giorni a partire dalla domenica precedente, come `timespan`.
 
 **Argomenti**
 
-* `a_date`: A `datetime`.
+* `a_date`: valore `datetime`.
 
 **Restituisce**
 
@@ -1754,7 +1975,7 @@ Il numero ordinale del giorno nell'anno.
 
 **Argomenti**
 
-* `a_date`: A `datetime`.
+* `a_date`: valore `datetime`.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
 ### endofday, endofweek, endofmonth, endofyear
@@ -1940,7 +2161,7 @@ Conta le occorrenze di una sottostringa in una stringa. Le corrispondenze di str
 
 * *text:* stringa.
 * *search:* stringa di testo normale o espressione regolare da ricercare in *text*.
-* *kind:* `"normal"|"regex"` valore predefinito `normal`.
+* *kind:* `"normal"|"regex"` valore predefinito `normal`. 
 
 **Restituisce**
 
@@ -2173,7 +2394,7 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici, oggetti e dynamic
 
-[Valori letterali](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[valori letterali](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
@@ -2278,8 +2499,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True se è presente un elemento di *array* che è == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True se non è presente un elemento di *array* che è == *value*
+| *valore* `in` *array*| True se è presente un elemento di *array* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *valore* `!in` *array*| True se non è presente un elemento di *array* che è == *valore*
 |[`arraylength(`array`)`](#arraylength)| Null se non è una matrice
 |[`extractjson(`path,object`)`](#extractjson)|Usa path per navigare nell'oggetto.
 |[`parsejson(`source`)`](#parsejson)| Converte una stringa JSON in un oggetto dinamico.
@@ -2408,7 +2629,7 @@ Nell'esempio seguente quando `context_custom_metrics` è un valore `string` simi
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
+Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 T
@@ -2429,7 +2650,7 @@ La funzione `range()`, da non confondere con l'operatore `range`, genera una mat
 
 **Argomenti**
 
-* *start:* valore del primo elemento nella matrice risultante.
+* *start:* valore del primo elemento nella matrice risultante. 
 * *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
 * *step:* differenza tra due elementi consecutivi della matrice.
 
@@ -2500,4 +2721,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

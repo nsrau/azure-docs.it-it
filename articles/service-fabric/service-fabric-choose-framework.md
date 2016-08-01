@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="07/18/2016"
    ms.author="seanmck"/>
 
 # Panoramica dei modelli di programmazione di Service Fabric
@@ -45,4 +45,4 @@ Dal momento che Reliable Actors è anch'esso un framework di applicazioni basato
 ## Passaggi successivi
 Vedere [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md) o iniziare a [scrivere per la prima volta un servizio Reliable Actors](service-fabric-reliable-actors-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

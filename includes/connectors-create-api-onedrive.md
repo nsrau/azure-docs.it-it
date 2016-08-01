@@ -1,12 +1,17 @@
-### Prerequisiti
-- Un account [OneDrive](http://OneDrive.com) 
+#### Prerequisiti
+- Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
+- Un account [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3)
 
-Prima di poter usare l'account OneDrive in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account OneDrive. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.
+Prima di poter usare l'account OneDrive in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account OneDrive. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.
 
-Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account OneDrive:
+Attenersi alla seguente procedura per autorizzare l'app per la logica a connettersi all'account OneDrive:
 
-1. Per creare una connessione a OneDrive, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *OneDrive* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare: ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. Se non sono mai state create connessioni a OneDrive prima d'ora, verrà chiesto di fornire le credenziali di OneDrive. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-4. Fornire il nome utente e la password di OneDrive per autorizzare l'app per la logica: ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
-3. In questo modo sarà possibile connettersi a OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica: ![](./media/connectors-create-api-onedrive/onedrive-5.png)
+1. Creare un'app per la logica. Nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere "onedrive" nella casella di ricerca. Selezionare un trigger o un'azione: ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+2. Se non sono mai state create connessioni a OneDrive prima d'ora, verrà chiesto di effettuare l'accesso utilizzando le credenziali di OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-2.png)
+3. Fare clic su **Accedi**, quindi immettere il nome utente e la password. Fare clic su **Accedi**: ![](./media/connectors-create-api-onedrive/onedrive-3.png)
+
+	Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati presenti nell'account OneDrive.
+4. Scegliere **Sì** per autorizzare l'app per la logica a utilizzare l'account OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)
+5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: ![](./media/connectors-create-api-onedrive/onedrive-5.png)
+
+<!---HONumber=AcomDC_0720_2016-->

@@ -20,7 +20,7 @@
 # Esempi di supporto del protocollo DocumentDB per MongoDB
 Per usare questi esempi, è necessario seguire questa procedura:
 
-- [Creare](documentdb-create-mongodb-account.md) un account DocumentDB con supporto del protocollo per MongoDB.
+- [Creare](documentdb-create-mongodb-account.md) un account Azure DocumentDB con supporto del protocollo per MongoDB.
 - Recuperare l'account DocumentDB con supporto del protocollo per le informazioni sulla [stringa di connessione](documentdb-connect-mongodb-account.md) di MongoDB.
 
 ## Iniziare a usare un'applicazione di elenco attività ASP.NET MVC di esempio
@@ -175,4 +175,4 @@ Per usare questi esempi, è necessario seguire questa procedura:
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

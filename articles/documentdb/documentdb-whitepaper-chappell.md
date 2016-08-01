@@ -18,12 +18,12 @@
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
 
-Non sono sicuro se DocumentDB è adatto per l'applicazione o i dati? Se si desidera avere informazioni sulle modalità di archiviazione e accesso in DocumentDB dati JSON. In tal caso, questo white paper introduttivo di David Chappell è un buon punto di partenza. Viene illustrato come è possibile usufruire della massima flessibilità che forniscono i dati JSON senza schema, consentendo di gestire facilmente le modifiche alla struttura di dati.
+Non sono sicuro se DocumentDB è adatto per l'applicazione o i dati? Informazioni sulle modalità di archiviazione e accesso dei dati JSON ad Azure DocumentDB. In tal caso, questo white paper introduttivo di David Chappell è un buon punto di partenza. Viene illustrato come è possibile usufruire della massima flessibilità che forniscono i dati JSON senza schema, consentendo di gestire facilmente le modifiche alla struttura di dati.
 
 Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 
- - Utilizzare il modello di dati DocumentDB per archiviare i dati JSON in documenti e raccolte all'interno di un database. 
- - Lavorare sui dati utilizzando le librerie client, i metodi di accesso RESTful o DocumentDB SQL. 
+ - Utilizzare il modello di dati DocumentDB per archiviare i dati JSON in documenti e raccolte all'interno di un database.
+ - Lavorare sui dati utilizzando le librerie client, i metodi di accesso RESTful o DocumentDB SQL.
  - Esecuzione della regola dal database stesso scrivendo stored procedure (sprocs), trigger o funzioni definite dall'utente (UDF) e memorizzandoli nella raccolta.
  - Scegliendo un'opzione di coerenza per soddisfare le esigenze di affidabilità e prestazioni dell'applicazione.
  - Se si seleziona un'opzione di pagamento in base ai requisiti di velocità effettiva.
@@ -31,4 +31,4 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 **Download PDF:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

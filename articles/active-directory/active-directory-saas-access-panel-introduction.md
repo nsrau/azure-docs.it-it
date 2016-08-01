@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -128,7 +128,7 @@ Gli amministratori di Azure che hanno eseguito l'accesso al portale di gestione 
 
 **Per eseguire il test con un account utente diverso:**
 
-1. Scegliere "**Disconnetti**" dal menu utente nell'angolo superiore destro del portale di Azure o del portale di accesso. In questo modo verrà effettuata la disconnessione da Azure AD.
+1. Fare clic sul menu utente nell'angolo superiore sinistro del portale di Azure o del pannello di accesso e selezionare **Esci**. In questo modo verrà effettuata la disconnessione da Azure AD.
 
 2. Passare al pannello di accesso all'indirizzo **http://myapps.microsoft.com**.
 
@@ -146,13 +146,13 @@ Quando fa clic sul riquadro di un'applicazione di Office 365, l'utente viene rei
 
 ### Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On di Microsoft Azure AD*". Un utente visualizzerà queste applicazioni solo se gli è stato esplicitamente concesso l'accesso dall'amministratore.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su *Single Sign-On di Microsoft Azure AD*. Un utente visualizzerà queste applicazioni solo se gli è stato esplicitamente concesso l'accesso dall'amministratore.
 
 Quando fa clic sul riquadro di una di queste applicazioni, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
 
 ### Single Sign-On basato su password senza provisioning delle identità
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On basato su password*". <br> Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su *Password-based Single Sign-On* (Single Sign-On basato su password). <br> Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
 
 La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente visualizza un messaggio in cui viene chiesto se desidera installare il plug-in Single Sign-On basato su password per Internet Explorer o Chrome. Questa operazione può richiedere il riavvio del Web browser. Quando torna nel pannello di accesso e fa clic di nuovo sul riquadro dell'applicazione, l'utente visualizza un messaggio in cui viene chiesto di specificare un nome utente e una password per l'applicazione. Dopo aver immesso il nome utente e la password, queste credenziali vengono archiviate in modo sicuro in Azure AD e collegate all'account in Azure AD. Il pannello di accesso automatizzerà quindi l'accesso dell'utente all'applicazione usando queste credenziali.
 
@@ -162,7 +162,7 @@ Se le credenziali dell'utente sono cambiate nell'applicazione di terze parti di 
 
 ### Single Sign-On basato su password con provisioning delle identità
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On basato su password*" e il provisioning delle identità.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su *Password-based Single Sign-On* (Single Sign-On basato su password) e il provisioning delle identità.
 
 La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente visualizza un messaggio in cui viene chiesto se desidera installare il plug-in Single Sign-On basato su password per Internet Explorer o Chrome. Questa operazione può richiedere il riavvio del Web browser. Quando l'utente torna nel pannello di accesso e fa clic di nuovo sul riquadro dell'applicazione, l'accesso viene eseguito automaticamente.
 
@@ -185,4 +185,4 @@ Quando si configura Single Sign-On per un'applicazione, il portale di gestione d
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

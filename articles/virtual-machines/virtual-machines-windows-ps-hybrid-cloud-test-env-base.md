@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido per l'esecuzione di test
@@ -41,7 +41,7 @@ L'impostazione di un ambiente di test del cloud ibrido comporta cinque fasi prin
 2.	Configurare RRAS1.
 3.	Creare la rete virtuale di Azure cross-premise.
 4.	Creare la connessione VPN da sito a sito.
-5.	Configurare DC2. 
+5.	Configurare DC2.
 
 Se non si ha già una sottoscrizione di Azure, è possibile iscriversi per ottenere un account gratuito nella pagina [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/). Se si ha una sottoscrizione di MSDN o di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -77,7 +77,7 @@ Innanzitutto, installare il sistema operativo in RRAS1.
 
 Configurare quindi le proprietà TCP/IP di RRAS1. Sarà necessaria una configurazione di indirizzo IP pubblico che includa indirizzo, subnet mask (o lunghezza del prefisso) e il gateway predefinito con i server DNS del provider di servizi Internet (ISP). L'indirizzo IP pubblico sarà necessario per la fase 3.
 
-Usare questi comandi in un prompt dei comandi di Windows PowerShell di livello amministratore su RRAS1. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri < and >. È possibile ottenere i nomi delle schede di rete correnti dalla visualizzazione del comando **Get-NetAdapter**.
+Usare questi comandi in un prompt dei comandi di Windows PowerShell di livello amministratore su RRAS1. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri <and>. È possibile ottenere i nomi delle schede di rete correnti dalla visualizzazione del comando **Get-NetAdapter**.
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
 	$internetAdapterName="<Name of the adapter attached to the Internet>"
@@ -118,7 +118,7 @@ Ottenere il nome della sottoscrizione usando il comando seguente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure. Usare la stessa sottoscrizione usata per la compilazione della configurazione di base. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure. Usare la stessa sottoscrizione usata per la compilazione della configurazione di base. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -187,7 +187,7 @@ Usare quindi il comando seguente per determinare l'indirizzo IP pubblico del gat
 
 Prendere nota dell'indirizzo IP nel campo **IPAddress** dello schermo. Sarà necessario per la fase 4.
 
-Richiedere quindi all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creare una stringa casuale per una chiave precondivisa IPsec) per ottenere una chiave precondivisa.
+Richiedere quindi all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo su come [creare una stringa casuale per una chiave precondivisa IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) per ottenere una chiave precondivisa.
 
 Usare i comandi seguenti per creare la connessione VPN da sito a sito in Azure.
 
@@ -223,7 +223,7 @@ Attendere alcuni minuti mentre viene stabilita la connessione tra RRAS1 e il gat
 
 Configurare quindi RRAS1 per supportare il traffico tradotto in percorsi Internet. In RRAS1:
 
-1.	Nella schermata iniziale digitare**rras**, quindi fare clic su **Routing e Accesso remoto**. 
+1.	Nella schermata iniziale digitare**rras**, quindi fare clic su **Routing e Accesso remoto**.
 2.	Nell'albero della console, aprire il nome del server, quindi fare clic su **IPv4**.
 3.	Fare doppio clic su **Generale**, quindi fare clic su **Nuovo protocollo di Routing**.
 4.	Fare clic su **NAT**, quindi su **OK**.
@@ -329,4 +329,4 @@ L'ambiente cloud ibrido è ora pronto per il testing.
 
 - Impostare una [farm Intranet di SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), un'[applicazione LOB basata sul Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [server di sincronizzazione della directory di Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) in questo ambiente.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

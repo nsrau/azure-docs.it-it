@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="mobile"
+   ms.workload="na"
    ms.date="06/01/2016"
    ms.author="tarcher" />
 
@@ -76,9 +76,9 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 
 Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e modifica di alcuni file di configurazione. Le modifiche specifiche dipendono dal tipo di progetto.
 
- - Per i progetti ASP.NET, vedere [Informazioni sull'evento – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
- - Per i progetti ASP.NET 5, vedere [Informazioni sull'evento – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
- - Per i progetti del servizio cloud (ruoli Web e ruoli di lavoro), vedere [Informazioni sull'evento – Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
+ - Per i progetti ASP.NET, vedere [Informazioni sull'evento – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
+ - Per i progetti ASP.NET 5, vedere [Informazioni sull'evento – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
+ - Per i progetti del servizio cloud (ruoli Web e ruoli di lavoro), vedere [Informazioni sull'evento – Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965).
  - Per i progetti di tipo processo Web, vedere [Risultati - Progetti di tipo processo Web](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Passaggi successivi
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="07/12/2016"
 	ms.author="raynew" />
 
 # Eseguire lo strumento di pianificazione della capacità di Hyper-V per Site Recovery
@@ -75,7 +75,7 @@ Questo passaggio non è necessario se si sta eseguendo la replica in Azure.
 
 	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
 
-	- Eseguire **netsh http show servicestate** per controllare che il listener sia in esecuzione per il protocollo o la porta specificata:  
+	- Eseguire **netsh http show servicestate** per controllare che il listener sia in esecuzione per il protocollo o la porta specificata:
 4. Configurare i firewall. Durante l'installazione di Hyper-V, vengono create regole del firewall per consentire il traffico sulle porte predefinite (HTTPS su 443, Kerberos su 80). Abilitare queste regole come indicato di seguito:
 
 		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
@@ -139,10 +139,10 @@ Ecco le metriche importanti: È possibile ignorare le metriche non elencate qui.
 
 Dopo aver completato la pianificazione della capacità, iniziare la distribuzione di Site Recovery:
 
-- [Configurare la protezione tra un sito VMM locale e Azure](site-recovery-vmm-to-azure.md)
-- [Configurare la protezione tra un sito Hyper-V locale e Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
-- [Configurare la protezione tra due siti VMM locali con SAN](site-recovery-vmm-san.md)
-- [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
+- [Replicare le VM Hyper-V nei cloud VMM in Azure.](site-recovery-vmm-to-azure.md)
+- [Eseguire la replica di VM Hyper-V (senza VMM) in Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Eseguire la replica di VM Hyper-V tra siti VMM](site-recovery-vmm-to-vmm.md)
+- [Eseguire la replica di VM Hyper-V tra siti VMM con SAN](site-recovery-vmm-san.md)
+- [Eseguire la replica di VM Hyper-V su server VMM singolo](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0720_2016-->

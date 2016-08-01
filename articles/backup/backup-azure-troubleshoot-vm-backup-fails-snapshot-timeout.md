@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2016"
+    ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Errore di backup delle VM di Azure: non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale
@@ -105,7 +105,11 @@ Per utenti guest di Windows:
 1. Verificare che il servizio iaasvmprovider sia abilitato e abbia un tipo di avvio automatico.
 2. Se la configurazione è diversa, abilitare il servizio per determinare se il backup successivo ha esito positivo.
 
-Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce, è possibile forzare il ricaricamento dell'estensione VMSnapshot installando l'estensione. L'estensione viene ricaricata al successivo tentativo di backup.
+Per utenti guest di Linux:
+
+La versione più recente di VMSnapshot Linux (estensione usata dal backup) è 1.0.91.0
+
+Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce, è possibile forzare il ricaricamento dell'estensione VMSnapshot disinstallandola. L'estensione viene ricaricata al successivo tentativo di backup.
 
 ### Per disinstallare l'estensione
 
@@ -130,6 +134,6 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | Stato della macchina virtuale segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP. Se la macchina virtuale viene arrestata in RDP, verificare nel portale che lo stato della macchina virtuale sia indicato correttamente. | In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione "Spegni" nel dashboard della macchina virtuale. |
 | Diverse macchine virtuali dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento. | È consigliabile distribuire le macchine virtuali dello stesso servizio cloud con pianificazioni di backup diverse. |
 | L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
-|La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP.|DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Sono disponibili altre informazioni su [Come impostare un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).|
+|La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP.|DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Vedere altre informazioni su [Come impostare un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

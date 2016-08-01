@@ -390,4 +390,4 @@ Dopo aver finito con l'esempio, usare il comando seguente dalla sessione di Azur
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

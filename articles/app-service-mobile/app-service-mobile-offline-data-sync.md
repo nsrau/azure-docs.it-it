@@ -38,6 +38,7 @@ Le esercitazioni seguenti illustrano come aggiungere la sincronizzazione offline
 * [iOS: Abilitare la sincronizzazione offline]
 * [Xamarin iOS: Abilitare la sincronizzazione offline]
 * [Xamarin Android: Abilitare la sincronizzazione offline]
+* [Xamarin.Forms: Abilitare la sincronizzazione offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: Abilitare la sincronizzazione offline]
 
 ## Informazioni sulla tabella di sincronizzazione
@@ -58,7 +59,7 @@ Gli sviluppatori possono anche implementare il proprio archivio locale. Ad esemp
 
 Un *contesto di sincronizzazione* è associato a un oggetto client mobile (ad esempio `IMobileServiceClient` o `MSClient`) e tiene traccia delle modifiche apportate con le tabelle di sincronizzazione. Il contesto di sincronizzazione gestisce una *coda operazioni*, che include un elenco ordinato di operazioni CUD (Create, Update, Delete) che verrà inviato successivamente al server.
 
-Un archivio locale è associato al contesto di sincronizzazione mediante un metodo di inizializzazione, ad esempio `IMobileServicesSyncContext.InitializeAsync(localstore)` nell'[SDK del client .NET].
+Un archivio locale è associato al contesto di sincronizzazione tramite un metodo di inizializzazione, ad esempio `IMobileServicesSyncContext.InitializeAsync(localstore)` nel [.NET SDK per client].
 
 ## <a name="how-sync-works"></a>Funzionamento della sincronizzazione offline
 
@@ -97,11 +98,11 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 * [Windows 8.1: Abilitare la sincronizzazione offline]
 
 <!-- Links -->
-[SDK del client .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
+[.NET SDK per client]: app-service-mobile-dotnet-how-to-use-client-library.md
 [ Android: Abilitare la sincronizzazione offline]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Abilitare la sincronizzazione offline]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Abilitare la sincronizzazione offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Abilitare la sincronizzazione offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Abilitare la sincronizzazione offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -18,11 +18,13 @@
 
 # Introduzione all'archiviazione delle code di Azure e ai servizi relativi a Visual Studio
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## Panoramica
 
 In questo articolo viene descritto come iniziare a utilizzare l'archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
 
-Verrà mostrato come creare e accedere a una coda nell'account di archiviazione di Azure. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C#, viene usata la [libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
+Verrà mostrato come creare e accedere a una coda nell'account di archiviazione di Azure. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C#, viene usata la [libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
 
@@ -156,4 +158,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -252,7 +252,7 @@ Per testare la connessione:
 
 1. Usare l'utilità **sqlcmd** per testare la connessione. Lo script seguente, ad esempio, stabilisce una connessione **sqlcmd** alla replica primaria tramite il listener con l'autenticazione di Windows:
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria.
 
@@ -265,4 +265,4 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 - Con un servizio di bilanciamento del carico interno è possibile accedere al listener solo dalla stessa rete virtuale.
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/14/2016"
 	ms.author="anandy"/>
 
 
@@ -46,5 +46,6 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 ## Risorse aggiuntive
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+* [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

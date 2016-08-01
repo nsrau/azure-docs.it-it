@@ -79,4 +79,4 @@ __Cosa accade se non si usa una rete CDN?__ Se non si usa una rete CDN, tutto il
 ##Passaggi successivi:
 Per altre informazioni sulla progettazione delle applicazioni per la disponibilità elevata, vedere [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

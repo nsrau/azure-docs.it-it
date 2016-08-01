@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"/>
+	manager="femila"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/13/2016" 
 	ms.author="markusvi"/>
 
 # Impostazioni del Registro di sistema di Cloud App Discovery per i servizi proxy
@@ -45,6 +45,6 @@ Questo argomento illustra tutti i passaggi da eseguire per impostare la porta ne
 **Risorse aggiuntive**
 
 
-* [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md) 
+* [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0720_2016-->

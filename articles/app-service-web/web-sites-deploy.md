@@ -37,7 +37,7 @@ Non essendo necessario occuparsi del server Web o del framework applicazioni, pe
 
 Gli strumenti di sviluppo Web più diffusi supportano uno o più di questi processi di distribuzione. Mentre lo strumento scelto determina i processi di distribuzione che è possibile sfruttare, l'effettiva funzionalità DevOps disponibile dipende dalla combinazione del processo di distribuzione e degli strumenti specifici scelti. Ad esempio, se si esegue Distribuzione Web da [Visual Studio con Azure SDK](#vspros), anche se non si usufruisce dell'automazione tramite Kudu, si ottiene l'automazione del ripristino del pacchetto e di MSBuild in Visual Studio.
 
->[AZURE.NOTE] Questi processi di distribuzione in realtà non [effettuano il provisioning delle risorse di Azure](../azure-portal/resource-group-portal.md) che potrebbero essere necessarie per l'applicazione. La maggior parte degli articoli sulle procedure collegati mostra come effettuare il provisioning dell'app E distribuire il codice end-to-end. È anche possibile trovare altre opzioni per il provisioning delle risorse di Azure nella sezione [Automatizzare la distribuzione con gli strumenti da riga di comando](#automate).
+>[AZURE.NOTE] Questi processi di distribuzione in realtà non [effettuano il provisioning delle risorse di Azure](../resource-group-template-deploy-portal.md) che potrebbero essere necessarie per l'applicazione. La maggior parte degli articoli sulle procedure collegati mostra come effettuare il provisioning dell'app E distribuire il codice end-to-end. È anche possibile trovare altre opzioni per il provisioning delle risorse di Azure nella sezione [Automatizzare la distribuzione con gli strumenti da riga di comando](#automate).
      
 ## <a name="ftp"></a>Distribuire tramite FTP copiando i file in Azure manualmente
 Se di solito si copia il contenuto Web in un server Web manualmente, è possibile usare un'utilità [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file, ad esempio Esplora risorse o [FileZilla](https://filezilla-project.org/).
@@ -234,4 +234,4 @@ Per informazioni su come usare il controllo degli accessi in base al ruolo di Az
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

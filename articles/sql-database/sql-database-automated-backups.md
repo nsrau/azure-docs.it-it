@@ -28,7 +28,7 @@ Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviaz
 
 ## Dettagli dei backup automatici
 
-Tutti i database Basic, Standard e Premium sono protetti da backup automatici. I backup completi vengono eseguiti ogni settimana, i backup differenziali ogni giorno e i backup del log ogni 5 minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. In genere questo viene completato entro 30 minuti, ma può richiedere più tempo. Se un database è già di grandi dimensioni, ad esempio se viene creato come risultato della copia o del ripristino di un database da un database di grandi dimensioni, il primo backup completo potrebbe richiedere più tempo. Dopo il primo backup completo l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. I tempi esatti dei backup completi e differenziali sono determinati dal sistema per bilanciare il carico complessivo.
+Tutti i database Basic, Standard e Premium sono protetti da backup automatici. Il backup completo, il backup differenziale e il backup del log delle transazioni vengono eseguiti rispettivamente ogni settimana, ogni ora e ogni 5 minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. In genere questo viene completato entro 30 minuti, ma può richiedere più tempo. Se un database è già di grandi dimensioni, ad esempio se viene creato come risultato della copia o del ripristino di un database da un database di grandi dimensioni, il primo backup completo potrebbe richiedere più tempo. Dopo il primo backup completo l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. I tempi esatti dei backup completi e differenziali sono determinati dal sistema per bilanciare il carico complessivo.
 
 ## Ridondanza geografica
 
@@ -48,7 +48,7 @@ I file di backup vengono archiviati in un account di archiviazione con ridondanz
 
 ## Cosa accade al periodo di conservazione del punto di ripristino in caso di downgrade o aggiornamento in base al livello di servizio
 
-Dopo il downgrade a un livello di prestazioni inferiore, il periodo di conservazione del punto di ripristino viene limitato immediatamente al periodo di conservazione del livello di prestazioni del database corrente. Se invece il livello di servizio viene aggiornato, il periodo di conservazione inizia a estendersi solo dopo l'aggiornamento del database. Se ad esempio si esegue il downgrade del database da P1 a S3, il periodo di conservazione cambierà immediatamente da 35 a 35 giorni e tutti i punti di ripristino precedenti al nuovo periodo di 35 giorni non saranno più disponibili. Successivamente, se il database viene di nuovo aggiornato a P1, il periodo di conservazione inizierà da 35 giorni e comincerà ad estendersi fino a 35 giorni.
+Dopo il downgrade a un livello di prestazioni inferiore, il periodo di conservazione del punto di ripristino viene limitato immediatamente al periodo di conservazione del livello di prestazioni del database corrente. Se invece il livello di servizio viene aggiornato, il periodo di conservazione inizia a estendersi solo dopo l'aggiornamento del database. Se ad esempio si esegue il downgrade di un database alla versione Basic, il periodo di conservazione cambierà immediatamente da 35 a 7 giorni e tutti i punti di ripristino precedenti al nuovo periodo di 35 giorni non saranno più disponibili. Se successivamente il database viene di nuovo aggiornato alla versione Standard o Premium, il periodo di conservazione verrà gradualmente esteso da 7 a 35 giorni.
 
 ## Quanto dura il periodo di conservazione di un database rimosso? 
 Il periodo di conservazione è determinato dal livello di servizio associato al database prima della rimozione o dal numero di giorni in cui il database esiste ancora (viene usato il valore più basso).
@@ -62,4 +62,4 @@ Il periodo di conservazione è determinato dal livello di servizio associato al 
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 - Per un quadro generale, vedere la [panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

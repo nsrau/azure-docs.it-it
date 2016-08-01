@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Panoramica
 
@@ -213,7 +215,7 @@ L'SDK deserializza automaticamente l'oggetto in JSON. Viene sempre creato un mes
 
 ### Creare più messaggi o in funzioni asincrone
 
-Per creare più messaggi, verificare il tipo di parametro per la coda di output **<T>ICollector** o **IAsyncCollector<T>**, come illustrato nell'esempio seguente.
+Per creare più messaggi, verificare il tipo di parametro per la coda di output **ICollector<T>** or **IAsyncCollector<T>**, come illustrato nell'esempio seguente.
 
 		public static void CreateQueueMessages(
 		    [QueueTrigger("inputqueue")] string queueMessage,
@@ -525,7 +527,7 @@ Nel dashboard di WebJobs SDK le 100 righe più recenti dell'output di Console ve
 
 ![Fare clic su Attiva/Disattiva Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job\_log.txt nel file system dell’app Web.
+In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{nomeprocessoweb}*/job\_log.txt nel file system dell'app Web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -543,4 +545,4 @@ In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspet
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

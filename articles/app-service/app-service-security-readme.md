@@ -22,4 +22,6 @@ Servizi app di Azure è conforme ai principali standard di settore per sicurezza
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+Il servizio app di Azure offre la stessa soluzione Antimalware usata da Servizi cloud e Macchine virtuali di Azure. Per altre informazioni, vedere la [documentazione di Antimalware](../azure-security-antimalware.md)
+
+<!---HONumber=AcomDC_0720_2016-->

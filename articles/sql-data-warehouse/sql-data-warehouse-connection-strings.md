@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -27,10 +27,10 @@
 
 È possibile connettersi a SQL Data Warehouse tramite i protocolli di applicazione seguenti:
 
-- ADO.NET
-- ODBC
-- PHP
-- JDBC 
+- [ADO.NET][]
+- [ODBC][]
+- [PHP][]
+- [JDBC][]
 
 Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo. È anche possibile usare il portale di Azure per impostare la stringa di connessione. È sufficiente passare al database nel portale di Azure. In *Informazioni di base*, fare clic su *Mostra stringhe di connessione del database*.
 
@@ -60,15 +60,19 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Passaggi successivi
 
-Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
+Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere l'argomento su come [eseguire query con Visual Studio][].
 
 <!--Image references-->
 
 <!--Azure.com references-->
-
-
+ [eseguire query con Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+ 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

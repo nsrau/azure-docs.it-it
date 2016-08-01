@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Strumenti di esplorazione di Archiviazione di Azure | Microsoft Azure"
-	description="Elenco di strumenti di esplorazione di archiviazione che consentono di visualizzare o interagire con i dati di Archiviazione di Azure."
+	pageTitle="Strumenti client di Archiviazione di Azure | Microsoft Azure"
+	description="Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure."
 	services="storage"
 	documentationCenter=""
 	authors="micurd"
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="micurd"/>
 
-# Strumenti di esplorazione degli archivi di Azure
+# Strumento client di Archiviazione di Azure
 
-Gli utenti di Archiviazione di Azure spesso vogliono poter esplorare i dati con uno strumento che permetta di visualizzare i dati in un account di archiviazione.
+Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
 
-Le tabelle seguenti contengono un elenco dei singoli strumenti di esplorazione di Archiviazione di Azure, con una "X" in ogni blocco che indica la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene anche specificato se lo strumento di esplorazione è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
+Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di Azure disponibili. Le funzionalità degli strumenti possono continuare a migliorare e aumentare. Per eventuali correzioni o aggiornamenti, è possibile lasciare un commento. Per suggerire l'aggiunta di altri strumenti simili, lasciare un commento.
 
-Si tratta unicamente di un riepilogo degli strumenti di esplorazione di Archiviazione di Azure disponibili. Le funzionalità degli strumenti possono continuare a migliorare e aumentare. Per eventuali correzioni o aggiornamenti, è possibile lasciare un commento. Per suggerire l'aggiunta di altri strumenti simili, lasciare un commento.
-
-**Strumenti di esplorazione di Archiviazione di Microsoft Azure**
+**Strumento client di Archiviazione di Microsoft Azure**
 
 <table>
   <tr>
-    <th rowspan="2">Esplora archivi Azure</th>
+    <th rowspan="2">Strumento client di Archiviazione di Azure</th>
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
     <th rowspan="2">Append Blob</th>
@@ -65,7 +63,7 @@ Si tratta unicamente di un riepilogo degli strumenti di esplorazione di Archivia
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
+    <td>X</td>
     <td>S</td>
     <td></td>
     <td>X</td>
@@ -88,13 +86,13 @@ Si tratta unicamente di un riepilogo degli strumenti di esplorazione di Archivia
   </tr>
 </table>
 
-**Strumenti di esplorazione di Archiviazione di Azure di terze parti**
+**Strumenti client di Archiviazione di Azure di terze parti**
 
-La funzionalità o la qualità dichiarate per gli strumenti di esplorazione di terze parti riportati di seguito non è stata verificata e la pubblicazione non implica un'approvazione da parte di Microsoft.
+La funzionalità o la qualità dichiarate per i seguenti strumenti di terze parti non è stata verificata e la pubblicazione non implica un'approvazione da parte di Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Esplora archivi Azure</th>
+    <th rowspan="2">Strumento client di Archiviazione di Azure</th>
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
     <th rowspan="2">Append Blob</th>
@@ -252,4 +250,4 @@ La funzionalità o la qualità dichiarate per gli strumenti di esplorazione di t
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

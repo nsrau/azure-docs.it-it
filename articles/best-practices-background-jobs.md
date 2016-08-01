@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Linee guida per i processi in background
@@ -320,4 +320,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

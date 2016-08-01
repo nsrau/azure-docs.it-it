@@ -87,8 +87,8 @@ Gli errori 502 possono anche indicare che il probe di integrità predefinito non
 | Soglia non integra | 3 | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 ###Soluzione
-- Verificare che sia stato configurato un sito predefinito e che sia in ascolto su 127.0.0.1. 
-- Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta. 
+- Verificare che sia stato configurato un sito predefinito e che sia in ascolto su 127.0.0.1.
+- Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 - La chiamata a http://127.0.0.1:port deve restituire un codice risultato HTTP di 200. Questo valore deve essere restituito entro il periodo di timeout di 30 secondi.
 - Verificare che la porta configurata sia aperta e che non esistano regole del firewall o gruppi di sicurezza di rete di Azure che bloccano il traffico in ingresso o in uscita sulla porta configurata.
 - Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l'[endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) corrispondente sia aperto.
@@ -112,10 +112,10 @@ Il probe di integrità personalizzato consente una maggiore flessibilità per la
 
 
 ###Soluzione
-Verificare che il probe di integrità personalizzato sia configurato correttamente in base alla tabella riportata di seguito. Oltre alle procedure di risoluzione dei problemi indicate in alto, verificare anche quanto segue.
+Verificare che il probe di integrità personalizzato sia configurato correttamente in base alla tabella riportata sopra. Oltre alle procedure di risoluzione dei problemi indicate in alto, verificare anche quanto segue.
 
 - Verificare che il protocollo sia impostato solo su HTTP. HTTP non è attualmente supportato.
-- Verificare che il probe sia specificato correttamente secondo le istruzioni della [guida](application-gateway-create-probe-ps.md). 
+- Verificare che il probe sia specificato correttamente secondo le istruzioni della [guida](application-gateway-create-probe-ps.md).
 - Se il gateway applicazione è configurato per un singolo sito, per impostazione predefinita il nome dell'host deve essere specificato come "127.0.0.1", se non diversamente configurato nel probe personalizzato.
 - Verificare che la chiamata a http://\< host >: < porta >< percorso > restituisca un codice risultato HTTP di 200.
 - Assicurarsi che Intervallo, Timeout e Soglia non integra siano compresi in intervalli accettabili.
@@ -134,4 +134,4 @@ Il gateway applicazione consente agli utenti di configurare questa impostazione 
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket al supporto tecnico](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

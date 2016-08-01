@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye" />
 
 
@@ -40,10 +40,17 @@ Azure Machine Learning dispone di due tipi di servizi:
 Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Ottenere una chiave di autorizzazione Azure Machine Learning ##
-È possibile ottenere una chiave API del servizio Web da un servizio Web di Machine Learning. È possibile ottenerla da Machine Learning Studio o dal portale di Azure.
+
+Quando si distribuisce l'esperimento, vengono generate le chiavi API per il servizio Web. Il luogo da cui le chiavi vengono recuperate varia a seconda se l'esperimento è stato distribuito come nuovo servizio Web o come servizio Web classico.
+
+## Servizio Web classico ##
+
+ È possibile recuperare una chiave da Machine Learning Studio o dal portale di Azure.
+
 ### Machine Learning Studio ###
-1. In Machine Learning Studio fare clic su **WEB SERVICES** a sinistra.
-2. Fare clic su un servizio Web. La "chiave API" si trova nella scheda **DASHBOARD**.
+
+1. In Machine Learning Studio fare clic su **WEB SERVICES** (Servizi Web) a sinistra.
+2. Fare clic su un servizio Web. La **chiave API** si trova nella scheda **DASHBOARD**.
 
 ### Portale di Azure ###
 
@@ -53,24 +60,36 @@ Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire 
 4. Fare clic su un servizio Web.
 5. Fare clic su un endpoint. La "CHIAVE API" si trova in basso a destra.
 
+
+## Nuovo servizio Web 
+
+Per recuperare la chiave API per un nuovo servizio Web di Machine Learning, è necessario accedere al portale [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) (Servizi Web Microsoft Azure Machine Learning).
+
+1. Nel portale Microsoft Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning), fare clic su **WEB SERVICES** (Servizi Web) nel menu in alto.
+2. Selezionare il servizio Web per il quale si desidera recuperare la chiave.
+3. Nel menu in alto fare clic su **Consume** (Uso).
+4. Copiare e salvare la **Chiave primaria**.
+
 ## <a id="connect"></a>Connettersi a un servizio Web di Machine Learning
 
 È possibile connettersi a un servizio Web di Machine Learning usando qualsiasi linguaggio di programmazione che supporta la risposta e la richiesta HTTP. È possibile visualizzare gli esempi in C#, Python e R da una pagina della Guida del servizio Web di Machine Learning.
 
-### Per visualizzare una pagina della Guida per l'API del servizio Web di Machine Learning ###
-Una pagina della Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Distribuire il servizio Web](machine-learning-walkthrough-5-publish-web-service.md).
+**Guida per l'API di Machine Learning** Una Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Distribuire il servizio Web](machine-learning-walkthrough-5-publish-web-service.md). La Guida per l'API di Machine Learning contiene i dettagli su un servizio Web di stima.
 
+**Per visualizzare la Guida per l'API di Machine Learning per un servizio Web classico** in Machine Learning Studio:
 
-**Per visualizzare una pagina della Guida per l'API di Machine Learning** in Machine Learning Studio:
+1. Fare clic su **WEB SERVICES**.
+2. Fare clic su un servizio Web.
+3. Fare clic sulla **API help page** (Pagina della Guida per l'API) - **Richiesta/risposta** o **Esecuzione batch**.
 
-1. Scegliere **WEB SERVICES**.
-2. Scegliere un servizio Web.
-3. Scegliere la **pagina della Guida per l'API** - **REQUEST/RESPONSE** o **BATCH EXECUTION**.
+**Per visualizzare la Guida per l'API di Machine Learning per un nuovo servizio Web** nel portale Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning):
 
+1. Fare clic su **WEB SERVICES** (Servizi Web) nel menu in alto.
+2. Selezionare il servizio Web per il quale si desidera recuperare la chiave.
 
-**Pagina della Guida per l'API di Machine Learning** La pagina della Guida per l'API di Machine Learning contiene i dettagli su un servizio Web di stima.
+Fare clic su **Consume** (Uso) per ottenere l'URI per i servizi Richiesta/Risposta ed Esecuzione in batch, nonché il codice di esempio in C#, R e Python.
 
-
+Fare clic su **Swagger API** (API Swagger) per ottenere la documentazione basata su Swagger per le API chiamate dagli URI specificati.
 
 ### Esempio C# ###
 
@@ -98,8 +117,8 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 
 **Per eseguire l'esempio di codice**
 
-1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
+1. Distribuire l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
 2. Assegnare la chiave API con la chiave da un servizio Web. Vedere la sezione precedente **Ottenere una chiave di autorizzazione di Azure Machine Learning**.
-3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
+3. Assegnare l'URI del servizio con l'URI della richiesta.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -29,10 +29,10 @@ In questo caso, sono disponibili due risorse:
  - Differenziazione tra dati operativi, letti e scritti dalle applicazioni, e dati analitici, usati per fornire business intelligence (BI) e determinare la tecnologia più adatta alle proprie esigenze.
  - Una breve analisi della tecnologia relazionale.
  - Un'introduzione a ciascuna delle tecnologie NoSQL di Azure: DocumentDB, archiviazione tabelle, HBase e HDInsight.
- - Un confronto delle tecnologie NoSQL e del database SQL di Azure. 
- - Quando usare DocumentDB di Visual Studio. Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
+ - Un confronto delle tecnologie NoSQL e del database SQL di Azure.
+ - Quando usare Azure DocumentDB di Visual Studio Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

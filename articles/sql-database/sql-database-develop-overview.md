@@ -59,13 +59,12 @@ Quando si verifica un errore temporaneo durante la connessione al database SQL, 
 ## Condivisione dei dati con la scalabilità elastica
 La scalabilità elastica semplifica il processo di ridimensionamento.
 
-[Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure]
-* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 
 ## Passaggi successivi
 
-Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

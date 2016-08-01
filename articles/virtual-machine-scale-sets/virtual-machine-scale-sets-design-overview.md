@@ -44,4 +44,4 @@ Un set di scalabilità basato su un'immagine di piattaforma ha un limite di 100 
 
 Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità. Per informazioni su come eseguire questa operazione, [vedere questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

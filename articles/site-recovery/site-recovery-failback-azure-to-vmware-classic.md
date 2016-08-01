@@ -3,8 +3,8 @@
    description="Informazioni sul failback nel sito locale dopo il failover dei server fisici e delle macchine virtuali VMware in Azure." 
    services="site-recovery" 
    documentationCenter="" 
-   authors="rayne-wiselman" 
-   manager="jwhit" 
+   authors="ruturaj" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.workload="required" 
    ms.date="01/11/2015"
-   ms.author="raynew"/>
+   ms.author="ruturajd"/>
 
 # Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](site-recovery-failback-azure-to-vmware.md)
 - [Portale di Azure classico](site-recovery-failback-azure-to-vmware-classic.md)
-- [Portale di Azure classico (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portale di Azure classico (legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 
@@ -77,7 +77,7 @@ Se è stato eseguito il failover di una macchina virtuale VMware è possibile es
 - Per eseguire il failback di server fisici e macchine virtuali VMware, è necessario un ambiente VMware. Il failback in un server fisico non è supportato.
 - Per eseguire il failback è necessaria una rete di Azure creata al momento dell'impostazione iniziale della protezione. Il failback richiede una connessione VPN o ExpressRoute dalla rete di Azure in cui si trovano le macchine virtuali di Azure al sito locale.
 - Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, assicurarsi di avere le autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. [Altre informazioni](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-- Se in una macchina virtuale sono presenti snapshot la riprotezione avrà esito negativo. È possibile eliminare gli snapshot o i dischi. 
+- Se in una macchina virtuale sono presenti snapshot la riprotezione avrà esito negativo. È possibile eliminare gli snapshot o i dischi.
 - Prima di eseguire il failback è necessario creare alcuni componenti:
 	- **Creare un server di elaborazione in Azure**. Si tratta di una macchina virtuale di Azure che è necessario creare e lasciare in esecuzione durante il failback. È possibile eliminare la macchina al termine del failback.
 	- **Creare un server di destinazione master**: il server di destinazione master invia e riceve i dati di failback. Nel server di gestione creato in locale è installato un server di destinazione master per impostazione predefinita. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback.
@@ -120,18 +120,18 @@ Per configurare il server di gestione che esegue il server di destinazione maste
 
 #### Installare CentOS 6.6
 
-1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** (Modifica del sistema) selezionare **Connect automatically** (Connetti automaticamente) e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione. 
-2.	Quando viene richiesto il tipo di installazione, selezionare **Create Custom Layout** (Crea layout personalizzato) come partizione. Dopo aver selezionato **Next** (Avanti), selezionare **Free** (Gratuito) e infine fare clic su Create (Crea). Creare partizioni **/**, **/var/crash** e **/home ** con **FS Type:** **ext4**. Creare la partizione di scambio con **FS Type: swap**.
-3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Format** (Formatta) per formattare l'unità con le impostazioni della partizione. Fare clic su **Write change to disk** (Scrivi modifica su disco) per applicare le modifiche della partizione.
-4.	Selezionare **Install boot loader** (Installa caricatore di avvio) > **Next** (Avanti) per installare il caricatore d'avvio nella partizione radice.
-5.	Quando l'installazione è completata, selezionare **Reboot** (Riavvia).
+1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Modifica del sistema** selezionare** Connetti automaticamente** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione.
+2.	Quando viene richiesto il tipo di installazione, selezionare **Crea layout personalizzato** come partizione. Dopo aver fatto clic su **Avanti** selezionare **Gratuito** e fare clic su Crea. Creare partizioni **/**, **/var/crash** e **/home partitions** con **FS Type:** **ext4**. Creare la partizione di scambio con **FS Type: swap**.
+3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Formatta** per formattare l'unità con le impostazioni della partizione. Fare clic su **Scrivi modifica su disco** per applicare le modifiche della partizione.
+4.	Selezionare **Installa caricatore di avvio** > **Avanti** per installare il caricatore di avvio nella partizione radice.
+5.	Al termine dell'installazione, fare clic su **Riavvia**.
 
 
 #### Recuperare gli ID SCSI
 
-1. Dopo l'installazione, recuperare gli ID SCSI per ogni disco rigido SCSI nella macchina virtuale. A tale scopo, arrestare la macchina virtuale del server di gestione e nelle proprietà della macchina virtuale in VMware fare clic con il pulsante destro del mouse sulla voce della macchina virtuale > **Edit Settings** (Modifica impostazioni) > **Options** (Opzioni).
-2. Selezionare **Advanced** (Avanzate) > **General item** (Elemento generale) e fare clic su **Configuration Parameters** (Parametri di configurazione). Quando il computer è in esecuzione questa opzione è disattivata. Per attivarla è necessario arrestare il computer.
-3. Se la riga **disk.EnableUUID** esiste, verificare che il valore sia impostato su **True**, con distinzione tra maiuscole/minuscole. Se il valore è già impostato su True, è possibile annullare e testare il comando SCSI in un sistema operativo guest dopo l'avvio. 
+1. Dopo l'installazione, recuperare gli ID SCSI per ogni disco rigido SCSI nella macchina virtuale. A tale scopo, arrestare la VM del server di gestione nelle proprietà della VM in VMware, fare clic con il pulsante destro del mouse sulla voce della VM > **Modifica impostazioni** > **Opzioni**.
+2. Selezionare **Avanzate** > **Generale** e fare clic su **Parametri di configurazione**. Quando il computer è in esecuzione questa opzione è disattivata. Per attivarla è necessario arrestare il computer.
+3. Se la riga **disk.EnableUUID** esiste, verificare che il valore sia impostato su **True**, con distinzione tra maiuscole e minuscole. Se il valore è già impostato su True, è possibile annullare e testare il comando SCSI in un sistema operativo guest dopo l'avvio.
 4.	Se la riga non esiste, fare clic su **Aggiungi riga** e aggiungerla impostando il valore su **True**. Non usare le virgolette doppie.
 
 #### Installare pacchetti aggiuntivi
@@ -143,18 +143,18 @@ Per configurare il server di gestione che esegue il server di destinazione maste
 3.	Se le macchine di origine da proteggere eseguono Linux con il file system Reiser o XFS per il dispositivo di avvio o radice, è necessario scaricare e installare pacchetti aggiuntivi come indicato di seguito:
 
 	- # cd /usr/local
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
-	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-	- # wget [http://mirror.centos.org/centos/6.6/os/x86\_64/Packages/xfsprogs-3.1.1-16.el6.x86\_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
+	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
 	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Applicare modifiche personalizzate
 
 Per applicare modifiche personalizzate dopo aver completato i passaggi successivi all'installazione e aver installato i pacchetti, eseguire queste operazioni:
 
-1.	Copiare il file binario di RHEL 6-64 Unified Agent nella macchina virtuale. Eseguire questo comando per decomprimere il file binario: **tar –zxvf <file name>**
-2.	Eseguire questo comando per concedere le autorizzazioni: **# chmod 755 ./ApplyCustomChanges.sh**
+1.	Copiare il file binario di RHEL 6-64 Unified Agent nella macchina virtuale. Eseguire questo comando per decomprimere il file binario: **tar -zxvf <nome file>**
+2.	Eseguire questo comando per concedere le autorizzazioni: **#chmod 755 ./ApplyCustomChanges.sh**
 3.	Eseguire lo script: **# ./ApplyCustomChanges.sh**. Eseguire lo script solo una volta. Riavviare il server dopo l'esecuzione dello script.
 
 
@@ -162,7 +162,7 @@ Per applicare modifiche personalizzate dopo aver completato i passaggi successiv
 
 ### Abilitare la riprotezione delle macchine virtuali di Azure
 
-1.	Nel portale di Site Recovery nella scheda **Computer** selezionare la macchina virtuale di cui è stato eseguito il failover e fare clic su **Riproteggi**.
+1.	Nel portale di Site Recovery > scheda **Computer** selezionare la VM di cui è stato eseguito il failover e fare clic su **Riproteggi**.
 2.	In **Server di destinazione master** e **Server di elaborazione** selezionare il server di destinazione master locale e il server di elaborazione della VM di Azure.
 3.	Selezionare l'account configurato per la connessione alla macchina virtuale.
 4.	Selezionare la versione del failback del gruppo di protezione. Ad esempio, se la macchina virtuale è protetta in PG1, è necessario selezionare PG1\_Failback.
@@ -170,7 +170,7 @@ Per applicare modifiche personalizzate dopo aver completato i passaggi successiv
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
 
-6.	Dopo aver fatto clic su **OK** per avviare la riprotezione, inizia un processo di replica della macchina virtuale da Azure nel sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
+6.	Dopo aver fatto clic su **OK** per avviare la riprotezione, inizia un processo di replica della VM da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/failback2.png)
 
@@ -179,14 +179,14 @@ Per applicare modifiche personalizzate dopo aver completato i passaggi successiv
 Dopo la riprotezione la macchina virtuale viene spostata nella versione di failback del relativo gruppo di protezione e viene aggiunta automaticamente all'eventuale piano di ripristino usato per il failover in Azure.
 
 1.	Nella pagina **Piani di ripristino** selezionare il piano di ripristino che contiene il gruppo di failback e fare clic su **Failover** > **Failover non pianificato**.
-2.	In **Conferma failover** verificare la direzione del failover in Azure e selezionare il punto di ripristino da usare per il failover. Usare il più recente. Se nella configurazione delle proprietà della replica sono state abilitate **più macchine virtuali**, è possibile ripristinare fino all'ultimo punto di ripristino coerente con l'app o l'arresto anomalo del sistema. Fare clic sul segno di spunta per avviare il failover.
+2.	In **Conferma failover** verificare la direzione del failover (Azure) e selezionare il punto di ripristino da usare per il failover. Usare il più recente. Se nella configurazione delle proprietà della replica sono state abilitate **più VM**, è possibile ripristinare fino all'ultimo punto di ripristino coerente con l'app o l'arresto anomalo del sistema. Fare clic sul segno di spunta per avviare il failover.
 3.	Durante il failover, Site Recovery arresta le macchine virtuali di Azure. Assicurarsi che il failback sia stato completato e quindi verificare che le macchine virtuali di Azure siano state arrestate come previsto.
 
 ### Riproteggere il sito locale
 
 Al termine del failback i dati si trovano nuovamente nel sito locale, ma non sono protetti. Per avviare nuovamente la replica in Azure, eseguire queste operazioni:
 
-1.	Nel portale di Site Recovery nella scheda **Computer** selezionare le VM di cui è stato eseguito il failback e fare clic su **Riproteggi**. 
+1.	Nel portale di Site Recovery > scheda **Computer** selezionare le VM di cui è stato eseguito il failback e fare clic su **Riproteggi**.
 2.	Dopo aver verificato il funzionamento della replica di Azure, in Azure è possibile eliminare le macchine virtuali di Azure (attualmente non in esecuzione) di cui è stato eseguito il failback.
 
 
@@ -204,4 +204,4 @@ Al termine del failback i dati si trovano nuovamente nel sito locale, ma non son
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!------HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

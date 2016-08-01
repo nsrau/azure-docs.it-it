@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Analizzare i dati in Archivio Data Lake con Power BI
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 1. Avviare Power BI Desktop sul computer.
 
-2. Nella barra multifunzione **Home** fare clic su **Get Data** (Ottieni dati), quindi su Altro. Nella finestra di dialogo **Get data** (Ottieni dati) fare clic su **Azure**, **Archivio Azure Data Lake** e quindi su **Connetti**.
+2. Nella barra multifunzione **Home** fare clic su **Recupera dati**, quindi su Altro. Nella finestra di dialogo **Recupera dati** fare clic su **Azure**, **Archivio Azure Data Lake** e quindi su **Connetti**.
 
 	![Connessione ad Archivio Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connessione ad Archivio Data Lake")
 
@@ -85,7 +85,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 	![Modifica delle query](./media/data-lake-store-power-bi/convert-query3.png "Modifica delle query")
 
-13. Dalla barra multifunzione **Home** fare clic su **Applica e chiudi**, quindi su **Applica e chiudi**.
+13. Dalla barra multifunzione **Home** fare clic su **Chiudi e applica**, quindi su **Chiudi e applica**.
 
 	![Modifica delle query](./media/data-lake-store-power-bi/load-edited-query.png "Modifica delle query")
 
@@ -125,4 +125,4 @@ Dopo aver creato le visualizzazioni in Power BI Desktop, è possibile condivider
 
 * [Analizzare i dati in Archivio Data Lake con Analisi Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->
