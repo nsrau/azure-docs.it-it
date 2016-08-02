@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -60,7 +60,7 @@ Nome | Descrizione
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Si connette a un server FTP/FTPS ed esegue diverse attività FTP, incluso caricare, ottenere, eliminare file e molto altro.
 [Informix](app-service-logic-connector-informix.md) | Si connette a un database IBM Informix, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language.<br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate.<br/><br/>Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Questo connettore include anche un client Microsoft per DRDA per la connessione a un server Informix mediante una rete TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Si connette a un database di SQL Server locale o a un database SQL di Azure. È possibile creare, aggiornare, ottenere ed eliminare le voci in una tabella di database SQL.
-MQ | Si connette a un database IBM WebSphere MQ Server versione 8, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Il connettore include anche il client Microsoft per MQ.<br/><br/>Nessun trigger. Nessuna azione.<br/><br/>**Nota** Non può essere usato attualmente con app per la logica.
+MQ | Si connette a un database IBM WebSphere MQ Server versione 8, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Il connettore include anche il client Microsoft per MQ.<br/><br/>Nessun trigger. Nessuna azione.<br/><br/>**Nota**: attualmente non può essere usato con app per la logica.
 [Oracle Database](app-service-logic-connector-oracle.md) | Si connette al database Oracle locale e può creare, aggiornare, ottenere ed eliminare voci in una tabella di database.
 [POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Si connette a un server POP3 per recuperare i messaggi di posta elettronica con allegati.
 [SAP](app-service-logic-connector-sap.md) | Si connette a un server SAP locale e chiama RFC, BAPI e tRFC oltre a inviare IDOC.
@@ -80,4 +80,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 ## Altre informazioni su connettori e app per le API
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

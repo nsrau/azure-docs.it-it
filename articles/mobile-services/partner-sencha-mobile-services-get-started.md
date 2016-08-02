@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili e Sencha Touch
@@ -23,7 +23,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -675,7 +675,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
-  3. Aprire l'URL indicato nel terminale in un browser Web per avviare l'app, ad esempio http://localhost:1841).
+  3. Aprire l'URL indicato nel terminale in un Web browser per avviare l'app, ad esempio http://localhost:1841.
 
   4. Nell'app digitare un testo significativo, ad esempio "Complete the tutorial" e quindi fare clic su **Add**.
 
@@ -699,8 +699,8 @@ Dopo aver completato la Guida introduttiva, è possibile eseguire altre importan
 Sono inoltre disponibili ulteriori informazioni su Sencha Touch Extensions for Azure:
 
   * Procedura dettagliata[ dell'app di esempio](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
-  * Forum di Sencha [Sencha Forums](http://www.sencha.com/forum)
-  * Documentazione di Sencha [Sencha Documentation](http://docs.sencha.com/)
+  * Forum di Sencha[](http://www.sencha.com/forum)
+  * Documentazione di Sencha[](http://docs.sencha.com/)
   * Utilizzo di Sencha con Servizi mobili di Azure: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
@@ -724,4 +724,4 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

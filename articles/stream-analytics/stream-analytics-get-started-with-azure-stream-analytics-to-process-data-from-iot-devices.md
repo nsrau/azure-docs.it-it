@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -119,4 +119,4 @@ Qui viene usato un **LEFT OUTER JOIN** sullo stesso flusso di dati (self-join). 
 
 Questa esercitazione fornisce informazioni iniziali per scrivere diverse query SAQL e visualizzarne i risultati nel browser in diversi modelli sui dati. Si tratta, tuttavia, di informazioni di base, in quanto con analisi di flusso è possibile eseguire molte altre attività. Nell'esercitazione successiva verranno fornite informazioni sulla connessione del processo di analisi di flusso agli input e agli output e sulla distribuzione in Azure. Per ottenere altre informazioni sull'analisi di flusso, è possibile usare la guida con la [mappa di apprendimento](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) e per altre informazioni sulla scrittura di query, leggere l'articolo sui [modelli di query comuni](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

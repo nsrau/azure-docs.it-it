@@ -13,15 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
-
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
-
-Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
 
 ## Guida alla pianificazione
 Questa guida illustra una serie di passaggi e attività che è possibile eseguire per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione. Per poter sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i vari utenti o team dell'organizzazione useranno il servizio per soddisfare le esigenze di gestione e sviluppo sicuri, di monitoraggio, di governance e di risposta agli eventi imprevisti. Le aree principali da considerare quando si intende usare il Centro sicurezza sono:
@@ -33,6 +29,9 @@ Questa guida illustra una serie di passaggi e attività che è possibile eseguir
 - Risposta agli eventi imprevisti
 
 Nella sezione successiva si apprenderà come pianificare ogni singola area e applicare le raccomandazioni in base alle esigenze.
+
+> [AZURE.NOTE] Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
+
 
 ## Ruoli di sicurezza e controlli di accesso
 A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicurezza di Azure potrebbe essere usato da più utenti e team per l'esecuzione di diverse attività correlate alla sicurezza. Di seguito è riportato un esempio di utenti fittizi e dei rispettivi ruoli e responsabilità di sicurezza:
@@ -102,7 +101,7 @@ I criteri di sicurezza definiscono il set di controlli consigliato per le risors
 
 I criteri abilitati nel livello di sottoscrizione vengono propagati automaticamente a tutti i gruppi di risorse all'interno della sottoscrizione, come illustrato nel diagramma seguente:
 
-![Criteri di sicurezza](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2.png)
+![Criteri di sicurezza](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
 Come illustrato nella figura precedente, i criteri di sicurezza per i gruppi di risorse possono essere ereditati dal livello di sottoscrizione.
 
@@ -118,7 +117,7 @@ Quando si avvia la creazione di criteri personalizzati per diversi gruppi di ris
 
 Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](security-center-recommendations.md) e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali operazioni verranno eseguite il relazione alle raccomandazioni sulla sicurezza.
 
-**Protezione degli endpoint**: se in una macchina virtuale non è abilitata una soluzione di protezione endpoint, il Centro sicurezza visualizza una raccomandazione a installarla. Se in locale è già stata adottata una soluzione di protezione endpoint preferita, è necessario stabilire se usare lo stesso antimalware per le macchine virtuali di Azure. Il Centro sicurezza di Azure offre diverse opzioni di protezione endpoint. È possibile usare un antimalware Microsoft gratuito o scegliere tra un elenco di soluzioni di protezione endpoint di partner integrati. Per altre informazioni su come distribuire antimalware con il Centro sicurezza di Azure, vedere [Install Endpoint Protection in Azure Security Center](security-center-install-endpoint-protection.md) (Installare Endpoint Protection nel Centro sicurezza di Azure).
+**Protezione degli endpoint**: se in una macchina virtuale non è abilitata una soluzione di protezione endpoint, il Centro sicurezza visualizza una raccomandazione a installarla. Se in locale è già stata adottata una soluzione di protezione endpoint preferita, è necessario stabilire se usare lo stesso antimalware per le macchine virtuali di Azure. Il Centro sicurezza di Azure offre diverse opzioni di protezione endpoint. È possibile usare un antimalware Microsoft gratuito o scegliere tra un elenco di soluzioni di protezione endpoint di partner integrati. Per altre informazioni su come distribuire antimalware con il Centro sicurezza di Azure, vedere [Installare Endpoint Protection nel Centro sicurezza di Azure](security-center-install-endpoint-protection.md).
 
 **Aggiornamenti di sistema**: il Centro sicurezza di Azure identifica le macchine virtuali in cui non sono presenti aggiornamenti della sicurezza o aggiornamenti critici del sistema operativo per IaaS e Servizi cloud (PaaS). Valutare chi sarà responsabile dell'applicazione degli aggiornamenti necessari e le relative modalità di applicazione. Molte organizzazioni usano WSUS, Windows Update o un altro strumento.
 
@@ -140,7 +139,7 @@ La pianificazione dei requisiti sarà diversa per ogni scenario. Per informazion
 
 **Rete virtuale**: il Centro sicurezza di Azure valuta l'infrastruttura e la configurazione della [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) per verificare che il [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) sia applicato e configurato correttamente con regole per il traffico in ingresso. È necessario valutare quali regole del traffico definire e comunicarlo alle persone che dovranno applicare le raccomandazioni sulla sicurezza correlate.
 
-Il Centro sicurezza visualizza una raccomandazione a specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Per altre informazioni su come abilitare questa raccomandazione, vedere [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) (Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure).
+Il Centro sicurezza visualizza una raccomandazione a specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
 
 ## Raccolta dati e archiviazione
 
@@ -191,7 +190,7 @@ Gli ambienti Azure sono per la maggior parte dinamici, con nuove risorse che ven
 
 Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, il Centro sicurezza le individua automaticamente e iniziare a monitorarne la sicurezza. Ciò include anche i ruoli di lavoro e i ruoli Web PaaS. Se la raccolta dati è abilitata nei [criteri di sicurezza](security-center-policies.md), vengono abilitate automaticamente funzionalità di monitoraggio aggiuntive per le macchine virtuali.
 
-![Aree principali](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3.png)
+![Aree principali](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	Per le macchine virtuali, accedere al riquadro **Integrità sicurezza delle risorse** e fare clic su **Macchine virtuali**. Gli eventuali problemi di abilitazione della raccolta dati e le relative raccomandazioni verranno visualizzati nella sezione **Raccomandazioni sul monitoraggio**.
 2.	Per conoscere gli eventuali rischi di sicurezza identificati per la nuova risorsa, visualizzare **Raccomandazioni**.
@@ -226,7 +225,7 @@ Ogni avviso di sicurezza fornisce informazioni che possono essere usate per comp
 
 L'esempio seguente mostra un'attività RDP sospetta in azione:
 
-![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5.png)
+![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Questo pannello include dettagli relativi al momento in cui si è verificato l'attacco, al nome host di origine, alla macchina virtuale di destinazione e ai passaggi necessari per applicare la raccomandazione. In alcuni casi le informazioni sull'origine dell'attacco potrebbero non essere disponibili. Per altre informazioni su questo tipo di comportamento, vedere [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Informazioni sull'origine mancanti negli avvisi del Centro sicurezza di Azure).
 
@@ -240,4 +239,4 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

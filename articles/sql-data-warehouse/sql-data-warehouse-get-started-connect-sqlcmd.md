@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Eseguire query in Azure SQL Data Warehouse (sqlcmd)
@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Questa procedura dettagliata usa l'utilità della riga di comando sqlcmd per eseguire query in un'istanza di Azure SQL Data Warehouse.
 
@@ -30,7 +30,7 @@ Questa procedura dettagliata usa l'utilità della riga di comando sqlcmd per ese
 
 Per eseguire questa esercitazione, è necessario:
 
--  [sqlcmd.exe][]. Per scaricarlo, vedere [Microsoft Command Line Utilities 11 for SQL Server][].
+-  [sqlcmd.exe][]. Per il download, vedere [Microsoft Command Line Utilities 11 for SQL Server][]; può richiedere anche [Microsoft ODBC Driver 11 for SQL Server - Windows][].
 
 ## 1\. Connetti
 
@@ -64,26 +64,27 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 Questi esempi successivi illustrano come è possibile eseguire le query in modalità batch usando l'opzione -Q o inviando pipe di SQL a sqlcmd.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Passaggi successivi
 
-Per informazioni su tutte le opzioni sqlcmd, vedere la [documentazione su sqlcmd][sqlcmd.exe].
-
-<!--Articles-->
-[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
-
-
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure portal]: https://portal.azure.com
+Vedere [Utilità sqlcmd][sqlcmd.exe] per altre informazioni sulle opzioni disponibili in sqlcmd.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[Microsoft ODBC Driver 11 for SQL Server - Windows]: https://www.microsoft.com/download/details.aspx?id=36434
+[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[Azure portal]: https://portal.azure.com
+
+<!--Other Web references-->
+
+<!---HONumber=AcomDC_0727_2016-->

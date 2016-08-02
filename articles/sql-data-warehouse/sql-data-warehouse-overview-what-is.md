@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@ Polybase consente di sfruttare i dati provenienti da origini diverse eseguendo i
 
 ## Passaggi successivi
 
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][] rapidamente e [caricare i dati di esempio][]. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
+Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][] rapidamente e [caricare i dati di esempio][]. Se non si ha familiarità con Azure, il [glossario di Azure][] può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
 
 - [Blog]
 - [Richieste di funzionalità]
@@ -169,6 +169,7 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [Partner di business intelligence per SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
 [panoramica degli strumenti integrati]: sql-data-warehouse-overview-integrate.md
 [panoramica su backup e ripristino]: sql-data-warehouse-restore-database-overview.md
+[glossario di Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -181,4 +182,4 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -39,7 +39,7 @@ Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione 
 
 **Amministratore globale:** in un tenant di AAD possono essere presenti molti amministratori globali. Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant. L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **AMMINISTRATORE** per l'applicazione all'interno di tenant di AAD. Tuttavia, se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **SOLA LETTURA IMPLICITO**. Gli amministratori globali possono assegnare ruoli per le applicazioni tramite il [portale di Azure classico][lnk-classic-portal].
 
-**Utente/membro di dominio:** per ogni tenant di AAD possono essere presenti molti utenti o membri del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **AMMINISTRATORE**. Possono creare un'applicazione usando lo script build.cmd nel repository [azure-iot-solution][lnk-github-repo], ma il ruolo predefinito concesso è **SOLA LETTURA IMPLICITO**, perché non hanno l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **SOLA LETTURA IMPLICITO** per impostazione predefinita per l'applicazione. Non hanno la possibilità di assegnare ruoli per le applicazioni, quindi non possono aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
+**Utente/membro di dominio:** per ogni tenant di AAD possono essere presenti molti utenti o membri del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **AMMINISTRATORE**. Possono creare un'applicazione usando lo script build.cmd nel repository [azure-iot-remote-monitoring][lnk-rm-github-repo] o [azure-iot-predictive-maintenance][lnk-pm-github-repo], ma il ruolo predefinito concesso è **IMPLICIT READONLY** (SOLA LETTURA IMPLICITO) perché non hanno l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **SOLA LETTURA IMPLICITO** per impostazione predefinita per l'applicazione. Non hanno la possibilità di assegnare ruoli per le applicazioni, quindi non possono aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
 
 **Utente guest/Guest:** per ogni tenant AAD possono essere presenti molti utenti guest o guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di una soluzione preconfigurata nel tenant di AAD.
 
@@ -86,7 +86,7 @@ Per modificare i ruoli per un utente, è necessario essere un amministratore glo
 
 8. Selezionare l'utente per cui si vogliono scambiare i ruoli.
 
-9. Fare clic su **Assegna** e selezionare il ruolo, ad esempio **Amministratore**, che si desidera assegnare all'utente, fare clic sul segno di spunta.
+9. Fare clic su **Assegna** e selezionare il ruolo, ad esempio **Amministratore**, da assegnare all'utente, fare clic sul segno di spunta.
 
 ## Domande frequenti
 
@@ -135,10 +135,15 @@ Esaminare il diagramma seguente:
 
 Se si è certi di che avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant desiderato è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di AAD.
 
+## Passaggi successivi
+
+Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione preconfigurata][lnk-customize].
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -147,5 +152,6 @@ Se si è certi di che avere una sottoscrizione di Azure, convalidare il mapping 
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
