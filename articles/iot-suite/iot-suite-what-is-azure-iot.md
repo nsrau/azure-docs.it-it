@@ -29,17 +29,15 @@ Vedere anche il servizio [Hub IoT di Azure][], usato da molte soluzioni preconfi
 
 ## Passaggi successivi
 
-Esplorare queste risorse per ulteriori informazioni su IoT in Azure:
+Esplorare queste risorse per altre informazioni su IoT Suite e sulle soluzioni preconfigurate:
 
-- [Panoramica di Azure IoT Suite][lnk-suite-overview].
-- [Iniziare a usare le soluzioni preconfigurate IoT][lnk-preconfigured-solutions].
-- [Connessione del dispositivo alla soluzione per il monitoraggio remoto IoT Suite][lnk-connecting].
-- [Hub IoT Azure]
+- [Che cos'è Azure IoT Suite?][lnk-whatissuite]
+- [Informazioni sulle soluzioni preconfigurate di Azure IoT Suite][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Hub IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Hub IoT di Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Hub eventi di Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
 [Analisi di flusso di Azure]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -47,4 +45,4 @@ Esplorare queste risorse per ulteriori informazioni su IoT in Azure:
 [Archiviazione di Azure]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

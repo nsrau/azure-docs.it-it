@@ -257,7 +257,7 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 
 |Regola|Descrizione|Flusso|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Consente la comunicazione HTTPS alla rete perimetrale | In ingresso |
+|AllowHTTPSFromDMZ| Consente la comunicazione HTTPS dalla rete perimetrale | In ingresso |
 |DenyAllFromDMZ| Questa regola blocca tutto il traffico dalla rete perimetrale alla subnet interna. La regola AllowHTTPSFromDMZ garantisce il passaggio della comunicazione HTTPS e qualsiasi altro tipo di comunicazione viene bloccato da questa regola | In ingresso |
 |DenyInternetOutbound| Nessun accesso a Internet | In uscita |
 
@@ -303,4 +303,4 @@ Dopo l'accesso, verrà visualizzato un messaggio di completamento dell'operazion
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Configurazione e gestione di AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

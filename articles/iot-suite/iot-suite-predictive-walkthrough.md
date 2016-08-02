@@ -111,7 +111,12 @@ Dopo aver eseguito la soluzione di manutenzione predittiva preconfigurata è con
 
 Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) fornisce altri dettagli sulla soluzione di manutenzione predittiva preconfigurata.
 
-  
+È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
+
+- [Domande frequenti su IoT Suite][lnk-faq]
+- [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -125,5 +130,7 @@ Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in Io
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

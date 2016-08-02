@@ -60,6 +60,7 @@ Il video seguente fornirà una panoramica di Azure AD Connect Health per la sinc
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [Azure AD Connect Health per Servizi di dominio Active Directory (anteprima)](active-directory-aadconnect-health-adds.md)
+
 Azure AD Connect Health per Servizi di dominio Active Directory consente il monitoraggio dei controller di dominio installati in Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Si tratta dell'installazione semplice e a basso costo di un agente di integrità che consente di monitorare l'ambiente locale di Servizi di dominio Active Directory direttamente dal cloud. Azure AD Connect Health per Servizi di dominio Active Directory offre il seguente insieme di funzionalità chiave:
 
 - Avvisi di monitoraggio per rilevare quando i controller di dominio non sono integri, insieme a notifiche di posta elettronica per avvisi critici.
@@ -122,4 +123,4 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

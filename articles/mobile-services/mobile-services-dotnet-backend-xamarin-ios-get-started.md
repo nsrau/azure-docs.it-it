@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/16/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Per l'equivalente di App per dispositivi mobili di questo argomento, vedere [Creare un'app per Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md).
@@ -132,4 +132,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [versione per back-end JavaScript]: mobile-services-ios-get-started.md
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

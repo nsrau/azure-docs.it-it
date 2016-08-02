@@ -193,7 +193,9 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 -	[Abilitare la diagnostica della cache](cache-how-to-monitor.md#enable-cache-diagnostics) per poter [monitorare](cache-how-to-monitor.md) l'integrità della cache. È possibile visualizzare le metriche nel portale di Azure, nonché [scaricarle e analizzarle](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando gli strumenti preferiti.
 -	Vedere la [documentazione del client della cache StackExchange.Redis][].
 	-	È possibile accedere a Cache Redis di Azure da numerosi linguaggi di sviluppo e client Redis. Per altre informazioni, vedere [http://redis.io/clients][].
-	-	È anche possibile usare Cache Redis di Azure con altri servizi come Redsmin. Per ulteriori informazioni, vedere l’articolo su [come recuperare una stringa di connessione di Redis di Azure e usarla con Redsmin][].
+-	È anche possibile usare Cache Redis di Azure con servizi e strumenti di terze parti come Redsmin e Redis Desktop Manager.
+	-	Per altre informazioni su Redsmin, vedere [How to connect Azure Redis Cache to Redsmin][] (Come connettere Cache Redis di Azure a Redsmin).
+	-	Per accedere ai dati in Cache Redis di Azure e controllarli con una GUI, usare [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -	Vedere la documentazione su [Redis][] e in particolare l'articolo sui [tipi di dati Redis][] e l'[introduzione di 15 minuti ai tipi di dati Redis][].
 
 
@@ -243,7 +245,7 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
 [Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[come recuperare una stringa di connessione di Redis di Azure e usarla con Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[How to connect Azure Redis Cache to Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -284,4 +286,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [come funzionano le stringhe applicazione e le stringhe di connessione]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

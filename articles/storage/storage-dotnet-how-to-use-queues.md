@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/26/2016"
 	ms.author="gusapost"/>
 
 # Introduzione all'archiviazione code di Azure con .NET
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Panoramica
 
@@ -48,7 +48,7 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 ### Aggiungere le dichiarazioni dello spazio dei nomi
 
-Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
+Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -263,9 +263,9 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    - Per archiviare dati strutturati, vedere [Introduzione all'archivio tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
+    - Per archiviare dati strutturati, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
     - Per archiviare dati non strutturati, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
-    - Per archiviare dati relazionali, vedere [Come usare il database SQL di Azure in applicazioni .NET](sql-database-dotnet-how-to-use.md).
+    - Per archiviare dati relazionali, vedere [Connettersi al database SQL tramite .NET (C#)](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -275,4 +275,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

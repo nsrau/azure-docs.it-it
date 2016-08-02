@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/22/2016"
+	ms.date="07/22/2016"
 	ms.author="rachelap"/>
 
 # Distribuire un'app Web ASP.NET nel servizio app di Azure con Visual Studio
@@ -240,4 +240,6 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+*	Per altri esempi di creazione di un'app Web ASP.NET nel servizio app, vedere [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Creare e distribuire un'app Web ASP.NET nel sevizio app di Azure) per la [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) di Connect 2015. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guide introduttive agli strumenti di sviluppo di Azure).
+
+<!---HONumber=AcomDC_0727_2016-->

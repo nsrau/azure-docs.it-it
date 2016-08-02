@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/22/2016"
 	ms.author="tamram"/>
 
 
 # Introduzione all'archivio BLOB di Azure con .NET
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Panoramica
 
@@ -58,7 +58,7 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 ### Analizzare la stringa di connessione
 
@@ -371,16 +371,19 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 
 Archiviazione di Azure supporta la crittografia dei dati BLOB nel client e nel server:
 
-- **Crittografia lato client**: la libreria client di archiviazione per .NET supporta la crittografia dei dati nelle applicazioni client prima del caricamento in Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con l'insieme di credenziali delle chiavi di Azure per la gestione delle chiavi dell'account di archiviazione. Per altre informazioni, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md). Vedere anche [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Crittografia lato client**: la libreria client di Archiviazione per .NET supporta la crittografia dei dati nelle applicazioni client prima del caricamento in Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con l'insieme di credenziali delle chiavi di Azure per la gestione delle chiavi dell'account di archiviazione. Per altre informazioni, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md). Vedere anche [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure](storage-encrypt-decrypt-blobs-key-vault.md).
 - **Crittografia lato server**: Archiviazione di Azure supporta ora la crittografia lato server. Vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)](storage-service-encryption.md).
 
 ## Passaggi successivi
 
 A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visitare i collegamenti seguenti per altre informazioni.
 
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, OS X e Linux.
+
 ### Esempi di archiviazione BLOB
 
-- [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Introduzione all'archiviazione BLOB di Azure in .NET)
+- [Getting Started with Azure Blob Storage in .NET (Introduzione all'archiviazione BLOB di Azure in .NET)](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Informazioni di riferimento sull'archiviazione BLOB
 
@@ -404,4 +407,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->
