@@ -18,7 +18,7 @@
 
 # Azure Active Directory B2C: compilare un'API Web .NET
 
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)] -->
 
 Azure Active Directory (Azure AD) B2C permette di proteggere un'API Web usando i token di accesso OAuth 2.0. I token di accesso consentono alle app client che usano Azure AD B2C di eseguire l'autenticazione all'API. Questo articolo illustra come creare un'API elenco attività MVC (Model-View-Controller) .NET che consente agli utenti di eseguire azioni CRUD sulle attività. L'API Web è protetta con Azure AD B2C e consente soltanto agli utenti autenticati di gestire il proprio elenco attività.
 

@@ -69,7 +69,8 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| VM IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | VM IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| VM IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | 
+| VM IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## Supporto Linux e ARM
 
