@@ -81,7 +81,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di risposta TimeOffManager** della pagina **Configura URL app** digitare l'URL di TimeOffManager AssertionConsumerService, ad esempio: "*https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*"*, quindi fare clic su *Avanti*.
+3.  Nella casella di testo **URL di risposta TimeOffManager** della pagina **Configura URL app** digitare l'URL di TimeOffManager AssertionConsumerService, ad esempio: "*https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configura URL app")
 
