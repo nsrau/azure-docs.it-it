@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # Informazioni sugli account di archiviazione di Azure
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Panoramica
 
@@ -51,7 +51,7 @@ Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, gli endp
 
 L'URL per accedere a un oggetto in un account di archiviazione viene formato aggiungendo la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo BLOB è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per informazioni dettagliate sugli account di archiviazione classici, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md). Per gli account di archiviazione di Azure Resource Manager, questa funzionalità non è stata ancora aggiunta al [portale di Azure](https://portal.azure.com), ma è possibile configurarla con PowerShell. Per altre informazioni, vedere il cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
+È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per informazioni dettagliate sugli account di archiviazione classici, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md). Per gli account di archiviazione di Resource Manager, questa funzionalità non è stata ancora aggiunta al [portale di Azure](https://portal.azure.com), ma è possibile configurarla con PowerShell. Per altre informazioni, vedere il cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
 ## Creare un account di archiviazione
 
@@ -65,17 +65,17 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 	>  
 	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome dell'account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 	> [AZURE.NOTE] Gli account di archiviazione BLOB possono essere creati solo usando il modello di distribuzione di Resource Manager.
 
 5. Selezionare il tipo di account di archiviazione: **Utilizzo generico** o **Archivio BLOB**. L'impostazione predefinita è **Utilizzo generico**.
 
-	Se è stata selezionata l'opzione **Utilizzo generico**, specificare il livello di prestazioni: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione con prestazioni elevate per i carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+	Se è stata selezionata l'opzione **Utilizzo generico**, specificare il livello di prestazioni: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
 
-	Se è stata selezionata l'opzione **Archivio BLOB**, specificare il livello di accesso: **Frequente** o **Non frequente**. Il livello predefinito è **Frequente**. Per informazioni dettagliate, vedere l'articolo relativo ai [livelli Frequente e Non frequente dell'archiviazione BLOB di Azure](storage-blob-storage-tiers.md).
+	Se è stata selezionata l'opzione **Archivio BLOB**, specificare il livello di accesso: **Frequente** o **Non frequente**. Il livello predefinito è **Frequente**. Per informazioni dettagliate, vedere l'articolo [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](storage-blob-storage-tiers.md).
 
-6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **Archiviazione con ridondanza geografica e accesso in lettura** o **ZRS**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **Archiviazione con ridondanza geografica e accesso in lettura** o **Archiviazione con ridondanza della zona**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
 7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
@@ -89,7 +89,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ### Modificare la configurazione dell'account
 
-Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio modificando l'opzione di replica usata per l'account o il livello di accesso per un account di archiviazione BLOB. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
+Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio modificando l'opzione di replica usata per l'account o il livello di accesso per un account di archiviazione BLOB. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
 > [AZURE.NOTE] A seconda del livello di prestazioni che scelto durante la creazione dell'account di archiviazione, alcune opzioni di replica potrebbero non essere disponibili.
 
@@ -101,7 +101,7 @@ Per gli account di archiviazione BLOB, la modifica del livello di accesso potreb
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
 
@@ -147,7 +147,7 @@ Se l'account di archiviazione usa il modello di distribuzione classica, è possi
 4. Selezionare il disco dati, quindi fare clic su Elimina disco.
 5. Per eliminare le immagini del disco, passare alla scheda Immagini ed eliminare le eventuali immagini archiviate nell'account.
 
-Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Passaggi successivi
 
@@ -157,4 +157,4 @@ Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure]
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

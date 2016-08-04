@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/26/2016"
 	ms.author="mandia"/>
 
 
@@ -85,7 +85,7 @@ Porta | Perché sono necessari
 --- | ---
 9350 - 9354 | Queste porte vengono usate per la trasmissione dei dati. La gestione dell'inoltro del bus di servizio verifica la porta 9350 per determinare se è disponibile la connettività TCP. Se è disponibile, presuppone che sia disponibile anche la porta 9352. Il traffico dati passerà per la porta 9352. <br/><br/>Consentire le connessioni in uscita in queste porte.
 5671 | Quando la porta 9352 viene utilizzata per il traffico dati, la porta 5671 viene utilizzata come il canale di controllo. <br/><br/>Consentire le connessioni in uscita in questa porta.
-80, 443 | Queste porte vengono usate per alcune richieste di dati in Azure. Inoltre, se le porte 9352 e 5671 non sono utilizzabili, verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte.<br/><br/>**Nota** Non è consigliabile usarle come porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte.
+80, 443 | Queste porte vengono usate per alcune richieste di dati in Azure. Se non è possibile usare le porte 9352 e 5671, verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte. <br/><br/>**Nota** Non è consigliabile usare queste porte come porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte.
 
 
 
@@ -103,4 +103,4 @@ Porta | Perché sono necessari
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

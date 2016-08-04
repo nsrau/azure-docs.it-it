@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introduzione a Azure Storage in cinque minuti 
@@ -28,7 +28,7 @@ Per ottenere altre informazioni su Archiviazione di Azure prima di approfondire 
 
 Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
-1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer. 
+1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer.
 
 2. Installare la versione più recente [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
@@ -90,14 +90,15 @@ Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usan
 Successivamente, eseguire l'applicazione di esempio nell'emulatore di archiviazione di Azure:
 
 1.	Premere il tasto **Start** o il tasto Windows, cercare *Emulatore di archiviazione di Microsoft Azure* e avviare l'applicazione. Quando l'emulatore si avvia, verranno visualizzate un'icona e una notifica nell'area di visualizzazione attività di Windows.
-2.	In Visual Studio, fare clic su **Compila Soluzione** sul menu **Build**. 
-3.	Sul menu **Debug**, Premere **F11** per eseguire la soluzione dettagliata o premere **F5** per eseguire la soluzione dall’inizio alla fine.
+2.	In Visual Studio, fare clic su **Compila Soluzione** sul menu **Build**.
+3.	Nel menu **Debug** premere **F11** per eseguire la soluzione dettagliata o **F5** per eseguire la soluzione dall’inizio alla fine.
 
 ## Passaggi successivi
 
 Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
 * [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
+* [Guida introduttiva ad Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
 * [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
 * [Introduzione all'archiviazione code di Azure con .NET](storage-dotnet-how-to-use-queues.md)
@@ -110,4 +111,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

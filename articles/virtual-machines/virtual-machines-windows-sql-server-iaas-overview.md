@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/13/2016"
+	ms.date="07/22/2016"
 	ms.author="jroth"/>
 
 # Introduzione a SQL Server in Macchine virtuali di Azure
@@ -31,7 +31,7 @@ Prima di iniziare, valutare cosa si ottiene usando SQL Server nelle macchine vir
 
 Se si devono spostare altri carichi di lavoro in Azure, ad esempio un'applicazione aziendale, ha senso spostare in Azure anche i database di SQL Server dipendenti per ottenere migliori prestazioni. Ma l'hosting SQL Server nelle VM di Azure offre anche altri vantaggi, ad esempio l'accesso automatico a più data center per la presenza globale e il ripristino di emergenza. Per un elenco completo di scenari e vantaggi, vedere la [pagina del prodotto SQL Server nelle macchine virtuali](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
-> [AZURE.NOTE] Quando si valuta SQL Server nelle macchine virtuali, esaminare anche le altre opzioni di archiviazione e di SQL in Azure, ad esempio il [database SQL](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ed [Estensione database di SQL Server](../sql -server-stretch-database/sql-server-stretch-database-overview.md). Per un confronto dettagliato, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+> [AZURE.NOTE] Quando si valuta SQL Server nelle macchine virtuali, esaminare anche le altre opzioni di archiviazione e di SQL in Azure, ad esempio il [database SQL](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ed [Estensione database di SQL Server](../sql -server-stretch-database/sql-server-stretch-database-overview.md). Per un confronto dettagliato, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 Dopo avere stabilito di eseguire SQL Server nelle VM di Azure, una delle prime decisioni da prendere è se usare un'immagine VM che include i costi di licenza di SQL Server. L'altra opzione prevede l'approccio Bring Your Own License (BYOL) e il pagamento della sola VM. Le due sezioni successive descrivono queste opzioni.
 
@@ -78,7 +78,7 @@ Se è necessaria la disponibilità elevata, è consigliabile configurare i grupp
 Per ulteriori informazioni sulla disponibilità elevata, vedere [disponibilità elevata e ripristino di emergenza di SQL Server in macchine virtuali Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ### Eseguire il backup dei dati
-Le VM di Azure possono sfruttare il [backup automatizzato](virtual-machines-windows-sql-automated-backup.md), che crea periodicamente backup del database nell'archivio BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](../sql-database/storage-use-storage-sql-server-backup-restore.md). Per una panoramica di tutte le opzioni di backup e ripristino, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
+Le VM di Azure possono sfruttare il [backup automatizzato](virtual-machines-windows-sql-automated-backup.md), che crea periodicamente backup del database nell'archivio BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md). Per una panoramica di tutte le opzioni di backup e ripristino, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 ### Automatizzare gli aggiornamenti
 Le VM di Azure possono usare [Applicazione automatica delle patch](virtual-machines-windows-sql-automated-patching.md) per pianificare una finestra di manutenzione per l'installazione automatica di importanti aggiornamenti di Windows e SQL Server.
@@ -91,4 +91,4 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 
 Per altre domande, vedere prima di tutto le [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle VM di SQL per interagire con Microsoft e la community.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

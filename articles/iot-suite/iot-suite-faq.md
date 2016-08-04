@@ -27,7 +27,7 @@
 
 ### Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione? 
 
-Dieci. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di dieci hub IoT per ogni sottoscrizione, come descritto in [Limiti relativi alle sottoscrizioni di Azure][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di dieci soluzioni preconfigurate in una determinata sottoscrizione.
+Dieci. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di dieci hub IoT per ogni sottoscrizione, come descritto in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di dieci soluzioni preconfigurate in una determinata sottoscrizione.
 
 ### Di quante istanze di DocumentDB è possibile eseguire il provisioning in una sottoscrizione?
 
@@ -62,8 +62,18 @@ Al momento non è possibile creare una soluzione preconfigurata con un account [
 
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD][lnk-delete-aad-tennant].
 
+## Passaggi successivi
+
+È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
+
+- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
+- [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[link-azuresublimits]: https://azure.microsoft.com/it-IT/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -72,4 +82,4 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

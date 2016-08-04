@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/23/2016"
    ms.author="sonyama;barbkess"/>
 
 # Installare Visual Studio 2015 e SSDT per SQL Data Warehouse
 
-Per sviluppare applicazioni per SQL Data Warehouse, è consigliabile usare Visual Studio 2015 con la versione più recente di SQL Server Data Tools (SSDT). È supportato anche Visual Studio 2013 con SSDT per la compatibilità con le versioni precedenti.
+Per sviluppare applicazioni per SQL Data Warehouse, è consigliabile usare Visual Studio 2015 con la versione più recente di SQL Server Data Tools (SSDT). È supportato anche Visual Studio 2013 Update 5 con SSDT per la compatibilità con le versioni precedenti.
 
 L'uso di Visual Studio con SSDT consentirà di usare Esplora oggetti di SQL Server per esplorare visivamente tabelle, viste, stored procedure e molti altri oggetti in SQL Data Warehouse, nonché eseguire query.
 
@@ -56,4 +56,4 @@ Dopo aver installato la versione più recente di SSDT, fare clic su [Connetti][]
 [installazione di Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Scaricare la versione più recente di SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

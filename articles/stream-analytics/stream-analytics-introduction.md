@@ -14,7 +14,7 @@
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ Analisi di flusso si basa su anni di lavoro di Microsoft Research nello sviluppo
 Al giorno d'oggi, vi sono quantità enormi di dati trasferite ad alta velocità sulla rete. Le organizzazioni in grado di agire sui dati di flusso elaborandoli in tempo reale possono migliorare notevolmente la propria efficienza distinguendosi sul mercato. Gli scenari che riguardano l'analisi di flusso in tempo reale sono presenti praticamente in tutti i settori: analisi e avvisi personalizzati in tempo reale per i mercati azionari, offerti da aziende di servizi finanziari; rilevamento di frodi in tempo reale; servizi per la protezione di dati e identità; inserimento e analisi accurate di dati generati da sensori e attuatori incorporati in oggetti fisici (IoT); analisi di flusso di clic nel Web (Web Click Stream Analysis); applicazioni CRM con invio di avvisi quando si verifica un degrado dell'esperienza utente in un determinato arco temporale. Le aziende cercano il modo più flessibile, affidabile ed economico di eseguire l'analisi dei dati correlati ai flussi di eventi in tempo reale, in modo da poter ottenere un vantaggio nel mondo del business moderno caratterizzato da un’elevata concorrenza.
 
 ## Funzionalità e vantaggi principali
--   **Semplicità d'uso**: Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni. Per ottimizzare la semplicità d'uso, è Analisi di flusso usa una variante di SQL ed evita ai clienti di dover gestire le complessità tecniche dei sistemi di elaborazione del flusso. Usando il [linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx) nell'editor di query del browser, il completamento automatico di IntelliSense consente di implementare query di serie temporale in modo semplice e rapido, inclusi join temporali, aggregati in finestre, filtri temporali, nonché altre operazioni comuni quali join, aggregati, proiezioni e filtri. In aggiunta, il test delle query basato sul browser rispetto a un file di dati di esempio consente un rapido sviluppo iterativo.  
+-   **Semplicità d'uso**: Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni. Per ottimizzare la semplicità d'uso, è Analisi di flusso usa una variante di SQL ed evita ai clienti di dover gestire le complessità tecniche dei sistemi di elaborazione del flusso. Usando il [linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx) nell'editor di query del browser, il completamento automatico di IntelliSense consente di implementare query di serie temporale in modo semplice e rapido, inclusi join temporali, aggregati in finestre, filtri temporali, nonché altre operazioni comuni quali join, aggregati, proiezioni e filtri. In aggiunta, il test delle query basato sul browser rispetto a un file di dati di esempio consente un rapido sviluppo iterativo.
 
 -   **Scalabilità:** Analisi di flusso può gestire elevati volumi di eventi con velocità effettive fino a 1 GB al secondo. L'integrazione con [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) consente alla soluzione di acquisire milioni di eventi al secondo provenienti da dispositivi connessi, flussi di clic e file di log, per citarne alcuni. A tale scopo, Analisi di flusso sfrutta la funzionalità di partizionamento di Hub eventi, che può raggiungere velocità pari a 1 MB al secondo per partizione. All'interno della definizione di query, gli utenti possono suddividere il calcolo in un numero di passaggi logici, ciascuno con la possibilità di essere ulteriormente suddiviso per aumentare la scalabilità.
 
@@ -53,4 +53,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

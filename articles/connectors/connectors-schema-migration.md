@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 # Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 
 Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:
-1. Aprire l'app per la logica nel portale di Azure.  
+1. Aprire l'app per la logica nel portale di Azure.
 2. Fare clic su Aggiorna schema:
 
  ![Icona API][step1] Viene visualizzata la pagina Aggiorna schema, con un collegamento a un documento che fornisce dettagli sui miglioramenti disponibili nel nuovo schema: ![Icona API][step2]
@@ -42,4 +42,4 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->
