@@ -19,9 +19,7 @@
 
 # Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)].
-<!---Fix breakline-->
-È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
