@@ -51,4 +51,4 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 - Collegare un disco per archiviare i dati. È possibile collegare sia dischi vuoti sia dischi contenenti dati. Per istruzioni, vedere [Collegare un disco dati a una macchina virtuale Windows creata con il modello di distribuzione classica](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
