@@ -162,6 +162,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * La chiave di strumentazione viene inviata insieme a tutti gli elementi di dati di telemetria e indica ad Application Insights di visualizzarla nella risorsa.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
+* La chiave di Application Insights può essere passata dinamicamente dal portale di Azure come proprietà di sistema (-DAPPLICATION\_INSIGHTS\_IKEY=ikey). Se non è presente una proprietà definita, viene verificata la presenza della variabile di ambiente (APPLICATION\_INSIGHTS\_IKEY) nell'Appsetting di Azure. Se nessuna delle due proprietà è definita, viene usato il valore InstrumentationKey predefinito di ApplicationInsights.xml. Ciò consente di gestire dinamicamente un diverso valore InstrumentationKey per un diverso ambiente.
 
 ### Modi alternativi per impostare la chiave di strumentazione
 
@@ -256,7 +257,7 @@ Quando si visualizzano le proprietà di una richiesta, è possibile visualizzare
 
 ### Analytics: linguaggio di query avanzato
 
-Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analytics]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analisi]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
 ![Esempio di Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -412,4 +413,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/)
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

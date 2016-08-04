@@ -229,7 +229,7 @@ Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tu
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Lasciare aperto il file per la modifica.
 
 2. Nel [portale di Azure classico](http://manage.windowsazure.com) fare clic su **Database SQL** nel riquadro sinistro, selezionare il database creato per l'esercitazione, quindi fare clic sulla scheda **Dashboard** e infine su **Mostra stringhe di connessione**.
@@ -314,10 +314,10 @@ E il file *ServiceConfiguration.Cloud.cscfg* include i valori immessi per queste
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ In questa sezione saranno configurate le stringhe di connessione di Archiviazion
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Se si usa Visual Studio 2015, sostituire "v11.0" con "MSSQLLocalDB".
 
 2. Salvare le modifiche.
@@ -482,7 +482,7 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 3. Nel progetto ContosoAdsCommon eliminare il file *Class1.cs* e sostituirlo con i file *Ad.cs* e *ContosoAdscontext.cs* dal progetto scaricato.
 
 3. Nel progetto ContosoAdsWeb aggiungere i file seguenti dal progetto scaricato.
-	- *Global.asax.cs*.  
+	- *Global.asax.cs*.
 	- Nella cartella *Views\\Shared*: *\_Layout.cshtml*.
 	- Nel *Views\\Home* cartella: *index. cshtml*.
 	- Nella cartella *Controllers*: *AdController.cs*
@@ -868,5 +868,6 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Servizi cloud di Azure - Parte 1: Introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
+* [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

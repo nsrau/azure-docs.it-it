@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Il caricamento dei dati rappresenta una parte considerevole del carico di lavoro
 
 - Il processo di caricamento tradizionalmente viene indicato con l'acronimo ETL (Extract, Transform, Load), ovvero estrazione, trasformazione e caricamento. I dati solitamente devono essere trasformati per diventare coerenti con gli altri dati contenuti nel data warehouse. In passato le aziende usavano server ETL dedicati per eseguire le trasformazioni. Ora, grazie all'elevata velocità dell'elaborazione parallela massiva, è possibile prima caricare i dati in SQL Data Warehouse e quindi effettuare le trasformazioni. Tale processo è detto ELT (Extract, Load, Transform), ovvero estrazione, caricamento e trasformazione, e sta diventando un nuovo standard per il carico di lavoro del data warehouse.
 
-> [AZURE.NOTE] Con SQL Server CTP2, è ora possibile eseguire l'analisi in tempo reale su una tabella OLTP. Il data warehouse sarà comunque necessario per archiviare e analizzare i dati, ma l'analisi sarà possibile in tempo reale.
+> [AZURE.NOTE] Con SQL Server 2016 è ora possibile eseguire l'analisi in tempo reale su una tabella OLTP. Il data warehouse sarà comunque necessario per archiviare e analizzare i dati, ma l'analisi sarà possibile in tempo reale.
 
 ### Query di reporting e analisi
 Le query di reporting e analisi vengono spesso classificate come di piccole, medie e grandi dimensioni in base al numero di criteri, ma in genere si basano sul tempo. Nella maggior parte dei data warehouse è presente un carico di lavoro misto costituito da una combinazione di query a esecuzione rapida e query a esecuzione prolungata. In ogni caso è importante determinare tale combinazione e la relativa frequenza (oraria, giornaliera, a fine mese, a fine trimestre e così via). È fondamentale comprendere che il carico di lavoro con query miste, insieme alla concorrenza, porta a una pianificazione appropriata della capacità per un data warehouse.
@@ -71,4 +71,4 @@ Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

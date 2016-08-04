@@ -22,7 +22,7 @@ Questo articolo illustra le topologie di connessione di base del gateway VPN. Le
 
 Ogni topologia contiene una tabella che elenca il modello di distribuzione per cui la topologia è disponibile e gli strumenti di distribuzione che è possibile usare per configurarla. Contiene anche un collegamento diretto all'eventuale articolo disponibile. Le tabelle vengono aggiornate di frequente in base alla disponibilità di nuovi articoli e strumenti di distribuzione da usare.
 
-Le istruzioni usate per creare il gateway VPN dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare il gateway VPN si useranno le linee guida e le istruzioni per il modello di distribuzione classica. Non è possibile creare un gateway VPN di Azure Resource Manager per una rete virtuale creata con il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione, vedere l'articolo relativo ai [modelli di distribuzione classica e di Azure Resource Manager](../resource-manager-deployment-model.md).
+Dopo aver stabilito la connessione da creare, le istruzioni usate per creare il gateway VPN dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare il gateway VPN si useranno le linee guida e le istruzioni per il modello di distribuzione classica. Non è possibile creare un gateway VPN di Azure Resource Manager per una rete virtuale creata con il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione, vedere l'articolo relativo ai [modelli di distribuzione classica e di Azure Resource Manager](../resource-manager-deployment-model.md).
 
 ## Da sito a sito e multisito
 
@@ -62,6 +62,28 @@ Azure offre attualmente due modelli di distribuzione: gestione dei servizi di Az
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
+## Da punto a sito
+
+Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. È la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
+
+La connessione da punto a sito è una connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare.
+
+**Diagramma da punto a sito**
+
+![Connessione da punto a sito](./media/vpn-gateway-topology/point2site.png "da punto a sito")
+
+**Metodi e modelli di distribuzione disponibili**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
 
 ## Connessioni coesistenti da sito a sito ed ExpressRoute
 
@@ -78,23 +100,11 @@ ExpressRoute è una connessione dedicata diretta a servizi Microsoft come Azure 
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 
-## Da punto a sito
 
-Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. È la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
-
-La connessione da punto a sito è una connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare.
-
-**Diagramma da punto a sito**
-
-![Connessione da punto a sito](./media/vpn-gateway-topology/point2site.png "da punto a sito")
-
-**Metodi e modelli di distribuzione disponibili**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Passaggi successivi
 
-Per una migliore comprensione dei gateway VPN è opportuno acquisire familiarità con quanto illustrato negli articoli [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md) e [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md), prima di procedere con la pianificazione e progettazione della connessione.
+Per una migliore comprensione delle impostazioni dei gateway VPN è opportuno acquisire familiarità con quanto illustrato negli articoli [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md) e [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
 
 
 
@@ -102,4 +112,4 @@ Per una migliore comprensione dei gateway VPN è opportuno acquisire familiarit�
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
