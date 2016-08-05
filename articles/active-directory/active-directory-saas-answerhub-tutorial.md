@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL accesso AnswerHub ** della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.answerhub.com*" e fare clic su **Avanti*.
+3.  Nella casella di testo **URL accesso AnswerHub** della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.answerhub.com*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configura URL app")
 

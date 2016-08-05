@@ -28,10 +28,10 @@ A seconda di come si accede e di come si utilizza l'autenticazione a più fattor
 
 Cosa si farà?|Descrizione
 :------------- | :------------- | 
-[Accesso con telefono cellulare o dell'ufficio](#signing-in-with-mobile-or-office-phone) | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
-[Accesso con l’app per dispositivi mobili utilizzando la notifica](#signing-in-with-the-mobile-app-using-notification) | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con notifiche.
-[Accesso con app per dispositivi mobili utilizzando il codice di verifica](#signing-in-with-the-mobile-app-using-verification-code)|Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con un codice di verifica.
-[Accesso con un metodo alternativo](#signing-in-with-an-alternate-method)|Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
+[Accesso con telefono cellulare o dell'ufficio](#accesso-con-telefono-cellulare-o-dellufficio) | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
+[Accesso con l’app per dispositivi mobili utilizzando la notifica](#accesso-con-lapp-per-dispositivi-mobili-utilizzando-la-notifica) | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con notifiche.
+[Accesso con app per dispositivi mobili utilizzando il codice di verifica](#accesso-con-app-per-dispositivi-mobili-utilizzando-il-codice-di-verifica) | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con un codice di verifica.
+[Accesso con un metodo alternativo](#accesso-con-un-metodo-alternativo) | Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
 
 ## Accesso con telefono cellulare o dell'ufficio
 

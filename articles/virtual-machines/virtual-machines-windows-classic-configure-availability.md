@@ -27,4 +27,4 @@
 
 Per altri articoli sulla modalità di distribuzione classica, vedere [Articoli tecnici per le VM Windows nel modello di distribuzione classica](virtual-machines-windows-index.md).
 
-<!----HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

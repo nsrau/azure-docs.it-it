@@ -199,7 +199,7 @@ In questa esercitazione verranno aggiunti due piccoli nodi.
 
 2. Nella pagina **Select Deployment Method** dell'aggiunta guidata nodi fare clic su **Add Azure nodes** e quindi su **Next**.
 
-	![Aggiunta di un nodo di Azure] [add\_node1\_1]
+	![Aggiunta di un nodo di Azure] [add\_node1_1]
 
 3. Nella pagina **Specify New Nodes** selezionare il modello di nodo di Azure creato in precedenza (denominato per impostazione predefinita **Default AzureNode Template**). Specificare quindi **2** nodi di dimensioni **Small**, quindi fare clic su **Next**.
 
