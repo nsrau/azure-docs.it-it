@@ -3,7 +3,7 @@
    description="Informazioni su comandi che è possibile utilizzare per automatizzare le attività di gestione delle macchine virtuali."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="rothja"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
