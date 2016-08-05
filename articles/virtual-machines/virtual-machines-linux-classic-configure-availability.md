@@ -28,4 +28,4 @@
 
 Per altri articoli sulle distribuzioni classiche, vedere [Linux ed elaborazione open source in Azure](virtual-machines-linux-opensource-links.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
