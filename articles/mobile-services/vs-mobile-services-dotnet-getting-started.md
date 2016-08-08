@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Introduzione a Servizi mobili (progetti .NET)
@@ -83,4 +83,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 [Altre informazioni sui servizi mobili](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

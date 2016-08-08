@@ -3,7 +3,7 @@
 	description="Creare una soluzione personalizzata per il backup e il ripristino dei dischi di macchine virtuali di Azure tramite snapshot incrementali."
 	services="storage"
 	documentationCenter="na"
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="tamram;prkhad"/>
+	ms.date="07/25/2016"
+	ms.author="tamram;aungoo-msft"/>
 
 
 # Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali
 
 ## Panoramica 
 
-Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. In questo articolo verrà descritto uno scenario che spiega come mantenere backup dei dischi delle macchine virtuali utilizzando gli snapshot. Quando si sceglie di non utilizzare Azure Backup and Recovery Service e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
+Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. In questo articolo verrà descritto uno scenario che spiega come mantenere backup dei dischi delle macchine virtuali utilizzando gli snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
 
-I dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine in Archiviazione di Azure. Poiché in questo articolo viene trattata la strategia di backup per i dischi delle macchine virtuali, si farà riferimento agli snapshot nel contesto dei BLOB di pagine. Per ulteriori informazioni sugli snapshot, fare riferimento a [Creazione di uno snapshot di un Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+I dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine in Archiviazione di Azure. Poiché in questo articolo viene trattata la strategia di backup per i dischi delle macchine virtuali, si farà riferimento agli snapshot nel contesto dei BLOB di pagine. Per ulteriori informazioni sugli snapshot, fare riferimento a [Creazione di uno snapshot di un BLOB](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 ## Che cos'è uno snapshot?
 
-Uno snapshot di BLOB è una versione di sola lettura di un BLOB creato in un determinato momento. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Gli snapshot consentono di eseguire il backup di un BLOB così com'è in un determinato momento. Fino alla versione 2015-04-05 di REST era possibile copiare snapshot completi. Con la versione 2015-07-08 di REST e le versioni successive è anche possibile copiare snapshot incrementali.
+Uno snapshot di BLOB è una versione di sola lettura di un BLOB acquisito in un determinato momento. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Gli snapshot consentono di eseguire il backup di un BLOB così com'è in un determinato momento. Fino alla versione 2015-04-05 di REST era possibile copiare snapshot completi. Con la versione 2015-07-08 di REST e le versioni successive è anche possibile copiare snapshot incrementali.
 
 ## Copia di snapshot completi
 
@@ -45,7 +45,7 @@ Quando è il momento di ripristinare un disco a una versione stabile precedente 
 
 ### Implementazione di una copia di snapshot completo
 
-È possibile implementare una copia di snapshot completo effettuando le seguenti operazioni,
+È possibile implementare una copia di snapshot completo effettuando le seguenti operazioni:
 
 -   Innanzitutto, creare uno snapshot del BLOB di base utilizzando l’operazione [Snapshot Blob](https://msdn.microsoft.com/library/azure/ee691971.aspx).
 -   Quindi, copiare lo snapshot in un account di archiviazione di destinazione mediante [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).
@@ -62,7 +62,7 @@ La copia di snapshot incrementali consente di eseguire la copia da un account di
 
 A condizione che siano soddisfatte le condizioni seguenti:
 
-- Il BLOB è stato creato il 1ª gennaio 2016 o in seguito.
+- Il BLOB è stato creato il 1° gennaio 2016 o in seguito.
 - Il BLOB non è stato sovrascritto con [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) o [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) tra due snapshots.
 
 
@@ -128,4 +128,4 @@ Altre informazioni sulla creazione di snapshot di un BLOB e la pianificazione de
 - [Creazione di uno snapshot di un BLOB](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Pianificare l'infrastruttura di backup delle VM](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0727_2016-->

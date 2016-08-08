@@ -32,7 +32,7 @@ La versione del Toolkit di Azure per IntelliJ rilasciata a giugno 2016 include i
 * **Supporto per i JDK di Java più recenti**. Le versioni più recenti dei JDK di Java sono ora supportate dal Toolkit di Azure per IntelliJ.
 * **Supporto per Azure SDK versione 2.9.1**. La versione più recente di Azure SDK è ora il prerequisito minimo per il Toolkit di Azure per IntelliJ.
 * **Campioni integrati**. Il Toolkit di Azure per IntelliJ presenta adesso numerose applicazioni campione per fornire supporto agli sviluppatori nella fase iniziale.
-* **Integrazione dello strumento HDInsight**. Gli strumenti HDInsight di Azure sono adesso contenuti nel Toolkit di Azure per IntelliJ. Per altre informazioni, vedere il [plug-in degli strumenti HDInsight per IntelliJ].
+* **Integrazione dello strumento HDInsight**. Gli strumenti HDInsight di Azure sono adesso contenuti nel Toolkit di Azure per IntelliJ. Per altre informazioni, vedere l'articolo relativo al [plug-in degli strumenti HDInsight per IntelliJ].
 * **Debug remoto delle app Web Java**. Il Toolkit di Azure per IntelliJ supporta adesso il debug remoto delle App Web Java nel servizio app di Azure.
 
 ### 12 aprile 2016
@@ -71,6 +71,6 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[plug-in degli strumenti HDInsight per IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[plug-in degli strumenti HDInsight per IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

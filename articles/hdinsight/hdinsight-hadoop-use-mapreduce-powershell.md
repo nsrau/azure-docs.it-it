@@ -86,11 +86,11 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         # -ClassName = the class of the application
         # -Arguments = The input file, and the output directory
         $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-            -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+            -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
             -ClassName "wordcount" `
             -Arguments `
-                "wasb:///example/data/gutenberg/davinci.txt", `
-                "wasb:///example/data/WordCountOutput"
+                "wasbs:///example/data/gutenberg/davinci.txt", `
+                "wasbs:///example/data/WordCountOutput"
 
         #Submit the job to the cluster
         Write-Host "Start the MapReduce job..." -ForegroundColor Green
@@ -183,4 +183,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -80,7 +80,7 @@ Scaricare la versione più recente dello [strumento client di Importazione/Espor
 
 ### Unità disco rigido
 
-Con il servizio Importazione/Esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. È possibile usare dischi rigidi fino a 8 TB. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. Quando si copiano dati sul disco rigido, è possibile collegarlo direttamente tramite un connettore SATA oppure collegarlo esternamente tramite un adattatore USB SATA II/III esterno. Si consiglia di usare uno degli adattatori USB SATA II/III esterni seguenti:
+Con il servizio Importazione/Esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. Quando si copiano dati sul disco rigido, è possibile collegarlo direttamente tramite un connettore SATA oppure collegarlo esternamente tramite un adattatore USB SATA II/III esterno. Si consiglia di usare uno degli adattatori USB SATA II/III esterni seguenti:
 
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
@@ -160,13 +160,13 @@ Quando si crea un processo di importazione o esportazione, è necessario fornire
 
 Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l’Uso dei Servizi di Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo lecito. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo.
+> [AZURE.IMPORTANT] È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo lecito. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo. Ad esempio, i pacchetti che superano i confini internazionali necessitano di fattura commerciale da allegare al pacchetto (tranne confini all'interno dell'Unione Europea). È possibile stampare una copia della fattura commerciale compilata dal sito Web del vettore. Esempi di fattura commerciale sono [fattura commerciale DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) o [fattura commerciale FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Assicurarsi che Microsoft non sia stato indicato come l'esportatore.
 
 ## Come funziona il servizio Importazione/Esportazione di Azure
 
 È possibile trasferire dati tra il sito locale e l'archivio BLOB di Azure con il servizio Importazione/Esportazione di Azure attraverso la creazione di processi e la spedizione di unità disco rigido a un data center di Azure. Ogni unità disco rigido spedita è associata a un singolo processo. Ogni processo è associato a un singolo account di archiviazione. Per informazioni sulle specifiche di questo servizio, come i tipi di BLOB supportati, i tipi di disco, le località e la spedizione, leggere attentamente la sezione [Prerequisiti](#pre-requisites).
 
-In questa sezione presenteremo una descrizione generale dei passaggi necessari per importare ed esportare processi. La sezione [Avvio rapido](#quick-start) più avanti in questo articolo fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione.
+In questa sezione presenteremo una descrizione generale dei passaggi necessari per importare ed esportare processi. La sezione [Avvio rapido](#quick-start) più avanti in questo articolo include istruzioni dettagliate per la creazione di un processo di importazione ed esportazione.
 
 ### Analisi di un processo di importazione
 
@@ -211,7 +211,7 @@ Verrà visualizzato uno degli stati del processo seguenti, in base al punto in c
 Stato processo|Descrizione
 ---|---
 Creating|Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.
-Shipping|Il processo è stato creato e sono state specificate le informazioni per la spedizione. **Nota**: quando l'unità viene recapitata al data center di Azure, lo stato potrebbe rimanere impostato su "Spedizione" per un certo tempo. Quando il servizio inizia a copiare i dati, lo stato diventa "Trasferimento". Per visualizzare informazioni più specifiche sullo stato dell'unità, è possibile usare l'API REST del servizio Importazione/Esportazione. 
+Shipping|Il processo è stato creato e sono state specificate le informazioni per la spedizione. **Nota**: quando l'unità viene recapitata al data center di Azure, lo stato potrebbe rimanere impostato su "Spedizione" per un certo periodo di tempo. Quando il servizio inizia a copiare i dati, lo stato diventa "Trasferimento". Per visualizzare informazioni più specifiche sullo stato dell'unità, è possibile usare l'API REST del servizio Importazione/Esportazione. 
 Transferring|È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).
 Packaging|Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.
 Complete|Il disco rigido è stato spedito all'utente.
@@ -232,11 +232,11 @@ Quando si spediscono unità ad Azure, si paga il costo di spedizione al vettore.
 
 **Costi di transazione**
 
-Non ci sono costi di transazione quando si importano dati nell'archiviazione BLOB. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+Non ci sono costi di transazione quando si importano dati nell'archiviazione BLOB. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## Avvio rapido
 
-Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [Prerequisiti](#pre-requisites) prima di procedere.
+Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [prerequisiti](#pre-requisites) prima di procedere.
 
 ## Come creare un processo di importazione
 
@@ -256,7 +256,7 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 
 4.	Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
 
-5.	Usare lo [strumento Importazione/Esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
+5.	Usare lo [strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
 	
 	- Lo strumento Importazione/Esportazione di Azure consente di creare sessioni di copia per copiare i dati dall'origine alle unità disco rigido. In una sessione di copia, lo strumento può copiare una singola directory con le relative sottodirectory o un singolo file.
 
@@ -300,7 +300,7 @@ Comando PrepImport dello strumento client di importazione/esportazione di Azure 
 
 **Nota**: per impostazione predefinita, i dati vengono importati come BLOB in blocchi. È possibile usare il parametro /BlobType per importare i dati come un BLOB di pagine. Ad esempio, se si importano file di dischi rigidi virtuali che verranno montati come dischi in una VM di Azure, è necessario importarli come BLOB di pagine. Se non si è certi del tipo di BLOB da usare, è possibile specificare /blobType:auto per ricevere aiuto nella determinazione del tipo corretto. In questo caso verranno importati tutti i file vhd e vhdx come BLOB di pagine e il resto verrà importato come BLOB in blocchi.
 
-Per altre informazioni sull'uso dello strumento client Importazione/Esportazione di Azure, vedere [Predisposizione dei dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529089.aspx).
+Per altre informazioni sull'uso dello strumento client di importazione/esportazione di Azure, vedere [Predisposizione dei dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529089.aspx).
 
 Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per predisporre i dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529097.aspx).
 
@@ -322,7 +322,7 @@ Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per p
 
 	Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 6. Per immettere il numero di tracciabilità dopo la spedizione del pacco, tornare alla pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -340,7 +340,7 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 Per preparare le unità per un processo di esportazione si consiglia di eseguire i controlli preliminari seguenti:
 
-1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere [Anteprima dell'utilizzo dell'unità per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare.
+1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere l'articolo sull'[anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare.
 
 2. Controllare che sia possibile leggere/scrivere sul disco rigido che verrà inviato per il processo di esportazione.
 
@@ -423,7 +423,7 @@ Qualsiasi unità da spedire per l'importazione di dati deve essere preparata con
 
 **È necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?**
 
-No, ma alcuni controlli preliminari sono consigliati Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere [Anteprima dell'utilizzo dell'unità per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura sul disco rigido da spedire per il processo di esportazione.
+No, ma alcuni controlli preliminari sono consigliati Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere l'articolo sull'[anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura sul disco rigido da spedire per il processo di esportazione.
 
 **Cosa accade se si invia per errore un disco rigido non conforme ai requisiti supportati?**
 
@@ -461,7 +461,7 @@ Quando si prepara un disco rigido per un processo di importazione, la destinazio
 
 Quando si prepara l'unità, è possibile specificare se i file di destinazione devono essere sovrascritti o ignorati usando il parametro denominato /Disposition:<rename|no-overwrite|overwrite>. Per impostazione predefinita, il servizio rinomina i nuovi file anziché sovrascrivere i BLOB esistenti.
 
-**Lo strumento client di importazione/esportazione di Azure è compatibile con i sistemi operativi a 32 bit?** No. Lo strumento client è compatibile unicamente con sistemi operativi Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo dei [Prerequisiti](#pre-requisites).
+**Lo strumento client di importazione/esportazione di Azure è compatibile con i sistemi operativi a 32 bit?** No. Lo strumento client è compatibile unicamente con sistemi operativi Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo in [Prerequisiti](#pre-requisites).
 
 **È consigliabile includere qualcos'altro oltre all'unità disco rigido nel pacco?**
 
@@ -501,4 +501,4 @@ Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-
 
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

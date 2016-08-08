@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 #Registrare le app per l'autenticazione Twitter con Servizi mobili
@@ -39,7 +39,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE] Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
+	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
 
    	![][2]
 
@@ -66,4 +66,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -30,7 +30,7 @@ Le variabili di ambiente Windows standard, TEMP e TMP, sono disponibili per il c
 
 Implementare una delle alternative seguenti:
 
-- Configurare una risorsa di archiviazione locale e accedervi direttamente invece che usando TEMP o TMP. Per accedere a una risorsa di archiviazione locale dal codice in esecuzione nell'applicazione, chiamare il metodo [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx). Per altre informazioni sull'impostazione delle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](cloud-services-configure-local-storage-resources.md).
+- Configurare una risorsa di archiviazione locale e accedervi direttamente invece che usando TEMP o TMP. Per accedere a una risorsa di archiviazione locale dal codice in esecuzione nell'applicazione, chiamare il metodo [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
 
 - Configurare una risorsa di archiviazione locale e definire le directory TEMP e TMP in modo che puntino al percorso della risorsa di archiviazione locale. Questa modifica deve essere eseguita nel metodo [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
@@ -71,10 +71,10 @@ namespace WorkerRole1
 
 ## Passaggi successivi
 
-Vedere il blog [How to increase the size of the Microsoft Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx) (Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
+Vedere il blog [How to increase the size of the Windows Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx) (Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
 
-Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del computer Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -36,29 +36,29 @@ Le impostazioni per la ricezione e l'invio sono configurate dal punto di vista d
 ## Procedura: Creare un partner
 Nel portale di Azure:
 1. Selezionare **Esplora** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Integration Accounts** (Account di integrazione) dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Account di integrazione** dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Selezionare l'**account di integrazione** a cui aggiungere i partner ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Selezionare il riquadro **Partners** (Partner) ![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
-5. Selezionare il pulsante **Add** (Aggiungi) nel pannello Partners (Partner) che si apre ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
-6. Immettere il **Name** (Nome), quindi selezionare **Qualifier** (Qualificatore) e immettere il **Value** (Valore). Il valore viene usato per identificare i documenti ricevuti dalle app. ![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)
+4.  Selezionare il riquadro **Partner** ![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
+5. Selezionare il pulsante **Add** (Aggiungi) nel pannello Partner che si apre ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
+6. Immettere il **Name** (Nome), quindi selezionare **Qualificatore** e immettere il **Value** (Valore). Il valore viene usato per identificare i documenti ricevuti dalle app. ![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)
 7. Selezionare l'icona di notifica a forma di *campana* per visualizzare lo stato di avanzamento del processo di creazione del partner. ![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)
-8. Selezionare il riquadro **Partners** (Partner). Questa operazione aggiorna il riquadro e consente la visualizzazione del numero progressivo del partner, che indica che il nuovo partner è stato aggiunto correttamente. ![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)
-10. Dopo aver selezionato il riquadro Partners (Partner), anche il partner appena aggiunto viene visualizzato nel pannello. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
+8. Selezionare il riquadro **Partner**. Questa operazione aggiorna il riquadro e consente la visualizzazione del numero progressivo del partner, che indica che il nuovo partner è stato aggiunto correttamente. ![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)
+10. Dopo aver selezionato il riquadro Partner, anche il partner appena aggiunto viene visualizzato nel pannello. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
 
 ## Procedura: Come modificare un partner
 
 Seguire la procedura in basso per modificare un partner già esistente nell'account di integrazione:
-1. Selezionare il riquadro **Partners** (Partner)
-2. Selezionare il partner che si desidera modificare quando si apre il pannello Partners (Partner)
-3. Nel riquadro **Update Partner** (Aggiorna partner) apportare le modifiche necessarie
+1. Selezionare il riquadro **Partner**
+2. Selezionare il partner che si desidera modificare quando si apre il pannello Partner
+3. Nel riquadro **Aggiorna partner** apportare le modifiche necessarie
 4. Se si è soddisfatti delle modifiche, selezionare il collegamento **Save** (Salva) o, in caso contrario, scegliere il collegamento **Discard** (Ignora) per eliminare le modifiche. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
 ## Procedura: Eliminare un partner
-1. Selezionare il riquadro **Partners** (Partner)
-2. Selezionare il partner che si desidera modificare quando si apre il pannello Partners (Partner)
+1. Selezionare il riquadro **Partner**
+2. Selezionare il partner che si desidera modificare quando si apre il pannello Partner
 3. Selezionare il collegamento **Elimina** ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
 ## Passaggi successivi
 - [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -85,4 +85,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Eseguire esempi di Hadoop MapReduce in HDInsight basato su Windows
@@ -51,7 +51,7 @@ Molte persone preferiscono oggi Hive e Pig rispetto a MapReduce. Per altre infor
 
 ## <a name="hdinsight-sample-wordcount"></a>Conteggio delle parole: Java 
 
-Per inviare un progetto MapReduce, è necessario prima creare una definizione del processo MapReduce. Nella definizione del processo, specificare il file con estensione JAR del programma MapReduce e il relativo percorso, ovvero * ***wasb:///example/jars/hadoop-mapreduce-examples.jar**, nonché il nome della classe e gli argomenti. Il programma MapReduce per il conteggio delle parole accetta due argomenti: il file di origine che verrà usato per contare le parole e il percorso di output.
+Per inviare un progetto MapReduce, è necessario prima creare una definizione del processo MapReduce. Nella definizione del processo, specificare il file con estensione JAR del programma MapReduce e il relativo percorso, ovvero * *wasbs:///example/jars/hadoop-mapreduce-examples.jar**, nonché il nome della classe e gli argomenti. Il programma MapReduce per il conteggio delle parole accetta due argomenti: il file di origine che verrà usato per contare le parole e il percorso di output.
 
 Il codice sorgente è disponibile nell'[Appendice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -70,9 +70,9 @@ Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare 
 		
 		# Define the MapReduce job
 		$mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "wordcount" `
-									-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+									-Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
 		
 		# Submit the job and wait for job completion
 		$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
@@ -121,7 +121,7 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 
 > [AZURE.NOTE] La procedura descritta in questa esercitazione è valida solo per i cluster HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppo di programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Nell'esempio il mapper e il reducer sono file eseguibili che leggono l'input da [stdin][stdin-stdout-stderr] \(riga per riga) e inviano l'output a [stdout][stdin-stdout-stderr]. Il programma consente di contare tutte le parole del testo.
+Nell'esempio il mapper e il reducer sono file eseguibili che leggono l'input da [stdin][stdin-stdout-stderr] (riga per riga) e inviano l'output a [stdout][stdin-stdout-stderr]. Il programma consente di contare tutte le parole del testo.
 
 Quando si specifica un file eseguibile per **mapper**, ogni attività del mapper avvia il file eseguibile come processo distinto all'avvio del mapper. Durante l'esecuzione dell'attività del mapper, gli input vengono convertiti in righe che vengono quindi inviate al flusso [stdin][stdin-stdout-stderr] del processo.
 
@@ -160,7 +160,7 @@ Lo script fornito per questo esempio invia un processo jar Hadoop ed è configur
 - Seguire la procedura descritta in [Conteggio delle parole - Java](#word-count-java) sostituendo la definizione del processo con il codice seguente:
 
 		$mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
@@ -1000,4 +1000,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

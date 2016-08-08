@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="04/18/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma"/>
 
 # Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 
-Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o rimuovere in modo dinamico i nodi di calcolo in un pool in base ai parametri definiti dall'utente. Ciò consente di regolare automaticamente la quantità di risorse di calcolo usate dall'applicazione, facendo potenzialmente risparmiare tempo e denaro.
+Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o rimuovere in modo dinamico i nodi di calcolo in un pool in base ai parametri definiti dall'utente. È possibile risparmiare tempo e denaro ottimizzando automaticamente la potenza di calcolo usata dall'applicazione, aggiungendo nodi quando l'attività del processo richiede un incremento della potenza e rimuovendo nodi quando questa esigenza viene meno.
 
 È possibile abilitare il ridimensionamento automatico in un pool di nodi di calcolo associandolo a una *formula di ridimensionamento automatico* definita dall'utente, ad esempio con il metodo [PoolOperations.EnableAutoScale][net_enableautoscale] nella libreria [Batch .NET](batch-dotnet-get-started.md). Il servizio Batch usa quindi questa formula per determinare il numero di nodi di calcolo necessari per eseguire il carico di lavoro. Batch tiene conto dei campioni di dati di metrica del servizio raccolti periodicamente e modifica il numero di nodi di calcolo nel pool a intervalli configurabili, in base alla formula associata.
 
@@ -28,15 +28,15 @@ Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o r
 
 Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
 
-È possibile paragonare le formule di ridimensionamento automatico all'uso di un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero, possono includere variabili definite dal sistema e dall'utente, nonché costanti. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
+È possibile paragonare le formule di ridimensionamento automatico all'uso di un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero che possono includere variabili definite dal servizio Batch e variabili definite dall'utente. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-In genere le formule contengono più istruzioni che eseguono operazioni su valori ottenuti nelle istruzioni precedenti:
+Le formule contengono in genere più istruzioni che eseguono operazioni su valori ottenuti nelle istruzioni precedenti. Ad esempio, si ottiene prima di tutto un valore per `variable1`, quindi il valore viene passato a una funzione per popolare `variable2`:
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
 Con queste istruzioni nella formula, l'obiettivo è arrivare a un numero di nodi di calcolo in cui deve essere ridimensionato il pool, ovvero il numero di **destinazione** dei **nodi dedicati**. Questo numero può essere maggiore, minore o uguale al numero attuale di nodi nel pool. Batch valuta la formula di ridimensionamento automatico del pool secondo un intervallo specifico. Gli [intervalli di ridimensionamento automatico](#automatic-scaling-interval) sono illustrati di seguito. Regolerà quindi il numero di destinazione dei nodi nel pool in base al numero specificato dalla formula al momento della valutazione.
@@ -50,17 +50,19 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Le sezioni successive dell'articolo illustrano le diverse entità che costituiranno le formule di ridimensionamento automatico, ad esempio variabili, operatori, operazioni e funzioni. Si scoprirà come ottenere varie metriche relative ad attività e a risorse di calcolo all'interno di Batch. È possibile usare queste metriche adeguare in modo intelligente il numero di nodi del pool in base all'utilizzo delle risorse e allo stato delle attività. Verrà quindi illustrato come costruire una formula e abilitare il ridimensionamento automatico in un pool con le API Batch REST e Batch .NET, concludendo con alcune formule di esempio.
 
-> [AZURE.IMPORTANT] Ogni account Azure Batch è limitato a un numero massimo di nodi di calcolo che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento di questo limite e quindi potrebbe non raggiungere il numero di destinazione specificato da una formula. Per istruzioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> [AZURE.IMPORTANT] Ogni account Azure Batch è limitato a un numero massimo di core, e quindi di nodi di calcolo, che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento del limite di core. Potrebbe quindi non raggiungere il numero di nodi di calcolo specificato da una formula. Per informazioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
-## <a name="variables"></a>Variabili
+## Variabili
 
-Nelle formule di ridimensionamento automatico si possono usare variabili definite dal sistema e variabili definite dall'utente. Nella precedente formula di esempio di due righe `$TargetDedicated` è una variabile definita dal sistema, mentre `$averageActiveTaskCount` è definita dall'utente. Le tabelle seguenti includono variabili di lettura/scrittura e di sola lettura definite dal servizio Batch.
+Nelle formule di ridimensionamento automatico si possono usare **variabili definite dal servizio** e **variabili definite dall'utente**. Le variabili definite dal servizio sono incorporate nel servizio Batch, alcune sono in lettura/scrittura e altre di sola lettura. Le variabili definite dall'utente vengono configurate dall'*utente*. Nella precedente formula di esempio di due righe, `$TargetDedicated` è una variabile definita dal servizio, mentre `$averageActiveTaskCount` è una variabile definita dall'utente.
 
-È possibile *ottenere* e *impostare* i valori di queste **variabili definite dal sistema** per gestire i nodi di calcolo in un pool:
+Le tabelle seguenti includono variabili di lettura/scrittura e di sola lettura definite dal servizio Batch.
+
+È possibile **ottenere** e **impostare** i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
 <table>
   <tr>
-    <th>Variabili (lettura e scrittura)</th>
+    <th>Variabili in lettura/scrittura<br/>definite dal servizio</th>
     <th>Descrizione</th>
   </tr>
   <tr>
@@ -80,11 +82,11 @@ Nelle formule di ridimensionamento automatico si possono usare variabili definit
    </tr>
 </table>
 
-*Ottenere* il valore di queste **variabili definite dal sistema** per eseguire adeguamenti basati sulla metrica del servizio Batch:
+È possibile **ottenere** il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
 <table>
   <tr>
-    <th>Variabili (sola lettura)</th>
+    <th>Variabili<br/>di sola lettura<br/>definite dal servizio</th>
     <th>Descrizione</th>
   </tr>
   <tr>
@@ -152,7 +154,7 @@ Nelle formule di ridimensionamento automatico si possono usare variabili definit
   </tr>
 </table>
 
-> [AZURE.TIP] Le variabili di sola lettura definite dal sistema illustrate sopra sono *oggetti* che forniscono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
+> [AZURE.TIP] Le variabili di sola lettura definite dal servizio illustrate sopra sono *oggetti* che offrono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
 
 ## Types
 
@@ -163,6 +165,7 @@ Questi sono i **tipi** supportati in una formula:
 - doubleVecList
 - string
 - timestamp, è una struttura composta che contiene i membri seguenti:
+
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -171,6 +174,7 @@ Questi sono i **tipi** supportati in una formula:
 	- minute (00-59)
 	- second (00-59)
 - timeInterval
+
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
 	- TimeInterval\_Microsecond
@@ -188,22 +192,15 @@ Queste **operazioni** sono consentite sui tipi elencati sopra.
 
 | Operazione | Operatori supportati | Tipo di risultato |
 | ------------------------------------- | --------------------- | ------------- |
-| double *operator* double 				| +, -, *, /            | double		    |
-| double *operator* timeinterval 		| *                     | timeinterval	    |
-| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
-| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
-| timeinterval *operator* double 		| *, /                  | timeinterval	    |
-| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
-| timeinterval *operator* timestamp 	| +                     | timestamp		    |
-| timestamp *operator* timeinterval 	| +                     | timestamp		    |
-| timestamp *operator* timestamp 		| -                     | timeinterval	    |
-| *operator*double 						| -, !                  | double		    |
-| *operator*timeinterval 				| -                     | timeinterval	    |
-| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
-| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
-| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
-| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
-| double *operator* double 				| &&, &#124;&#124;      | double		    |
+| double *operatore* double | +, -, *, / | double |
+| double *operatore* timeinterval | * | timeInterval |
+| doubleVec *operatore* double | +, -, *, / | doubleVec |
+| doubleVec *operatore* doubleVec | +, -, *, / | doubleVec |
+| timeinterval *operatore* double | *, / | timeInterval |
+| timeinterval *operatore* timeinterval | +, - | timeInterval |
+| timeinterval *operatore* timestamp | + | timestamp |
+| timestamp *operatore* timeinterval | + | timestamp |
+| timestamp *operatore* timestamp | - | timeinterval | | *operatore*double | -, ! | double | | *operatore*timeinterval | - | timeinterval | | double *operatore* double | <, <=, ==, >=, >, != | double | | string *operatore* string | <, <=, ==, >=, >, != | double | | timestamp *operatore* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operatore* timeinterval | <, <=, ==, >=, >, != | double | | double *operatore* double | &&, || | double |
 
 Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 
@@ -241,7 +238,7 @@ Il valore *doubleVecList* viene convertito in un singolo valore *doubleVec* prim
 
 ## <a name="getsampledata"></a>Ottenere dati di esempio
 
-Le formule di ridimensionamento automatico agiscono sui dati di metrica (campioni) forniti dal servizio Batch. Una formula aumenta o riduce le dimensioni del pool in base ai valori che ottiene dal servizio. Le variabili definite dal sistema descritte sopra sono oggetti che forniscono vari metodi per accedere ai dati associati a dato oggetto. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi 5 minuti di utilizzo della CPU:
+Le formule di ridimensionamento automatico agiscono sui dati di metrica (campioni) forniti dal servizio Batch. Una formula aumenta o riduce le dimensioni del pool in base ai valori che ottiene dal servizio. Le variabili definite dal servizio descritte sopra sono oggetti che offrono vari metodi per accedere ai dati associati a un dato oggetto. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi 5 minuti di utilizzo della CPU:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -310,7 +307,7 @@ Quando la riga precedente viene valutata da Batch, restituisce un intervallo di 
 
 `runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
 
-Dopo aver raccolto il vettore di campioni, è quindi possibile usare funzioni come `min()`, `max()` e `avg()` per derivare valori significativi dall'intervallo raccolto.
+Dopo aver raccolto il vettore di campioni, è possibile usare funzioni come `min()`, `max()` e `avg()` per derivare valori significativi dall'intervallo raccolto.
 
 Per maggiore sicurezza, è possibile fare in modo che la valutazione di una formula *non riesca* se per un determinato periodo di tempo è disponibile una quantità di campioni inferiore a una certa percentuale. L'impostazione di un esito negativo della valutazione della formula indica a Batch di interromperne l'ulteriore valutazione se la percentuale di campioni specificata non è disponibile, evitando quindi di modificare le dimensioni del pool. Per specificare una percentuale di campioni obbligatoria perché la valutazione riesca, specificarla come terzo parametro in `GetSample()`. Qui è specificato un requisito pari al 75% dei campioni:
 
@@ -318,7 +315,7 @@ Per maggiore sicurezza, è possibile fare in modo che la valutazione di una form
 
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
-> [AZURE.IMPORTANT] È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. Infatti `GetSample(1)` indica essenzialmente al servizio Batch di rendere disponibile l'ultimo campione disponibile, indipendentemente da quanto tempo fa è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
+> [AZURE.IMPORTANT] È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
 
 ## Metrica
 
@@ -332,13 +329,13 @@ Quando si definisce una formula, è possibile usare metriche di **risorse** e di
   <tr>
     <td><b>Risorsa</b></td>
     <td><p><b>La metrica delle risorse</b> si basa sull'utilizzo della memoria, della CPU e della larghezza di banda dei nodi di calcolo, nonché sul numero di nodi.</p>
-		<p> Queste variabili definite dal sistema sono utili per eseguire adeguamenti in base al conteggio dei nodi:</p>
+		<p> Queste variabili definite dal servizio sono utili per eseguire adeguamenti in base al conteggio dei nodi:</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>Queste variabili definite dal sistema sono utili per eseguire adeguamenti in base all'utilizzo delle risorse dei nodi:</p>
+    <p>Queste variabili definite dal servizio sono utili per eseguire adeguamenti in base all'utilizzo delle risorse dei nodi:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -353,7 +350,7 @@ Quando si definisce una formula, è possibile usare metriche di **risorse** e di
   </tr>
   <tr>
     <td><b>Attività</b></td>
-    <td><p>La <b>metrica delle attività</b> si basa sullo stato delle attività, ad esempio Attiva, In sospeso e Completata. Le variabili definite dal sistema seguenti sono utili per gli adeguamenti delle dimensioni del pool basati sulla metrica delle attività:</p>
+    <td><p>La <b>metrica delle attività</b> si basa sullo stato delle attività, ad esempio Attiva, In sospeso e Completata. Le variabili definite dal servizio seguenti sono utili per gli adeguamenti delle dimensioni del pool basati sulla metrica delle attività:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -375,7 +372,7 @@ Per l'*aumento* dei nodi durante l'utilizzo elevato della CPU, viene definita un
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-L'istruzione successiva imposta la stessa variabile sul 90% dell'attuale numero di destinazione dei nodi, se l'utilizzo medio della CPU negli ultimi 60 minuti è stato *inferiore* al 20%, Questo riduce il numero di destinazione durante l'utilizzo ridotto della CPU. Si noti che questa istruzione fa anche riferimento alla variabile definita dall'utente *$TotalNodes* dell'istruzione precedente.
+L'istruzione successiva imposta la stessa variabile sul 90% dell'attuale numero di destinazione dei nodi, se l'utilizzo medio della CPU negli ultimi 60 minuti è stato *inferiore* al 20%. Questo riduce il numero di destinazione durante l'utilizzo ridotto della CPU. Si noti che questa istruzione fa anche riferimento alla variabile definita dall'utente *$TotalNodes* dell'istruzione precedente.
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
@@ -401,9 +398,9 @@ Per abilitare il ridimensionamento automatico durante la creazione di un pool, u
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx): dopo la chiamata di questo metodo .NET per creare un pool, vengono impostate le proprietà [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) e [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) del pool per abilitare il ridimensionamento automatico.
 - [Aggiungere un pool a un account](https://msdn.microsoft.com/library/azure/dn820174.aspx): gli elementi enableAutoScale e autoScaleFormula vengono usati in questa richiesta dell'API REST per impostare il ridimensionamento automatico del pool quando viene creato.
 
-> [AZURE.IMPORTANT] Se si crea un pool abilitato per il ridimensionamento automatico usando una delle tecniche descritte sopra, il parametro *targetDedicated* per il pool **non** deve essere specificato. Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool,][net_poolops_resizepool] è necessario **disabilitare** prima di tutto il ridimensionamento automatico nel pool e quindi ridimensionarlo.
+> [AZURE.IMPORTANT] Se si crea un pool abilitato per il ridimensionamento automatico usando una delle tecniche descritte sopra, il parametro *targetDedicated* per il pool **non** deve essere specificato. Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool], è necessario **disabilitare** prima di tutto il ridimensionamento automatico nel pool e quindi ridimensionarlo.
 
-Il frammento di codice seguente illustra la creazione di un pool abilitato per il ridimensionamento automatico ([CloudPool][net_cloudpool]) usando la libreria [Batch .NET][net_api]. La formula di ridimensionamento automatico del pool imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Inoltre, l'intervallo per il ridimensionamento automatico è impostato su 30 minuti. Vedere [Intervallo di ridimensionamento automatico](#automatic-scaling-interval) di seguito. In questo e in altri frammenti di codice C# in questo articolo "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient][net_batchclient].
+Il frammento di codice seguente illustra la creazione di un pool abilitato per il ridimensionamento automatico ([CloudPool][net_cloudpool]) usando la libreria [Batch .NET][net_api]. La formula di ridimensionamento automatico del pool imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. L'intervallo per il ridimensionamento automatico è impostato su 30 minuti. Vedere [Intervallo di ridimensionamento automatico](#automatic-scaling-interval) di seguito. In questo e in altri frammenti di codice C# in questo articolo, "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -607,4 +604,4 @@ La formula nel frammento di codice precedente:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/it-IT/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

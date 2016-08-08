@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -619,4 +619,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0727_2016-->

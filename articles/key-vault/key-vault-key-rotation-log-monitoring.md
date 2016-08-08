@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end | Microsoft Azure"
 	description="Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi"
-	services="key-vault, automation,app-service\logic"
+	services="key-vault"
 	documentationCenter=""
 	authors="swgriffith"
 	manager=""
@@ -424,4 +424,4 @@ Per l'azione, scegliere _Office 365 - send email_. Compilare i campi per creare 
 
 A questo punto è disponibile una pipeline end-to-end che, una volta al minuto, cercherà nuovi log di controllo dell'insieme di credenziali delle chiavi. I nuovi log trovati verranno inseriti in una coda del bus di servizio. L'app per la logica verrà attivata non appena arriva un nuovo messaggio nella coda e se l'appid all'interno dell'evento non corrisponde all'id app dell'applicazione chiamante verrà inviato un messaggio di posta elettronica.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

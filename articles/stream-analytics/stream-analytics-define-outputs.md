@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/23/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
@@ -173,7 +173,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 ### Autorizzare un account Power BI
 
-1.	Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
+1.	Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.
 
     ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -318,4 +318,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

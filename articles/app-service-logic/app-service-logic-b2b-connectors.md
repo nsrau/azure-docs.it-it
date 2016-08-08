@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -79,8 +79,8 @@ La procedura seguente consente di creare le app per le API B2B tramite il pannel
 La procedura seguente consente di creare l'istanza di TPM:
 
 1. Nella schermata iniziale del portale di Azure (la home page) selezionare **Marketplace**. **App per le API** elenca tutte le app per le API e i connettori esistenti. È anche possibile **cercare** una specifica app per le API B2B.
-2. Selezionare **BizTalk Trading Partner Management**. Nel nuovo pannello selezionare **Crea**. 
-3. Immettere le proprietà: 
+2. Selezionare **BizTalk Trading Partner Management**. Nel nuovo pannello selezionare **Crea**.
+3. Immettere le proprietà:
 
 	Proprietà | Descrizione
 --- | ---
@@ -101,8 +101,8 @@ Dopo aver creato l'app per le API TPM (istanza di TPM), è possibile creare il c
 #### Creare il connettore AS2
 
 1. Nella schermata iniziale del portale di Azure (la home page) selezionare **Marketplace**. **App per le API** elenca tutte le app per le API e i connettori esistenti. È anche possibile **cercare** una specifica app per le API B2B.
-2. Selezionare **AS2 Connector**. Nel nuovo pannello selezionare **Crea**. 
-3. Immettere le proprietà: 
+2. Selezionare **AS2 Connector**. Nel nuovo pannello selezionare **Crea**.
+3. Immettere le proprietà:
 
 	Proprietà | Descrizione
 --- | ---
@@ -130,8 +130,8 @@ TPM Instance Name | Immettere il nome dell'app per le API **BizTalk Trading Part
 #### Creare le app per le API X12 o EDIFACT
 
 1. Nella schermata iniziale del portale di Azure (la home page) selezionare **Marketplace**. **App per le API** elenca tutte le app per le API e i connettori esistenti. È anche possibile **cercare** una specifica app per le API B2B.
-2. Selezionare** BizTalk X12** o **BizTalk EDIFACT**. Nel nuovo pannello selezionare **Crea**. 
-3. Immettere le proprietà: 
+2. Selezionare** BizTalk X12** o **BizTalk EDIFACT**. Nel nuovo pannello selezionare **Crea**.
+3. Immettere le proprietà:
 
 	Proprietà | Descrizione
 --- | ---
@@ -182,7 +182,7 @@ All'interno dell'app, selezionare semplicemente le app per le API B2B dalla racc
 
 La procedura seguente consente di aggiungere le app per le API B2B ad app per la logica, app per dispositivi mobili o Web:
 
-1. Nella schermata iniziale del portale di Azure (la home page) passare a **Marketplace** e cercare le proprie app per la logica, per dispositivi mobili o Web. 
+1. Nella schermata iniziale del portale di Azure (la home page) passare a **Marketplace** e cercare le proprie app per la logica, per dispositivi mobili o Web.
 
 	Se si sta creando una nuova app, cercare app per la logica, app per dispositivi mobili o app Web. Selezionare l'app e nel nuovo pannello selezionare **Crea**. La procedura è descritta in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
 
@@ -194,7 +194,7 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 4. Selezionare **OK** per salvare le modifiche.
 
->[AZURE.NOTE] Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di creare un account di Azure, [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre risorse B2B
 
@@ -209,4 +209,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

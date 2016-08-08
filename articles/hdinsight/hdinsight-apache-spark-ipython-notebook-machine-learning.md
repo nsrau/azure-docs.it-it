@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -27,7 +27,7 @@ Informazioni su come creare un'applicazione che usa un cluster Apache Spark in H
 È necessario disporre di quanto segue:
 
 - Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
+- Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ##<a name="data"></a>Mostra i dati
 
@@ -45,7 +45,7 @@ Questi dati sono usati per stimare se un edificio è caldo o freddo in base alla
 
 In questa applicazione viene usata una pipeline di Spark ML per eseguire una classificazione di documento. Nella pipeline si è suddiviso il documento in parole, convertite le parole in un vettore di funzionalità numerico e infine creato un modello di stima usando i vettori di funzionalità e le etichette. Procedere come descritto di seguito per creare l'applicazione.
 
-1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -111,7 +111,7 @@ In questa applicazione viene usata una pipeline di Spark ML per eseguire una cla
     		return LabeledDocument((values[6]), textValue, hot)
 
 		# Load the raw HVAC.csv file, parse it using the function
-		data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 		training = documents.toDF()
@@ -262,4 +262,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

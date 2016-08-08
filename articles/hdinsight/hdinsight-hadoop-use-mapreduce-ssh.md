@@ -57,9 +57,9 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 1. Dopo essersi connessi al cluster HDInsight, usare il seguente comando **Hadoop** per l'avvio di un processo MapReduce:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
-	Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar**. Come input, usa il documento **wasb://example/data/gutenberg/davinci.txt** e l'output viene archiviato in **wasb:///example/data/WordCountOutput**.
+	Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar**. Come input, usa il documento **wasbs://example/data/gutenberg/davinci.txt** e l'output viene archiviato in **wasbs:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere [Usare MapReduce in Hadoop in HDInsight](hdinsight-use-mapreduce.md).
 
@@ -70,19 +70,19 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 		File Output Format Counters
         Bytes Written=337623
 
-3. Al termine del processo, usare il seguente comando per elencare i file di output archiviati in **wasb://example/data/WordCountOutput**:
+3. Al termine del processo, usare il seguente comando per elencare i file di output archiviati in **wasbs://example/data/WordCountOutput**:
 
-		hdfs dfs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasbs:///example/data/WordCountOutput
 
-	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
+	In questo modo vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
 	> [AZURE.NOTE] Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
-		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
 
-	Questo comando visualizza un elenco delle parole contenute nel file **wasb://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio di dati contenuti nel file:
+	Questo comando visualizza un elenco delle parole contenute nel file **wasbs://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio di dati contenuti nel file:
 
 		wreathed        3
 		wreathing       1
@@ -108,4 +108,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

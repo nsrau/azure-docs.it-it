@@ -48,7 +48,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 - L'obsolescenza associata offre un ordine globale totale tranne all'interno della "finestra di obsolescenza". Si noti che la garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di obsolescenza".
 - L'obsolescenza associata offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare l'obsolescenza associata per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza.
 - Gli account DocumentDB configurati con la coerenza con obsolescenza associata possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB.
-- Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
+- Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con l'obsolescenza associata è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
 **Sessione**:
 
@@ -122,4 +122,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

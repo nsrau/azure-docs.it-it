@@ -1,5 +1,5 @@
 <properties
- pageTitle="Scalabilità automatica delle risorse di calcolo in un cluster HPC | Microsoft Azure"
+ pageTitle="Scalabilità automatica dei nodi di calcolo del cluster HPC Pack | Microsoft Azure"
  description="Aumentare e ridurre automaticamente il numero di nodi di calcolo del cluster HPC Pack in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Aumentare e ridurre automaticamente le risorse del cluster HPC Pack in Azure in base al carico di lavoro del cluster
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-Se si distribuiscono nodi "burst" di Azure nel cluster HPC Pack o si crea un cluster HPC Pack nelle macchine virtuali di Azure, può essere necessario avere a disposizione un modo per aumentare o ridurre automaticamente i numero di risorse di calcolo di Azure, ad esempio i core, in base al carico di lavoro corrente del cluster. In questo modo è possibile usare le risorse di Azure in modo più efficiente e controllare i costi. A tale scopo, impostare la proprietà del cluster HPC Pack **AutoGrowShrink**. In alternativa, eseguire lo script di HPC PowerShell **AzureAutoGrowShrink.ps1** installato con HPC Pack.
+Se si distribuiscono nodi "burst" di Azure nel cluster HPC Pack o si crea un cluster HPC Pack nelle macchine virtuali di Azure, può essere necessario avere a disposizione un modo per aumentare o ridurre automaticamente i numero di risorse di calcolo di Azure, ad esempio i nodi o core, in base al carico di lavoro corrente del cluster. In questo modo è possibile usare le risorse di Azure in modo più efficiente e controllare i costi. A tale scopo, impostare la proprietà del cluster HPC Pack **AutoGrowShrink**. In alternativa, eseguire lo script di HPC PowerShell **AzureAutoGrowShrink.ps1** installato con HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Inoltre, attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calcolo HPC Pack che eseguono un sistema operativo Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Inoltre, attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calcolo HPC Pack che eseguono un sistema operativo Windows Server.
 
 ## Impostare la proprietà del cluster AutoGrowShrink
 
@@ -34,7 +34,7 @@ Se si distribuiscono nodi "burst" di Azure nel cluster HPC Pack o si crea un clu
 
 * **Per un cluster con un nodo head in Azure** se usa lo script di distribuzione IaaS di HPC Pack per creare il cluster, abilitare la proprietà del cluster **AutoGrowShrink** impostando l'opzione AutoGrowShrink nel file di configurazione del cluster. Per informazioni dettagliate, vedere la documentazione che accompagna il [download dello script](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    In alternativa, impostare la proprietà del cluster **AutoGrowShrink** dopo aver distribuito il cluster con i comandi di HPC PowerShell descritti nella sezione seguente. Per usare HPC PowerShell per eseguire questa operazione, è necessario completare questa procedura:
+    In alternativa, abilitare la proprietà del cluster **AutoGrowShrink** dopo aver distribuito il cluster con i comandi di HPC PowerShell descritti nella sezione seguente. Per prepararsi, completare prima i passaggi seguenti:
     1. Configurare un certificato di gestione di Azure nel nodo head e nella sottoscrizione di Azure. Per una distribuzione di test è possibile usare il certificato autofirmato Default Microsoft HPC Azure installato da HPC Pack nel nodo head. È quindi sufficiente caricare il certificato nella sottoscrizione di Azure. Per le opzioni e i passaggi, vedere le [informazioni aggiuntive nella libreria TechNet](https://technet.microsoft.com/library/gg481759.aspx).
     2. Eseguire **regedit** nel nodo head, passare a HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo e aggiungere un nuovo valore stringa. Impostare il nome valore su "Identificazione personale" e dati valore sull'identificazione personale del certificato nel passaggio 1.
 
@@ -130,7 +130,7 @@ AzureAutoGrowShrink.ps1
 
  * **NodeTemplates** - Nomi dei modelli di nodo per definire l'ambito per i nodi da ingrandire o ridurre. Se non specificato (il valore predefinito è @()), tutti i nodi nel gruppo di nodi **AzureNodes** rientrano nell'ambito quando il valore di **NodeType** è AzureNodes e tutti i nodi nel gruppo di nodi **ComputeNodes** rientrano nell'ambito quando il valore di **NodeType** è valore ComputeNodes.
 
- * **JobTemplates** - Nomi dei modelli di processo per definire l'ambito per i nodi da ingrandire.
+ * **JobTemplates**: nomi dei modelli di processo per definire l'ambito per i nodi da ingrandire.
 
  * **NodeType** - Il tipo di nodo da ingrandire o ridurre. I valori supportati sono:
 
@@ -158,7 +158,7 @@ AzureAutoGrowShrink.ps1
 
 * **ArgFile** - Nome del file di argomenti usato per salvare e aggiornare le configurazioni per eseguire lo script.
 
-* **LogFilePrefix**- Prefisso del nome del file di log. È possibile specificare un percorso. Per impostazione predefinita il log viene scritto nella directory di lavoro corrente.
+* **LogFilePrefix**: prefisso del nome del file di log. È possibile specificare un percorso. Per impostazione predefinita il log viene scritto nella directory di lavoro corrente.
 
 ### Esempio 1
 
@@ -179,4 +179,4 @@ Nell'esempio seguente, le macchine virtuali dei nodi di calcolo di Azure distrib
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrazione di applicazioni con Azure Active Directory
@@ -153,10 +153,10 @@ Quando un'applicazione client viene configurata per accedere a un'API Web espost
 ![Visualizzazione di autorizzazioni Elenco azioni](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Altre informazioni sul manifesto dell'applicazione
-Il manifesto dell'applicazione è in realtà un meccanismo per l'aggiornamento dell'entità applicazione, che definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD, inclusi gli ambiti di accesso API di cui si è parlato sopra. Per altre informazioni sull'entità applicazione, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity), che include informazioni di riferimento complete sui membri dell'entità applicazione usati per specificare le autorizzazioni per l'API:
+Il manifesto dell'applicazione è in realtà un meccanismo per l'aggiornamento dell'entità applicazione, che definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD, inclusi gli ambiti di accesso API di cui si è parlato sopra. Per altre informazioni sull'entità applicazione, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), che include informazioni di riferimento complete sui membri dell'entità applicazione usati per specificare le autorizzazioni per l'API:
 
-- Il membro appRoles, che è una raccolta di entità [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) che possono essere usate per definire le **Autorizzazioni applicazione** per un'API Web.  
-- Il membro oauth2Permissions, che è una raccolta di entità [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) che possono essere usate per definire le **Autorizzazioni delegate** per un'API Web.
+- Il membro appRoles, che è una raccolta di entità [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) che possono essere usate per definire le **Autorizzazioni applicazione** per un'API Web.
+- Il membro oauth2Permissions, che è una raccolta di entità [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) che possono essere usate per definire le **Autorizzazioni delegate** per un'API Web.
 
 Per altre informazioni sui concetti generali relativi al manifesto dell'applicazione, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md).
 
@@ -166,7 +166,7 @@ Come accennato in precedenza, oltre a esporre/accedere alle API nelle applicazio
 
 Per informazioni dettagliate sugli ambiti di accesso esposti da:
 
-- API Graph di Azure, vedere l'articolo [Ambiti di autorizzazione | Concetti sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+- API Graph di Azure, vedere l'articolo [Permission scopes | Graph API concepts (Ambiti di autorizzazione | Concetti sull'API Graph)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) article.
 - API Office 365, vedere l'articolo [Autenticazione e autorizzazione con il framework di consenso comune](https://msdn.microsoft.com/office/office365/howto/application-manifest). Vedere [Configurare l'ambiente di sviluppo di Office 365](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) per informazioni più dettagliate su come compilare un'app client che si integra con le API di Office 365.
 
 >[AZURE.NOTE] A causa di una limitazione attualmente in vigore, le applicazioni client native possono richiamare l'API Graph di Azure AD solo se usano l'autorizzazione "Accedere alla directory dell'organizzazione". Questa restrizione non è valida per le applicazioni Web.
@@ -210,7 +210,7 @@ In alternativa, l'applicazione Web può offrire anche un'esperienza che permette
 
 ### Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a singola pagina
 
-Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per ulteriori informazioni sulla concessione di autorizzazione implicita e per stabilire se sia adatta allo scenario della propria applicazione, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per altre informazioni sulla concessione di autorizzazione implicita e per stabilire se sia adatta allo scenario della propria applicazione, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
 Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow`" nel relativo [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
 
@@ -351,4 +351,4 @@ Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo ave
 
 - Visitare la[Guida per gli sviluppatori di Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

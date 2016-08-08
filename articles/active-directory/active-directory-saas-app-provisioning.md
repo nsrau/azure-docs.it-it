@@ -20,7 +20,7 @@
 
 ##Informazioni sul provisioning utenti automatizzato per app SaaS
 
-Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud (SaaS), ad esempio Dropbox, Salesforce, ServiceNow e così via.
+Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), ad esempio Dropbox, Salesforce, ServiceNow e così via.
 
 **Di seguito sono riportati alcuni esempi di operazioni che questa funzionalità consente di eseguire:**
 
@@ -116,4 +116,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"  
+	manager="femila"  
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="07/20/2016" 
 	ms.author="markvi"/>
 
 # Reti note
@@ -25,7 +25,7 @@
 
 Questo può avvenire, ad esempio, nei casi seguenti:
 
-- L'accesso di un utente dell'ufficio di Boston in modalità remota al data center di San Francisco attiva il report "Accessi da più aree geografiche" 
+- L'accesso di un utente dell'ufficio di Boston in modalità remota al data center di San Francisco attiva il report "Accessi da più aree geografiche"
 
 - Un utente dell'organizzazione tenta di accedere più volte con una password non corretta, attivando il report "Accessi da indirizzi IP con attività sospetta"
 
@@ -56,4 +56,4 @@ Per impedire che casi come questi generino report sulla sicurezza fuorvianti, è
 * [Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Gestione di conflitti di scrittura nel database
@@ -369,4 +369,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

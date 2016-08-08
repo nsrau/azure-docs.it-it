@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Esempi di query per modelli di uso comune in Analisi di flusso | Microsoft Azure"
-	description="Modelli di query comuni di Analisi di flusso di Azure"
+	description="Modelli di query comuni di Analisi di flusso di Azure "
 	keywords="esempi di query"
 	services="stream-analytics"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/13/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -514,4 +514,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

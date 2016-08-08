@@ -31,17 +31,17 @@ Il servizio contenitore di Azure consente di sfruttare i vantaggi delle funzioni
 Utilizzo del servizio contenitore di Azure
 -----------------------------
 
-L'obiettivo del servizio contenitore di Azure è fornire un ambiente host contenitore tramite tecnologie e strumenti open source, che sono attualmente diffusi fra i nostri clienti. A tal fine, vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere di usare l'interfaccia della riga di comando DCOS.
+L'obiettivo del servizio contenitore di Azure è fornire un ambiente host contenitore tramite tecnologie e strumenti open source, che sono attualmente diffusi fra i nostri clienti. A tal fine vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto: DC/OS o Docker Swarm. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere di usare l'interfaccia della riga di comando DCOS.
 
 Creazione di un cluster Docker con il servizio contenitore di Azure
 -------------------------------------------------------
 
-Per iniziare a usare il servizio contenitore di Azure verrà distribuito un cluster del servizio tramite un modello di Azure Resource Manager. Questa distribuzione può essere configurata con opzioni di dimensioni e di disponibilità diverse, usando DC/OS o Docker Swarm. I modelli di Azure Resource Manager possono essere distribuiti tramite il portale di Azure con l'interfaccia della riga di comando di Azure o PowerShell. I modelli possono anche essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni sulla distribuzione del cluster del servizio contenitore di Azure, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
+Per iniziare a usare il servizio contenitore di Azure, distribuire un cluster del servizio tramite il portale (cercare "Servizio contenitore di Azure"), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) o [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)) o con l'[interfaccia della riga di comando](/documentation/articles/xplat-cli-install/). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni sulla distribuzione del cluster del servizio contenitore di Azure, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
 
 Distribuzione di un'applicazione
 ------------------------
 
-Il servizio contenitore di Azure consente di scegliere tra Docker Swarm e DC/OS per l'orchestrazione.
+Il servizio contenitore di Azure consente di scegliere tra Docker Swarm e DC/OS per l'orchestrazione. La modalità di distribuzione dell'applicazione dipende dall'agente di orchestrazione scelto.
 
 ### Uso di DC/OS
 
@@ -51,7 +51,7 @@ DC/OS è un sistema operativo distribuito basato sul kernel dei sistemi distribu
 
 DC/OS e Apache Mesos offrono un set di funzionalità molto ampio:
 
--   Scalabilità fino a decine di migliaia di nodi
+-   Scalabilità collaudata
 
 -   Schemi replicati a tolleranza di errore e slave con Apache ZooKeeper
 
@@ -65,15 +65,17 @@ DC/OS e Apache Mesos offrono un set di funzionalità molto ampio:
 
 -   Interfaccia utente Web per la visualizzazione dello stato del cluster
 
-Per impostazione predefinita, DC/OS in esecuzione nel servizio contenitore di Azure include la piattaforma di orchestrazione Marathon per la pianificazione dei carichi di lavoro.
+Per impostazione predefinita, DC/OS in esecuzione nel servizio contenitore di Azure include la piattaforma di orchestrazione Marathon per la pianificazione dei carichi di lavoro. La distribuzione di DC/OS del servizio ACS include tuttavia il pacchetto Mesosphere Universe di servizi che possono essere aggiunti al servizio, tra cui Spark, Hadoop, Cassandra e molto altro ancora.
+
+![Universe DC/OS nel servizio contenitore di Azure](media/dcos/universe.png)
 
 #### Uso di Marathon
 
-Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Si tratta di un partner ideale per [Chronos](https://mesos.github.io/chronos/), un'utilità di pianificazione processi con tolleranza di errore per DC/OS che gestisce le dipendenze e le pianificazioni in base al tempo.
+Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. L'accesso avviene tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, dove DNS\_PREFIX e REGION vengono definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori tramite l'interfaccia utente Web](container-service-mesos-marathon-ui.md).
 
-Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. L'accesso avviene tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, dove DNS\_PREFIX e REGION vengono entrambi definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori tramite l'interfaccia utente Web](container-service-mesos-marathon-ui.md).
+![Elenco di applicazioni Marathon](media/dcos/marathon-applications-list.png)
 
-È anche possibile usare le API REST per la comunicazione con Marathon. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi e, naturalmente, è possibile utilizzare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per queste utilità di pianificazione. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio contenitore di Azure. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md).
+È anche possibile usare le API REST per la comunicazione con Marathon. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi e, naturalmente, è possibile utilizzare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per Marathon. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio contenitore di Azure. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md).
 
 ### Utilizzo di Docker Swarm
 
@@ -93,9 +95,6 @@ Gli strumenti supportati per la gestione dei contenitori in un cluster Swarm inc
 
 Video
 ------
-Annuncio di AzureCon:
-
-> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
 
 Introduzione al servizio contenitore di Azure:
 
@@ -105,4 +104,4 @@ Creazione di applicazioni mediante il servizio contenitore di Azure
 
 > [https://channel9.msdn.com/Events/Build/2016/B822]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -15,14 +15,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/31/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
 
 # Visualizzare e risolvere i problemi di Analisi di flusso
 
-In Analisi di flusso, come in altre tecnologie basate su cloud, è talvolta necessario eseguire operazioni di risoluzione dei problemi per comprendere il motivo per cui un processo non produce l'output previsto o non ne produce alcuno. Tenendo presente tale premessa, Stream Analytics offre la possibilità di visualizzare un processo di streaming. Questa funzionalità si rivela utile anche come strumento di modellazione e risulta vantaggiosa per gli utenti che hanno la necessità di documentare il proprio lavoro.
+In Analisi di flusso, come in altre tecnologie basate su cloud, è talvolta necessario eseguire operazioni di risoluzione dei problemi per comprendere il motivo per cui un processo non produce l'output previsto o non ne produce alcuno. Tenendo presente tale premessa, Analisi di flusso offre la possibilità di visualizzare un processo di streaming. Questa funzionalità si rivela utile anche come strumento di modellazione e risulta vantaggiosa per gli utenti che hanno la necessità di documentare il proprio lavoro.
 
 Nel pannello di visualizzazione sono visibili non solo gli input ma anche la query in fase di esecuzione e quindi tutti gli output configurati. È possibile visualizzare con maggiore evidenza i problemi di connettività o configurazione. Può inoltre essere utile avere una rappresentazione visiva della configurazione.
 
@@ -51,4 +51,4 @@ Se l'utente desidera esaminare i passaggi intermedi della query per comprendere 
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

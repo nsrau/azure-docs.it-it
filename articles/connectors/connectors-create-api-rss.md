@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 Il connettore RSS può essere usato da:
 
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [Flusso](http://flows.microsoft.com)  
+- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [Flusso](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -132,4 +132,4 @@ Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed R
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -118,7 +118,7 @@ Le sezioni seguenti forniscono altre informazioni sulle aree della tabella prece
 
 ### Ripristino temporizzato
 
-Il **ripristino temporizzato** consente di ripristinare il database a un momento precedente. Il livello di servizio determina il numero di giorni di conservazione. Per altre informazioni, vedere [Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente](sql-database-user-error-recovery.md).
+Il **ripristino temporizzato** consente di ripristinare il database a un momento precedente. Il livello di servizio determina il numero di giorni di conservazione. Per altre informazioni, vedere [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ### Ripristino di emergenza
 
@@ -189,7 +189,7 @@ Sono disponibili due viste che consentono di monitorare l'utilizzo delle risorse
 ### Uso di sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) è presente in ogni database SQL e fornisce dati di utilizzo delle risorse recenti rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
-Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
+Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats ** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
@@ -507,4 +507,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

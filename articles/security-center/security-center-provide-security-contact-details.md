@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. I gruppi di risorse all'interno di una sottoscrizione ereditano queste impostazioni.
+
+> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
 
 ## Implementare la raccomandazione
 
@@ -28,11 +30,15 @@ Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti
 
 2. Verrà visualizzato il pannello **Specificare i dettagli dei contatti di sicurezza**. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto. ![Specificare dettagli del contatto per la sicurezza][2]
 
-3. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza**. Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere. Immettere un numero di telefono internazionale per il contatto di sicurezza.
+3. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza**.
 
-4. Selezionare **OK** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
+  - Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere.
+  - Immettere un numero di telefono internazionale per il contatto di sicurezza.
+  - Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts** (Invia messaggi di posta elettronica sugli avvisi).
+  - In futuro, sarà possibile inviare notifiche tramite posta elettronica ai proprietari di sottoscrizioni. Attualmente questa opzione non è disponibile.
+  - Selezionare **OK** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
 
-## Passaggi successivi
+## Vedere anche
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
@@ -48,4 +54,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png
 [2]: ./media/security-center-provide-security-contacts/provide-contact-details.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

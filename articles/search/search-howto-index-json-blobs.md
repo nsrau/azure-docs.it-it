@@ -1,6 +1,6 @@
 <properties
 pageTitle="Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure"
-description="Informazioni su come indicizzare BLOB JSON con Ricerca di Azure"
+description="Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -12,12 +12,16 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/20/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure 
 
-Per impostazione predefinita, l'[indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB JSON come blocco singolo di testo. È spesso possibile che si voglia preservare la struttura dei documenti JSON. Ad esempio, nel caso del documento JSON seguente:
+In questo articolo viene illustrato come configurare un indicizzatore BLOB di Ricerca di Azure per estrarre il contenuto strutturato dai BLOB che contengono JSON.
+
+## Scenari
+
+Per impostazione predefinita, l'[indicizzatore BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di tipo JSON come blocco singolo di testo. È spesso possibile che si voglia preservare la struttura dei documenti JSON. Ad esempio, nel caso del documento JSON seguente:
 
 	{ 
 		"article" : {
@@ -27,25 +31,33 @@ Per impostazione predefinita, l'[indicizzatore di BLOB di Ricerca di Azure](sear
 	    }
 	}
 
-È possibile che si voglia analizzarlo nei campi "text", "datePublished" e "tags" nell'indice di ricerca.
+È possibile che si voglia analizzarlo nel documento di Ricerca di Azure con i campi "text", "datePublished" e "tags".
 
-Questo articolo illustra come configurare l'indicizzatore di BLOB di Ricerca di Azure per l'analisi JSON e procedere all'indicizzazione.
+In alternativa, quando i BLOB contengono una **matrice di oggetti JSON**, è consigliabile che ogni elemento della matrice diventi un documento separato di Ricerca di Azure. Ad esempio, considerato un BLOB con questo JSON:
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+è possibile popolare l'indice di Ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
 
 > [AZURE.IMPORTANT] Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
 ## Configurazione dell'indicizzazione JSON
 
-Per indicizzare i BLOB JSON, usare l'indicizzatore di BLOB in modalità di "analisi JSON". Abilitare l'impostazione di configurazione `useJsonParser` nella definizione della proprietà `parameters` dell'indicizzatore:
+Per indicizzare i BLOB di tipo JSON, impostare il parametro di configurazione `parsingMode` su `json` per indicizzare ogni BLOB come un singolo documento o su `jsonArray` se il BLOB contiene una matrice JSON:
 
 	{
 	  "name" : "my-json-indexer",
 	  ... other indexer properties
-	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
 	}
 
 Se necessario, usare i **mapping dei campi** per recuperare le proprietà del documento JSON di origine usato per popolare l'indice di ricerca di destinazione. Questa procedura verrà descritta in dettaglio più avanti.
 
-> [AZURE.IMPORTANT] Quando si usa la modalità di analisi JSON, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] Quando si usa `json` o la modalità di analisi `jsonArray`, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Uso dei mapping dei campi per creare documenti di ricerca 
 
@@ -85,7 +97,28 @@ Se i documenti JSON contengono solo semplici proprietà di livello superiore, è
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] Ricerca di Azure supporta attualmente solo l'analisi di un BLOB JSON in un documento di ricerca. Se i BLOB contengono matrici JSON da analizzare in più documenti di ricerca, votare [questo suggerimento in UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) per contribuire ad assegnare la priorità corretta alle operazioni.
+## Indicizzazione delle matrici JSON annidate
+
+Se si vuole indicizzare una matrice di oggetti JSON, ma questa matrice è annidata in un punto qualsiasi all'interno del documento? È possibile scegliere la proprietà che contiene la matrice usando la proprietà di configurazione `documentRoot`. Ad esempio, se i BLOB sono simili a questo:
+
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
+
+Usare questa configurazione per indicizzare la matrice contenuta nella proprietà "level2":
+
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
+
 
 ## Esempi di richiesta
 
@@ -127,4 +160,4 @@ Indicizzatore:
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

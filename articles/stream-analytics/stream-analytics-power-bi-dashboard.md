@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/30/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 #  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
@@ -98,11 +98,11 @@ Fornire i valori come mostrato di seguito:
 *	**Nome tabella** - Fornire un nome tabella nel set di dati dell’output Power BI. Ad esempio, “pbidemo”. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati.
 *	**Area di lavoro** – Selezionare nel tenant Power BI un'area di lavoro in cui verrà creato il set di dati.
 
->	[AZURE.NOTE] Non è necessario creare il set di dati e la tabella nell'account Power BI. Verranno creati automaticamente quando si avvia il processo di analisi di flusso e gli output vengono trasmessi a Power BI. Se la query del processo non restituisce risultati, il set di dati e la tabella non verranno creati.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Fare clic su **OK**, **Connessione di test**. A questo punto la configurazione dell’output è completa.
 
->	[AZURE.WARNING] Inoltre, tenere presente che se Power BI dispone già di un seti di dati e di una tabella caratterizzati dal nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Scrivere query
@@ -240,4 +240,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

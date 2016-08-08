@@ -55,28 +55,28 @@ L'architettura descritta in questo articolo riguarda una soluzione semplice ma �
 
 Il diagramma illustra 1) in che modo Data Factory orchestra l'elaborazione e lo spostamento dei dati e 2) in che modo Azure Batch elabora i dati in modalità parallela. Scaricare e stampare il diagramma per riferimento, 28 x 43 cm o formato A3: [Orchestrazione di HPC e dati con Azure Batch e Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![Diagramma dell'HPC come servizio](./media/data-factory-data-processing-using-batch/image1.png)
+[![Diagramma di elaborazione dei dati su larga scala](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
 
 Questi sono i passaggi di base del processo. La soluzione include il codice e le spiegazioni per compilare la soluzione end-to-end.
 
-1.  Configurare Azure Batch con un pool di nodi di calcolo (macchine virtuali). È possibile specificare il numero di nodi e le dimensioni di ogni nodo.
+1.  **Configurare Azure Batch con un pool di nodi di calcolo (VM)**. È possibile specificare il numero di nodi e le dimensioni di ogni nodo.
 
-2.  Creare un'istanza di Data Factory di Azure configurata con le entità che rappresentano l'archivio BLOB di Azure, il servizio di calcolo di Azure Batch, i dati di input/output e una pipeline o un flusso di lavoro con attività per lo spostamento e la trasformazione dei dati.
+2.  **Creare un'istanza di Azure Data Factory** configurata con le entità che rappresentano l'archiviazione BLOB di Azure, il servizio di calcolo di Azure Batch, i dati di input/output e una pipeline o un flusso di lavoro con attività per lo spostamento e la trasformazione dei dati.
 
-3.  La pipeline di Data Factory include un'attività .NET personalizzata, configurata per l'esecuzione nel pool di nodi di Azure Batch.
+3.   **Creare un'attività personalizzata** da usare in una pipeline di Data Factory. L'attività è il codice utente che verrà eseguito nel pool di Azure Batch.
 
-4.  Archiviare grandi quantità di dati di input come BLOB nell'archiviazione di Azure. I dati vengono divisi in sezioni logiche, in genere in base al tempo.
+4.  **Archiviare grandi quantità di dati di input come BLOB nell'archiviazione di Azure**. I dati vengono divisi in sezioni logiche, in genere in base al tempo.
 
-5.  Data Factory copia i dati che saranno elaborati in parallelo nella località secondaria.
+5.  **Data Factory copia i dati che saranno elaborati in parallelo** nel percorso secondario.
 
-6.  Data Factory esegue l'attività personalizzata usando il pool allocato da Batch. Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nell'archiviazione di Azure.
+6.  **Data Factory esegue l'attività personalizzata usando il pool allocato da Batch**. Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nell'archiviazione di Azure.
 
-7.  Una volta ottenuti tutti i risultati, Data Factory li sposta in una terza località per la distribuzione tramite un'app o per un'ulteriore elaborazione con altri strumenti.
+7.  **Data Factory sposta i risultati finali in un terzo percorso** per la distribuzione tramite un'app o per un'ulteriore elaborazione con altri strumenti.
 
 ## Implementazione della soluzione di esempio
 La soluzione di esempio è intenzionalmente semplice e ha lo scopo di mostrare come usare Data Factory e Batch insieme per elaborare i set di dati. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce il numero in file di output.
 
-**Tempo**: se si ha familiarità con i fondamenti di Azure Data Factory e Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
+**Tempo**: se si ha familiarità con le nozioni di base di Azure Data Factory e Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
 
 ### Prerequisiti
 
@@ -97,7 +97,7 @@ Creare un **pool di Azure Batch** con almeno 2 nodi di calcolo.
 1.  Nel menu a sinistra del [portale di Azure](https://portal.azure.com) fare clic su **Sfoglia** e quindi su **Account Batch**.
 2. Selezionare il proprio account Azure Batch per aprire il pannello **Account Batch**.
 3. Fare clic sul riquadro **Pool**.
-4. Nel riquadro **Pool** fare clic sul pulsante Aggiungi nella barra degli strumenti per aggiungere un pool.
+4. Nel pannello **Pool** fare clic sul pulsante Aggiungi nella barra degli strumenti per aggiungere un pool.
 	1. Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data factory.
 	2. Specificare **Windows Server 2012 R2** per l'impostazione Famiglia di sistemi operativi.
 	3. Selezionare un **piano tariffario per il nodo**.
@@ -385,7 +385,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archivio BLOB di Azure usato dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
+13.  Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archiviazione BLOB di Azure usato dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
 
 #### Metodo Execute
 
@@ -548,7 +548,7 @@ In questo passaggio si creerà un servizio collegato per l'account **Azure Batch
 
     4.  Immettere l'URI del batch per la proprietà JSON **batchUri**.
     
-		> [AZURE.IMPORTANT] L'**URL** nel **pannello dell'account Azure Batch** è nel formato seguente: \<nomeaccount\>.\<area\>.batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario **rimuovere "accountname."** dall'URL. Esempio: "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] L'**URL** nel **pannello dell'account Azure Batch** è nel formato seguente: <nomeaccount>.<area>.batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario **rimuovere "accountname."** dall'URL. Esempio: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
@@ -840,7 +840,7 @@ Il servizio Data Factory crea un processo in Azure Batch denominato **adf-poolna
 
 ![Azure Data Factory: processi di Batch](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
-Per ogni esecuzione attività di una sezione viene creata un'attività nel processo. Se sono presenti 10 sezioni pronte per l'elaborazione, nel processo vengono create 10 attività. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
+Per ogni esecuzione attività di una sezione viene creata un'attività nel processo. Se sono presenti 10 sezioni pronte per l'elaborazione, nel processo vengono create 10 attività. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
 
 In questo esempio ci sono 5 sezioni, quindi 5 attività in Azure Batch. Con la proprietà **concurrency** impostata su **5** nello script JSON della pipeline in Azure Data Factory e il **numero massimo di attività per ogni VM** impostato su **2** nel pool di Azure Batch con **2** VM, le attività vengono eseguite molto velocemente. Controllare l'ora di inizio e fine delle attività.
 
@@ -919,7 +919,7 @@ Il debug è costituito da alcune tecniche di base:
 
 	Per i dettagli, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../batch/batch-automatic-scaling.md).
 
-	Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari 15-30 minuti perché il servizio Batch prepari la macchina virtuale prima di eseguire l'attività personalizzata. Se invece il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
+	Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari 15-30 minuti perché il servizio Batch prepari la VM prima di eseguire l'attività personalizzata. Se invece il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
 	 
 5. Nella soluzione di esempio il metodo **Execute** richiama il metodo **Calculate** che elabora una sezione di dati di input per generare una sezione di dati di output. È possibile scrivere un metodo personalizzato per elaborare i dati di input e sostituire la chiamata al metodo Calculate nel metodo Execute con una chiamata al metodo personalizzato.
 
@@ -962,4 +962,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -90,7 +90,7 @@ Ora verranno usate le regole di business per implementare questa logica di busin
 2. Selezionare Nuovo-> Marketplace, quindi cercare *BizTalk Rules*
 3. Selezionare BizTalk Rules dall'elenco dei risultati. Verrà aperto il pannello BizTalk Rules.
 4. Selezionare il pulsante *Crea*. ![Alt text][3]
-1. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:  
+1. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
 	1. Nome: specificare un nome per l'app per le API delle regole
 	1. Piano di servizio app: selezionare o creare un nuovo piano di servizio app
 	1. Piano tariffario: scegliere il piano tariffario desiderato per l'app
@@ -103,24 +103,18 @@ Ora verranno usate le regole di business per implementare questa logica di busin
 Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo prevede la creazione di vocabolari. Questo esercizio viene in genere eseguito dallo sviluppatore. Ecco come fare:
 
 
-1. Avviare l'app per le API BizTalk Rules dal portale facendo clic su Sfoglia->App per le API-><Your Rules API App>. Verrà visualizzato un dashboard dell'app per le API delle regole simile al seguente:
+1. Avviare l'app per le API BizTalk Rules dal portale facendo clic su Esplora->App per le API-><app per le API delle regole creata>. Verrà visualizzato un dashboard dell'app per le API delle regole simile al seguente:
 
    ![Alt text][4]
 
-2.Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario.
-3.Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
-Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
+2\. Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. 3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ##Definizione Valore letterale
 1.	Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
   1.	Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
   2.	Descrizione: campo facoltativo.
   3.	Tipo definizione: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
-  4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
-    i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") 
-    ii.	Booleano: può essere true o false  
-    iii.	Numero: può essere qualsiasi numero decimale  
-    iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM  
+  4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") ii. Booleano: può essere true o false iii. Numero: può essere qualsiasi numero decimale iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM
   5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
   6. Selezionare *OK*.
 
@@ -136,46 +130,40 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 ![Alt text][7]
 
 ##Creazione di criteri
-Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
-	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole. 
-	3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. 
-	![Alt text][8]
-	4. Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
+Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure. 1. Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri. 2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole. 3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. ![Alt text][8] 4. Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
-Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate :
-1. 	And: operatore condizionale  
-2. 	Or - operatore condizionale  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
-10. is\_less\_than  
-11. is\_less\_than\_equal\_to  
-12. is\_not\_in  
-13. is\_not\_equal\_to  
-14. mod  
-15. true  
+Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:
+1. 	And: operatore condizionale
+2. 	Or: operatore condizionale
+3. 	does\_not\_exist
+4. 	exists
+5. 	false
+6. 	is\_equal\_to
+7. 	is\_greater\_than
+8. 	is\_greater\_than\_equal\_to
+9. 	is\_in
+10. is\_less\_than
+11. is\_less\_than\_equal\_to
+12. is\_not\_in
+13. is\_not\_equal\_to
+14. mod
+15. true
 
 La casella Azione (THEN) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono elencate le parole chiave supportate:
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	Null  
-7.	update  
+1.	equals
+2.	false
+3.	true
+4.	halt
+5.	mod
+6.	Null
+7.	update
 
-Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
-![Alt text][9]
+Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
-   1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:
+   1.	update <definizione vocabolario>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella condizione.
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
 ##Abilitazione\\disabilitazione di regole
@@ -242,4 +230,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

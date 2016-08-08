@@ -103,7 +103,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
                 {
                     var parameters = new PigJobSubmissionParameters
                     {
-                        Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+                        Query = @"LOGS = LOAD 'wasbs:///example/data/sample.log';
                                     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
                                     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
                                     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -141,6 +141,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[portale di anteprima]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -28,7 +28,7 @@ Azure offre numerose funzionalità predefinite della piattaforma che supportano 
 
 Il controller di infrastruttura di Azure gestisce il provisioning e il monitoraggio delle condizioni delle istanze di calcolo di Azure. Controlla lo stato dell'hardware e del software delle istanze delle macchine host e guest. Quando rileva un errore, applica i contratti di servizio rilocando automaticamente le istanze delle VM. Il contratto di servizio di calcolo è ulteriormente supportato dal concetto dei domini di aggiornamento e di errore.
 
-Quando vengono distribuite più istanze del ruolo, Azure distribuisce tali istanze in domini di errore diversi. Il limite di un dominio di errore è essenzialmente un diverso rack hardware nella stessa area. I domini di errore riducono le probabilità che un errore hardware localizzato interrompa il servizio di un'applicazione. Non è possibile gestire il numero di errori di dominio allocati ai ruoli Web o di lavoro. Il controller di infrastruttura usa risorse dedicate separate dalle applicazioni ospitate in Azure. Offre un tempo di attività del 100% perché funge da nucleo del sistema Azure e monitora e gestisce le istanze del ruolo nei domini di errore.
+Quando vengono distribuite più istanze del ruolo del servizio cloud, Azure distribuisce queste istanze in domini di errore diversi. Il limite di un dominio di errore è essenzialmente un diverso rack hardware nella stessa area. I domini di errore riducono le probabilità che un errore hardware localizzato interrompa il servizio di un'applicazione. Non è possibile gestire il numero di errori di dominio allocati ai ruoli Web o di lavoro. Il controller di infrastruttura usa risorse dedicate separate dalle applicazioni ospitate in Azure. Offre un tempo di attività del 100% perché funge da nucleo del sistema Azure e monitora e gestisce le istanze del ruolo nei domini di errore.
 
 La figura seguente illustra le risorse condivise di Azure distribuite e gestite dal controller di infrastruttura nei diversi domini di errore.
 
@@ -143,4 +143,4 @@ Si noti che la figura precedente illustra un'implementazione di questo approccio
 
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo successivo della serie riguarda il [ripristino di emergenza per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -28,6 +28,7 @@ Per altre informazioni sul backup, vedere [Eseguire backup e ripristino di datab
 Per il recupero in caso di danneggiamenti o errori hardware, ripristinare il database SQL Server con estensione abilitata da un backup. È possibile continuare a impiegare i metodi di ripristino SQL Server attualmente in uso. Per altre informazioni, vedere [Panoramica del ripristino e del recupero (SQL Server)](https://msdn.microsoft.com/library/ms191253.aspx).
 
 Dopo aver ripristinato il database SQL Server, è necessario eseguire la stored procedure **sys.sp\_rda\_reauthorize\_db** per ristabilire la connessione tra il database SQL Server con estensione abilitata e il database di Azure remoto. Per altre informazioni, vedere [Ripristinare la connessione tra il database SQL Server e il database di Azure remoto](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
+<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
 
 ## Ripristinare i dati di Azure remoti
 
@@ -83,4 +84,4 @@ Per ripristinare un database di Azure eliminato dal punto dell'eliminazione tram
 
 [Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

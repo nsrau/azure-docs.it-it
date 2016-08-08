@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/25/2016"
 	ms.author="mahender"/>
 
-# Aggiornamento del servizio mobile .NET di Azure esistente al Servizio app
+# Aggiornare il servizio mobile .NET di Azure esistente al servizio app
 
 I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Che cosa sono le app per dispositivi mobili?].
 
-Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare.
+Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare. Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornare il servizio mobile Node.js di Azure esistente al servizio app](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
 Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizio app di Azure, questo ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non a quelli di Servizi mobili.
 
@@ -277,4 +277,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

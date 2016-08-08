@@ -249,7 +249,6 @@ Dove le variabili vengono definite come segue:
 
 Si sta creando un pacchetto del servizio cloud e si vuole...
 
-* [Configurare le risorse di archiviazione locale](cloud-services-configure-local-storage-resources.md)
 * [Configurare il desktop remoto per un'istanza del servizio cloud][remotedesktop]
 * [Distribuire un progetto di servizio cloud][deploy]
 
@@ -267,4 +266,4 @@ Si sta usando Visual Studio e si vuole...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

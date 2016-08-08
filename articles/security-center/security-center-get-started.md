@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Guida introduttiva per il Centro sicurezza di Azure
 
 Questo documento consente di iniziare rapidamente a utilizzare il Centro protezione Azure guidando attraverso i componenti di gestione del monitoraggio e dei criteri di sicurezza e fornendo un collegamento ai passaggi successivi.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
 
 ## Raccolta dei dati
 
@@ -110,4 +110,4 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

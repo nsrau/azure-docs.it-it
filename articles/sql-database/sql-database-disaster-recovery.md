@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr" 
-   ms.date="06/16/2016"
+   ms.workload="NA" 
+   ms.date="07/20/2016"
    ms.author="carlrab"/>
 
 # Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
@@ -23,11 +23,23 @@ Il database SQL di Azure offre le funzionalità riportate di seguito per il ripr
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - [Ripristino geografico](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-Per informazioni su come prepararsi per possibili emergenze e su quando ripristinare il database, vedere [Panoramica: Continuità aziendale cloud e ripristino di emergenza del database con il database SQL di Azure](sql-database-business-continuity.md) e [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario]().
+Per informazioni sugli scenari di continuità aziendale e sulle funzionalità che supportano questi scenari, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+
+### Prepararsi per un evento di interruzione del servizio
+
+Per completare correttamente il ripristino su un'altra area dati tramite la replica geografica attiva o i backup con ridondanza geografica, è necessario preparare un server in un altro data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:
+
+- Identificare il server logico in un'altra area perché diventi il nuovo server primario. Con la replica geografica attiva, questo server sarà un server o forse ognuno dei server secondari. Per il ripristino geografico, questo sarà in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) all'area in cui si trova il database.
+- Identificare e definire, facoltativamente, le regole del firewall a livello di server necessarie agli utenti per accedere al nuovo database primario.
+- Determinare come si desidera reindirizzare gli utenti al nuovo server primario, ad esempio tramite modifica delle stringhe di connessione o delle voci del DNS.
+- Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)
+- Stabilire le regole di avviso che dovranno essere aggiornata per eseguire il mapping verso il nuovo database primario.
+- Documentare la configurazione di controllo nel database primario corrente
+- [Esercitazione per il ripristino di emergenza](sql-database-disaster-recovery-drills.md). Per simulare un'interruzione del servizio di ripristino geografico, è possibile eliminare o rinominare il database di origine per provocare un errore di connettività dell'applicazione. Per simulare un'interruzione del servizio per la replica geografica attiva, è possibile disabilitare l'applicazione Web o la macchina virtuale connessa al database o il failover del database per causare errori di connettività dell'applicazione.
 
 ## Quando avviare il ripristino
 
-L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica della stringa di connessione SQL e può comportare una perdita di dati permanente. Pertanto, è necessario eseguirla solo quando è probabile che l'interruzione del servizio duri più a lungo dell'obiettivo del tempo di ripristino dell'applicazione. Quando l'applicazione viene distribuita nell'ambiente di produzione, è consigliabile eseguire il monitoraggio regolare dell'integrità dell'applicazione e usare i punti dati seguenti per determinare se il ripristino è possibile:
+L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica della stringa di connessione SQL o il reindirizzamento tramite DNS e può comportare una perdita di dati permanente. Pertanto, è necessario eseguirla solo quando è probabile che l'interruzione del servizio duri più a lungo dell'obiettivo del tempo di ripristino dell'applicazione. Quando l'applicazione viene distribuita nell'ambiente di produzione, è consigliabile eseguire il monitoraggio regolare dell'integrità dell'applicazione e usare i punti dati seguenti per determinare se il ripristino è possibile:
 
 1.	Si è verificato un errore di connettività permanente dal livello applicazione al database.
 2.	Il portale di Azure visualizza un avviso relativo a un evento imprevisto nell'area con un impatto importante.
@@ -47,14 +59,11 @@ Se i tempi di inattività dell'applicazione possono comportare una responsabilit
 
 Per ripristinare la disponibilità dei database è necessario avviare il failover nel database secondario con replica geografica usando uno dei metodi supportati.
 
-
 Per eseguire il failover in un database secondario con replica geografica, seguire una di queste procedure:
 
 - [Failover in un database secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 - [Failover in un database secondario con replica geografica tramite PowerShell](sql-database-geo-replication-powershell.md)
 - [Failover in un database secondario con replica geografica tramite T-SQL](sql-database-geo-replication-transact-sql.md)
-
-
 
 ## Ripristino tramite il ripristino geografico
 
@@ -64,7 +73,6 @@ Per eseguire il ripristino geografico un database in una nuova area, seguire una
 
 - [Ripristino geografico di un database in una nuova area tramite il portale di Azure](sql-database-geo-restore-portal.md)
 - [Ripristino geografico di un database in una nuova area tramite PowerShell](sql-database-geo-restore-powershell.md)
-
 
 ## Configurare il database dopo il ripristino
 
@@ -85,7 +93,7 @@ Verificare che le regole firewall configurate nel server e nel database corrispo
 
 Verificare che tutti gli account di accesso usati dall'applicazione siano presenti nel server che ospita il database ripristinato. Per altre informazioni, vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
->[AZURE.NOTE] È necessario configurare e testare le regole del firewall del server e gli account di accesso (con le relative autorizzazioni) durante un'analisi di ripristino di emergenza. Questi oggetti a livello di server e la relativa configurazione potrebbero non essere disponibili durante l'interruzione del servizio. Per altre informazioni, vedere [Esercitazione per il ripristino di emergenza](sql-database-disaster-recovery-drills.md).
+>[AZURE.NOTE] È necessario configurare e testare le regole del firewall del server e gli account di accesso (con le relative autorizzazioni) durante un'analisi di ripristino di emergenza. Questi oggetti a livello di server e la relativa configurazione potrebbero non essere disponibili durante l'interruzione del servizio.
 
 ### Avvisi di telemetria di configurazione
 
@@ -95,15 +103,13 @@ Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere 
 
 ### Attivare il controllo
 
-Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md). Per informazioni sui client legacy, vedere [Database SQL: supporto dei client legacy e modifiche all'endpoint IP per Controllo](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace della necessità di un controllo è il fatto che le applicazioni client usano stringhe di connessione protette di tipo *.database.secure.windows.net. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
 
 
 ## Passaggi successivi
 
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
-- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale del database SQL di Azure](sql-database-business-continuity-scenarios.md)
-- Per informazioni sull'uso di backup automatici per il ripristino, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md)
-- Per informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
-- Per informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity.md)
+- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Distribuzione continua nel servizio app di Azure
@@ -52,7 +52,7 @@ Il push di una soluzione di Visual Studio nel servizio app di Azure è paragonab
 
 La procedura per il push della soluzione di Visual Studio nel servizio app corrisponde a quella descritta nella [sezione precedente](#overview), purché la soluzione e il repository siano configurati come indicato di seguito:
 
--	Usare l'opzione di controllo del codice sorgente di Visual Studio per creare un file `.gitignore` come nell'immagine seguente oppure aggiungere manualmente il file `.gitignore` nella radice del repository con il contenuto simile a questo [esempio di file .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
+-	Usare l'opzione di controllo del codice sorgente di Visual Studio per creare un file `.gitignore` come nell'immagine seguente oppure aggiungere manualmente il file `.gitignore` nella radice del repository con il contenuto simile a questo [esempio di file .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -72,6 +72,7 @@ Per disabilitare la distribuzione continua,
 
 ## Risorse aggiuntive
 
+* [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment) (Come analizzare i problemi comuni di distribuzione continua)
 * [Come usare PowerShell per Azure]
 * [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]
 * [Documentazione su Git]
@@ -79,7 +80,7 @@ Per disabilitare la distribuzione continua,
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-[Servizio App di Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[Servizio App di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-changes-existing-services/
 [portale di Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/it-IT/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -92,4 +93,4 @@ Per disabilitare la distribuzione continua,
 [introduzione a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

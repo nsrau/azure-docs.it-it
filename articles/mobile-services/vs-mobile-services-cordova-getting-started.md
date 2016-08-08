@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Introduzione a Servizi mobili (progetti Cordova)
@@ -69,7 +69,7 @@ Il codice seguente esegue in una tabella una query relativa a tutti gli elementi
             items = results.slice();
         });
 
-Per altri esempi di query disponibili per l'utilizzo, vedere la pagina relativa all'oggetto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Per altri esempi di query disponibili per l'utilizzo, vedere la pagina relativa all'oggetto [query](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 ##Aggiornare un elemento di tabella
 
@@ -88,6 +88,4 @@ Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il met
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Altre informazioni sui servizi mobili](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -122,7 +122,7 @@ Quando l'app riceve un token ID all'accesso dell'utente, deve eseguire anche alc
 
 Per un elenco completo delle convalide di attestazione che l'app deve eseguire, vedere le [specifiche di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-Informazioni dettagliate sui valori previsti per tali attestazioni, sono incluse nella precedente sezione [Token ID](#id_tokens).
+Informazioni dettagliate sui valori previsti per tali attestazioni, sono incluse nella precedente sezione [Token ID](#id-tokens).
 
 ## Token di esempio
 
@@ -275,4 +275,4 @@ Questo è un esempio di un tipico token JSON Web (JWT) usato in un flusso di con
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

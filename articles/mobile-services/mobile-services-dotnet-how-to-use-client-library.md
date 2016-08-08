@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Come usare la libreria client gestita per Servizi mobili di Azure
@@ -769,4 +769,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

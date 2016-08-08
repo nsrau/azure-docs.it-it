@@ -76,7 +76,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         #      Linux-based HDInsight
         $queryString = "set hive.execution.engine=tez;" +
                     "DROP TABLE log4jLogs;" +
-                    "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
+                    "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';" +
                     "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
 
         #Create an HDInsight Hive job definition
@@ -135,7 +135,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         -ResourceGroupName $resourceGroup)[0].Value
         $queryString = "set hive.execution.engine=tez;" +
                     "DROP TABLE log4jLogs;" +
-                    "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
+                    "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';" +
                     "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
         Invoke-AzureRmHDInsightHiveJob `
             -StatusFolder "statusout" `
@@ -152,7 +152,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 	> [AZURE.NOTE] Per query HiveQL più lunghe, è possibile usare il cmdlet **Here-Strings** di Azure PowerShell o un file di script HiveQL. Nel frammento di codice seguente viene illustrato come usare il cmdlet **Invoke-Hive** per eseguire un file di script HiveQL. Il file di script HiveQL deve essere caricato in wasb://.
 	>
-	> `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+	> `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
 	> Per altre informazioni su **Here-Strings**, vedere <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Uso di Here-Strings di Windows PowerShell</a>.
 
@@ -188,4 +188,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

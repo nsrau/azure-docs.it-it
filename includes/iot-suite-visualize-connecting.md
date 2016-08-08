@@ -36,10 +36,13 @@ Il dashboard nella soluzione di monitoraggio remoto consente di inviare comandi 
 
 L'articolo [Personalizzazione delle soluzioni preconfigurate][lnk-customize] descrive alcuni modi per estendere questo esempio. Le estensioni possibili comprendono l'utilizzo di sensori reali e implementazione di comandi aggiuntivi.
 
+Per ulteriori informazioni sulle [autorizzazioni visitare il sito azureiotsuite.com][lnk-permissions].
+
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

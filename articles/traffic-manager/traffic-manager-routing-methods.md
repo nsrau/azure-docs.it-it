@@ -33,7 +33,7 @@ Gestione traffico di Azure supporta diversi algoritmi per determinare la modalit
 
 In Gestione traffico sono disponibili tre metodi di routing del traffico:
 
-- **Priorità:** selezionare "Priorità" quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili. Per altre informazioni, vedere [Metodo di routing del traffico Priorità](#wriority-traffic-routing-method).
+- **Priorità:** selezionare "Priorità" quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili. Per altre informazioni, vedere [Metodo di routing del traffico Priorità](#priority-traffic-routing-method).
 
 - **Ponderato:** selezionare "Ponderato" quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base ai pesi definiti. Per altre informazioni, vedere [Metodo di routing del traffico Ponderato](#weighted-traffic-routing-method).
 
@@ -126,4 +126,4 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

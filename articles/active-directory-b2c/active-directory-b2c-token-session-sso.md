@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure Active Directory B2C: configurazione di token, sessione e accesso Single Sign-On | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On | Microsoft Azure"
 	description="Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Anteprima di Azure Active Directory B2C: configurazione di token, sessione e accesso Single Sign-On
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
 
 Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri](active-directory-b2c-reference-policies.md), per gli elementi seguenti:
  
@@ -45,7 +43,7 @@ Azure AD B2C supporta il [protocollo di autorizzazione OAuth 2.0](active-directo
 
 - **Durate dei token di accesso e ID (minuti)**: durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Azure AD B2C emette attualmente solo token ID. Questo valore verrà applicato anche ai token di accesso, quando verrà aggiunto il supporto per questo tipo di token.
    - Impostazione predefinita: 60 minuti.
-   - Valore minimo (inclusivo): 15 minuti.
+   - Valore minimo (inclusivo): 5 minuti.
    - Valore massimo (inclusivo): 1440 minuti.
 - **Durata del token di aggiornamento (giorni)**: periodo di tempo massimo prima che sia possibile usare un token di aggiornamento per acquisire un nuovo token di accesso o ID e, facoltativamente, un nuovo token di aggiornamento, se all'applicazione è stato concesso l'ambito `offline_access`.
    - Impostazione predefinita: 14 giorni.
@@ -74,15 +72,15 @@ Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-di
 Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste proprietà:
 
 - Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per la sessione dell'applicazione Web.
-- Imporre la ripetizione dell'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web. 
+- Imporre la ripetizione dell'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web.
 
 ## Configurazione dell'accesso Single Sign-On
 
-Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le interazioni degli utenti tra di essi usando la proprietà **Configurazione dell'accesso Single Sign-On**. È possibile impostare la proprietà su uno dei valori seguenti:
+Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le interazioni degli utenti tra di essi usando la proprietà **Configurazione Single Sign-on**. È possibile impostare la proprietà su uno dei valori seguenti:
 
 - **Tenant**: impostazione predefinita. L'uso di questa impostazione consente a più applicazioni e criteri del tenant di B2C di condividere la stessa sessione utente. Ad esempio, quando un utente accede a un'applicazione, Contoso Shopping, può accedere contemporaneamente anche a un'altra applicazione, Contoso Pharmacy, senza alcun problema.
-- **Applicazione**: consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C. 
+- **Applicazione**: consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C.
 - **Criterio**: consente di mantenere una sessione utente esclusivamente per un criterio, indipendentemente dalle applicazioni che lo usano. Ad esempio, se un utente ha già effettuato l'accesso e completato un passaggio di Multi Factor Authentication, otterrà l'accesso a parti a sicurezza più elevata di più applicazioni, purché la sessione associata al criterio non scada.
 - **Disabilitato**: impone all'utente di eseguire il percorso utente completo a ogni esecuzione del criterio. Ad esempio, ciò consente a più utenti di accedere all'applicazione, in uno scenario di desktop condiviso, anche se un singolo utente rimane connesso per l'intero periodo di tempo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

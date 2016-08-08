@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,6 +24,6 @@ Da questa pagina è stato rimosso il contenuto destinato alle app per la logica 
 ## Passaggi successivi    
 
 - [Leggere ulteriori informazioni su questo nuovo connettore](../connectors/connectors-create-api-box.md)
-- Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview  
+- Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

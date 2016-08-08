@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ## Creare un rapporto con l’interfaccia di riga di comando di Azure
 Per creare un report della cronologia delle modifiche relative all'accesso nell'interfaccia della riga di comando, usare il comando seguente:
 ```
-azure authorization changelog
+azure role assignment changelog list
 ```
 
 ## Esportare in un foglio di calcolo
@@ -67,4 +67,4 @@ Per salvare il report o modificare i dati, esportare le modifiche relative all'a
 - Introduzione al [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md)
 - Utilizzare i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

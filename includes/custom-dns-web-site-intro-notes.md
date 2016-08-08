@@ -1,7 +1,7 @@
-Le procedure descritte in questo articolo si applicano ai Servizi App (App Web, App per le API, App di dispositivi mobili, App per la logica). Per Servizi cloud, vedere <a href="/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato in Azure</a>.
+L'articolo è dedicato ai Servizi app di Azure (App Web, App per le API, App di dispositivi mobili, App per la logica). Per i Servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
-> [AZURE.NOTE]**Per istruzioni sull'uso di Gestione traffico per il bilanciamento del traffico a un'app Web**, usare il selettore nella parte superiore di questo articolo per selezionare le procedure specifiche per Gestione traffico.
+> [AZURE.NOTE]  Se il carico dell'app è bilanciato da [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/), fare clic sul selettore nella parte superiore di questo articolo per conoscere quali sono i passaggi specifici.
 >
-> **Non è possibile usare nomi di dominio personalizzati con un'app Web inclusa nel piano Gratuito**. È necessario configurare l'app Web per la modalità **Condivisa**, **Base** o **Standard**. Gli importi fatturati per la sottoscrizione variano a seconda della modalità scelta. Per altre informazioni, vedere <a href=/pricing/details/web-sites/">Dettagli prezzi - App Web</a>.
+> **I nomi di dominio personalizzati non sono abilitati per il livello gratuito**. È necessario [passare a un piano tariffario superiore](../articles/app-service-web/web-sites-scale.md), che potrebbe modificare le condizioni di addebito per la sottoscrizione. Vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) per ulteriori informazioni.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0727_2016-->

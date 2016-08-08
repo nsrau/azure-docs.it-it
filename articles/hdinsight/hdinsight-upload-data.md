@@ -58,7 +58,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 > [AZURE.NOTE] Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
-###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
+###<a id="xplatcli">Interfaccia della riga di comando di Azure</a>
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
@@ -161,7 +161,7 @@ Ad esempio, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Poiché il file system predefinito per HDInsight si trova nell'archivio BLOB di Azure, /example/datadavinci.txt si trova in effetti nell'archivio BLOB di Azure. È inoltre possibile fare riferimento al file come segue:
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 oppure
 
@@ -188,7 +188,7 @@ Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Ar
 
 Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni sull'acquisizione di queste informazioni, vedere la sezione "Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" dell'articolo [Informazioni sugli account di archiviazione di Azure][azure-create-storage-account].
 
-1. Eseguire Azure Storage Explorer. Se questa è la prima volta che si esegue Esplora risorse, verrà richiesto il ___\_Nome account di archiviazione__ e la __Chiave account di archiviazione__. Se è stato eseguiti in precedenza, utilizzare il pulsante __Aggiungi__ per aggiungere un nuovo nome e chiave dell’account di archiviazione.
+1. Eseguire Azure Storage Explorer. Se è la prima volta che si esegue Esplora archivi, verrà richiesto il ___nome account di archiviazione_\_ e la __chiave account di archiviazione__. Se questo strumento è stato eseguito in precedenza, usare il pulsante __Aggiungi\_ per aggiungere un nuovo nome e una nuova chiave dell'account di archiviazione.
 
     Immettere il nome e la chiave dell'account di archiviazione utilizzato dal cluster HDinsight e quindi selezionare __Salva e apri__.
 
@@ -282,4 +282,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

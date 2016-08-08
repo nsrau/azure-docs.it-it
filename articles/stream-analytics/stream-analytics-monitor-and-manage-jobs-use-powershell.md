@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@ Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i 
 
 ## Prerequisiti per l'esecuzione dei cmdlet di Azure PowerShell per Analisi dei flussi
 
- - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).  
+ - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Azure PowerShell 0.9.8:
 
@@ -472,4 +472,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

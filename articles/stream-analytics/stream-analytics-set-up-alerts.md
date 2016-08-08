@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@
 
 È possibile configurare avvisi per attivare un avviso quando una metrica raggiunge una condizione specificata dall'utente.
 
-Ad esempio, “se gli eventi di Output per gli ultimi 15 minuti è <100, inviare una notifica tramite posta elettronica all’ID di posta elettronica: xyz@company.com”.
+Ad esempio, "se gli eventi di Output per gli ultimi 15 minuti è <100, inviare una notifica tramite posta elettronica all'ID di posta elettronica: xyz@company.com".
 
 Possono essere configurate regole per le metriche tramite il portale o [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
 
@@ -32,12 +32,12 @@ Possono essere configurate regole per le metriche tramite il portale o [a livell
 
 Esistono due modi per configurare gli avvisi nel portale di gestione di Azure:
 
-1.	Scheda **Monitoraggio** del processo dell’analisi di flusso  
-2.	Il Log delle operazioni in servizi di gestione  
+1.	Scheda **Monitoraggio** del processo dell’analisi di flusso
+2.	Il Log delle operazioni in servizi di gestione
 
 ## Configurare avvisi tramite la scheda Monitoraggio del processo nel portale
 
-1.	Selezionare la metrica nella scheda di monitoraggio, fare clic sul pulsante **Aggiungi regola** nella parte inferiore del dashboard e configurare le regole desiderate.  
+1.	Selezionare la metrica nella scheda di monitoraggio, fare clic sul pulsante **Aggiungi regola** nella parte inferiore del dashboard e configurare le regole desiderate.
 
     ![Dashboard](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
@@ -51,8 +51,8 @@ Esistono due modi per configurare gli avvisi nel portale di gestione di Azure:
 
 ## Configurare avvisi tramite i log delle operazioni
 
-1.	Visitare la scheda **Avvisi** nei servizi di gestione nel [Portale di Azure classico](https://manage.windowsazure.com).  
-2.	Fare clic su **Aggiungi regola**  
+1.	Visitare la scheda **Avvisi** nei servizi di gestione nel [Portale di Azure classico](https://manage.windowsazure.com).
+2.	Fare clic su **Aggiungi regola**
 
     ![Criteri](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
 
@@ -85,4 +85,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

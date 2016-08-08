@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="03/18/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.Forms
@@ -856,4 +856,4 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 [esempio introduttivo sulle notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [esempio completo di notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

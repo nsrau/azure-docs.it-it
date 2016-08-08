@@ -58,11 +58,11 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **-u**: il nome utente e la password usati per autenticare la richiesta.
     * **-G**: indica che si tratta di una richiesta GET.
 
-    L'inizio dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat (noto anche come Templeton) per il server.
+    L'inizio dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat, noto anche come Templeton, per il server.
 
 2. Usare il seguente codice per inviare un processo Pig Latin al cluster:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasb:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasb:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
 
     I parametri usati in questo comando sono i seguenti:
 
@@ -88,7 +88,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="results"></a>Visualizzare risultati
 
-Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
+Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasbs:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcurl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
 È possibile elencare e scaricare questi file usando l'[Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/pigcurl**, usare il comando seguente:
 
@@ -118,4 +118,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

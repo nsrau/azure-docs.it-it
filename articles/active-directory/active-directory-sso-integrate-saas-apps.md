@@ -5,7 +5,7 @@
 	  keywords="Integrare Azure AD con app SaaS"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS  
@@ -72,4 +72,4 @@ La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

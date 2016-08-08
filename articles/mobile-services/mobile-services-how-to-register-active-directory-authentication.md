@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Registrare le app per l'uso delle credenziali di accesso di un account Azure Active Directory
@@ -70,4 +70,4 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

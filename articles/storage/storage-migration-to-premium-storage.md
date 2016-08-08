@@ -3,7 +3,7 @@
     description="Eseguire la migrazione di macchine virtuali esistenti in archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
     editor="tysonn"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/25/2016"
+    ms.author="aungoo-msft"/>
 
 
 # Migrazione ad Archiviazione Premium di Azure
@@ -415,7 +415,7 @@ Se è necessario eseguire la migrazione di più VM, sarà utile l'automazione co
 
     # whether or not to copy the os disk, the default is only copy data disks
     [Parameter(Mandatory = $false)]
-    [String] $DataDiskOnly = $true,
+    [Bool] $DataDiskOnly = $true,
 
     # how frequently to report the copy status in sceconds
     [Parameter(Mandatory = $false)]
@@ -680,4 +680,4 @@ Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviaz
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

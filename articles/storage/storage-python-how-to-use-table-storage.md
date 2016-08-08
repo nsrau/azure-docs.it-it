@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 
 # Come usare l'archiviazione tabelle da Python
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Panoramica
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando il servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in Python e utilizzano [Microsoft Azure Storage SDK per Python]. Gli scenari presentati includono la creazione ed eliminazione di una tabella, oltre all’inserimento di entità ed esecuzione di query sulle entità in una tabella.
+In questa guida viene illustrato come eseguire scenari comuni utilizzando il servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in Python e usano [Microsoft Azure Storage SDK per Python]. Gli scenari presentati includono la creazione ed eliminazione di una tabella, oltre all’inserimento di entità ed esecuzione di query sulle entità in una tabella.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -149,4 +149,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione tabelle
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

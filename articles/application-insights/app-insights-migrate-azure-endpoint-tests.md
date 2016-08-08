@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Migrare dai test degli endpoint di Azure ai test di disponibilità di Application Insights" 
-	description="I test di monitoraggio degli endpoint di Azure sono stati spostati nei test di disponibilità di Application Insights. I test verranno attivati il 4 aprile 2016."
+	description="I test di monitoraggio degli endpoint di Azure verranno spostati nei test di disponibilità di Application Insights. Il passaggio ai nuovi test è previsto durante la settimana del 22 agosto 2016."
 	services="application-insights" 
     documentationCenter=""
 	authors="soubhagyadash" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
  
 # Spostamento dal monitoraggio degli endpoint di Azure ai test di disponibilità di Application Insights
 
-Si usa il [monitoraggio degli endpoint](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) per le app Web di Azure? Il 4 aprile 2016 il monitoraggio degli endpoint è stato sostituito dai nuovi e più efficienti [test di disponibilità](app-insights-monitor-web-app-availability.md). Sebbene rimangano disattivati fino al 4 aprile, i nuovi test sono già stati creati.
+Si usa il [monitoraggio degli endpoint](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) per le app di Azure? Durante la settimana del 22 agosto 2016 il monitoraggio degli endpoint verrà sostituito dai nuovi e più efficienti [test di disponibilità](app-insights-monitor-web-app-availability.md). Anche se rimangono disabilitati fino al 22 agosto 2016, alcuni dei nuovi test sono già stati creati.
 
 Se si desidera, è possibile modificare i nuovi test ed eseguire il passaggio manualmente. I test sono disponibili nel [portale di Azure](https://portal.azure.com) nel gruppo di risorse Default-ApplicationInsights-CentralUS.
 
@@ -28,10 +28,10 @@ I test di disponibilità sono una funzionalità di Azure che verifica in modo co
 
 Nel [portale classico di Azure](https://manage.windowsazure.com) questi test erano chiamati monitoraggio degli endpoint. L'ambito era più limitato. I nuovi test di disponibilità rappresentano un miglioramento significativo:
 
-* Fino a 10 test web di Visual Studio o test di ping per ogni risorsa di Application Insights. 
-* Fino a 16 posizioni in tutto il mondo per inviare richieste di test all'app Web. Maggiore controllo dei criteri di successo dei test. 
+* Fino a 10 test web di Visual Studio o test di ping per ogni risorsa di Application Insights.
+* Fino a 16 posizioni in tutto il mondo per inviare richieste di test all'app Web. Maggiore controllo dei criteri di successo dei test.
 * Test di qualsiasi sito o servizio Web, non solo delle app Web di Azure.
-* Più tentativi di test riducono gli avvisi di falsi positivi causati da problemi di rete temporanei. 
+* Più tentativi di test riducono gli avvisi di falsi positivi causati da problemi di rete temporanei.
 * I webhook possono ricevere notifiche POST HTTP per gli avvisi.
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/16-1test.png)
@@ -44,7 +44,7 @@ I test di disponibilità sono inclusi in [Visual Studio Application Insights](ap
 
 ## Che cosa succede ai miei test degli endpoint?
 
-* I test di monitoraggio degli endpoint sono stati copiati nei test di disponibilità di Application Insights. Poiché i test sono stati copiati il 4 marzo 2016, i test creati successivamente a tale data non sono stati copiati.
+* I test di monitoraggio degli endpoint sono stati copiati nei test di disponibilità di Application Insights.
 * I nuovi test di disponibilità sono attualmente disabilitati, mentre i test degli endpoint precedenti sono ancora in esecuzione.
 * Le regole di avviso *non* sono state trasferite. I nuovi test sono stati impostati inizialmente con una regola predefinita:
  * L'attivazione avviene quando più di una posizione segnala errori in un periodo di tempo di 5 minuti.
@@ -54,29 +54,29 @@ I test trasferiti sono disponibili nel [portale di Azure](https://portal.azure.c
 
 ## Cosa occorre fare?
 
-* Se i test precedenti sono stati creati dopo il 4 marzo 2016 o non ne è stata eseguita la migrazione, i nuovi test di disponibilità sono [semplici da configurare](app-insights-monitor-web-app-availability.md).
+* Se non è stata eseguita la migrazione dei test, i nuovi test di disponibilità sono [semplici da configurare](app-insights-monitor-web-app-availability.md).
 
 ### Opzione A: non eseguire alcuna operazione. La migrazione viene eseguita automaticamente.
 
-**Il 4 aprile** verranno automaticamente eseguite le operazioni seguenti:
+**Durante la settimana del 22 agosto 2016** verranno eseguite le operazioni seguenti:
 
 * Disabilitazione dei test degli endpoint precedenti.
 * Abilitazione dei test di disponibilità migrati.
 
 ### Opzione B: gestire e/o abilitare i nuovi test.
 
-* Rivedere e modificare i nuovi test di disponibilità nel nuovo [portale di Azure](https://portal.azure.com). 
+* Rivedere e modificare i nuovi test di disponibilità nel nuovo [portale di Azure](https://portal.azure.com).
  * Esaminare i criteri di trigger
  * Esaminare i destinatari di posta elettronica
 * Abilitare i nuovi test
-* Eliminare i vecchi test degli endpoint [nel portale classico](https://manage.windowsazure.com). Si consiglia di eseguire questa operazione per evitare avvisi duplicati e ridurre il carico del traffico dei test nel sito Web. In caso contrario, i test verranno eliminati il 4 aprile 2016.
+* Eliminare i vecchi test degli endpoint [nel portale classico](https://manage.windowsazure.com). Si consiglia di eseguire questa operazione per evitare avvisi duplicati e ridurre il carico del traffico dei test nel sito Web. In caso contrario, i test verranno eliminati il 22 agosto 2016.
 
 
 ### Opzione C: non usare i test di disponibilità
 
 Se non si desidera usare i test di disponibilità, è possibile eliminarli nel [portale di Azure](https://portal.azure.com). È inoltre disponibile un collegamento per l'annullamento della sottoscrizione nella parte inferiore dei messaggi di posta elettronica delle notifiche.
 
-I test degli endpoint precedenti verranno in ogni caso eliminati il 4 aprile.
+I test degli endpoint precedenti verranno in ogni caso eliminati il 22 agosto 2016.
 
 ## Come modificare i nuovi test?
 
@@ -116,12 +116,12 @@ Mantenuti dai test degli endpoint precedenti:
 * URL dell'endpoint da sottoporre a test.
 * Posizioni geografiche da cui vengono inviate le richieste.
 * La frequenza dei test rimane di 5 minuti.
-* Il timeout dei test rimane di 30 secondi. 
+* Il timeout dei test rimane di 30 secondi.
 
 Non migrati:
 
 * Regola del trigger di avviso. La regola impostata viene attivata quando una posizione segnala gli errori in un periodo di tempo di 5 minuti.
-* Destinatari degli avvisi. Le notifiche tramite posta elettronica verranno inviate ai proprietari delle sottoscrizioni e ai co-proprietari. 
+* Destinatari degli avvisi. Le notifiche tramite posta elettronica verranno inviate ai proprietari delle sottoscrizioni e ai co-proprietari.
 
 ## Dove è possibile trovare i nuovi test?
 
@@ -137,4 +137,4 @@ Verrà applicata l'opzione A. Verranno abilitati i test migrati e verranno impos
 
 I commenti e suggerimenti degli utenti sono molto apprezzati. Inviarli con [un messaggio di posta elettronica](mailto:vsai@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

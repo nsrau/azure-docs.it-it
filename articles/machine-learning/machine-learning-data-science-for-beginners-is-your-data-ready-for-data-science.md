@@ -22,7 +22,7 @@
 
 ## Video 2: Analisi scientifica dei dati per principianti
 
-È possibile scoprire di più sulla valutazione dei dati per assicurarsi che questo processo soddisfi i criteri di base per l'analisi scientifica dei dati.
+Informazioni sulla valutazione dei dati per assicurarsi che questo processo soddisfi i criteri di base per la preparazione per l'analisi scientifica dei dati.
 
 Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
@@ -71,7 +71,7 @@ Osservando la tabella a destra si apprende invece che è stata misurata la massa
 
 L'ingrediente successivo è rappresentato dai dati connessi.
 
-![Dati connessi vs. dati disconnessi - criteri dei dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Dati connessi vs. dati disconnessi: criteri dei dati, preparazione dei dati](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Ecco alcuni dati rilevanti sulla qualità degli hamburger: temperatura della griglia, peso della carne e classificazione nella rivista sul cibo locale. Si presti però attenzione agli spazi vuoti nella tabella a sinistra.
 
@@ -119,4 +119,4 @@ Gli altri 4 video della serie *Analisi scientifica dei dati per principianti* so
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

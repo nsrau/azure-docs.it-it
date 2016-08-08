@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 #Usare Sqoop con Hadoop in HDInsight (SSH)
@@ -106,9 +106,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 4. Utilizzare il comando seguente per esportare dati dalla tabella **hivesampletable** alla tabella **mobiledata**:
 
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da **wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
+    In questo modo, si indicherà a Sqoop di connettersi al database SQL **sqooptest** e di esportare dati da **wasbs:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) nella tabella **mobiledata**.
 
 5. Al termine dell'esecuzione del comando, usare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -123,15 +123,15 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasbs:///tutorials/usesqoop/importeddata** in HDInsight:
 
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     I dati importati conterranno campi separati da un carattere di tabulazione e le righe verranno terminate da un carattere di nuova riga.
 
 2. Una volta completata l'importazione, usare il comando seguente per elencare i dati della nuova directory:
 
-        hadoop fs -text wasb:///tutorials/usesqoop/importeddata/part-m-00000
+        hadoop fs -text wasbs:///tutorials/usesqoop/importeddata/part-m-00000
 
 ##Uso di SQL Server
 
@@ -147,7 +147,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     Per altre informazioni sulla creazione e la configurazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
-* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
+* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
 
 * Potrebbe essere necessario configurare SQL Server affinché accetti le connessioni remote. Per altre informazioni, vedere l'argomento relativo alla [risoluzione dei problemi di connessione al motore di database di SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
@@ -170,7 +170,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * Quando ci si connette a SQL Server da HDInsight, potrebbe essere necessario usare l'indirizzo IP di SQL Server, a meno che non sia stato configurato un sistema DNS (Domain Name) per risolvere i nomi nella rete virtuale di Azure. ad esempio:
 
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
 ##Limitazioni
 
@@ -206,4 +206,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

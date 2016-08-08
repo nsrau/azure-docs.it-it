@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -87,4 +87,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [definizione delle API del connettore File]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

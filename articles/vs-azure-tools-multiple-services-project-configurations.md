@@ -85,7 +85,7 @@ Un ruolo di lavoro può disporre di qualsiasi numero di endpoint HTTP, HTTPS o T
 
 ## Pagina Archiviazione locale
 
-È possibile usare la pagina delle proprietà **Archiviazione locale** per riservare una o più risorse di archiviazione locali per un ruolo. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale di Azure in cui è eseguita un'istanza di un ruolo. Per altre informazioni sull'utilizzo delle risorse di archiviazione locali, vedere [Configurare le risorse di archiviazione locale](./cloud-services/cloud-services-configure-local-storage-resources.md).
+È possibile usare la pagina delle proprietà **Archiviazione locale** per riservare una o più risorse di archiviazione locali per un ruolo. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale di Azure in cui è eseguita un'istanza di un ruolo.
 
 ## Pagina Certificati
 
@@ -110,4 +110,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 |Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
 |Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

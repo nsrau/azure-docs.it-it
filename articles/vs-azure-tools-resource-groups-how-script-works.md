@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="07/26/2016"
 	ms.author="tomfitz" />
 
 # Panoramica dello script di distribuzione del progetto di gruppo di risorse di Azure
@@ -257,6 +257,8 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 ## Passaggi successivi
 Per altre informazioni su Gestione risorse di Azure, vedere [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md).
 
+Per altri esempi di uso dei progetti di gruppo di risorse di Azure, vedere [Deploy and manage Azure resources](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) (Distribuire e gestire risorse di Azure) dalla [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guide introduttive agli strumenti di sviluppo di Azure).
+
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
 [2]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy3bc.png
@@ -264,4 +266,4 @@ Per altre informazioni su Gestione risorse di Azure, vedere [Panoramica di Gesti
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

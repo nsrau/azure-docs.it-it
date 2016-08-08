@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
 
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse di Microsoft Azure.
-
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
 ## Domande generali
 
@@ -114,7 +112,7 @@ Per modificare i criteri di sicurezza, è necessario essere proprietario o colla
 ## Macchine virtuali
 
 ### Quali tipi di macchine virtuali saranno supportati?
-Il monitoraggio dello stato della sicurezza e indicazioni in merito sono disponibili per le macchine virtuali create usando i [modelli di distribuzione classica e Resource Manager](../azure-classic-rm.md), incluse le macchine virtuali che fanno parte di cluster di Azure Service Fabric.
+Il monitoraggio dello stato della sicurezza e indicazioni in merito sono disponibili per le macchine virtuali create usando i [modelli di distribuzione classica e Resource Manager](../azure-classic-rm.md).
 
 Macchine virtuali di Windows supportate:
 
@@ -126,10 +124,10 @@ Macchine virtuali di Linux supportate:
 
 - Versioni di Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versioni di Debian 7, 8
-- Versioni di CentOS 6.\*, 7.*
-- Versioni di Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-- Versioni di SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+- Versioni di CentOS 6.*, 7.*
+- Versioni di Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versioni di SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
 Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

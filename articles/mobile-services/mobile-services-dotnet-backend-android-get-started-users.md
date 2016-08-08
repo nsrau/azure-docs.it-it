@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Aggiungere l'autenticazione all'app Android per Servizi mobili
@@ -88,4 +88,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

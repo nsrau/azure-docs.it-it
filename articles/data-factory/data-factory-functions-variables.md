@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Funzioni e variabili di sistema
@@ -37,7 +37,7 @@ SliceEnd | Fine dell'intervallo di tempo relativo alla sezione di dati in fase d
 
 1.	Definizione delle query di selezione dei dati (vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
-	La sintassi per richiamare una funzione della data factory è **$$<function>** per le query di selezione dei dati e altre proprietà dell'attività e del set di dati.  
+	La sintassi per chiamare una funzione della data factory è **$$<function>** per le query di selezione dei dati e altre proprietà dell'attività e del set di dati.
 2. Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività (vedere l'esempio precedente).
 
 	La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.
@@ -88,4 +88,4 @@ Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://ms
 > [AZURE.NOTE] Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
   
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

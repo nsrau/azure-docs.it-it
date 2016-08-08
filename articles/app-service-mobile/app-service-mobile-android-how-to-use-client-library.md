@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 
@@ -610,13 +610,13 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 3. Aggiungere all'applicazione il codice riportato di seguito apportando le sostituzioni seguenti:
 
-* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
+* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
 
-* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nel portale nella scheda **Avanzate** in **Impostazioni di Azure Active Directory**.
 
 * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
 
-* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
 		private void authenticate() {
@@ -678,9 +678,9 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 ## Procedura: Aggiungere notifiche push all'app
 
-È possibile [leggere una panoramica](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) che descrive in che modo Hub di notifica di Microsoft Azure supporta un'ampia gamma di notifiche push.
+È disponibile una [panoramica](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) che descrive come Hub di notifica di Microsoft Azure supporti un'ampia gamma di notifiche push.
 
-In [questa esercitazione](app-service-mobile-android-get-started-push.md) viene inviata una notifica push ogni volta che si inserisce un record.
+In [questa esercitazione](app-service-mobile-android-get-started-push.md) viene inviata una notifica push ogni volta che viene inserito un record.
 
 ## Procedura: Aggiungere la sincronizzazione offline all'app
 L'esercitazione introduttiva contiene codice che implementa la sincronizzazione offline. Cercare codice preceduto da commenti come i seguenti:
@@ -837,4 +837,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->
