@@ -127,4 +127,4 @@ Per informazioni sulle altre attività di automazione disponibili, vedere [Esten
 
 Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0720_2016--->
+<!---HONumber=AcomDC_0720_2016----->
