@@ -19,6 +19,7 @@
 
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) se l'app non invia ancora file ad Application Insights.
 
 ## Indice
 
@@ -62,7 +63,7 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore scalare o a una funzione. La clausola è un prefisso di una query e l'ambito del binding è tale query. Let non consente di assegnare un nome agli elementi usati più avanti nella sessione.
@@ -82,7 +83,7 @@ Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore 
 
 **esempi**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -1464,7 +1465,7 @@ Restituisce la somma di *Expr* per il gruppo.
 
 ## Scalari
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
+[cast](#casts) | [confronti](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 I tipi supportati sono:
 
@@ -1683,17 +1684,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a 
-|`>` |Maggiore 
-|`>=`|Maggiore o uguale a 
-|`<>`|Non uguale a 
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 ### abs
@@ -2161,7 +2152,7 @@ Conta le occorrenze di una sottostringa in una stringa. Le corrispondenze di str
 
 * *text:* stringa.
 * *search:* stringa di testo normale o espressione regolare da ricercare in *text*.
-* *kind:* `"normal"|"regex"` valore predefinito `normal`. 
+* *kind:* `"normal"|"regex"` valore predefinito `normal`.
 
 **Restituisce**
 
@@ -2650,7 +2641,7 @@ La funzione `range()`, da non confondere con l'operatore `range`, genera una mat
 
 **Argomenti**
 
-* *start:* valore del primo elemento nella matrice risultante. 
+* *start:* valore del primo elemento nella matrice risultante.
 * *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
 * *step:* differenza tra due elementi consecutivi della matrice.
 
@@ -2721,4 +2712,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

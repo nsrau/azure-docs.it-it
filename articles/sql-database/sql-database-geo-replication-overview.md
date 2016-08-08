@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-   ms.workload="sqldb-bcdr"
-	ms.date="06/14/2016"
+   ms.workload="NA"
+	ms.date="07/14/2016"
 	ms.author="sstein" />
 
 # Panoramica: Replica geografica attiva per il database SQL di Azure
@@ -128,10 +128,9 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 
 ## Passaggi successivi
 
-- Per una panoramica della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+- Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
-- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale del database SQL di Azure](sql-database-business-continuity-scenarios.md).
-- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md).
-- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
+- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

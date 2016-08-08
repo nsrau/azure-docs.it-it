@@ -1,11 +1,22 @@
 <properties pageTitle="Telemetria di Servizi multimediali di Azure con .NET | Microsoft Azure" 
 	description="Questo articolo illustra come usare i dati di telemetria di Servizi multimediali di Azure." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/23/2016"   
+	ms.author="juliako"/>
 
 # Telemetria di Servizi multimediali di Azure con .NET
-
+ 
 ## Panoramica
 
 La telemetria e il monitoraggio di Servizi multimediali consentono ai clienti di accedere ai dati di metrica per i servizi. La versione corrente supporta i dati di telemetria per le entità "Channel" e "StreamingEndpoint". È possibile configurare i dati di telemetria con granularità a livello di componente. Esistono due livelli di dettaglio: "Normal" e "Verbose". La versione corrente supporta solo "Normal".
@@ -37,55 +48,52 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Uso delle informazioni di telemetria
 
-## Log StreamingEndpoint
+I dati di telemetria vengono scritti in una tabella di archiviazione di Azure nell'account di archiviazione specificato durante la configurazione della telemetria per l'account di Servizi multimediali. Il sistema di telemetria creerà una tabella separata per ogni nuovo giorno in base alle 00:00 UTC. Ad esempio, "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Per ogni giorno sarà presente una tabella separata.
 
-###Metriche disponibili
+È possibile eseguire una query sulle tabelle per le informazioni sulle metriche seguenti.
+
+### Log StreamingEndpoint
 
 È possibile eseguire query per le seguenti metriche StreamingEndPoint.
 
-- **PartitionKey** ottiene la chiave di partizione del record.
-- **RowKey** ottiene la chiave di riga del record.
-- **AccountId** ottiene l'ID dell'account di Servizi multimediali.
-- **AccountId** ottiene l'ID dell'endpoint di streaming di Servizi multimediali.
-- **ObservedTime** ottiene l'ora di osservazione della metrica.
-- **HostName** ottiene il nome host dell'endpoint di streaming.
-- **StatusCode** ottiene il codice di stato.
-- **ResultCode** ottiene il codice del risultato.
-- **RequestCount** ottiene il numero di richieste.
-- **BytesSent** ottiene i byte inviati.
-- **ServerLatency** ottiene la latenza del server.
-- **EndToEndLatency** ottiene il tempo di richiesta end-to-end.
-
-###Esempio di risultati della query per l'endpoint di streaming
-
-![Query endpoint di streaming](media/media-services-telemetry/media-services-telemetry01.png)
+Proprietà|Descrizione|Valore di esempio
+---|---|---
+**PartitionKey**|Ottiene la chiave di partizione del record.|60b71b0f6a0e4d869eb0645c16d708e1\_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|Ottiene la chiave di riga del record.|00959\_00000
+**AccountId**|Ottiene l'ID dell'account di Servizi multimediali.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|Ottiene l'ID dell'endpoint di streaming di Servizi multimediali.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|Ottiene l'ora di osservazione della metrica.|1/20/16 23:44:01
+**HostName**|Ottiene il nome host dell'endpoint di streaming.|builddemoserver.Origin.mediaservices.Windows.NET
+**StatusCode**|Ottiene il codice di stato.|200
+**ResultCode**|Ottiene il codice di risultato.|S\_OK
+**RequestCount**|Ottiene il numero di richieste.|3
+**BytesSent**|Ottiene i byte inviati.|2987358
+**ServerLatency**|Ottiene la latenza del server, inclusa la risorsa di archiviazione.|129
+**EndToEndLatency**|Ottiene il tempo di richiesta end-to-end.|250
 
 
-## Heartbeat canale live
-
-###Metriche disponibili
+### Heartbeat canale live
 
 È possibile eseguire query per le seguenti metriche del canale live.
 
-- **PartitionKey** ottiene la chiave di partizione del record.
-- **RowKey** ottiene la chiave di riga del record.
-- **AccountId** ottiene l'ID dell'account di Servizi multimediali.
-- **ChannelId** ottiene l'ID del canale di Servizi multimediali.
-- **ObservedTime** ottiene l'ora di osservazione della metrica.
-- **CustomAttributes** ottiene gli attributi personalizzati.
-- **TrackType** ottiene il tipo di traccia.
-- **TrackName** ottiene il nome della traccia.
-- **Bitrate** ottiene il bitrate.
-- **IncomingBitrate** ottiene il bitrate in ingresso.
-- **OverlapCount** ottiene il conteggio delle sovrapposizioni.
-- **DiscontinuityCount** ottiene il conteggio delle discontinuità.
-- **LastTimestamp** ottiene l'ultimo timestamp.
+Proprietà|Descrizione|Valore di esempio
+---|---|---
+**PartitionKey**|Ottiene la chiave di partizione del record.|60b71b0f6a0e4d869eb0645c16d708e1\_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|Ottiene la chiave di riga del record.|13872\_00005
+**AccountId**|Ottiene l'ID dell'account di Servizi multimediali.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|Ottiene l'ID del canale di Servizi multimediali.|
+**ObservedTime**|Ottiene l'ora di osservazione della metrica.|1/21/2016 20:08:49
+**CustomAttributes**|Ottiene gli attributi personalizzati.|
+**TrackType**|Ottiene il tipo di traccia.|video
+**TrackName**|Ottiene il nome della traccia.|video
+**Bitrate**|Ottiene il bitrate.|785000
+**IncomingBitrate**|Ottiene il bitrate in ingresso.|784548
+**OverlapCount**|Ottiene il conteggio delle sovrapposizioni.|0
+**DiscontinuityCount**|Ottiene il conteggio delle discontinuità.|0
+**LastTimestamp**|Ottiene l'ultimo timestamp.|1800488800
  
-###Esempio di risultati della query per il canale live
-
-![Query endpoint di streaming](media/media-services-telemetry/media-services-telemetry01.png)
-
 ## Esempio di metriche StreamingEndpoint
 		
 	using System;
@@ -125,8 +133,7 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -138,6 +145,10 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {
@@ -235,4 +246,4 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

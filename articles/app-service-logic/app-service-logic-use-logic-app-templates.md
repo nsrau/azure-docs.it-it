@@ -8,7 +8,7 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -46,4 +46,4 @@ Vengono forniti semplici modelli che si integrano con le applicazioni di social 
 Dopo aver selezionato uno dei modelli, completare la distribuzione seguendo la stessa procedura usata per le app per la logica create in modo autonomo. La procedura dettagliata è disponibile nell'articolo [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

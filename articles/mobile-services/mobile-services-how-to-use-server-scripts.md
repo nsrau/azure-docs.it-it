@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="ricksal"/>
 
 
@@ -27,7 +27,7 @@ In un servizio mobile back-end JavaScript è possibile definire la logica di bus
 
 + [Operazioni di inserimento, lettura, aggiornamento o eliminazione su una determinata tabella][Table operations].
 + [Processi pianificati][Job Scheduler].
-+ [Metodi HTTP definiti in un'API personalizzata][Custom API anchor]. 
++ [Metodi HTTP definiti in un'API personalizzata][Custom API anchor].
 
 La firma della funzione principale dello script del server dipende dal contesto di cui viene utilizzato lo script. È inoltre possibile definire codice di script comune come moduli nodes.js condivisi tra gli script. Per altre informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
@@ -64,10 +64,10 @@ Gli script di operazioni su tabelle vengono scritti se è necessario applicare l
 
 Una funzione di script di tabella accetta sempre tre argomenti.
 
-- Il primo argomento varia a seconda dell'operazione di tabella. 
+- Il primo argomento varia a seconda dell'operazione di tabella.
 
 	- Per gli inserimenti e gli aggiornamenti, si tratta di un oggetto **item**, ovvero una rappresentazione JSON della riga interessata dall'operazione. Questo consente di accedere ai valori di colonna per nome, ad esempio *item.Owner*, dove *Owner* è uno dei nomi nella rappresentazione JSON.
-	- Per un'eliminazione, si tratta dell'ID del record da eliminare. 
+	- Per un'eliminazione, si tratta dell'ID del record da eliminare.
 	- Come per una lettura, è un [oggetto query] che specifica il set di righe da restituire.
 
 - Il secondo argomento è sempre un [oggetto user][User object] che rappresenta l'utente che ha inviato la richiesta.
@@ -336,7 +336,7 @@ Lo stato globale viene mantenuto tra le esecuzioni.
 
 Gli script del server registrati nei metodi HTTP in un endpoint API personalizzata possono essere definiti in uno dei modi seguenti:
 
-+ Nel [portale di Azure classico]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint dell'API personalizzata `CompleteAll`. 
++ Nel [portale di Azure classico]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint dell'API personalizzata `CompleteAll`.
 
 	![2][2]
 	
@@ -471,7 +471,7 @@ Questa sezione illustra come usare il controllo del codice sorgente per aggiunge
 + [Procedura: Caricare moduli Node.js]
 + [Procedura: Usare le funzioni di supporto]
 + [Procedura: Condividere il codice usando il controllo del codice sorgente]
-+ [Procedura: Usare le impostazioni app] 
++ [Procedura: Usare le impostazioni app]
 
 ###<a name="leverage-source-control"></a>Panoramica sull'uso di codice condiviso
 
@@ -479,15 +479,15 @@ Dato che Servizi mobili utilizza Node.js sul server, gli script dispongono già 
 
 Di seguito sono riportati solo alcuni dei moduli più utili che possono essere sfruttati negli script mediante la funzione **require** globale:
 
-+ **azure**: espone la funzionalità di Azure SDK per Node.js. Per altre informazioni, vedere [Azure SDK per Node.js]. 
++ **azure**: espone la funzionalità di Azure SDK per Node.js. Per altre informazioni, vedere [Azure SDK per Node.js].
 + **crypto**: fornisce la funzionalità crittografica di OpenSSL. Per altre informazioni, vedere la [documentazione di Node.js][crypto API].
 + **path**: contiene utilità per l'uso dei percorsi di file. Per altre informazioni, vedere la [documentazione di Node.js][path API].
 + **querystring**: contiene utilità per l'uso delle stringhe di query. Per altre informazioni, vedere la [documentazione di Node.js][querystring API].
 + **request**: invia richieste HTTP a servizi REST esterni, ad esempio Twitter e Facebook. Per altre informazioni, vedere [Inviare una richiesta HTTP].
 + **sendgrid**: invia posta elettronica usando il servizio di posta elettronica Sendgrid in Azure. Per altre informazioni, vedere [Invio di posta elettronica da Servizi mobili con SendGrid].
 + **url**: contiene utilità per l'analisi e la risoluzione degli URL. Per altre informazioni, vedere la [documentazione di Node.js][url API].
-+ **util**: contiene varie utilità, ad esempio la formattazione di stringhe e il controllo dei tipi di oggetto. Per altre informazioni, vedere la [documentazione di Node.js][util API]. 
-+ **zlib**: espone la funzionalità di compressione, ad esempio gzip e deflate. Per altre informazioni, vedere la [documentazione di Node.js][zlib API]. 
++ **util**: contiene varie utilità, ad esempio la formattazione di stringhe e il controllo dei tipi di oggetto. Per altre informazioni, vedere la [documentazione di Node.js][util API].
++ **zlib**: espone la funzionalità di compressione, ad esempio gzip e deflate. Per altre informazioni, vedere la [documentazione di Node.js][zlib API].
 
 ###<a name="modules-helper-functions"></a>Procedura: Sfruttare i moduli
 
@@ -796,7 +796,7 @@ Questi metodi offrono un controllo di livello progressivamente più basso sull'e
 + [Procedura: Eseguire una query dinamica]
 + [Procedura: Creare un join tra tabelle relazionali]
 + [Procedura: Eseguire una query che restituisce risultati *non elaborati*]
-+ [Procedura: Ottenere l'accesso a una connessione di database]	
++ [Procedura: Ottenere l'accesso a una connessione di database]
 
 ####<a name="static-query"></a>Procedura: Eseguire una query statica
 
@@ -1050,4 +1050,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

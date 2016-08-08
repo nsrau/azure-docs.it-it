@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
-   ms.author="erihur"/>
+   ms.date="07/21/2016"
+   ms.author="erihur;genli"/>
 
 
 # Comprendere la fattura per Microsoft Azure
@@ -217,7 +217,7 @@ Informazioni servizio 2 | Informazioni servizio 2 | Si tratta di un campo legacy
 
 Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per i dati nei campi di seguito sarà applicata la formattazione standardizzata:
 
-- **ID istanza**: il campo ID istanza rappresenta l’ID specificato dall’utente per il servizio di provisioning. Attualmente, esistono due formati in cui è rappresentata l'ID istanza: il nome della risorsa o l'ID di risorsa completo. Servizi di Microsoft Azure sono in fase di transizione per rappresentare l'ID istanza in un formato standardizzato completo di ID risorsa _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Nel momento in cui i servizi passano al nuovo formato sarà possibile osservare il campo ID istanza che passa dal semplice nome della risorsa a ID risorsa. L'ID risorsa è il formato utilizzato dall’[API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) per identificare le risorse in un una sottoscrizione.
+- **ID istanza**: il campo ID istanza rappresenta l’ID specificato dall’utente per il servizio di provisioning. Attualmente, esistono due formati in cui è rappresentata l'ID istanza: il nome della risorsa o l'ID di risorsa completo. I servizi di Microsoft Azure sono in fase di transizione per rappresentare l'ID istanza in un formato standardizzato completo di ID risorsa _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Nel momento in cui i servizi passano al nuovo formato sarà possibile osservare il campo ID istanza che passa dal semplice nome della risorsa a ID risorsa. L'ID risorsa è il formato utilizzato dall’[API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) per identificare le risorse in un una sottoscrizione.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
@@ -225,7 +225,7 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Ulteriori informazioni sull’[uso dei tag per organizzare le risorse di Azure ](./resource-group-using-tags.md). Di seguito sono indicati i servizi che supportano la creazione di tag:  
+- **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Ulteriori informazioni sull’[uso dei tag per organizzare le risorse di Azure ](./resource-group-using-tags.md). Di seguito sono indicati i servizi che supportano la creazione di tag:
     - Macchine virtuali
     - Archiviazione e
     - Servizi di rete di cui viene eseguito il provisioning mediante l’[API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -253,4 +253,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

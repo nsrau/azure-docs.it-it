@@ -107,7 +107,7 @@ Impostando "external" su "true" e specificando i criteri externalData si comunic
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -115,7 +115,7 @@ Impostando "external" su "true" e specificando i criteri externalData si comunic
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -123,7 +123,7 @@ Impostando "external" su "true" e specificando i criteri externalData si comunic
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ]
@@ -168,7 +168,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -176,7 +176,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -184,7 +184,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -345,7 +345,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -353,7 +353,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -361,7 +361,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "HH"
 	          }
 	        }
 	      ]
@@ -574,4 +574,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

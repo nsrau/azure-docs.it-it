@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Opzioni di calcolo di Azure - Servizi cloud | Microsoft Azure" 
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali" 
+<properties
+	pageTitle="Opzioni di calcolo di Azure - Servizi cloud | Microsoft Azure"
+	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali"
 	services="cloud-services"
     documentationCenter=""
-	authors="Thraka" 
+	authors="Thraka"
 	manager="timlt"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Perché scegliere Servizi cloud
@@ -24,7 +24,7 @@ Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi mo
 <a name="tellmecs"></a>
 ## Informazioni sui servizi cloud
 
-Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
+Servizi cloud è un esempio di [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/). Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
 ![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -35,7 +35,7 @@ La tecnologia offre due opzioni leggermente diverse relative alle macchine virtu
 In un servizio cloud sono disponibili tutte le combinazioni di queste due opzioni leggermente diverse di hosting di macchine virtuali:
 
 * **Ruolo Web**: esegue Windows Server con l'app Web automaticamente distribuita a IIS.
-  
+
 * **Ruolo di lavoro**: esegue Windows Server senza IIS.
 
 Ad esempio, un'applicazione semplice può usare solo un ruolo Web, mentre un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare il carico di lavoro generato da tali richieste a un ruolo di lavoro per l'elaborazione. Per tale comunicazione è possibile che venga usato il [bus di servizio](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../storage/storage-introduction.md).
@@ -55,6 +55,6 @@ Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchi
 L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre implicazioni, ad esempio il fatto che le applicazioni basate su tale tecnologia devono essere scritte in modo da essere eseguite correttamente in caso di errore di istanze dei ruoli Web o di lavoro. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali di Azure, le operazioni di scrittura effettuate nelle VM di Servizi cloud non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud vengano scritti esplicitamente in database SQL, BLOB, tabelle o altre tecnologie di archiviazione esterna. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, obiettivi essenziali di Servizi cloud.
 
 ## Passaggi successivi
-[Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md) [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md) [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md) [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)
+[Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md) [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md) [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md) [Creare un'app del servizio cloud in Python](cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

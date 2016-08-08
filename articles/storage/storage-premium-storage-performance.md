@@ -3,7 +3,7 @@
     description="Progettare applicazioni a prestazioni elevate con l'Archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
 	editor="tysonn" />
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/26/2016"
+    ms.author="aungoo-msft"/>
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -25,11 +25,11 @@ In questo articolo vengono trattati scenari relativi alle prestazioni per il liv
 
 Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimizzazione delle prestazioni dell'applicazione nell'Archiviazione Premium di Azure:
 
--   Come si misurano le prestazioni dell'applicazione?  
--   Perché non si ottengono le prestazioni elevate previste?  
--   Quali fattori influenzano le prestazioni dell'applicazione nell'Archiviazione Premium?  
--   In che modo questi fattori influenzano le prestazioni dell'applicazione nell'Archiviazione Premium?  
--   Come si ottiene l'ottimizzazione per IOPS, larghezza di banda e latenza?  
+-   Come si misurano le prestazioni dell'applicazione?
+-   Perché non si ottengono le prestazioni elevate previste?
+-   Quali fattori influenzano le prestazioni dell'applicazione nell'Archiviazione Premium?
+-   In che modo questi fattori influenzano le prestazioni dell'applicazione nell'Archiviazione Premium?
+-   Come si ottiene l'ottimizzazione per IOPS, larghezza di banda e latenza?
 
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
 
@@ -144,12 +144,12 @@ Alcune applicazioni consentono di modificare le relative dimensioni di I/O, ment
 
 Se si usa un'applicazione che non consente la modifica delle dimensioni di I/O, usare le indicazioni disponibili in questo articolo per ottimizzare l'indicatore KPI relativo alle prestazioni più rilevante per l'applicazione. Ad esempio,
 
--   Un'applicazione OLTP genera milioni di richieste I/O piccole e casuali. Per gestire questo tipo di richieste I/O, è necessario progettare l'infrastruttura dell'applicazione in modo da ottenere valori di IOPS più elevati.  
+-   Un'applicazione OLTP genera milioni di richieste I/O piccole e casuali. Per gestire questo tipo di richieste I/O, è necessario progettare l'infrastruttura dell'applicazione in modo da ottenere valori di IOPS più elevati.
 -   Un'applicazione di tipo data warehouse genera richieste I/O di grandi dimensioni e sequenziali. Per gestire questo tipo di richieste I/O, è necessario progettare l'infrastruttura dell'applicazione in modo da ottenere valori di larghezza di banda e velocità effettiva più elevati.
 
 Se si usa un'applicazione che consente la modifica delle dimensioni di I/O, usare questa regola generica per le dimensioni di I/O, oltre ad altre indicazioni relative alle prestazioni.
 
--   Dimensioni di I/O minori per ottenere valori di IOPS più elevati. Ad esempio, 8 KB per un'applicazione OLTP.  
+-   Dimensioni di I/O minori per ottenere valori di IOPS più elevati. Ad esempio, 8 KB per un'applicazione OLTP.
 -   Dimensioni di I/O maggiori per ottenere valori di larghezza di banda/velocità effettiva più elevati. Ad esempio, 1024 KB per un'applicazione di tipo data warehouse.
 
 Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di banda/velocità effettiva per l'applicazione. Prendere in considerazione un'applicazione che usa un disco P30. Il valore massimo di IOPS e larghezza di banda/velocità effettiva che può essere raggiunto da un disco P30 è pari a 5000 IOPS e 200 MB al secondo, rispettivamente. Se l'applicazione richiede il valore di IOPS massimo dal disco P30 e si usano dimensioni di I/O minori, ad esempio 8 KB, il valore di larghezza di banda risultante che si potrà ottenere è pari a 40 MB al secondo. Se l'applicazione richiede il valore massimo di larghezza di banda/velocità effettiva dal disco P30 e si usano dimensioni di I/O maggiori, ad esempio 1024 KB, il valore di IOPS risultante sarà più basso, ad esempio 200 IOPS. È quindi necessario perfezionare le dimensioni di I/O in modo che soddisfino i requisiti relativi a IOPS e velocità effettiva/larghezza di banda dell'applicazione. La tabella seguente riepiloga le diverse dimensioni di I/O e i valori di IOPS e velocità effettiva corrispondenti per un disco P30.
@@ -250,14 +250,14 @@ Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 *ReadOnly* Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviazione Premium, è possibile ottenere una latenza di lettura bassa e valori molto elevati di IOPS e velocità effettiva di lettura per l'applicazione. Questo è dovuto ai due motivi seguenti:
 
-1.  Le letture eseguite dalla cache, che si trova nella memoria della VM e nell'unità SSD locale, sono più veloci rispetto alle letture dal disco dati, che si trova nell'archivio BLOB di Azure.  
+1.  Le letture eseguite dalla cache, che si trova nella memoria della VM e nell'unità SSD locale, sono più veloci rispetto alle letture dal disco dati, che si trova nell'archivio BLOB di Azure.
 2.  L'Archiviazione Premium non include le operazioni di lettura fornite dalla cache nel calcolo dei valori di IOPS e velocità effettiva del disco. L'applicazione è quindi in grado di ottenere valori totali di IOPS e velocità effettiva più elevati.
 
 *ReadWrite* Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
 
 È ad esempio possibile applicare queste indicazioni a SQL Server in esecuzione sull'Archiviazione Premium seguendo questa procedura:
 
-1.  Configurare la cache "ReadOnly" nei dischi di Archiviazione Premium che ospitano i file dati. a. Le operazioni rapide di lettura dalla cache riducono il tempo necessario per le query di SQL Server, poiché le pagine di dati vengono recuperate in modo molto più veloce dalla cache, rispetto dal recupero diretto dai dischi dati. b. Le fornitura delle letture dalla cache consente di rendere disponibile velocità effettiva aggiuntiva dai dischi dati Premium. SQL Server può usare questa velocità effettiva aggiuntiva per recuperare un numero superiore di pagine di dati e altre operazioni come il backup/ripristino, i carichi in batch e le ricompilazioni degli indici.  
+1.  Configurare la cache "ReadOnly" nei dischi di Archiviazione Premium che ospitano i file dati. a. Le operazioni rapide di lettura dalla cache riducono il tempo necessario per le query di SQL Server, poiché le pagine di dati vengono recuperate in modo molto più veloce dalla cache, rispetto dal recupero diretto dai dischi dati. b. Le fornitura delle letture dalla cache consente di rendere disponibile velocità effettiva aggiuntiva dai dischi dati Premium. SQL Server può usare questa velocità effettiva aggiuntiva per recuperare un numero superiore di pagine di dati e altre operazioni come il backup/ripristino, i carichi in batch e le ricompilazioni degli indici.
 2.  Configurare la cache "None" nei dischi di Archiviazione Premium che ospitano i file di log. a. I file di log hanno principalmente operazioni intensive a livello di lettura. Non ottengono quindi alcun vantaggio dalla cache ReadOnly.
 
 ## Striping del disco  
@@ -428,8 +428,8 @@ directory=/mnt/nocache
 ```
 
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
--   Profondità della coda elevata pari a 256.  
--   Dimensione di blocco ridotta pari a 8 KB.  
+-   Profondità della coda elevata pari a 256.
+-   Dimensione di blocco ridotta pari a 8 KB.
 -   Più thread che eseguono scritture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:
@@ -464,8 +464,8 @@ directory=/mnt/readcache
 
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
 
--   Profondità della coda elevata pari a 256.  
--   Dimensione di blocco ridotta pari a 8 KB.  
+-   Profondità della coda elevata pari a 256.
+-   Dimensione di blocco ridotta pari a 8 KB.
 -   Più thread che eseguono scritture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:
@@ -517,8 +517,8 @@ rate_iops=12500
 
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
 
--   Profondità della coda elevata pari a 128.  
--   Dimensione di blocco ridotta pari a 4 KB.  
+-   Profondità della coda elevata pari a 128.
+-   Dimensione di blocco ridotta pari a 4 KB.
 -   Più thread che eseguono scritture e letture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:
@@ -533,11 +533,11 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 
 Altre informazioni sull'Archiviazione Premium di Azure:
 
-- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)  
+- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
 - [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
-- [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+- [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

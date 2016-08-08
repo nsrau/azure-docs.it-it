@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="kgremban"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="kgremban"/>
 
 
@@ -62,14 +62,26 @@ La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di 
 
 Usare `Get-AzureRmProviderOperation` in PowerShell o `azure provider operations show` nell'interfaccia della riga di comando di Azure per elencare le operazioni dei provider di risorse di Azure. È anche possibile usare questi comandi per verificare la validità di una stringa di operazione e per espandere le stringhe di operazione con caratteri jolly.
 
+```
+Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+
+Get-AzureRMProviderOperation Microsoft.Network/*
+```
+
 ![Screenshot di PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+```
+azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
+
+azure provider operations show "Microsoft.Network/*"
+```
 
 ![Screenshot dell'interfaccia della riga di comando di Azure: azure provider operations show "Microsoft.Compute/virtualMachines/*/action"](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
 ## NotActions
-Usare la proprietà **NotActions** se il set di operazioni che si vuole consentire viene più facilmente definito escludendo le operazioni con restrizioni. L'accesso concesso da un ruolo personalizzato viene calcolato sottraendo le operazioni **NotActions** dalle operazioni **Actions**.
+Usare la proprietà **NotActions** se il set di operazioni che si vuole consentire viene più facilmente definito escludendo le operazioni con restrizioni. L'accesso concesso da un ruolo personalizzato viene calcolato sottraendo le operazioni **NotActions** dalle operazioni **Azioni**.
 
-> [AZURE.NOTE] Se a un utente viene assegnato un ruolo che esclude un'operazione in **NotActions** e viene assegnato un secondo ruolo che concede l'accesso alla stessa operazione, l'utente sarà autorizzato a eseguire l'operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
+> [AZURE.NOTE] Se a un utente viene assegnato un ruolo che esclude un'operazione in **NotActions** e un secondo ruolo che concede l'accesso alla stessa operazione, l'utente potrà eseguire tale operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 
 ## AssignableScopes
 La proprietà **AssignableScopes** del ruolo personalizzato specifica gli ambiti, ovvero sottoscrizioni, gruppi di risorse o risorse, entro i quali il ruolo personalizzato è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo personalizzato per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse.
@@ -92,11 +104,11 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
 - Chi può visualizzare i ruoli personalizzati Tutti i ruoli predefiniti nel Controllo degli accessi in base al ruolo di Azure consentono la visualizzazione dei ruoli disponibili per l'assegnazione. Gli utenti che possono eseguire l'operazione `Microsoft.Authorization/roleDefinition/read` a livello di ambito possono visualizzare i ruoli del Controllo degli accessi in base al ruolo disponibili per l'assegnazione in tale ambito.
 
 ## Vedere anche
-- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione alla funzionalità nel portale di Azure.
+- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 - Informazioni su come gestire l'accesso con:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API REST](role-based-access-control-manage-access-rest.md)
-- [Ruoli predefiniti](role-based-access-built-in-roles.md): ottenere informazioni dettagliate sui ruoli predefiniti del Controllo degli accessi in base al ruolo.
+- [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nuova versione dello schema 2016-04-01-preview | Microsoft Azure" 
+	pageTitle="Nuova versione dello schema 2016-06-01 | Microsoft Azure" 
 	description="Informazioni su come scrivere la definizione JSON per l'ultima versione di App per la logica" 
 	authors="jeffhollan" 
 	manager="dwrede" 
@@ -8,15 +8,15 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
 	
-# Nuova versione dello schema 2016-04-01-preview
+# Nuova versione dello schema 2016-06-01
 
 La nuova versione dello schema e dell'API per App per la logica include una serie di miglioramenti relativi in particolare all'affidabilità e alla semplicità d'uso di App per la logica. Le differenze principali sono tre:
 
@@ -24,7 +24,7 @@ La nuova versione dello schema e dell'API per App per la logica include una seri
 1. Le condizioni e i cicli sono azioni di prima classe
 1. L'ordinamento di esecuzione è più dettagliato tramite la proprietà `runAfter` (che sostituisce `dependsOn`)
 
-Per informazioni sull'aggiornamento delle app per la logica dallo schema di anteprima 2015-08-01-preview allo schema di anteprima 2016-04-01-preview, [consultare la sezione di aggiornamento riportato di seguito.](#upgrading-to-2016-04-01-preview-schema)
+Per informazioni sull'aggiornamento delle app per la logica dallo schema 2015-08-01-preview allo schema 2016-06-01, [vedere la sezione relativa all'aggiornamento riportata di seguito](#upgrading-to-2016-06-01-schema).
 
 
 ## 1\. Ambiti
@@ -94,9 +94,9 @@ La nuova proprietà `runAfter` sostituisce `dependsOn` e consente maggiore preci
 }
 ```
 
-## Aggiornamento allo schema 2016-04-01-preview
+## Aggiornamento allo schema 2016-06-01
 
-L'aggiornamento al nuovo schema 2016-04-01-preview richiede pochi passaggi. Sono disponibili informazioni dettagliate sulle modifiche dello schema [in questo articolo](app-service-logic-schema-2016-04-01.md). Il processo di aggiornamento include l'esecuzione di script di aggiornamento, il salvataggio come nuova app per la logica e potenzialmente la sovrascrittura della app per la logica precedente, se necessario.
+L'aggiornamento al nuovo schema 2016-06-01 richiede pochi passaggi. Sono disponibili informazioni dettagliate sulle modifiche dello schema [in questo articolo](app-service-logic-schema-2016-04-01.md). Il processo di aggiornamento include l'esecuzione di script di aggiornamento, il salvataggio come nuova app per la logica e potenzialmente la sovrascrittura della app per la logica precedente, se necessario.
 
 1. Aprire la app per la logica corrente.
 1. Fare clic sul pulsante **Aggiorna schema** sulla barra degli strumenti
@@ -169,4 +169,4 @@ Le azioni possono ora includere una proprietà aggiuntiva (elemento di pari live
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

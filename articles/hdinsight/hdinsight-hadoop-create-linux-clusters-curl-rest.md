@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="07/27/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
@@ -362,7 +362,7 @@ Per creare un nuovo gruppo di risorse, seguire questa procedura. È necessario c
 
 * Sostituire __SubscriptionID__ con l'ID sottoscrizione ricevuto durante la creazione dell'entità servizio.
 * Sostituire __AccessToken__ con il token di accesso ricevuto nel passaggio precedente.
-* Sostituire __DataCenterLocation__ con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud". 
+* Sostituire __DataCenterLocation__ con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud".
 * Sostituire __ResourceGroupName__ con il nome che si vuole usare per questo gruppo:
 
 ```
@@ -380,7 +380,7 @@ Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corp
 
 Utilizzare le operazioni seguenti per distribuire la configurazione del cluster (valori di modello e di parametri,) nel gruppo di risorse.
 
-* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza.
 * Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
 * Sostituire __DeploymentName__ con il nome che si vuole usare per questa distribuzione.
 
@@ -403,7 +403,7 @@ Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corp
 
 Per verificare lo stato della distribuzione, usare il comando seguente:
 
-* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza.
 * Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
 
 ```
@@ -435,4 +435,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

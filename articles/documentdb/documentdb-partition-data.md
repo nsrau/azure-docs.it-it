@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Partizionamento e scalabilità in Azure DocumentDB
@@ -82,7 +82,7 @@ Quando DocumentDB archivia i documenti, li distribuisce in modo uniforme tra le 
 DocumentDB supporta la creazione di raccolte a partizione singola e raccolte partizionate.
 
 - Le **raccolte partizionate** possono comprendere più partizioni e supportare uno spazio di archiviazione e una velocità effettiva molto elevati. È necessario specificare una chiave di partizione per la raccolta.
-- Le **raccolte a partizione singola** hanno opzioni di prezzo inferiori e la capacità di eseguire query e transazioni su tutti i dati della raccolta. Hanno i limiti di scalabilità e archiviazione di una partizione singola. Non è necessario specificare una chiave di partizione per queste raccolte. 
+- Le **raccolte a partizione singola** hanno opzioni di prezzo inferiori e la capacità di eseguire query e transazioni su tutti i dati della raccolta. Hanno i limiti di scalabilità e archiviazione di una partizione singola. Non è necessario specificare una chiave di partizione per queste raccolte.
 
 ![Raccolte partizionate in DocumentDB][2]
 
@@ -248,6 +248,24 @@ La query seguente non dispone di un filtro per la chiave di partizione (DeviceId
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
+### Esecuzione di query in parallelo
+
+Gli SDK di DocumentDB 1.9.0 e versioni successive supportano le opzioni di esecuzione di query in parallelo, che consentono di eseguire query a bassa latenza sulle raccolte partizionate, anche quando è necessario toccare un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
+
+    // Cross-partition Order By Queries
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+        .OrderBy(m => m.MetricValue);
+
+È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
+
+- Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ovvero il numero massimo di connessioni di rete simultanee alle partizioni della raccolta. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK.
+- Impostando `MaxBufferedItemCount`, è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+
+Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), l'SDK di DocumentDB esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
+
 ### Esecuzione di stored procedure
 
 È anche possibile eseguire transazioni atomiche rispetto a documenti con lo stesso ID dispositivo, ad esempio se si gestiscono aggregazioni o lo stato più recente di un dispositivo in un unico documento.
@@ -296,8 +314,8 @@ Si noti che in alcuni casi d'uso (come l'IoT e i profili utente descritti in pre
 ### Partizionamento e registrazione di dati di serie temporali
 Uno dei casi di utilizzo più comuni di DocumentDB è la registrazione e la telemetria. È importante scegliere una chiave di partizione efficace perché potrebbe essere necessario scrivere/leggere grandi volumi di dati. La scelta dipende dalla frequenza di lettura e scrittura e dai tipi di query che si prevede di eseguire. Di seguito sono riportati alcuni suggerimenti su come scegliere una chiave di partizione efficace.
 
-- Se il caso di utilizzo prevede una frequenza ridotta di scritture eseguite in un lungo intervallo di tempo e la necessità di eseguire query in base agli intervalli di timestamp e ad altri filtri, si consiglia l'uso di un rollup del timestamp, ad esempio l'uso della data come chiave di partizione. Ciò consente di eseguire query su tutti i dati per una data da una singola partizione. 
-- Se il carico di lavoro prevede molte scritture, che in generale sono più comuni, è opportuno usare una chiave di partizione non basata su timestamp in modo che DocumentDB possa distribuire in modo uniforme le scritture in più partizioni. In questo caso, un nome host, un ID processo, un ID attività o un'altra proprietà con una cardinalità elevata è una scelta efficace. 
+- Se il caso di utilizzo prevede una frequenza ridotta di scritture eseguite in un lungo intervallo di tempo e la necessità di eseguire query in base agli intervalli di timestamp e ad altri filtri, si consiglia l'uso di un rollup del timestamp, ad esempio l'uso della data come chiave di partizione. Ciò consente di eseguire query su tutti i dati per una data da una singola partizione.
+- Se il carico di lavoro prevede molte scritture, che in generale sono più comuni, è opportuno usare una chiave di partizione non basata su timestamp in modo che DocumentDB possa distribuire in modo uniforme le scritture in più partizioni. In questo caso, un nome host, un ID processo, un ID attività o un'altra proprietà con una cardinalità elevata è una scelta efficace.
 - Il terzo è un approccio ibrido in cui si hanno più raccolte, una per ogni giorno/mese e la chiave di partizione è una proprietà granulare, ad esempio un nome host. Il vantaggio di questo approccio riguarda la possibilità di impostare diversi livelli di prestazioni in base alla finestra temporale, ad esempio il provisioning della raccolta per il mese corrente viene eseguita con una velocità effettiva maggiore perché viene usata per letture e scritture, mentre i per i mesi precedenti è possibile ridurre la velocità effettiva perché vengono usati solo per le letture.
 
 ### Partizionamento e multi-tenancy
@@ -312,8 +330,8 @@ Se si implementa un'applicazione multi-tenant usando DocumentDB, sono disponibil
 Questo articolo descrive il funzionamento del partizionamento in Azure DocumentDB, come creare raccolte partizionate e come scegliere una chiave di partizione efficace per l'applicazione.
 
 -   Eseguire il test delle prestazioni e della scalabilità con DocumentDB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
--   Iniziare a programmare con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
--   Informazioni sulla [velocità effettiva con provisioning in DocumentDB](documentdb-performance-levels.md).
+-   Iniziare a programmare con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   Informazioni sulla [velocità effettiva con provisioning in DocumentDB](documentdb-performance-levels.md)
 -   Se si desidera personalizzare il modo in cui l'applicazione esegue il partizionamento, è possibile collegare l'implementazione del partizionamento sul lato client. Vedere il [supporto per il partizionamento lato client](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
@@ -322,4 +340,4 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

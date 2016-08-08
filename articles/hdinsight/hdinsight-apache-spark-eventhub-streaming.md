@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
-# Streaming di Spark: elaborare eventi da Hub eventi di Azure con cluster Apache Spark in HDInsight Linux
+# Spark streaming: elaborare eventi da Hub eventi di Azure con cluster Apache Spark in HDInsight Linux
 
 Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazione scalabili, a velocità effettiva elevata e tolleranza d'errore del flusso principale. I dati possono essere acquisiti da molte origini. In questo articolo si userà Hub eventi di Azure per l'inserimento di dati. Hub eventi è un sistema altamente scalabile dell'inserimento tale che può assumere milioni di eventi al secondo.
 
@@ -145,7 +145,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazi
 
 	* **File JAR del driver JDBC**. È necessario per scrivere i messaggi ricevuti dall'Hub eventi in un database SQL di Azure. È possibile scaricare la versione 4.1 o successiva di questo file JAR [qui](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Aggiungere riferimenti a questo file con estensione jar nella libreria del progetto. Eseguire la procedura seguente:
 
-		1. Nella finestra di IntelliJ IDEA in cui è aperta l'applicazione fare clic su **File**, su **Project Structure** e quindi su **Libraries**. 
+		1. Nella finestra di IntelliJ IDEA in cui è aperta l'applicazione fare clic su **File**, su **Project Structure** e quindi su **Libraries**.
 		
 		2. Fare clic sull'icona di aggiunta (![icona per l'aggiunta](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), fare clic su **Java** e quindi passare al percorso in cui è stato scaricato il file con estensione jar del driver JDBC. Seguire le istruzioni per aggiungere il file con estensione jar alla libreria del progetto.
 
@@ -208,7 +208,7 @@ Aprire un prompt dei comandi, passare alla directory in cui è installato CURL e
 
 I parametri nel file **inputBlob.txt** sono definiti come segue:
 
-	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsEventCount", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsEventCount", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
 Ecco una descrizione dei parametri nel file di input:
 
@@ -247,7 +247,7 @@ Aprire un prompt dei comandi, passare alla directory in cui è installato CURL e
 
 I parametri nel file **inputJSON.txt** sono definiti come segue:
 
-	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureBlobAsJSON", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-store-folder", "/EventStore10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureBlobAsJSON", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-store-folder", "/EventStore10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
 I parametri sono simili a quanto specificato per l'output di testo nel passaggio precedente. Anche in questo caso non è necessario creare le cartelle di output (EventCheckpoint, EventCount/EventCount10) usate come parametri, perché vengono create automaticamente dall'applicazione di streaming.
 
@@ -274,7 +274,7 @@ Dopo avere copiato i file nell'account di archiviazione di Azure, aprire un prom
 
 I parametri nel file **inputHive.txt** sono definiti come segue:
 
-	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToHiveTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-hive-table", "EventHiveTable10" ], "jars":["wasb:///example/jars/datanucleus-api-jdo-3.2.6.jar", "wasb:///example/jars/datanucleus-rdbms-3.2.9.jar", "wasb:///example/jars/datanucleus-core-3.2.10.jar"], "files":["wasb:///example/jars/hive-site.xml"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToHiveTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-hive-table", "EventHiveTable10" ], "jars":["wasbs:///example/jars/datanucleus-api-jdo-3.2.6.jar", "wasbs:///example/jars/datanucleus-rdbms-3.2.9.jar", "wasbs:///example/jars/datanucleus-core-3.2.10.jar"], "files":["wasbs:///example/jars/hive-site.xml"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
 I parametri sono simili a quanto specificato per l'output di testo nei passaggi precedenti. Anche in questo caso non è necessario creare la tabella Hive di output (EventHiveTable10) o le cartelle di output (EventCheckpoint, EventCount/EventCount10) usate come parametri, perché vengono create automaticamente dall'applicazione di streaming. Si noti che le opzioni **jars** e **files** includono i percorsi per i file JAR e il file hive-site.xml copiato nell'account di archiviazione.
 
@@ -317,7 +317,7 @@ Aprire un prompt dei comandi, passare alla directory in cui è installato CURL e
 
 I parametri nel file **inputSQL.txt** sono definiti come segue:
 
-	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
 Per verificare che l'applicazione venga eseguita correttamente, è possibile connettersi al database SQL di Azure con SQL Server Management Studio. Per istruzioni su come eseguire questa operazione, vedere [Connettersi al database SQL con SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md). Una volta connessi al database, è possibile passare alla tabella il **EventContent** creata dall'applicazione di streaming. È possibile eseguire una query rapida per ottenere i dati dalla tabella. Eseguire questa query:
 
@@ -391,4 +391,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

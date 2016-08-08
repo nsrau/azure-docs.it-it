@@ -116,15 +116,6 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
 
 ## Passaggi successivi
 
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
+- Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
-
-
-
-## Risorse aggiuntive
-
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

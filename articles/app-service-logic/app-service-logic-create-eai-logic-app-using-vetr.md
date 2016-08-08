@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -76,7 +76,7 @@ In maniera analoga, si aggiungeranno le restanti azioni.
 
 1. Aggiungere **Servizio BizTalk Transform** dalla raccolta.
 2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come azione da eseguire quando si chiama questa API. Selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. *Map* è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
-3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, selezionare l'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:  
+3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, selezionare l'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:
 
 ![Trasformazioni di BizTalk][4]
 
@@ -86,7 +86,7 @@ A questo punto, è possibile aggiungere la destinazione in cui scrivere i dati, 
 
 1. Aggiungere un **Service Bus Connector** dalla raccolta. Impostare **Nome** su _Servicebus1_, impostare **Stringa di connessione** sulla stringa di connessione all'istanza del bus di servizio, impostare **Nome entità** su _Coda_ e ignorare **Nome sottoscrizione**.
 2. Selezionare l'azione **Invia messaggio** e impostare il campo **Messaggio** per l'azione su _actions('transformservice').outputs.OutputXml_.
-3. Impostare il campo **Tipo contenuto** su *application/xml*:  
+3. Impostare il campo **Tipo contenuto** su *application/xml*:
 
 ![Bus di servizio][5]
 
@@ -118,4 +118,4 @@ Alcuni argomenti utili:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

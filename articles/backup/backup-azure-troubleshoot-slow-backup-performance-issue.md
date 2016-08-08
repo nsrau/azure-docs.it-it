@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="markgal"
+   manager="jimpark"
    editor=""/>
 
 <tags
@@ -31,6 +31,8 @@ Prima di iniziare a risolvere il problema, è consigliabile scaricare e installa
 
 È anche consigliabile vedere l'articolo [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md) per assicurarsi che non si tratti di problemi di configurazione comuni.
 
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 ## Passaggi per la risoluzione dei problemi
 <a id="cause1"></a>
 ## Causa 1: Backup lento a causa di colli di bottiglia delle prestazioni nel computer in cui viene eseguito il backup
@@ -39,7 +41,7 @@ Prima di iniziare a risolvere il problema, è consigliabile scaricare e installa
 
 Nel computer di cui viene eseguito il backup possono verificarsi colli di bottiglia che causano ritardi. Ad esempio, capacità del computer di leggere o scrivere su disco, larghezze di banda per inviare dati in rete e così via.
 
-Windows include uno strumento predefinito chiamato [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) per rilevare questi colli di bottiglia. Nella tabella seguente sono riepilogati i contatori delle prestazioni e gli intervalli per ottenere backup ottimali.
+Windows include uno strumento predefinito denominato [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) per rilevare questi colli di bottiglia. Nella tabella seguente sono riepilogati i contatori delle prestazioni e gli intervalli per ottenere backup ottimali.
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia.
 
@@ -48,10 +50,10 @@ Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili pe
 |Disco logico (disco fisico) - % inattività | • Da 100% inattivo a 50% inattivo = integro</br>• Da 49% inattivo a 20% inattivo = avviso o monitoraggio</br>• Da 19% inattivo a 0% inattivo = critico o fuori specifica|
 | Disco logico (disco fisico) - % Media letture o scritture disco/sec | • Da 0,001 ms a 0,015 ms = integro</br>• Da 0,015 ms a 0,025 = avviso o monitoraggio</br>• Da 0,026 ms o più = critico o fuori specifica|
 | Disco logico (disco fisico) - Lunghezza corrente coda del disco (per tutte le istanze) | 80 richieste per più di 6 minuti |
-| Memoria - Byte del pool non di paging|• Meno del 60% del pool utilizzato = integro<br>• Da 61% a 80% del pool utilizzato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica|
-| Memoria - Byte del pool di paging |• Meno del 60% del pool utilizzato = integro</br>• Da 61% a 80% del pool utilizzato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica|
+| Memoria - Byte del pool non di paging|• Meno del 60% del pool utilizzato = integro<br>• Dal 61% all'80% del pool utilizzato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica|
+| Memoria - Byte del pool di paging |• Meno del 60% del pool utilizzato = integro</br>• Dal 61% all'80% del pool utilizzato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica|
 | Memoria - MByte disponibili| • 50% o più di memoria libera disponibile = integro</br>• 25% di memoria libera disponibile = monitoraggio</br>• 10% di memoria libera disponibile = avviso</br>• Meno di 100 MB o del 5% di memoria libera disponibile = critico o fuori specifica|
-|Processore - \\% Tempo processore (tutte le istanze)|• Meno del 60% utilizzato = integro</br>• Da 61% a 90% utilizzato = monitoraggio o attenzione</br>• Da 91% a 100% utilizzato = critico|
+|Processore - \\% Tempo processore (tutte le istanze)|• Meno del 60% utilizzato = integro</br>• Dal 61% al 90% utilizzato = monitoraggio o attenzione</br>• Dal 91% al 100% utilizzato = critico|
 
 
 > [AZURE.NOTE] Se l'infrastruttura viene isolata come possibile causa del problema, è consigliabile deframmentare i dischi protetti a intervalli regolari per ottenere prestazioni migliori.
@@ -93,4 +95,4 @@ a. **L'interfaccia utente visualizza lo stato di avanzamento per la quantità di
 
 b. **L'interfaccia utente non visualizza lo stato di avanzamento**: in questo caso, aprire i log disponibili in "C:\\Microsoft Azure Recovery Services Agent\\Temp" e quindi cercare la voce "FileProvider::EndData" nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup, ma attendere ancora qualche istante che il catalogo venga completato. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

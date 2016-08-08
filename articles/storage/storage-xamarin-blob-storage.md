@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/26/2016"
 	ms.author="micurd"/>
 
 # Come usare l'archivio BLOB da Xamarin (anteprima)
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Panoramica
 
@@ -49,7 +49,7 @@ L'URI della firma di accesso condiviso per il nuovo contenitore deve essere simi
 
 La firma di accesso condiviso creata per il contenitore rimarrà valida per il giorno successivo. La firma concede autorizzazioni complete (*vale a dire* di lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Creare una nuova applicazione Xamarin
 
@@ -179,4 +179,4 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 - [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

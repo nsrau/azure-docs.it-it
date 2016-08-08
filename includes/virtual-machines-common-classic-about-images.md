@@ -12,31 +12,4 @@ Le immagini vengono utilizzate in Azure per fornire una nuova macchina virtuale 
 
 È possibile creare immagini personalizzate, in base a una macchina virtuale in Azure o una macchina virtuale in esecuzione in un' posizione che copiata e caricata. Se si desidera utilizzare un'immagine per creare più di una macchina virtuale, sarà necessario prepararla per l'utilizzo come immagine generalizzandola. Per creare un'immagine di Windows Server, eseguire il comando Sysprep nel server per generalizzarla prima di caricare il file con estensione vhd. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://go.microsoft.com/fwlink/p/?LinkId=392030). Per creare un'immagine Linux, a seconda della distribuzione software, è necessario eseguire un set di comandi che sono specifici per la distribuzione, nonché di eseguire l'agente Linux di Azure.
 
-## Utilizzo di immagini
-
-È possibile utilizzare l'interfaccia della riga di comando di Azure (CLI) per modulo Mac, Linux e Windows o Azure PowerShell per gestire le immagini disponibili per la sottoscrizione di Azure. È inoltre possibile utilizzare il portale di Azure classico per alcune attività di immagine, ma la riga di comando offre ulteriori opzioni.
-
-Per informazioni sull'utilizzo di questi strumenti con le distribuzioni di gestione delle risorse, vedere [Immagini Navigating e selezione di macchina virtuale di Azure con PowerShell e Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).
-
-Per esempi dell'utilizzo di strumenti in una distribuzione classica:
-
-- Per CLI, vedere "Comandi per gestire le immagini di macchina virtuale di Azure" in [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../articles/virtual-machines-command-line-tools.md)
-- Per Azure PowerShell, vedere il seguente elenco di comandi. Per un esempio di ricerca di un'immagine per creare una macchina virtuale, vedere "Passaggio 3: determinare la family" in [utilizzare Azure PowerShell per creare e preconfigurare le macchine virtuali basate su Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
-
--	**Ottenere tutte le immagini**:`Get-AzureVMImage`restituisce un elenco di tutte le immagini disponibili nella sottoscrizione corrente: le immagini, nonché quelli forniti da Azure o partner. Ciò significa che è possibile ottenere un elenco di grandi dimensioni. Negli esempi successivi viene illustrato come ottenere un elenco più breve.
--	**Recupero delle famiglie di immagine**:`Get-AzureVMImage | select ImageFamily` Ottiene un elenco delle famiglie di immagine mostrando stringhe **family** proprietà.
--	**Ottenere tutte le immagini in un gruppo specifico**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
--	**Trovare immagini VM**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` funziona filtrando la proprietà DataDiskConfiguration, che si applica solo alle immagini di macchina virtuale. In questo esempio viene inoltre Filtra l'output solo il nome di etichetta e l'immagine.
--	**Salvare un'immagine generalizzata**: `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
--	**Salvare un'immagine specializzata**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
->[Azure.Tip] Il parametro OSState è obbligatorio se si desidera creare un'immagine di macchina virtuale, che include dischi dati, nonché il disco del sistema operativo. Se non si utilizza il parametro, il cmdlet crea un'immagine del sistema operativo. Il valore del parametro indica se l'immagine è generalizzata o specializzata, basati su se il disco del sistema operativo è stato preparato per il riutilizzo.
--	**Eliminare un'immagine**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
-
-
-## Risorse aggiuntive
-
-[Diversi modi per creare una macchina virtuale Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
-
-[Diversi modi per creare una macchina virtuale Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

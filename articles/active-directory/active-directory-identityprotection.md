@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -33,9 +33,10 @@ L'anteprima di Azure Active Directory Identity Protection è attualmente disponi
 
 L'anteprima di Azure Active Directory Identity Protection presenta le limitazioni seguenti in combinazione con i domini federati:
 
-- I criteri di protezione non funzionano per i domini federati
+- Per i domini federati sono consentiti solo criteri di sicurezza relativi al rischio di accesso. I criteri di sicurezza relativi al rischio utente non sono attualmente consentiti per i domini federati
 
 - Gli eventi di rischio vengono rilevati solo per le app federate con Azure Active Directory
+
 
 ##Introduzione
 
@@ -51,7 +52,7 @@ Ma Azure Active Directory Identity Protection è più di un semplice strumento d
 
 **Rilevamento di eventi di rischio e account rischiosi:**
 
-- Rilevamento di sei tipi di eventi di rischio tramite regole euristiche e Machine Learning. 
+- Rilevamento di sei tipi di eventi di rischio tramite regole euristiche e Machine Learning.
 
 - Calcolo dei livelli di rischio utente.
 
@@ -153,8 +154,8 @@ Lo stato di un evento di rischio può essere **attivo** o **chiuso**. Solo gli e
 Il livello di rischio utente viene calcolato usando le informazioni seguenti:
 
 - Eventi di rischio attivi che interessano l'utente.
-- Livello di rischio di tali eventi. 
-- Eventuali azioni di correzione intraprese o meno. 
+- Livello di rischio di tali eventi.
+- Eventuali azioni di correzione intraprese o meno.
 
 <br> ![Rischi utente](./media/active-directory-identityprotection/86.png "Rischi utente") <br>
 
@@ -194,7 +195,7 @@ Una correzione è un'azione che consente di proteggere un'identità o un disposi
 
 Per correggere gli eventi di rischio utente, è possibile:
 
-- Eseguire una reimpostazione della password di protezione per correggere manualmente gli eventi di rischio utente 
+- Eseguire una reimpostazione della password di protezione per correggere manualmente gli eventi di rischio utente
 
 - Configurare criteri di sicurezza per il rischio utente per mitigare o correggere automaticamente gli eventi di rischio utente
 
@@ -258,7 +259,7 @@ L'impostazione predefinita consigliata per la maggior parte delle organizzazioni
 
 Per una panoramica dell'esperienza utente correlata, vedere:
 
-- [Flusso di ripristino di account compromessi](active-directory-identityprotection-flows.md#compromised-account-recovery).  
+- [Flusso di ripristino di account compromessi](active-directory-identityprotection-flows.md#compromised-account-recovery).
 
 - [Flusso di account compromessi bloccati](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
@@ -337,11 +338,11 @@ I criteri di rischio di accesso:
 La pagina **Eventi di rischio** nella console di Identity Protection contiene un elenco di tutti gli eventi:
 
 - Visualizzare a quali eventi sono stati applicati i criteri
-- Esaminare l'attività e determinare se l'azione è stata appropriata o meno 
+- Esaminare l'attività e determinare se l'azione è stata appropriata o meno
 
 Per una panoramica dell'esperienza utente correlata, vedere:
 
-- [Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
+- [Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 - [Accesso rischioso bloccato](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
@@ -383,7 +384,7 @@ Azure AD Identity Protection permette di gestire il rollout della registrazione 
 
 Per una panoramica dell'esperienza utente correlata, vedere:
 
-- [Flusso di registrazione per l'autenticazione a più fattori](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+- [Flusso di registrazione per l'autenticazione a più fattori](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).
 
 - [Registrazione per l'autenticazione a più fattori durante un accesso rischioso](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
 
@@ -411,4 +412,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
  - [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

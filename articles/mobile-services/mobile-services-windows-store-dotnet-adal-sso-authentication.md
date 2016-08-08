@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
@@ -214,4 +214,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

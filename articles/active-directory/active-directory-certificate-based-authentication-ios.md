@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/15/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 
 - Accesso alle autorità di certificazione per l'emissione dei certificati client.
 
-- Le autorità di certificazione devono essere configurate in Azure Active Directory. La procedura dettagliata su come completare la configurazione è riportata nella sezione introduttiva.
+- Le autorità di certificazione devono essere configurate in Azure Active Directory. La procedura dettagliata su come completare la configurazione è riportata nella sezione [introduttiva](#getting-started).
 
 - L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
 
@@ -61,9 +61,11 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 
 | App | Supporto |
 | ---                       | ---          |
-| OneDrive | Sì |
+| Word / Excel / PowerPoint | ![Controllo][1] |
+| OneNote | ![Controllo][1] |
+| OneDrive | ![Controllo][1] |
 | Outlook | Presto disponibile |
-| Word / Excel / PowerPoint | Sì |
+| Yammer | ![Controllo][1] |
 | Skype for Business Online | Presto disponibile |
 
 
@@ -71,7 +73,7 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 
 La versione del sistema operativo del dispositivo deve essere iOS 9 o successiva
 
-Per eseguire l'autenticazione basata su certificati con le applicazioni Office per dispositivi mobili è necessario configurare un server federativo.
+È necessario configurare un server federativo.
 
 Per le applicazioni Office in iOS è richiesto Azure Authenticator.
 
@@ -89,7 +91,7 @@ Come procedura consigliata, è necessario aggiornare le pagine di errore di ADFS
 
 - Istruzioni su come ottenere un certificato utente.
 
-Per altre informazioni, vedere l'articolo sulla [personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
 
 
@@ -143,9 +145,9 @@ Per caricare le informazioni, è possibile usare il modulo Azure AD tramite Wind
 
 1. Avviare Windows PowerShell con privilegi amministrativi.
 
-2. Installare il modulo Azure AD. È necessario installare la versione [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o una versione successiva.
+2. Installare il modulo Azure AD. È necessario installare la versione [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o versione successiva.
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Connettersi al tenant di destinazione:
 
@@ -245,11 +247,11 @@ Per testare l'autenticazione basata su certificati con l'applicazione di posta e
 
 ## Revoca
 
-Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà **Effective Date** (Data di validità) nel CRL viene usata per assicurare la validità del CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
+Per revocare un certificato client, Azure Active Directory recupera l'elenco di revoche di certificati (Certificate Revocation List o CRL) dagli URL caricati come parte delle informazioni sull'autorità di certificazione e li memorizza nella cache. L'ultimo timestamp di pubblicazione, ovvero la proprietà **Effective Date** (Data di validità), in CRL viene usato per assicurare la validità di CRL. Il CRL viene referenziato periodicamente per revocare l'accesso ai certificati che fanno parte dell'elenco.
 
-Se è necessaria una revoca più immediata (ad esempio in caso di smarrimento del dispositivo da parte di un utente), il token di autorizzazione dell'utente può essere annullato. Per annullare il token di autorizzazione, impostare il campo **StsRefreshTokenValidFrom** per questo particolare utente mediante Windows PowerShell. È necessario aggiornare il campo **StsRefreshTokenValidFrom** per ogni utente a cui revocare l'accesso.
+Se è necessaria una revoca più immediata (ad esempio in caso di smarrimento del dispositivo da parte di un utente), il token di autorizzazione dell'utente può essere annullato. Per annullare il token di autorizzazione, impostare il campo **StsRefreshTokenValidFrom** per questo particolare utente usando Windows PowerShell. È necessario aggiornare il campo **StsRefreshTokenValidFrom** per ogni utente a cui revocare l'accesso.
  
-Per garantire che la revoca persista, è necessario impostare la proprietà **Effective Date** (Data di validità) dell'elenco CRL a una data successiva al valore impostato da **StsRefreshTokenValidFrom** e assicurarsi che il certificato in questione sia nel CRL.
+Per fare in modo che la revoca persista, è necessario impostare la proprietà **Effective Date** (Data di validità) di CRL su una data successiva al valore impostato da **StsRefreshTokenValidFrom** e assicurarsi che il certificato in questione sia in CRL.
  
 I passaggi seguenti illustrano il processo per aggiornare e annullare il token di autorizzazione impostando il campo **StsRefreshTokenValidFrom**.
 
@@ -269,6 +271,11 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
 		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 
-La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente (non sulla data indicata dal comando Set-MsolUser).
+La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente, non sulla data indicata dal comando Set-MsolUser.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
+
+<!---HONumber=AcomDC_0727_2016-->

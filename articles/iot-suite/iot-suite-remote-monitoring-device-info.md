@@ -260,9 +260,13 @@ Il codice seguente illustra il messaggio **DeviceInfo** JSON inviato dal disposi
 
 ## Passaggi successivi
 
-Per altre informazioni sull'invio di messaggi informativi sul dispositivo dal dispositivo personalizzato, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto (Windows)][lnk-connect-custom].
+Dopo aver illustrato come personalizzare le soluzioni preconfigurate, è possibile esplorare alcune altre funzionalità e soluzioni preconfigurate di Suite IoT:
 
-Per altre informazioni su come personalizzare le soluzioni preconfigurate, vedere [Personalizzare una soluzione preconfigurata][lnk-customize].
+- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
+- [Domande frequenti su IoT Suite][lnk-faq]
+- [Sicurezza della soluzione IoT sin dall'inizio][lnk-security-groundup]
+
+
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -273,10 +277,12 @@ Per altre informazioni su come personalizzare le soluzioni preconfigurate, veder
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-connect-custom]: iot-suite-connecting-devices.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
-<!---HONumber=AcomDC_0720_2016-->
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->

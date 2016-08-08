@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -221,4 +221,4 @@ I log di Gateway di gestione dati e PowerBIGateway sono reperibili in **Registri
 - [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 - [Connettori di App per la logica](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

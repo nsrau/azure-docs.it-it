@@ -182,13 +182,13 @@ Nello **scenario di copia cloud** in cui gli archivi dati di origine e sink sono
 
 ![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-Invece, nello **scenario di copia ibrido ** in cui l'origine è locale e il sink è nel cloud, lo spostamento dei dati dall'archivio dati di origine all'archivio dati di staging viene eseguito da **Gateway di gestione dati** e lo spostamento dei dati dall'archivio dati di staging all'archivio dati sink viene eseguito dal **servizio Data Factory di Azure**.
+Invece, nello **scenario di copia ibrido ** in cui l'origine è locale e il sink è nel cloud, lo spostamento dei dati dall'archivio dati di origine all'archivio dati di staging viene eseguito da **Gateway di gestione dati** e lo spostamento dei dati dall'archivio dati di staging all'archivio dati sink viene eseguito dal **servizio Data Factory di Azure**. La copia di dati da un archivio dati cloud in un archivio dati locale tramite la gestione temporanea è supportata con flusso invertito.
 
 ![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Quando si abilita lo spostamento dei dati usando l'archivio di staging, è possibile specificare se i dati devono essere compressi prima dello spostamento dall'archivio dati di origine all'archivio dati di staging/provvisorio e decompressi prima dello spostamento dall'archivio dati di staging/provvisorio all'archivio dati sink.
 
-La copia del dati da un archivio dati cloud a un archivio dati locale o tra due archivi dati locali con archivio di staging non è supportata al momento e verrà abilitata a breve.
+La copia di dati tra due archivi dati locali con archivio di staging non è supportata al momento e verrà abilitata a breve.
 
 ### Configurazione
 È possibile configurare l'impostazione **enableStaging** su Copia attività per specificare se si vuole che i dati siano inseriti in un archivio BLOB di Azure di staging prima di essere caricati in un archivio dati di destinazione. Quando si imposta enableStaging su true, è necessario specificare proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato Archiviazione di Azure o Firma di accesso condiviso di Archiviazione di Azure come risorsa di staging, se ancora non ne è disponibile uno.
@@ -392,4 +392,4 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

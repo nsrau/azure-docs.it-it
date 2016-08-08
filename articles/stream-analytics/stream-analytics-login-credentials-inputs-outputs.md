@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #Ruotare le credenziali di accesso per input e output nei processi di analisi di flusso
@@ -46,15 +46,15 @@ Per altri input/output, andare alla Parte 2.
 ###Hub eventi
 1.  Andare all’estensione di bus di servizio sul portale di gestione di Azure: ![graphic6][graphic6]
 2.  Individuare lo spazio dei nomi del bus di servizio usato dal processo e accedervi: ![graphic7][graphic7]
-3.  Se il processo usa criteri di accesso condivisi sullo spazio dei nomi del bus di servizio, saltare al passaggio 6  
+3.  Se il processo usa criteri di accesso condivisi sullo spazio dei nomi del bus di servizio, saltare al passaggio 6
 4.  Andare alla scheda Hub eventi: ![graphic8][graphic8]
 5.  Individuare l’hub eventi usato dal processo e accedervi: ![graphic9][graphic9]
 6.  Andare alla scheda Configura: ![graphic10][graphic10]
 7.  Nell’elenco a discesa Nome criteri, individuare i criteri di accesso condivisi usati dal processo: ![graphic11][graphic11]
-8.  Tra la chiave primaria e la chiave secondaria, **selezionare quella non usata dal processo**.  
+8.  Tra la chiave primaria e la chiave secondaria, **selezionare quella non usata dal processo**.
 9.  Premere l’opzione di rigenerazione: ![graphic12][graphic12]
 10. Copiare la chiave appena generata: ![graphic13][graphic13]
-11. Continuare con la Parte 2.  
+11. Continuare con la Parte 2.
 
 ###Database SQL
 
@@ -66,13 +66,13 @@ Per altri input/output, andare alla Parte 2.
 4.  Digitare master del database: ![graphic17][graphic17]
 5.  Immettere il nome utente, la password e fare clic su Accedi: ![graphic18][graphic18]
 6.  Fare clic su Nuova query: ![graphic19][graphic19]
-7.  Immettere la query seguente sostituendo <login_name> con il nome utente e sostituendo <enterStrongPasswordHere> con la nuova password: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
+7.  Immettere la query seguente sostituendo <login\_name> con il nome utente e sostituendo <enterStrongPasswordHere> con la nuova password: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Fare clic su Esegui: ![graphic20][graphic20]
 9.  Tornare al passaggio 2 e, questa volta, fare clic sul database: ![graphic21][graphic21]
 10. Fare clic sul comando Gestisci: ![graphic22][graphic22]
 11. immettere il nome utente, la password e fare clic su Accedi: ![graphic23][graphic23]
 12. Fare clic su Nuova query: ![graphic24][graphic24]
-13. Immettere la query seguente sostituendo <user_name> con il nome con cui identificare l’accesso nel contesto di questo database (è possibile fornire lo stesso valore assegnato per <login_name>, ad esempio) e sostituendo <login_name> con il nuovo nome utente: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Immettere la query seguente sostituendo <user\_name> con il nome con cui identificare l'accesso nel contesto di questo database (è possibile fornire lo stesso valore assegnato per <login\_name>, ad esempio) e sostituendo <login\_name> con il nuovo nome utente: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Fare clic su Esegui: ![graphic25][graphic25]
 15. A questo punto è necessario assegnare al nuovo utente gli stessi ruoli e privilegi che aveva l’utente originale.
 16. Continuare con la Parte 2.
@@ -100,9 +100,9 @@ Per altri input/output, andare alla Parte 2.
 4.	Andare alla Parte 4.
 
 ###Power BI
-1.	Fare clic su Rinnova autorizzazione:  
+1.	Fare clic su Rinnova autorizzazione:
 * ![graphic35][graphic35]
-* Si otterrà la conferma seguente:  
+* Si otterrà la conferma seguente:
 * ![graphic36][graphic36]
 2.	Fare clic sul comando Salva e confermare il salvataggio delle modifiche: ![graphic37][graphic37]
 3.	Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.
@@ -111,14 +111,14 @@ Per altri input/output, andare alla Parte 2.
 ###Database SQL
 1.	Individuare i campi Nome utente e Password e incollarvi il set di credenziali appena create: ![graphic38][graphic38]
 2.	Fare clic sul comando Salva e confermare il salvataggio delle modifiche: ![graphic39][graphic39]
-3.	Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.  
+3.	Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.
 4.	Andare alla Parte 4.
 
 ##Parte 4: avvio del processo dall’ora dell’ultimo arresto
 1.	Uscire da Input/Output: ![graphic40][graphic40]
 2.	Fare clic sul comando di avvio: ![graphic41][graphic41]
 3.	Selezionare l’ora dell’ultimo arresto e fare clic su OK: ![graphic42][graphic42]
-4.	Andare alla Parte 5.  
+4.	Andare alla Parte 5.
 
 ##Parte 5: rimozione del set di credenziali precedente
 Questa parte è applicabile ai seguenti input/output:
@@ -134,8 +134,8 @@ Ripetere la Parte 1 per la chiave di accesso usata in precedenza dal processo pe
 Ripetere la Parte 1 per la chiave usata in precedenza dal processo per rinnovare la chiave ora inutilizzata.
 
 ###Database SQL
-1.	Tornare alla finestra delle query dalla Parte 1 Passaggio 7 e immettere la query seguente, sostituendo <previous_login_name> con il nome utente usato in precedenza dal processo: `DROP LOGIN <previous_login_name>`  
-2.	Fare clic su Esegui: ![graphic43][graphic43]  
+1.	Tornare alla finestra delle query dalla Parte 1 Passaggio 7 e immettere la query seguente, sostituendo <previous\_login\_name> con il nome utente usato in precedenza dal processo: `DROP LOGIN <previous_login_name>`
+2.	Fare clic su Esegui: ![graphic43][graphic43]
 
 Si dovrebbe ottenere la conferma seguente:
 
@@ -198,4 +198,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

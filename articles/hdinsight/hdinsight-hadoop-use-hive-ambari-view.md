@@ -62,7 +62,7 @@ Usare i passaggi seguenti nella vista Hive per eseguire una query Hive sui dati 
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
 	Le istruzioni eseguono queste azioni:
@@ -169,13 +169,13 @@ Dopo avere aggiunto una funzione definita dall'utente alla visualizzazione Hive,
 Ad esempio, se è stata specificata una funzione definita dall'utente con le proprietà seguenti:
 
 * Nome della risorsa: myudfs
-* Percorso della risorsa: wasb:///myudfs.jar
+* Percorso della risorsa: wasbs:///myudfs.jar
 * Nome della funzione definita dall'utente: myawesomeudf
 * Nome della classe per la funzione definita dall'utente: com.myudfs.Awesome
 
 Se si usa il pulsante __Insert udfs__, verrà visualizzata una voce denominata __myudfs__, con un altro elenco a discesa per ogni funzione definita dall'utente specificato per tale risorsa. In questo caso, __myawesomeudf__. Se si seleziona questa voce, verrà aggiunto quanto segue all'inizio della query:
 
-    add jar wasb:///myudfs.jar;
+    add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
@@ -199,4 +199,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

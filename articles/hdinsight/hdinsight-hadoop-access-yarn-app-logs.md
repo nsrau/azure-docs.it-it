@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Accesso ai log applicazioni YARN in HDInsight basato su Windows
@@ -56,7 +56,7 @@ Ogni applicazione, inoltre, può essere costituita da più *tentativi dell'appli
 
 I log applicazione (e i log contenitore associati) sono essenziali per il debug di applicazioni Hadoop problematiche. YARN fornisce un framework utile per la raccolta, l'aggregazione e l'archiviazione dei log applicazioni mediante la funzionalità di [aggregazione dei log][log-aggregation]. La funzionalità di aggregazione dei log rende più deterministico l'accesso ai log applicazioni poiché aggrega i log di tutti i contenitori in un nodo di lavoro e li archivia sotto forma di unico file di log aggregato per ogni nodo di lavoro nel file system predefinito dopo il completamento di un'applicazione. L'applicazione può usare centinaia o migliaia di contenitori, ma i log di tutti i contenitori eseguiti su un singolo nodo di lavoro verranno sempre aggregati in un unico file, dando luogo a un solo file di log per ogni nodo di lavoro usato dall'applicazione. La funzionalità di aggregazione dei log è abilitata per impostazione predefinita nei cluster HDInsight (versione 3.0 e successive). I log aggregati si trovano nel contenitore predefinito del cluster nel percorso seguente:
 
-	wasb:///app-logs/<user>/logs/<applicationId>
+	wasbs:///app-logs/<user>/logs/<applicationId>
 
 In questo percorso, *user* è il nome dell'utente che ha avviato l'applicazione e *applicationId* è l'identificatore univoco di un'applicazione assegnato dall'oggetto RM YARN.
 
@@ -70,7 +70,7 @@ I log aggregati non sono leggibili direttamente, poiché vengono scritti in un o
 
 L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cluster ed è accessibile tramite il dashboard del portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra fare clic su **Esplora**, fare clic su **Cluster HDInsight** e quindi su un cluster basato su Windows da configurare per l'accesso ai log applicazioni YARN.
 3. Nel menu in alto fare clic su **Dashboard**. Verrà aperta una pagina in una nuova scheda del browser denominata **Console query HDInsight**.
 4. In **Console query HDInsight**, fare clic su **Interfaccia utente Yarn**.
@@ -84,4 +84,4 @@ L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cl
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

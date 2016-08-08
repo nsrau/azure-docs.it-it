@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/16/2016"
+	ms.date="07/16/2016"
 	ms.author="carlrab" />
 
 # Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza
@@ -23,7 +23,7 @@
 
 ## Panoramica dei requisiti di autenticazione per il ripristino di emergenza
 
-Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Per altre informazioni sulle opzioni di ripristino, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
+Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Per altre informazioni sulle opzioni di ripristino, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 
 ## Ripristino di emergenza con gli utenti indipendenti
 
@@ -95,4 +95,4 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 
 ## Risorse aggiuntive
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

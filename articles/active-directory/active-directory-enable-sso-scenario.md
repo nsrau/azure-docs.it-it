@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="05/03/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Gestione di applicazioni con Azure Active Directory
@@ -24,7 +24,7 @@ Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale 
 
 2. Per garantire la sicurezza e la governance, l'organizzazione deve controllare chi può accedere alle applicazioni e chi vi accede effettivamente
 
-Nel mondo delle applicazioni cloud è possibile usare le identità per controllare CHI può fare COSA.
+Nel mondo delle applicazioni cloud è possibile usare le identità per controllare "*CHI può fare COSA*".
 
 Detto con la terminologia IT:
 
@@ -54,7 +54,7 @@ Quali sono i fattori che ostacolano l'adozione di soluzioni di gestione delle id
 
 Azure Active Directory è una soluzione IDaaS (Identity as a Service) Microsoft completa che offre i vantaggi seguenti:
 
-- Abilitazione della gestione delle identità e degli accessi come servizio cloud. 
+- Abilitazione della gestione delle identità e degli accessi come servizio cloud.
 
 - Gestione centrale dell'accesso, accesso Single Sign-On (SSO) e creazione di report.
 
@@ -135,4 +135,4 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

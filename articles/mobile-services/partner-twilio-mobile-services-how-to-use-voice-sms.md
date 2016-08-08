@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -32,7 +32,7 @@ I clienti di Azure riceveranno un'[offerta speciale][special_offer]\: $ 10 di cr
 Twilio è un servizio con pagamento in base al consumo. Non prevede spese iniziali ed è possibile chiudere l'account in qualsiasi momento. Per altre informazioni, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing].
 
 ## <a id="Concepts"></a>Concetti
-L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere la pagina relativa alle [librerie dell'API Twilio][twilio_libraries]. Sono disponibili esercitazioni aggiuntive relative all'utilizzo di Twilio in qualsiasi applicazione di Azure scritta in [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] o [Ruby][azure_twilio_howto_ruby].
+L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue.
 
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
@@ -221,12 +221,4 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-
-[azure_twilio_howto_dotnet]: /twilio-dotnet-how-to-use-for-voice-sms.md
-[azure_twilio_howto_java]: /partner-twilio-java-how-to-use-voice-sms.md
-[azure_twilio_howto_node]: /partner-twilio-nodejs-how-to-use-voice-sms.md
-[azure_twilio_howto_ruby]: /partner-twilio-ruby-how-to-use-voice-sms.md
-[azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
-[azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

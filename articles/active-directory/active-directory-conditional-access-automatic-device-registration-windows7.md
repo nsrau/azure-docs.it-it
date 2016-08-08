@@ -1,4 +1,11 @@
-<properties pageTitle="# Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio| Microsoft Azure" description="Procedura per configurare i dispositivi Windows 7 aggiunti a un dominio per la registrazione automatica con Azure AD e procedura per distribuire il pacchetto software per la registrazione dei dispositivi nei dispositivi Windows 7 aggiunti a un dominio usando un sistema di distribuzione software, ad esempio System Center Configuration Manager." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa editor=""/>
+<properties
+	pageTitle="# Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio | Microsoft Azure"
+	description="Procedura per configurare i dispositivi Windows 7 aggiunti a un dominio per la registrazione automatica con Azure AD e procedura per distribuire il pacchetto software per la registrazione dei dispositivi nei dispositivi Windows 7 aggiunti a un dominio tramite un sistema di distribuzione software, ad esempio System Center Configuration Manager."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -53,4 +60,4 @@ Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi rela
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

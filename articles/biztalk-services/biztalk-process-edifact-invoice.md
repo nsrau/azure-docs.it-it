@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -73,7 +73,7 @@ Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i pa
 
 3.  Nella schermata immettere lo spazio dei nomi, nonché il nome e la chiave dell'emittente ACS del bus di servizio.
 
-    ![][2]  
+    ![][2]
 4.  Un messaggio informa che verranno create tre code nello spazio dei nomi del bus di servizio. Fare clic su **OK**.
 
 5.  Lasciare in esecuzione il client dell'esercitazione. Aprire , fare clic su **Bus di servizio** > **_spazio dei nomi del bus di servizio_** > **Code** e verificare che le tre code siano state create.
@@ -112,7 +112,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
 
     3.  Nella scheda **Protocollo**, nella sezione **Schemi**, caricare lo schema **EFACT\_D93A\_INVOIC.xsd**. Questo schema è disponibile con il pacchetto di esempio.
 
-        ![][4]  
+        ![][4]
     4.  Nella scheda **Trasporto** specificare i dettagli delle code del bus di servizio. Per l'accordo sul lato invio, viene usata la coda **northwindreceive** per inviare la fattura EDIFACT a Northwind, mentre la coda **suspended** viene usata per instradare gli eventuali messaggi che presentano problemi durante l'elaborazione e vengono sospesi. Queste code sono state create nel **Passaggio 1: Creare le code del bus di servizio** di questo argomento.
 
         ![][5]
@@ -161,15 +161,15 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 
 2.  Fare clic in qualsiasi punto del canvas e impostare **BizTalk Service URL** nella sezione delle proprietà in modo da specificare il nome della propria sottoscrizione a Servizi BizTalk. Ad esempio: `https://contosowabs.biztalk.windows.net`.
 
-    ![][7]  
+    ![][7]
 3.  Dalla casella degli strumenti trascinare uno strumento **Bridge XML unidirezionale** nel canvas. Impostare le proprietà **Nome entità** e **Indirizzo relativo** del bridge su **ProcessInvoiceBridge**. Fare doppio clic su **ProcessInvoiceBridge** per aprire l'area di configurazione del bridge.
 
 4.  All'interno della casella **Tipi di messaggio** fare clic sul pulsante più (**+**) per specificare lo schema del messaggio in arrivo. Poiché il messaggio in arrivo per il bridge EAI è sempre la fattura interna, impostarlo su **INHOUSEINVOICE**.
 
-    ![][8]  
+    ![][8]
 5.  Fare clic sulla forma **Trasformazione XML** e nella sezione delle proprietà, per la proprietà **Mappe**fare clic sul pulsante con i puntini di sospensione (**...**). Nella finestra di dialogo **Maps Selection** selezionare il file di trasformazione **INHOUSEINVOICE\_to\_D93AINVOIC**, quindi fare clic su **OK**.
 
-    ![][9]  
+    ![][9]
 6.  Tornare a **MessageFlowItinerary.bcs** e dalla casella degli strumenti trascinare un **Endpoint del servizio esterno bidirezionale** a destra di **ProcessInvoiceBridge**. Impostare la relativa proprietà **Nome entità** su **EDIBridge**.
 
 7.  In Esplora soluzioni espandere **MessageFlowItinerary.bcs** e fare doppio clic sul file **EDIBridge.config** file. Sostituire il contenuto di **EDIBridge.config** con quanto segue.
@@ -225,14 +225,14 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 
     *   In _<behaviors>_ specificare lo spazio dei nomi ACS e la chiave associati alla sottoscrizione a Servizi BizTalk.
 
-    *   In _<client>_ specificare l'endpoint in cui è distribuito l'accordo di invio EDI.
+    *   In _<client>_ specificare l'endpoint in cui è distribuito il contratto di invio EDI.
 
     Salvare le modifiche e chiudere il file di configurazione.
 
 9.  Nella casella degli strumenti fare clic su **Connettore** e unire i componenti **ProcessInvoiceBridge** e **EDIBridge**. Selezionare il connettore e nella casella delle proprietà impostare **Condizione filtro** su **Match All**. In questo modo, tutti i messaggi elaborati dal bridge EAI vengono instradati al bridge EDI.
 
-    ![][10]  
-10.  Salvare le modifiche apportate alla soluzione.  
+    ![][10]
+10.  Salvare le modifiche apportate alla soluzione.
 
 ### Distribuire il progetto
 
@@ -259,16 +259,16 @@ In questo argomento viene illustrato come testare la soluzione utilizzando l'app
 
     L'endpoint del bridge EAI è stato copiato nel passaggio precedente. Per l'endpoint del bridge di ricezione EDI, nel portale di Servizi BizTalk passare all'accordo > Receive Settings > Trasporto > Endpoint.
 
-    ![][12]  
+    ![][12]
 4.  Nella finestra successiva, in Contoso, fare clic sul pulsante **Send In-house Invoice**. Nella finestra di dialogo Apri file aprire il file INHOUSEINVOICE.txt. Esaminare il contenuto del file, quindi fare clic su **OK** per inviare la fattura.
 
-    ![][13]  
+    ![][13]
 5.  Dopo pochi secondi Northwind riceve la fattura. Fare clic sul collegamento **Visualizza messaggio** per visualizzare la fattura ricevuta da Northwind. Si noti che la fattura ricevuta da Northwind è nello schema EDIFACT standard, mentre quella inviata da Contoso era in uno schema interno.
 
-    ![][14]  
+    ![][14]
 6.  Selezionare la fattura, quindi fare clic su **Send Acknowledgement**. Nella finestra di dialogo che viene visualizzata si noti che l'ID dell'interscambio è uguale nella fattura ricevuta e nell'acknowledgement inviato. Fare clic su OK nella finestra di dialogo **Invia conferma**.
 
-    ![][15]  
+    ![][15]
 7.  Dopo pochi secondi Contoso riceve correttamente l'acknowledgement.
 
     ![][16]
@@ -284,10 +284,10 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 
 3.  Specificare criteri di batch che definiscano quali messaggi devono essere raggruppati. In questa soluzione vengono raggruppati tutti i messaggi. Selezionare pertanto l'opzione Use advanced definitions e immettere **1 = 1**. Questa è una condizione che sarà sempre vera, quindi tutti i messaggi verranno raggruppati in un batch. Fare clic su **Avanti**.
 
-    ![][17]  
+    ![][17]
 4.  Specificare criteri di rilascio del batch. Dalla casella di riepilogo a discesa selezionare **MessageCountBased** e per **Conteggio** specificare **3**. Questo significa che a Northwind verrà inviato un batch di tre messaggi. Fare clic su **Avanti**.
 
-    ![][18]  
+    ![][18]
 5.  Controllare il riepilogo, quindi fare clic su **Salva**. Fare clic su **Distribuisci** per ridistribuire l'accordo.
 
 6.  Tornare all'applicazione **client dell'esercitazione**, fare clic su **Send In-house Invoice** e seguire i messaggi di richiesta per inviare la fattura. Si noterà che Northwind non riceve alcuna fattura perché i criteri relativi al numero di messaggi per il batch non sono soddisfatti. Ripetere questo passaggio altre due volte, in modo da avere tre messaggi di fatture da inviare a Northwind. In questo caso, i criteri di rilascio, che prevedono un batch di 3 messaggi, vengono soddisfatti, pertanto ora dovrebbe risultare una fattura presso Northwind.
@@ -313,4 +313,4 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

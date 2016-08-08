@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare i dati in Azure DocumentDB da un altro archivio dati e spostare i dati da Azure DocumentDB in un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Gli esempi seguenti mostrano come copiare dati da e in Azure DocumentDB e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+Gli esempi seguenti mostrano come copiare dati da e in Azure DocumentDB e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
 
-[AZURE.NOTE] La copia di dati da e verso Azure DocumentDB verso e da archivi dati locali o Azure IaaS non è attualmente supportata. La matrice completa per Azure DocumentDB sarà abilitata a breve.
+> [AZURE.NOTE] La copia dei dati dagli archivi dati IaaS di Azure/locali in Azure DocumentDB e viceversa è supportata con Gateway di gestione dati 2.1 e versioni successive.
 
 ## Esempio: Copiare i dati da DocumentDB a BLOB di Azure
 
@@ -383,10 +383,10 @@ Esempio:
 ### Schema da Data Factory
 Per gli archivi di dati privi di schema, ad esempio DocumentDB, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
 
-1.	Se si specifica la struttura dei dati con la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
-2.	Se non si specifica la struttura dei dati con la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
+1.	Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
+2.	Se non si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
 
-Per le origini dati prive di schema, quindi, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
+Di conseguenza, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
 
 ## Proprietà del tipo di attività di copia di Azure DocumentDB
 
@@ -401,7 +401,7 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | ------------ | --------------- | ------------------ | ------------ |
 | query | Specificare la query per leggere i dati. | Stringa di query supportata da DocumentDB. <br/><br/>Esempio: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | No <br/><br/>Se non è specificata, corrisponde all'istruzione SQL eseguita: select <colonne definite nella struttura> from mycollection 
-| nestingSeparator | Carattere speciale per indicare che il documento è nidificato | Qualsiasi carattere. <br/><br/>DocumentDB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture annidate. Data factory di Azure consente di indicare una gerarchia tramite nestingSeparator, ovvero "." negli esempi precedenti. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella. | No
+| nestingSeparator | Carattere speciale per indicare che il documento è nidificato | Qualsiasi carattere. <br/><br/>DocumentDB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Data factory di Azure consente di indicare una gerarchia tramite nestingSeparator, ovvero "." negli esempi precedenti. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella. | No
 
 **DocumentDbCollectionSink** supporta le proprietà seguenti:
 
@@ -430,4 +430,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

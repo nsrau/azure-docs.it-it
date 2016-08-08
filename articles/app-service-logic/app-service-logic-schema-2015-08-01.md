@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -219,6 +219,7 @@ Se l'API Web è ospitata nel **servizio App**, verrà visualizzata automaticamen
 Se in precedenza è stata distribuita un'app per le API, è possibile chiamarla usando l'azione **HTTP**.
 
 Ad esempio, se si usa Dropbox per elencare i file, la definizione della versione dello schema **2014-12-01-preview** può essere simile a quanto segue:
+
 ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
@@ -463,4 +464,4 @@ In previsione dei nuovi tipi di contenuto che verranno aggiunti a breve, la funz
 ## Presto disponibile: API Enterprise Integration
 Attualmente non esistono versioni gestite delle API Enterprise Integration, ad esempio AS2, ma saranno presto disponibili, come illustrato nella [guida di orientamento](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Nel frattempo, è possibile usare le API BizTalk distribuite esistenti con l'azione HTTP, come descritto nella sezione "Uso delle app per le API già distribuite" di questo articolo.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

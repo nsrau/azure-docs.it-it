@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -97,7 +97,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 3. In **Proprietà** impostare **Metodo di autenticazione interna** su **Autenticazione integrata di Windows**. ![Configurazione dell'applicazione avanzata](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. Immettere l’**SPN dell'applicazione interna** del server dell'applicazione. In questo esempio il nome dell'entità servizio per l'applicazione pubblicata è http/lob.contoso.com.
 
->[AZURE.IMPORTANT] Per il corretto funzionamento della preautenticazione, i nomi delle entità servizio in Azure Active Directory devono essere identici ai nomi delle entità servizio in Active Directory locale. Assicurarsi che l'istanza di Azure Active Directory sia sincronizzata con l'istanza di Active Directory locale.
+>[AZURE.IMPORTANT] Se l'UPN locale e l'UPN in Azure Active Directory non sono identici, per il funzionamento della preautenticazione sarà necessario configurare l'[identità di accesso delegata](#delegated-login-identity).
 
 | | |
 | --- | --- |
@@ -110,14 +110,17 @@ Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando
 
 ![Diagramma SSO non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### Identità delegata parziale
-Le applicazioni non Windows in genere ottengono l'identità dell'utente sotto forma di nome utente o nome account SAM, non di indirizzo di posta elettronica (username@domain). A differenza, quindi, della maggior parte dei sistemi basati su Windows che preferiscono un UPN, che è più affidabile e assicura l'assenza di duplicati tra i domini.
+### Identità di accesso delegata
+L'identità di accesso delegata consente di gestire due scenari di accesso diversi:
 
-Per questo motivo, il proxy di applicazione consente di selezionare l'identità da visualizzare nel ticket Kerberos per ogni applicazione. Alcune di queste opzioni sono adatte ai sistemi che non accettano il formato di indirizzo di posta elettronica.
+- Applicazioni non Windows che in genere ottengono l'identità utente sotto forma di nome utente o nome dell'account SAM, non un indirizzo di posta elettronica (username@domain).
+- Configurazioni di accesso alternativo in cui l'UPN in Azure AD e l'UPN in Active Directory locale sono diversi.
+
+Con il proxy di applicazione è possibile selezionare l'identità da usare per ottenere il ticket Kerberos. Questa impostazione viene configurata per ogni applicazione. Alcune di queste opzioni sono appropriate per i sistemi che non accettano il formato di indirizzo di posta elettronica, altre sono concepite per l'accesso alternativo.
 
 ![Schermata del parametro dell'identità di accesso delegata](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-Se viene usata l'identità parziale e questa identità non può essere univoca per tutti i domini o le foreste nell'organizzazione, è possibile pubblicare due volte le applicazioni mediante due diversi gruppi di connettore. Poiché ogni applicazione dispone di un pubblico di utenti diversi, è possibile unire i connettori a un altro dominio.
+Se si usa l'identità di accesso delegata, il valore potrebbe non essere univoco per tutti i domini o tutte le foreste dell'organizzazione. Per evitare questo problema, pubblicare queste applicazioni due volte usando due gruppi di connettori diversi. Poiché ogni applicazione dispone di un pubblico di utenti diversi, è possibile unire i connettori a un altro dominio.
 
 
 ## Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche
@@ -127,18 +130,18 @@ Questa funzionalità consente a molte organizzazioni con diverse identità local
 
 - Hanno più domini internamente (joe@us.contoso.com, joe@eu.contoso.com) e un singolo dominio nel cloud (joe@contoso.com).
 
-- Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio legale nel cloud.
+- Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio valido nel cloud.
 
 - Non usano nomi di dominio internamente (joe).
 
-- Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com anziché joej@contoso.com
+- Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com invece di joej@contoso.com
 
 Ciò risulta utile anche con le applicazioni che non accettano indirizzi nel formato di indirizzo di posta elettronica, ossia uno scenario molto comune per i server back-end non Windows.
 
 
 ### Impostazione dell'accesso Single Sign-On per varie identità cloud e locali
 
-1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Questo avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano anche il modo in cui gli utenti accedono a Office 365, ai dispositivi Windows 10 e ad altre applicazioni che usano Azure AD come archivio di identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
+1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Questo avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano anche il modo in cui gli utenti accedono a Office 365, ai dispositivi Windows 10 e ad altre applicazioni che usano Azure AD come archivio identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
 2. Nelle impostazioni di configurazione dell'applicazione che si desidera modificare, selezionare l'**Identità di accesso delegata** da usare:
   - Nome dell'entità utente: joe@contoso.com
   - Nome alternativo dell'entità utente: joed@contoso.local
@@ -159,11 +162,11 @@ Se si verifica un errore nel processo di accesso Single Sign-On, tale errore ver
 - [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
-Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -165,12 +165,12 @@ Questo articolo contiene istruzioni dettagliate sullo sviluppo di applicazioni S
 		    val conf = new SparkConf().setAppName("MyClusterApp")
 		    val sc = new SparkContext(conf)
 		
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 		
-		    rdd1.saveAsTextFile("wasb:///HVACOut")
+		    rdd1.saveAsTextFile("wasbs:///HVACOut")
 		  }		
 		}
 
@@ -247,7 +247,7 @@ Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è
 	* Selezionare **Spark on HDInsight Local Run Sample (Scala)** (Spark su esecuzione di esempio locale HDInsight (Scala)) nel riquadro destro.
 	* Fare clic su **Avanti**.
 
-2. Per fornire i dettagli del progetto, seguire i passaggi da 3 a 6, come illustrato nella sezione precedente [Configurare un progetto di un'applicazione Spark in Scala per un cluster HDInsight Spark] \(#set-up-a-spark-scala-application-project-for-an-hdinsight-spark cluster).
+2. Per fornire i dettagli del progetto, seguire i passaggi da 3 a 6, come illustrato nella sezione precedente [Configurare un progetto di un'applicazione Spark in Scala per un cluster HDInsight Spark] (#set-up-a-spark-scala-application-project-for-an-hdinsight-spark cluster).
 
 3. Il modello aggiunge un codice di esempio (**LogQuery**) sotto la cartella **src** che è possibile eseguire in locale sul computer in uso.
 
@@ -306,4 +306,4 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 * [Track and debug jobs running on Apache Spark cluster in HDInsight Linux (Tenere traccia ed eseguire il debug di processi in esecuzione in cluster Apache Spark in HDInsight Linux)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

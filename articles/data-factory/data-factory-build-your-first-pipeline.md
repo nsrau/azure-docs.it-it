@@ -17,30 +17,22 @@
 	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Esercitazione su Azure Data Factory: compilare una pipeline di dati che elabora i dati con cluster Hadoop 
+# Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop 
 > [AZURE.SELECTOR]
 - [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
 - [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 Questa esercitazione mostra come compilare la prima data factory di Azure con una pipeline di dati che elabora i dati eseguendo uno script Hive in un cluster Azure HDInsight (Hadoop).
 
-> [AZURE.NOTE] Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
+Questo articolo fornisce una **panoramica** dell'esercitazione e istruzioni dettagliate per soddisfare i **prerequisiti** per l'esercitazione. Dopo aver completato le operazioni preliminari, usare una delle opzioni seguenti per l'esercitazione: il modello ARM, Azure PowerShell ed Editor di Data factory nel portale di Azure.
 
-## Panoramica dell'esercitazione
-Questa esercitazione illustra i passaggi necessari per rendere operativa la prima data factory. Verrà creata una pipeline nella data factory che trasforma/elabora i dati di input per generare dati di output.
-
-## Prerequisiti
-Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
-
-1.	**Sottoscrizione di Azure**: se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
-
-2.	**Archiviazione di Azure**: in questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non è disponibile un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Si noti che questo articolo non fornisce una panoramica dei concetti relativi ad Azure Data Factory. Per una panoramica dei concetti correlati al servizio, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
 
 ## Contenuto dell'esercitazione	
-**Data factory di Azure** consente di comporre attività di **spostamento** dati e di **elaborazione** dati come flusso di lavoro basato sui dati. Si apprenderà come creare la prima pipeline che userà HDInsight per trasformare e analizzare i blog ogni mese.
+**Azure Data Factory** consente di creare attività di **spostamento** e di **elaborazione** dati come flusso di lavoro basato sui dati o pipeline. Si apprenderà come creare la prima pipeline di dati con l'attività di elaborazione o trasformazione dati che usa un cluster Azure HDInsight per trasformare e analizzare i log web e pianificare la pipeline per l'esecuzione su base mensile.
 
 In questa esercitazione si eseguirà la procedura seguente:
 
@@ -68,6 +60,14 @@ Quando il file viene elaborato dalla pipeline con attività Hive di HDInsight, l
 
 Dalle righe di esempio mostrate sopra, la prima (con 2014-01-01) verrà scritta nel file 000000\_0 nella cartella month=1. Allo stesso modo, la seconda verrà scritta nel file nella cartella month=2 e la terza verrà scritta nel file nella cartella month=3.
 
+
+## Prerequisiti
+Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
+
+1.	**Sottoscrizione di Azure**: se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
+
+2.	**Archiviazione di Azure**: in questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non è disponibile un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+
 ## Caricare i file nell'archiviazione di Azure per l'esercitazione
 Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure con i file necessari per l'esercitazione.
 
@@ -78,8 +78,8 @@ In questa sezione si dovrà:
 
 ### Creare file di script HQL 
 
-1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.
-	
+1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.
+
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -159,6 +159,11 @@ In questa sezione si dovrà:
 		  month(date)
 		FROM WebLogsRaw
 
+In fase di runtime, l'attività Hive nella pipeline di Data factory passa i valori per i parametri inputtable e partitionedtable come illustrato di seguito, dove storageaccountname è il nome dell'account di archiviazione di Azure:
+
+		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+ 
 ### Creare un file di input di esempio
 Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetstarted** con il contenuto seguente:
 
@@ -186,7 +191,7 @@ Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetst
 
 ### Caricare file di input e file HQL nell'archiviazione BLOB di Azure
 
-Per eseguire questa operazione è possibile usare strumenti quali [Microsoft Azure Storage Explorer](http://storageexplorer.com/) o CloudXPlorer di ClumsyLeaf Software. Questa sezione fornisce istruzioni sull'uso dello strumento AzCopy.
+Questa sezione fornisce istruzioni sull'uso dello strumento **AzCopy** per copiare file in Archiviazione BLOB di Azure. Per eseguire questa operazione è possibile usare strumenti come [Esplora archivi Microsoft Azure](http://storageexplorer.com/) o [CloudXPlorer di ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer).
 	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
 	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
@@ -215,12 +220,11 @@ Per eseguire questa operazione è possibile usare strumenti quali [Microsoft Azu
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
 
-A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle schede nella parte superiore per creare la prima data factory di Azure usando una delle risorse seguenti:
+A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle schede nella parte superiore per creare la prima data factory di Azure o fare clic su uno dei seguenti collegamenti.
 
+- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-- Portale di Azure (editor di Data factory)
-- Azure PowerShell
-- Visual Studio
-- Modelli di Gestione risorse di Azure
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

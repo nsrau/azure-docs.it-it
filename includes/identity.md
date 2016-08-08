@@ -2,7 +2,9 @@ La gestione delle identità è importante tanto nel cloud pubblico quanto in loc
 
 - È possibile eseguire Windows Server Active Directory (comunemente denominato AD) nel cloud utilizzando macchine virtuali create con Macchine virtuali di Azure. Questo approccio è indicato quando si utilizza Azure per estendere il data center locale nel cloud.
 
-- È possibile utilizzare Azure Active Directory per fornire agli utenti l'accesso Single Sign-On alle applicazioni SaaS (Software as a Service). Microsoft Office 365 ad esempio utilizza questa tecnologia che può essere utilizzata anche dalle applicazioni eseguite in Azure o in altre piattaforme cloud.
+
+- È possibile utilizzare Azure Active Directory per fornire agli utenti l'accesso Single Sign-On alle applicazioni [SaaS (Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/). Microsoft Office 365 ad esempio utilizza questa tecnologia che può essere utilizzata anche dalle applicazioni eseguite in Azure o in altre piattaforme cloud.
+
 
 - Le applicazioni eseguite nel cloud o in locale possono utilizzare Controllo di accesso di Azure Active Directory per consentire agli utenti di eseguire l'accesso utilizzando le identità di Facebook, Google, Microsoft e altri provider di identità.
 
@@ -118,4 +120,4 @@ L'utilizzo delle identità è importante per la maggior parte delle applicazioni
 
 David Chappell è il titolare della società Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) di San Francisco, California.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -68,4 +68,4 @@ I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.sp
 
 * Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

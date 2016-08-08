@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -58,4 +58,4 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, seguire questi
 - [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
 - [Altre informazioni sulle trasformazioni](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

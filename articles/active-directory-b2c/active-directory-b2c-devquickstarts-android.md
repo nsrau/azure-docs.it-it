@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'applicazione Android | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: chiamare un'API Web da un'applicazione Android | Microsoft Azure"
 	description="Questo articolo descrive come creare un'app ";elenco attività"; Android che chiama un'API Web Node.js usando token di connessione OAuth 2.0. Sia l'app Android che l'API Web usano Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti."
 	services="active-directory-b2c"
 	documentationCenter="android"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
-# Anteprima di Azure AD B2C: Chiamare un'API Web da un'applicazione Android
+# Azure AD B2C: chiamare un'API Web da un'applicazione Android
+
+> [AZURE.WARNING] Questa esercitazione richiede alcuni aggiornamenti importanti, in particolare per rimuovere l'uso di ADAL in Android per B2C. A breve verranno pubblicate nuove istruzioni per l'uso di Azure AD B2C nelle app Android ed è quindi consigliabile attendere fino ad allora. Se tuttavia si vuole semplicemente fare una prova, è possibile procedere usando l'articolo seguente.
+
+
 
 Azure Active Directory (Azure AD) B2C permette di aggiungere funzionalità efficaci di gestione delle identità self-service alle app Android e alle API Web con pochi brevi passaggi. Questo articolo descrive come creare un'app Android "To-Do List" che chiama un'API Web Node.js usando token di connessione OAuth 2.0. Sia l'app Android che l'API Web usano Azure AD B2C per gestire le identità utente e autenticare gli utenti.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 Per poter usare questa guida introduttiva, è necessario avere un'API Web protetta da Azure AD con B2C. Ne è stata compilata una da usare sia per .NET che per Node.js. Questa procedura dettagliata presuppone che l'esempio di API Web per Node.js sia configurato. Per altre informazioni, vedere l'[esercitazione sull'API Web di Azure AD B2C per Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
@@ -30,17 +32,17 @@ Per i client Android che devono accedere a risorse protette, Azure AD fornisce A
 - Ottiene gli elenchi attività degli utenti.
 - Disconnette gli utenti.
 
-> [AZURE.NOTE] Questo articolo non descrive come implementare la gestione dell'iscrizione, dell'accesso e del profilo con Azure AD B2C, ma illustra come chiamare le API Web dopo che l'utente ha effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la compilazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+> [AZURE.NOTE] Questo articolo non descrive come implementare la gestione dell'iscrizione, dell'accesso e del profilo con Azure AD B2C, ma illustra come chiamare le API Web dopo che l'utente ha effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la compilazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire nozioni di base su Azure AD B2C.
 
 ## Ottenere una directory di Azure AD B2C
 
-Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, [creare una directory B2C](active-directory-b2c-get-started.md) prima di proseguire in questa guida.
+Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, [creare una directory B2C](active-directory-b2c-get-started.md) prima di proseguire con questa guida.
 
 ## Creare un'applicazione
 
-Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. In questo caso, sia l'app che l'API Web sono rappresentate da un singolo **ID applicazione** perché includono un'unica app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di:
+Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app che l'API Web sono rappresentate in questo caso da un singolo **ID applicazione**, perché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di:
 
-- Includere un'**app Web**/**API Web** nell'applicazione.
+- Includere un'**app Web** o un'**API Web** nell'applicazione.
 - Immettere `urn:ietf:wg:oauth:2.0:oob` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
 - Creare un **segreto applicazione** per l'applicazione e prenderne nota. Sarà necessario più avanti. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
@@ -975,4 +977,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [Altre informazioni sui cookie](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

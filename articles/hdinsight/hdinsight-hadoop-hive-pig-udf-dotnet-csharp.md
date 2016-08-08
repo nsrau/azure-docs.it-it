@@ -139,7 +139,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 6. Usare il codice seguente per la query Hive:
 
-		add file wasb:///HiveCSharp.exe;
+		add file wasbs:///HiveCSharp.exe;
 
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		USING 'HiveCSharp.exe' AS
@@ -147,7 +147,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Verranno selezionati i campi `clientid`, `devicemake` e `devicemodel` da `hivesampletable` e i campi vengono passati all'applicazione HiveCSharp.exe. La query si aspetta che l'applicazione restituisca tre campi, che vengono archiviati come `clientid`, `phoneLabel` e `phoneHash`. La query si aspetta anche di trovare HiveCSharp.exe nella radice del contenitore di archiviazione predefinito (`add file wasb:///HiveCSharp.exe`).
+    Verranno selezionati i campi `clientid`, `devicemake` e `devicemodel` da `hivesampletable` e i campi vengono passati all'applicazione HiveCSharp.exe. La query si aspetta che l'applicazione restituisca tre campi, che vengono archiviati come `clientid`, `phoneLabel` e `phoneHash`. La query si aspetta anche di trovare HiveCSharp.exe nella radice del contenitore di archiviazione predefinito (`add file wasbs:///HiveCSharp.exe`).
 
 5. Fare clic su **Invia** per inviare il processo al cluster HDInsight. Verrà aperta la finestra di **riepilogo del processo Hive**.
 
@@ -212,7 +212,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 3. Immettere il codice seguente per eseguire un semplice processo Pig usando l'applicazione .NET Framework:
 
 		DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
-		LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 		LOG = FILTER LOGS by LINE is not null;
 		DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
 		DUMP DETAILS;
@@ -241,4 +241,4 @@ Per informazioni su altri modi per usare Pig e Hive e sull'uso di MapReduce, ved
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

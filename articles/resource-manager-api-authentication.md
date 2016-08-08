@@ -319,7 +319,7 @@ Risposta di esempio del token di concessione delle credenziali client:
 
 ### Ottenere l'ObjectId dell'entità servizio dell'applicazione nella directory Azure AD dell'utente
 
-Ora usare il token di accesso solo app per eseguire una query sull'API [entità servizio Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) per determinare l'ID oggetto dell'entità servizio dell'applicazione nella directory.
+Ora usare il token di accesso solo app per eseguire una query sull'API [entità servizio Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) per determinare l'ID oggetto dell'entità servizio dell'applicazione nella directory.
 
 Il metodo [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) dell'applicazione di esempio ASP.NET MVC implementa questa chiamata.
 
@@ -444,4 +444,4 @@ Il metodo [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dush
 
 Gli utenti ora possono facilmente connettere e gestire le sottoscrizioni di Azure con l'applicazione.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

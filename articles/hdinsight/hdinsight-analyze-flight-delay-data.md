@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -63,8 +63,8 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 <table border="1">
 <tr><th>File</th><th>Descrizione</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>File script HiveQL necessario per il processo Hive da eseguire. Lo script è stato caricato in un contenitore di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-b">Appendice B</a> include istruzioni su come preparare e caricare il file nel proprio account di archiviazione BLOB di Azure.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dati di input per il processo Hive. I dati sono stati caricati in un account di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-a">Appendice A</a> include istruzioni su come ottenere i dati e caricarli nel proprio account di archiviazione BLOB di Azure.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>File script HiveQL necessario per il processo Hive da eseguire. Lo script è stato caricato in un contenitore di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-b">Appendice B</a> include istruzioni su come preparare e caricare il file nel proprio account di archiviazione BLOB di Azure.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dati di input per il processo Hive. I dati sono stati caricati in un account di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-a">Appendice A</a> include istruzioni su come ottenere i dati e caricarli nel proprio account di archiviazione BLOB di Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Percorso di output per il processo Hive. Il contenitore predefinito viene usato per archiviare i dati di output.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>Cartella di stato del processo Hive nel contenitore predefinito.</td></tr>
 </table>
@@ -195,7 +195,7 @@ Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di
 		###########################################
 		# Submit the Sqoop job
 		###########################################
-		$exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+		$exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 		
 		$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
 						-Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -245,7 +245,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 
 **Per scaricare i dati relativi ai voli**
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
 2. Selezionare i valori seguenti nella pagina:
 
 	<table border="1">
@@ -258,7 +258,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 3. Fare clic su **Download**.
 4. Decomprimere il file nella cartella **C:\\Tutorials\\FlightDelay\\2013Data**. Ogni file è in formato CSV e ha dimensioni pari a circa 60 GB.
 5.	Rinominare il file, specificando il nome del mese a cui fanno riferimento i dati. Ad esempio, al file contenente i dati relativi a gennaio verrà assegnato il nome *January.csv*.
-6. Ripetere i passaggi 2 e 5 per scaricare un file per ognuno dei 12 mesi del 2013. Per eseguire l'esercitazione, è necessario avere almeno un file.  
+6. Ripetere i passaggi 2 e 5 per scaricare un file per ognuno dei 12 mesi del 2013. Per eseguire l'esercitazione, è necessario avere almeno un file.
 
 **Per caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure**
 
@@ -346,7 +346,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 
 Se si sceglie un metodo diverso per il caricamento dei file, verificare che il percorso sia tutorials/flightdelay/data. Di seguito viene riportata la sintassi per l'accesso ai file:
 
-	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+	wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il caricamento dei file. Verificare che siano disponibili 12 file, uno per ogni mese.
 
@@ -362,7 +362,7 @@ Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
 1. **Eliminazione della tabella delays\_raw**, nel caso in cui la tabella esista già.
-2. **Creazione della tabella Hive esterna delays\_raw**, che fa riferimento al percorso dell'archivio BLOB che include i file relativi ai ritardi dei voli. La query consente di specificare che i campi sono delimitati da "," e che le righe vengono interrotte da "\\n". Ciò costituisce un problema quando i valori dei campi contengono virgole, poiché Hive non è in grado di distinguere tra una virgola che delimita i campi e una virgola inclusa in un valore di campo, come ad esempio nel caso dei valori di campo per ORIGIN\_CITY\_NAME e DEST\_CITY\_NAME. Per risolvere questo problema, la query crea colonne TEMP in cui inserire i dati suddivisi erroneamente in colonne.  
+2. **Creazione della tabella Hive esterna delays\_raw**, che fa riferimento al percorso dell'archivio BLOB che include i file relativi ai ritardi dei voli. La query consente di specificare che i campi sono delimitati da "," e che le righe vengono interrotte da "\\n". Ciò costituisce un problema quando i valori dei campi contengono virgole, poiché Hive non è in grado di distinguere tra una virgola che delimita i campi e una virgola inclusa in un valore di campo, come ad esempio nel caso dei valori di campo per ORIGIN\_CITY\_NAME e DEST\_CITY\_NAME. Per risolvere questo problema, la query crea colonne TEMP in cui inserire i dati suddivisi erroneamente in colonne.
 3. **Eliminazione della tabella delays**, se la tabella esiste già.
 4. **Creazione della tabella delays**. È consigliabile ripulire i dati prima di procedere con l'elaborazione. La query crea una nuova tabella *delays* dalla tabella delays\_raw. Si noti che le colonne TEMP, come indicato in precedenza, non vengono copiate e che la funzione **substring** viene usata per rimuovere le virgolette dai dati.
 5. **Calcolo della media dei ritardi dovuti alle condizioni climatiche e raggruppamento dei risultati in base al nome della città.** I risultati verranno anche inviati come output all'archivio BLOB. Si noti che la query rimuoverà gli apostrofi dai dati ed escluderà le righe in cui il valore per **weather\_delay** è Null. Ciò è necessario perché Sqoop, usato più avanti nell'esercitazione, non è in grado di gestire correttamente tali valori per impostazione predefinita.
@@ -495,7 +495,7 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 			"ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
 			"LINES TERMINATED BY '\n' " +
 			"STORED AS TEXTFILE " +
-			"LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+			"LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 		
 		$hqlDropDelays = "DROP TABLE delays;"
 		
@@ -742,4 +742,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

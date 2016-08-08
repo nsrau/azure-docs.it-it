@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="07/21/2016"
 	ms.author="mahender"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
@@ -32,7 +32,7 @@ Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introdu
 Per poter autenticare gli utenti è necessario registrare l'app in Azure Active Directory. Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio mobile ed esporre le registrazioni sul servizio. In secondo luogo, è necessario registrare l'app di iOS e concederle accesso alle autorizzazioni.
 
 
->[AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come usare Servizi mobili per eseguire l'autenticazione tramite Single Sign-On di Azure Active Directory per le app per iOS. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
+>[AZURE.NOTE] Questa esercitazione è stata ideata per illustrare come usare Servizi mobili per eseguire l'autenticazione tramite Single Sign-On di Azure Active Directory per le app per iOS. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
 
 ##Prerequisiti
@@ -126,4 +126,4 @@ Per completare questa esercitazione, è necessario disporre di:
 [portale di Azure classico]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0727_2016-->

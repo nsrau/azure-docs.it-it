@@ -215,9 +215,12 @@ In caso di attività di copia con origine di tipo **RelationalSource** (che comp
 | -------- | ----------- | -------------- | -------- |
 | query | Usare la query personalizzata per leggere i dati. | Query SQL-92 o query [Salesforce Object Query Language (SOQL) ](https://developer.salesforce.com/docs/atlas.it-IT.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: selezionare * da MyTable\_\_c. | No (se **tableName** di **set di dati** è specificato) |
 
-> [AZURE.IMPORTANT]  La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.<br> Quando si specifica una query che include clausole sulla colonna relativa a data e ora, usare SOQL, ad esempio $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+> [AZURE.IMPORTANT]  La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato. <br><br> Quando si specifica una query che include clausole where nella colonna datetime, usare la query SOQL, ovvero $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd) o la query SQL, ovvero $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Recupero di dati dal report di Salesforce
+È possibile recuperare i dati dai report di Salesforce specificando una query come {call "<nome report>"}, ovvero "query": "{call "TestReport"}".
 
 ## Limiti delle richieste Salesforce
 Salesforce presenta limiti per le richieste API totali e per le richieste API simultanee. Per i dettagli, vedere la sezione **API Request Limits** (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/it-IT/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
@@ -256,4 +259,4 @@ URL | String
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

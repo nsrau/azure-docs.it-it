@@ -110,7 +110,7 @@ Un disco di una macchina virtuale viene archiviato in Archiviazione di Azure com
 
 Il database SQL di Azure offre un database come servizio. Consente alle applicazioni di eseguire il provisioning di database relazionali, inserirvi dati ed eseguire query con rapidità. Fornisce molte delle familiari funzioni e funzionalità di SQL Server eliminando l'impegno in termini di hardware, configurazione, applicazione di patch e resilienza.
 
->[AZURE.NOTE] Il database di SQL Azure non offre parità di funzionalità 1 a 1 con SQL Server. È destinato a soddisfare un diverso set di requisiti adatto specificamente alle applicazioni cloud: scalabilità elastica, database distribuito come servizio per ridurre i costi di manutenzione e così via. Per altre informazioni, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Il database di SQL Azure non offre parità di funzionalità 1 a 1 con SQL Server. È destinato a soddisfare un diverso set di requisiti adatto specificamente alle applicazioni cloud: scalabilità elastica, database distribuito come servizio per ridurre i costi di manutenzione e così via. Per altre informazioni, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Replica
 
@@ -223,4 +223,4 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 
 Questo articolo fa parte della serie [Indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino dopo un'interruzione di servizio di un'area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

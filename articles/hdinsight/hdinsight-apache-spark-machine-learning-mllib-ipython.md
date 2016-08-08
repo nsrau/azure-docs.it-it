@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 ## Iniziare a compilare un'applicazione di apprendimento automatico usando MLlib di Spark
 
-1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -85,7 +85,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 È possibile che venga usato `sqlContext` per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food\_Inspections1.csv**) in un *frame di dati* Spark SQL.
 
-1. Poiché i dati non elaborati sono in formato con estensione csv, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga. 
+1. Poiché i dati non elaborati sono in formato con estensione csv, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga.
 
 
 		def csvParse(s):
@@ -96,7 +96,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -222,11 +222,11 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 4. Come si può notare, un controllo può portare a cinque diversi risultati:
 	
-	* Business not located 
+	* Business not located
 	* Fail
 	* Pass
 	* Pss w/ conditions
-	* Out of Business 
+	* Out of Business
 
 	Sviluppare ora un modello che può ricavare il risultato di un controllo degli alimenti, una volta determinate le violazioni. Poiché la regressione logistica è un metodo di classificazione binaria, è consigliabile raggruppare i dati in due categorie: **Fail** e **Pass**. "Pass w/ Conditions" fa parte della categoria Pass, quindi, quando si esegue il training del modello, i due risultati saranno considerati equivalenti. I dati con gli altri risultati ("Business Not Located", "Out of Business"), non essendo utili, verranno rimossi dal set di training. Non dovrebbero verificarsi problemi, perché queste due categorie costituiscono solo una percentuale minima dei risultati.
 
@@ -283,7 +283,7 @@ MLLib consente di eseguire facilmente questa operazione. Prima di tutto, si sudd
 1. Il frammento di codice seguente crea un nuovo frame di dati, **predictionsDf** contenente la stima generata dal modello. Il frammento di codice crea anche la tabella temporanea **Predictions** basata sul frame di dati.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -341,7 +341,7 @@ MLLib consente di eseguire facilmente questa operazione. Prima di tutto, si sudd
 
 Per comprendere meglio i risultati di questo test, ora è possibile creare una visualizzazione finale.
 
-1. Iniziare dall'estrazione delle diverse stime e dei vari risultati dalla tabella temporanea **Predictions** creata in precedenza. Le query seguenti separano l'output in *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nelle query seguenti disattivare la visualizzazione usando `-q` e tramite `-o` salvare l'output come frame di dati utilizzabili con il comando speciale `%%local`. 
+1. Iniziare dall'estrazione delle diverse stime e dei vari risultati dalla tabella temporanea **Predictions** creata in precedenza. Le query seguenti separano l'output in *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nelle query seguenti disattivare la visualizzazione usando `-q` e tramite `-o` salvare l'output come frame di dati utilizzabili con il comando speciale `%%local`.
 
 		%%sql -q -o true_positive
 		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -420,4 +420,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

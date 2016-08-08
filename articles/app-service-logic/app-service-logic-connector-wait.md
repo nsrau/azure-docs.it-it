@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,7 +30,7 @@ Il connettore Wait può essere usato come azione. Non include trigger.
 
 ### Azione
 - Fare clic sul connettore Wait nel riquadro destro: ![Elenco di azioni][1]
-- Il connettore Wait supporta due azioni: 
+- Il connettore Wait supporta due azioni:
 	- Delay
 	- Delay Until
 	 
@@ -56,4 +56,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

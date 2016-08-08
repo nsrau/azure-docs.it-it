@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/24/2016"
+    ms.date="07/24/2016"
     ms.author="dineshm"/>
 
 # Elenco delle risorse di archiviazione di Azure in C++
@@ -184,4 +184,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

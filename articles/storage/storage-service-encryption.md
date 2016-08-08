@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 # Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)
@@ -37,9 +37,9 @@ Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o dis
 
 ##Disponibilità
 
-Per l'archiviazione Standard, questa funzionalità è attualmente disponibile in Australia, negli Stati Uniti centrali, in Asia orientale, negli Stati Uniti orientali 2, in Asia sud-orientale, nell'Europa occidentale e negli Stati Uniti occidentali.
+Per l'archiviazione Standard, questa funzionalità è attualmente disponibile in Australia sud-orientale, Canada centrale, Canada orientale, negli Stati Uniti centrali, in Asia orientale, negli Stati Uniti orientali 2, negli Stati Uniti centro-settentrionali, in Asia sud-orientale, in Europa occidentale e negli Stati Uniti occidentali.
 
-Per l'archiviazione Premium, questa funzionalità è attualmente disponibile in Australia sud-orientale, negli Stati Uniti centrali, in Asia orientale, negli Stati Uniti orientali 2, in Asia sud-orientale, in Giappone orientale e negli Stati Uniti occidentali.
+Per l'archiviazione Premium, questa funzionalità è attualmente disponibile in Australia sud-orientale, Canada centrale, Canada orientale, negli Stati Uniti centrali, in Asia orientale, negli Stati Uniti orientali 2, negli Stati Uniti centro-settentrionali, in Asia sud-orientale, in Giappone orientale e negli Stati Uniti occidentali.
 
 Questo documento verrà aggiornato nel corso della distribuzione della funzionalità in altre aree.
 
@@ -229,4 +229,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

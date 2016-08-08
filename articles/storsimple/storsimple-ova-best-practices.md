@@ -81,7 +81,7 @@ Lo spazio totale richiesto a livello locale fino a questo punto sarà: 240 GB + 
 
 Sarà quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio la prenotazione locale più grande è di 330 GB, inclusa la prenotazione per il file system, quindi sarà necessario aggiungere questo spazio ai 660 GB: 660 GB + 330 GB = 990 GB. Se sono stati eseguiti altri ripristini successivi, è sempre possibile liberare spazio dall'operazione di ripristino precedente.
 
-Fino a questo punto è quindi necessario il 15% dello spazio locale totale per archiviare gli snapshot locali, perciò ne sarà disponibile solo l'85%. In questo esempio saranno circa 990 GB = 0,85 *TB del disco dati con provisioning. Di conseguenza, il disco dati con provisioning sarà pari a (990*(1/0,85)) = 1320 GB = 1,16 TB ~ 1,25 TB (con arrotondamento al quartile più vicino).
+Fino a questo punto è quindi necessario il 15% dello spazio locale totale per archiviare gli snapshot locali, perciò ne sarà disponibile solo l'85%. In questo esempio saranno circa 990 GB = 0,85 *TB del disco dati con provisioning. Di conseguenza, il disco dati con provisioning sarà pari a (990*(1/0,85)) = 1164 GB = 1,16 TB ~ 1,25 TB (con arrotondamento al quartile più vicino)
 
 Considerando la crescita imprevista e i nuovi ripristini, è consigliabile effettuare il provisioning di un disco locale di circa 1,25-1,5 TB.
 
@@ -350,4 +350,4 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 ## Vedere anche
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-ova-manager-service-administration.md) usando il servizio StorSimple Manager.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

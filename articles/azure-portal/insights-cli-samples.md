@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="ashwink"/>
 
 # Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights
 
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di monitoraggio di Azure Insights. Azure Insights permette ai servizi Cloud di scalabilità automatica, alle macchine virtuali e alle App Web di inviare notifiche di avviso o chiamare URL in base ai valori configurati sui dati relativi alla telemetria.
 
->[AZURE.NOTE] Alcune delle correzioni di bug più recenti per l'interfaccia della riga di comando di Azure Insights non sono ancora state completate e quindi alcune delle funzionalità più recenti non sono ancora disponibili nella versione corrente dell'interfaccia della riga di comando di Azure. Per il momento è possibile usare l'interfaccia della riga di comando di Azure Insights più recente che include gli aggiornamenti scaricando il tarball dal ramo di sviluppo nel [tarball dell'interfaccia della riga di comando multipiattaforma di Azure](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz) e quindi seguire le istruzioni nel [repository sulla riga di comando multipiattaforma di Microsoft Azure](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository) per installarla usando il tarball scaricato. Azure Insights includerà le correzioni dei bug per l'interfaccia della riga di comando di Azure al prossimo aggiornamento. Questo documento verrà aggiornato non appena le modifiche saranno disponibili nel ramo principale dell'interfaccia della riga di comando di Azure.
 
 ## Prerequisiti
 
@@ -221,4 +220,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

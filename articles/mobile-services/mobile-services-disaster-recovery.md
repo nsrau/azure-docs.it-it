@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="christopheranderson"/>
 
 # Ripristinare il servizio mobile in caso di emergenza
@@ -114,4 +114,4 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 [dashboard dei servizi mobili di Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->
