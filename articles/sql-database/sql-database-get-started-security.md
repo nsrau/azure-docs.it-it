@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -50,4 +50,4 @@ In questa esercitazione si apprenderà come usare il portale di Azure per:
 ## Passaggi successivi
 Dopo avere completato questa esercitazione sul database SQL e avere creato un account utente e concesso all'account utente le autorizzazioni dbo, è possibile saperne di più sulla [sicurezza del database SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -53,12 +53,16 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 
 ## Posizioni del provider di connettività
 
+> [AZURE.SELECTOR]
+[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
+[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
+
 ### Produzione Azure
 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365 e CRM Online** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Supportato | Supportato | Amsterdam, Silicon Valley, Singapore, Tokyo, Washington DC |
-| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam, Chicago, Dallas, Londra, Silicon Valley, Singapore, Sydney, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam, Chicago, Dallas, Londra, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 |**CenturyLink** | Presto disponibile | Presto disponibile| Silicon Valley |
 |**China Telecom Global** | Supportato | Non supportato | Hong Kong |
@@ -102,7 +106,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Chicago, Dallas+, New York, Washington DC |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Presto disponibile | Chicago, New York +, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Presto disponibile | Chicago, New York +, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Supportato | Chicago, Dallas+, New York, Washington DC |
 
 #### Cina
@@ -140,9 +144,11 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 |**Provider di connettività**|**Exchange**|**Località**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Seattle|
-|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapore|
+|**Alaska Communications**|Equinix|Seattle|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)**|Equinix|New York, Washington DC|
+|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
+
 
 ## Integratori di sistemi ExpressRoute
 
@@ -165,4 +171,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

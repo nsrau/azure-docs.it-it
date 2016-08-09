@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Archivio Azure Data Lake con API REST
@@ -43,7 +43,7 @@ Questo articolo descrive come usare le API REST WebHDFS e le API REST di Archivi
 	* **Per l'autenticazione non interattiva**: in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
 		- Ottenere l'**ID client**, il **segreto client** e l'**URI di reindirizzamento** per l'applicazione
 		- Impostare autorizzazioni delegate
-		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. Per istruzioni, vedere [Assegnare l'applicazione al ruolo](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. Per istruzioni, vedere [Assegnare l'applicazione al ruolo](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Per istruzioni su come recuperare questi valori, impostare le autorizzazioni e assegnare i ruoli, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 
@@ -61,7 +61,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> deve essere codificato per essere usato in un URL. Quindi, per https://localhost usare `https%3A%2F%2Flocalhost`
+	>[AZURE.NOTE] <REDIRECT-URI> deve essere codificato per essere usato in un URL. Quindi, per https://localhost usare `https%3A%2F%2Flocalhost`
 
 	Per questa esercitazione, è possibile sostituire i valori segnaposto nell'URL precedente e incollare quest'ultimo nella barra degli indirizzi di un web browser. Si verrà reindirizzati per l'autenticazione tramite l'accesso ad Azure. Dopo aver eseguito correttamente l'accesso, la risposta verrà visualizzata nella barra degli indirizzi del browser. La risposta sarà nel formato seguente:
 		
@@ -76,7 +76,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] In questo caso, \<REDIRECT-URI> non deve essere codificato.
+	>[AZURE.NOTE] In questo caso, <REDIRECT-URI> non deve essere codificato.
 
 3. La risposta è un oggetto JSON che contiene un token di accesso (ad esempio, `"access_token": "<ACCESS_TOKEN>"`) e un token di aggiornamento (ad esempio, `"refresh_token": "<REFRESH_TOKEN>"`). L'applicazione usa il token di accesso quando si accede all'Archivio Azure Data Lake e il token di aggiornamento quando un token di accesso scade per ottenerne un altro.
 
@@ -276,4 +276,4 @@ Verrà visualizzato un output simile al seguente:
 - [Aprire le applicazioni Big Data di origine che funzionano con Archivio Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

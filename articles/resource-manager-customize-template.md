@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz"/>
 
 # Personalizzare un modello di Azure Resource Manager esportato
@@ -233,4 +233,4 @@ Per distribuire il modello personalizzato e i file dei parametri è possibile us
 - Per informazioni su come esportare un modello tramite l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 - Per altre informazioni sulla struttura dei modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

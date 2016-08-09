@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Elenco di connettori gestiti da Microsoft da usare nelle app per la logica di Microsoft Azure | Servizio app di Microsoft Azure | Microsoft Azure"
 	description="Ottenere un elenco completo dei connettori gestiti da Microsoft che è possibile usare per creare app per la logica nel servizio app di Azure"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -183,4 +183,4 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

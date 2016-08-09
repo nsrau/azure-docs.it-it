@@ -151,11 +151,11 @@ Quando si crea un account di archiviazione, è necessario selezionare una delle 
 	> 
 	> Dopo aver creato l'account di archiviazione e selezionato l'archiviazione con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
 
-- **Archiviazione con ridondanza geografica (GRS)**. L'archiviazione con ridondanza geografica è abilitata per impostazione predefinita quando si crea l'account di archiviazione. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di archiviazione di Azure eseguirà il failover all'area secondaria. L'archiviazione con ridondanza geografica assicura la durabilità dei dati in due aree distinte.
+- **Archiviazione con ridondanza geografica (GRS)**. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di archiviazione di Azure eseguirà il failover all'area secondaria. L'archiviazione con ridondanza geografica assicura la durabilità dei dati in due aree distinte.
 
 	Per informazioni sulle associazioni primarie e secondarie per area, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
-- **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**. L'archiviazione con ridondanza geografica e accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. È possibile accedere ai dati dalla posizione primaria o secondaria, qualora una di queste diventi non disponibile.
+- **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**. L'archiviazione con ridondanza geografica con accesso in lettura è abilitata per impostazione predefinita quando si crea l'account di archiviazione. L'archiviazione con ridondanza geografica e accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. È possibile accedere ai dati dalla posizione primaria o secondaria, qualora una di queste diventi non disponibile.
 
 	> [AZURE.IMPORTANT] È possibile cambiare la modalità di replica dei dati dopo la creazione dell'account di archiviazione, a meno che non sia stata specificata l'archiviazione con ridondanza della zona al momento della creazione dell'account. Si noti tuttavia che se si passa dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica o all'archiviazione con ridondanza geografica e accesso in lettura, potrebbe essere addebitato un costo una tantum per il trasferimento dei dati.
  
@@ -267,4 +267,4 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
 - [Come usare l'archiviazione file da Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
