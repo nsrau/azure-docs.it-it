@@ -339,4 +339,4 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Per altre informazioni, vedere [How can I Configure Single Sign On for Office 365?](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-) (Configurazione dell'accesso Single Sign-On per Office 365) nel sito di AuthAnvil.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
