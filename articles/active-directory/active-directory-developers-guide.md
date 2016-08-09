@@ -103,7 +103,13 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 - [Rollover della chiave di firma in Azure Active Directory](active-directory-signing-key-rollover.md): informazioni sulla cadenza di rollover della chiave di firma di Azure AD e su come aggiornare la chiave per gli scenari di applicazione più comuni.
 
+- [Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory](active-directory-protocols-oauth-code.md): è possibile usare la concessione del codice di autorizzazione del protocollo OAuth 2.0 per autorizzare l'accesso alle applicazioni Web e alle API Web nel tenant di Azure Active Directory.
+
 - [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md): informazioni sulla concessione implicita di autorizzazioni e indicazioni utili per stabilire se è adatta all'applicazione specifica.
+
+- [Service to Service Calls Using Client Credentials](active-directory-protocols-oauth-service-to-service.md) (Chiamate da servizio a servizio con credenziali client): il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web, ovvero un client riservato, di usare le proprie credenziali per l'autenticazione durante la chiamata a un altro servizio Web invece di rappresentare un utente. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web.
+
+- [Autorizzare l'accesso ad applicazioni Web con OpenID Connect e Azure Active Directory](active-directory-protocols-openid-connect-code.md): il protocollo OpenID Connect 1.0 estende OAuth 2.0 per l'uso come protocollo di autenticazione. Un'applicazione client può ricevere un valore id\_token per gestire il processo di accesso o per integrare il flusso del codice di autorizzazione in modo da ricevere sia un valore id\_token che un codice di autorizzazione.
 
 - [Informazioni di riferimento sul protocollo SAML 2.0](active-directory-saml-protocol-reference.md): il protocollo SAML 2.0 consente alle applicazioni di fornire agli utenti un'esperienza di accesso Single Sign-On.
 
@@ -139,4 +145,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

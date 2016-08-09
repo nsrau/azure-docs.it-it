@@ -13,20 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
-# Guida introduttiva ai cmdlet Batch di Azure PowerShell
-Questa è una rapida introduzione ai cmdlet di Azure PowerShell che è possibile usare per gestire gli account Batch e lavorare con le risorse Batch, ad esempio pool, processi e attività. Con i cmdlet Batch è possibile eseguire molte attività identiche a quelle che si eseguono con le API Batch, il portale di Azure e l'interfaccia della riga di comando di Azure. Questo articolo si basa sui cmdlet di Azure PowerShell versione 1.3.2 o successiva.
+# Introduzione ai cmdlet di PowerShell per Azure Batch
+Con i cmdlet di PowerShell per Azure Batch è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e l'interfaccia della riga di comando di Azure e creare i relativi script. Questa è una rapida introduzione ai cmdlet con cui è possibile gestire gli account Batch e usare risorse di Batch come pool, processi e attività. Questo articolo si basa sui cmdlet di Azure PowerShell versione 1.6.0.
 
 Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet, vedere [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Prerequisiti
 
-* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per le istruzioni di download e installazione di Azure PowerShell. 
+* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per le istruzioni di download e installazione di Azure PowerShell.
    
-    * Poiché i cmdlet di Azure Batch sono inclusi nel modulo Azure Resource Manager, sarà necessario eseguire il cmdlet **Login-AzureRmAccount** per connettersi alla sottoscrizione. 
+    * Poiché i cmdlet di Azure Batch sono inclusi nel modulo Azure Resource Manager, sarà necessario eseguire il cmdlet **Login-AzureRmAccount** per connettersi alla sottoscrizione.
     
     * È consigliabile eseguire di frequente l'aggiornamento di Azure PowerShell per sfruttare i vantaggi degli aggiornamenti e miglioramenti del servizio.
     
@@ -39,13 +39,13 @@ Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet,
 
 ### Creare un account Batch
 
-**New-AzureRmBatchAccount** crea un nuovo account Batch in un gruppo di risorse specificato. Se non si ha già di un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) specificando una delle aree di Azure nel parametro **Località**, ad esempio "Stati Uniti centrali". Ad esempio:
+**New-AzureRmBatchAccount** crea un nuovo account Batch in un gruppo di risorse specificato. Se non si ha già di un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) specificando una delle aree di Azure nel parametro **Località**, ad esempio "Stati Uniti centrali". ad esempio:
 
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Creare quindi un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account\_name*> e una località in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. ad esempio:
+Creare quindi un nuovo account Batch nel gruppo di risorse, specificando un nome per l'account in <*account\_name*> e la località e il nome del gruppo di risorse. La creazione dell'account Batch può richiedere tempo. Ad esempio:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,14 +94,20 @@ Passare l'oggetto BatchAccountContext nei cmdlet che usano il parametro **BatchC
 ## Creare e modificare le risorse Batch
 Usare cmdlet come **New-AzureBatchPool**, **New-AzureBatchJob** e **New-AzureBatchTask** per creare risorse in un account Batch. Esistono cmdlet **Get-** e **Set-** corrispondenti per aggiornare le proprietà delle risorse esistenti e cmdlet **Remove-** per rimuovere le risorse in un account Batch.
 
+Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext è necessario passare oggetti contenenti le impostazioni dettagliate delle risorse, come illustrato nell'esempio seguente. Per altri esempi, vedere la Guida dettagliata dei singoli cmdlet.
+
 ### Creare un pool di Batch
 
-Il cmdlet seguente, ad esempio, crea un nuovo pool Batch configurato per l'uso di macchine virtuali di piccole dimensioni di cui è stata creata l'immagine dalla versione del sistema operativo più recente della famiglia 3 (Windows Server 2012), con il numero di destinazione di nodi di calcolo determinato da una formula di ridimensionamento automatico. In questo caso, la formula è semplicemente **$TargetDedicated=3**, per indicare che il numero di nodi di calcolo nel pool è al massimo 3. Il parametro **BatchContext** specifica una variabile già definita *$context* come oggetto BatchAccountContext.
+Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizio cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo (vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md#pool)). In base alla scelta effettuata, l'immagine dei nodi di calcolo verrà creata con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) oppure con una delle immagini di VM Linux o Windows supportate disponibili in Azure Marketplace.
+
+Quando si esegue **New-AzureBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il cmdlet seguente, ad esempio, crea un nuovo pool di Batch con nodi di calcolo di dimensione Small nella configurazione del servizio cloud, con immagine creata con la versione del sistema operativo più recente della famiglia 3 (Windows Server 2012). In questo caso, il parametro **CloudServiceConfiguration** specifica la variabile *$configuration* come oggetto PSCloudServiceConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]I cmdlet PowerShell per Batch attualmente supportano solo la configurazione di servizi cloud per i nodi di calcolo. In questo modo è possibile scegliere una delle versioni di sistema operativo guest per Azure del sistema operativo Windows Server per l'esecuzione sui nodi di calcolo. Per altre opzioni di configurazione dei nodi di calcolo per i pool di Batch, usare Batch SDK o l'interfaccia della riga di comando di Azure.
+Il numero di nodi di calcolo di destinazione nel nuovo pool è determinato da una formula di ridimensionamento automatico. In questo caso, la formula è semplicemente **$TargetDedicated=4** e indica che il numero massimo di nodi di calcolo nel pool è 4.
 
 ## Query per pool, processi, attività e altri dettagli
 
@@ -157,8 +163,8 @@ I cmdlet Batch possono usare la pipeline di PowerShell per inviare dati tra i cm
 
 
 ## Passaggi successivi
-* Per la sintassi dettagliata ed esempi dei cmdlet, vedere il riferimento ai[Cmdlet per Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Per la sintassi dettagliata ed esempi dei cmdlet, vedere le [informazioni di riferimento sui cmdlet per Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 * Per altre informazioni sulla riduzione del numero di elementi e del tipo di informazioni restituite per le query su Batch, vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

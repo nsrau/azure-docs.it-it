@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Informazioni sui dispositivi VPN per le connessioni di gateway VPN
@@ -51,7 +51,7 @@ Per agevolare la configurazione del dispositivo VPN, fare riferimento ai collega
 | Citrix | Dispositivo MPX CloudBridge o dispositivo virtuale VPX | N/D | [Istruzioni di integrazione](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatibile |
 | Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Istruzioni di configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Non compatibile |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
+| Fortinet | FortiGate | FortiOS 5.2.7 | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Istruzioni di configurazione](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Istruzioni di configurazione](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Non compatibile |
 | Juniper | SRX | JunOS 10.2 (basato su criteri), JunOS 11.4 (basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | Serie J | JunOS 10.4r9 (basato su criteri), JunOS 11.4 (basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -153,4 +153,4 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
 	keywords="opzioni di database,prestazioni del database"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -58,14 +58,38 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 
 [AZURE.INCLUDE [Descrizione di DTU del database SQL](../../includes/sql-database-understanding-dtus.md)]
 
+## Scelta di un piano di servizio
+
+Per stabilire un livello di servizio, iniziare determinando se il database sarà un database autonomo o farà parte di un pool elastico.
+
+### Scelta di un livello di servizio per un database autonomo
+
+Per stabilire un livello di servizio per un database autonomo, determinare prima di tutto le funzionalità di database necessarie per scegliere l'edizione del database SQL:
+
+- Dimensioni del database: 5 GB massimo per Basic, 250 GB massimo per Standard e da 500 GB a 1 TB massimo per Premium, a seconda del livello di prestazioni.
+- Periodo di conservazione dei backup del database: 7 giorni per Basic, 35 giorni per Standard e 35 giorni per Premium.
+
+Dopo aver determinato l'edizione del database SQL, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. Si può fare una supposizione e quindi [aumentare o ridurre le prestazioni in modo dinamico](sql-database-scale-up.md) in base all'esperienza effettiva. È anche possibile usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario.
+
+### Scelta di un livello di servizio per un pool di database elastici
+
+Per stabilire un livello di servizio per un pool di database elastici, determinare prima di tutto le funzionalità di database necessarie per scegliere il livello di servizio per il pool.
+
+- Dimensioni del database: 2 GB per Basic, 250 GB per Standard e 500 GB per Premium.
+- Periodo di conservazione dei backup del database: 7 giorni per Basic, 35 giorni per Standard e 35 giorni per Premium.
+- Numero di database per ogni pool: 400 per Basic, 400 per Standard e 50 per Premium.
+- Archiviazione massima per ogni pool: 117 GB per Basic, 1200 per Standard e 750 per Premium.
+
+Dopo aver determinato il livello di servizio per il pool, è possibile determinarne il livello di prestazioni (eDTU). Si può fare una supposizione e quindi [aumentare o ridurre le prestazioni in modo dinamico](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) in base all'esperienza effettiva. È anche possibile usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario per un singolo database all'interno del pool, per facilitare l'impostazione del limite massimo per il pool.
+
 ## Passaggi successivi
 - Ulteriori informazioni sui prezzi di tali livelli sono disponibili in [Database SQL - Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
-- Altre informazioni su [pool di database elastici](sql-database-elastic-pool-guidance.md) e [considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+- Sono disponibili altre informazioni su [pool di database elastici](sql-database-elastic-pool-guidance.md) e [considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 - Informazioni su come [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni del database nel database SQL di Azure](sql-database-single-database-monitor.md).
-- Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
+- Dopo avere acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
 
 ## Risorse aggiuntive
 
 Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

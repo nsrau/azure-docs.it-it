@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Elenco dei connettori e delle app per le API disponibili | Microsoft Azure App Service"
 	description="Informazioni sui connettori e le app per le API in Azure App Service"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="erikre"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/11/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 
 # Elenco di connettori e app per le API da usare nelle app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic sull'[elenco dei nuovi connettori](../connectors/apis-list.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione di disponibilità generale delle app per la logica, vedere [Elenco di connettori](../connectors/apis-list.md).
 
 Informazioni su tutti i connettori disponibili e le app per le API create da Microsoft che è possibile usare nelle app per la logica.
 
 Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello di servizio, vedere le [Informazioni sui prezzi di Azure App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [AZURE.NOTE] Per iniziare a provare le app per la logica di Azure prima di iscriversi per ottenere un account Azure, visitare [Crea un'app del Servizio app di Azure](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Connettori Core
 Nella tabella seguente sono elencati tutti i connettori disponibili e le app per le API create da Microsoft, disponibili come Connettori Core:
@@ -80,4 +80,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 ## Altre informazioni su connettori e app per le API
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

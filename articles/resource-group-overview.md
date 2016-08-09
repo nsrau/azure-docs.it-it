@@ -24,7 +24,7 @@ L'infrastruttura per l'applicazione è in genere costituita da vari componenti, 
 
 Se non si ha esperienza con Azure Resource Manager, è possibile che non si conoscano alcuni termini.
 
-- **risorsa**: elemento incluso nella soluzione Azure. Alcune risorse comuni sono le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali, ma ne esistono molte altre.
+- **risorsa**: elemento gestibile disponibile tramite Azure. Alcune risorse comuni sono le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali, ma ne esistono molte altre.
 - **gruppo di risorse**: contenitore con risorse correlate per un'applicazione. Il gruppo di risorse può includere tutte le risorse di un'applicazione o solo le risorse raggruppate. È possibile decidere come si desidera allocare le risorse a gruppi di risorse nel modo appropriato per l'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
 - **provider di risorse**: servizio che mette a disposizione le risorse che è possibile distribuire e gestire con Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. Alcuni provider di risorse comuni sono Microsoft.Compute che mette a disposizione la risorsa delle macchine virtuali, Microsoft.Storage che offre la risorsa di account di archiviazione e Microsoft.Web che mette a disposizione risorse correlate alle app Web. Vedere [Provider di risorse](#resource-providers).
 - **modello di Resource Manager**: file JavaScript Object Notation (JSON) che definisce una o più risorse da distribuire in un gruppo di risorse. Definisce anche le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere [Distribuzione del modello](#template-deployment).
@@ -171,4 +171,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

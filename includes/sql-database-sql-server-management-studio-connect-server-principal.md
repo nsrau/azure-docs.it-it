@@ -39,4 +39,4 @@ Usare i passaggi seguenti per connettersi al database SQL di Azure con SSMS usan
 
 I motivi più comuni per cui si verificano errori di connessione sono gli errori nel nome del server (si ricordi che <*nomeserver*> è il nome del server logico, non del database), gli errori nel nome utente o nella password, nonché il blocco delle connessioni da parte del server per motivi di sicurezza.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

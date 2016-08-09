@@ -30,7 +30,7 @@ Usare la procedura seguente nel portale di Azure per creare un nuovo database SQ
  - Nome database
  - Sottoscrizione: solo se sono disponibili più sottoscrizioni
  - Gruppo di risorse: per iniziare a usare il gruppo di risorse del server logico
- - Selezionare l'origine: è possibile scegliere un database vuoto, dati di esempio o un backup del database
+ - Selezionare l'origine. È possibile scegliere un database vuoto, dati di esempio o un backup del database di Azure. Per eseguire la migrazione di un database SQL Server o di dati locali tramite BCP, vedere i collegamenti alla fine di questo articolo
  - Server: un server logico nuovo o esistente
  - Password amministratore server
  - Password
@@ -47,4 +47,4 @@ Usare la procedura seguente nel portale di Azure per creare un nuovo database SQ
 
      ![nuovo database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->
