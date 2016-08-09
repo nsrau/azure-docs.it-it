@@ -9,16 +9,18 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Introduzione al connettore di archiviazione BLOB di Azure
 Archiviazione BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati. Nell'archivio BLOB di Azure è possibile eseguire diverse azioni, ad esempio, caricare, aggiornare, ottenere ed eliminare BLOB.
+
+Con Archiviazione BLOB di Azure:
 
 - Il flusso di lavoro si crea caricando nuovi progetti o recuperando file aggiornati di recente.
 - Le azioni consentono di ottenere i metadati del file, eliminare un file, copiare file e altro ancora. Ad esempio, quando viene aggiornato uno strumento in un sito Web di Azure (trigger), viene aggiornato un file nell'archivio BLOB (azione).
@@ -27,40 +29,19 @@ Questo argomento illustra come usare il connettore di archiviazione BLOB in un'a
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
 
-Per iniziare, [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [Elementi necessari per iniziare](../../includes/connectors-create-api-azureblobstorage.md)]
-
+Per altre informazioni sulle app per la logica, vedere [Informazioni sulle app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connettersi all'archivio BLOB di Azure
 
-Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a Dropbox, creare prima di tutto una *connessione* Dropbox. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui ci si vuole connettere. Nell'esempio riguardante Dropbox immettere quindi le credenziali di Dropbox per creare la connessione a Dropbox.
-
-Quando si aggiunge questo connettore alle app per la logica, si crea la connessione all'account di archiviazione BLOB. La prima volta che si aggiunge questo connettore, vengono richieste le informazioni di connessione:
-
-![](./media/connectors-create-api-azureblobstorage/connection-details.png)
-
+Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un account di archiviazione si crea prima una *connessione* all'archivio BLOB. Per creare una connessione, immettere le credenziali usate normalmente per accedere al servizio a cui connettersi. Con Archiviazione di Azure immettere quindi le credenziali dell'account di archiviazione per creare la connessione.
 
 #### Creare la connessione
 
-1. Immettere i dettagli dell'account di archiviazione. Le proprietà con un asterisco sono obbligatorie.
-
-	| Proprietà | Dettagli |
-|---|---|
-| Nome connessione * | Immettere un nome per la connessione. |
-| Nome dell'account di archiviazione di Azure * | Immettere il nome dell'account di archiviazione, Il nome dell'account di archiviazione viene visualizzato nelle proprietà di archiviazione nel portale di Azure. |
-| Chiave di accesso dell'account di archiviazione di Azure * | Immettere la chiave dell'account di archiviazione. La chiave di accesso viene visualizzata nelle proprietà di archiviazione nel portale di Azure. |
-
-	Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati. Al termine, i dettagli della connessione saranno simili ai seguenti:
-
-	![Passaggio di creazione della connessione all'archivio BLOB di Azure](./media/connectors-create-api-azureblobstorage/sample-connection.png)
-
-2. Selezionare **Create**.
-
+>[AZURE.INCLUDE [Creare una connessione all'archivio BLOB di Azure](../../includes/connectors-create-api-azureblobstorage.md)]
  
 ## Usare un trigger
 
-Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger Ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. Nella sezione [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) è riportato un esempio.
+Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger di ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. La sezione [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) illustra un esempio.
 
 ## Usare un'azione
 	
@@ -76,7 +57,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 	![](./media/connectors-create-api-azureblobstorage/actions.png)
 
-4. Nell'esempio, scegliere **BLOB di Azure - Ottieni metadati file in base al percorso**. Se esiste già una connessione, fare clic sul pulsante **...** (Mostra selezione) per selezionare un file.
+4. Nell'esempio, scegliere **AzureBlob - Ottieni metadati file in base al percorso**. Se esiste già una connessione, fare clic sul pulsante **...** (Mostra selezione) per selezionare un file.
 
 	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 
@@ -84,13 +65,13 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 	> [AZURE.NOTE] In questo esempio si ottengono i metadati di un file. Per visualizzare i metadati, aggiungere un'altra azione che crea un nuovo file tramite un altro connettore. Ad esempio, aggiungere un'azione OneDrive che crea un nuovo file "test" in base ai metadati.
 
-5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche . L'app per la logica viene salvata e può essere abilitata automaticamente.
+5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere abilitata automaticamente.
 
-> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) è uno strumento ideale per gestire più account di archiviazione.
+> [AZURE.TIP] [Storage Explorer]http://storageexplorer.com/ è uno strumento ideale per gestire più account di archiviazione.
 
 ## Dettagli tecnici
 
-## Azioni
+## Azioni del BLOB di archiviazione
 
 |Azione|Descrizione|
 |--- | ---|
@@ -328,4 +309,4 @@ Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determi
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell'[elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

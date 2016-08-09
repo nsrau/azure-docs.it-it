@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 
 - Accesso alle autorità di certificazione per l'emissione dei certificati client.
 
-- Le autorità di certificazione devono essere configurate in Azure Active Directory. La procedura dettagliata su come completare la configurazione è riportata nella sezione introduttiva.
+- Le autorità di certificazione devono essere configurate in Azure Active Directory. La procedura dettagliata su come completare la configurazione è riportata nella sezione [introduttiva](#getting-started).
 
 - L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
 
@@ -61,17 +61,19 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 
 | App | Supporto |
 | ---                       | ---          |
-| OneDrive | Sì |
-| Outlook | Sì |
-| Word / Excel / PowerPoint | Sì |
-| Skype for Business Online | Sì |
+| Word / Excel / PowerPoint | ![Controllo][1] |
+| OneNote | Presto disponibile |
+| OneDrive | ![Controllo][1] |
+| Outlook | ![Controllo][1] |
+| Yammer | ![Controllo][1] |
+| Skype for Business Online | ![Controllo][1] |
 
 
 ### Requisiti  
 
-La versione del sistema operativo del dispositivo deve essere Android 5.0 (Lollipop) o successiva
+La versione del sistema operativo del dispositivo deve essere Android 5.0 (Lollipop) o successiva.
 
-Per eseguire l'autenticazione basata su certificati con le applicazioni Office per dispositivi mobili è necessario configurare un server federativo.
+È necessario configurare un server federativo.
 
 
 Perché Azure Active Directory possa revocare un certificato client, il token ADFS deve avere le attestazioni seguenti:
@@ -84,7 +86,7 @@ Azure Active Directory aggiunge queste attestazioni per il token di aggiornament
 
 Come procedura consigliata, è necessario aggiornare le pagine di errore di ADFS con le istruzioni su come ottenere un certificato utente.
 
-Per altre informazioni, vedere l'articolo sulla [personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
 
 
@@ -138,9 +140,9 @@ Per caricare le informazioni, è possibile usare il modulo Azure AD tramite Wind
 
 1. Avviare Windows PowerShell con privilegi amministrativi.
 
-2. Installare il modulo Azure AD. È necessario installare la versione [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o una versione successiva.
+2. Installare il modulo Azure AD. È necessario installare la versione [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o versione successiva.
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Connettersi al tenant di destinazione:
 
@@ -267,4 +269,8 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
 
 La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente, non sulla data indicata dal comando Set-MsolUser.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
+
+<!---HONumber=AcomDC_0727_2016-->

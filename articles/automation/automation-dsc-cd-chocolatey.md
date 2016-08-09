@@ -26,8 +26,8 @@ In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti de
 
 Gli aspetti da considerare sono molteplici, ma possono comunque essere suddivisi in due processi principali:
 
-  - Scrittura di codice e relativo test, quindi creazione e pubblicazione dei pacchetti di installazione per le versioni principale e secondaria del sistema. 
-  - Creazione e gestione delle VM che installeranno ed eseguiranno il codice nei pacchetti.  
+  - Scrittura di codice e relativo test, quindi creazione e pubblicazione dei pacchetti di installazione per le versioni principale e secondaria del sistema.
+  - Creazione e gestione delle VM che installeranno ed eseguiranno il codice nei pacchetti.
 
 Dopo l'implementazione di entrambi questi processi di base, si potrà aggiornare automaticamente e in modo rapido il pacchetto in esecuzione in qualsiasi VM specifica, man mano che vengono create e distribuite nuove versioni.
 
@@ -63,7 +63,7 @@ Da una riga di comando di PowerShell (Add-AzureRmAccount) autenticata (la config
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Giappone orientale, Stati Uniti orientali 2, Europa occidentale, Asia sudorientale, Stati Uniti centro-meridionali.
+È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale.
 
 ## Passaggio 2: Modifiche dell'estensione VM nel modello ARM
 
@@ -79,10 +79,10 @@ In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di 
 
 -   Installare il modulo necessario nella workstation, come indicato di seguito:
     -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10).
-    -   `Install-Module –Name MODULE-NAME` <—estrae il modulo da PowerShell Gallery. 
--   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
--   Eliminare esempi e documentazione dalla cartella principale. 
--   Comprimere la cartella principale e denominare il file ZIP esattamente come la cartella. 
+    -   `Install-Module –Name MODULE-NAME` <—estrae il modulo da PowerShell Gallery.
+-   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea.
+-   Eliminare esempi e documentazione dalla cartella principale.
+-   Comprimere la cartella principale e denominare il file ZIP esattamente come la cartella.
 -   Inserire il file ZIP in una posizione HTTP raggiungibile, ad esempio l'archivio BLOB in un account di archiviazione di Azure.
 -   Eseguire questo comando di PowerShell:
 
@@ -185,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

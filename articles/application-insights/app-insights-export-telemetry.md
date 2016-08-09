@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -24,7 +24,7 @@ La funzionalità di esportazione continua è disponibile nel periodo di valutazi
 
 Prima di configurare l'esportazione continua, è necessario prendere in considerazione alcune alternative:
 
-* [Il pulsante Esporta](app-insights-metrics-explorer.md#export-to-excel) nella parte superiore del pannello delle metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel. 
+* [Il pulsante Esporta](app-insights-metrics-explorer.md#export-to-excel) nella parte superiore del pannello delle metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 * [Dati di analisi](app-insights-analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se lo scopo è [esplorare i dati in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), è possibile farlo senza usare l'esportazione continua.
 
@@ -111,7 +111,7 @@ Where
 
 ## <a name="format"></a> Formato dati
 
-* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
+* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'. Contiene i dati di telemetria elaborati in un periodo di tempo di circa mezzo minuto.
 * Ogni riga rappresenta un punto dati di telemetria, ad esempio una richiesta o una visualizzazione di pagina.
 * Ogni riga è un documento JSON non formattato. Se si desidera sedersi a osservare, aprirlo in Visual Studio e scegliere Modifica, Avanzate, File di formato:
 
@@ -178,7 +178,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
 ## Domande e risposte
 
-* *Si intende scaricare semplicemente un grafico.*  
+* *Si intende scaricare semplicemente un grafico.*
  
     Questa operazione è consentita. Nella parte superiore del pannello fare clic sul [pulsante di esportazione dati](app-insights-metrics-explorer.md#export-to-excel).
 
@@ -229,4 +229,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

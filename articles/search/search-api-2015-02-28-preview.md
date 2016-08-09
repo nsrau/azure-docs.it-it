@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="06/01/2016"
+   ms.date="07/25/2016"
    ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
@@ -978,6 +978,8 @@ L'operazione per **ottenere le statistiche di un indice** restituisce il numero 
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
+> [AZURE.NOTE] Le statistiche sul numero di documenti e le dimensioni vengono raccolte ad intervalli di pochi minuti, non in tempo reale. Di conseguenza, le statistiche restituite da questa API potrebbero non riflettere le modifiche apportate da operazioni di indicizzazione recenti.
+
 **Richiesta**
 
 Per tutte le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta per **ottenere le statistiche di un indice** può essere creata mediante il metodo GET.
@@ -1050,7 +1052,7 @@ oppure
       "charFilters": (optional) [ "char_filter_name" ]
     }
 
-`analyzer_name`, `tokenizer_name`, `token_filter_name` e `char_filter_name` devono essere nomi validi di analizzatori, tokenizer, filtri di token e filtri char predefiniti o personalizzati per l'indice. Per ulteriori informazioni sul processo di analisi lessicale vedere la pagina relativa all'[analisi in Ricerca di Azure](https://aka.ms/azsanalysis).
+`analyzer_name`, `tokenizer_name`, `token_filter_name` e `char_filter_name` devono essere nomi validi di analizzatori, tokenizer, filtri di token e filtri char predefiniti o personalizzati per l'indice. Per altre informazioni sul processo di analisi lessicale vedere la pagina relativa all'[analisi in Ricerca di Azure](https://aka.ms/azsanalysis).
 
 **Risposta**
 
@@ -1402,7 +1404,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 `facet=[string]` (zero o più): specifica un campo da usare per l'esplorazione in base a facet. La stringa può contenere parametri per personalizzare l'esplorazione in base a facet, espressi come coppie `name:value` delimitate da virgole. I parametri validi sono:
 
 - `count`: numero massimo di termini facet. Il valore predefinito è 10. Non è previsto alcun limite massimo per il numero di termini, ma i valori elevati potrebbero influire negativamente sulle prestazioni, soprattutto se il campo con facet include un numero elevato di termini univoci.
-  - Esempio: `facet=category,count:5` ottiene le prime cinque categorie nei risultati dell'esplorazione in base a facet.  
+  - Esempio: `facet=category,count:5` ottiene le prime cinque categorie nei risultati dell'esplorazione in base a facet.
   - **Nota**: se il parametro `count` è inferiore al numero di termini univoci, è possibile che i risultati non siano precisi. Ciò è dovuto al modo in cui le query di esplorazione in base a facet vengono distribuite nelle partizioni. Se si aumenta il valore di `count`, si ottengono conteggi di termini più precisi, ma le prestazioni possono essere ridotte.
 - `sort` (uno dei valori `count` per ordinare in modo *decrescente* in base al conteggio, `-count` per ordinare in modo *crescente* in base al conteggio, `value` per ordinare in modo *crescente* in base al valore o `-value` per ordinare in modo *decrescente* in base al valore)
   - Esempio: `facet=category,count:3,sort:count` ottiene le prime tre categorie nei risultati dell'esplorazione in base a facet in ordine decrescente secondo il numero di documenti che includono ogni nome di città. Se le prime tre categorie sono Budget, Motel e Luxury e sono stati trovati 5 risultati per Budget, 6 per Motel e 4 per Luxury, l'ordine dei bucket sarà Motel, Budget, Luxury.
@@ -1416,7 +1418,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 - `timeoffset` ([+-]hh:mm, [+-]hhmm o [+-]hh) `timeoffset` è facoltativo. Può essere combinato solo con l'opzione `interval` e solo se applicato a un campo di tipo `Edm.DateTimeOffset`. Il valore specifica la differenza dell'ora UTC di cui tenere conto nell'impostazione dei limiti di ora.
   - Ad esempio, `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa il limite del giorno che inizia alle 01:00:00 UTC (mezzanotte nel fuso orario di destinazione)
 - **Nota**: `count` e `sort` possono essere combinati nella stessa specifica di facet, ma non possono essere combinati con `interval` o `values` e inoltre `interval` e `values` non possono essere combinati tra loro.
-- **Nota**: se `timeoffset` non è specificato, i facet di intervallo per data e ora vengono calcolati in base all'ora UTC. Ad esempio, per `facet=lastRenovationDate,interval:day` il limite del giorno inizia alle 00:00:00 UTC. 
+- **Nota**: se `timeoffset` non è specificato, i facet di intervallo per data e ora vengono calcolati in base all'ora UTC. Ad esempio, per `facet=lastRenovationDate,interval:day` il limite del giorno inizia alle 00:00:00 UTC.
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `facets` invece di `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
 
@@ -1968,4 +1970,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

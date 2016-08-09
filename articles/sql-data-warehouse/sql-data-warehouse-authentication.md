@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticazione in Azure SQL Data Warehouse
@@ -26,7 +26,7 @@
 
 Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
 
-Per altre informazioni sulla sicurezza e sull'attivazione di connessioni al data warehouse, vedere anche l'articolo [Proteggere un database in SQL Data Warehouse][].
+Per altre informazioni sulla sicurezza e sull'attivazione di connessioni al data warehouse, vedere l'articolo [Proteggere un database in SQL Data Warehouse][].
 
 ## Autenticazione in SQL
 Per connettersi a SQL Data Warehouse è necessario fornire le informazioni seguenti:
@@ -44,14 +44,14 @@ Per impostazione predefinita la connessione si connetterà al database master e 
 1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT o nella stringa di connessione dell’applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
 2. Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
 
-> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l’articolo su come [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
+> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l'articolo [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
-Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <your DB>** non è supportata per la modifica del database per una connessione
+Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <DB>** non è supportata per la modifica del database per una connessione
 
 
 ## Autenticazione di Azure Active Directory (AAD)
 
-L'autenticazione di Azure Active Directory è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni.
+L'autenticazione di [Azure Active Directory][What is Azure Active Directory] è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni.
 
 ### Vantaggi
 
@@ -89,7 +89,8 @@ La differenza principale tra l'uso dell'autenticazione di Azure Active Directory
 Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
 <!-- Article references -->
-[Proteggere un database in SQL Data Warehouse]: sql-data-warehouse-overview-manage-security.md
-[Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,4 +1,5 @@
-Le organizzazioni usano più applicazioni SaaS (Software as a Service) per la produttività in quanto la tecnologia e gli strumenti cloud stanno diventando sempre più disponibili. Con l'aumento del numero delle applicazioni SaaS, diventa difficile per gli amministratori gestire gli account e i diritti di accesso e per gli utenti ricordare le diverse password. Gestire singolarmente queste applicazioni richiede un impegno aggiuntivo ed è meno sicuro.
+Le organizzazioni usano più applicazioni [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) per la produttività in quanto la tecnologia e gli strumenti cloud stanno diventando sempre più disponibili. Con l'aumento del numero delle applicazioni SaaS, diventa difficile per gli amministratori gestire gli account e i diritti di accesso e per gli utenti ricordare le diverse password. Gestire singolarmente queste applicazioni richiede un impegno aggiuntivo ed è meno sicuro.
+
 
 - I dipendenti che devono tenere traccia di numerose password tendono a usare metodi meno sicuri per ricordarle, annotando le password o usando le stesse password per diversi account.
 
@@ -21,4 +22,4 @@ Nel caso gli utenti abbiano creato i propri account per app SaaS che non sono ge
 
 Quando si integra un'app in Azure AD, è possibile mappare le identità delle applicazioni stabilite dagli utenti alle rispettive identità di Azure AD.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

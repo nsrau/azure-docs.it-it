@@ -14,16 +14,16 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/12/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
 # Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 
-Durante il [provisioning del servizio](search-create-service-portal.md) sarà necessario specificare lo SKU o il piano tariffario da usare. Le opzioni disponibili includono **Gratuito**, **Basic** o **Standard**. Il piano **Standard** è disponibile in più configurazioni di risorsa e capacità.
+Durante il [provisioning del servizio](search-create-service-portal.md) sarà necessario specificare lo SKU o il piano tariffario. Le opzioni disponibili includono **Gratuito**, **Basic** o **Standard**. Il piano **Standard** è disponibile in più configurazioni e capacità.
 
-È consigliabile effettuare sempre il provisioning del servizio **Gratuito** (uno per sottoscrizione, senza scadenza), in modo che sia subito disponibile per dimostrazioni o test. È possibile usare il servizio **Gratuito** per i test e per la valutazione e quindi creare un secondo servizio fatturabile per carichi di lavoro di produzione o di test di dimensioni maggiori.
+È consigliabile eseguire sempre il provisioning del servizio **Gratuito** (uno per sottoscrizione, senza scadenza), in modo che sia subito disponibile per progetti leggeri. Usare il servizio **Gratuito** per i test e per la valutazione e quindi creare un secondo servizio fatturabile con i piani **Basic** o **Standard** per carichi di lavoro di produzione o di test di dimensioni maggiori.
 
-In Ricerca di Azure lo SKU determina la capacità, non la disponibilità delle funzionalità. Tutte le funzionalità sono disponibili a ogni piano tariffario.
+In Ricerca di Azure lo SKU determina la capacità, non la disponibilità delle funzionalità. Tutte le funzionalità sono disponibili su ogni piano tariffario, incluse le funzioni di anteprima.
 
 ## Come prendere una decisione relativa al piano tariffario
 
@@ -58,7 +58,7 @@ Standard 3 ad alta densità (**S3 HD**) - Anteprima|Un numero elevato di indici 
 
 > [AZURE.NOTE] I valori massimi per le repliche e le partizioni vengono fatturati come unità di servizio (al massimo 36 unità per servizio). Ciò impone un limite effettivo inferiore rispetto al valore massimo nominale. Per usare ad esempio il numero massimo di 12 repliche si possono avere non oltre 3 partizioni perché 12 * 3 = 36 unità. Analogamente, ridurre le repliche a 3 per usare il numero di partizioni massimo. Per un grafico delle combinazioni consentite, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro in Ricerca di Azure](search-capacity-planning.md).
 
-## Percorso decisionale per la scelta di uno SKU
+## Esaminare i limiti per ogni piano
 
 Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md). Elenca i fattori che probabilmente influiranno maggiormente sulla decisione relativa allo SKU. È possibile fare riferimento a questo grafico quando si esaminano le domande seguenti.
 
@@ -75,7 +75,7 @@ Query al secondo|N/D|~3 per replica|~15 per replica|~60 per replica|>60 per repl
 <sup>1</sup> Gli SKU Gratuito e Anteprima non includono contratti di servizio. I contratti di servizio vengono applicati quando uno SKU è disponibile a livello generale.
 
 
-### Domande frequenti nella scelta di uno SKU
+## Eliminare gli SKU che non soddisfano i requisiti 
 
 Le domande seguenti consentono di prendere la decisione corretta per gli SKU per il carico di lavoro.
 
@@ -101,4 +101,4 @@ Dopo aver determinato lo SKU corretto, continuare con la procedura:
 - [Creare un servizio di ricerca nel portale](search-create-service-portal.md)
 - [Modificare l'allocazione di partizioni e repliche per la scalabilità del servizio](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

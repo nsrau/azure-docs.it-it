@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Scalare i servizi mobili supportati dal database SQL di Azure
@@ -76,8 +76,8 @@ Dopo aver acquisito familiarità con i diversi livelli di database, è possibile
 
     - *Percentuale I/O dei dati* (disponibile solo nei livelli Basic/Standard/Premium)
     - *Percentuale I/O del log* (disponibile solo nei livelli Basic/Standard/Premium)
-    - *Archiviazione* 
-7. Esaminare le metriche nella finestra temporale in cui si sono verificati i problemi del servizio. 
+    - *Archiviazione*
+7. Esaminare le metriche nella finestra temporale in cui si sono verificati i problemi del servizio.
 
     ![Portale di Azure classico - Metriche del database SQL][PortalSqlMetrics]
 
@@ -192,7 +192,7 @@ Ecco alcune linee guida da tenere in considerazione per le query sul database:
 - **Implementare il paging.** L'esecuzione di query sul database può a volte risultare nella restituzione al client di un numero molto elevato di record. Per minimizzare le dimensioni e la latenza delle operazioni, valutare la possibilità di implementare il paging.
 
     - Per impostazione predefinita, il servizio mobile limiterà le query in arrivo a una pagina di dimensioni pari a 50 righe ed è possibile richiedere manualmente fino a 1.000 record. Per altre informazioni, vedere "Restituire i dati in pagine" per [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Per le query eseguite dal codice del servizio mobile non sono previste dimensioni di pagina predefinite. Se l'app non implementa il paging, o come misura preventiva, valutare l'applicazione di limiti predefiniti alle query. Nel back-end JavaScript usare l'operatore **take** sull'[oggetto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se si usa il back-end .NET, considerare l'uso del [metodo Take] come parte della query LINQ.  
+    - Per le query eseguite dal codice del servizio mobile non sono previste dimensioni di pagina predefinite. Se l'app non implementa il paging, o come misura preventiva, valutare l'applicazione di limiti predefiniti alle query. Nel back-end JavaScript usare l'operatore **take** sull'[oggetto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se si usa il back-end .NET, considerare l'uso del [metodo Take] come parte della query LINQ.
 
 
 Per altre informazioni sul miglioramento della progettazione delle query e sull'analisi dei piani di query, vedere [Progettazione avanzata delle query](#AdvancedQuery) più avanti in questo documento.
@@ -493,4 +493,4 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 <!-- BLOG LINKS -->
 [Costo delle chiavi]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

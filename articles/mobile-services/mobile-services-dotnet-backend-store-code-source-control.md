@@ -10,22 +10,22 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
+& nbsp;
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [Back-end .NET](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Back-end JavaScript](mobile-services-store-scripts-source-control.md)
 
 Questo argomento descrive come usare il controllo del codice sorgente fornito da Servizi mobili di Azure per archiviare il progetto di servizio back-end .NET. Per pubblicare il progetto è sufficiente caricarlo nel servizio mobile di produzione dal repository Git locale.
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
 	> [AZURE.NOTE]
-	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
+	In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -65,7 +65,7 @@ Una volta creato il repository locale, è possibile pubblicare il progetto di se
 
 ##<a name="deploy-scripts"></a>Pubblicare il progetto mediante Git
 
-1. Creare un nuovo progetto di servizio mobile back-end .NET in Visual Studio 2013 o spostare un progetto esistente nel nuovo repository locale.  
+1. Creare un nuovo progetto di servizio mobile back-end .NET in Visual Studio 2013 o spostare un progetto esistente nel nuovo repository locale.
 
 	Per un test veloce, scaricare e salvare il progetto di guida introduttiva di Servizi mobili in questa cartella.
 
@@ -104,4 +104,4 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

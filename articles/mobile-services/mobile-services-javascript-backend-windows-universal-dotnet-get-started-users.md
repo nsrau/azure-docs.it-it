@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app universale della piattaforma UWP 8.1
@@ -61,7 +61,7 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 
 ##Vedere anche
 
-+ [Funzionalità utenti avanzate](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> È possibile ottenere dati utente aggiuntivi gestiti dal provider di identità nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. 
++ [Funzionalità utenti avanzate](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> È possibile ottenere dati utente aggiuntivi gestiti dal provider di identità nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server.
 
 + [Riferimento per i concetti e le procedure di Servizi mobili con .NET] <br/>Ulteriori informazioni su come utilizzare Servizi mobili con un client .NET.
 
@@ -89,4 +89,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

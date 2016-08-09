@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig mediante PowerShell
@@ -73,7 +73,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         -ResourceGroupName $resourceGroup)[0].Value
 
         #Store the Pig Latin into $QueryString
-        $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+        $QueryString =  "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
         "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
         "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
         "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
@@ -162,4 +162,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creazione di un accordo tra partner commerciali in Servizio app di Azure | Microsoft Azure" 
    description="Creare accordi tra partner commerciali" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -79,4 +79,4 @@ Per creare accordi tra partner commerciali:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

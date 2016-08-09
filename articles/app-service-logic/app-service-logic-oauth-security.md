@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -36,8 +36,8 @@ Anche nel contesto dell’app per la logica, è possibile utilizzare la propria 
 
 4. Andare a [Twitter](http://apps.twitter.com) e **Creare una nuova app**. Nella proprietà **URL Callback**, incollare il valore **URI di reindirizzamento** copiato dal connettore Twitter: ![][4]
 5. Quando viene creata l'app Twitter, selezionare **Chiave e token di accesso**. Copiare questi valori.
-6. Nelle impostazioni di autenticazione del connettore Twitter, incollare questi valori nell’**ID Client** e **Client segreto **proprietà:![][5]  
-7. Salvare le impostazioni del connettore.  
+6. Nelle impostazioni di autenticazione del connettore Twitter, incollare questi valori nell’**ID Client** e **Client segreto **proprietà:![][5]
+7. Salvare le impostazioni del connettore.
 
 A questo punto sarà possibile usare il connettore dalle app per la logica. Quando si usa questo connettore dalle app per la logica, si usa la propria applicazione al posto di quella predefinita.
 
@@ -51,4 +51,4 @@ A questo punto sarà possibile usare il connettore dalle app per la logica. Quan
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

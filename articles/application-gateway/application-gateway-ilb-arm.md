@@ -62,13 +62,13 @@ Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione 
 
 ### Passaggio 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 ### Passaggio 2
 
 Controllare le sottoscrizioni per l'account.
 
-		PS C:\> get-AzureRmSubscription
+		get-AzureRmSubscription
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
@@ -77,7 +77,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
@@ -237,4 +237,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure Active Directory B2C: Domande frequenti | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: domande frequenti | Microsoft Azure"
 	description="Domande frequenti su Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Anteprima di Azure Active Directory B2C: Domande frequenti
+# Azure Active Directory B2C: domande frequenti
 
-Questa pagina include le risposte a domande frequenti relative all'anteprima di Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
 
 ### È possibile usare le funzionalità di Azure AD B2C nel tenant di Azure AD esistente per dipendenti aziendali?
 
@@ -32,9 +30,9 @@ Non è possibile usare Azure AD B2C con Microsoft Office 365 e in generale per f
 
 ### Che cosa sono gli account locali in Azure AD B2C? In che cosa differiscono dagli account aziendali o dell'istituto di istruzione in Azure AD?
 
-In un tenant di Azure AD ogni utente nel tenant (tranne quelli con account Microsoft esistenti) accede tramite un indirizzo di posta elettronica nel formato `<xyz>@<tenant domain>`, dove `<tenant domain>` è uno dei domini verificati nel tenant o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
+In un tenant di Azure AD ogni utente del tenant, tranne quelli con account Microsoft esistenti, accede con un indirizzo di posta elettronica nel formato `<xyz>@<tenant domain>`, dove `<tenant domain>` è uno dei domini verificati nel tenant o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
 
-In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
+In un tenant di Azure AD B2C la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
 
 ### Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
@@ -56,7 +54,7 @@ No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per int
 
 ### Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
 
-Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello delle funzionalità B2C di un tenant specifico nel portale di Azure, vedere [Anteprima di Azure Active Directory B2C: Registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade). Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
+Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello delle funzionalità B2C di un tenant specifico nel portale di Azure, vedere [Azure AD B2C: registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade). Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
 
 ### Come si personalizzano i messaggi di posta elettronica di verifica (il contenuto e il campo "Da:") inviati da Azure AD B2C?
 
@@ -68,7 +66,7 @@ Usare la [funzionalità di personalizzazione della società](../active-directory
 
 ### Quali sono i criteri password usati per gli account locali in Azure AD B2C?
 
-I criteri password di Azure AD B2C per gli account locali si basano su quelli di Azure AD. Azure AD B2C usa il livello "avanzato" di complessità della password e password senza scadenza. Per altre informazioni dettagliate, vedere [Criteri password in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx).
+I criteri password di Azure AD B2C per gli account locali si basano su quelli di Azure AD. I criteri di iscrizione, iscrizione o accesso e reimpostazione della password di Azure AD B2C usano un livello di complessità della password "avanzato" e senza scadenza delle password. Per altre informazioni dettagliate, vedere [Criteri password in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx).
 
 ### È possibile usare Azure AD Connect per eseguire la migrazione in Azure AD B2C delle identità utente archiviate in Active Directory locale?
 
@@ -80,11 +78,11 @@ No, per il momento. L'integrazione di questi sistemi verrà implementata in futu
 
 ### Azure AD B2C è compatibile con SharePoint 2016 locale o versione precedente?
 
-No, per il momento. Azure AD B2C non fornisce i token SAML 1.1 che i portali e le applicazioni e-commerce costruiscono sulla base delle esigenze di SharePoint in locale. Si noti che Azure AD B2C non è usato per lo scenario di condivisione esterna con i partner di SharePoint. A questo scopo vedere l'articolo relativo ad [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
+No, per il momento. Azure AD B2C non fornisce i token SAML 1.1 che i portali e le applicazioni e-commerce costruiscono sulla base delle esigenze di SharePoint in locale. Si noti che Azure AD B2C non è concepito per lo scenario di condivisione esterna con i partner di SharePoint. A questo scopo, vedere invece il blog su [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
 
 ### È necessario usare Azure AD B2C o B2B per gestire le identità esterne?
 
-Per altre informazioni su come applicare le funzionalità appropriate agli scenari relativi alle identità esterne, leggere questo articolo sulle [identità esterne](../active-directory/active-directory-b2b-compare-external-identities.md).
+Per altre informazioni su come applicare le funzionalità appropriate agli scenari relativi alle identità esterne, vedere l'articolo sulle [identità esterne](../active-directory/active-directory-b2b-compare-external-identities.md).
 
 ### Quali funzionalità di reporting e controllo offre Azure AD B2C? Offre le stesse funzionalità di Azure AD Premium?
 
@@ -103,14 +101,14 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti 
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
 - Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
-- Passare ai pannelli **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci in ognuno.
+- Passare ai pannelli **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci in ognuno di essi.
 - Accedere ora al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per l'iscrizione ad Azure.
 - Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C.
 - Fare clic sulla scheda **Utenti**.
 - Selezionare un utente alla volta, escludendo l'utente con il quale si è connessi attualmente, ovvero l'amministratore della sottoscrizione. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
 - Fare clic sulla scheda **Applicazioni**.
 - Selezionare **Applicazioni di proprietà dell'azienda** nel campo a discesa **Mostra** e fare clic sul segno di spunta.
-- Verrà indicata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
+- Nell'elenco verrà visualizzata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina e quindi su **SÌ** quando richiesto.
 - Passare di nuovo all'estensione di Active Directory e selezionare il tenant di B2C.
 - Nella parte inferiore della pagina fare clic su **Elimina**. Seguire le istruzioni sullo schermo per completare il processo.
 
@@ -122,12 +120,8 @@ No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non 
 
 Vedere [Anteprima di Azure Active Directory B2C: invio di richieste di supporto](active-directory-b2c-support.md).
 
-### Quando sarà disponibile a livello generale Azure AD B2C?
-
-Non è attualmente possibile fornire una stima riguardo alla data di disponibilità generale.
-
 ## Altre informazioni
 
-È consigliabile rivedere le informazioni relative a [vincoli, restrizioni e limitazioni correnti della versione di anteprima](active-directory-b2c-limitations.md).
+È consigliabile rivedere le informazioni correnti relative a [limitazioni del servizio, restrizioni e vincoli](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

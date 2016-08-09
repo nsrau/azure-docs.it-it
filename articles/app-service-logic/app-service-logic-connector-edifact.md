@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -55,7 +55,7 @@ Il connettore Edifact può essere usato come trigger o come azione.
 ### Azione
 - Fare clic su Edifact Connector nel riquadro destro:  
 ![Impostazioni di azione][7]
-- Fare clic su ->:
+- Fare clic su ->:  
 ![Elenco di azioni][8]
 - Il connettore Edifact supporta molte azioni. Selezionare *Encode*:  
 ![Input di Encode][9]
@@ -100,4 +100,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso del listener e del connettore HTTP nelle app per la logica | Microsoft Azure App Service"
+   pageTitle="Uso del listener e del connettore HTTP nelle app per la logica | Microsoft Azure App Service "
    description="Come creare e configurare l'app per le API o il connettore del listener e dell'azione HTTP e usarlo in un'app per la logica in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -89,4 +89,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -576,12 +576,13 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 - [Introduzione a C SDK][lnk-c-sdk]
 - [SDK hub IoT][lnk-sdks]
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
+- [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
 
 
 
@@ -634,5 +635,6 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

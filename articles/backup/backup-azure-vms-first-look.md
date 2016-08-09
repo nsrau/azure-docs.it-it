@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Primi passi: proteggere macchine virtuali in Azure con Backup di Azure | Microsoft Azure"
-	description="Proteggere macchine virtuali di Azure con il servizio Backup di Azure. Esercitazione che illustra come creare un insieme di credenziali, registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
+	pageTitle="Primo approccio: Proteggere le VM di Azure con un insieme di credenziali per il backup | Microsoft Azure"
+	description="Proteggere le VM di Azure con un insieme di credenziali per il backup. Esercitazione che illustra come creare un insieme di credenziali, registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/18/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primo approccio: Backup di macchine virtuali di Azure
 
 > [AZURE.SELECTOR]
-- [Eseguire il backup delle macchine virtuali di Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Backup di VM in modalità classica](backup-azure-vms-first-look.md)
+- [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md)
+- [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali per il backup](backup-azure-vms-first-look.md)
 
-Questa esercitazione illustra i passaggi per eseguire il backup di una macchina virtuale di Azure in un insieme di credenziali di backup in Azure. Questo articolo descrive il modello classico o il modello di distribuzione di Service Manager per il backup delle macchine virtuali. Per informazioni sul backup di una macchina virtuale in un insieme di credenziali dei servizi di ripristino appartenente a un gruppo di risorse, vedere l'altra scheda, Eseguire il backup delle macchine virtuali di Resource Manager. Per completare questa esercitazione, è necessario rispettare i prerequisiti seguenti:
+Questa esercitazione illustra i passaggi per eseguire il backup di una macchina virtuale di Azure in un insieme di credenziali di backup in Azure. Questo articolo descrive il modello classico o il modello di distribuzione di Service Manager per il backup delle macchine virtuali. Per informazioni sul backup di una VM in un insieme di credenziali dei servizi di ripristino appartenente a un gruppo di risorse, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per completare questa esercitazione, è necessario rispettare i prerequisiti seguenti:
 
 - È stata creata una VM nella sottoscrizione di Azure.
 - La VM può connettersi agli indirizzi IP pubblici di Azure. Per altre informazioni, vedere [Connettività di rete](./backup-azure-vms-prepare.md#network-connectivity).
 
 Ecco i cinque passaggi principali per eseguire il backup di una VM:
 
-![passaggio uno](./media/backup-azure-vms-first-look/step-one.png) Creare un insieme di credenziali per il backup o identificarne uno esistente. <br/> ![passaggio due](./media/backup-azure-vms-first-look/step-two.png)Usare il portale di Azure classico per trovare e registrare le macchine virtuali. <br/> ![passaggio tre](./media/backup-azure-vms-first-look/step-three.png) Installare l'agente di macchine virtuali. <br/> ![passaggio quattro](./media/backup-azure-vms-first-look/step-four.png)Creare i criteri per proteggere le macchine virtuali. <br/> ![passaggio cinque](./media/backup-azure-vms-first-look/step-five.png)Eseguire il backup.
+![passaggio uno](./media/backup-azure-vms-first-look/step-one.png) Creare un insieme di credenziali per il backup o identificarne uno esistente. <br/> ![passaggio due](./media/backup-azure-vms-first-look/step-two.png) Usare il portale di Azure classico per individuare e registrare le macchine virtuali. <br/> ![passaggio tre](./media/backup-azure-vms-first-look/step-three.png) Installare l'agente di macchine virtuali. <br/> ![passaggio quattro](./media/backup-azure-vms-first-look/step-four.png) Creare i criteri per proteggere le macchine virtuali. <br/> ![passaggio cinque](./media/backup-azure-vms-first-look/step-five.png) Eseguire il backup.
 
 ![Panoramica generale del processo di backup VM](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../resource-manager-deployment-model.md). Questa esercitazione si applica alle VM che possono essere create nel portale di Azure classico. Il servizio Backup di Azure supporta VM basate su Azure Resource Manager, note anche come VM IaaS V2. Per informazioni dettagliate sul backup di VM di Azure Resource Manager, vedere [Primi passi: eseguire il backup di macchine virtuali Azure Resource Manager in un insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questa esercitazione si applica alle VM che possono essere create nel portale di Azure classico. Il servizio Backup di Azure supporta le VM basate su Resource Manager. Per informazioni dettagliate sul backup di VM in un insieme di credenziali dei servizi di ripristino, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -54,11 +54,11 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 
     La procedura guidata richiede di specificare **Nome** e **Area**. Se si amministra più di una sottoscrizione, viene visualizzata una finestra di dialogo per la scelta della sottoscrizione.
 
-4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure.
+4. Nel campo **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure.
 
-5. In **Region** selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali da proteggere.
+5. In **Region** selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area delle macchine virtuali da proteggere.
 
-    Se si non è certi dell'area geografica in cui si trova la macchina virtuale, chiudere la procedura guidata e fare clic su **Macchine virtuali** nell'elenco di servizi di Azure. La colonna Località indica il nome dell'area. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali per il backup in ogni area.
+    Se si non è certi dell'area in cui si trova la VM, chiudere la procedura guidata e fare clic su **Macchine virtuali** nell'elenco di servizi di Azure. La colonna Località indica il nome dell'area. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali per il backup in ogni area.
 
 6. Se nella procedura guidata non è presente una finestra di dialogo **Sottoscrizione**, andare al passaggio successivo. Se si utilizzano più sottoscrizioni, selezionarne una da associare al nuovo insieme di credenziali per il backup.
 
@@ -82,7 +82,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario. scegliere l'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con ridondanza geografica e con ridondanza locale, vedere la panoramica in [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
+    Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario. scegliere l'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con ridondanza geografica e con ridondanza locale, vedere la panoramica [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
 
 Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, trovare e registrare le macchine virtuali di Azure.
 
@@ -91,7 +91,7 @@ Prima di registrare la VM con un insieme di credenziali, eseguire il processo di
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/).
 
-2. Nel portale di Azure classico fare clic su **Servizi di ripristino** per aprire l'elenco di insiemi di credenziali di Servizi di ripristino. ![Selezionare il carico di lavoro](./media/backup-azure-vms-first-look/recovery-services-icon.png)
+2. Nel portale di Azure classico fare clic su **Servizi di ripristino** per aprire l'elenco degli insiemi di credenziali dei servizi di ripristino. ![Selezionare il carico di lavoro](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
 3. Nell'elenco di insiemi di credenziali selezionare quello da usare per il backup di una VM.
 
@@ -131,7 +131,7 @@ Prima di registrare la VM con un insieme di credenziali, eseguire il processo di
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    Al termine dell'operazione lo stato diventerà *Registrato* per riflettere la modifica.
+    Al termine dell'operazione, lo stato diventerà *Registrazione completata* per riflettere la modifica.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -213,4 +213,4 @@ Ora che è stato eseguito il backup di una macchina virtuale, sono disponibili d
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

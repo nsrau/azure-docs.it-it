@@ -68,6 +68,6 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
 [Debug di un'App Web Java su Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
-[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -114,7 +114,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     
     b. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione**.
     
-    c. Nella casella di testo **ID entità** digitare **https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
+    c. Nella casella di testo **ID entità** digitare **https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve avere questo formato: `http://company.my.salesforce.com`
     
     d. Per caricare il certificato scaricato, fare clic su **Sfoglia**.
     
@@ -124,7 +124,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     
     g. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di accesso provider identità**.
     
-    h. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL di disconnessione provider identità**.
+    h. SFDC non supporta la disconnessione SAML. Come soluzione alternativa, incollare 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità).
     
     i. In **Binding richiesta avviato da provider di servizi** selezionare **HTTP POST**.
     
@@ -171,7 +171,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
     ![Nuovo token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Nuovo token")
 
-5.  Verificare nella cartella Posta in arrivo la presenza di un messaggio da Salesforce.com con l’oggetto “**conferma di sicurezza di salesforce.com.com**”.
+5.  Verificare nella cartella Posta in arrivo la presenza di un messaggio da Salesforce.com con oggetto analogo a "**conferma di sicurezza di salesforce.com.com**".
 
 6.  Aprire il messaggio di posta elettronica e copiare il valore del token di sicurezza.
 
@@ -214,4 +214,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

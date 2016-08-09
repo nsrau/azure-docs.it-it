@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili utilizzando i servizi relativi a Visual Studio | Microsoft Azure" 
+	pageTitle="Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili utilizzando i servizi relativi a Visual Studio | Microsoft Azure " 
 	description="Come iniziare a utilizzare Servizi mobili in un progetto JavaScript in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi relativi a Visual Studio
@@ -88,4 +88,4 @@ Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto
 
 [Altre informazioni sui servizi mobili](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

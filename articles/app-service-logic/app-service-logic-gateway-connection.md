@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,23 +24,26 @@ I connettori delle app per la logica supportati consentono di configurare la con
 
 * Uso di un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory)
     * Se si usa un account Microsoft, ad esempio @outlook.com, @live.com, è possibile usare l'account Azure per creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione [seguendo questa procedura](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+
+> [AZURE.WARNING] A causa di un'attuale limitazione, l'installazione del gateway locale verrà completata solo se viene usato un account registrato in Power BI. Per completare correttamente l'installazione, registrare nel frattempo qualsiasi account in "Power BI (gratuito)".
+
 * Gateway dati locale [installato in un computer locale](app-service-logic-gateway-install.md).
-* Per il gateway non deve esistere un'attestazione da parte di un altro gateway dati locale di Azure; [l'attestazione avviene con la creazione illustrata nel passaggio 2 di seguito](#2-create-an-azure-on-premises-data-gateway-resource): un'installazione può essere associata a una sola risorsa gateway.
+* Per il gateway non deve esistere un'attestazione da parte di un altro gateway dati locale di Azure. L'[attestazione viene eseguita con la creazione illustrata nel passaggio 2 di seguito](#2-create-an-azure-on-premises-data-gateway-resource). Un'installazione può essere associata a una sola risorsa gateway.
 
 ## Installazione e configurazione della connessione
 
 ### 1\. Installare il gateway dati locale
 
-[Questo articolo](app-service-logic-gateway-install.md) contiene informazioni sull'installazione del gateway dati locale. Prima di procedere con il resto della procedura, è necessario installare il gateway in un computer locale.
+Per informazioni sull'installazione del gateway dati locale, vedere [questo articolo](app-service-logic-gateway-install.md). Prima di procedere con il resto della procedura, è necessario installare il gateway in un computer locale.
 
 ### 2\. Creare una risorsa gateway dati locale di Azure
 
 Una volta installata, è necessario associare la sottoscrizione di Azure al gateway dati locale.
 
 1. Accedere ad Azure con lo stesso o indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato durante l'installazione del gateway
-1. Fare clic sul pulsante **Nuova**
-1. Caricare e selezionare il **gateway dati locale**
-1. Completare le informazioni per associare il gateway al proprio account, compresa la selezione del **nome installazione** appropriato
+1. Fare clic sul pulsante **Nuovo**
+1. Cercare e selezionare **Gateway dati locale**
+1. Completare le informazioni per associare il gateway al proprio account, selezionando anche il **nome installazione** appropriato
 
     ![Connessione al gateway dati locale][1]
 1. Fare clic sul pulsante **Crea** per creare la risorsa
@@ -50,10 +53,10 @@ Una volta installata, è necessario associare la sottoscrizione di Azure al gate
 Ora che la sottoscrizione di Azure è associata a un'istanza del gateway dati locale, è possibile creare una connessione ad essa dall'interno di una app per la logica.
 
 1. Aprire una app per la logica e scegliere un connettore che supporta la connettività locale, che al momento della stesura di questo articolo è SQL Server
-1. Selezionare la casella di controllo **Connect via on-premises data gateway** (Connetti tramite gateway dati locale)
+1. Selezionare la casella di controllo **Connetti tramite gateway dati locale**
 
     ![Creazione del gateway nella finestra di progettazione della app per la logica][2]
-1. Selezionare il **gateway** a cui connettersi e completare eventuali altre informazioni necessarie
+1. Selezionare il **gateway** a cui connettersi e completare eventuali altre informazioni di connessione necessarie
 1. Fare clic su **Crea** per creare la connessione
 
 La connessione deve ora essere configurata correttamente per l'uso nella app per la logica.
@@ -67,4 +70,4 @@ La connessione deve ora essere configurata correttamente per l'uso nella app per
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

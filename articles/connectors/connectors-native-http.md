@@ -9,7 +9,7 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -108,11 +108,11 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 |---|---|
 |HTTP|Esegue una chiamata HTTP e restituisce il contenuto della risposta|
 
-### Informazioni dettagliate sulle azioni
+## Dettagli di HTTP
 
 Il connettore HTTP include 1 azione possibile. Di seguito sono riportate le informazioni su ognuna delle azioni, i relativi campi di input obbligatori e facoltativi e i corrispondenti dettagli di output associati al loro uso.
 
-#### Richiesta HTTP
+### Richiesta HTTP
 Eseguire una richiesta HTTP in uscita. L'asterisco (*) indica che il campo è obbligatorio.
 
 |Nome visualizzato|Nome proprietà|Descrizione|
@@ -121,6 +121,7 @@ Eseguire una richiesta HTTP in uscita. L'asterisco (*) indica che il campo è ob
 |URI*|Uri|URI per la richiesta HTTP|
 |Headers|headers|Un oggetto JSON delle intestazioni HTTP da includere|
 |Corpo|body|Il corpo della richiesta HTTP|
+|Autenticazione|authentication|[Informazioni dettagliate](#authentication)|
 <br>
 
 **Dettagli dell'output**
@@ -133,20 +134,83 @@ Risposta HTTP
 |Corpo|oggetto|Oggetto della risposta|
 |Codice di stato|int|Stato codice HTTP|
 
-### Risposte HTTP
+## Autenticazione
 
-Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate risposte. Di seguito è riportata una tabella contenente le risposte e le descrizioni corrispondenti.
+Le app per la logica consentono di usare diversi tipi di autenticazione per gli endpoint HTTP. Questa autenticazione può essere usata con i connettori HTTP, [HTTP + Swagger](./connectors-native-http-swagger.md) e [HTTP Webhook](./connectors-native-webhook.md). È possibile configurare i seguenti tipi di autenticazione:
 
-|Nome|Descrizione|
-|---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Non autorizzata|
-|403|Accesso negato|
-|404|Non trovato|
-|500|Errore interno del server. Si è verificato un errore sconosciuto|
-|default|Operazione non riuscita.|
+* [Autenticazione di base](#basic-authentication)
+* [Autenticazione ClientCertificate](#client-certificate-authentication)
+* [Autenticazione ActiveDirectoryOAuth](#azure-active-directory-oauth-authentication)
+
+#### Autenticazione di base
+
+Per l'autenticazione di base è necessario il seguente oggetto di autenticazione: * indica che il campo è obbligatorio.
+
+|Nome proprietà|Tipo di dati|Descrizione|
+|---|---|---|
+|Type*|type|Tipo di autenticazione. Per l'autenticazione di base, il valore deve essere `Basic`|
+|Username*|username|Nome utente da autenticare|
+|Password*|password|Password da autenticare|
+
+>[AZURE.TIP] Se si desidera usare una password che non può essere recuperata dalla definizione, usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()`
+
+Pertanto è possibile creare un oggetto simile al seguente nel campo autenticazione:
+
+```javascript
+{
+	"type": "Basic",
+	"username": "user",
+	"password": "test"
+}
+```
+
+#### Autenticazione con certificato client
+
+Per l'autenticazione con certificato client è necessario il seguente oggetto di autenticazione: * indica che il campo è obbligatorio.
+
+|Nome proprietà|Tipo di dati|Descrizione|
+|---|---|---|
+|Type*|type|Tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`|
+|PFX*|pfx|Contenuto con codifica Base64 del file PFX|
+|Password*|password|La password per accedere al file PFX|
+
+>[AZURE.TIP] È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
+
+ad esempio:
+
+```javascript
+{
+	"type": "ClientCertificate",
+	"pfx": "aGVsbG8g...d29ybGQ=",
+	"password": "@parameters('myPassword')"
+}
+```
+
+#### Autenticazione di Azure Active Directory OAuth
+
+Per l'autenticazione di Azure Active Directory OAuth è necessario il seguente oggetto di autenticazione: * indica che il campo è obbligatorio.
+
+|Nome proprietà|Tipo di dati|Descrizione|
+|---|---|---|
+|Type*|type|Tipo di autenticazione. Per ActiveDirectoryOAuth, il valore deve essere `ActiveDirectoryOAuth`|
+|Tenant*|tenant|L'identificatore del tenant di Azure AD|
+|Pubblico*|audience|Viene impostato su `https://management.core.windows.net/`|
+|ID cliente*|clientId|Fornisce l'identificativo del client per l'applicazione Active Directory di Azure|
+|Segreto*|secret|Segreto del client che richiede il token|
+
+>[AZURE.TIP] È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
+
+ad esempio:
+
+```javascript
+{
+	"type": "ActiveDirectoryOAuth",
+	"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+	"audience": "https://management.core.windows.net/",
+	"clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+	"secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+}
+```
 
 ---
 
@@ -156,6 +220,6 @@ Di seguito sono riportate informazioni dettagliate su come procedere con le app 
 
 ## Creare un'app per la logica
 
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando il nostro [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

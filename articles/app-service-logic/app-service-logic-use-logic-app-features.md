@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -70,7 +70,7 @@ Il ciclo forEach specifica una matrice per la ripetizione di un'azione. Se non �
 
 Oltre alla finestra di progettazione, è possibile modificare direttamente il codice che definisce un'app per la logica, come segue.
 
-1. Fare clic sul pulsante **Visualizzazione Codice** nella barra dei comandi. 
+1. Fare clic sul pulsante **Visualizzazione Codice** nella barra dei comandi.
 
 	Verrà aperto un editor completo che mostra la definizione appena modificata.
 
@@ -112,4 +112,4 @@ I servizi possono chiamare un endpoint dell'app per la logica per avviare un flu
 <!-- Shared links -->
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

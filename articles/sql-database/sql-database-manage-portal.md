@@ -35,7 +35,7 @@ Il [portale di Azure](https://portal.azure.com/) consente di creare, monitorare 
 
 Il portale di Azure offre un set di azioni di database comuni accessibile nella parte superiore del pannello di un database. È possibile ripristinare un database a un momento precedente, aprire un database in Visual Studio, copiare un database in un nuovo server ed esportare il database a un account di archiviazione di Azure.
 
-- [Ripristino di un database SQL](sql-database-user-error-recovery.md)
+- [Ripristino di un database SQL](sql-database-recovery-using-backups.md)
 - [Aprire un database SQL in Visual Studio](sql-database-connect-query.md)
 - [Esportare un database SQL](sql-database-export.md)
 
@@ -74,4 +74,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
 
 - [Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

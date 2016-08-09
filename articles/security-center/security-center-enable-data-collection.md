@@ -1,6 +1,6 @@
 <properties
    pageTitle="Abilitare la raccolta dati nel Centro sicurezza di Azure | Microsoft Azure"
-   description="Informazioni su come abilitare la raccolta dati nel Centro sicurezza di Azure."
+   description=" Informazioni su come abilitare la raccolta dati nel Centro sicurezza di Azure. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Abilitare la raccolta dati nel Centro sicurezza di Azure
 
 Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati, i registri eventi e altro. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se di disabilita la raccolta dati, il Centro sicurezza consiglierà di abilitarla nei criteri di sicurezza della sottoscrizione.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+> [AZURE.NOTE] Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
 
 ## Implementare la raccomandazione
 
@@ -60,7 +60,7 @@ La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e
 
 5.	Selezionare l'opzione **Elimina agenti** nella barra multifunzione in alto per rimuovere gli agenti dalle macchine virtuali esistenti.
 
-## Passaggi successivi
+## Vedere anche
 
 Questo documento illustra come implementare la raccomandazione "Abilita raccolta dati" del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
@@ -80,4 +80,4 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

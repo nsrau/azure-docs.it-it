@@ -2,7 +2,7 @@
 	pageTitle="Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (Android)"
 	description="Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione Android"
 	documentationCenter="android"
-	authors="lindydonna"
+	authors="RickSaling"
 	manager="erikre"
 	services="app-service\mobile"/>
 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="donnam;ricksal"/>
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Android
 
@@ -104,7 +104,7 @@ Quando si preme il pulsante, viene avviata una nuova attività in background e v
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 
 <!-- URLs. -->
@@ -116,4 +116,4 @@ Quando si preme il pulsante, viene avviata una nuova attività in background e v
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

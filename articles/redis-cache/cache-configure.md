@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
@@ -372,10 +372,11 @@ Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/command
 
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console di Redis** disponibile per le cache Premium e Standard.
 
->[AZURE.IMPORTANT] La Console di Redis non funziona con la rete virtuale o il servizio cluster.
+>[AZURE.IMPORTANT] La console Redis non funziona con la rete virtuale, il servizio cluster e i database diversi da 0.
 >
 >-	[VNET](cache-how-to-premium-vnet.md): quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console di Redis utilizza il client di redis cli.exe ospitato su macchine virtuali che non fanno parte di una rete virtuale, è impossibile connettersi alla cache.
 >-	[Clustering](cache-how-to-premium-clustering.md): la Console di Redis utilizza il client redis-cli.exe che non supporta il clustering in questo momento. L'utilità del cli redis nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub implementa il supporto di base quando avviato con il passaggio `-c`. Per ulteriori informazioni vedere [Giocare con cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	La console Redis effettua una nuova connessione al database 0 ogni volta che si invia un comando. Non è possibile usare il comando `SELECT` per selezionare un altro database poiché il database viene reimpostato su 0 con ogni comando. Per informazioni sull'esecuzione dei comandi di Redis, incluso il passaggio a un altro database, vedere [Come si eseguono i comandi Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
 Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
 
@@ -398,4 +399,4 @@ Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'alt
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

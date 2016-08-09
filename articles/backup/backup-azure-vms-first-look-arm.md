@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Proteggere le macchine virtuali distribuite in Resource Manager con Backup di Azure | Microsoft Azure"
-	description="Proteggere le macchine virtuali distribuite in Resource Manager con il servizio Backup di Azure. Usare i backup delle macchine virtuali distribuite in Resource Manager e delle macchine virtuali di Archiviazione Premium per proteggere i dati. Creare e registrare un insieme di credenziali dei servizi di ripristino. Registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
+	pageTitle="Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino | Microsoft Azure"
+	description="Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino. Usare i backup delle VM distribuite con il modello di distribuzione Resource Manager e con il modello di distribuzione classica e delle VM di Archiviazione Premium per proteggere i dati. Creare e registrare un insieme di credenziali dei servizi di ripristino. Registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,13 +18,13 @@
 	ms.author="markgal; jimpark"/>
 
 
-# Primi passi: eseguire il backup di VM di Resource Manager in un insieme di credenziali di Servizi di ripristino
+# Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino
 
 > [AZURE.SELECTOR]
-- [Eseguire il backup di VM distribuite in Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Backup di VM in modalità classica](backup-azure-vms-first-look.md)
+- [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md)
+- [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali per il backup](backup-azure-vms-first-look.md)
 
-Questa esercitazione illustra i passaggi per creare un insieme di credenziali di Servizi di ripristino e per eseguire il backup di una macchina virtuale (VM) di Azure. Gli insiemi di credenziali di Servizi di ripristino proteggono:
+Questa esercitazione illustra i passaggi per creare un insieme di credenziali dei servizi di ripristino e per eseguire il backup di una macchina virtuale (VM) di Azure. Gli insiemi di credenziali dei servizi di ripristino proteggono:
 
 - VM distribuite in Azure Resource Manager
 - Macchine virtuali classiche
@@ -37,17 +37,17 @@ Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Pr
 
 Di seguito è riportata, a livello generale, la procedura da seguire.
 
-1. Creare l'insieme di credenziali de servizi di ripristino per una VM.
+1. Creare un insieme di credenziali dei servizi di ripristino per una VM.
 2. Usare il portale di Azure per selezionare uno scenario, impostare i criteri e identificare gli elementi da proteggere.
 3. Eseguire il backup iniziale.
 
 
 
-## Passaggio 1: Creare l'insieme di credenziali dei servizi di ripristino per una VM
+## Passaggio 1: Creare un insieme di credenziali dei servizi di ripristino per una VM
 
 Un insieme di credenziali dei servizi di ripristino è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup applicati alle VM protette.
 
->[AZURE.NOTE] Il backup delle VM è un processo locale. Non è possibile eseguire il backup delle VM da una località a un insieme di credenziali dei servizi di ripristino in un'altra località. Quindi in ogni località di Azure con VM di cui eseguire il backup deve esistere almeno un insieme di credenziali dei servizi di ripristino.
+>[AZURE.NOTE] Il backup delle VM è un processo locale. Non è possibile eseguire il backup delle VM da una località a un insieme di credenziali dei servizi di ripristino in un'altra località. Di conseguenza, in ogni località di Azure con VM di cui eseguire il backup deve esistere almeno un insieme di credenziali dei servizi di ripristino.
 
 
 Per creare un insieme di credenziali dei servizi di ripristino:
@@ -58,7 +58,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
+    Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 
 3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
@@ -76,9 +76,9 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
 
-    >[AZURE.IMPORTANT] Se si non è certi della località della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, sarà necessario creare un insieme di credenziali dei servizi di ripristino backup in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali dei servizi di ripristino e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
+    >[AZURE.IMPORTANT] Se si non è certi della località della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, sarà necessario creare un insieme di credenziali dei servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali dei servizi di ripristino e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
 
-8. Fare clic su **Crea**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
+8. Fare clic su **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato nell'elenco degli insiemi di credenziali dei servizi di ripristino.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -102,15 +102,15 @@ Per modificare le impostazioni di replica di archiviazione:
 
 Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire il processo di individuazione per verificare che vengano identificate le eventuali nuove macchine virtuali aggiunte alla sottoscrizione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area. Nel portale di Azure lo scenario fa riferimento a ciò che si inserirà nell'insieme di credenziali dei servizi di ripristino. I criteri determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino.
 
-1. Se un insieme di credenziali dei servizi di ripristino è già aperto, procedere al passaggio 2. Se non è stato aperto nessun insieme di credenziali dei servizi di ripristino, ma si è nel portale di Azure, scegliere **Sfoglia** dal menu Hub.
+1. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali dei servizi di ripristino ma si è nel portale di Azure, nel menu dell'hub fare clic su **Esplora**.
 
   - Nell'elenco di risorse digitare **Servizi di ripristino**.
   - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, fare clic su di esso.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
-  - Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
+    Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
+  - Nell'elenco degli insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
 
     Viene aperto il dashboard dell'insieme di credenziali selezionato.
 
@@ -219,4 +219,4 @@ In caso di problemi nell'esecuzione di alcune attività di questo articolo, vede
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

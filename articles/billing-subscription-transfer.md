@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="genli"/>
 
 # Trasferimento di proprietà di una sottoscrizione di Azure
@@ -28,7 +28,7 @@ Se:
 
 Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera. Ora il trasferimento degli acquisti di Azure Marketplace è supportato anche per questi tipi di sottoscrizione.
 
-> [AZURE.NOTE]  Per altre informazioni su come modificare la sottoscrizione a un'offerta diversa, vedere [ Passaggio a un'offerta di Azure diversa](billing-how-to-switch-azure-offer.md).
+> [AZURE.NOTE]  Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Passaggio a un'offerta di Azure diversa](billing-how-to-switch-azure-offer.md).
 
 > È necessario essere amministratore account per eseguire un trasferimento di proprietà. Per altre informazioni su come individuare l'amministratore account della sottoscrizione, vedere le [Domande frequenti](#faq).
 
@@ -131,4 +131,4 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

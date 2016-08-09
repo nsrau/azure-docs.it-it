@@ -183,7 +183,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 ## Gestire le risorse di archiviazione locali per ogni istanza del ruolo
 
-È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](cloud-services/cloud-services-configure-local-storage-resources.md).
+È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati.
 
 Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte le configurazioni del servizio. È possibile aggiungere, rimuovere o modificare le risorse di archiviazione locali solo per tutte le configurazioni del servizio.
 
@@ -235,7 +235,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. (Facoltativamente) Per visualizzare il file creato quando si esegue il servizio cloud in modalità locale, seguire questa procedura:
 
-  1. Eseguire il ruolo Web e selezionare **Button1** per assicurarsi che il codice in `Button1_Click` venga chiamato.
+  1. Eseguire il ruolo Web e selezionare **Button1** per assicurarsi che venga chiamato il codice in `Button1_Click`.
 
   1. Nell'area di notifica aprire il menu di scelta rapida per l'icona di Azure e scegliere **Mostra interfaccia emulatore di calcolo**. Verrà visualizzata la finestra di dialogo **Emulatore di calcolo di Azure**.
 
@@ -279,7 +279,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. Scegliere l'account di archiviazione da usare in **Nome account**.
 
-    Se si immettono manualmente le credenziali dell'account di archiviazione, copiare o digitare la chiave primaria in **Chiave dell'account**. La chiave può essere copiata dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per copiare la chiave, eseguire questa procedura dalla visualizzazione **Account di archiviazione** nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885):
+    Se si immettono manualmente le credenziali dell'account di archiviazione, copiare o digitare la chiave primaria in **Chiave dell'account**. La chiave può essere copiata dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per copiare la chiave, seguire questa procedura dalla visualizzazione **Account di archiviazione** nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885):
     
   1. Selezionare l'account di archiviazione da usare per il servizio cloud.
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

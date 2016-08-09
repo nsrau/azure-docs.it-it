@@ -30,7 +30,7 @@ Per aggiungere un altro certificato come secondario, è necessario caricarlo in 
 3. In **Impostazioni** fare clic sull'impostazione relativa ai certificati e immettere l'identificazione personale del certificato secondario.
 4. Fare clic su **Save**. Verrà avviata una distribuzione. Se questa viene completata correttamente, sarà possibile usare il certificato primario o quello secondario per eseguire operazioni di gestione sul cluster.
 
-![Schermata delle identificazioni personali del certificato nel portale] [SecurityConfigurations\_02]
+![Schermata delle identificazioni personali del certificato nel portale][SecurityConfigurations_02]
 
 ## Rimuovere un certificato
 Ecco la procedura per rimuovere un certificato precedente in modo che il cluster non lo usi:

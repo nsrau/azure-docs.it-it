@@ -1,93 +1,129 @@
 <properties
-    pageTitle="Aggiungere il connettore SMTP alle app per la logica | Microsoft Azure"
-    description="Panoramica del connettore SMTP con i parametri dell'API REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="SMTP | Microsoft Azure"
+description="Creare app per la logica con Servizio app di Azure. Connettersi a SMTP per inviare messaggi di posta elettronica."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/19/2016"
-   ms.author="mandia"/>
+ms.service="app-service-logic"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/15/2016"
+ms.author="deonhe"/>
 
 # Introduzione al connettore SMTP
-Connettersi a un server SMTP per inviare messaggi di posta elettronica. Il connettore SMTP può essere usato da:
 
-- App per la logica trattate in questo argomento
-- PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
+Connettersi a SMTP per inviare messaggi di posta elettronica.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
+Per usare [qualsiasi connettore](./apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Con SMTP è possibile:
+## Connettersi a un server SMTP
 
-- Creare il flusso aziendale includendo l'invio di posta elettronica tramite SMTP. 
-- Usare un'azione per inviare messaggi di posta elettronica. Questa azione ottiene una risposta e quindi rende l'output disponibile per altre azioni. Ad esempio, quando sul server FTP c'è un nuovo file, è possibile inviare tale file come allegato di posta elettronica con SMTP. 
+Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](./connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un server SMTP, è necessaria innanzitutto una *connessione* SMTP. Per creare una connessione, è necessario fornire le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Pertanto, nell'esempio di SMTP, per creare la connessione SMTP sono necessarie le credenziali riguardanti il nome della connessione, l'indirizzo del server SMTP e le informazioni di accesso utente. [Altre informazioni sulle connessioni]()
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Creare una connessione a SMTP
 
-## Trigger e azioni
-Per il connettore SMTP sono disponibili le azioni seguenti. Non sono disponibili trigger.
+>[AZURE.INCLUDE [Passaggi per creare una connessione a SMTP](../../includes/connectors-create-api-smtp.md)]
 
-|Trigger | Azioni|
+## Usare un trigger SMTP
+
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+In questo esempio, poiché SMTP non dispone di un trigger proprio, si userà il trigger **Salesforce - When an object is created** (Salesforce - Quando viene creato un oggetto). Questo trigger viene attivato quando viene creato un nuovo oggetto in Salesforce. Per questo esempio lo si imposterà in modo che, ogni volta che viene creato un nuovo cliente potenziale in Salesforce, venga eseguita un'azione *Send email* (Invia messaggio di posta elettronica) tramite il connettore SMTP con una notifica della creazione del nuovo cliente potenziale.
+
+1. Immettere *salesforce* nella casella di ricerca della finestra di progettazione dell'app per la logica, quindi selezionare il trigger **Salesforce - When an object is created** (Salesforce - Quando viene creato un oggetto). ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)
+
+2. Viene visualizzato il controllo **Quando viene creato un oggetto**. ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)
+
+3. Selezionare **Tipo di oggetto** e *Lead* dall'elenco di oggetti. In questo passaggio si indica che si sta creando un trigger che invierà una notifica all’app per la logica ogni volta che viene creato un nuovo lead in Salesforce. ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)
+
+4. Il trigger è stato creato. ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)
+
+## Usare un'azione SMTP
+
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'azione SMTP che viene eseguita quando viene creato un nuovo cliente potenziale in Salesforce.
+
+1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione che si vuole venga eseguita quando viene creato un nuovo cliente potenziale. ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)
+
+2. Selezionare **Aggiungi un'azione**. Viene aperta la casella di ricerca ed è possibile cercare l'azione che si vuole eseguire. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)
+
+3. Immettere *smtp* per cercare le azioni correlate a SMTP.
+
+4. Selezionare **SMTP - Invia messaggio di posta elettronica** come azione da eseguire quando viene creato il cliente potenziale. Si apre il blocco di controllo azione. È necessario stabilire la connessione SMTP nel blocco di progettazione se non lo si è ancora fatto. ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)
+
+5. Immettere le informazioni di posta elettronica desiderate nel blocco **SMTP - Send Email** (SMTP - Invia messaggio di posta elettronica). ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)
+
+6. Salvare il lavoro per attivare il flusso di lavoro.
+
+## Dettagli tecnici
+
+Ecco i dettagli sui trigger, le azioni e le risposte che la connessione supporta:
+
+## Trigger di SMTP
+
+SMTP non supporta trigger.
+
+## Azioni di SMTP
+
+SMTP supporta le azioni seguenti:
+
+
+|Azione|Descrizione|
 |--- | ---|
-|Nessuno | Send email|
+|[Invia messaggio di posta elettronica](connectors-create-api-smtp.md#send-email)|Questa operazione invia un messaggio di posta elettronica a uno o più destinatari.|
 
-Tutti i connettori supportano dati nei formati JSON e XML.
+### Informazioni dettagliate sulle azioni
 
-## Creare una connessione a SMTP
+Ecco i dettagli delle azioni per questo connettore con le relative risposte:
 
->[AZURE.INCLUDE [Passaggi per la creazione di una connessione a SMTP](../../includes/connectors-create-api-smtp.md)]
-
-Dopo aver creato la connessione, immettere le proprietà di SMTP, ad esempio i valori To e CC. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
-
->[AZURE.TIP] È possibile usare la stessa connessione di SMTP in altre app per la logica.
-
-## Riferimento all'API REST di Swagger
-Si applica alla versione 1.0.
 
 ### Invia messaggio di posta elettronica
-Invia un messaggio di posta elettronica a uno o più destinatari. ```POST: /SendEmail```
-
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
-| ---|---|---|---|---|---|
-|emailMessage| many|yes|body|nessuno |Messaggio di posta elettronica|
-
-## Definizioni degli oggetti
-
-#### Posta elettronica: Messaggio di posta elettronica SMTP
-
-| Nome | Tipo di dati | Obbligatorio|
-|---|---|---|
-|To|string|no|
-|CC|string|no|
-|Oggetto|string|no|
-|Corpo|string|no|
-|Da|string|no|
-|IsHtml|boolean|no|
-|Bcc|string|no|
-|Importance|string|no|
-|Attachments|array|no|
+Questa operazione invia un messaggio di posta elettronica a uno o più destinatari.
 
 
-#### Allegato: Allegato di posta elettronica
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|To|To|Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;destinatario2@dominio.com|
+|CC|cc|Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;destinatario2@dominio.com|
+|Oggetto|Oggetto|Oggetto del messaggio di posta elettronica|
+|Corpo|Corpo|Corpo del messaggio di posta elettronica|
+|Da|Da|Indirizzo di posta elettronica del mittente come sender@domain.com|
+|IsHtml|È HTML|Inviare il messaggio di posta elettronica in formato HTML (true/false)|
+|Bcc|bcc|Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;destinatario2@dominio.com|
+|Importance|Importance|Importanza del messaggio di posta elettronica (Alta, Normale, Bassa)|
+|ContentData|Dati sul contenuto degli allegati|Contenuto dei dati (con codifica base64 per i flussi e invariato per le stringhe)|
+|ContentType|Tipo del contenuto degli allegati|Tipo di contenuto|
+|ContentTransferEncoding|Codifica di trasferimento del contenuto per gli allegati|Codifica di trasferimento del contenuto (base64 o none)|
+|FileName|Nome di file degli allegati|Nome file|
+|ContentId|ID contenuto degli allegati|ID contenuto|
 
-| Nome | Tipo di dati |Obbligatorio|
-|---|---|---|
-|FileName|string|no|
-|ContentId|string|no|
-|ContentData|string|yes|
-|ContentType|string|yes|
-|ContentTransferEncoding|string|yes|
+* indica che la proprietà è obbligatoria
 
+
+## Risposte HTTP
+
+Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti codici di stato HTTP:
+
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Non autorizzata|
+|403|Accesso negato|
+|404|Non trovato|
+|500|Errore interno del server. Si è verificato un errore sconosciuto.|
+|default|Operazione non riuscita.|
 
 ## Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -39,8 +39,8 @@ Dopo aver eseguito l'accesso al [portale di Azure](http://portal.azure.com "Port
 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Digitare *integrazione* nella casella di ricerca del filtro e selezionare **Integration Accounts** (Account di integrazione) dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. Nel pannello **Integration Accounts** (Account di integrazione) visualizzato, selezionare l'account di integrazione in cui verrà creato il contratto. Se non viene visualizzato alcun account di integrazione, [crearne uno prima](./app-service-logic-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione"). ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Selezionare il riquadro **Agreements** (Contratti). Se non viene visualizzato il riquadro Agreements (Contratti), aggiungerlo. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)
+3. Nel pannello **Account di integrazione** visualizzato, selezionare l'account di integrazione in cui verrà creato il contratto. Se non viene visualizzato alcun account di integrazione, [crearne uno prima](./app-service-logic-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione"). ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+4.  Selezionare il riquadro **Accordi**. Se non viene visualizzato il riquadro Agreements (Contratti), aggiungerlo. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)
 5. Selezionare il pulsante **Aggiungi** nel pannello Agreements (Contratti) che si apre ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
 6. Immettere un **nome** per il contratto, quindi selezionare il **partner host**, l'**identità host**, il **partner guest** e l'**identità guest** nel pannello Agreements (Contratti) che si apre. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)
 
@@ -97,4 +97,4 @@ Per altre informazioni sull'attivazione delle impostazioni di invio, vedere la t
 La procedura è quasi completa.
 9. Selezionare il riquadro **Agreements** (Contratti) nel pannello Integration Account (Account di integrazione) e verrà visualizzato il nuovo contratto aggiunto. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

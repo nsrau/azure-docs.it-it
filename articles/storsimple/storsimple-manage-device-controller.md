@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Gestire i controller del dispositivo StorSimple
@@ -140,6 +140,8 @@ In questa sezione viene illustrato come arrestare un dispositivo StorSimple in e
 
 ## Ripristinare le impostazioni predefinite di fabbrica del dispositivo
 
+> [AZURE.IMPORTANT] Se si desidera ripristinare le impostazioni predefinite di fabbrica del dispositivo, contattare il supporto Microsoft. La procedura descritta di seguito deve essere usata solo in combinazione con il supporto Microsoft.
+
 Questa procedura descrive come ripristinare le impostazioni predefinite del dispositivo Microsoft Azure StorSimple usando Windows PowerShell per StorSimple. La reimpostazione di un dispositivo comporta la rimozione di tutti i dati e le impostazioni dall'intero cluster per impostazione predefinita.
 
 Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSimple di Microsoft Azure, procedere come segue:
@@ -213,4 +215,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 - Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

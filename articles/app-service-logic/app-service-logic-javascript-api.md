@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 Analogamente, è possibile fornire un'azione da eseguire.
 
 Gli input per l'azione sono:
-- **Espressione JavaScript**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto. 
+- **Espressione JavaScript**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto.
 - **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
 Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio di posta elettronica**. Che restituisce l'oggetto seguente:
@@ -99,4 +99,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

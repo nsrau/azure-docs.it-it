@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="07/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,7 +38,7 @@ Un BACPAC è un file con estensione bacpac che contiene lo schema del database e
 
 Per importare un database SQL da un file bacpac è necessario quanto segue:
 
-- Una sottoscrizione di Azure. 
+- Una sottoscrizione di Azure.
 - Un server V12 del Database SQL di Azure. Se non si dispone di un server V12, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
 - Un file BACPAC del database che si vuole importare in un contenitore BLOB dell'[account di archiviazione di Azure (standard)](../storage/storage-create-storage-account.md).
 
@@ -65,7 +65,7 @@ Aprire il pannello di SQL Server:
     ![selezionare un livello di prezzo][3]
 
 1.  Immettere un **NOME DATABASE** per il database che verrà creato dal file BACPAC.
-2.  Scegliere il tipo di autenticazione e quindi specificare le informazioni di autenticazione per il server. 
+2.  Scegliere il tipo di autenticazione e quindi specificare le informazioni di autenticazione per il server.
 3.  Fare clic su **Crea** per creare il database dal BACPAC.
 
     ![creazione del database][4]
@@ -92,13 +92,7 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 
 ## Passaggi successivi
 
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-
-
-
-## Risorse aggiuntive
-
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
 
 <!--Image references-->
@@ -109,4 +103,4 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager
@@ -117,7 +117,7 @@ Azure usa il prefisso di indirizzo IP che viene specificato per identificare il 
 
 Quando si usano gli esempi di PowerShell, tenere presente quanto segue:
 	
-- *GatewayIPAddress* corrisponde all'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT. 
+- *GatewayIPAddress* corrisponde all'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
 - *AddressPrefix* corrisponde allo spazio degli indirizzi locale.
 
 Per aggiungere un gateway di rete locale con un solo prefisso di indirizzo:
@@ -157,10 +157,10 @@ In questo passaggio si creerà il gateway di rete virtuale. Si noti che la creaz
 
 Usare i valori seguenti:
 
-- Il valore di *-GatewayType* per una configurazione da sito a sito è *Vpn*. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Ad esempio, altre configurazioni di gateway possono richiedere -GatewayType ExpressRoute. 
+- Il valore di *-GatewayType* per una configurazione da sito a sito è *Vpn*. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Ad esempio, altre configurazioni di gateway possono richiedere -GatewayType ExpressRoute.
 
 - Il valore di *-VpnType* può essere *RouteBased*, definito gateway dinamico in alcuni documenti, o *PolicyBased*, definito gateway statico in alcuni documenti. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md#vpntype).
-- Il valore di *-GatewaySku* può essere *Basic*, *Standard* o *HighPerformance*. 	
+- Il valore di *-GatewaySku* può essere *Basic*, *Standard* o *HighPerformance*.
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -198,8 +198,8 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 ## Passaggi successivi
 
-- Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- È possibile aggiungere macchine virtuali alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 - Per informazioni su BGP, vedere la [panoramica di BGP](vpn-gateway-bgp-overview.md) e l'articolo che illustra [come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

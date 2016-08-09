@@ -82,7 +82,7 @@ I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La dire
 * __2.2.4.9-1__: questa directory è denominata per la versione di Hortonworks Data Platform utilizzato da HDInsight, pertanto il numero il cluster potrebbe essere diverso da quelle elencate di seguito.
 * __current__: questa directory contiene collegamenti alle directory all'interno della directory __2.2.4.9-1__ e consente di non dover digitare il numero della versione (che può cambiare) ogni volta che si vuole accedere a un file.
 
-Dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
+Dati di esempio e file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archiviazione BLOB di Azure in '/example' o 'wasbs:///example'.
 
 ## Procedure consigliate relative al file system HDFS, all'archivio BLOB di Azure e all'archiviazione
 
@@ -98,11 +98,11 @@ Poiché è l'archivio predefinito per HDInsight, in genere non è necessario ese
 
 	hadoop fs -ls /example/data
 
-Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre **WASB://** al comando.
+Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre **wasb://** o **wasbs://**.al comando.
 
-HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **WASB://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
+HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **wasbs://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
 
-	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
+	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Quale archivio BLOB viene usato dal cluster?
 
@@ -116,7 +116,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 
     Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il contenitore predefinito e __ACCOUNTNAME__ è il nome dell'account di archiviazione di Azure:
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
@@ -206,7 +206,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 	* __Interfaccia utente Storm__: usare la procedura seguente per ribilanciare una topologia tramite l'interfaccia utente Storm.
 
-		1. Aprire \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ nel Web browser, dove CLUSTERNAME è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
+		1. Aprire \_\_https://CLUSTERNAME.azurehdinsight.net/stormui__ nel Web browser, dove CLUSTERNAME è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
 
 		3. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante __Rebalance__. Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.
 
@@ -257,4 +257,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

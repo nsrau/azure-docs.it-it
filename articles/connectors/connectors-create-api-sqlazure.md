@@ -9,69 +9,50 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
 # Introduzione al connettore del database SQL di Azure
-Usando il connettore del database SQL di Azure, creare flussi di lavoro per l'organizzazione che gestiscano i dati nelle tabelle. Vedere anche:
+Usando il connettore del database SQL di Azure, creare flussi di lavoro per l'organizzazione che gestiscano i dati nelle tabelle.
+
+Con il database SQL è possibile:
 
 - Creare il flusso di lavoro aggiungendo un nuovo cliente in un database di clienti o aggiornando un ordine in un database di ordini.
 - Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Ad esempio, quando viene creato un record in Dynamics CRM Online (trigger), inserire una riga in un database SQL di Azure (azione).
 
 Questo argomento illustra come usare il connettore del database SQL in un'app per la logica ed elenca le azioni.
 
->[AZURE.NOTE] Questa versione dell'articolo riguarda la disponibilità generale (GA) delle app per la logica.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
 
-Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [Elementi necessari per iniziare](../../includes/connectors-create-api-sqlazure.md)]
+Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md) e l'articolo su come [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connettersi al database SQL di Azure
 
-Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare innanzitutto una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi al database SQL, si crea una *connessione* al database SQL. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui connettersi. Pertanto, per creare la connessione al database SQL, immettere le credenziali del database SQL.
-
-Quando si aggiunge questo connettore all'app per la logica, si crea la connessione al database SQL. La prima volta che si aggiunge questo connettore, vengono richieste le informazioni di connessione:
-
-![](./media/connectors-create-api-sqlazure/connection-details.png)
+Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi al database SQL, si crea una *connessione* al database SQL. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui connettersi. Pertanto, per creare la connessione al database SQL, immettere le credenziali del database SQL.
 
 #### Creare la connessione
 
-1. Immettere i dettagli del database SQL. Le proprietà con l'asterisco sono obbligatorie.
-
-	| Proprietà | Dettagli |
-|---|---|
-| Connessione tramite gateway | Lasciare deselezionata. Si usa quando ci si connette a un SQL Server locale. |
-| Nome connessione* | Immettere un nome per la connessione. | 
-| Nome di SQL Server* | Immettere il nome del server, simile a *nomeserver.database.windows.net*. Il nome del server è visualizzato nelle proprietà del database SQL nel portale di Azure ed è mostrato anche nella stringa di connessione. | 
-| Nome del database SQL* | Immettere il nome che è stato assegnato al database SQL. Questo nome è riportato nelle proprietà del database SQL nella stringa di connessione: Initial Catalog =*yoursqldbname*. | 
-| Nome utente* | Immettere il nome utente creato quando è stato creato il database SQL. Questo nome è riportato nelle proprietà del database SQL nel portale di Azure. | 
-| Password* | Immettere la password creata quando è stato creato il database SQL. | 
-
-	Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e per l'accesso ai dati SQL. Al termine i dettagli della connessione saranno simili ai seguenti:
-
-	![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png)
-
-2. Selezionare **Create**.
+>[AZURE.INCLUDE [Creare la connessione a SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Usare un trigger
 
-Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, fra cui un trigger di ricorrenza, un trigger HTTP webhook, i trigger disponibili con altri connettori e altro ancora. Nella sezione [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) è riportato un esempio.
+Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger Ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. Nella sezione [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) è riportato un esempio.
 
 ## Usare un'azione
 	
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica.
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-1. Selezionare il segno più. Sono disponibili varie opzioni: **Add an action** (Aggiungi azione), **Add a condition** (Aggiungi condizione) e le opzioni **More** (Altro).
+1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
 
 	![](./media/connectors-create-api-sqlazure/add-action.png)
 
-2. Selezionare **Add an action** (Aggiungi azione).
+2. Selezionare **Aggiungi un'azione**.
 
 3. Nella casella di testo digitare "sql" per ottenere l'elenco di tutte le azioni disponibili.
 
@@ -81,16 +62,16 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 	![](./media/connectors-create-api-sqlazure/sample-table.png)
 
-	Se viene chiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-sqlazure.md#create-the-connection) di questo argomento descrive queste proprietà.
+	Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-sqlazure.md#create-the-connection) di questo argomento descrive queste proprietà.
 
 	> [AZURE.NOTE] In questo esempio si restituisce una riga da una tabella. Per visualizzare i dati in questa riga aggiungere un'altra azione che crea un file usando i campi della tabella. Ad esempio, aggiungere un'azione OneDrive che usa i campi Nome e Cognome per creare un nuovo file nell'account di archiviazione cloud.
 
-5. **Salvare** le modifiche (angolo in alto a sinistra della barra degli strumenti). L'app per la logica viene salvata e può essere attivata automaticamente.
+5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 
 
 ## Dettagli tecnici
 
-## Azioni
+## Azioni del database SQL
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore del database SQL include le azioni seguenti.
 
 |Azione|Descrizione|
@@ -195,7 +176,7 @@ Elimina una riga da una tabella SQL.
 
 L'asterisco (*) indica che la proprietà è obbligatoria.
 
-##### Dettagli dell'output
+##### Dettagli output
 Nessuna.
 
 #### Ottieni tabelle 
@@ -247,6 +228,6 @@ Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determi
 
 ## Passaggi successivi
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica esaminando il nostro [elenco di API](apis-list.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell'[elenco delle API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

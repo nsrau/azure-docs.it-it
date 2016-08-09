@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [Back-end .NET](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Back-end JavaScript](mobile-services-store-scripts-source-control.md)
 
 Questo argomento descrive come usare il controllo del codice sorgente offerto da Servizi mobili di Azure per archiviare gli script del server. Gli script e altri file di codice JavaScript possono essere innalzati di livello dal repository Git al servizio mobile di produzione. Descrive inoltre come definire codice condiviso che può essere richiesto da più script e come usare il file package.json per aggiungere moduli Node.js al servizio mobile.
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
 	> [AZURE.NOTE]
-	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+	In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -105,7 +105,7 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 
 Servizi mobili offre l'accesso al set completo di moduli Node.js di base che è possibile utilizzare nel codice tramite la funzione **require**. Il servizio mobile può inoltre usare moduli Node.js che non fanno parte del pacchetto Node.js di base ed è perfino possibile definire il codice condiviso personalizzato come moduli Node.js. Per ulteriori informazioni sulla creazione di moduli, vedere la sezione relativa ai [moduli] nella documentazione di riferimento all'API Node.js.
 
-Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste nell'aggiunta di riferimenti al file package.json del servizio. Si aggiungerà quindi il modulo Node.js [node-uuid] al servizio mobile aggiornando il file package.json. Quando viene eseguito il push dell'aggiornamento ad Azure, il servizio mobile viene riavviato e il modulo viene installato. Questo modulo verrà quindi utilizzato per creare un nuovo valore GUID per la proprietà **uuid** sugli oggetti inseriti.
+Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste nell'aggiunta di riferimenti al file package.json del servizio. Si aggiungerà quindi il modulo Node.js [node-uuid] al servizio mobile aggiornando il file package.json. Quando viene eseguito il push dell'aggiornamento ad Azure, il servizio mobile viene riavviato e il modulo viene installato. Questo modulo verrà quindi usato per creare un nuovo valore GUID per la proprietà **uuid** sugli oggetti inseriti.
 
 2. Passare alla cartella `.\service` del repository Git locale e aprire il file package.json in un editor di testo, quindi aggiungere il campo seguente all'oggetto **dependencies**:
 
@@ -159,4 +159,4 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

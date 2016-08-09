@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
+   ms.workload="NA"
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -32,19 +32,19 @@ Tutti i database Basic, Standard e Premium sono protetti da backup automatici. I
 
 ## Ridondanza geografica
 
-I file di backup vengono archiviati in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS) per assicurare la disponibilità a scopo di ripristino di emergenza. Di seguito viene mostrata una replica geografica di backup settimanali e mensili archiviati in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS) per assicurare la disponibilità a scopo di ripristino di emergenza.
+I file di backup vengono archiviati in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS) per assicurare la disponibilità a scopo di ripristino di emergenza. Ciò garantisce che i file di backup vengano replicati in un [data center associato](../best-practices-availability-paired-regions.md). Di seguito viene mostrata una replica geografica di backup settimanali e mensili archiviati in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS) per assicurare la disponibilità a scopo di ripristino di emergenza.
 
 ![ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)
 
 ## Uso di backup automatizzati
 
-È possibile [ripristinare un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md) durante il relativo [periodo di conservazione](sql-database-service-tiers.md) in:
+È possibile [ripristinare un database dai backup automatici](sql-database-recovery-using-backups.md) durante il relativo [periodo di conservazione](sql-database-service-tiers.md) in:
 
 - Un nuovo database nello stesso server logico ripristinato in una temporizzazione specificata entro il periodo di conservazione.
 - Un database nello stesso server logico ripristinato all'ora di eliminazione per un database eliminato.
 - Un nuovo database in qualsiasi server logico in qualsiasi area ripristinato ai backup giornalieri più recenti nell'archiviazione BLOB con replica geografica (RA-GRS).
 
-È inoltre possibile usare [backup automatici del database SQL](sql-database-automated-backups.md) per creare una [copia del database](sql-database-copy.md) in qualsiasi server logico in qualsiasi area coerente da un punto di vista transazionale con il database SQL corrente. È possibile usare la copia del database ed [esportare in un file BACPAC](sql-database-export.md) per archiviare una copia di un database coerente da un punto di vista transazionale per l'archiviazione a lungo termine oltre il periodo di conservazione o trasferire una copia del database in un'istanza locale o un'istanza VM di Azure di SQL Server.
+È anche possibile usare [backup automatici del database SQL](sql-database-automated-backups.md) per creare una [copia del database](sql-database-copy.md) in qualsiasi server logico in qualsiasi area coerente da un punto di vista transazionale con il database SQL corrente. È possibile usare la copia del database ed [esportare in un file BACPAC](sql-database-export.md) per archiviare una copia di un database coerente da un punto di vista transazionale per l'archiviazione a lungo termine oltre il periodo di conservazione o trasferire una copia del database in un'istanza locale o un'istanza VM di Azure di SQL Server.
 
 ## Cosa accade al periodo di conservazione del punto di ripristino in caso di downgrade o aggiornamento in base al livello di servizio
 
@@ -62,4 +62,4 @@ Il periodo di conservazione è determinato dal livello di servizio associato al 
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 - Per un quadro generale, vedere la [panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

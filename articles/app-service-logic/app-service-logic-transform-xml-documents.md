@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -35,7 +35,7 @@ Le altre funzionalità includono:
 - Durante la creazione di una mappa viene visualizzata la relativa rappresentazione grafica, incluse tutte le relazioni e i collegamenti creati dall'utente.
 - Usare la funzione **Mappa di test** per aggiungere un messaggio XML di esempio. Con un semplice clic, è possibile testare la mappa creata e visualizzare l'output generato.
 - Caricare le mappe dei Servizi BizTalk di Azure esistenti (trfm) e sfruttare tutti i vantaggi dell'app per le API Transform.
-- Quando si crea la mappa, non è necessario aggiungere uno schema. Quando la mappa è pronta, aggiungerla all'app per le API Transform e iniziare a usarla. 
+- Quando si crea la mappa, non è necessario aggiungere uno schema. Quando la mappa è pronta, aggiungerla all'app per le API Transform e iniziare a usarla.
 - Include il supporto per il formato XML.
 
 
@@ -117,4 +117,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

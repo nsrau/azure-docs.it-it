@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Informazioni sul manifesto dell'applicazione in Azure Active Directory
@@ -26,7 +26,7 @@ Per l'aggiornamento delle proprietà di configurazione dell'identità di un'appl
 
 - L'**interfaccia utente Web del [portale di Azure classico][AZURE-CLASSIC-PORTAL]** consente di aggiornare le proprietà più comuni di un'applicazione. Questo è il modo più rapido e meno soggetto a errori di aggiornare le proprietà dell'applicazione, ma non consente l'accesso completo a tutte le proprietà come i due metodi seguenti.
 - Per gli scenari più avanzati in cui è necessario aggiornare proprietà non esposte nel portale di Azure classico, si può modificare il **manifesto dell'applicazione**. Questo è l'argomento su cui verte questo articolo, che verrà illustrato più dettagliatamente nella sezione successiva.
-- È anche possibile **scrivere un'applicazione che usa l'[API Graph][GRAPH-API]** per aggiornare l'applicazione, cosa che richiede l'impegno maggiore. Questa può tuttavia essere un'opzione interessante se si scrive software di gestione o se è necessario aggiornare le proprietà dell'applicazione a intervalli regolari e in modo automatico.
+- È anche possibile ** scrivere un'applicazione che usa l'[API Graph][GRAPH-API]** per aggiornare l'applicazione, cosa che richiede l'impegno maggiore. Questa può tuttavia essere un'opzione interessante se si scrive software di gestione o se è necessario aggiornare le proprietà dell'applicazione a intervalli regolari e in modo automatico.
 
 ## Uso del manifesto dell'applicazione per aggiornare la configurazione dell'identità di un'applicazione
 Tramite il [portale di Azure classico][AZURE-CLASSIC-PORTAL] è possibile gestire la configurazione dell'identità dell'applicazione scaricando e caricando la rappresentazione di un file JSON, detto manifesto dell'applicazione. Nella directory non viene archiviato un file effettivo, perché il manifesto dell'applicazione è semplicemente un'operazione GET HTTP sull'entità dell'applicazione API Graph di Azure AD e il caricamento è un'operazione PATCH HTTP sull'entità dell'applicazione.
@@ -104,7 +104,7 @@ Si esamineranno ora i passaggi necessari per aggiornare la configurazione dell'i
 Ora che il manifesto è stato salvato, è possibile fornire a un'applicazione client registrata accesso alla nuova autorizzazione aggiunta in precedenza, ma questa volta è possibile usare l'interfaccia utente Web del portale di Azure classico anziché modificare il manifesto dell'applicazione client:
 
 1. Passare innanzitutto alla pagina "Configura" dell'applicazione client in cui si vuole aggiungere l'accesso alla nuova API e fare clic sul pulsante "Aggiungi applicazione".
-2. Verrà quindi visualizzato l'elenco delle applicazioni della risorsa registrate (API) nel tenant. Fare clic sul segno più (+) accanto al nome dell'applicazione della risorsa per selezionarlo.  
+2. Verrà quindi visualizzato l'elenco delle applicazioni della risorsa registrate (API) nel tenant. Fare clic sul segno più (+) accanto al nome dell'applicazione della risorsa per selezionarlo.
 3. Fare quindi clic sul segno di spunta in basso a destra.
 4. Quando si ritorna alla sezione "Aggiungi applicazione" della pagina di configurazione del client, la nuova applicazione della risorsa verrà visualizzata nell'elenco. Se si passa il mouse sopra la sezione "Autorizzazioni delegate" a destra della riga, verrà visualizzato un elenco a discesa. Fare clic sull'elenco, quindi selezionare la nuova autorizzazione per aggiungerla all'elenco di autorizzazioni richieste dal client. Nota: la nuova autorizzazione verrà archiviata nella configurazione dell'identità dell'applicazione client, nella proprietà della raccolta "requiredResourceAccess".
 
@@ -135,9 +135,9 @@ Usare la sezione dei commenti DISQUS di seguito per fornire commenti e suggerime
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
@@ -147,4 +147,4 @@ Usare la sezione dei commenti DISQUS di seguito per fornire commenti e suggerime
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

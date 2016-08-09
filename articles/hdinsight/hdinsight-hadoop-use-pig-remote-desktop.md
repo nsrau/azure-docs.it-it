@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig da una connessione Desktop remoto
@@ -49,7 +49,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 3. Immettere la seguente istruzione:
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 
 	Questo comando carica i contenuti del file sample.log nel file LOGS. È possibile visualizzare i contenuti del file usando il seguente comando:
 
@@ -83,7 +83,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+		STORE RESULT into 'wasbs:///example/data/pigout'
 
 	> [AZURE.NOTE] I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
 
@@ -99,7 +99,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 4. Digitare o incollare le seguenti righe nel file **pigbatch.pig** e quindi salvarlo:
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -136,4 +136,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

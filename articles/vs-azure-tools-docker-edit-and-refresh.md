@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="07/22/2016"
    ms.author="allclark" />
 
 # Debug delle applicazioni in un contenitore Docker locale
@@ -107,6 +107,7 @@ Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS) si ot
 - [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode): servizi di linguaggio per la modifica dei file di Docker, con altri scenari e2e presto disponibili
 - [Documentazione dei contenitori di Windows](http://aka.ms/containers): informazioni su Windows Server e Nano Server
 - [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/) - [introduzione al servizio contenitore di Azure](http://aka.ms/AzureContainerService)
+-    Per ulteriori esempi di utilizzo di Docker, vedere [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Uso di Docker) dalla [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guide introduttive agli strumenti di sviluppo di Azure).
 
 ## Altri strumenti di Docker
 
@@ -124,4 +125,4 @@ Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS) si ot
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

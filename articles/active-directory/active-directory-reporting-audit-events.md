@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="07/25/2016"
    ms.author="dhanyahk"/>
 
 # Eventi del report di controllo di Azure Active Directory
@@ -48,9 +48,9 @@ Aggiunta di un'entità servizio | È stata aggiunta un'entità servizio alla dir
 Rimozione di un'entità servizio | È stata rimossa un'entità servizio dalla directory.
 Aggiunta delle credenziali dell'entità servizio | Sono state aggiunte le credenziali a un'entità servizio.
 Rimozione delle credenziali dell'entità servizio | Sono state rimosse le credenziali da un'entità servizio.
-Aggiunta di una voce di delega | Creazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
-Impostazione voce di delega | Aggiornamento di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
-Rimozione voce di delega | Eliminazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
+Aggiunta di una voce di delega | Creazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) nella directory.
+Impostazione voce di delega | Aggiornamento di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) nella directory.
+Rimozione voce di delega | Eliminazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) nella directory.
 **Eventi del ruolo** |
 Aggiunta di un membro del ruolo al ruolo | È stato aggiunto un utente a un ruolo della directory.
 Rimozione di un membro ruolo dal ruolo | È stato rimosso un utente da un ruolo della directory.
@@ -122,4 +122,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](https://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

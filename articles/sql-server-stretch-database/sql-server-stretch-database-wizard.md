@@ -31,7 +31,8 @@ Per saperne di più sull'estensione database, vedere l'articolo relativo all'[es
 ## <a name="Intro"></a>Introduzione
 Esaminare lo scopo della procedura guidata e i prerequisiti.
 
-I prerequisiti importanti includono i seguenti.
+I prerequisiti importanti includono i seguenti:
+
 -   È necessario essere amministratori per modificare le impostazioni del database.
 -   È necessario avere una sottoscrizione di Microsoft Azure.
 -   SQL Server deve poter comunicare con il server Azure remoto.
@@ -190,4 +191,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -235,7 +235,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in BenSelect. Collaborare con il team di supporto di BenSelect per aggiungere utenti all'account BenSelect.
 
-> [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di BenSelect all'indirizzo <mailto:support@selerix.com.
+> [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di BenSelect all'indirizzo <mailto:support@selerix.com>.
 
 
 ### Assegnazione dell'utente test di Azure AD

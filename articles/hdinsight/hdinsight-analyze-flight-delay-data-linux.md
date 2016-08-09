@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Scaricare i dati relativi ai voli
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
 2. Selezionare i valori seguenti nella pagina:
 
     | Nome | Valore |
@@ -236,9 +236,9 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 
 3. Usare il comando seguente per esportare dati dalla tabella hivesampletable alla tabella mobiledata:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	In questo modo, si indicherà a Sqoop di connettersi al database SQL, al database contenente la tabella delays e di esportare dati da wasb:///tutorials/flightdelays/output, dove è stato in precedenza archiviato l'output della query hive, alla tabella delays.
+	In questo modo, si indicherà a Sqoop di connettersi al database SQL, al database contenente la tabella delays e di esportare dati da wasbs:///tutorials/flightdelays/output, dove in precedenza è stato archiviato l'output della query hive, alla tabella delays.
 
 4. Al termine dell'esecuzione del comando, usare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -291,4 +291,4 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

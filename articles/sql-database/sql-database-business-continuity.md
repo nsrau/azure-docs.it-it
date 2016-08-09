@@ -6,124 +6,133 @@
    documentationCenter=""
    authors="carlrabeler"
    manager="jhubbard"
-   editor="monicar"/>
+   editor=""/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-   ms.date="06/09/2016"
+   ms.workload="NA"
+   ms.date="07/20/2016"
    ms.author="carlrab"/>
 
-# Continuità aziendale del database SQL di Azure
+# Panoramica della continuità aziendale del database SQL di Azure
 
-Il database SQL di Azure include una serie di soluzioni di continuità aziendale. Il concetto di continuità aziendale fa riferimento alla progettazione, alla distribuzione e all'esecuzione di applicazioni in modo da renderle resilienti a eventi di arresto improvviso, pianificati o non, che comportano la perdita permanente o temporanea della capacità dell'applicazione di assolvere alla propria funzione aziendale. Gli eventi non pianificati spaziano dagli errori umani alle interruzioni permanenti o temporanee del servizio fino ai casi di emergenza locale che possono provocare la perdita di implementazioni su larga scala in una determinata area di Azure. Gli eventi pianificati includono la ridistribuzione delle applicazioni in un'area diversa e gli aggiornamenti. L'obiettivo della continuità aziendale è quello di permettere all'applicazione di continuare a funzionare durante questi eventi con un impatto minimo sulla funzione aziendale.
+Questa panoramica descrive le funzionalità offerte dal database SQL di Azure per la continuità aziendale e il ripristino di emergenza. Fornisce opzioni, raccomandazioni ed esercitazioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. La discussione comprende le operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
 
-Per esaminare le soluzioni di continuità aziendale cloud del database SQL, è necessario acquisire familiarità con alcuni concetti. Si tratta di:
+## Funzionalità del database SQL che è possibile usare per assicurare la continuità aziendale
 
-* **Ripristino di emergenza (DR, Disaster Recovery)**: processo di ripristino della normale funzione aziendale dell'applicazione.
+Il database SQL offre diverse funzionalità di continuità aziendale, inclusi i backup automatici e la replica facoltativa del database. Ogni funzionalità presenta caratteristiche diverse in termini di tempo di recupero stimato (ERT) e di potenziale perdita di dati per le transazioni recenti. Dopo aver compreso le opzioni disponibili, è possibile scegliere una di esse o, nella maggior parte dei casi, usarle in modo combinato per i diversi scenari. Quando si sviluppa il piano di continuità aziendale, è necessario comprendere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Si tratta dell'obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti (intervallo di tempo) che l'applicazione è in grado di tollerare durante il ripristino dopo l'evento di arresto improvviso, ovvero l'obiettivo del punto di ripristino (RPO).
 
-* **Tempo di ripristino stimato (ERT, Estimated Recovery Time)**: durata stimata per il recupero della completa disponibilità del database dopo una richiesta di ripristino o failover.
+### Usare backup del database per il ripristinare
 
-* **Obiettivo del tempo di ripristino (RTO, Recovery Time Objective)**: tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il valore RTO misura la perdita massima di disponibilità durante i guasti.
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza locale per 35 giorni per i database dei livelli di servizio Standard e Premium e 7 giorni per il database del livello Basic. Per altre informazioni sui livelli del servizio, vedere [Livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-scale-up.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altri dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
-* **Obiettivo del punto di ripristino (RPO, Recovery Point Objective)**: intervallo massimo di tempo degli ultimi aggiornamenti che l'applicazione può perdere dal momento in cui viene completamente ripristinata dopo l'evento di arresto improvviso. Il valore RPO misura la perdita massima di dati durante i guasti.
+È possibile usare questi backup automatici del database per ripristinare un database da una serie di eventi di arresto improvviso, sia all'interno del proprio data center sia verso un altro data center. Il tempo stimato per il ripristino tramite backup automatici del database dipende da diversi fattori, tra cui il numero totale di database in fase di ripristino nella stessa area contemporaneamente, le dimensioni del database, le dimensioni del log delle transazioni e la larghezza di banda della rete. Nella maggior parte dei casi, il tempo di recupero è inferiore a 12 ore. Durante il ripristino verso un'altra area dati, la potenziale perdita di dati è limitata a 1 ora per l'archiviazione con ridondanza geografica dei backup differenziali del database che si verificano ogni ora.
 
+> [AZURE.IMPORTANT] Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
 
-## Scenari di continuità aziendale cloud del database SQL
+Usare i backup automatici come meccanismo di continuità e ripristino aziendale, se l'applicazione:
 
-Di seguito sono descritti gli scenari principali da prendere in considerazione durante la pianificazione della continuità aziendale e del ripristino dei database.
+- Non è considerata cruciale.
+- Non ha un contratto di servizio vincolante e, di conseguenza, un tempo di inattività di 24 o più ore non comporta alcuna responsabilità finanziaria.
+- Ha una bassa frequenza di modifica dei dati (ad esempio, transazioni per ora) e la perdita di un massimo di un'ora di modifica dei dati è accettabile.
+- Dipende dal costo.
 
-### Progettare applicazioni per la continuità aziendale
+Se è necessario un ripristino più veloce, usare la [Replica geografica attiva](sql-database-geo-replication-overview.md) (più avanti). Se è necessario ripristinare i dati da un periodo antecedente a 35 giorni, è consigliabile archiviare il database a intervalli regolari in un file BACPAC (un file compresso contenente lo schema del database e i dati associati) archiviato nell'archiviazione BLOB di Azure o in un'altra posizione di propria scelta. Per altre informazioni su come creare un archivio di database coerenti da un punto di vista transazionale, vedere gli articoli che spiegano come [creare una copia del database](sql-database-copy.md) ed [esportare la copia del database](sql-database-export.md).
 
-L'applicazione che si sta sviluppando ha un'importanza cruciale per la propria azienda. Si desidera progettarla e configurarla in modo che riesca a sopravvivere a errori irreversibili del servizio nell'ambito di un'area. Si conoscono i requisiti di RPO e RTO per l'applicazione e si sceglie la configurazione che soddisfa questi requisiti.
+### Usare la replica geografica attiva per ridurre il tempo di recupero e limitare la perdita di dati associata a un ripristino
 
-### Ripristino da errore umano
+Oltre a usare i backup del database per il ripristino del database in caso di un'interruzione aziendale, è possibile usare la [replica geografica attiva](sql-database-geo-replication-overview.md) per configurare un database in modo da avere fino a 4 database secondari leggibili nelle aree scelte. Questi database secondari vengono mantenuti sincronizzati con il database primario tramite un meccanismo di replica asincrona. Questa funzionalità viene usata per la protezione da interruzioni delle attività aziendali in caso di un'interruzione del data center o durante un aggiornamento dell'applicazione. La replica geografica attiva può anche essere usata per offrire agli utenti situati in aree geografiche diverse prestazioni delle query migliori per le query di sola lettura.
 
-Si dispone dei diritti amministrativi per l'accesso alla versione di produzione dell'applicazione. Come parte del processo di manutenzione regolare si è commesso un errore e si sono eliminati alcuni dati critici nell'ambiente di produzione. Si desidera ripristinare rapidamente i dati per ridurre l'impatto dell'errore.
+Se il database primario viene portato offline in modo imprevisto o è necessario portarlo online per attività di manutenzione, è possibile convertire rapidamente un database secondario perché diventi il database primario (detto anche failover) e configurare le applicazioni per la connessione al database primario appena promosso. Con un failover pianificato, non si verificano perdite di dati. Con un failover non pianificato, si verificano perdite di dati ridotte per le transazioni molto recenti a causa della natura di replica asincrona. Dopo un failover, è possibile eseguire un failback sulla base di un piano o del momento in cui il data center ritorna online. In tutti i casi, gli utenti riscontreranno un breve tempo di inattività e dovranno eseguire nuovamente la connessione.
 
-### Ripristino dopo un'interruzione del servizio
+> [AZURE.IMPORTANT] Per usare la replica geografica attiva, è necessario essere il proprietario della sottoscrizione o disporre delle autorizzazioni di amministrazione in SQL Server. È possibile configurare ed eseguire il failover tramite il portale di Azure, PowerShell o l'API REST tramite le autorizzazioni della sottoscrizione o tramite Transact-SQL usando le autorizzazioni all'interno di SQL Server.
 
-Si esegue l'applicazione nell'ambiente di produzione e si riceve un avviso che segnala un'interruzione grave del servizio nell'area in cui l'applicazione è distribuita. Si desidera avviare il processo che consente di ripristinare l'applicazione in un'area diversa in modo da ridurre l'impatto sulle attività aziendali.
+Usare la replica geografica attiva se l'applicazione soddisfa i criteri seguenti:
 
-### Esercitazione per il ripristino di emergenza
+- È considerata cruciale.
+- Ha un contratto di servizio che non consente più di 24 ore di inattività.
+- Il tempo di inattività causa la responsabilità finanziaria.
+- Ha una frequenza elevata di modifica dei dati e la perdita di un'ora di dati non è accettabile.
+- Il costo aggiuntivo della replica geografica attiva è inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
-Poiché il ripristino da un'interruzione del servizio ha l'effetto di riposizionare il livello dati dell'applicazione in un'altra area, per precauzione si desidera testare periodicamente il processo di ripristino e valutarne l'impatto sull'applicazione.
+## Ripristinare un database in seguito a errore di un'applicazione o un utente
 
-### Aggiornamento dell'applicazione senza tempo di inattività
+* Nessuno è perfetto! Un utente potrebbe accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. Oppure un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione.
 
-Si sta rilasciando un aggiornamento importante dell'applicazione che comporta modifiche allo schema del database, distribuzione di altre stored procedure e così via. Questo processo richiederà l'arresto dell'accesso degli utenti al database. Allo stesso tempo, si desidera assicurarsi che l'aggiornamento non determini un'interruzione significativa delle operazioni aziendali.
+In questo scenario, ecco sono le opzioni di ripristino.
 
-## Funzionalità di continuità aziendale del database SQL
+### Eseguire un ripristino temporizzato
 
-La tabella seguente include un elenco delle funzionalità di continuità aziendale del database SQL e descrive le differenze dei vari [livelli di servizio](sql-database-service-tiers.md):
+È possibile usare i backup automatici per ripristinare una copia del database a un punto valido nel tempo, purché rientri nel periodo di memorizzazione del database. Dopo il ripristino del database, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se il database usa la replica geografica attiva, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, sarà necessario riconfigurare e risincronizzare la replica geografica attiva (che può richiedere molto tempo per un database di grandi dimensioni).
 
-| Funzionalità | Livello Basic | Livello Standard |Livello Premium
-| --- |--- | --- | ---
-| Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 35 giorni | Qualsiasi punto di ripristino entro 35 giorni
-| Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
-| Replica geografica attiva | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec
+Per altre informazioni e per i passaggi dettagliati per il ripristino di un database in un punto nel tempo tramite il portale di Azure o PowerShell, vedere [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Non è possibile eseguire il ripristino tramite Transact-SQL.
 
-Queste funzionalità consentono di gestire gli scenari elencati in precedenza.
+### Ripristino di un database eliminato
 
-> [AZURE.NOTE] I valori ERT e RPO sono gli obiettivi di progettazione e offrono solo indicazioni. Non fanno parte del [contratto di servizio per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+Se il database viene eliminato, ma il server logico non è stato eliminato, è possibile ripristinare il database eliminato sul punto in cui è stato eliminato. Ciò consente di ripristinare un backup del database nello stesso server SQL logico da cui è stato eliminato. È possibile eseguire il ripristino usando il nome originale o fornire un nuovo nome al database ripristinato.
 
+Per altre informazioni e per i passaggi dettagliati per il ripristino di un database eliminato tramite il portale di Azure o PowerShell, vedere [Ripristino di un database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore). Non è possibile eseguire il recupero tramite Transact-SQL.
 
-###Ripristino temporizzato
+> [AZURE.IMPORTANT] Se il server logico viene eliminato, non è possibile recuperare un database eliminato.
 
-Il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) è concepito per riportare il database a un punto precedente nel tempo. Questa funzionalità si basa sui backup del database, sui backup incrementali e sui backup dei log delle transazioni che il servizio gestisce automaticamente per ogni database utente. È disponibile per tutti i livelli di servizio. È possibile tornare indietro di 7 giorni con il livello Basic, di 35 giorni con il livello Standard e di 35 giorni con il livello Premium.
+### Eseguire l'importazione da un archivio di database
 
-### Ripristino geografico
+Se si è verificata la perdita di dati fuori dal periodo di memorizzazione corrente per i backup automatici e si sta eseguendo l'archiviazione del database, è possibile [importare un file BACPAC archiviato](sql-database-import.md) in un nuovo database. A questo punto, è possibile sostituire il database originale con il database importato o copiare i dati necessari dai dati importati nel database originale.
 
-Il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) è disponibile anche con i database di livello Basic, Standard e Premium. È l'opzione di ripristino predefinita quando anche il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Analogamente alla funzionalità di ripristino temporizzato, quella di ripristino geografico si basa sui backup di database in Archiviazione di Azure con ridondanza geografica. Esegue il ripristino della copia di backup con replica geografica ed è quindi resiliente alle interruzioni dell'archiviazione nell'area primaria.
+## Ripristinare un database in un'altra area da un'interruzione del data center regionale di Azure
 
-### Replica geografica attiva
+<!-- Explain this scenario -->
 
-La [replica geografica attiva](sql-database-geo-replication-overview.md) è disponibile per i database a tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli [scenari di aggiornamento o riposizionamento dell'applicazione](sql-database-manage-application-rolling-upgrade.md) e anche di bilanciamento dei carichi di lavoro di sola lettura.
+Anche se raramente, un data center di Azure può subire un'interruzione del servizio. Quando si verifica un'interruzione, viene generata un'interruzione delle attività che potrebbe durare solo pochi minuti oppure ore.
 
-## Scelta delle funzionalità di continuità aziendale
+- Una delle opzioni è attendere che il database torni online al termine dell'interruzione del data center. Questa opzione funziona per le applicazioni che possono rimanere con il database offline. Ad esempio, un progetto di sviluppo o una versione di valutazione gratuita su cui non è necessario lavorare costantemente. Quando un data center registra un'interruzione del servizio, non si sa quanto tempo essa durerà. Pertanto, questa opzione funziona solo se è possibile rinunciare al database per un periodo di tempo.
+- Un'altra opzione consiste nell'eseguire il failover in un'altra area dati se si usa la replica geografica attiva o il ripristino tramite backup di database con ridondanza geografica (ripristino geografico). Il failover dura solo pochi secondi mentre il ripristino da backup dura ore.
 
-Quando si progetta un'applicazione per la continuità aziendale è necessario fornire una risposta alle domande seguenti:
+Quando si esegue l'operazione, il tempo necessario per eseguire il ripristino e la quantità di dati persi che si verifica in caso di un'interruzione del data center dipendono dalle modalità in cui si decide di usare la funzionalità di continuità aziendale nell'applicazione, di cui si è discusso in precedenza. In effetti, è possibile scegliere di usare una combinazione di backup del database e la replica geografica attiva a seconda dei requisiti dell'applicazione. Per una descrizione delle considerazioni sulla progettazione di applicazioni per database autonomi e pool elastici tramite queste funzioni di continuità aziendale, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-1. Quale funzionalità per la continuità aziendale è adatta a proteggere l'applicazione da eventuali interruzioni del servizio?
-2. Quale livello di ridondanza e topologia di replica è opportuno usare?
+Le sezioni seguenti forniscono una panoramica della procedura per eseguire il ripristino tramite backup del database o replica geografica attiva. Per la procedura dettagliata, inclusa la pianificazione dei requisiti, i passaggi successivi al ripristino e informazioni su come simulare un'interruzione del servizio per eseguire un'analisi del ripristino di emergenza, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
-### Quando usare il ripristino geografico
+### Prepararsi a un'interruzione del servizio
 
-La funzionalità di [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) fornisce un'opzione predefinita di ripristino quando un database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Per impostazione predefinita, il database SQL offre una protezione di base incorporata per ciascun database. Avviene mediante l'esecuzione e l'archiviazione dei [backup del database](sql-database-automated-backups.md) nella risorsa di archiviazione con ridondanza geografica di Azure (GRS). Se si sceglie questo metodo, non è necessaria alcuna configurazione speciale o allocazione di risorse aggiuntive. È possibile ripristinare il database in qualsiasi area tramite i backup con ridondanza geografica automatizzati.
+Indipendentemente dalla funzionalità di continuità aziendale in uso, è necessario:
 
-È consigliabile usare la protezione incorporata se l'applicazione soddisfa i criteri seguenti:
+- Identificare e preparare il server di destinazione, tra cui le regole del firewall a livello di server, gli account di accesso e le autorizzazioni a livello di database master.
+- Stabilire come verranno reindirizzati i client e le applicazioni client verso il nuovo server.
+- Documentare altre dipendenze, ad esempio impostazioni di controllo e avvisi
+ 
+Se non si pianifica e ci si prepara adeguatamente al ripristino, riportare online le applicazioni dopo un failover o un ripristino richiederà ulteriore tempo e probabilmente la risoluzione di problemi aggiuntivi in un momento di stress: una combinazione da evitare.
 
-1. Non è considerata cruciale. Non ha un contratto di servizio vincolante e, di conseguenza, un tempo di inattività di 24 o più ore non comporta alcuna responsabilità finanziaria.
-2. La frequenza di modifica dei dati è bassa (ad esempio, è espressa in termini di transazioni all'ora). Un valore RPO di 1 ora non genererà una perdita di dati significativa.
-3. L'applicazione è suscettibile alla variazione del costo e non può giustificare il costo aggiuntivo della replica geografica.
+### Failover a un database secondario con replica geografica 
 
-> [AZURE.NOTE] La funzionalità di ripristino geografico non esegue un'allocazione preliminare della capacità di calcolo in un'area specifica per ripristinare i database attivi dal backup durante l'interruzione del servizio. Il servizio gestirà il carico di lavoro associato alle richieste di ripristino geografico in modo da ridurre al minimo l'impatto sui database esistenti in tale area e le loro richieste di capacità saranno prioritarie. Pertanto, il tempo di ripristino del database dipenderà da quanti altri database verranno ripristinati contemporaneamente nella stessa area, dalle dimensioni del database, dal numero di log delle transazioni, dalla larghezza di banda della rete e così via.
+Se si usa la replica geografica attiva come meccanismo di ripristino, [forzare un failover su un database secondario replicato geograficamente](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). In pochi secondi, il database secondario viene promosso come nuovo database primario ed è pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati di pochi secondi per i dati che non erano ancora stati replicati. Per informazioni su come automatizzare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-### Quando usare la replica geografica attiva
+> [AZURE.NOTE] Quando il data center ritorna online, è possibile eseguire il failback al database primario originale (facoltativamente).
 
-La [replica geografica attiva](sql-database-geo-replication-overview.md) consente di creare e gestire database leggibili (secondari) in un'area diversa da quella del database primario, applicando un meccanismo di replica asincrona per mantenerli aggiornati. Questa funzionalità garantisce che il database abbia le risorse di calcolo e i dati necessari per supportare il carico di lavoro dell'applicazione dopo il ripristino.
+### Eseguire un ripristino geografico 
 
-È consigliabile utilizzare la replica geografica attiva se l’applicazione soddisfa i criteri seguenti:
+Se si usano backup automatici con la replica dell'archiviazione con ridondanza geografica come meccanismo di ripristino, [avviare il ripristino del database tramite ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). Nella maggior parte dei casi, il ripristino avviene entro 12 ore, con perdita di dati fino a 1 ora dall'ultima acquisizione e replica del backup differenziale orario. Fino a quando non viene completato il ripristino, il database non sarà in grado di registrare tutte le transazioni o rispondere a tutte le query.
 
-1. È considerata cruciale. La perdita di dati e disponibilità comporta una responsabilità finanziaria.
-2. La frequenza di modifica dei dati è alta (ad esempio, è espressa in termini di transazioni al minuto o al secondo). Un valore RPO di 1 ora associato alla protezione predefinita avrà come risultato una perdita di dati inaccettabile.
-3. Il costo legato all'uso della replica geografica è notevolmente inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
+> [AZURE.NOTE] Se il data center ritorna online prima di spostare l'applicazione sul database ripristinato, è possibile semplicemente annullare il ripristino.
 
-## Progettare soluzioni cloud per il ripristino di emergenza. 
+### Eseguire attività successive al filover/ripristino 
 
-Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
-Per informazioni sulle strategie di ripristino dettagliate da usare con un pool elastico, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
+- Verificare che siano disponibili le regole del firewall a livello di server appropriate per consentire agli utenti di connettersi (o usare [firewall a livello di database](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
+- Verificare che siano presenti gli account di accesso appropriato e le autorizzazioni a livello di database master (o usare gli [utenti contenuti](https://msdn.microsoft.com/library/ff929188.aspx))
+- Configurare il controllo in base alle proprie esigenze.
+- Configurare gli avvisi in base alle proprie esigenze.
+
+## Aggiornare un'applicazione con tempo di inattività minimo
+
+A volte un'applicazione deve essere mantenuta offline per ragioni di manutenzione pianificata, ad esempio un aggiornamento dell'applicazione. [Gestione degli aggiornamenti dell'applicazione](sql-database-manage-application-rolling-upgrade.md) descrive come usare la replica geografica attiva per consentire gli aggiornamenti in sequenza dell'applicazione cloud al fine di ridurre al minimo i tempi di inattività durante gli aggiornamenti e fornire un percorso di recupero in caso di problemi. L'articolo esamina due metodi diversi per orchestrare il processo di aggiornamento e approfondisce vantaggi e compromessi relativi a ciascuna opzione.
 
 ## Passaggi successivi
 
-- Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
-- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
-- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
-- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
+Per una descrizione delle considerazioni sulla progettazione di applicazioni per database autonomi e pool elastici, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

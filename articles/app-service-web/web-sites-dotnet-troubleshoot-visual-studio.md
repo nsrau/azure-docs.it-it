@@ -104,7 +104,7 @@ Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abi
 
 3. Aggiungere la riga seguente all'elemento `system.web`:
 
-	`<customErrors mode="off"></customErrors>`
+	`<customErrors mode="Off"></customErrors>`
 
 	![Modifica di Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 
@@ -728,4 +728,4 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

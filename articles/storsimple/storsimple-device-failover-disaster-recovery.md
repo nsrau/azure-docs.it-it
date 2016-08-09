@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -37,15 +37,16 @@ In uno scenario di ripristino di emergenza, il dispositivo principale smette di 
 
 In caso di emergenza, è possibile eseguire il failover del dispositivo StorSimple:
 
-- In un dispositivo fisico 
+- In un dispositivo fisico
 - Nel dispositivo stesso
 - In un dispositivo virtuale
 
 Per qualsiasi tipo di failover del dispositivo, tenere presente quanto segue:
 
-- Per il ripristino di emergenza è necessario che tutti i volumi all'interno dei contenitori di volumi siano offline e che i contenitori di volumi siano associati a uno snapshot nel cloud. 
-- I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi con spazio sufficiente ad accogliere i contenitori di volumi selezionati. 
+- Per il ripristino di emergenza è necessario che tutti i volumi all'interno dei contenitori di volumi siano offline e che i contenitori di volumi siano associati a uno snapshot nel cloud.
+- I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi con spazio sufficiente ad accogliere i contenitori di volumi selezionati.
 - I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non saranno disponibili come dispositivi di destinazione.
+- Dopo un ripristino di emergenza, per un intervallo di tempo limitato, le prestazioni di accesso ai dati possono essere influenzate in modo significativo, dal momento che il dispositivo dovrà accedere ai dati dal cloud e memorizzarli in locale.
 
 #### Failover del dispositivo in tutte le versioni del software
 
@@ -91,7 +92,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 	
 
-		>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
+		>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**<br></br>
 
 	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
 
@@ -176,4 +177,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->
