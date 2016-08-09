@@ -100,9 +100,9 @@ Quando si apporta una modifica ai dati dell'organizzazione usando uno dei portal
 È possibile gestire ogni directory come una risorsa completamente indipendente. Ciascuna directory è infatti un peer con funzionalità complete e indipendente dal punto di vista logico dalle altre directory gestite. Non vi è alcuna relazione padre-figlio tra le directory. Questa indipendenza tra le directory include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
 
 - **Indipendenza delle risorse**. Se si crea o si elimina una risorsa in una directory, ciò non influisce sulle risorse contenute in un'altra directory, con l'eccezione parziale degli utenti esterni, come spiegato più avanti. Se si usa un dominio personalizzato "contoso.com" con una directory, non è possibile usarlo con altre directory.
-- **Indipendenza amministrativa**. Se un utente non amministratore della directory "Contoso" crea una directory di test denominata "Test", si verifica quanto segue:
-    - ◦Strumento di sincronizzazione directory, per sincronizzare i dati con una singola foresta AD.
-    - ◦Gli amministratori della directory "Contoso" non dispongono di privilegi amministrativi diretti per la directory "Test" se tali privilegi non vengono loro concessi specificamente da un amministratore di "Test". Gli amministratori di "Contoso" possono controllare l'accesso alla directory "Test" grazie al controllo di cui dispongono sull'account utente che ha creato "Test".
+- **Indipendenza amministrativa**. Se un utente non amministratore della directory "Contoso" crea una directory di test denominata "Test":
+    - Strumento di sincronizzazione directory, per sincronizzare i dati con una singola foresta AD.
+    - Gli amministratori della directory "Contoso" non hanno privilegi amministrativi diretti per la directory "Test" se tali privilegi non vengono loro concessi specificamente da un amministratore di "Test". Gli amministratori di "Contoso" possono controllare l'accesso alla directory "Test" grazie al controllo di cui dispongono sull'account utente che ha creato "Test".
 
     Se inoltre si cambia, ovvero si aggiunge o si rimuove, un ruolo di amministratore per un utente in una directory, la modifica non incide sul ruolo di amministratore che l'utente può avere in un'altra directory.
 
@@ -129,8 +129,8 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 - La directory non può contenere applicazioni. Tutte le applicazioni devono essere eliminate prima che possa essere eliminata la directory.
 - Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory. Per associare la sottoscrizione a una directory diversa, accedere al portale di gestione di Azure e fare clic su **Impostazioni** nel pannello di navigazione a sinistra. Nella parte inferiore della pagina **Sottoscrizioni** fare quindi clic su **Modifica directory**. Per altre informazioni sulle sottoscrizioni Azure, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
+> [AZURE.NOTE]
+Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 
 - Alla directory non possono essere collegati provider di Multi-Factor Authentication.
 
@@ -148,4 +148,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

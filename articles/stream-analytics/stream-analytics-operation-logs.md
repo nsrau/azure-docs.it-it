@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
@@ -25,8 +25,8 @@ Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli ute
 
 E’ possibile accedere ai log delle operazioni in due modi:
 
-- Dashboard del processo di analisi di flusso  
-- Servizi di gestione nel portale di Azure classico  
+- Dashboard del processo di analisi di flusso
+- Servizi di gestione nel portale di Azure classico
 
 ## Dashboard del processo di analisi di flusso
 
@@ -39,7 +39,7 @@ Un collegamento per i log di un processo di analisi di flusso corrispondenti vie
 Per passare manualmente ai log delle operazioni per l’analisi di flusso e altri servizi nel portale di Azure classico:
 
 1.	Fare clic su **Servizi di gestione** nel [Portale di Azure classico](https://manage.windowsazure.com).
-2.	Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.  
+2.	Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.
 
   ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

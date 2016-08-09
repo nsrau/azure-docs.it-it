@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/29/2016" 
+	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -34,7 +34,9 @@ Questa API può rilevare i seguenti tipi di modelli di anomalie nei dati delle s
 Queste funzionalità di rilevamento di Machine Learning tengono traccia delle modifiche dei valori nel tempo e segnalano quelle in corso sotto forma di punteggi delle anomalie. Non richiedono la sintonizzazione della soglia ad hoc e i punteggi possono essere utilizzati per controllare la frequenza falsa positiva. L'API di rilevamento anomalie è utile in diversi scenari, come il monitoraggio del servizio che tiene traccia degli indicatori KPI nel tempo, il monitoraggio dell'utilizzo mediante metriche, come il numero di ricerche e i numeri di clic, il monitoraggio delle prestazioni nel tempo usando contatori come memoria, CPU, letture di file e così via.
 
 L'offerta per il rilevamento anomalie include strumenti utili per iniziare.
+
 * L'[applicazione Web](http://anomalydetection-aml.azurewebsites.net/) consente di valutare e visualizzare i risultati delle API di rilevamento anomalie sui dati.
+
 * Il [codice di esempio](http://adresultparser.codeplex.com/) illustra come accedere all'API a livello di codice e analizzare i risultati in C#.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -156,10 +158,10 @@ L'API di rilevamento anomalie supporta funzionalità di rilevamento in 3 categor
 |Categoria di rilevamento|Funzionalità di rilevamento|Descrizione|Parametri di input|Output
 |---|---|---|---|---|
 |Rilevamento picchi|Rilevamento picchi TSpike|Rileva picchi e flessioni in base alla sensibilità impostata.|*tspikedetector.sensitivity:* accetta un valore intero compreso nell'intervallo da 1 a 10; predefinito: 3. Maggiore è il valore, minore è la sensibilità.|TSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'.|
-|Rilevamento picchi ZSpike|Rileva picchi e flessioni in base alla sensibilità impostata.|*zspikedetector.sensitivity:* accetta un valore intero compreso nell'intervallo da 1 a 10; predefinito: 3. Maggiore è il valore, minore è la sensibilità.|ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'.|
-|Rilevamento di tendenza lenta|Rilevamento di tendenza lenta|Rileva la tendenza positiva lenta in base alla sensibilità impostata.|*trenddetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. Da 3,25 a 5 rappresenta un intervallo di selezione ragionevole. Maggiore è il valore, minore è la sensibilità.|tscore: numero mobile che rappresenta il punteggio dell'anomalia nella tendenza.|
-|Rilevamento della modifica di livello|Rilevamento unidirezionale della modifica di livello|Rileva la modifica di livello verso l'alto in base alla sensibilità impostata.|Come per il rilevamento di tendenza lenta.|pscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto.|
-|Rilevamento bidirezionale della modifica di livello|Rileva la modifica di livello verso l'alto e verso il basso in base alla sensibilità impostata.|Come per il rilevamento di tendenza lenta.|rpscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto e verso il basso.
+||Rilevamento picchi ZSpike|Rileva picchi e flessioni in base alla sensibilità impostata.|*zspikedetector.sensitivity:* accetta un valore intero compreso nell'intervallo da 1 a 10; predefinito: 3. Maggiore è il valore, minore è la sensibilità|ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'.|
+|Rilevamento di tendenza lenta|Rilevamento di tendenza lenta|Rileva la tendenza positiva lenta in base alla sensibilità impostata.|*trenddetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. Da 3,25 a 5 rappresenta un intervallo di selezione ragionevole. Maggiore è il valore, minore è la sensibilità|tscore: numero mobile che rappresenta il punteggio dell'anomalia nella tendenza|
+|Rilevamento della modifica di livello|Rilevamento unidirezionale della modifica di livello|Rileva la modifica di livello verso l'alto in base alla sensibilità impostata.|*upleveldetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. Da 3,25 a 5 rappresenta un intervallo di selezione ragionevole. Maggiore è il valore, minore è la sensibilità|pscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto|
+||Rilevamento bidirezionale della modifica di livello|Rileva la modifica di livello verso l'alto e verso il basso in base alla sensibilità impostata.|*bileveldetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. Da 3,25 a 5 rappresenta un intervallo di selezione ragionevole. Maggiore è il valore, minore è la sensibilità|RPScore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto e verso il basso
 
 ###Parametri
 
@@ -209,4 +211,4 @@ Questo output può essere analizzato con un [semplice parser](https://adresultpa
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

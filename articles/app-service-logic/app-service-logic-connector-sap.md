@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -54,7 +54,7 @@ Per questi scenari è necessario quanto segue:
 
 ## Configurare l'app per le API del connettore SAP creata ##
 
-Individuare l'app per le API creata scegliendo Sfoglia -> App per le API -> <Name of the API App just created>. Viene visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita: ![][2]
+Trovare l'app per le API creata scegliendo Sfoglia -> App per le API -> Nome dell'app per le API appena creata. Viene visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita: ![][2]
 
 Il connettore SAP richiede la connettività ibrida per la connessione a *qualsiasi* endpoint SAP. Per stabilire la connettività ibrida seguire questa procedura:
 
@@ -99,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -22,7 +22,11 @@
 
 [Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
- 
+
+* **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
+
+
 Di seguito sono descritte alcune query di base utili per iniziare.
 
 ## Connettersi ai dati di Application Insights
@@ -56,7 +60,7 @@ Espandere un elemento per visualizzare i dettagli:
 
 ## [Top](app-insights-analytics-reference.md#top-operator) e [sort](app-insights-analytics-reference.md#sort-operator)
 
-`take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` per un esempio o `sort` per l'intera tabella.
+`take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` per un campione o `sort` per l'intera tabella.
 
 Mostrare le prime n righe, ordinate in base a una colonna specifica:
 
@@ -84,7 +88,7 @@ Le intestazioni di colonna nella visualizzazione tabella possono essere usate an
 
 ## [Project](app-insights-analytics-reference.md#project-operator): selezionare, rinominare e calcolare le colonne
 
-Usare [`project`](app-insights-analytics-reference.md#project-operator) per selezionare solo le colonne volute:
+Usare [`project`](app-insights-analytics-reference.md#project-operator) per selezionare solo le colonne desiderate:
 
 ```AIQL
 
@@ -176,7 +180,7 @@ Per estrarre questi valori in Dati di analisi:
 > [AZURE.NOTE] In [Esplora metriche](app-insights-metrics-explorer.md) tutte le misurazioni personalizzate associate a qualsiasi tipo di telemetria vengono visualizzate insieme nel pannello delle metriche, con le metriche inviate usando `TrackMetric()`. In Analisi, invece, le misure personalizzate sono ancora associate al tipo di telemetria su cui sono state rilevate e le metriche vengono visualizzate all'interno del proprio flusso `metrics`.
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): consente di aggregare gruppi di righe
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregare gruppi di righe
 
 `Summarize` applica una *funzione di aggregazione* specificata a gruppi di righe.
 
@@ -206,7 +210,7 @@ Si noti che è possibile usare `name=` per impostare il nome di una colonna di r
 
 ## Conteggio dei dati campionati
 
-`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma quando nell’operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti `itemCount` eventi per ogni punto dati visualizzato.
+`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma, quando nell'operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti eventi in numero pari a `itemCount` per ogni punto dati visualizzato.
 
 Ad esempio, se il campionamento elimina il 75% degli eventi originali, allora itemCount==4 nei record mantenuti; ciò significa che per ogni record mantenuto erano presenti quattro record originali.
 
@@ -217,7 +221,7 @@ Il riepilogo di itemCount offre quindi una stima valida del numero di eventi ori
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-È disponibile anche un’aggregazione `count()`, oltre a un’operazione di conteggio, per i casi in cui si vuole effettivamente contare il numero di righe in un gruppo.
+È disponibile anche un'aggregazione `count()`, oltre a un'operazione di conteggio, per i casi in cui si vuole effettivamente contare il numero di righe in un gruppo.
 
 
 Esiste un intervallo di [funzioni di aggregazione](app-insights-analytics-reference.md#aggregations).
@@ -263,9 +267,9 @@ Si osservino solo le eccezioni riportate dai browser:
 
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
- * `and`, `or`: operatori booleani
- * `==`, `<>` : uguale e non uguale a
- * `=~`, `!=`: stringa con distinzione maiuscole/minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
+ * `and`, `or`: operatori booleani.
+ * `==`, `<>`: uguale e non uguale a.
+ * `=~`, `!=`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
 Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
 
@@ -449,11 +453,11 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 ```
 
 
-È buona norma utilizzare `project` per selezionare solo le colonne necessarie prima di eseguire il join. Nelle stesse clausole, si rinomina la colonna timestamp.
+È buona norma usare `project` per selezionare solo le colonne necessarie prima di eseguire il join. Nelle stesse clausole, si rinomina la colonna timestamp.
 
 
 
-## [Let](app-insights-analytics-reference.md#let-clause): assegna un risultato a una variabile
+## [Let](app-insights-analytics-reference.md#let-clause): assegnare un risultato a una variabile
 
 Usare [let](./app-insights-analytics-reference.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
@@ -470,6 +474,9 @@ Usare [let](./app-insights-analytics-reference.md#let-statements) per separare l
 > Suggerimento: nel client Analisi non inserire righe vuote tra le parti di questo oggetto. Verificare che vengano eseguiti tutti gli elementi.
 
 
+* **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
+
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

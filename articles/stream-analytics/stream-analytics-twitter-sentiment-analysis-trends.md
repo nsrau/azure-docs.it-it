@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,9 +29,9 @@ Gli strumenti di analisi di social media consentono alle organizzazioni di compr
 Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Viene utilizzata l’analisi dei social media su argomenti rilevanti per i lettori eseguendo l’analisi del sentimento in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti che sono di tendenza in tempo reale su Twitter, si necessita di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti. In questo modo, è necessario un motore di analisi dei sentimenti basato su questo feed di social media.
 
 ## Prerequisiti
-1.	Account Twitter e [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+1.	Account Twitter e [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) dall'Area download Microsoft
-3.	Facoltativo: codice sorgente per client twitter da [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
+3.	Facoltativo: codice sorgente per client twitter da [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
@@ -39,7 +39,7 @@ L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell�
 
 Attenersi alla procedura seguente per creare un hub eventi.
 
-1.	Nel portale di Azure fare clic su **NUOVO** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e inserire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
+1.	Nel portale di Azure fare clic su **NUOVO** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e inserire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.
 2.	Come procedura consigliata, ogni processo di analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer riportata di seguito e ulteriori informazioni. Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **GRUPPI DI CONSUMER**, fare clic su **CREA** nella parte inferiore della pagina, quindi fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **CONFIGURA** dell'Hub eventi.
 4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di **gestione** delle autorizzazioni.
@@ -57,11 +57,11 @@ Attenersi alla procedura seguente per creare un hub eventi.
 Attenersi alla seguente procedura per configurare l'applicazione:
 
 1.	[Scaricare la soluzione TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-2.	Aprire TwitterClient.exe.config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i propri valori.  
+2.	Aprire TwitterClient.exe.config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i propri valori.
 
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Si noti che è necessario eseguire un'applicazione vuota per generare un token.  
+	Si noti che è necessario eseguire un'applicazione vuota per generare un token.
 3.	Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione hub eventi e il nome. La stringa di connessione copiata in precedenza fornisce sia la stringa di connessione di Hub eventi che il nome, pertanto è necessario fare attenzione a separarli e a inserire ogni elemento nel campo corretto.
 4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in TwitterClient.exe.config, se necessario.
 5.	Eseguire **TwitterClient.exe** per avviare l'applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

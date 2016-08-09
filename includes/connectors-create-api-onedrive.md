@@ -2,7 +2,7 @@
 - Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 - Un account [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3)
 
-Prima di poter usare l'account OneDrive in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account OneDrive. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.
+Prima di poter usare l'account OneDrive in un'app per la logica, autorizzare l'app per la logica a connettersi all'account OneDrive. È possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.
 
 Attenersi alla seguente procedura per autorizzare l'app per la logica a connettersi all'account OneDrive:
 
@@ -14,4 +14,4 @@ Attenersi alla seguente procedura per autorizzare l'app per la logica a connette
 4. Scegliere **Sì** per autorizzare l'app per la logica a utilizzare l'account OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)
 5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

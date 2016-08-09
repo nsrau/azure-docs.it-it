@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -46,7 +46,7 @@ Nel portale di Azure copiare la stringa di connessione della firma di accesso co
 
 ## Installare Gestione connessione ibrida
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare il connettore creato. Per aprirlo, è possibile selezionare **Sfoglia**, **App per le API** e quindi il connettore o l'app per le API. <br/><br/> In **Connessione ibrida** l'installazione è **incompleta**: <br/> ![][2] 
+1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare il connettore creato. Per aprirlo, è possibile selezionare **Sfoglia**, **App per le API** e quindi il connettore o l'app per le API. <br/><br/> In **Connessione ibrida** l'installazione è **incompleta**: <br/> ![][2]
 
 2. Selezionare **Connessione ibrida**. Viene elencata la stringa di connessione del bus di servizio immessa in precedenza.
 3. Copiare la **Stringa di configurazione primaria**: <br/> ![][PrimaryConfigString]
@@ -84,19 +84,19 @@ Porta di sistema locale | Nel sistema locale aprire la porta usata dal sistema. 
 
 1. Nel server IIS verificare che sia installato il ruolo Web IIS e che siano stati avviati tutti i servizi IIS.
 2. Nel server IIS verificare che sia installato Gestione connessione ibrida e che sia in esecuzione:
- - In Gestione IIS (inetmgr) dovrebbe essere elencato il sito Web ***MicrosoftAzureBizTalkHybridListener*** e dovrebbe essere in esecuzione. 
+ - In Gestione IIS (inetmgr) dovrebbe essere elencato il sito Web ***MicrosoftAzureBizTalkHybridListener*** e dovrebbe essere in esecuzione.
  - Questo sito Web usa ***HybridListenerAppPool*** che viene eseguito come account utente predefinito locale di *NetworkService*. Dovrebbe essere avviato anche questo pool di applicazioni.
-3. Nel server IIS verificare che sia installato il connettore e che sia in esecuzione: 
- - Viene creato un sito Web per il connettore del servizio app. Se ad esempio è stato creato un connettore SQL, sarà presente un sito Web ***MicrosoftSqlConnector\_nnn***. In Gestione IIS (inetmgr) verificare che sia elencato questo sito Web e che sia avviato. 
- - Questo sito Web usa un proprio pool di applicazioni IIS denominato ***HybridAppPoolnnn***. Questo pool di applicazioni viene eseguito come account utente predefinito locale di *NetworkService*. Questo sito Web e il pool di applicazioni devono essere entrambi avviati. 
+3. Nel server IIS verificare che sia installato il connettore e che sia in esecuzione:
+ - Viene creato un sito Web per il connettore del servizio app. Se ad esempio è stato creato un connettore SQL, sarà presente un sito Web ***MicrosoftSqlConnector\_nnn***. In Gestione IIS (inetmgr) verificare che sia elencato questo sito Web e che sia avviato.
+ - Questo sito Web usa un proprio pool di applicazioni IIS denominato ***HybridAppPoolnnn***. Questo pool di applicazioni viene eseguito come account utente predefinito locale di *NetworkService*. Questo sito Web e il pool di applicazioni devono essere entrambi avviati.
  - Individuare il connettore locale. Se ad esempio il sito Web del connettore usa la porta 6569, passare a http://localhost:6569. Non è configurato un documento predefinito, per cui è previsto il messaggio `HTTP Error 403.14 - Forbidden error`.
 4. Nel firewall verificare che siano aperte le porte TCP elencate in questo argomento.
 5. Esaminare il sistema di origine o di destinazione:
  - Alcuni sistemi locali richiedono file di dipendenza aggiuntivi. Se ad esempio ci si connette a un server SAP locale, è necessario installare alcuni file SAP aggiuntivi nel server IIS.
  - Verificare la connettività al sistema con l'account di accesso. Ad esempio, deve essere aperta la porta TCP usata dal sistema, come la porta 1433 per SQL Server. L'account di accesso immesso nel portale di Azure deve avere l'accesso al sistema.
-6. Nel server IIS controllare i registri eventi per verificare la presenza di eventuali errori. 
-7. Pulire e reinstallare Gestione connessione ibrida: 
- - In IIS eliminare manualmente il sito Web del connettore e il relativo pool di applicazioni. 
+6. Nel server IIS controllare i registri eventi per verificare la presenza di eventuali errori.
+7. Pulire e reinstallare Gestione connessione ibrida:
+ - In IIS eliminare manualmente il sito Web del connettore e il relativo pool di applicazioni.
  - Eseguire nuovamente Gestione connessione ibrida e verificare di immettere la **Stringa di configurazione primaria** corretta per il connettore.
 
 
@@ -140,4 +140,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

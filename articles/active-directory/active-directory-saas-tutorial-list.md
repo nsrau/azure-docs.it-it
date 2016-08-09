@@ -13,16 +13,17 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/19/2016"
+    ms.date="07/22/2016"
     ms.author="markvi"/>
 
 #Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory
 
-Per semplificare l'integrazione di tutte le applicazioni cloud (SaaS) con Azure Active Directory, è stata creata una raccolta di esercitazioni che illustrano ogni passaggio di configurazione necessario.
+Per semplificare l'integrazione di tutte le applicazioni cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) con Azure Active Directory, è stata creata una raccolta di esercitazioni che illustrano ogni passaggio di configurazione necessario.
 
 Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Marketplace di Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Elenco di esercitazioni
+
 
 | Logo| Nome app |
 | --- | --- |
@@ -110,6 +111,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Heroku.png)| [Heroku](https://go.microsoft.com/fwLink/?LinkID=733446&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HighTail.png)| [Hightail](http://go.microsoft.com/fwlink/?LinkId=733463&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HireVue.png)| [HireVue](https://go.microsoft.com/fwLink/?LinkID=807990&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.png)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.png)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.png)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
@@ -251,11 +253,9 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 
 
 
-
-
 ##Articoli correlati
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -10,7 +10,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ![[0]][0]
 
-- **Gruppo di risorse.** Un [gruppo di risorse][resource-manager-overview] è un contenitore in cui risiedono le risorse correlate. Creare un gruppo di risorse in cui includere le risorse per questa VM.
+- **Gruppo di risorse.** Un [_gruppo di risorse_][resource-manager-overview] è un contenitore in cui risiedono le risorse correlate. Creare un gruppo di risorse in cui includere le risorse per questa VM.
 
 - **VM**. È possibile effettuare il provisioning di una VM da un elenco di immagini pubblicate oppure da un file VHD caricato nell'archivio BLOB di Azure.
 
@@ -36,7 +36,7 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 - È consigliabile usare le serie GS e DS, a meno che non si disponga di un carico di lavoro specializzato, ad esempio di high-performance computing. Per informazioni dettagliate, vedere l'articolo sulle [dimensioni delle macchine virtuali][virtual-machine-sizes]. Quando si sposta un carico di lavoro esistente in Azure, per iniziare scegliere le dimensioni di VM più simili a quelle dei server locali. Dopodiché, misurare le prestazioni del carico di lavoro effettivo in relazione agli aspetti di CPU, memoria e IOPS del disco e regolare le dimensioni secondo necessità. Inoltre, se sono necessarie più schede di interfaccia di rete, tenerne presente il limite per ogni dimensione.
 
-- Quando si effettua il provisioning della VM e di altre risorse, è necessario specificare una località. È in genere consigliabile scegliere la località più vicina agli utenti interni o ai clienti. È tuttavia possibile che le dimensioni di VM non siano tutte disponibili in tutte le località. Per informazioni dettagliate, vedere l’articolo sui [servizi in base alle aree][services-by-region]. Per elencare le dimensioni delle VM disponibili in una determinata posizione, eseguire il seguente comando di Azure:
+- Quando si effettua il provisioning della VM e di altre risorse, è necessario specificare una località. È in genere consigliabile scegliere la località più vicina agli utenti interni o ai clienti. È tuttavia possibile che le dimensioni di VM non siano tutte disponibili in tutte le località. Per informazioni dettagliate, vedere l'articolo sui [servizi in base alle aree][services-by-region]. Per elencare le dimensioni delle VM disponibili in una determinata posizione, eseguire il seguente comando di Azure:
 
     ```
     azure vm sizes --location <location>
@@ -115,13 +115,14 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 - Usare il [Centro sicurezza di Azure][security-center] per ottenere una visualizzazione centrale dello stato di sicurezza delle risorse di Azure. Il Centro sicurezza monitora potenziali problemi di sicurezza, ad esempio aggiornamenti del sistema e antimalware, e fornisce un'immagine completa dello stato della sicurezza della distribuzione.
 
     - Il Centro sicurezza è configurato per ogni sottoscrizione di Azure. Abilitare la raccolta dei dati di sicurezza come descritto nell'articolo sull'[utilizzo del Centro sicurezza PC].
+
     - Dopo aver abilitato la raccolta dei dati, il Centro sicurezza PC analizza automaticamente tutte le macchine virtuali create nell'ambito della sottoscrizione.
 
 - **Gestione delle patch.** Se abilitato, Centro sicurezza PC controlla se mancano aggiornamenti critici e della sicurezza. Utilizzare le [impostazioni di Criteri di gruppo][group-policy] nella VM per abilitare gli aggiornamenti automatici del sistema.
 
 - **Antimalware.** Se abilitato, Centro sicurezza PC controlla se è installato il software antimalware. È inoltre possibile utilizzare Centro sicurezza PC per installare il software antimalware all'interno del portale di Azure.
 
-- Utilizzare il [controllo di accesso in base al ruolo][rbac] \(RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [DevTest Lab User][rbac-devtest] e [Network Contributor][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
+- Utilizzare il [controllo degli accessi in base al ruolo][rbac] (RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [DevTest Lab User][rbac-devtest] e [Network Contributor][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
 
     > [AZURE.NOTE] Il controllo degli accessi in base al ruolo non limita le azioni eseguibili da un utente registrato in una VM. Le autorizzazioni sono determinate dal tipo di account sul sistema operativo guest.
 
@@ -137,141 +138,222 @@ Il provisioning di una VM in Azure coinvolge altri componenti mobili oltre alla 
 
 ## Componenti della soluzione
 
-Lo script batch di Windows seguente esegue i comandi dell'[interfaccia della riga di comando di Azure][azure-cli] per distribuire una singola istanza della VM e le risorse di rete e di archiviazione correlate, come illustrato nel diagramma precedente.
+È disponibile uno script di soluzione di esempio ([Deploy-ReferenceArchitecture.ps1][solution-script]) che può essere usato per implementare l'architettura conforme alle indicazioni descritte in questo articolo. Questo script utilizza i modelli di [Azure Resource Manager][ARM-Templates]. I modelli sono disponibili come un insieme di elementi costitutivi fondamentali, ognuno dei quali esegue un'azione specifica, ad esempio la creazione di una rete virtuale o la configurazione di un gruppo di sicurezza di rete. Lo scopo dello script è di gestire la distribuzione del modello.
 
-Lo script utilizza le convenzioni di denominazione descritte nell'articolo sulle [convenzioni di denominazione consigliate per le risorse di Azure][naming conventions].
+I modelli sono governati da parametri, che sono contenuti in file JSON separati. È possibile modificare i parametri in questi file per configurare la distribuzione in base alle proprie esigenze. Non è necessario modificare i modelli stessi. Gli schemi degli oggetti nel file dei parametri non devono essere modificati.
 
-```bat
-ECHO OFF
-SETLOCAL
+Quando si modificano i modelli, creare oggetti che rispettano le convenzioni di denominazione descritte nell'articolo sulle [convenzioni di denominazione consigliate per le risorse di Azure][naming conventions].
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Set up variables for deploying resources to Azure.
-:: Change these variables for your own deployment.
+Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'infrastruttura circostante:
 
-:: The APP_NAME variable must not exceed 4 characters in size.
-:: If it does the 15 character size limitation of the VM name may be exceeded.
+- **[virtualNetwork.parameters.json][vnet-parameters]**. Questo file definisce le impostazioni di rete virtuale, ad esempio il nome, lo spazio di indirizzi, la subnet e gli indirizzi di qualsiasi server DNS richiesto. Gli indirizzi della subnet devono essere inglobati dallo spazio di indirizzi della rete virtuale.
 
-SET APP_NAME=app1
-SET LOCATION=eastus2
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "addressPrefixes": [
+            "172.17.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "app1-subnet",
+              "addressPrefix": "172.17.0.0/24"
+            }
+          ],
+          "dnsServers": [ ]
+        }
+      }
+	}
+	```
 
+- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Questo file contiene le definizioni dei gruppi di sicurezza di rete (NSG) e delle relative regole. Il parametro `name` nel blocco `virtualNetworkSettings` specifica la rete virtuale a cui è associato il gruppo di sicurezza di rete. Il parametro `subnets` nel blocco `networkSecurityGroupSettings` identifica tutte le subnet che si applicano alle regole NSG nella rete virtuale. Deve trattarsi di elementi definiti nel file **virtualNetwork.parameters.json**.
 
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+	La regola di sicurezza predefinita illustrata nell'esempio consente all'utente di connettersi alla VM tramite una connessione desktop remoto (RDP). È possibile aprire porte aggiuntive (o negare l'accesso a porte specifiche) aggiungendo altri elementi alla matrice `securityRules`.
 
-:: For a list of VM sizes see:
-::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
-:: To see the VM sizes available in a region:
-:: 	azure vm sizes --location <location>
-SET VM_SIZE=Standard_DS1
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "networkSecurityGroupSettings": {
+        "value": {
+          "name": "app1-nsg",
+          "subnets": [
+            "app1-subnet"
+          ],
+          "securityRules": [
+            {
+              "name": "RDPAllow",
+              "direction": "Inbound",
+              "priority": 100,
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "access": "Allow",
+              "protocol": "Tcp"
+            }
+          ]
+        }
+      }
+	}
+	```
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+- **[virtualMachineParameters.json][vm-parameters]**. Questo file definisce le impostazioni della VM , inclusi il nome e le dimensioni, le credenziali di sicurezza per l'utente amministratore, i dischi da creare e gli account di archiviazione per contenere questi dischi.
 
-IF "%2"=="" (
-    ECHO Usage: %0 subscription-id admin-password
-    EXIT /B
-    )
+	È necessario specificare un'immagine nella sezione `imageReference`. I valori riportati di seguito creano una VM con la build più recente di Windows Server 2012 R2 Datacenter. È possibile utilizzare la seguente interfaccia della riga di comando di Azure per ottenere un elenco di tutte le immagini di Windows disponibili in un'area (nell'esempio viene utilizzata l'area westus):
 
-:: Explicitly set the subscription to avoid confusion as to which subscription
-:: is active/default
-SET SUBSCRIPTION=%1
-SET PASSWORD=%2
+	```powershell
+	azure vm image list westus MicrosoftWindowsServer WindowsServer
+	```
 
-:: Set up the names of things using recommended conventions
-SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
-SET VM_NAME=%APP_NAME%-vm0
+	Il parametro `subnetName` nella sezione `nics` specifica la subnet per la VM. Analogamente, il parametro `name` in `virtualNetworkSettings` identifica la rete virtuale da utilizzare; dovrebbe trattarsi del nome di una rete virtuale e di una subnet definito nel file **virtualNetwork.parameters.json**.
 
-SET IP_NAME=%APP_NAME%-pip
-SET NIC_NAME=%VM_NAME%-0nic
-SET NSG_NAME=%APP_NAME%-nsg
-SET SUBNET_NAME=%APP_NAME%-subnet
-SET VNET_NAME=%APP_NAME%-vnet
-SET VHD_STORAGE=%VM_NAME:-=%st0
-SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
+	È possibile creare più VM attraverso la condivisione di un account di archiviazione o con i propri account di archiviazione modificando le impostazioni nella sezione `buildingBlockSettings`. Se si creano più VM, è necessario specificare anche il nome di un set di disponibilità da utilizzare o creare nella sezione `availabilitySet`.
 
-:: Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
+	```json
+	"parameters": {
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "app1",
+          "computerNamePrefix": "",
+          "size": "Standard_DS1",
+          "osType": "windows",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "true",
+              "subnetName": "app1-subnet",
+              "privateIPAllocationMethod": "dynamic",
+              "publicIPAllocationMethod": "dynamic",
+              "isPrimary": "true"
+            }
+          ],
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 2,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": ""
+          }
+        },
+        "metadata": {
+          "description": "Settings for Virtual Machines"
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "resourceGroup": "app1-dev-rg"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 1,
+          "vmStartIndex": 0
+        },
+        "metadata": {
+          "description": "Settings specific to the building block"
+        }
+      }
+	}
+	```
 
-CALL azure config mode arm
+## Distribuzione
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Create resources
+Questa soluzione presume l'esistenza dei prerequisiti seguenti:
 
-:: Create the enclosing resource group
-CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
+- L'utente dispone di una sottoscrizione Azure che consente di creare gruppi di risorse.
 
-:: Create the VNet
-CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
-  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
+- L'utente ha scaricato e installato la build più recente di Azure Powershell. Per le istruzioni, vedere [qui][azure-powershell-download].
 
-:: Create the network security group
-CALL azure network nsg create --name %NSG_NAME% --location %LOCATION% %POSTFIX%
+Per eseguire lo script che distribuisce la soluzione:
 
-:: Create the subnet
-CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
-  172.17.0.0/24 --name %SUBNET_NAME% --network-security-group-name %NSG_NAME% ^
-  %POSTFIX%
+1. Spostarsi nella cartella desiderata sul computer locale e creare le due sottocartelle seguenti:
 
-:: Create the public IP address (dynamic)
-CALL azure network public-ip create --name %IP_NAME% --location %LOCATION% %POSTFIX%
+	- Script
 
-:: Create the NIC
-CALL azure network nic create --public-ip-name %IP_NAME% --subnet-name ^
-  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% --location ^
-  %LOCATION% %POSTFIX%
+	- Modelli
 
-:: Create the storage account for the OS VHD
-CALL azure storage account create --type PLRS --location %LOCATION% %POSTFIX% ^
-  %VHD_STORAGE%
+2. Nella cartella Modelli, creare un'altra sottocartella e rinominarla Windows.
 
-:: Create the storage account for diagnostics logs
-CALL azure storage account create --type LRS --location %LOCATION% %POSTFIX% ^
-  %DIAGNOSTICS_STORAGE%
+3. Scaricare il file [Deploy-ReferenceArchitecture.ps1][solution-script] nella cartella Script
 
-:: Create the VM
-CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
-  %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE%   --vnet-subnet-name %SUBNET_NAME% ^
-  --vnet-name %VNET_NAME% --nic-name %NIC_NAME% --storage-account-name ^
-  %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
-  "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
-  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" --location %LOCATION% ^
-  %POSTFIX%
+4. Scaricare i seguenti file nella cartella Modelli/Windows:
 
-:: Attach a data disk
-CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
-  data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
+	- [virtualNetwork.parameters.json][vnet-parameters]
 
-:: Allow RDP
-CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
-  --protocol Tcp --destination-port-range 3389 --source-port-range * ^
-  --priority 100 --access Allow RDPAllow %POSTFIX%
-```
+	- [networkSecurityGroup.parameters.json][nsg-parameters]
 
+	- [virtualMachineParameters.json][vm-parameters]
+
+5. Modificare il file Deploy-ReferenceArchitecture.ps1 nella cartella Script e modificare la riga seguente per specificare il gruppo di risorse che deve essere creato o utilizzato per contenere la VM e le risorse create dallo script:
+
+	```powershell
+	$resourceGroupName = "app1-dev-rg"
+	```
+6. Modificare ciascun file json nella cartella Modelli/Windows per impostare i parametri relativi a rete virtuale, gruppo di sicurezza di rete e VM, come descritto nella sezione Componenti della soluzione.
+
+	>[AZURE.NOTE] Assicurarsi di impostare il parametro `resourceGroup` nella sezione `virtualNetworkSettings` del file virtualMachineParameters.json affinché corrisponda a quanto specificato nel file dello script Deploy-ReferenceArchitecture.ps1.
+
+7. Aprire una finestra di Azure PowerShell, accedere alla cartella Script ed eseguire il comando seguente:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
+	```
+
+	Sostituire `<subscription id>` con l'ID della sottoscrizione di Azure.
+
+	Per `<location>`, specificare un'area di Azure, come `eastus` o `westus`.
+
+8. Al termine dello script, utilizzare il portale di Azure per verificare che la creazione della rete, del gruppo di sicurezza di rete e della VM sia riuscita perfettamente.
 
 ## Passaggi successivi
 
-Per poter applicare il [contratto di servizio per le macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per ulteriori informazioni, vedere l'articolo sull'[esecuzione di più VM Windows in Azure][multi-vm].
+Per poter applicare il [contratto di servizio per le macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per ulteriori informazioni, vedere l'articolo sull'[esecuzione di più VM in Azure][multi-vm].
 
 <!-- links -->
 
-[arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/it-IT/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/it-IT/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/it-IT/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -283,22 +365,28 @@ Per poter applicare il [contratto di servizio per le macchine virtuali][vm-sla],
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/it-IT/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/it-IT/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/it-IT/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/it-IT/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/it-IT/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [utilizzo del Centro sicurezza PC]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[0]: ./media/guidance-blueprints/compute-single-vm.png "Architettura generale di una VM di Azure"
+[vm-sla]: https://azure.microsoft.com/it-IT/support/legal/sla/virtual-machines/v1_0/
+[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Singola architettura VM di Windows in Azure"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

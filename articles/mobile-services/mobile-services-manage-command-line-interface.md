@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando
@@ -187,4 +187,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Come installare gli strumenti da riga di comando di Azure per Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

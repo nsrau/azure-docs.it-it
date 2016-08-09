@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -26,8 +26,8 @@ Il [connettore AS2](app-service-logic-connector-as2.md) espone la possibilità d
 
 L'archiviazione è esposta in due punti per i messaggi e gli acknowledgement (MDN):
 
-1. **Ricezione/decodifica del trigger**: il messaggio viene archiviato non appena viene ricevuto dall'istanza dell'app per le API 
-2. **Azione di codifica/invio**: il messaggio codificato viene archiviato al termine di tutte le operazioni di elaborazione e immediatamente prima di essere inviato al partner 
+1. **Ricezione/decodifica del trigger**: il messaggio viene archiviato non appena viene ricevuto dall'istanza dell'app per le API
+2. **Azione di codifica/invio**: il messaggio codificato viene archiviato al termine di tutte le operazioni di elaborazione e immediatamente prima di essere inviato al partner
 
 ## Procedura: Recuperare l'URL archiviato del messaggio
 
@@ -42,4 +42,4 @@ Usare l'URL recuperato sopra per recuperare il messaggio archiviato dall'archivi
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

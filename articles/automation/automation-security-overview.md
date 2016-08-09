@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sicurezza in Automazione di Azure"
+   pageTitle="Sicurezza in Automazione di Azure | Microsoft Azure"
    description="Questo articolo offre una panoramica della sicurezza in Automazione e dei diversi metodi di autenticazione disponibili per gli account di Automazione in Automazione di Azure."
    services="automation"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="07/29/2016"
    ms.author="magoedte" />
 
 # Sicurezza in Automazione di Azure
@@ -26,11 +26,14 @@ Le risorse di Automazione per ogni account di Automazione sono associate a una s
 
 >[AZURE.NOTE]Gli account di Automazione e le risorse che contengono, creati nel portale di Azure, non sono accessibili nel portale di Azure classico. Se si vogliono gestire questi account o le relative risorse con Windows PowerShell, è necessario usare i moduli di Gestione risorse di Azure.
 
-Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di Azure in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità aziendale di Azure Active Directory. L'autenticazione basata su certificati è il metodo di autenticazione originale con la modalità Azure Service Management (ASM), ma è piuttosto complessa da configurare. L'autenticazione in Azure con l'utente di Azure AD è stata reintrodotta nel 2014 non solo per semplificare il processo di configurazione di un account di autenticazione, ma anche per offrire la possibilità di eseguire l'autenticazione in Azure in modo non interattivo con un solo account utente che funzionasse in modalità sia ASM che ARM.
+Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di Azure in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità dell'organizzazione di Azure Active Directory. L'autenticazione basata su certificati è il metodo di autenticazione originale con la modalità Azure Service Management, ma è piuttosto complessa da configurare. L'autenticazione in Azure con un utente di Azure AD è stata reintrodotta nel 2014 non solo per semplificare il processo di configurazione di un account di autenticazione, ma anche per offrire la possibilità di eseguire l'autenticazione in Azure in modo non interattivo con un solo account utente che funzionasse con risorse sia classiche che di Azure Resource Manager.
 
-Di recente è stato rilasciato un altro aggiornamento, in cui ora viene automaticamente creato un oggetto entità servizio di Azure AD quando viene creato l'account di Automazione. Si tratta di un account RunAs di Azure che è il metodo di autenticazione predefinito per l'automazione runbook con Azure Resource Manager.
+Attualmente, quando si crea un nuovo account di Automazione nel portale di Azure viene creato automaticamente quanto segue:
 
-Il controllo degli accessi in base al ruolo è disponibile in modalità Azure Resource Manager per l'esecuzione di azioni consentite in un'entità servizio e in un account utente di Azure AD e per l'autenticazione di tale entità. Per altre informazioni utili per sviluppare il modello per la gestione di autorizzazioni di Automazione, vedere l'[articolo Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
+-  Account RunAs che crea una nuova entità servizio in Azure Active Directory e un certificato e assegna il ruolo Collaboratore per il controllo degli accessi in base al ruolo, che verrà usato per gestire le risorse di Resource Manager con i runbook.
+-  Account RunAs classico caricando un certificato di gestione che verrà usato per gestire le risorse classiche o di Azure Service Management con i runbook.
+
+Il controllo degli accessi in base al ruolo è disponibile con Azure Resource Manager per l'esecuzione di azioni consentite con un account utente di Azure AD e per l'autenticazione di tale entità servizio. Per altre informazioni utili per sviluppare il modello per la gestione delle autorizzazioni di Automazione, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 
 I runbook eseguiti in un ruolo di lavoro ibrido per runbook nel data center o in servizi di calcolo in AWS non possono usare lo stesso metodo usato per i runbook che si autenticano per le risorse di Azure. Infatti tali risorse sono in esecuzione all'esterno di Azure e quindi dovranno usare le proprie credenziali di sicurezza definite in Automazione per autenticare le risorse a cui accederanno in locale.
 
@@ -41,8 +44,9 @@ La tabella seguente riepiloga i diversi metodi di autenticazione per ogni ambien
 Metodo | Environment | Articolo
 ----------|----------|----------
 Account utente di Azure AD | Gestione risorse di Azure e Gestione servizi di Azure | [Autenticare runbook con un account utente di Azure AD](../automation/automation-sec-configure-aduser-account.md)
-Oggetto entità servizio di Azure AD | Gestione risorse di Azure | [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
+Account RunAs di Azure | Gestione risorse di Azure | [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
+Account RunAs classico di Azure | Azure Service Management | [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 Autenticazione di Windows | Data Center locale | [Autenticare runbook per ruoli di lavoro ibridi per runbook](../automation/automation-hybrid-runbook-worker.md)
 Credenziali AWS | Amazon Web Services | [Autenticare runbook con Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,12 +26,14 @@ Il nodo perimetrale di un cluster Premium offre una posizione pratica per connet
 
 ## Contesti di calcolo per un nodo perimetrale
 
-In generale, uno script R eseguito in R Server nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione ScaleR. Le chiamate ScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di ScaleR. Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono sequenziale locale ('local'), parallelo locale ('localpar'), MapReduce e Spark, come indicato di seguito:
+In generale, uno script R eseguito in R Server nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione ScaleR. Le chiamate ScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di ScaleR. Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono sequenziale locale ('local'), parallelo locale ('localpar'), MapReduce e Spark.
+
+Le opzioni 'locale' e 'localpar' differiscono solo per la modalità di esecuzione delle chiamate rxExec. Entrambe eseguono chiamate ad altre funzioni di ricezione in modo parallelo tra le memorie centrali disponibili, se non diversamente specificato, mediante l'uso dell'opzione ScaleR numCoresToUse, ad esempio rxOptions(numCoresToUse=6). Di seguito vengono riepilogate le varie opzioni del contesto di calcolo
 
 | Contesto di calcolo | Come impostarlo | Contesto di esecuzione |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Sequenziale locale | rxSetComputeContext('local') | Esecuzione sequenziale (non parallelizzata) nel server del nodo edge |
-| Parallelo locale | rxSetComputeContext('localpar') | Esecuzione parallelizzata tra i core del server del nodo edge |
+| Sequenziale locale | rxSetComputeContext('local') | Esecuzione in parallelo attraverso i core del server del nodo perimetrale, ad eccezione delle chiamate rxExec che vengono eseguite in serie |
+| Parallelo locale | rxSetComputeContext('localpar') | Esecuzione in parallelo tra i core del server del nodo perimetrale |
 | Spark | RxSpark() | Esecuzione parallelizzata distribuita tramite Spark tra i nodi del cluster HDInsight |
 | MapReduce | RxHadoopMR() | Esecuzione parallelizzata distribuita tramite MapReduce tra i nodi del cluster HDInsight |
 
@@ -50,10 +52,10 @@ Attualmente non esiste una formula che indichi quale contesto di calcolo usare. 
 
 Dati questi principi, ecco alcune regole generali per la selezione di un contesto di calcolo:
 
-### Parallelo locale
+### Local
 
-- Se la quantità di dati da analizzare è limitata e non sono richieste analisi ripetute, eseguirne lo streaming direttamente in una routine di analisi e usare 'localpar'.
-- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con 'localpar'.
+- Se la quantità di dati da analizzare è limitata e non sono richieste analisi ripetute, eseguirne il flusso direttamente in una routine di analisi e usare 'local' o 'localpar'.
+- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con 'local' o 'localpar'.
 
 ### Hadoop Spark
 
@@ -81,4 +83,4 @@ In questo articolo si è appreso come creare un nuovo cluster HDInsight che incl
 - [Aggiungere RStudio Server a HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opzioni di Archiviazione di Azure per R Server su HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

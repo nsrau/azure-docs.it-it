@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -56,7 +56,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni di questa eserci
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Workstation con Azure PowerShell**. 
+- **Workstation con Azure PowerShell**.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
@@ -128,7 +128,7 @@ RunHiveScript è caratterizzato da diverse variabili. I valori verranno passati 
 <table border = "1">
 <tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
 <tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. In HDInsight versione 3.0 o 2.1, usare <strong>jobtrackerhost: 9010</strong>.</td></tr>
-<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio <i>wasbs://&lt;nomecontainer>@&lt;nomeaccountarchiviazione>.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare il nome <strong>predefinito</strong>.</td></tr>
 </table>
 
@@ -146,7 +146,7 @@ RunHiveScript è caratterizzato da diverse variabili. I valori verranno passati 
 <tr><td>${hiveOutputFolder}</td><td>Specifica la cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
 </table>
 
-Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per HDInsight versione 2.1).
+Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
 
 L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contiene tre istruzioni HiveQL:
@@ -172,7 +172,7 @@ Il file del flusso di lavoro e il file HiveQL vengono archiviati in un contenito
 
 ##Invio di processi Oozie tramite PowerShell
 
-Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per HDInsight versione 2.1).
+Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
 Lo script di PowerShell in questa sezione esegue questa procedura:
 
@@ -190,9 +190,9 @@ Lo script di PowerShell in questa sezione esegue questa procedura:
 
 	Entrambi i file vengono archiviati in un contenitore BLOB pubblico.
 	
-	- Copiare lo script HiveQL (useoozie.hql) nell'archiviazione di Azure (wasb:///tutorials/useoozie/useoozie.hql).
-	- Copiare il file workflow.xml in wasb:///tutorials/useoozie/workflow.xml.
-	- Copiare il file di dati (/example/data/sample.log) in wasb:///tutorials/useoozie/data/sample.log.
+	- Copiare lo script HiveQL (useoozie.hql) nell'Archiviazione di Azure (wasbs:///tutorials/useoozie/useoozie.hql.
+	- Copiare il file workflow.xml in wasbs:///tutorials/useoozie/workflow.xml.
+	- Copiare il file di dati (/example/data/sample.log) in wasbs:///tutorials/useoozie/data/sample.log.
 	 
 6. Inviare un processo Oozie.
 
@@ -448,7 +448,7 @@ Lo script è il seguente. È possibile eseguire lo script da Windows PowerShell 
 	
 	#region - submit Oozie job
 	
-	$storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+	$storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 	
 	$oozieJobName = $namePrefix + "OozieJob"
 	
@@ -680,4 +680,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

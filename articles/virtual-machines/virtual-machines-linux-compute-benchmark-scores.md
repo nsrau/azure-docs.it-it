@@ -95,4 +95,4 @@ I numeri di Linux sono stati calcolati eseguendo [CoreMark](http://www.eembc.org
 
 * Per eseguire gli script CoreMark nelle VM Linux, scaricare il [pacchetto di script CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

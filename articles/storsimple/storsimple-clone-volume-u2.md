@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume (aggiornamento 2)
@@ -90,9 +90,9 @@ Questo clone ora è un volume normale e qualsiasi operazione possibile su un vol
 
 ## Cloni temporanei e cloni permanenti
 
-I cloni temporanei e permanenti vengono creati solo quando si esegue la clonazione in un dispositivo differente. È possibile clonare un volume specifico da un set di backup in un dispositivo differente. Un clone creato in questo modo è un clone *temporaneo*. Il clone temporaneo disporrà di riferimenti al volume originale e utilizzerà tale volume per la lettura durante la scrittura in locale.
+I cloni temporanei vengono creati solo quando si esegue la clonazione in un dispositivo differente. È possibile clonare un volume specifico da un set di backup in un dispositivo differente gestito da StorSimple Manager. Il clone temporaneo disporrà di riferimenti ai dati nel volume originale e userà tali dati per la lettura e la scrittura in locale sul dispositivo di destinazione.
 
-Dopo l'esecuzione di uno snapshot del cloud di un clone temporaneo, il clone risultante sarà un clone *permanente*. Il clone permanente è indipendente e non contiene alcun riferimento al volume originale dal quale è stato clonato.
+Dopo l'esecuzione di uno snapshot del cloud di un clone temporaneo, il clone risultante sarà un clone *permanente*. Durante questo processo viene creata una copia dei dati nel cloud e il tempo di copia è determinato dalla dimensione dei dati e dalle latenze di Azure (si tratta di una copia da Azure ad Azure). Il processo potrebbe richiedere da giorni a settimane. In questo modo il clone temporaneo diventa permanente e non contiene alcun riferimento ai dati del volume originale dal quale è stato clonato.
 
 ## Scenari per cloni temporanei e cloni permanenti
 
@@ -117,4 +117,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

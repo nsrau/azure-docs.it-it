@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -240,7 +240,7 @@ Questo metodo viene usato dall'SDK del server per registrare le richieste HTTP.
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@ Gli [adattatori di log][trace] usano questa API per inviare i log di terze parti
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-Il limite delle dimensioni in `message` è molto superiore al limite per le proprietà. È possibile eseguire ricerche nel contenuto del messaggio, ma, a differenza dei valori delle proprietà, non è possibile filtrarlo.
+
+È possibile eseguire ricerche nel contenuto del messaggio, ma, a differenza dei valori delle proprietà, non è possibile filtrarlo.
+
+Il limite delle dimensioni in `message` è molto superiore al limite per le proprietà. Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio, è possibile codificare dati POST.
+
+
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria, si possono aggiungere valori di proprietà che è possibile usare per filtrare o cercare set di tracce diversi, ad esempio:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Questo consentirà, in [Cerca][diagnostic], di filtrare facilmente tutti i messaggi di un determinato livello di gravità relativi a un database specifico.
 
 ## Tenere traccia delle dipendenze
 
@@ -507,7 +521,7 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
 ## Contesto dell'operazione
 
-Quando l'applicazione Web riceve una richiesta HTTP, il modulo di rilevamento delle richieste di Application Insights assegna un ID alla richiesta e imposta lo stesso valore come ID operazione corrente. L'ID operazione viene cancellato quando viene inviata la risposta alla richiesta. Alle chiamate di rilevamento effettuate durante l'operazione viene assegnato lo stesso ID operazione (a condizione che utilizzino il valore predefinito TelemetryContext). Ciò consente di correlare gli eventi relativi a una particolare richiesta quando si esegue la verifica nel portale.
+Quando l'app Web riceve una richiesta HTTP, il modulo di rilevamento delle richieste di Application Insights assegna un ID alla richiesta e imposta lo stesso valore come ID operazione corrente. L'ID operazione viene cancellato quando viene inviata la risposta alla richiesta. Alle chiamate di rilevamento effettuate durante l'operazione viene assegnato lo stesso ID operazione (a condizione che utilizzino il valore predefinito TelemetryContext). Ciò consente di correlare gli eventi relativi a una particolare richiesta quando si esegue la verifica nel portale.
 
 ![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)
 
@@ -528,7 +542,7 @@ Se si esegue il monitoraggio degli eventi non associati a una richiesta HTTP, o 
 
     } // When operation is disposed, telemetry item is sent.
 
-Oltre a configurare un contesto dell'operazione, `StartOperation` crea un elemento di telemetria del tipo specificato e lo invia quando l'operazione viene eliminata o se si chiama in modo esplicito `StopOperation`. Se si utilizza `RequestTelemetry` come tipo di telemetria, allora il valore Durata viene impostato sull’intervallo di tempo tra l’inizio e la fine.
+Oltre a configurare un contesto dell'operazione, `StartOperation` crea un elemento di telemetria del tipo specificato e lo invia quando l'operazione viene eliminata o se si chiama in modo esplicito `StopOperation`. Se si usa `RequestTelemetry` come tipo di telemetria, la durata viene impostata sull'intervallo di tempo compreso tra l'avvio e l'arresto.
 
 I contesti dell’operazione non possono essere annidati. Se è già presente un contesto dell'operazione, il suo ID corrispondente viene associato a tutti gli elementi contenuti, compreso l'elemento creato con StartOperation.
 
@@ -604,8 +618,8 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 È possibile scrivere il codice per elaborare i dati di telemetria prima che venga inviato da SDK. L'elaborazione include i dati inviati dai moduli telemetria standard come la raccolta delle richieste HTTP e la raccolta delle dipendenze.
 
-* [È possibile aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando ad esempio `ITelemetryInitializer`, se si vuole aggiungere numeri di versione o valori calcolati da altre proprietà.
-* Con il [filtro](app-insights-api-filtering-sampling.md#filtering) è possibile modificare o rimuovere i dati di telemetria prima che vengano inviati dal SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+* [È possibile aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando ad esempio `ITelemetryInitializer`, se si vogliono aggiungere numeri di versione o valori calcolati da altre proprietà.
+* Con il [filtro](app-insights-api-filtering-sampling.md#filtering) è possibile modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
 * Il [campionamento](app-insights-api-filtering-sampling.md#sampling) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale, senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati come eccezioni, richieste e visualizzazioni di pagina.
 
 [Altre informazioni](app-insights-api-filtering-sampling.md)
@@ -690,7 +704,7 @@ Nelle pagine Web è possibile impostarla dallo stato del server Web anziché cod
 
 TelemetryClient dispone di una proprietà Context, che contiene un numero di valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pertinente da [ApplicationInsights.config][config], in modo che i valori personali e quelli standard non si confondano.
 
@@ -713,7 +727,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
 *Come è possibile evitare di raggiungere il limite di velocità dei dati?*
 
-* Utilizzare [Campionamento](app-insights-sampling.md).
+* Usare il [campionamento](app-insights-sampling.md).
 
 *Per quanto tempo vengono conservati i dati?*
 
@@ -778,4 +792,4 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

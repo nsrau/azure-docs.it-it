@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
@@ -36,7 +36,7 @@ Il seguente video mostra come eseguire l'esempio relativo all'analisi delle tend
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-È possibile accedere al dashboard dall'indirizzo http://<YourHDInsightClusterName>.azurehdinsight.net/ o dal portale di Azure.
+È possibile accedere al dashboard dall'indirizzo http://<NomeClusterHDInsight>.azurehdinsight.net/ o dal portale di Azure.
 
 **Per eseguire un esempio dalla raccolta di introduzione**
 
@@ -64,4 +64,4 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

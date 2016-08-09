@@ -26,7 +26,7 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 	**Nota**: per evitare il blocco, assicurarsi che non vi sia alcuna attività in esecuzione nella tabella che si sta rinominando. In caso di problemi, accertarsi di eseguire questa procedura durante una finestra di manutenzione.
 
-2. Ripristinare un backup del database temporizzato. A tale scopo, vedere i passaggi in [Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente](sql-database-user-error-recovery.md).
+2. Ripristinare un backup del database temporizzato. A tale scopo, vedere la procedura descritta in [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Note**:
 	- Il nome del database ripristinato sarà nel formato NomeDB+Timestamp. Ad esempio, **Adventureworks2012\_2016-01-01T22-12Z**. In questo passaggio non verrà sovrascritto il nome del database esistente nel server. Si tratta di una misura di sicurezza che consente all'utente di verificare il database ripristinato prima di eliminare il database corrente e rinominare il database ripristinato per l'uso in produzione.
@@ -71,4 +71,4 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 [Backup automatici del database SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

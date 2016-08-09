@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure Active Directory B2C: Framework di criteri estendibile | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: framework di criteri estendibile| Microsoft Azure"
 	description="Argomento che descrive il framework di criteri estendibile di Azure Active Directory B2C e che illustra come creare vari tipi di criteri"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Anteprima di Azure Active Directory B2C: Framework di criteri estendibile
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: framework di criteri estendibile
 
 ## Nozioni di base
 
@@ -72,10 +70,10 @@ Per abilitare l'iscrizione nell'applicazione, è necessario creare i criteri di 
 2. Fare clic su **Criteri di iscrizione**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione. Ad esempio, immettere "SiUp".
-5. Fare clic su **Provider di identità** e selezionare "Iscrizione tramite indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+5. Fare clic su **Provider di identità** e selezionare "Iscrizione posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
-8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
+8. Fare clic su **Create**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUp**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
@@ -91,10 +89,10 @@ Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di acc
 2. Fare clic su **Criteri di accesso**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di accesso usati dall'applicazione. Ad esempio, immettere "SiIn".
-5. Fare clic su **Provider di identità** e selezionare "Accesso tramite account locale". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+5. Fare clic su **Provider di identità** e selezionare "Accesso all'account locale". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di accesso. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale" e l'"ID oggetto dell'utente". Fare clic su **OK**.
 7. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiIn**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di accesso**.
-8. Aprire il criterio facendo clic su "**B2C\_1\_SiIn**".
+8. Aprire i criteri facendo clic su "**B2C\_1\_SiIn**".
 9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
 
@@ -103,19 +101,19 @@ Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di acc
 
 ## Creare un criterio di iscrizione o accesso
 
-Questo criterio consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso. Un esempio di codice per i criteri di registrazione o di accesso è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+Questo criterio consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso. Un esempio di codice per i criteri di iscrizione o di accesso è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Fare clic su **Sign-up or sign-in policies** (Criteri di iscrizione o accesso).
+2. Fare clic su **Criteri di iscrizione o di accesso**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione. Ad esempio, immettere "SiUpIn".
-5. Fare clic su **Provider di identità** e selezionare "Email signup" (Iscrizione tramite indirizzo di posta elettronica). Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+5. Fare clic su **Provider di identità** e selezionare "Iscrizione posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione o accesso. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
-8. Fare clic su **Create**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUpIn**" (il frammento **B2C\_1\_** viene aggiunto in automatico) nel pannello **Sign-up or sign-in policies** (Criteri di iscrizione o accesso).
+8. Fare clic su **Create**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUpIn**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione o di accesso**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUpIn**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
-11. Fare clic su **Esegui ora**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione o accesso all'applicazione, a seconda della configurazione.
+11. Fare clic su **Esegui Adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione o accesso all'applicazione, a seconda della configurazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
@@ -131,10 +129,10 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi profilo**. Qui è possibile scegliere gli attributi che l'utente potrà visualizzare e modificare. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di modifica del profilo. Ad esempio, selezionare "Nome visualizzato" e "Codice postale".
-8. Fare clic su **Create**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Profile editing policies** (Criteri di modifica del profilo).
+8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di modifica del profilo**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiPe**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
-11. Fare clic su **Esegui ora**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
+11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
@@ -144,21 +142,21 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 Per abilitare una reimpostazione dettagliata delle password nell'applicazione, è necessario creare criteri di reimpostazione delle password. Si noti che l'opzione di reimpostazione delle password a livello di tenant specificata [qui](active-directory-b2c-reference-sspr.md) è comunque applicabile per i criteri di accesso. Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Fare clic su **Password reset policies** (Criteri di reimpostazione della password).
+2. Fare clic su **Criteri di reimpostazione password**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. **Nome** indica il nome dei criteri di reimpostazione delle password usati dall'applicazione. Ad esempio, immettere "SSPR".
-5. Fare clic su **Provider di identità** e selezionare "Reset password using email address" (Reimposta la password usando l'indirizzo di posta elettronica). Fare clic su **OK**.
+5. Fare clic su **Provider di identità** e selezionare "Reimposta la password usando l'indirizzo di posta elettronica". Fare clic su **OK**.
 6. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di reimpostazione delle password. Ad esempio, selezionare "ID oggetto dell'utente".
-7. Fare clic su **Create**. Si noti che il criterio appena creato viene visualizzato come "**B2C\_1\_SSPR**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Password reset policies** (Criteri di reimpostazione della password).
+7. Fare clic su **Create**. Si noti che il criterio appena creato viene visualizzato come "**B2C\_1\_SSPR**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di reimpostazione password**.
 8. Aprire il criterio facendo clic su "**B2C\_1\_SSPR**".
 9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
-10. Fare clic su **Esegui ora**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di reimpostazione delle password nell'applicazione.
+10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di reimpostazione delle password nell'applicazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
 ## Risorse aggiuntive
 
-- [Anteprima di Azure Active Directory B2C: configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
+- [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

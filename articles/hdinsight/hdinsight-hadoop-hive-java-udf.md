@@ -136,7 +136,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
 2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>`, immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
 
-        ADD JAR wasb:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Utilizzare la UDF per convertire i valori recuperati da una tabella in stringhe con lettere minuscole.
@@ -166,4 +166,4 @@ Per apprendere altri modi di utilizzare Hive, vedere [Utilizzare Hive con HDInsi
 
 Per ulteriori informazioni sulle UDF di Hive, vedere la sezione [Operatori e funzioni definite dall’utente di Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) del wiki di Hive all’indirizzo apache.org.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

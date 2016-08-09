@@ -3,7 +3,7 @@
 	description="Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="rothja"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics - Il potente strumento di ricerca di Application Insights | Microsoft Azure" 
-	description="Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights." 
+	description="Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,10 @@
 
 [Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
+* **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
 
+## Query in Analytics
  
 Una query tipica è costituita da una tabella *di origine* seguita da una serie di *operatori* separati da `|`.
 
@@ -81,4 +84,4 @@ Attualmente sono disponibili i risultati delle query per una settimana di dati.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

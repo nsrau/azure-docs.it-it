@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/23/2016"
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,9 @@ Benchmark|[File di input: della durata di 5 minuti, con risoluzione 640x360p, a 
 
 - Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica avranno le stesse prestazioni di quando si usano le unità riservate S1. Non vi è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita una sola attività al massimo.
 
-- I data center di Brasile meridionale, India occidentale, India centrale e India meridionale non offrono il tipo di unità riservata **S3**.
+- I data center di Brasile meridionale, India occidentale, India centrale e India meridionale non offrono il tipo di unità riservata **S2**.
+
+- I data center di Brasile meridionale, India occidentale e India centrale non offrono il tipo di unità riservata **S3**.
 
 - Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
 
@@ -91,4 +93,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -58,15 +58,15 @@ Dopo aver creato il connettore, è possibile usare il connettore Azure Service B
 	![][2]
 
 2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro:  
-	![][3]
+![][3]
 
 3. Il connettore Azure Service Bus viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra:  
-	![][4]
+![][4]
 
 4. È possibile trascinare il connettore Azure Service Bus nell'editor facendo clic su "Azure Service Bus Connector".
 
 5.	È ora possibile usare il connettore Azure Service Bus nel flusso di lavoro. È possibile usare il messaggio recuperato dal trigger del bus di servizio di Azure ("Message Available") in altre azioni del flusso:  
-	![][5]
+![][5]
 
 	![][6]
 
@@ -95,4 +95,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

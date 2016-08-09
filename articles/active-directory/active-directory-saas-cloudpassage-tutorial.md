@@ -120,7 +120,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
  
     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione CloudPassage, ad esempio: *https://portal.cloudpassage.com/saml/init/accountid*.
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL AssertionConsumerService, ad esempio: *https://portal.cloudpassage.com/saml/consume/accountid*. È possibile ottenere il valore di questo attributo facendo clic su **SSO Setup documentation* (Documentazione della configurazione SSO) nella sezione *Single Sign-On Settings* (Impostazioni Single Sign-On) del portale di CloudPassage. ![Configura accesso Single Sign-On][10]
+    b. Nella casella di testo **URL di risposta** digitare l'URL AssertionConsumerService, ad esempio: *https://portal.cloudpassage.com/saml/consume/accountid*. È possibile ottenere il valore di questo attributo facendo clic su **SSO Setup documentation** (Documentazione della configurazione SSO) nella sezione **Single Sign-On Settings** (Impostazioni Single Sign-On) del portale di CloudPassage. ![Configura accesso Single Sign-On][10]
 
     C. Fare clic su **Avanti**.
 

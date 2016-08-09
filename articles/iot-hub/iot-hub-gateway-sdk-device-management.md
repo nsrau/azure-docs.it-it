@@ -207,22 +207,24 @@ Completare i passaggi seguenti nello stesso computer Ubuntu 14.04 usato nella se
 
 3. Copiare il file **iotdm-edison-sample.bb** dalla cartella **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** alla cartella **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample**.
 
-4. Copiare il file **iotdm\_edison\_sample.service** dalla cartella **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** alla cartella **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+4. Modificare il file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** e sostituire `-Duse_http:BOOL=OFF` con `-Duse_http:BOOL=ON`.
 
-5. Modificare il file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** aggiungendo una voce per il nuovo file recipe. Aggiungere la riga seguente alla fine del file:
+5. Copiare il file nella cartella **iotdm\_edison\_sample.service** from the **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** nella cartella **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+
+6. Modificare il file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** aggiungendo una voce per il nuovo file recipe. Aggiungere la riga seguente alla fine del file:
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Poiché Gateway SDK e il client di gestione dei dispositivi condividono alcune librerie, è necessario modificare il file **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Aggiungere le righe seguenti alla fine del file. Assicurarsi di sostituire `<your user>` con il nome utente corrente:
+7. Poiché Gateway SDK e il client di gestione dei dispositivi condividono alcune librerie, è necessario modificare il file **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Aggiungere le righe seguenti alla fine del file. Assicurarsi di sostituire `<your user>` con il nome utente corrente:
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Configurare la rete Wi-Fi per l'avvio automatico nella scheda Edison modificando il file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** e aggiungendo le righe seguenti alla fine del file. Assicurarsi di sostituire `<your wifi ssid>` e `<your wifi password>` con i valori corretti per la rete Wi-Fi:
+8. Configurare la rete Wi-Fi per l'avvio automatico nella scheda Edison modificando il file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** e aggiungendo le righe seguenti alla fine del file. Assicurarsi di sostituire `<your wifi ssid>` e `<your wifi password>` con i valori corretti per la rete Wi-Fi:
     
     ```
     network={
@@ -235,7 +237,7 @@ Completare i passaggi seguenti nello stesso computer Ubuntu 14.04 usato nella se
     }
     ```
 
-8. È possibile creare l'immagine per la scheda Edison che contiene Gateway SDK e il client di gestione dei dispositivi. Il comando **bitbake** verrà eseguito molto più rapidamente rispetto all'esecuzione precedente, perché ora deve solo creare il nuovo file recipe e aggiungerlo all'immagine:
+9. È possibile creare l'immagine per la scheda Edison che contiene Gateway SDK e il client di gestione dei dispositivi. Il comando **bitbake** verrà eseguito molto più rapidamente rispetto all'esecuzione precedente, perché ora deve solo creare il nuovo file recipe e aggiungerlo all'immagine:
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@ Completare i passaggi seguenti nello stesso computer Ubuntu 14.04 usato nella se
     bitbake edison-image
     ```
 
-9. Finalizzare la compilazione eseguendo questi comandi:
+10. Finalizzare la compilazione eseguendo questi comandi:
   
     ```
     cd ~/edison-src/
@@ -377,7 +379,7 @@ A questo punto è stata completata l'esercitazione che illustra come usare il cl
 
 ## Passaggi successivi
 
-Per altre informazioni sulla gestione dei dispositivi con l'hub IoT, vedere l'aticolo [Panoramica di Gestione dei dispositivi dell'hub IoT di Azure][lnk-device-management].
+Per altre informazioni sulla gestione dei dispositivi con l'hub IoT, vedere l'articolo [Panoramica di Gestione dei dispositivi dell'hub IoT di Azure][lnk-device-management].
 
 Per ottenere informazioni più avanzate sul Gateway SDK e provare alcuni esempi di codice, vedere il [Gateway SDK IoT di Azure][lnk-gateway-sdk].
 
@@ -385,8 +387,8 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
 
 
@@ -423,4 +425,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

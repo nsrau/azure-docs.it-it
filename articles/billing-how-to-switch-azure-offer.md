@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Trasferire la sottoscrizione di Azure a un'altra offerta | Microsoft Azure"
-	description="Descrive come i sottoscrittori di Azure possono passare a un'offerta di Azure diversa"
+	description="Informazioni su come modificare la sottoscrizione di Azure e passare a un'offerta di Azure diversa tramite il portale di gestione della sottoscrizione"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/21/2016"
 	ms.author="genli"/>
 
 # Trasferire la sottoscrizione di Azure a un'altra offerta
@@ -24,12 +24,12 @@
 -	Se si osserva che le spese relative ad Azure sono elevate, può essere possibile usufruire di uno sconto passando all'offerta di impegno monetario. Per visualizzare altre informazioni su come ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure, fare clic [qui](billing-usage-rate-card-overview.md).
 -	Se si vuole usufruire dei vantaggi dell'abbonamento, ad esempio MSDN o BizSpark, dopo aver eseguito l'iscrizione per una sottoscrizione con pagamento in base al consumo.
 
-## Come trasferire la sottoscrizione a un'altra offerta
+## Guida al trasferimento della sottoscrizione a un'altra offerta
 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions).
-2.	Selezionare la sottoscrizione da trasferire.
+2.	Selezionare la sottoscrizione da modificare.
 3.	Fare clic su **Passa a un'altra offerta**.
 
 	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
@@ -48,7 +48,7 @@
 
 **Quali modifiche delle offerte sono supportate?**
 
-Vedere [Offerte disponibili a cui è possibile passare](#available-offers-you-can-switch-to).
+Vedere l'elenco delle [offerte disponibili a cui è possibile passare](#available-offers-you-can-switch-to).
 
 **Il passaggio a un'altra offerta ha un impatto sul servizio?**
 
@@ -70,9 +70,11 @@ Questo meccanismo può essere usato solo per passare da/a offerte Web dirette. P
 
 ## Offerte disponibili a cui è possibile passare
 
-Di seguito sono riportati i percorsi attualmente supportati nel [Centro account](https://account.windowsazure.com/Subscriptions). Questo articolo verrà aggiornato man mano che verranno aggiunte altre opzioni. Per altre modifiche di offerte, [contattare il supporto](http://go.microsoft.com/fwlink/?LinkID=619338).
+Di seguito sono riportati i percorsi attualmente supportati nel [Centro account](https://account.windowsazure.com/Subscriptions). Questo articolo verrà aggiornato man mano che verranno aggiunte altre opzioni.
 
--	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) all'offerta [con 12 mesi prepagati](https://azure.microsoft.com/offers/ms-azr-0026p/)
--	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) a una delle [offerte di credito mensile di Azure per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+-	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) all'[offerta con pagamento anticipato di 12 mesi](https://azure.microsoft.com/offers/ms-azr-0026p/)
+-	Dal [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) a una delle [offerte di credito Azure mensile per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0720_2016-->
+Per altre modifiche di offerte, [contattare il supporto](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+<!---HONumber=AcomDC_0727_2016-->

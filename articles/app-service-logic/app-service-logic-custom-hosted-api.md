@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -28,7 +28,7 @@ Prima di tutto è necessario distribuire l'API come un'app Web nel servizio app.
 
 ### Impostazioni API
 
-Per consentire alla finestra di progettazione delle app per la logica di analizzare Swagger, è importante abilitare CORS e impostare le proprietà APIDefinition dell'app Web. La configurazione nel portale di Azure è molto semplice. Aprire il pannello delle impostazioni nell'app Web e nella sezione API impostare 'Definizione API' sull'URL del file swagger.json (in genere https://{name}.azurewebsites.net/swagger/docs/v1)) e aggiungere un criterio CORS per '*' per consentire le richieste della finestra di progettazione delle app per la logica.
+Per consentire alla finestra di progettazione delle app per la logica di analizzare Swagger, è importante abilitare CORS e impostare le proprietà APIDefinition dell'app Web. La configurazione nel portale di Azure è molto semplice. Aprire il pannello delle impostazioni dell'app Web e nella sezione API impostare "Definizione API" sull'URL del file swagger.json (in genere https://{name}.azurewebsites.net/swagger/docs/v1) e aggiungere un criterio CORS per "*" per consentire le richieste dalla finestra di progettazione delle app per la logica.
 
 ## Chiamata all'API
 
@@ -169,4 +169,4 @@ Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la fun
 
 È comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

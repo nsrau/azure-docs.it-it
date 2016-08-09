@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok" />
 
 
@@ -45,7 +45,7 @@ L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell�
 
 Per creare un hub eventi:
 
-1.	Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Nuovo** > **Servizi app** > **Bus di servizio** > **Hub eventi** > **Creazione rapida**. Fornire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
+1.	Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Nuovo** > **Servizi app** > **Bus di servizio** > **Hub eventi** > **Creazione rapida**. Fornire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.
 2.	Come procedura consigliata, ogni processo di Analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer e sarà possibile [apprendere ulteriori informazioni sui gruppi di consumer](https://msdn.microsoft.com/library/azure/dn836025.aspx). Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **Gruppi di consumer**, quindi fare clic su **Crea** nella parte inferiore della pagina e fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **Configura** dell'hub eventi.
 4.	In **Criteri di accesso condivisi**, creare un nuovo criterio provvisto di autorizzazioni **Gestione**.
@@ -264,4 +264,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

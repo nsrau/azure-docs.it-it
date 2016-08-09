@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -57,7 +57,7 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
 	**Nota:** Power Query consente inoltre di importare dati da HDFS facendo clic su **Da altre origini**.
 
-3. Per **Nome account** immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster, quindi fare clic su **OK**. Può essere l'[account di archiviazione predefinito](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) o un account di archiviazione collegato. Il formato è *https://<StorageAccountName>.blob.core.windows.net/*.
+3. Per **Nome account** immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster, quindi fare clic su **OK**. Può essere l'[account di archiviazione predefinito](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) o un account di archiviazione collegato. Il formato è *https://<nomeaccountarchiviazione>.blob.core.windows.net/*.
 
 4. Per **Chiave account** immettere la chiave dell'account di archiviazione BLOB, quindi fare clic su **Salva**. È necessario eseguire questa operazione solo la prima volta che si accede all'archivio.
 
@@ -67,7 +67,7 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
 	![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 
-7. Se necessario, è possibile ridenominare le colonne. Quando si è pronti, fare clic sul pulsante per **chiudere e caricare**. I dati vengono caricati nella cartella di lavoro:
+7. Se necessario, è possibile ridenominare le colonne. Quando si è pronti, fare clic sul pulsante **Chiudi e carica**. I dati vengono caricati nella cartella di lavoro:
 
 	![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
@@ -75,7 +75,7 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
 In questo articolo è stato illustrato come usare Power Query per recuperare dati da HDInsight in Excel. È analogamente possibile recuperare dati da HDInsight nel database SQL di Azure. È inoltre possibile caricare dati in HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
+* [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -88,4 +88,4 @@ In questo articolo è stato illustrato come usare Power Query per recuperare dat
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

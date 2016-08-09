@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Uso della rete CDN di Azure"
+	 pageTitle="Uso della rete CDN di Azure | Microsoft Azure"
 	 description="Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure. Questa esercitazione illustra la creazione di un nuovo profilo ed endpoint della rete CDN."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Uso della rete CDN di Azure  
@@ -67,7 +67,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 	
 	> [AZURE.NOTE] **Porta dell'origine** interessa solo la porta usata dall'endpoint per recuperare informazioni dall'origine. L'endpoint stesso sarà disponibile solo per i client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.
 	>
-	> Gli endpoint del servizio **Rete CDN di Azure da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco di porte di origine non consentite, vedere l'articolo relativo ai [dettagli sul comportamento della rete CDN di Azure di Akamai](cdn-akamai-behavior-details.md).
+	> Gli endpoint del servizio **Rete CDN di Azure da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Porte di origine consentite in Rete CDN di Azure da Akamai).
 	>
 	> L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
 	> 
@@ -97,4 +97,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

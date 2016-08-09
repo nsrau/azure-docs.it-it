@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # Volumi aggiunti in locale di StorSimple: domande frequenti
@@ -121,7 +121,7 @@ Se gli snapshot locali vengono invalidati, si riceverà un avviso informativo ch
 **R.** Il processo di conversione include due passaggi:
 
   1. Provisioning di spazio sul dispositivo per il volume aggiunto in locale da convertire a breve.
-  2. Download dei dati a livelli dal cloud per assicurare le garanzie locali. 
+  2. Download dei dati a livelli dal cloud per assicurare le garanzie locali.
 
 Entrambi i passaggi sono operazioni di lunga durata che dipendono dalla dimensione del volume da convertire, dai dati sul dispositivo e dalla larghezza di banda disponibile. Poiché alcuni dati dei volumi a livelli esistenti possono essere distribuiti nel cloud durante il processo di provisioning, è possibile che il dispositivo subisca un calo delle prestazioni in questa fase. Il processo di conversione può essere più lento anche quando:
 
@@ -213,4 +213,4 @@ Sono disponibili altre informazioni su [failover e ripristino di emergenza dei v
 
 **R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

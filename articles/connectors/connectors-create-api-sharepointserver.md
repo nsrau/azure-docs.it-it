@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore SharePoint Online 
@@ -26,7 +26,7 @@ Il connettore SharePoint consente di utilizzare gli elenchi in SharePoint.
 Con SharePoint è possibile:
 
 * Compilare app per la logica
-* Compilare app di PowerApps  
+* Compilare app di PowerApps
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -76,13 +76,13 @@ Per connettersi a **SharePoint Online**, è necessario indicare la propria ident
 
 Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
 
-1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]  
-2. Selezionare **SharePoint Online - When a file is created**   
-3. Selezionare **Sign in to SharePoint Online**: ![Configurare SharePoint][2]    
-4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint ![Configurare SharePoint][3]     
-5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** di SharePoint. ![Configurare SharePoint][4]  
-6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.   
-7. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.  
+1. Nella casella di ricerca digitare "SharePoint" e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]
+2. Selezionare **SharePoint Online - When a file is created**
+3. Selezionare **Accedi a SharePoint Online**: ![Configurare SharePoint][2]
+4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint ![Configurare SharePoint][3]
+5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** (Quando un file viene creato) di SharePoint. ![Configurare SharePoint][4]
+6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.
+7. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica, app di PowerApps o in entrambe.
 
@@ -335,8 +335,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -360,8 +360,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -385,8 +385,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |item| |yes|body|nessuno|Elemento da creare|
 
 
@@ -407,8 +407,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da recuperare|
 
 
@@ -429,8 +429,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da eliminare|
 
 
@@ -451,8 +451,8 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|nessuno|Nome dell'elenco SharePoint|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da aggiornare|
 |item| |yes|body|nessuno|Elemento con le proprietà modificate|
 
@@ -695,10 +695,10 @@ Nessuna delle proprietà è obbligatoria.
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

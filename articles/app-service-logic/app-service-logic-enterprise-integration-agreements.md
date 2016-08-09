@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -65,4 +65,4 @@ Dopo aver creato un contratto, è possibile usarlo mediante il portale di Azure 
 ## Passaggi successivi
 - [Creare un contratto AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

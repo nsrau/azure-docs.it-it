@@ -109,7 +109,7 @@ Seguire i passaggi della procedura dettagliata dell’articolo [Spostare i dati 
 	![Copiare la chiave](media/data-factory-data-management-gateway/copy-gateway-key.png)
 
 ## Gateway di gestione dati di Configuration Manager 
-Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione di dati in uno dei modi seguenti:
+Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
 - Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità.
 - Eseguire il file ConfigManager.exe nella cartella: C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared
@@ -126,10 +126,10 @@ Nella Home page è possibile eseguire le operazioni seguenti:
 ### Pagina Impostazioni
 La pagina Impostazioni consente di eseguire le operazioni seguenti:
 
-- Visualizzare, modificare ed esportare il **certificato** utilizzato dal gateway.
+- Visualizzare, modificare ed esportare il **certificato** utilizzato dal gateway. Questo certificato viene usato per crittografare le credenziali dell'origine dati.
 - Modificare la **porta HTTPS** per l'endpoint. Il gateway apre una porta per impostare le credenziali dell'origine dati.
 - **Stato** dell'endpoint
-- Visualizzare il **certificato SSL** utilizzato per impostare le credenziali delle origini dati.
+- La visualizzazione del **certificato SSL** viene usata per la comunicazione SSL tra il gateway e il portale per impostare le credenziali per le origini dati.
 
 ### Pagina diagnostica
 La pagina Diagnostica consente di eseguire le operazioni seguenti:
@@ -426,4 +426,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 ## Passaggi successivi
 - Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per avere informazioni dettagliate sul gateway.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -82,4 +82,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

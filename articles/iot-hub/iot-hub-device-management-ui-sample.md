@@ -124,7 +124,8 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
+- [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -149,5 +150,6 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

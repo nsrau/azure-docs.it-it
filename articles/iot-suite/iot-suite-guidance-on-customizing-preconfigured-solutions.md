@@ -154,7 +154,15 @@ Per altre informazioni relative a una personalizzazione, inviare suggerimenti a 
 
 ## Passaggi successivi
 
-Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/) per trovare collegamenti e documentazione.
+Per altre informazioni sulle opzioni per personalizzare le soluzioni preconfigurate, vedere:
+
+- [Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite][lnk-logicapp]
+- [Usare la telemetria dinamica con la soluzione preconfigurata per il monitoraggio remoto][lnk-dynamic]
+- [Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto][lnk-devinfo]
+
+[lnk-logicapp]: iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
@@ -164,4 +172,4 @@ Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azu
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

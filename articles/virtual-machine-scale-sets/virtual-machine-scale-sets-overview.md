@@ -141,11 +141,11 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **D.** Se si riduce la capacità del set di scalabilità di macchine virtuali da 20 a 15, quali macchine virtuali verranno rimosse?
 
-**R.** Le macchine virtuali vengono rimossi dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità.
+**R.** Le macchine virtuali vengono rimossi dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più alto sono rimosse per prime.
 
 **D.** Cosa accade se poi si aumenta la capacità da 15 a 18?
 
-**R.** Se si passa a 18, verranno create macchine virtuali con indice 15, 16, 17. In entrambi i casi le macchine virtuali vengono bilanciate tra domini di aggiornamento e domini di errore.
+**R.** Se si aumenta la capacità a 18, verranno create 3 nuove VM. Ogni volta l'ID istanza di VM verrà incrementato dal valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di aggiornamento e domini di errore.
 
 **D.** Quando si usano più estensioni in un set di scalabilità di macchine virtuali, è possibile imporre una sequenza di esecuzione?
 
@@ -155,4 +155,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

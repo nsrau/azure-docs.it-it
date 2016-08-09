@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure Active Directory B2C: attributi personalizzati | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: attributi personalizzati | Microsoft Azure"
 	description="Come utilizzare gli attributi personalizzati in Azure Active Directory B2C per raccogliere informazioni sugli utenti"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-#  Anteprima di Azure Active Directory B2C: Usare attributi personalizzati per la raccolta di informazioni sugli utenti
+#  Azure Active Directory B2C: usare attributi personalizzati per raccogliere informazioni sugli utenti
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
-La directory Azure Active Directory (Azure AD) B2C viene fornita con un set predefinito di informazioni (attributi), ad esempio nome, cognome, città, codice postale e altri attributi. Tuttavia, ogni applicazione consumatori ha requisiti specifici relativi agli attributi da raccogliere. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account utente. È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei criteri di iscrizione, come illustrato di seguito. È inoltre possibile la lettura e la scrittura di questi attributi usando l'[API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
+La directory Azure Active Directory (Azure AD) B2C viene fornita con un set predefinito di informazioni (attributi), ad esempio nome, cognome, città, codice postale e altri attributi. Tuttavia, ogni applicazione consumatori ha requisiti specifici relativi agli attributi da raccogliere. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account utente. È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei criteri di iscrizione, come illustrato di seguito. Questi attributi possono anche essere scritti e letti usando l'[API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 > [AZURE.NOTE]
-Gli attributi personalizzati usano le [estensioni dello schema di directory dell'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+Gli attributi personalizzati usano le [Estensioni dello schema di directory dell'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/dn720459.aspx).
 
 ## Creare un attributo personalizzato
 
@@ -33,7 +31,7 @@ Gli attributi personalizzati usano le [estensioni dello schema di directory dell
 4. Fornire un **Nome** per l'attributo personalizzato (ad esempio, "ShoeSize") e, facoltativamente, una **Descrizione**. Fare clic su **Crea**.
 
     > [AZURE.NOTE]
-    Attualmente è disponibile solo il **tipo di dati** "string".
+    Attualmente è disponibile solo il **tipo di dati** "String".
 
 L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi utente** e per l'uso nei criteri di iscrizione.
 
@@ -51,6 +49,6 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi uten
 ## Note
 
 - Insieme ai criteri di iscrizione, gli attributi personalizzati possono essere usati anche nei criteri di iscrizione o accesso e nei criteri di modifica del profilo.
-- Esiste una limitazione nota degli attributi personalizzati. Si verifica soltanto la prima volta che viene usato in un criterio e non quando viene aggiunto all'elenco **Attributi utente**. Il problema verrà risolto a breve.
+- Esiste una limitazione nota degli attributi personalizzati. Si verifica solo la prima volta che viene usato in un criterio e non quando viene aggiunto all'elenco di **Attributi utente**.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

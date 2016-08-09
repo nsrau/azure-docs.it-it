@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -27,6 +27,13 @@ Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante
 - Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore Proxy applicazione disponibile in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - Se necessario, sono disponibili log più dettagliati attivando i log di analisi e debug e il log della sessione del connettore proxy di applicazione.
 
+## La pagina non viene visualizzata correttamente
+
+Se non viene visualizzato un messaggio di errore specifico, è possibile che esistano ancora problemi di rendering o di funzionamento dell'applicazione. Ciò può verificarsi se è stato pubblicato il percorso dell'articolo, ma l'applicazione richiede contenuto esistente al di fuori di tale percorso.
+
+Ad esempio, se si pubblica il percorso https://yourapp/app, ma l'applicazione chiama immagini disponibili in https://yourapp/media, non ne verrà eseguito il rendering. Assicurarsi di pubblicare l'applicazione usando il percorso di livello più alto necessario per includere tutto il contenuto rilevante. Per questo esempio sarà http://yourapp/.
+
+Se si modifica il percorso per includere il contenuto a cui viene fatto riferimento, ma è comunque necessario che gli utenti possano accedere a un collegamento più diretto del percorso, vedere il post di blog [Setting the right link for Application Proxy Applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/) (Impostazione del collegamento corretto per le applicazioni del proxy di applicazione nel pannello di accesso di Azure AD e nell'icona di avvio delle app di Office 365).
 
 ## Errori generali
 
@@ -37,11 +44,11 @@ Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad
 
 
 ## Risoluzione dei problemi del connettore
-Se durante l'installazione guidata del connettore la registrazione non riesce, è possibile visualizzare il motivo dell'errore esaminando il registro eventi in **Registri di Windows** > **Applicazione** o eseguendo il comando di Windows PowerShell seguente.
+Se durante l'installazione guidata del connettore la registrazione non riesce, è possibile visualizzare il motivo dell'errore esaminando il registro eventi in Registri applicazioni e servizi\\Microsoft\\AadApplicationProxy\\Connector\\Admin o eseguendo il comando di Windows PowerShell seguente.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
-| Tipi di errore | Descrizione | Risoluzione |
+| Errore | Descrizione | Risoluzione |
 | --- | --- | --- |
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | La finestra di registrazione è stata chiusa senza eseguire l'accesso ad Azure AD. | Eseguire di nuovo l'installazione guidata del connettore e registrarlo. |
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50001: la risorsa `https://proxy.cloudwebappproxy.net/registerapp` è disabilitata". | Il Proxy applicazione è disabilitato. | Abilitare il proxy dell'applicazione nel portale di Azure classico prima di provare a registrare il connettore. Per altre informazioni su come abilitare il Proxy applicazione, vedere [Abilitare i servizi del Proxy applicazione](active-directory-application-proxy-enable.md). |
@@ -65,7 +72,7 @@ Se durante l'installazione guidata del connettore la registrazione non riesce, �
 | 13020: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente, perché il nome dell'entità servizio del server back-end non è definito. | Questo evento può indicare una configurazione non corretta tra Azure AD e il server controller di dominio oppure un problema di configurazione di data e ora su entrambi i computer. | Il controller di dominio ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che la configurazione di Azure AD e del server back-end dell'applicazione siano corrette, in particolare la configurazione del nome dell'entità servizio. Verificare che Azure AD sia aggiunto allo stesso dominio del controller di dominio, per assicurarsi che il controller di dominio stabilisca relazioni di trust con Azure AD. Assicurarsi che la configurazione di data e ora in Azure AD e nel controller di dominio dell'applicazione siano sincronizzate. |
 | 13022: Azure AD non riesce ad autenticare l'utente perché il server back-end risponde ai tentativi di autenticazione Kerberos con un errore HTTP 401. | Questo evento può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. | Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che la configurazione di Azure AD e del server back-end dell'applicazione siano corrette. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. |
 | Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'applicazione è un'applicazione con autenticazione integrata di Windows e il nome dell'entità servizio definito per l'applicazione non è corretto. | Per le app con autenticazione integrata di Windows: assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto. |
-| Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA, e il problema può dipendere da uno dei motivi seguenti: <br> - L'SPN definito per l'applicazione non è corretto. <br> - L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure è un utente guest. <br> - L'utente che ha provato ad accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. | Ecco i passaggi per prevenire questi problemi: <br> - Assicurarsi che l'SPN configurato per l'applicazione sia corretto. <br> - Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft e guest non possono accedere alle applicazioni con autenticazione integrata di Windows. <br> - Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
+| Il sito Web non riesce a visualizzare la pagina. | È possibile che l'utente visualizzi questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA, e il problema può dipendere da uno dei motivi seguenti: <br> - L'SPN definito per l'applicazione non è corretto. <br> - L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure è un utente guest. <br> - L'utente che ha provato ad accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. | Ecco i passaggi per prevenire questi problemi: <br> - Assicurarsi che l'SPN configurato per l'applicazione sia corretto. <br> - Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft e guest non possono accedere alle applicazioni con autenticazione integrata di Windows. <br> - Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
 | Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Assicurarsi di assegnare all'utente l'accesso a questa applicazione. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata se sta usando un account Microsoft invece dell'account aziendale appropriato oppure è un utente guest. | Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. |
 | Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'utente stesso non è definito correttamente per l'applicazione sul lato locale. | Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
 
@@ -77,11 +84,11 @@ Se durante l'installazione guidata del connettore la registrazione non riesce, �
 - [Abilita Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
-Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

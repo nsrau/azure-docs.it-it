@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Come usare l'archiviazione file di Azure da Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Panoramica
 
-In questo articolo verranno illustrati diversi scenari comuni di uso dell'archiviazione file. Gli esempi sono scritti in Python e utilizzano [Microsoft Azure Storage SDK per Python]. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di file.
+In questo articolo verranno illustrati diversi scenari comuni di uso dell'archiviazione file. Gli esempi sono scritti in Python e usano [Microsoft Azure Storage SDK per Python]. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di file.
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -34,11 +34,11 @@ L'oggetto **FileService** consente di usare condivisioni, directory e file. Il c
 
 	from azure.storage.file import FileService
 
-Il codice seguente consente di creare un oggetto **FileService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave da usare.
+Il codice seguente consente di creare un oggetto **FileService** usando il nome e la chiave dell'account di archiviazione. Sostituire 'myaccount' e 'mykey' con l'account e la chiave da usare.
 
 	file_service = **FileService** (account_name='myaccount', account_key='mykey')
 
-Nell’esempio di codice seguente, è possibile utilizzare un oggetto **FileService** per creare la condivisione, se non esiste:
+Nell'esempio di codice seguente, è possibile usare un oggetto **FileService** per creare la condivisione, se non esiste.
 
 	file_service.create_share('myshare')
 
@@ -100,4 +100,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione file, v
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

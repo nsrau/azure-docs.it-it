@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -31,7 +31,7 @@ Una funzione di Machine Learning in Analisi di flusso può essere usata come una
 
 Quando si configura una funzione di Machine Learning per un processo di Analisi di flusso è necessario prendere in considerazione due parametri, le dimensioni batch delle chiamate di funzione di Machine Learning e le unità di streaming (SU) di cui viene effettuato il provisioning per il processo di Analisi di flusso. Per determinare i relativi valori appropriati, occorre prima scegliere tra latenza e velocità effettiva, vale a dire la latenza del processo di Analisi di flusso e la velocità effettiva di ogni unità di streaming. È sempre possibile aggiungere unità di streaming a un processo per aumentare la velocità effettiva di una query di Analisi di flusso con partizionamento efficiente, anche se le unità di streaming aumentano il costo di esecuzione del processo.
 
-È quindi importante determinare la *tolleranza* della latenza nell'esecuzione di un processo di Analisi di flusso. La latenza aggiuntiva dovuta all'esecuzione di richieste del servizio Azure Machine Learning aumenta naturalmente con le dimensioni batch, che si sommano alla latenza del processo di Analisi di flusso. D'altra parte, l'aumento delle dimensioni batch consente al processo di Analisi di flusso di elaborare *più eventi con lo *stesso numero* di richieste del servizio Web Machine Learning. L'aumento della latenza del servizio Web Machine Learning è spesso sublineare all'aumento delle dimensioni. È quindi importante stabilire le dimensioni batch più convenienti per un servizio Web Machine Learning in una determinata situazione. Le dimensioni batch predefinite per le richieste al servizio Web sono pari a 1000 e possono essere modificate usando l'[API REST di Analisi di flusso](https://msdn.microsoft.com/library/mt653706.aspx "API REST di Analisi di flusso") o il [client di PowerShell per Analisi di flusso](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client di PowerShell per Analisi di flusso").
+È quindi importante determinare la *tolleranza* della latenza nell'esecuzione di un processo di Analisi di flusso. La latenza aggiuntiva dovuta all'esecuzione di richieste del servizio Azure Machine Learning aumenta naturalmente con le dimensioni batch, che si sommano alla latenza del processo di Analisi di flusso. D'altra parte, l'aumento delle dimensioni batch consente al processo di analisi di flusso di elaborare *più eventi con lo stesso numero* * di richieste del servizio Web Machine Learning. L'aumento della latenza del servizio Web Machine Learning è spesso sublineare all'aumento delle dimensioni. È quindi importante stabilire le dimensioni batch più convenienti per un servizio Web Machine Learning in una determinata situazione. Le dimensioni batch predefinite per le richieste al servizio Web sono pari a 1000 e possono essere modificate usando l'[API REST di Analisi di flusso](https://msdn.microsoft.com/library/mt653706.aspx "API REST di Analisi di flusso") o il [client di PowerShell per Analisi di flusso](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client di PowerShell per Analisi di flusso").
 
 Dopo aver determinato le dimensioni batch, è possibile determinare la quantità di unità di streaming (SU) in base al numero di eventi che la funzione deve elaborare al secondo. Per altre informazioni sulle unità di streaming, vedere l'articolo relativo al [ridimensionamento dei processi di Analisi di flusso](stream-analytics-scale-jobs.md#configuring-streaming-units).
 
@@ -119,7 +119,7 @@ Per riepilogare i punti principali, per ridimensionare un processo di Analisi di
 2.  Latenza consentita per il processo di Analisi di flusso in esecuzione e dimensioni batch delle richieste al servizio Web Machine Learning.
 3.  Unità di streaming di Analisi di flusso di cui è stato effettuato il provisioning e numero di richieste al servizio Web Machine Learning, oltre ai costi aggiuntivi correlati alle funzioni.
 
-È stata usata come esempio una query di Analisi di flusso completamente partizionata. Se è necessaria una query più complessa, è possibile usare il [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics) per ottenere altre informazioni dal team di Analisi di flusso.
+È stata usata come esempio una query di Analisi di flusso completamente partizionata. Se è necessaria una query più complessa, è possibile usare il [forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics) per ottenere altre informazioni dal team di analisi di flusso.
 
 ## Passaggi successivi
 
@@ -130,4 +130,4 @@ Per altre informazioni su Analisi di flusso, vedere:
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight
@@ -226,25 +226,25 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
 1. Dal prompt dei comandi, digitare quanto segue. Sostituire __SASCONTAINER__ con il nome del contenitore creato per l'account di archiviazione della firma di accesso condiviso. Sostituire __SASACCOUNTNAME__ con il nome dell'account di archiviazione usato per la firma di accesso condiviso:
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     Verrà elencato il contenuto del contenitore, che deve includere il file caricato durante la creazione del contenitore e della firma di accesso condiviso.
     
 2. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire __SASCONTAINER__ e __SASACCOUNTNAME__ come indicato nel passaggio precedente. Sostituire __FILENAME__ con il nome del file visualizzato nel comando precedente:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     Verrà elencato il contenuto del file.
     
 3. Usare il comando seguente per scaricare il file nel file system locale:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     Il file verrà scaricato in un file locale denominato __testfile.txt__.
 
 4. Usare il comando seguente per caricare il file locale in un nuovo file denominato __testupload.txt__ nella risorsa di archiviazione della firma di accesso condiviso:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     Verrà visualizzato un messaggio simile al seguente:
     
@@ -252,7 +252,7 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
         
     Questo errore si verifica perché il percorso di archiviazione è di sola lettura+elenco. Usare il comando seguente per inserire i dati nella risorsa di archiviazione predefinita per il cluster, accessibile in scrittura:
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     Questa volta l'operazione avrà esito positivo.
     
@@ -290,4 +290,4 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

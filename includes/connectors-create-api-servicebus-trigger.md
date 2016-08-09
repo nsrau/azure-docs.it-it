@@ -1,12 +1,11 @@
-In this example, I will show you how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is to a Service Bus queue.  
+In questo esempio viene illustrato come utilizzare il trigger **Bus di servizio - Quando un messaggio viene ricevuto in una coda** per avviare il flusso di lavoro di un'app per la logica quando viene aggiunto un nuovo elemento alla coda del bus di servizio.
 
->[AZURE.NOTE]You will get prompted to sign with your Service Bus connection string if you have not already created a *connection* to Service Bus.  
+>[AZURE.NOTE]All'utente viene chiesto di accedere con la propria stringa di connessione del bus di servizio se non è ancora stata creata una *connessione* al bus di servizio.
 
-1. Enter *service bus* in the search box on the logic apps designer then select the **Service Bus - When a message is received in a queue**  trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** control is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Immettere *bus di servizio* nella casella di ricerca della finestra di progettazione di App per la logica, quindi selezionare il trigger **Bus di servizio - Quando un messaggio viene ricevuto in una coda**. ![Immagine del trigger di bus di servizio 1](./media/connectors-create-api-servicebus/trigger-1.png)
+- Viene visualizzato il controllo **Quando un messaggio viene ricevuto in una coda**. ![Immagine del trigger di bus di servizio 2](./media/connectors-create-api-servicebus/trigger-2.png)
+- Immettere il nome della coda del bus di servizio da monitorare attraverso il trigger. ![Immagine del trigger di bus di servizio 3](./media/connectors-create-api-servicebus/trigger-3.png)
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is  received in the queue you selected.    
+A questo punto, l'app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro quando un file viene modificato o creato nell'apposita cartella FTP.
+
+<!---HONumber=AcomDC_0727_2016-->

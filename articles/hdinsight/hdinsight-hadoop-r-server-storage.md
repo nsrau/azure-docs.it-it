@@ -34,17 +34,17 @@ Se necessario, è possibile accedere a più account di archiviazione o contenito
 2. Si specifica anche un account di archiviazione aggiuntivo denominato **storage2**.
 3. Copiare il file mycsv.csv nella directory /share ed eseguire analisi su tale file.
 
-````
-hadoop fs –mkdir /share
-hadoop fs –copyFromLocal myscsv.scv /share  
-````
+    ````
+    hadoop fs –mkdir /share
+    hadoop fs –copyFromLocal myscsv.scv /share  
+    ````
 
 3.	Nel codice R il nodo del nome è stato impostato su **default** e sono stati specificati la directory e il file da elaborare.
 
-````
-myNameNode <- "default"
-myPort <- 0
-````
+    ````
+    myNameNode <- "default"
+    myPort <- 0
+    ````
 
   Percorso dei dati:
 
@@ -66,13 +66,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Tutti i riferimenti a file e directory puntano all'account di archiviazione wasb://container1@storage1.blob.core.windows.net. Si tratta dell'**account di archiviazione predefinito** associato al cluster HDInsight.
+Tutti i riferimenti a file e directory puntano all'account di archiviazione wasbs://container1@storage1.blob.core.windows.net. Si tratta dell'**account di archiviazione predefinito** associato al cluster HDInsight.
 
 Si supponga ora di voler elaborare un file denominato mySpecial.csv che si trova nella directory /private di **container2** in **storage2**.
 
 Nel codice R puntare il nome del riferimento al nodo sull'account di archiviazione **storage2**.
 
-    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
   Percorso dei dati:
@@ -95,13 +95,13 @@ Nel codice R puntare il nome del riferimento al nodo sull'account di archiviazio
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Tutti i riferimenti a file e directory ora puntano all'account di archiviazione wasb://container2@storage2.blob.core.windows.net. Questo è il **nodo del nome** specificato.
+Tutti i riferimenti a file e directory ora puntano all'account di archiviazione wasbs://container2@storage2.blob.core.windows.net. Questo è il **nodo del nome** specificato.
 
 Si noti che è necessario configurare la directory /user/RevoShare/<nomeutente SSH> nell'account di archiviazione **storage2** come indicato di seguito:
 
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 ## Usare un Archivio Azure Data Lake
 
@@ -117,7 +117,7 @@ Per accedere a un Archivio Azure Data Lake, usare un'entità servizio di Azure A
 
 Dopo aver assegnato un nome all'entità servizio, creare una password per tale entità. Verrà aperta una nuova scheda in cui è possibile associare l'entità servizio agli archivi Data Lake.
 
-Si noti che è anche possibile aggiungere l'accesso a un Archivio Azure Data Lake aprendo l'Archivio Azure Data Lake nel portale di Azure e passando a **Data Explorer** (Esplora dati) > **Accesso**. Di seguito è riportato un esempio di finestra di dialogo che mostra come creare un'entità servizio e associarla all'Archivio Data Lake "rkadl11".
+Si noti che è anche possibile aggiungere l'accesso a un Azure Data Lake Store aprendo Azure Data Lake Store nel portale di Azure e passando a **Esplora dati** > **Accesso**. Di seguito è riportato un esempio di finestra di dialogo che mostra come creare un'entità servizio e associarla all'Archivio Data Lake "rkadl11".
 
 ![Creare un'entità servizio di archiviazione 1 dell'Archivio Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
 
@@ -176,7 +176,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 ## Usare File di Azure nel nodo perimetrale
 
-È disponibile anche una pratica opzione di archiviazione dei dati da usare nel nodo perimetrale denominato [File di Azure](../storage/storage-how-to-use-files-linux.md "File di Azure"). Consente di montare una condivisione file di Archiviazione di Azure nel file system Linux. Questo approccio può essere utile per l'archiviazione di file di dati, script R e oggetti risultato che potrebbero essere necessari in seguito, quando sarà opportuno usare il file system nativo nel nodo perimetrale invece di HDFS.
+È disponibile anche una pratica opzione di archiviazione dei dati da usare nel nodo perimetrale denominata [File di Azure](../storage/storage-how-to-use-files-linux.md "File di Azure"). Consente di montare una condivisione file di Archiviazione di Azure nel file system Linux. Questo approccio può essere utile per l'archiviazione di file di dati, script R e oggetti risultato che potrebbero essere necessari in seguito, quando sarà opportuno usare il file system nativo nel nodo perimetrale invece di HDFS.
 
 Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale.
 
@@ -190,4 +190,4 @@ Dopo avere appreso le nozioni di base sull'uso della console di R da una session
 - [Articolo relativo all'installazione di RStudio Server in HDInsight Premium.](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

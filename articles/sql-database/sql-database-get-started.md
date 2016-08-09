@@ -4,7 +4,7 @@
 	keywords="esercitazione sul database sql, creare un database sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -61,4 +61,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

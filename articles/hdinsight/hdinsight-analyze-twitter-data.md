@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Analizzare i dati di Twitter con Hive in HDInsight
@@ -23,14 +23,11 @@ I siti Web di social networking rappresentano una delle principali forze trainan
 > [AZURE.NOTE] I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 
-
-> [AZURE.TIP] Un esempio simile è disponibile nella raccolta di esempi di HDInsight. Guardare il video di Channel 9 relativo all'<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">analisi delle tendenze di Twitter con Apache Hive in HDInsight</a>.
-
-###Prerequisiti
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una workstation** in cui sia stato installato e configurato Azure PowerShell. 
+- **Una workstation** in cui sia stato installato e configurato Azure PowerShell.
 
     Per eseguire script di Windows PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
 
@@ -74,11 +71,11 @@ Il primo passaggio da seguire per usare OAuth consiste nel creare una nuova appl
 2. Fare clic su **Create New App**.
 3. Compilare i campi **Name**, **Description**, **Website**. Per il campo **Website** è possibile creare un URL fittizio. Nella tabella seguente vengono mostrati alcuni valori di esempio da usare:
 
-Campo|Valore
----|---
-Nome|MyHDInsightApp
-Descrizione|MyHDInsightApp
-Sito Web|http://www.myhdinsightapp.com
+	Campo|Valore
+	---|---
+	Nome|MyHDInsightApp
+	Descrizione|MyHDInsightApp
+	Sito Web|http://www.myhdinsightapp.com
 
 4. Fare clic su **Yes, I agree**, quindi scegliere **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions**. L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione.
@@ -224,16 +221,16 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 3. Impostare le prime cinque-otto variabili dello script:
 
 
-Variabile|Descrizione
----|---
-$clusterName|Nome del cluster HDInsight in cui eseguire l'applicazione.
-$oauth\_consumer\_key|Applicazione Twitter **consumer key** scritta in precedenza al momento della creazione dell'applicazione Twitter.
-$oauth\_consumer\_secret|L'applicazione Twitter **consumer secret** scritta in precedenza.
-$oauth\_token|L'applicazione Twitter **access token** scritta in precedenza.
-$oauth\_token\_secret|L'applicazione Twitter **access token secret** scritta in precedenza.
-$destBlobName|Il nome BLOB dell'output. Il valore predefinito è **tutorials/twitter/data/tweets.txt**. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.
-$trackString|Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è **Azure, Cloud, HDInsight**. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.
-$lineMax|Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.
+	Variabile|Descrizione
+	---|---
+	$clusterName|Nome del cluster HDInsight in cui eseguire l'applicazione.
+	$oauth\_consumer\_key|Applicazione Twitter **consumer key** scritta in precedenza al momento della creazione dell'applicazione Twitter.
+	$oauth\_consumer\_secret|L'applicazione Twitter **consumer secret** scritta in precedenza.
+	$oauth\_token|L'applicazione Twitter **access token** scritta in precedenza.
+	$oauth\_token\_secret|L'applicazione Twitter **access token secret** scritta in precedenza.
+	$destBlobName|Il nome BLOB dell'output. Il valore predefinito è **tutorials/twitter/data/tweets.txt**. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.
+	$trackString|Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è **Azure, Cloud, HDInsight**. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.
+	$lineMax|Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.
 
 5. Premere **F5** per eseguire lo script. In caso di problemi, come soluzione selezionare tutte le righe e premere **F8**.
 6. Alla fine dell'output verrà visualizzato il testo "Complete!". Eventuali messaggi di errore verranno visualizzati in rosso.
@@ -251,10 +248,10 @@ Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
 1. **Eliminazione della tabella tweets\_raw** nel caso in cui la tabella esista già.
-2. **Creazione della tabella tweets\_raw Hive**. Questa tabella Hive strutturata e temporanea contiene i dati per altri processi di estrazione, trasformazione e caricamento (ETL, Extraction, Transformation, and Loading). Per informazioni sulle partizioni, vedere la pagina relativa all'[esercitazione su Hive][apache-hive-tutorial].  
+2. **Creazione della tabella tweets\_raw Hive**. Questa tabella Hive strutturata e temporanea contiene i dati per altri processi di estrazione, trasformazione e caricamento (ETL, Extraction, Transformation, and Loading). Per informazioni sulle partizioni, vedere la pagina relativa all'[esercitazione su Hive][apache-hive-tutorial].
 3. **Caricare i dati** dalla cartella di origine /tutorials/twitter/data. Il set di dati di tweet di grandi dimensioni in formato JSON annidato è stato trasformato in una struttura di tabella Hive temporanea.
 3. **Eliminare la tabella tweets** nel caso esista già.
-4. **Creare la tabella tweets**. Prima di eseguire query sul set di dati di tweet tramite Hive, è necessario eseguire un altro processo ETL. Il processo ETL definisce uno schema di tabella più dettagliato per i dati archiviati nella tabella "twitter\_raw".  
+4. **Creare la tabella tweets**. Prima di eseguire query sul set di dati di tweet tramite Hive, è necessario eseguire un altro processo ETL. Il processo ETL definisce uno schema di tabella più dettagliato per i dati archiviati nella tabella "twitter\_raw".
 5. **Inserire la tabella di sovrascrittura**. Questo script Hive complesso avvia una serie di processi MapReduce dal cluster Hadoop. In base al set di dati e alla dimensione del cluster, tale operazione potrebbe richiedere circa 10 minuti.
 6. **Inserire la directory di sovrascrittura**. Eseguire una query e inviare il set di dati a un file. Questa query restituirà un elenco di utenti di Twitter che hanno inviato il maggior numero di tweet contenenti la parola "Azure".
 
@@ -435,13 +432,13 @@ Il file di script HiveQL eseguirà le operazioni seguenti:
 
 4. Impostare le prime due variabili nello script:
 
-Variabile|Descrizione
----|---
-$clusterName|Immettere il nome del cluster HDInsight in cui eseguire l'applicazione.
-$subscriptionID|Inserire L'ID della sottoscrizione di Azure
-$sourceDataPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive leggeranno i dati. Non è necessario modificare questa variabile.
-$outputPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive restituiranno i risultati. Non è necessario modificare questa variabile.
-$hqlScriptFile|Posizione e nome del file di script HiveQL. Non è necessario modificare questa variabile.
+	Variabile|Descrizione
+	---|---
+	$clusterName|Immettere il nome del cluster HDInsight in cui eseguire l'applicazione.
+	$subscriptionID|Inserire L'ID della sottoscrizione di Azure
+	$sourceDataPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive leggeranno i dati. Non è necessario modificare questa variabile.
+	$outputPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive restituiranno i risultati. Non è necessario modificare questa variabile.
+	$hqlScriptFile|Posizione e nome del file di script HiveQL. Non è necessario modificare questa variabile.
 
 5. Premere **F5** per eseguire lo script. In caso di problemi, come soluzione selezionare tutte le righe e premere **F8**.
 6. Alla fine dell'output verrà visualizzato il testo "Complete!". Eventuali messaggi di errore verranno visualizzati in rosso.
@@ -457,7 +454,7 @@ Tutte le attività preliminari sono state completate. Ora è possibile richiamar
 
 Usare lo script PowerShell seguente per eseguire lo script Hive. È necessario impostare la prima variabile.
 
->[AZURE.NOTE] Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati automaticamente in un BLOB pubblico, impostare $hqlScriptFile su "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+>[AZURE.NOTE] Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati automaticamente in un BLOB pubblico, impostare $hqlScriptFile su "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 	#region variables and constants
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
@@ -568,4 +565,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

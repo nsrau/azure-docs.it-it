@@ -126,7 +126,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure-classic/updates.png)
 
 
-5.  Il percorso di installazione per il provider è impostato su **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic su **Installa**.
+5.  Il percorso di installazione per il provider è impostato su **<SystemDrive>\\Programmi\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic su **Installa**.
 
 	![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
 
@@ -134,38 +134,39 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 
 	![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare **Usa impostazioni proxy del sistema predefinite** per usare le impostazioni di connessione a Internet predefinite configurate nel server.
+9. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server. Fare clic su *Avanti*.
 
-	![Internet Settings](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+	![Server registration](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare **Connect with existing proxy settings** (Connetti con le impostazioni proxy esistenti) per usare le impostazioni di connessione a Internet predefinite configurate nel server.
+
+	![Internet Settings](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy.
 	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta.
 	- Gli URL seguenti devono essere accessibili dal server VMM e dagli host Hyper-V
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- Consentire gli indirizzi IP descritti nella pagina relativa agli [intervalli di indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro **Impostazioni**, espandere **Sicurezza**, fare clic su **Account RunAs**, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
-	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
-8. In **Registration Key** selezionare il codice di registrazione scaricato da Azure Site Recovery e copiato nel server VMM.
-9. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server.
+8. In **Chiave di registrazione** selezionare il codice di registrazione scaricato da Azure Site Recovery e copiato nel server VMM.
 
-	![Server registration](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. È possibile specificare un percorso in cui salvare il certificato SSL generato automaticamente per la crittografia dei dati. Questo certificato verrà usato se si abilita la crittografia dei dati per un cloud VMM durante la distribuzione di Site Recovery. Conservare il certificato in una posizione sicura, poiché sarà necessario selezionarlo per decrittografare i dati nel caso in cui venga eseguito un failover in Azure.
+10.  L'impostazione di crittografia viene usata solo quando si esegue la replica di VM Hyper-V in cloud VMM in Azure. Non viene usata se si esegue la replica in un sito secondario.
 
-	![Server registration](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
+12.  In **Sincronizza i metadati cloud** selezionare se si vogliono sincronizzare i metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
 
-11. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
+13.  Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda **Server VMM** della pagina **Server** nell'insieme di credenziali.
+ 	
+	![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. In **Initial cloud metadata** selezionare l'opzione relativa alla sincronizzazione dei metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
-
-	![Server registration](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda **Server VMM** della pagina **Server** nell'insieme di credenziali.
+Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda **Server VMM** della pagina **Server** nell'insieme di credenziali.
 
 ### Installazione dalla riga di comando
 
@@ -189,13 +190,13 @@ Il provider di Azure Site Recovery può essere installato anche usando la riga d
 
 I parametri sono i seguenti:
 
- - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
+ - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.
  - **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
  - **/EncryptionEnabled**: parametro facoltativo per specificare se devono essere crittografate le macchine virtuali di Azure (crittografia dei dati inattivi). Il nome file deve avere un'estensione **pfx**.
  - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
  - **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
  - **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy.
- - **/proxyPassword**: parametro facoltativo che specifica la password proxy.  
+ - **/proxyPassword**: parametro facoltativo che specifica la password proxy.
 
 
 ## Passaggio 4: Creare un account di archiviazione di Azure
@@ -209,7 +210,7 @@ I parametri sono i seguenti:
 
 Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-V nel cloud VMM.
 
-1. Fare clic su **Avvio rapido** > **Scarica l'agente di Servizi di ripristino di Microsoft Azure ed esegui l'installazione negli host** per ottenere la versione più recente del file di installazione dell'agente.
+1. Fare clic su **Avvio rapido** > **Scaricare l'agente di Servizi di ripristino di Microsoft Azure per l'installazione nei server host Hyper-V** per ottenere la versione più recente del file di installazione dell'agente.
 
 	![Installare l'agente di Servizi di ripristino](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
 
@@ -218,7 +219,7 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 
 	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
-4. Nella pagina **Impostazioni di installazione** specificare dove si vuole installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su **Installa**.
+4. Nella pagina **Impostazioni di installazione** specificare dove installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su **Installa**.
 5. Al termine di installazione fare clic su **Chiudi** per completare la procedura guidata.
 
 	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
@@ -284,7 +285,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-	Tenere traccia dello stato dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
+	Tenere traccia dell'avanzamento dell'azione **Abilita protezione** nella scheda **Processi**, inclusa la replica iniziale. Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
@@ -304,11 +305,11 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
 	- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
-	- Ad esempio, se una macchina di origine ha due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda. 	
+	- Ad esempio, se una macchina di origine ha due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
 
 - **Rete della macchina virtuale di destinazione**: la rete a cui si connette la macchina virtuale è determinata dal mapping di rete della rete della macchina virtuale di origine. Se la macchina virtuale di origine ha più di una scheda di rete e le reti di origine sono mappate a reti diverse nella destinazione, si dovrà scegliere una delle reti di destinazione.
 - **Subnet di ogni scheda di rete**: per ogni scheda di rete è possibile scegliere la subnet a cui si connetterà la macchina virtuale di cui è stato eseguito il failover.
-- **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per l'uso dell'indirizzo IP statico, è possibile fornire l'indirizzo IP per la macchina virtuale di destinazione. Usare questa funzionalità per mantenere l'indirizzo IP di una macchina virtuale di origine dopo un failover. Se non viene fornito alcun indirizzo IP, alla scheda di rete verrà assegnato qualsiasi indirizzo IP disponibile al momento del failover. Se viene specificato un indirizzo IP di destinazione già usato da un'altra macchina virtuale in Azure, il failover non riuscirà.  
+- **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per l'uso dell'indirizzo IP statico, è possibile fornire l'indirizzo IP per la macchina virtuale di destinazione. Usare questa funzionalità per mantenere l'indirizzo IP di una macchina virtuale di origine dopo un failover. Se non viene fornito alcun indirizzo IP, alla scheda di rete verrà assegnato qualsiasi indirizzo IP disponibile al momento del failover. Se viene specificato un indirizzo IP di destinazione già usato da un'altra macchina virtuale in Azure, il failover non riuscirà.
 
 	![Modificare le proprietà di rete](./media/site-recovery-vmm-to-azure-classic/multi-nic.png)
 
@@ -323,7 +324,7 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 - Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test.
 - Dopo il failover si userà un indirizzo IP pubblico per connettersi alla macchina virtuale in Azure tramite Desktop remoto. Se si vuole procedere in questo senso, assicurarsi che non siano presenti criteri di dominio che impediscono la connessione a una macchina virtuale mediante un indirizzo pubblico.
 
->[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789).
+>[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789)
 
 ### Creare un piano di ripristino
 
@@ -331,7 +332,10 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 
 	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
+2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo
+3. 
+4. 
+5. 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
 
 	- Se si vuole verificare le proprietà delle macchine virtuali prima di aggiungerle al piano, fare clic sulla macchina virtuale nella pagina delle proprietà nel cloud in cui si trova. È anche possibile configurare le proprietà della macchina virtuale nella console VMM.
 	- Tutte le macchine virtuali visualizzate sono state abilitate per la protezione. L'elenco include sia le macchine virtuali abilitate per la protezione e per cui la replica iniziale è stata completata sia quelle abilitate per la protezione con la replica iniziale in corso. Solo le macchine virtuali con la replica iniziale completa possono eseguire il failover come parte di un piano di ripristino.
@@ -377,4 +381,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Informazioni su [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

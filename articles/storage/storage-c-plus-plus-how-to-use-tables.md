@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # Come usare l'archiviazione tabelle da C++
@@ -34,8 +34,8 @@ In questa guida verranno usate le funzionalità di archiviazione che è possibil
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
--	**Linux:** seguire le istruzioni fornite nella pagina relativa al [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti**. Digitare il comando seguente nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere INVIO.  
+-	**Linux:** seguire le istruzioni fornite nella pagina relativa al [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+-	**Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti**. Digitare il comando seguente nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere INVIO.
 
 		Install-Package wastorage
 
@@ -167,10 +167,10 @@ Per inserire un batch di entità nel servizio tabelle, è possibile usare un'uni
 
 Di seguito sono riportate alcune informazioni sulle operazioni batch:
 
--	È possibile eseguire fino a 100 operazioni di inserimento, eliminazione, unione, sostituzione, inserimento o unione e inserimento o sostituzione in qualsiasi combinazione in un unico batch.  
--	Un'operazione batch può prevedere un'operazione di recupero, se è l'unica operazione nel batch.  
--	A tutte le entità di una singola operazione batch deve essere associata la stessa chiave di partizione.  
--	Un'operazione batch è limitata a un payload di dati di 4 MB.  
+-	È possibile eseguire fino a 100 operazioni di inserimento, eliminazione, unione, sostituzione, inserimento o unione e inserimento o sostituzione in qualsiasi combinazione in un unico batch.
+-	Un'operazione batch può prevedere un'operazione di recupero, se è l'unica operazione nel batch.
+-	A tutte le entità di una singola operazione batch deve essere associata la stessa chiave di partizione.
+-	Un'operazione batch è limitata a un payload di dati di 4 MB.
 
 ## Recuperare tutte le entità di una partizione
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, utilizzare un oggetto **table\_query**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
@@ -414,4 +414,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

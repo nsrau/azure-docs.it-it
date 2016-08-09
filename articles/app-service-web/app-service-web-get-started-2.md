@@ -129,7 +129,7 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 
 - [Acquistare e configurare un nome di dominio personalizzato](custom-dns-web-site-buydomains-web-app.md): è possibile acquistare un dominio accattivante per l'app Web invece del dominio *.azurewebsites.net. In alternativa, è possibile usare un dominio già disponibile.
 - [Configurare gli ambienti di staging](web-sites-staged-publishing.md): è possibile distribuire l'app in un URL di staging prima del passaggio in produzione, aggiornare l'app Web live in modo affidabile e configurare una soluzione DevOps complessa con più slot di distribuzione.
-- [Configurare la distribuzione continua](web-sites-publish-source-control.md): è possibile integrare lo sviluppo di app nel sistema di controllo del codice sorgente ed eseguire la distribuzione in Azure con ogni commit.
+- [Configurare la distribuzione continua](app-service-continuous-deployment.md): è possibile integrare lo sviluppo di app nel sistema di controllo del codice sorgente ed eseguire la distribuzione in Azure con ogni commit.
 - [Accedere alle risorse locali](web-sites-hybrid-connection-get-started.md): è possibile accedere a un database locale esistente o a un sistema CRM.
 - [Eseguire il backup dell'app](web-sites-backup.md): è possibile configurare il backup e il ripristino per l'app Web e prepararsi a errori imprevisti ed eseguire il ripristino da tali errori.
 - [Abilitare i log di diagnostica](web-sites-enable-diagnostic-log.md): è possibile leggere i log IIS da tracce di Azure o dell'applicazione. È possibile leggerli in un flusso, scaricarli o trasferirli in [Application Insights](../application-insights/app-insights-overview.md) per un'analisi pronta all'uso.
@@ -137,4 +137,4 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 - [Eseguire processi in background](../azure-functions/functions-overview.md): è possibile eseguire processi per l'elaborazione di dati, la creazione di report e così via.
 - [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -87,14 +87,9 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 ## Passaggi successivi
 
-- [Importare un file BACPAC in un database SQL di Azure](sql-database-import.md)
-- [Importare un file BACPAC in un database SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
+- Per informazioni sull'importazione di un file BACPAC in un database SQL di Azure, vedere [Importare un file BACPAC per creare un nuovo database SQL di Azure](sql-database-import.md)
+- Per informazioni sull'importazione di un file BACPAC in un database di SQL Server, vedere [Importare un file BACPAC per creare un nuovo database utente](https://msdn.microsoft.com/library/hh710052.aspx)
 
-## Risorse aggiuntive
-
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->
@@ -104,4 +99,4 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

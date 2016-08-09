@@ -45,7 +45,7 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate vedere [Versione di valutazione gratuita di Azure][lnk-free-trial].
 
-## Ricezione di messaggi sul dispositivo simulato
+## Ricevere messaggi sul dispositivo simulato
 
 In questa sezione si modificherà l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure per .NET] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
 
@@ -79,7 +79,7 @@ In questa sezione si modificherà l'applicazione del dispositivo simulato creata
 
 > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
 
-## Inviare un messaggio da cloud a dispositivo dal back-end dell'app
+## Inviare un messaggio da cloud a dispositivo
 
 In questa sezione si scriverà un'app console di Windows che invia messaggi da cloud a dispositivo all'app del dispositivo simulato.
 
@@ -199,4 +199,4 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

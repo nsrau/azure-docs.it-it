@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="07/25/2016"
 	ms.author="marsma" />
 
 # Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee
 
-In questo articolo viene spiegato come eseguire più attività contemporaneamente in ogni nodo di calcolo all'interno del pool di Azure Batch. L'abilitazione dell'esecuzione di attività simultanee nei nodi di calcolo di un pool consente di ottimizzare l'utilizzo delle risorse su un numero di nodi ridotto all'interno del pool. Per alcuni carichi di lavoro, questo può consentire tempi di processo più brevi e riduzione del costo.
+Eseguendo più attività contemporaneamente in ogni nodo di calcolo nel pool di Azure Batch, è possibile ottimizzare l'utilizzo delle risorse in un numero inferiore di nodi nel pool. Per alcuni carichi di lavoro, questo può consentire tempi di processo più brevi e riduzione del costo.
 
 In alcuni scenari è utile che le risorse di un nodo siano dedicate a una singola attività, ma in molti casi è consigliabile che più attività possano condividere tali risorse:
 
@@ -32,13 +32,13 @@ In alcuni scenari è utile che le risorse di un nodo siano dedicate a una singol
 
 ## Scenario di esempio
 
-Di seguito è riportato un esempio che illustra i vantaggi dell'esecuzione di attività parallele. Si supponga che l'applicazione per l'attività disponga dei requisiti di CPU e memoria per cui le dimensioni del nodo [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d) risultano appropriate, ma per poter eseguire il processo nel tempo necessario, sono necessari 1000 nodi.
+Per mostrare i vantaggi dell'esecuzione parallela di attività, si supponga che l'applicazione delle attività abbia requisiti di CPU e memoria che possono essere soddisfatti da dimensioni del nodo [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d). Per poter terminare il processo nei tempi previsti sono tuttavia necessari 1.000 nodi.
 
-Invece di usare nodi Standard\_D1 con 1 core CPU, è possibile usare nodi [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) con 16 core ognuno e abilitare l'esecuzione parallela delle attività. In questo caso, è possibile usare *un numero di nodi inferiore di 16 volte* e invece di 1000 nodi ne servirebbero solo 63. Questo consente di migliorare in modo significativo i tempi di esecuzione del processo e l'efficienza, soprattutto se ogni nodo usa file dell'applicazione di grandi dimensioni o dati di riferimento.
+Invece di usare nodi Standard\_D1 con 1 core CPU è possibile usare nodi [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) con 16 core ognuno e abilitare l'esecuzione parallela delle attività. Sarà quindi possibile usare *un numero di nodi inferiore di 16 volte* e invece di 1.000 nodi ne serviranno solo 63. Se ogni nodo usa file dell'applicazione o dati di riferimento di grandi dimensioni, è anche possibile ottimizzare la durata e l'efficienza dei processi perché i dati vengono copiati solo in 16 nodi.
 
 ## Abilitare l'esecuzione parallela di attività
 
-È possibile configurare i nodi di calcolo nella soluzione Batch per l'esecuzione di attività parallele a livello di pool. Quando si usa la libreria .NET di Batch, impostare la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] durante la creazione del pool. Se si usa l'API REST di Batch, impostare l'elemento [maxTasksPerNode][rest_addpool] nel corpo della richiesta durante la creazione del pool.
+I nodi di calcolo per l'esecuzione di attività parallele vengono configurati a livello di pool. Con la libreria Batch .NET, impostare la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] durante la creazione del pool. Se si usa l'API Batch REST, impostare l'elemento [maxTasksPerNode][rest_addpool] nel corpo della richiesta durante la creazione del pool.
 
 Con Azure Batch è possibile impostare il numero massimo di attività consentite per nodo fino a quattro volte (4x) il numero di core del nodo. Ad esempio, se il pool è configurato con nodi di grandi dimensioni (quattro core), è possibile impostare il valore di `maxTasksPerNode` su 16. Per informazioni dettagliate sul numero di core per ognuna delle dimensioni del nodo, vedere [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Per altre informazioni sui limiti del servizio, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
@@ -46,7 +46,7 @@ Con Azure Batch è possibile impostare il numero massimo di attività consentite
 
 ## Distribuzione delle attività
 
-Quando i nodi di calcolo in un pool sono in grado di eseguire attività simultaneamente, è importante specificare come distribuire le attività tra i nodi nel pool.
+Quando i nodi di calcolo in un pool possono eseguire attività simultaneamente, è importante specificare come distribuire le attività tra i nodi nel pool.
 
 Tramite la proprietà [CloudPool.TaskSchedulingPolicy][task_schedule] è possibile specificare che le attività vengano assegnate in modo uniforme in tutti i nodi del pool ("distribuzione"). In alternativa, è possibile specificare che più attività possibili vengano assegnate a ciascun nodo prima di essere assegnate a un altro nodo del pool ("imballaggio").
 
@@ -90,9 +90,9 @@ Questo frammento di codice dell'API [REST di Batch][api_rest] specifica una rich
 
 > [AZURE.NOTE] L'elemento `maxTasksPerNode` e la proprietà [MaxTasksPerComputeNode][maxtasks_net] possono essere impostati solo al momento della creazione del pool e non possono essere modificati una volta che il pool è stato creato.
 
-## Esplorare il progetto di esempio
+## Esempio di codice
 
-Vedere il progetto [ParallelNodeTasks][parallel_tasks_sample] su GitHub. Si tratta di un esempio di codice di lavoro che illustra l'uso della proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
+Il progetto [ParallelNodeTasks][parallel_tasks_sample] in GitHub illustra l'uso della proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
 
 Questa applicazione console C# usa la libreria [.NET di Batch][api_net] per creare un pool con uno o più nodi di calcolo ed esegue un numero configurabile di attività su tali nodi per simulare un carico variabile. L'output dell'applicazione specifica quali nodi eseguono una specifica attività. L'applicazione fornisce inoltre un riepilogo dei parametri e della durata del processo. Di seguito è visualizzato la parte relativa al riepilogo dell'output da due diverse esecuzioni dell'applicazione di esempio.
 
@@ -118,9 +118,11 @@ La seconda esecuzione dell'esempio illustra una diminuzione significativa nella 
 
 > [AZURE.NOTE] Le durate del processo nei riepiloghi precedenti non includono il tempo di creazione del pool. Tutti i processi precedenti sono stati inviati a pool creati in precedenza, i cui nodi di calcolo si trovavano nello stato *inattivo* al momento dell'invio.
 
-## Mappa termica di Batch Explorer
+## Passaggi successivi
 
-[Azure Batch Explorer][batch_explorer], una delle [applicazioni di esempio][github_samples] di Azure Batch, contiene la funzionalità *mappa termica* che offre una visualizzazione dell'esecuzione dell'attività. Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample], è possibile usare la funzionalità mappa termica per visualizzare facilmente l'esecuzione delle attività parallele in ogni nodo.
+### Mappa termica di Batch Explorer
+
+[Azure Batch Explorer][batch_explorer], una delle [applicazioni di esempio][github_samples] di Azure Batch, contiene la funzionalità *Mappa termica* che offre la visualizzazione dell'esecuzione delle attività. Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample], è possibile usare la funzionalità Mappa termica per visualizzare facilmente l'esecuzione delle attività parallele in ogni nodo.
 
 ![Mappa termica di Batch Explorer][1]
 
@@ -141,4 +143,4 @@ La seconda esecuzione dell'esempio illustra una diminuzione significativa nella 
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->
