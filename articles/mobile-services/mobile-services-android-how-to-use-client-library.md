@@ -304,7 +304,7 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
 + Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per ulteriori informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1].
-+  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++  Caratteri stampabili: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
 In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [CLI per la gestione delle tabelle di Servizi mobili].
@@ -586,7 +586,7 @@ Nel codice precedente l'attributo *listitem* consente di specificare l'ID del la
 
 Poiché l'origine dati della visualizzazione è una matrice di oggetti *ToDoItem*, verrà creata una sottoclasse per l'adattatore da una classe *ArrayAdapter&lt;ToDoItem&gt;*. Tale sottoclasse consentirà di ottenere una visualizzazione per ogni oggetto *ToDoItem* che utilizza il layout *row\_list\_to\_do*.
 
-Nel codice viene definita la classe seguente che costituisce un'estensione della classe *ArrayAdapter&lt;E&gt;*:
+Nel codice viene definita la classe seguente che costituisce un'estensione della classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -939,3 +939,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
 <!---HONumber=AcomDC_0727_2016-->
+
