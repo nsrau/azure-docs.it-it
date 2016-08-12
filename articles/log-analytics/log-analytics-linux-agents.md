@@ -146,7 +146,7 @@ Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza s
 | --- | --- |
 | \_Total | Totale di tutte le istanze |
 | * | Tutte le istanze |
-| (/|/var) | Corrisponde alle istanze denominate / oppure /var |
+| (/&#124;/var) | Corrisponde alle istanze denominate / oppure /var |
 
 
 Analogamente, l'intervallo di campionamento scelto per un contatore padre viene applicato a tutti i rispettivi contatori figlio. In altri termini, gli intervalli di campionamento e le istanze di tutti i contatori figlio sono collegati tra loro.

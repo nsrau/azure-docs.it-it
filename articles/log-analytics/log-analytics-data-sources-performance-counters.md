@@ -110,4 +110,4 @@ Se l'intervallo di tempo selezionato √® di 6 ore o meno, il grafico visualizzer√
 - Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 - Esportare i dati raccolti in [Power BI](log-analytics-powerbi.md) per altre opzioni di visualizzazione e analisi.
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->
