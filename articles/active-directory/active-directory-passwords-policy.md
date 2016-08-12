@@ -39,7 +39,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 
 | Proprietà | Requisiti |
 |   ----------------------- |   ----------------------- |
-| Caratteri consentiti | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Caratteri consentiti | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Caratteri non consentiti | <ul><li>Caratteri Unicode</li><li>Spazi</li><li>**Solo password complesse**: non possono contenere un punto "." subito prima del simbolo "@"</li></ul> |
 | Restrizioni per le password | <ul><li>Minimo di 8 caratteri e massimo di 16 caratteri</li><li>**Solo password complesse**: devono essere usati 3 su 4 tra i tipi di caratteri seguenti:<ul><li>Caratteri minuscoli</li><li>Caratteri maiuscoli</li><li>Numeri (0-9)</li><li>Simboli (vedere le restrizioni per le password sopra indicate)</li></ul></li></ul> |
 | Durata di validità della password | <ul><li>Valore predefinito: **90** giorni </li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
