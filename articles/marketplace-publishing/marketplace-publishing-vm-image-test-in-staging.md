@@ -45,7 +45,7 @@ Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sa
 
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-> [AZURE.IMPORTANT] L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [scheda **Pubblica** > ** clic sul pulsante "Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'elencazione dell'offerta.
+> [AZURE.IMPORTANT] L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [scheda **Pubblica** > **clic sul pulsante "Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'elencazione dell'offerta.
 
 > La piattaforma di gestione temporanea è progettata per il test dell'offerta in una modalità di anteprima da parte dell'autore. È fortemente sconsigliato l'uso di questa piattaforma a fini commerciali.
 

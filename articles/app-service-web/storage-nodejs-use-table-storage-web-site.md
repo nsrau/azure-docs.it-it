@@ -549,7 +549,7 @@ Sostituire **<storage account name>** con il nome dell'account di archiviazione 
 
 In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com/):
 
-1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web ** > nome app Web.
+1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome app Web.
 
 1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** > **Impostazioni dell'applicazione**.
 

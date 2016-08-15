@@ -32,13 +32,17 @@ Per configurare e ottenere informazioni sulle regole di avviso a livello di codi
 
 2. Fare clic sulla sezione **Regole di avviso** in **Operazioni**.
 
-3. Fare clic sul comando **Aggiungi avviso**. ![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Fare clic sul comando **Aggiungi avviso**.
+    ![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. È possibile denominare la regola di avviso e scegliere una descrizione che verrà visualizzata nella notifica inviata tramite posta elettronica.
 
-5. Quando si seleziona **Metriche**, è possibile scegliere una condizione e un valore soglia per la metrica. Si tratta del periodo di tempo usato da Azure per monitorare e tracciare l'attività di avviso. ![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Quando si seleziona **Metriche**, è possibile scegliere una condizione e un valore soglia per la metrica. Si tratta del periodo di tempo usato da Azure per monitorare e tracciare l'attività di avviso.
+    ![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. È inoltre possibile scegliere **Eventi** e ricevere una notifica quando si verifica un determinato evento. ![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. È inoltre possibile scegliere **Eventi** e ricevere una notifica quando si verifica un determinato evento. 
+    ![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
 
 7. Infine, si può scegliere di inviare la notifica tramite posta elettronica agli amministratori responsabili.
 

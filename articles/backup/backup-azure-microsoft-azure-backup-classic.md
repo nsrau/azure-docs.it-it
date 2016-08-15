@@ -78,7 +78,7 @@ Per creare un insieme di credenziali per il backup:
 
 ### Download del pacchetto software
 
-In modo analogo alle credenziali dell'insieme di credenziali, è possibile scaricare il server di Backup di Microsoft Azure per i carichi di lavoro dell'applicazione dalla ** pagina Avvio rapido** dell'insieme di credenziali per il backup.
+In modo analogo alle credenziali dell'insieme di credenziali, è possibile scaricare il server di Backup di Microsoft Azure per i carichi di lavoro dell'applicazione dalla **pagina Avvio rapido** dell'insieme di credenziali per il backup.
 
 1. Fare clic sull'opzione **per carichi di lavoro dell'applicazione (da disco a disco a cloud)**. Verrà visualizzata la pagina dell'Area download da cui è possibile scaricare il pacchetto software.
 

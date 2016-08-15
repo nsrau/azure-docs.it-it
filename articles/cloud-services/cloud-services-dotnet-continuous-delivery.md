@@ -44,7 +44,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
 1.  Se Visual Studio è installato nel server di compilazione, individuare e fare clic su **Prompt dei comandi di Visual Studio** nella cartella **Strumenti di Visual Studio** in Windows.
 
-    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\\Microsoft.NET\\Framework\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
+    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\\Microsoft.NET\\Framework\\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -58,7 +58,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene usata la directory corrente. Per altre informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](1).
 
-4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
+4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -105,7 +105,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 In questa sezione viene descritto come creare uno script di Windows PowerShell che pubblicherà l'output del pacchetto dell'app per cloud in Azure usando parametri facoltativi. Questo script può essere chiamato dopo il passaggio di compilazione nell'automazione della compilazione personalizzata. È possibile chiamare lo script anche da attività del flusso di lavoro del modello di processo in Visual Studio TFS Team Build.
 
-1.  Installare i [cmdlet di Azure PowerShell][] (0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
+1.  Installare i [cmdlet di Azure PowerShell][] \(0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
 
 2.  Avviare Azure PowerShell usando il menu o la pagina Start. Con l'avvio in questa modalità, verranno caricati i cmdlet di Azure PowerShell.
 
@@ -123,7 +123,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
     Vengono visualizzate le informazioni relative alla sottoscrizione. Verificarne la correttezza.
 
-4.  Salvare il modello di script fornito alla fine di questo articolo nella cartella degli script, ad esempio c:\\script\\WindowsAzure\**PublishCloudService.ps1**.
+4.  Salvare il modello di script fornito alla fine di questo articolo nella cartella degli script, ad esempio c:\\script\\WindowsAzure\\**PublishCloudService.ps1**.
 
 5.  Rivedere la sezione dello script relativa ai parametri. Aggiungere o modificare i valori predefiniti. Questi valori possono sempre essere sostituiti mediante il passaggio di parametri espliciti.
 

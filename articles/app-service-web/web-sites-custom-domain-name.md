@@ -61,7 +61,7 @@ Il servizio app di Azure consente di eseguire il mapping delle categorie di domi
 A seconda delle esigenze, è possibile usare due diversi tipi di record DNS standard per eseguire il mapping del dominio personalizzato:
 
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A): esegue il mapping del nome dominio personalizzato direttamente all'indirizzo IP virtuale dell'app Azure.
-- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **& lt;*appname*>.azurewebsites.net**.
+- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **&lt;*appname*>.azurewebsites.net**.
 
 Il vantaggio di CNAME è la sua persistenza a prescindere dalle variazioni dell'indirizzo IP. L'indirizzo IP virtuale dell'app può cambiare se si elimina e si crea nuovamente l'app oppure se da un piano tariffario di livello superiore si torna al piano **Condiviso**. Se l'indirizzo IP cambia, un record CNAME resta valido, mentre un record A deve essere aggiornato.
 

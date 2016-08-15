@@ -148,7 +148,7 @@ Per visualizzare i nomi di dominio, fare clic su **Tutte le impostazioni** > **D
 
 ### Deployments
 
-- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] (Uso di Git per distribuire app Web nel servizio app di Azure)
+- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] \(Uso di Git per distribuire app Web nel servizio app di Azure)
 - Slot di distribuzione. Vedere [Configurare ambienti di staging per le app Web nel servizio app di Azure].
 
 Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni** > **Slot di distribuzione**.

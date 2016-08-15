@@ -93,7 +93,7 @@ Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di qu
 Come si inviano i dati a un'altra risorsa di Application Insights?
 
 * *Se Application Insights è stato aggiunto al codice in Visual Studio:* fare clic con il pulsante destro del mouse sul progetto, scegliere **Application Insights > Configura** e quindi scegliere la risorsa. Sarà possibile creare una nuova risorsa. Ricompilare e ridistribuire.
-* *In caso contrario:* In Azure passare al pannello di controllo dell'app Web e aprire ** > Estensioni**. Eliminare l'estensione di Application Insights. Aprire quindi **Strumenti > Prestazioni**, 'fare clic qui', scegliere Application Insights e quindi la risorsa. Per creare una nuova risorsa di Application Insights eseguire prima questa operazione.
+* *In caso contrario:* In Azure passare al pannello di controllo dell'app Web e aprire **> Estensioni**. Eliminare l'estensione di Application Insights. Aprire quindi **Strumenti > Prestazioni**, 'fare clic qui', scegliere Application Insights e quindi la risorsa. Per creare una nuova risorsa di Application Insights eseguire prima questa operazione.
 
 
 ## Passaggi successivi

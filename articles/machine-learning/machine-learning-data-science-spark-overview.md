@@ -129,7 +129,7 @@ A questo punto è possibile:
 
 - Fare clic sul notebook per visualizzare il codice.
 - Eseguire ogni cella premendo **MAIUSC+INVIO**
-- Eseguire l'intero notebook facendo clic su **Cell ** -> **Run** (Cella -> Esegui)
+- Eseguire l'intero notebook facendo clic su **Cell** -> **Run** (Cella -> Esegui)
 - Usare la visualizzazione automatica delle query
 
 > [AZURE.TIP] Il kernel Pyspark visualizza automaticamente l'output delle query SQL (HiveQL). È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook:

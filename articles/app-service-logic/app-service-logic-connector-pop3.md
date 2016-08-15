@@ -65,7 +65,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore POP3 come tr
 5.	È ora possibile usare il connettore POP3 nel flusso. Selezionare il trigger "Get Email" e configurare la frequenza e l'intervallo. È possibile usare il messaggio e-mail recuperato dal trigger di POP3 in altre azioni del flusso.
 		 
 
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

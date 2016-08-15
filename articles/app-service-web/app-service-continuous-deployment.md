@@ -80,7 +80,7 @@ Per disabilitare la distribuzione continua,
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-[servizio app di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-changes-existing-services/
+[servizio app di Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [portale di Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/it-IT/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

@@ -1464,7 +1464,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Stampare il percorso dei file di modello da usare nel notebook di utilizzo. ** Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
+**Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

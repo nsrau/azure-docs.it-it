@@ -40,7 +40,7 @@ Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto** per aprire 
 
 Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget. Ora si aggiungeranno al progetto.
 
-1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet ** e poi su **Console di Gestione pacchetti**.
+1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet** e poi su **Console di Gestione pacchetti**.
 
 	![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 

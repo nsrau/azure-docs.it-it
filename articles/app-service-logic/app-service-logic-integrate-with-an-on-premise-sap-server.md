@@ -45,7 +45,7 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui Ã
 ## Creare un nuovo connettore SAP
 1. Accedere al portale di Azure.
 2. Selezionare **Nuovo**.
-3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
+3. Nel pannello di creazione, selezionare **Calcolo** > **Azure Marketplace**.
 4. Nel pannello Marketplace selezionare **App per le API** e quindi eseguire la ricerca di SAP nella barra di ricerca: ![App per le API del connettore SAP][2]
 5. Selezionare **SAP Connector** pubblicato da Microsoft.
 6. Nel pannello Connettore SAP selezionare **Crea**.

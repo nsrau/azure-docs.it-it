@@ -579,7 +579,7 @@ In questa sezione viene creato un modello di regressione logistica con la funzio
 1. Dati di **training del modello** con un set di parametri
 2. **Valutazione del modello** su un set di dati di test con metriche
 3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro
-4. ** un punteggio al modello** in base ai dati di test
+4. **un punteggio al modello** in base ai dati di test
 5. **Creazione del tracciato dei risultati**: curve ROC
 
 Di seguito è riportato il codice per queste procedure.

@@ -43,7 +43,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Nello stesso computer](./media/backup-azure-restore-windows-server/samemachine.png)
 
-4. È possibile scegliere di selezionare ** Sfoglia elenco file** o **Cerca file**.
+4. È possibile scegliere di selezionare **Sfoglia elenco file** o **Cerca file**.
 
     Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file**. Ai fini di questa sezione, si procede con l'opzione predefinita.
 
