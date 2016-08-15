@@ -27,9 +27,9 @@ Questo articolo descrive i criteri password e i requisiti di complessità associ
 
 Ogni account utente che deve effettuare l'accesso nel sistema di autenticazione di Azure AD deve essere associato a un valore di attributo nome dell'entità utente (UPN) univoco. La tabella seguente descrive i criteri che si applicano sia agli account utente che originano da Active Directory locale (sincronizzati con il cloud) sia agli account utente solo del cloud.
 
-| Proprietà | Requisiti di UserPrincipalName |
+|   Proprietà           |     Requisiti di UserPrincipalName  |
 |   ----------------------- |   ----------------------- |
-| Caratteri consentiti |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+|  Caratteri consentiti    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> 
 | Caratteri non consentiti | <ul> <li>Qualsiasi carattere "@" che non separa il nome utente dal dominio.</li> <li>Non può contenere un punto "." subito prima del simbolo "@"</li></ul> |
 | Vincoli di lunghezza | <ul> <li>La lunghezza totale non deve essere superiore a 113 caratteri</li><li>64 caratteri prima del simbolo '@'</li><li>48 caratteri dopo il simbolo '@'</li></ul>
 
@@ -63,4 +63,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016---->
