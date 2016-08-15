@@ -67,7 +67,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere abilitata automaticamente.
 
-> [AZURE.TIP] [Storage Explorer]http://storageexplorer.com/ è uno strumento ideale per gestire più account di archiviazione.
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) è uno strumento ideale per gestire più account di archiviazione.
 
 ## Dettagli tecnici
 
