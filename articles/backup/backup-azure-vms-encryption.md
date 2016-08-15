@@ -3,8 +3,8 @@
    description="Informazioni su come Backup di Azure gestisce i dati crittografati mediante BitLocker o dmcrypt durante il backup delle macchine virtuali IaaS. Questo articolo consente di prepararsi alle differenze di backup e di ripristino quando si gestiscono dischi crittografati."
    services="backup"
    documentationCenter=""
-   authors="markgalioto"
-   manager="cfreeman"
+   authors="pallavijoshi"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="07/01/2016"
-   ms.author="markgal; jimpark"/>
+   ms.author="markgal; jimpark; trinadhk"/>
 
 # Gestione di dischi crittografati durante il backup delle macchine Virtuali
 
@@ -71,4 +71,4 @@ Quando è necessario effettuare il rollover o modificare le chiavi per le macchi
 - [Guida alla distribuzione - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Distribuzione e uso di SecureVM - video](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

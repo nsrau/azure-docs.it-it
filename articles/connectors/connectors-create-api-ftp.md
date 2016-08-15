@@ -1,7 +1,7 @@
 <properties
 pageTitle="Informazioni su come usare il connettore FTP nelle app per la logica | Microsoft Azure"
 description="Creare app per la logica con Servizio app di Azure. Connettersi a un server FTP per gestire i file. Nel server FTP è possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare file."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -104,7 +104,7 @@ FTP supporta le azioni seguenti:
 |[Estrai cartella](connectors-create-api-ftp.md#extract-folder)|Questa operazione estrae un file di archivio in una cartella, ad esempio ZIP.|
 ### Informazioni dettagliate sulle azioni
 
-Ecco i dettagli per le azioni e i trigger per questo connettore con le relative risposte:
+Di seguito sono indicati i dettagli per le azioni e i trigger di questo connettore con le relative risposte:
 
 
 
@@ -438,4 +438,4 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

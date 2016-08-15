@@ -4,7 +4,7 @@
 	authors="rajram"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -170,4 +170,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

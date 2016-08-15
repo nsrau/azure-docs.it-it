@@ -25,7 +25,7 @@ Data Factory supporta la connessione da e verso il file system locale tramite il
 > [AZURE.NOTE] 
 Tranne il Gateway di gestione dati, non è necessario installare altri file binari per la comunicazione da e verso il file system locale.
 > 
-> Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere la sezione [Risoluzione dei problemi di gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+> Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
 
 ## Condivisione file Linux 
 
@@ -574,4 +574,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

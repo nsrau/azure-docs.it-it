@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure | Microsoft Azure"
 	description="Descrive le linee guida per l'uso dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -63,4 +64,4 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | | | | | | | zix |
 | | | | | | | zzz |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

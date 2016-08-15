@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Limiti e configurazione delle app per la logica | Microsoft Azure"
 	description="Panoramica dei limiti del servizio e dei valori di configurazione disponibili per le app per la logica."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"
@@ -134,4 +134,4 @@ Le chiamate effettuate direttamente da un'app per la logica (tramite [HTTP](../c
 - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

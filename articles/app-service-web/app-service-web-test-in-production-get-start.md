@@ -26,7 +26,7 @@ Con la funzionalità Routing del traffico nel [Servizio app di Azure](http://go.
 
 - Individuare i bug funzionali o trovare i colli di bottiglia delle prestazioni negli aggiornamenti prima della distribuzione a livello di sito
 - Effettuare "voli di prova controllati" delle modifiche misurando la metrica di usabilità nell'app beta
-- Passare gradualmente a un nuovo aggiornamento e, in caso di errore, tornare semplicemente alla versione corrente 
+- Passare gradualmente a un nuovo aggiornamento e, in caso di errore, tornare semplicemente alla versione corrente
 - Ottimizzare i risultati aziendali dell'app eseguendo [test A/B](https://en.wikipedia.org/wiki/A/B_testing) o [test multivariati](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) in più slot di distribuzione
 
 ### Requisiti per l'uso di Routing del traffico nelle app Web
@@ -39,7 +39,7 @@ Con la funzionalità Routing del traffico nel [Servizio app di Azure](http://go.
 
 A livello di base in ogni scenario di test in ambiente di produzione, si instrada una percentuale predefinita di traffico live a uno slot di distribuzione non di produzione. A questo scopo, eseguire la procedura seguente.
 
->[AZURE.NOTE] Questi passaggi presuppongono che sia già disponibile uno [slot di distribuzione non di produzione](web-sites-staged-publishing.md) in cui sia già stato [distribuito](web-sites-publish-source-control.md) il contenuto desiderato dell'app Web.
+>[AZURE.NOTE] Questi passaggi presuppongono che sia già disponibile uno [slot di distribuzione non di produzione](web-sites-staged-publishing.md) in cui sia già stato [distribuito](web-sites-deploy.md) il contenuto desiderato dell'app Web.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel pannello dell'app Web fare clic su **Impostazioni** > **Routing del traffico**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
@@ -86,4 +86,4 @@ Per permettere agli utenti di acconsentire esplicitamente all'app beta, impostar
 -   [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md)
 -	[Usare efficacemente gli ambienti DevOps per le app Web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

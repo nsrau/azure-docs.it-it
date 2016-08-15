@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del connettore POP3 nelle app per la logica | Servizio app di Microsoft Azure"
    description="Come creare e configurare l'app per le API o il connettore POP3 e usarlo in un'app per la logica nel servizio app di Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -86,4 +86,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

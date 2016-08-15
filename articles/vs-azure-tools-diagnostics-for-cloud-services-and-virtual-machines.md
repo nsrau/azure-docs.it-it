@@ -41,13 +41,13 @@ Il funzionamento della stringa di connessione presenta alcune differenze sostanz
 
 - In Azure SDK 2.6 e versioni successive la stringa di connessione di diagnostica viene usata da Visual Studio per configurare l'estensione di diagnostica con le informazioni appropriate sull'account di archiviazione durante la pubblicazione. La stringa di connessione consente di definire diversi account di archiviazione per diverse configurazioni del servizio, che verranno usate da Visual Studio durante la pubblicazione. Poiché, tuttavia, il plug-in di diagnostica non è più disponibile (dopo Azure SDK 2.5), il solo file .cscfg non è in grado di abilitare l'estensione di diagnostica. È necessario abilitare l'estensione separatamente tramite strumenti quali Visual Studio o PowerShell.
 
-- Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics.<RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
+- Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics.&lt;RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
 
 - La stringa di connessione nel file con estensione cscfg viene usata anche dal [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) per accedere ai dati di diagnostica, in modo da consentirne la visualizzazione nella scheda **Monitoraggio**. La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
 
 ## Migrazione di progetti in Azure SDK 2.6 e versioni successive
 
-Quando si esegue la migrazione da Azure SDK 2.5 ad Azure SDK 2.6 o versioni successivi, eventuali account di archiviazione di diagnostica specificati nel file con estensione wadcfgx rimarranno in tale posizione. Per sfruttare i vantaggi derivanti dalla flessibilità che consente di usare diversi account di archiviazione per diverse configurazioni di archiviazione, sarà necessario aggiungere manualmente la stringa di connessione al progetto. Se si esegue la migrazione di un progetto da Azure SDK 2.4 o versioni precedenti ad Azure SDK 2.6, le stringhe di connessione di diagnostica verranno conservate. Occorre tuttavia notare le modifiche relative al modo in cui le stringhe di connessione vengono gestite in Azure SDK 2.6, come illustrato nella sezione precedente.
+Quando si esegue la migrazione da Azure SDK 2.5 ad Azure SDK 2.6 o versioni successivi, eventuali account di archiviazione di diagnostica specificati nel file con estensione wadcfgx rimarranno in tale posizione. Per sfruttare la flessibilità di utilizzo di account di archiviazione diversi per configurazioni di archiviazione diverse, è necessario aggiungere manualmente la stringa di connessione al progetto. Se si sta eseguendo la migrazione di un progetto da Azure SDK 2.4 o versioni precedenti ad Azure SDK 2.6, le stringhe di connessione di diagnostica vengono mantenute. Occorre tuttavia notare le modifiche relative al modo in cui le stringhe di connessione vengono gestite in Azure SDK 2.6, come illustrato nella sezione precedente.
 
 ### Modalità di determinazione dell'account di archiviazione di diagnostica da parte di Visual Studio
 
@@ -87,7 +87,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
     ![Accesso all'opzione Abilita diagnostica](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
 
-1. Scegliere il pulsante con i puntini di sospensione (…) per specificare l'account di archiviazione in cui si vuole che vengano archiviati i dati di diagnostica. L'account di archiviazione scelto corrisponderà al percorso di archiviazione dei dati di diagnostica.
+1. Scegliere il pulsante con i puntini di sospensione (…) per specificare l'account di archiviazione in cui si vogliono archiviare i dati di diagnostica. L'account di archiviazione scelto corrisponderà al percorso di archiviazione dei dati di diagnostica.
 
     ![Specificare l'account di archiviazione da usare](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 
@@ -101,7 +101,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
   - Se si sceglie l'opzione Credenziali immesse manualmente, verrà richiesta l'immissione del nome e della chiave dell'account di Azure da usare.
 
-1. Fare clic su **Configura** per visualizzare la finestra di dialogo **Configurazione di diagnostica**. Ogni scheda, ad eccezione di **Generale** e **Directory log**, rappresenta un'origine di dati di diagnostica che è possibile raccogliere. La scheda predefinita, **Generale**, offre le opzioni di raccolta di dati di diagnostica seguenti: **Solo errori**, **Tutte le informazioni** e **Personalizza piano**. L'opzione predefinita, **Solo errori**, richiede la quantità minima di spazio di archiviazione, perché non trasferisce messaggi di avviso o di traccia. L'opzione Tutte le informazioni trasferisce la quantità più elevata di informazioni ed è quindi l'opzione più costosa in termini di risorse di archiviazione.
+1. Scegliere il pulsante **Configura** per visualizzare la finestra di dialogo **Configurazione di diagnostica**. Ogni scheda, ad eccezione di **Generale** e **Directory log** rappresenta un'origine di dati di diagnostica che è possibile raccogliere. La scheda predefinita, **Generale**, offre le opzioni di raccolta di dati di diagnostica seguenti: **Solo errori**, **Tutte le informazioni** e **Personalizza piano**. L'opzione predefinita, **Solo errori**, richiede la quantità minima di spazio di archiviazione, perché non trasferisce messaggi di avviso o di traccia. L'opzione Tutte le informazioni trasferisce la quantità più elevata di informazioni ed è quindi l'opzione più costosa in termini di risorse di archiviazione.
 
     ![Abilitare la diagnostica e la configurazione di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 
@@ -109,7 +109,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
 1. La casella **Quota disco in MB** specifica la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. Se si vuole, è possibile cambiare il valore predefinito.
 
-1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <log type>**. Ad esempio, per raccogliere log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni di configurazione su ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
+1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**. Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni di configurazione su ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
 1. Dopo l'abilitazione della raccolta di tutti i dati di diagnostica desiderati, fare clic su **OK**.
 
@@ -149,7 +149,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
 1. La casella **Quota disco in MB** specifica la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. Se si vuole, è possibile cambiare il valore predefinito.
 
-1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <log type>**.
+1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**.
 
     Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni di configurazione su ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
@@ -177,7 +177,7 @@ Per acquisire log eventi di Windows, selezionare la casella di controllo **Abili
 
   ![Log eventi](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Se si usa Azure SDK 2.6 o versioni successive e si vuole specificare un'origine dati personalizzata, immetterla nella casella di testo **<Data source name>**, quindi scegliere il pulsante **Aggiungi** accanto alla casella. L'origine dati viene aggiunta al file diagnostics.cfcfg.
+Se si usa Azure SDK 2.6 o versioni successive e si vuole specificare un'origine dati personalizzata, immetterla nella casella di testo **<Nome origine dati>**, quindi scegliere il pulsante **Aggiungi** accanto alla casella. L'origine dati viene aggiunta al file diagnostics.cfcfg.
 
 Se si usa Azure SDK 2.5 e si vuole specificare un'origine dati personalizzata, sarà possibile aggiungerla alla sezione `WindowsEventLog` del file diagnostics.wadcfgx, come illustrato nell'esempio seguente.
 
@@ -357,4 +357,4 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

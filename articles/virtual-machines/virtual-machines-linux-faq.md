@@ -48,7 +48,7 @@ Non è possibile usare il disco temporaneo (/dev/sdb1) per archiviare i dati. Si
 
 ## È possibile copiare o clonare una VM di Azure esistente?
 
-Sì. Per le istruzioni, vedere [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-specialized-image.md) (Creare una copia di una macchina virtuale Linux nel modello di distribuzione di Resource Manager).
+Sì. Per le istruzioni, vedere [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-copy-vm.md) (Creare una copia di una macchina virtuale Linux nel modello di distribuzione di Resource Manager).
 
 ## Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Azure Resource Manager?
 
@@ -58,4 +58,4 @@ Le due nuove aree del Canada centrale e del Canada orientale non vengono registr
 
 No. Attualmente questa operazione può essere eseguita solo al momento della creazione.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

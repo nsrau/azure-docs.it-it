@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/02/2016"
 	ms.author="asteen"/>
 
 # Come aggiornare la password
@@ -27,6 +27,10 @@ Questo articolo fornisce informazioni utili su come gestire la password dell'acc
 * [**Problemi frequenti e relative soluzioni**](#common-problems-and-their-solutions)
 
 ## Come registrarsi per la reimpostazione della password
+
+> [AZURE.IMPORTANT]
+**Perché viene visualizzata questa pagina?** Se si è selezionato un collegamento, è probabile che questa pagina sia stata visualizzata perché l'amministratore richiede che venga eseguita la registrazione per la reimpostazione della password per ottenere l'accesso all'app. Potrebbero essere richieste informazioni relative al numero di telefono o all'indirizzo di posta elettronica oppure l'impostazione di domande di sicurezza. Queste informazioni non verranno usate per l'invio di posta indesiderata, ma solo per mantenere più sicuro l'account. La procedura qui illustrata consentirà di raggiungere l'obiettivo.
+
 Il modo più rapido per registrarsi per la reimpostazione della password è andare alla pagina http://aka.ms/ssprsetup.
 
  1. Accedere a http://aka.ms/ssprsetup.
@@ -253,4 +257,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

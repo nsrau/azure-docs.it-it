@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creare modelli di distribuzione di app per la logica | Microsoft Azure"
    description="Informazioni su come creare un modello di distribuzione di app per la logica e utilizzarlo per la gestione del rilascio"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@ Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

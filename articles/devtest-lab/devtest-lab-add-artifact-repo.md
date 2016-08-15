@@ -53,7 +53,7 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
+1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -117,4 +117,8 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
     4. Selezionare **Salva**.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Post di blog correlati
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di AD esistente usando un modello ARM in Azure DevTest Labs)
+
+<!---HONumber=AcomDC_0803_2016-->

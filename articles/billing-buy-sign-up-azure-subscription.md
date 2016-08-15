@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Come iscriversi, acquistare, aggiornare o attivare una sottoscrizione di Azure | Microsoft Azure"
 	description="Descrive come acquistare o iscriversi per ottenere una sottoscrizione di Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@ Se sono stati acquistati crediti **Azure in Open** da un rivenditore e si possie
 
 3. Immettere il codice Product Key e quindi selezionare l'opzione del contratto.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

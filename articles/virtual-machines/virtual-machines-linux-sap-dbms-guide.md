@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione DBMS
@@ -445,7 +445,7 @@ ___
 > ![Linux][Logo_Linux] Linux
 >
 > Per compilare un RAID software in Linux sono supportati solo MDADM e LVM (Logical Volume Manager). Per altre informazioni, leggere gli articoli seguenti:
-> * [Configurare RAID software su Linux][virtual-machines-linux-configure-raid] (per MDADM)
+> * [Configurare RAID software su Linux][virtual-machines-linux-configure-raid] \(per MDADM)
 > * [Configurare LVM in una macchina virtuale Linux in Azure][virtual-machines-linux-configure-lvm]
 
 
@@ -1358,4 +1358,4 @@ Tutti gli altri argomenti generali, ad esempio i set di disponibilità di Azure 
 
 Vedere anche il capitolo [Riepilogo generale su SQL Server per SAP in Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

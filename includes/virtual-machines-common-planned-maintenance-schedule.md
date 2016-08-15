@@ -16,7 +16,7 @@ Gli aggiornamenti di manutenzione pianificata delle VM a istanza singola avvengo
 
 3.	Per rimuovere una VM dal relativo set di disponibilità è possibile usare il portale classico.
    
-    1.	Nel portale classico, fare clic sulla VM, quindi selezionare "configurazione". 
+    1.	Nel portale classico, fare clic sulla VM, quindi selezionare "configurazione".
 
     2.	Nella sezione "impostazioni", è possibile visualizzare il set di disponibilità in cui si trova la VM.
 
@@ -43,7 +43,7 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 
 Procedura dettagliata
 
-1.	Per le VM in una configurazione a istanza singola viene inviato un messaggio di posta elettronica sette giorni prima della manutenzione pianificata. Nel messaggio sono inclusi gli ID sottoscrizione e i nomi delle VM a istanza singola interessate. 
+1.	Per le VM in una configurazione a istanza singola viene inviato un messaggio di posta elettronica sette giorni prima della manutenzione pianificata. Nel messaggio sono inclusi gli ID sottoscrizione e i nomi delle VM a istanza singola interessate.
 
 2.	Durante questi sette giorni è possibile scegliere l'ora del riavvio dell'istanza spostando le VM a istanza singola in un set di disponibilità nella stessa area. Questa modifica di configurazione comporta un riavvio, dato che la macchina virtuale viene spostata da un host fisico destinato alla manutenzione a un altro host fisico non destinato alla manutenzione.
 
@@ -64,3 +64,5 @@ Si noti che è possibile ottenere questo risultato anche tramite Azure PowerShel
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panoramica di X12 e di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Informazioni su come usare i contratti X12 per creare app per la logica" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -177,7 +177,7 @@ Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori
 ### Convalida
 |Proprietà|Descrizione |
 |----|----|
-|Tipo messaggio|Selezionando questa opzione si consente la convalida nel ricevitore dell'interscambio. Questa convalida esegue la convalida EDI sugli elementi di dati del set di transazioni, convalidando tipi di dati, restrizioni della lunghezza ed elementi dati vuoti e sui separatori finali.|
+|Tipo messaggio|Selezionando questa opzione si consente la convalida nel ricevitore dell'interscambio. Questa operazione esegue la convalida EDI degli elementi dati del set di transazioni, convalidando i tipi di dati, le restrizioni relative alla lunghezza, gli elementi dati vuoti e i separatori finali.|
 |EDI Validation (Convalida EDI)||
 |Convalida estesa|Se si seleziona questa opzione, viene abilitata la convalida estesa degli interscambi ricevuti dal mittente dell'interscambio, inclusi la convalida della lunghezza dei campi, la facoltatività e il conteggio ripetizioni, oltre alla convalida dei tipi di dati XSD. È possibile abilitare la convalida dell'estensione senza abilitare la convalida EDI o viceversa.|
 |Consenti zeri iniziali/finali|Specifica che la convalida di un interscambio EDI ricevuto dalla parte non ha esito negativo quando l'elemento dati in un interscambio EDI non rispetta il requisito di lunghezza a causa della presenza di spazi iniziali o finali, ma lo rispetta quando questi vengono rimossi.|
@@ -189,4 +189,4 @@ Dopo aver selezionato **OK** nei pannelli aperti:
 ## Altre informazioni
 - [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

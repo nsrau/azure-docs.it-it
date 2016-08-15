@@ -37,6 +37,7 @@ La procedura di installazione e il codice fornito in questa procedura dettagliat
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] Per un argomento che illustra come usare Scala anziché Python per completare le attività per un processo di analisi scientifica dei dati end-to-end, vedere l'articolo sull'[analisi scientifica dei dati mediante Scala con Spark in Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -111,7 +112,7 @@ Per accedere ai notebook di Jupyter è possibile anche passare a ***https://CLUS
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Selezionare PySpark per visualizzare una directory con alcuni esempi di notebook preconfezionati che usano l'API PySpark. I notebook contenenti i codici di esempio per questa serie di argomenti su Spark sono disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Selezionare PySpark per visualizzare una directory con alcuni esempi di notebook preconfezionati che usano l'API PySpark. I notebook contenenti i codici di esempio per questa serie di argomenti su Spark sono disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
 
 È possibile caricare il notebook direttamente da Github nel server Jupyter Notebook del cluster Spark. Nella home page di Jupyter fare clic sul pulsante **Upload** (Carica) a destra nella schermata. Si aprirà una finestra di esplorazione file, in cui è possibile incollare l'URL di GitHub (contenuto non elaborato) del notebook e fare clic su **Open** (Apri). I notebook di PySpark sono disponibili agli URL seguenti:
@@ -127,11 +128,11 @@ Il nome del file verrà visualizzato nell'elenco di file Jupyter premendo di nuo
 A questo punto è possibile:
 
 - Fare clic sul notebook per visualizzare il codice.
-- Eseguire ogni cella premendo **MAIUSC+INVIO**.
-- Eseguire l'intero notebook facendo clic su **Cell** -> **Run** (Cella > Esegui).
+- Eseguire ogni cella premendo **MAIUSC+INVIO**
+- Eseguire l'intero notebook facendo clic su **Cell** -> **Run** (Cella -> Esegui)
 - Usare la visualizzazione automatica delle query
 
-> [AZURE.TIP] Il kernel Pyspark visualizza automaticamente l'output delle query SQL (HiveQL). È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook.
+> [AZURE.TIP] Il kernel Pyspark visualizza automaticamente l'output delle query SQL (HiveQL). È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook:
 
 ![Curva ROC di regressione logistica per approccio generico](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
@@ -139,10 +140,10 @@ A questo punto è possibile:
 
 Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di Jupyter, è possibile usare gli argomenti corrispondenti a questi tre notebook di PySpark, che illustrano come esplorare i dati e creare e usare i modelli. Il notebook per la modellazione e l'esplorazione avanzata dei dati approfondisce la convalida incrociata, lo sweep degli iperparametri e la valutazione del modello.
 
-**Esplorazione dei dati e creazione del modello con Spark:** esplorare il set di dati, creare i modelli di Machine Learning per l'assegnazione di punteggi e la valutazione illustrati nell'argomento [Creare modelli di regressione e classificazione binaria per i dati con il toolkit Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md).
+**Esplorazione dei dati e creazione del modello con Spark:** esplorare il set di dati, creare i modelli di Machine Learning per l'assegnazione di punteggi e la valutazione illustrati nell'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
-**Utilizzo dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi e valutare i modelli di Machine Learning compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
+**Utilizzo dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-**Convalida incrociata e sweep di iperparametri**: vedere [Modellazione ed esplorazione avanzata dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
+**Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

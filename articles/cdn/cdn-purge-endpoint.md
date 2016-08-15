@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Ripulire un endpoint della rete CDN di Azure"
+	pageTitle="Ripulire un endpoint della rete CDN di Azure | Microsoft Azure"
 	description="Informazioni su come ripulire tutto il contenuto memorizzato nella cache da un endpoint della rete CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Ripulire un endpoint della rete CDN di Azure
@@ -62,4 +62,4 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 - [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

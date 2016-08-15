@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Eseguire il backup delle macchine virtuali di Azure Resource Manager | Microsoft Azure"
-	description="Individuare, registrare ed eseguire il backup delle macchine virtuali ARM nell'insieme di credenziali dei servizi di ripristino usando queste procedure per il backup di macchine virtuali di Azure."
+	pageTitle="Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino | Microsoft Azure"
+	description="Individuare, registrare ed eseguire il backup delle macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino usando queste procedure per il backup di macchine virtuali di Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backup della macchina virtuale; eseguire il backup della macchina virtuale; backup e ripristino di emergenza; backup di vm di ARM"/>
 
@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/29/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Eseguire il backup delle macchine virtuali di Azure Resource Manager (ARM)
+# Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
 > [AZURE.SELECTOR]
-- [Eseguire il backup delle macchine virtuali di ARM in Azure ](backup-azure-arm-vms.md)
-- [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md)
+- [Eseguire il backup di macchine virtuali in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
+- [Eseguire il backup di macchine virtuali in un insieme di credenziali per il backup](backup-azure-vms.md)
 
-Questo articolo descrive la procedura per eseguire il backup di macchine virtuali di Azure Resource Manager (ARM) in un insieme di credenziali dei servizi di ripristino. La maggior parte del lavoro per il backup di una macchina virtuale ARM viene eseguito durante la preparazione. Prima di poter eseguire il backup o proteggere una macchina virtuale di Azure, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali. Dopo aver completato i prerequisiti, è possibile avviare il backup per eseguire snapshot della macchina virtuale.
+Questo articolo descrive la procedura per eseguire il backup di macchine virtuali di Azure, distribuite con il modello di distribuzione classica e con il modello di distribuzione Resource Manager, in un insieme di credenziali di Servizi di ripristino. La maggior parte dell'attività per il backup delle macchine virtuali si svolge durante la preparazione. Prima di poter eseguire il backup o proteggere una macchina virtuale, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali. Dopo aver completato i prerequisiti, è possibile avviare il backup per eseguire snapshot della macchina virtuale.
 
->[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questo articolo si applica alle VM basate su Gestione risorse e su Azure Resource Manager. Vedere [Eseguire il backup delle macchine virtuali di Azure](backup-azure-vms.md) per informazioni dettagliate sull'uso delle macchine virtuali con il modello di distribuzione classica.
+>[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). È possibile proteggere le macchine virtuali distribuite con il modello di distribuzione classica e con il modello di distribuzione Resource Manager con gli insiemi di credenziali di Servizi di ripristino. Vedere [Eseguire il backup delle macchine virtuali di Azure](backup-azure-vms.md) per informazioni dettagliate sull'uso delle macchine virtuali con il modello di distribuzione classica.
 
 Per altre informazioni, vedere gli articoli [Pianificare l'infrastruttura di backup delle macchine virtuali in Azure](backup-azure-vms-introduction.md) e [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -77,4 +77,4 @@ Adesso che la macchina virtuale è protetta, vedere gli articoli seguenti per al
 - [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 - [Ripristino di macchine virtuali](backup-azure-arm-restore-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

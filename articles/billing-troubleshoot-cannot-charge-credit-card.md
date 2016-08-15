@@ -1,11 +1,11 @@
 <properties
 	pageTitle="È stato ricevuto un messaggio di posta elettronica che indica che i servizi potrebbero essere interrotti | Microsoft Azure"
 	description="Descrive come risolvere il problema in base al quale non è possibile effettuare addebiti sulla carta di credito per la sottoscrizione"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@ Se il problema riguardante Azure non è trattato in questo articolo, visitare i 
 
 Se è necessario ricevere assistenza per aprire un ticket, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

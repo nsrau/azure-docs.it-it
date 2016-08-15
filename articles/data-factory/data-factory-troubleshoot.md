@@ -47,7 +47,7 @@ L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o
 - Usare il collegamento **Installazione manuale** visualizzato nello stesso pannello del portale per scaricare il file di installazione ed eseguirlo manualmente. Al termine dell'installazione viene visualizzata la finestra di configurazione di Gateway di gestione dati. Copiare la **chiave** dalla schermata del portale e usarla in Gestione configurazione per registrare manualmente il gateway con il servizio.
 
 ### Problema: impossibile connettersi all'istanza di SQL Server locale 
-Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per informazioni dettagliate, vedere [Risoluzione dei problemi di gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
  
 
 ### Problema: le sezioni di input rimangono nello stato Waiting
@@ -85,7 +85,7 @@ Per altre informazioni su questa proprietà, vedere [Set di dati in Azure Data F
 Per risolvere l'errore, aggiungere la proprietà **external** e la sezione facoltativa **externalData**alla definizione JSON della tabella di input e ricreare la tabella.
 
 ### Problema: l'operazione di copia ibrida non riesce
-Per le procedure di risoluzione dei problemi relativi alla copia da e verso un archivio dati locale usando il Gateway di gestione dati, vedere [Risoluzione dei problemi di gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+Per le procedure di risoluzione dei problemi relativi alla copia da e verso un archivio dati locale usando il gateway di gestione dati, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
 
 ### Problema: non è possibile eseguire il provisioning di HDInsight su richiesta
 Quando si usa un servizio collegato di tipo HDInsightOnDemand, è necessario specificare un linkedServiceName che punta a un archivio BLOB di Azure. Il servizio Data Factory usa questa risorsa di archiviazione per archiviare Questo account di archiviazione verrà usato per copiare i log e i file di supporto per il cluster HDInsight su richiesta. In alcuni casi il provisioning di un cluster HDInsight su richiesta ha esito negativo con l'errore seguente:
@@ -143,4 +143,4 @@ Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerS
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

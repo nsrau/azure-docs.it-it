@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure | Microsoft Azure"
 	description="Descrive come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@ Si verrà contattati da un rappresentante del supporto tecnico di Azure secondo 
 
  >[AZURE.NOTE]Le autorizzazioni per accedere al Centro account sono concesse solo all'amministratore dell'account Azure. Per altre informazioni su come individuare l'amministratore account della sottoscrizione, vedere [Domande frequenti](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

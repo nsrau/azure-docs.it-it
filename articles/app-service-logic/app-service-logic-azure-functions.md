@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso delle funzioni di Azure con le app per la logica | Microsoft Azure"
    description="Informazioni sull'uso delle funzioni di Azure con le app per la logica"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -70,4 +70,4 @@ La finestra di progettazione genera quindi un modello di funzione che è possibi
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

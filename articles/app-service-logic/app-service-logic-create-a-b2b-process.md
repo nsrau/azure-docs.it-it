@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creazione di un processo B2B in Servizio app di Azure | Microsoft Azure" 
    description="Panoramica sulla creazione di un processo Busines-to-Business" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -70,4 +70,4 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei se
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

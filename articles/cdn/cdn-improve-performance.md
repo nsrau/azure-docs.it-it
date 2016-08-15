@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Rete CDN - Miglioramento delle prestazioni attraverso la compressione dei file"
-	description="È possibile migliorare la velocità di trasferimento dei file e aumentare le prestazioni di caricamento delle pagine comprimendo i file."
+	pageTitle="Migliorare le prestazioni tramite la compressione dei file nella rete CDN di Azure | Microsoft Azure"
+	description="Informazioni su come migliorare la velocità di trasferimento di file e aumentare le prestazioni di caricamento delle pagine comprimendo i file nella rete CDN di Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Compressione dei file per migliorare le prestazioni
@@ -126,4 +126,4 @@ Per endpoint di streaming abilitati alla rete CDN dei servizi multimediali, la c
 ## Vedere anche
 - [Risoluzione dei problemi della compressione dei file CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -76,11 +76,11 @@ Se la destinazione non fosse applicabile ad alcun prefisso Null o ai prefissi VN
 
 Se nella tabella di route sono presenti due prefissi identici, di seguito è riportato l'ordine di precedenza basato sull'attributo "source" delle route:
 
-1.	<blank> = route definita dall'utente aggiunta manualmente alla tabella.
+1.	<blank> = route definita dall'utente aggiunta manualmente alla tabella
 2.	"VPNGateway" = route dinamica, o BGP quando viene usata con reti ibride, aggiunta da un protocollo di rete dinamico. Queste route possono cambiare con il tempo, perché il protocollo dinamico riflette automaticamente le modifiche nella rete con peering.
 3.	"Default" = route di sistema. La rete virtuale locale e le voci statiche sono quelle visualizzate nella tabella di route precedente.
 
->[AZURE.NOTE] Sono previste limitazioni per l'uso del routing definito dall'utente e di ExpressRoute, a causa della complessità del routing dinamico usato sul gateway virtuale di Azure. È consigliabile non applicare il routing definito dall'utente alle subnet che comunicano con il gateway di Azure che fornisce la connessione ExpressRoute. Il gateway di Azure, inoltre, non può essere il dispositivo NextHop per altre subnet associate al routing definito dall'utente. La possibilità di integrare completamente il routing definito dall'utente ed ExpressRoute sarà abilitata in una versione futura di Azure.
+>[AZURE.NOTE] È ora possibile utilizzare il routing definito dall'utente con ExpressRoute e i gateway VPN per forzare l'instradamento del traffico cross-premise in entrata e in uscita a un'appliance di rete virtuale.
 
 #### Creazione di route locali
 
@@ -505,7 +505,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 4.	Se sul firewall è stato abilitato il rilevamento delle minacce avanzato, che non viene descritto in questo documento e quindi occorre vedere la documentazione del fornitore per informazioni sulle funzionalità di rilevamento avanzato delle minacce per il dispositivo di rete specifico, anche il traffico consentito dalle regole di inoltro di base illustrate in questo documento potrebbe non essere consentito qualora contenga firme note o modelli che contrassegnano una regola riguardante minacce avanzate.
 
 #### (Negato) Ricerca DNS Internet sul server DNS
-1.	L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net. 
+1.	L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net.
 2.	Non essendoci endpoint aperti per il traffico DNS, questo non passa attraverso il servizio cloud e non raggiunge il server.
 3.	In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete (blocco Internet) sulla subnet front-end bloccherà questo traffico.
 4.	Infine, il routing definito dall'utente nella subnet back-end invia tutto il traffico in uscita da DNS01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e DNS01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.
@@ -941,4 +941,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

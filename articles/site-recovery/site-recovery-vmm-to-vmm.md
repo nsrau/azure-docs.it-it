@@ -213,29 +213,38 @@ Installare il provider di Azure Site Recovery nei server VMM e registrare il ser
 
 	![Posizione di installazione](./media/site-recovery-vmm-to-vmm/provider-register.png)
 
-4. In **Impostazioni proxy** specificare la modalità di connessione tramite Internet a Site Recovery del provider in esecuzione nel server VMM.
+9. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server. Fare clic su *Avanti*.
 
-	- Per fare in modo che il provider si connetta direttamente, selezionare **Connect directly without a proxy** (Connetti direttamente senza un proxy).
-	- - Per connettersi al proxy attualmente configurato nel server, selezionare **Connect with existing proxy settings** (Connetti con le impostazioni proxy esistenti).
-	- Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate).
-	- Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
-	- Se si usa un proxy, è necessario che gli URL descritti nei [prerequisiti](#provider-and-agent-prerequisites) siano già consentiti.
-	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. In **Impostazioni** espandere **Sicurezza** > **Account RunAs** e quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
+	![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
-	![Internet](./media/site-recovery-vmm-to-vmm/provider3.png)
+7. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare **Connect with existing proxy settings** (Connetti con le impostazioni proxy esistenti) per usare le impostazioni di connessione a Internet predefinite configurate nel server.
 
-4. In **Impostazioni dell'insieme di credenziali** fare clic su **Sfoglia** per selezionare il file di chiave scaricato. Specificare la sottoscrizione di Azure e il nome dell'insieme di credenziali.
+	![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
-	![Server registration](./media/site-recovery-vmm-to-vmm/provider-key2.png)
+	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy.
+	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta.
+	- Gli URL seguenti devono essere accessibili dal server VMM e dagli host Hyper-V
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro **Impostazioni**, espandere **Sicurezza**, fare clic su **Account RunAs**, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
-5. In **Registrazione** > **Percorso in cui salvare il certificato** fare clic su **Avanti**. In questo scenario non è necessario un certificato per la crittografia, che è richiesto solo quando si esegue la replica nell'archiviazione di Azure.
 
-8. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
-9. Abilitare **Sync Cloud Metadata** (Sincronizza i metadati cloud) per sincronizzare i metadati relativi a tutti i cloud presenti nel server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM. Fare clic su **Avanti** per completare il processo.
+8. In **Chiave di registrazione** selezionare il codice di registrazione scaricato da Azure Site Recovery e copiato nel server VMM.
 
-	![Server registration](./media/site-recovery-vmm-to-vmm/provider-sync.png)
 
-10. Verrà avviata la registrazione. Al termine della registrazione il server VMM verrà visualizzato nel pannello **Impostazioni** > **Server** nell'insieme di credenziali.
+10.  L'impostazione di crittografia viene usata solo quando si esegue la replica di VM Hyper-V in cloud VMM in Azure. Non viene usata se si esegue la replica in un sito secondario.
+
+11.  In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
+12.  In **Sincronizza i metadati cloud** selezionare se si vogliono sincronizzare i metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
+
+13.  Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda **Server VMM** della pagina **Server** nell'insieme di credenziali.
+ 	
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+
 11. Quando il server sarà disponibile nella console di Site Recovery, in **Origine** > **Prepara origine** selezionare il server VMM e quindi il cloud in cui si trova l'host Hyper-V. Fare quindi clic su **OK**.
 
 #### Installazione dalla riga di comando
@@ -298,7 +307,7 @@ Selezionare il server VMM di destinazione e il cloud.
 
 	![Criteri di replica](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
 
-6. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. In **Criteri di replica** fare clic su **OK**. È possibile associare altri cloud VMM (e le VM in essi contenute) a questi criteri di replica in **Impostazioni** > **Replica** > nome dei criteri > **Associate VMM Cloud** (Associa cloud VMM).
+6. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. In **Criteri di replica** fare clic su **OK**. È possibile associare altri cloud VMM, e le VM che contengono, a questi criteri di replica in **Impostazioni** > **Replica** > nome dei criteri > **Associate VMM Cloud** (Associa cloud VMM).
 
 	![Criteri di replica](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -355,7 +364,7 @@ In Site Recovery è disponibile uno strumento di pianificazione della capacità 
 - Raccogliere informazioni sull'ambiente di replica, incluse le macchine virtuali, i dischi per ogni macchina virtuale e le risorse di archiviazione per ogni disco.
 - Stimare la frequenza di modifica giornaliera (varianza) prevista per i dati differenziali replicati. A questo scopo è possibile usare lo strumento [Capacity Planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057).
 
-1.	Fare clic su **Download** per scaricare lo strumento e quindi eseguirlo. [Vedere l'articolo](site-recovery-capacity-planner.md) relativo allo strumento.
+1.	Fare clic su **Download** per scaricare lo strumento e quindi eseguirlo. [Vedere l'articolo](site-recovery-capacity-planner.md) fornito con lo strumento.
 2.	Al termine scegliere **Sì** in **Have you run the Capacity Planner** (È stato eseguito lo strumento Capacity Planner?).
 
 	![Pianificazione della capacità](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
@@ -381,7 +390,7 @@ Dopo aver raccolto informazioni in tempo reale sulla replica differenziale trami
 
 Per abilitare la replica, procedere come descritto di seguito.
 
-1. Fare clic su **Step 2: Replicate application** (Passaggio 2: Eseguire la replica dell'applicazione) > **Origine**. Dopo aver abilitato la replica per la prima volta è necessario fare clic su **+Replica** nell'insieme di credenziali per abilitare la replica per computer aggiuntivi.
+1. Fare clic su **Passaggio 2: Eseguire la replica dell'applicazione** > **Origine**. Dopo aver abilitato la replica per la prima volta, è necessario fare clic su **+Replica** nell'insieme di credenziali per abilitare la replica per altri computer.
 
 	![Abilitare la replica](./media/site-recovery-vmm-to-vmm/enable-replication1.png)
 
@@ -394,7 +403,7 @@ Per abilitare la replica, procedere come descritto di seguito.
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-È possibile tenere traccia dello stato di avanzamento dell'azione **Abilita protezione** in Impostazioni > **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalize Protection** (Finalizza protezione) la macchina virtuale è pronta per il failover.
+È possibile tenere traccia dello stato di avanzamento dell'azione **Abilita protezione** in Impostazioni > **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover.
 
 
 >[AZURE.NOTE] È anche possibile abilitare la protezione per le macchine virtuali nella console VMM. Fare clic su **Abilita protezione** sulla barra degli strumenti della scheda **Azure Site Recovery** nelle proprietà della macchina virtuale.
@@ -428,7 +437,7 @@ Per testare la distribuzione è possibile eseguire un failover di test per una s
 
 ### Eseguire un failover di test
 
-1. Per eseguire il failover di una singola VM, in **Impostazioni** > **Elementi replicati** fare clic sulla VM e quindi su **+ Failover di test**.
+1. Per eseguire il failover di una VM, in **Impostazioni** > **Elementi replicati** fare clic sulla VM e quindi su **+Failover di test**.
 
 	![Failover di test](./media/site-recovery-vmm-to-vmm/test-failover.png)
 
@@ -484,4 +493,4 @@ Eseguire il seguente script di esempio per aggiornare il DNS e specificare l'ind
 
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

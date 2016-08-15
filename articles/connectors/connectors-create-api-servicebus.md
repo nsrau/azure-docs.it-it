@@ -1,7 +1,7 @@
 <properties
 pageTitle="Informazioni su come usare il connettore del bus di servizio di Azure nelle app per la logica | Microsoft Azure"
 description="Creare app per la logica con Servizio app di Azure. Connettersi al bus di servizio di Azure per inviare e ricevere messaggi. È possibile eseguire varie azioni, ad esempio inviare alla coda, inviare all'argomento, ricevere dalla coda, ricevere dalla sottoscrizione, e così via."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore del bus di servizio di Azure
@@ -77,8 +77,26 @@ Questa operazione Invia un messaggio a una coda o argomento.
 
 |Nome proprietà| Nome visualizzato|Descrizione|
 | ---|---|---|
-|message*|Message|Messaggio da inviare|
+|ContentData*|Content|Contenuto del messaggio|
+|ContentType|Content Type|Tipo del contenuto del messaggio|
+|Proprietà|Proprietà|Coppie chiave-valore per ogni proprietà negoziata|
 |entityName*|Nome coda/argomento|Nome della coda o dell'argomento|
+
+Sono disponibili anche questi parametri avanzati:
+
+|Nome proprietà| Nome visualizzato|Descrizione|
+| ---|---|---|
+|MessageId|ID del messaggio|Questo è un valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
+|To|To|Inviare all'indirizzo|
+|ReplyTo|Rispondi a|Indirizzo della coda a cui rispondere|
+|ReplyToSessionId|ID sessione risposta|Identificatore della sessione a cui rispondere|
+|Etichetta|Etichetta|Etichetta specifica dell'applicazione|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Data e ora, in UTC, in cui il messaggio sarà aggiunto alla coda|
+|SessionId|ID sessione|Identificatore della sessione|
+|CorrelationId|ID correlazione|Identificatore della correlazione|
+|TimeToLive|Durata (TTL)|Si tratta della durata di validità del messaggio espressa in tick. La durata inizia da quando il messaggio viene inviato al bus di servizio.|
+
+
 
 * indica che la proprietà è obbligatoria
 
@@ -93,6 +111,7 @@ Questa operazione attiva un flusso quando viene ricevuto un messaggio in una cod
 | ---|---|---|
 |queueName*|Nome della coda|Nome della coda|
 
+
 * indica che la proprietà è obbligatoria
 
 #### Dettagli dell'output
@@ -104,7 +123,6 @@ ServiceBusMessage: questo oggetto presenta il contenuto e le proprietà di un me
 |---|---|---|
 |ContentData|string|Contenuto del messaggio|
 |ContentType|string|Tipo del contenuto del messaggio|
-|ContentTransferEncoding|string|Codifica di trasferimento del contenuto del messaggio ("none"|"base64")|
 |Proprietà|object|Coppie chiave-valore per ogni proprietà negoziata|
 |MessageId|string|Questo è un valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
 |To|string|Inviare all'indirizzo|
@@ -128,6 +146,7 @@ Questa operazione attiva un flusso quando viene ricevuto un messaggio nella sott
 |topicName*|Nome argomento|Nome dell'argomento|
 |subscriptionName*|Nome sottoscrizione argomento|Nome della sottoscrizione dell'argomento|
 
+
 * indica che la proprietà è obbligatoria
 
 #### Dettagli dell'output
@@ -139,7 +158,6 @@ ServiceBusMessage: questo oggetto presenta il contenuto e le proprietà di un me
 |---|---|---|
 |ContentData|string|Contenuto del messaggio|
 |ContentType|string|Tipo del contenuto del messaggio|
-|ContentTransferEncoding|string|Codifica di trasferimento del contenuto del messaggio ("none"|"base64")|
 |Proprietà|object|Coppie chiave-valore per ogni proprietà negoziata|
 |MessageId|string|Questo è un valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
 |To|string|Inviare all'indirizzo|
@@ -171,4 +189,4 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Diagnosticare gli errori delle app per la logica | Microsoft Azure"
    description="Approcci comuni per la comprensione degli errori delle app per la logica"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -84,4 +84,4 @@ Per monitorare gli input, gli output e i trigger di un'esecuzione, potrebbe esse
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

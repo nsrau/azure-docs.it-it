@@ -47,12 +47,31 @@ Definire la seguente risorsa nella sezione delle risorse del modello
        }
      }
 
-Nell’esempio precedente, sostituire l'URL di file e il nome del file con le proprie impostazioni.
+Nell’esempio precedente, sostituire l'URL di file e il nome del file con le proprie impostazioni. Dopo aver creato il modello, è possibile distribuirlo usando Azure PowerShell.
 
-Dopo aver creato il modello, è possibile distribuirlo usando Azure PowerShell.
+In molti scenari i clienti desiderano mantenere privati i parametri e gli URL script. Per farlo, è possibile mantenere privato l'URL script in modo da renderlo accessibile solo con il nome e la chiave di un account di archiviazione, inviati come impostazioni protette. È inoltre possibile specificare i parametri script come impostazioni protette con l'estensione script personalizzata di Windows versione 1.7 o successiva.
+
+## Esempio di modello per una VM Windows con impostazioni protette
+
+        {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
+        "settings": {
+        "fileUris": [
+        "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+        ]
+        },
+        "protectedSettings": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
+        "storageAccountName": "yourStorageAccountName",
+        "storageAccountKey": "yourStorageAccountKey"
+        }
+        }
+Per informazioni sullo schema delle ultime versioni dell'estensione script personalizzata, consultare la documentazione [qui](virtual-machines-windows-extensions-configuration-samples.md).
 
 Consultare l’esempio seguente per configurare applicazioni in una macchina virtuale utilizzando l'estensione di script personalizzato.
 
 * [Estensione di script personalizzato in una VM Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

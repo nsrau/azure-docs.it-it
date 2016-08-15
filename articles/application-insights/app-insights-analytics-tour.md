@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -148,12 +148,14 @@ Se si vogliono mantenere tutte le colonne esistenti, [`extend`](app-insights-ana
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Si noti che è necessario usare un [cast](app-insights-analytics-reference.md#casts) nel tipo appropriato.
 
 ## Proprietà e misure personalizzate
 
-Se l'applicazione associa agli eventi [dimensioni (proprietà) personalizzate e misure personalizzate](app-insights-api-custom-events-metrics.md#properties), queste saranno visibili negli oggetti `customDimensions` e `customMeasurements`.
+Se l'applicazione associa agli eventi [dimensioni (proprietà) e misure personalizzate](app-insights-api-custom-events-metrics.md#properties), queste saranno visibili negli oggetti `customDimensions` e `customMeasurements`.
 
 
 Ad esempio, se l'applicazione include:
@@ -173,7 +175,7 @@ Per estrarre questi valori in Dati di analisi:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -193,7 +195,7 @@ Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene 
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` raccoglie i punti dati del flusso in gruppi che la clausola `by` valuta in ugual misura. Ogni valore nell'espressione `by` (ogni nome di operazione nell'esempio precedente) restituisce una riga nella tabella dei risultati.
+`Summarize` raccoglie i punti dati del flusso in gruppi che la clausola `by` valuta in ugual misura. Ogni valore nell'espressione `by`, ovvero ogni nome di operazione nell'esempio precedente, restituisce una riga nella tabella dei risultati.
 
 È anche possibile raggruppare i risultati per ora del giorno:
 
@@ -249,7 +251,7 @@ Per impostazione predefinita, i risultati vengono visualizzati sotto forma di ta
 Si noti che anche se i risultati non sono stati ordinati in base all'ora (come è possibile osservare nella visualizzazione tabella), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
 
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtro in base a una condizione
+## [Where](app-insights-analytics-reference.md#where-operator): filtrare in base a una condizione
 
 Se Application Insights è configurato per il monitoraggio sia del lato [client](app-insights-javascript.md) che del lato server dell'app, alcuni dati di telemetria del database provengono dai browser.
 
@@ -268,7 +270,7 @@ Si osservino solo le eccezioni riportate dai browser:
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
  * `and`, `or`: operatori booleani.
- * `==`, `<>`: uguale e non uguale a.
+ * `==`, `<>`: uguale a e non uguale a.
  * `=~`, `!=`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
 Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
@@ -479,4 +481,4 @@ Usare [let](./app-insights-analytics-reference.md#let-statements) per separare l
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

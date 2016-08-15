@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Materiale sussidiario sulla resilienza di Azure: ripristino dall'ambiente locale ad Azure
 
@@ -105,4 +105,4 @@ Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza
 
 Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). Il prossimo articolo di questa serie riguarda il [ripristino dal danneggiamento o dall'eliminazione accidentale dei dati](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

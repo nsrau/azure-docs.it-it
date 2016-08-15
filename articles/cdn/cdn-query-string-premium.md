@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Rete CDN - Controllo del comportamento di memorizzazione nella cache delle richieste con le stringhe di query - Premium"
-	description="La memorizzazione nella cache della stringa di query della rete CDN controlla come i file devono essere memorizzati nella cache quando contengono stringhe di query."
+	pageTitle="Controllo del comportamento di memorizzazione nella cache delle richieste con stringhe di query nella rete CDN di Azure Premium da Verizon | Microsoft Azure"
+	description="La memorizzazione nella cache della stringa di query della rete CDN controlla in che modo i file devono essere memorizzati nella cache quando contengono stringhe di query."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Controllo del comportamento di memorizzazione nella cache delle richieste della rete CDN con le stringhe di query - Premium
@@ -53,4 +53,4 @@ Sono disponibili tre modalità:
 
 > [AZURE.IMPORTANT] Le modifiche delle impostazioni non sono immediatamente visibili, perché la propagazione della registrazione nella rete CDN richiede tempo. Per i profili della <b>rete CDN di Azure fornita da Verizon</b> la propagazione in genere viene completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

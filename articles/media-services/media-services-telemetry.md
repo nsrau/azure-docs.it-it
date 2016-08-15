@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2016"   
+	ms.date="07/27/2016"   
 	ms.author="juliako"/>
 
 # Telemetria di Servizi multimediali di Azure con .NET
@@ -21,11 +21,17 @@
 
 La telemetria e il monitoraggio di Servizi multimediali consentono ai clienti di accedere ai dati di metrica per i servizi. La versione corrente supporta i dati di telemetria per le entità "Channel" e "StreamingEndpoint". È possibile configurare i dati di telemetria con granularità a livello di componente. Esistono due livelli di dettaglio: "Normal" e "Verbose". La versione corrente supporta solo "Normal".
 
-I dati di telemetria vengono scritti in un account di archiviazione di Azure messo a disposizione dal cliente. È infatti necessario collegare un account di archiviazione all'account di Servizi multimediali. I dati di telemetria vengono scritti in una tabella di Archiviazione di Azure nell'account di archiviazione specificato. Il sistema di telemetria creerà una tabella separata per ogni nuovo giorno in base alle 00:00 UTC. Ad esempio, "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Per ogni giorno sarà presente una tabella separata.
+I dati di telemetria vengono scritti in una tabella di archiviazione di un account di archiviazione di Azure messo a disposizione dal cliente. È infatti necessario collegare un account di archiviazione all'account di Servizi multimediali. Il sistema di telemetria creerà una tabella separata per ogni nuovo giorno in base alle 00:00 UTC. Ad esempio, "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Per ogni giorno sarà presente una tabella separata.
 
-Il sistema di telemetria non offre la conservazione dei dati né l'eliminazione automatica dei record obsoleti. Per questo motivo è necessario gestire ed eliminare i record obsoleti. La presenza di tabelle separate per ogni giorno semplifica l'eliminazione dei record obsoleti. È possibile semplicemente eliminare le tabelle obsolete.
+Si noti che il sistema di telemetria non gestisce la conservazione dei dati. È possibile rimuovere i vecchi dati di telemetria eliminando le tabelle di archiviazione.
 
-Questo argomento illustra come abilitare la telemetria per i servizi di Servizi multimediali di Azure specificati e come eseguire query sulle metriche con .NET.
+I dati di telemetria possono essere usati in uno dei modi seguenti:
+
+- Leggere i dati direttamente da Archiviazione tabelle di Azure tramite, ad esempio, Storage SDK. Per la descrizione delle tabelle di archiviazione di dati di telemetria, vedere **Uso delle informazioni di telemetria** in [questo](https://msdn.microsoft.com/library/mt742089.aspx) argomento.
+
+Oppure
+
+- Usare il supporto presente nell'SDK di Servizi multimediali per .NET per la lettura dei dati di archiviazione. Questo argomento illustra come abilitare la telemetria per gli account di Servizi multimediali di Azure specificati e come eseguire query sulle metriche con l'SDK di Servizi multimediali per .NET.
 
 ## Configurazione della telemetria per un account di Servizi multimediali
 
@@ -52,7 +58,7 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 
 I dati di telemetria vengono scritti in una tabella di archiviazione di Azure nell'account di archiviazione specificato durante la configurazione della telemetria per l'account di Servizi multimediali. Il sistema di telemetria creerà una tabella separata per ogni nuovo giorno in base alle 00:00 UTC. Ad esempio, "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Per ogni giorno sarà presente una tabella separata.
 
-È possibile eseguire una query sulle tabelle per le informazioni sulle metriche seguenti.
+È possibile eseguire una query sulle tabelle di telemetria per informazioni sulle metriche seguenti. L'esempio illustrato più avanti in questo argomento mostra come usare l'SDK di Servizi multimediali per .NET per eseguire query sulle metriche.
 
 ### Log StreamingEndpoint
 
@@ -94,8 +100,10 @@ Proprietà|Descrizione|Valore di esempio
 **DiscontinuityCount**|Ottiene il conteggio delle discontinuità.|0
 **LastTimestamp**|Ottiene l'ultimo timestamp.|1800488800
  
-## Esempio di metriche StreamingEndpoint
-		
+## Esempio  
+	
+L'esempio seguente illustra come abilitare la telemetria per l'account di Servizi multimediali di Azure specificato e come eseguire query sulle metriche con l'SDK di Servizi multimediali per .NET.
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -246,4 +254,4 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

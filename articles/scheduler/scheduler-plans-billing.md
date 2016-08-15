@@ -26,7 +26,7 @@ Raccolte di processi sono entità fatturabili nell'utilità di pianificazione di
 |**Free**|5 processi per la raccolta attività|Una volta ogni ora. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita la raccolta di processi gratuita fino a 1|Non è possibile utilizzare [oggetto autorizzazione in uscita HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita per un massimo di 100 raccolte di processi standard|Accesso al set completo di funzionalità dell'utilità di pianificazione|
 |**P10 Premium**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|A una sottoscrizione sono consentite fino a 10.000 raccolte processi P10 Premium. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
-|**P20 Premium**|1000 processi per ogni raccolta processi|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|A una sottoscrizione sono consentite fino a 500 raccolte processi P20 Premium. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
+|**P20 Premium**|1000 processi per ogni raccolta processi|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|In una sottoscrizione sono consentite fino a 10,000 raccolte processi P20 Premium. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
 
 ## Effettua il downgrade dei piani di raccolta di processi e gli aggiornamenti
 
@@ -49,13 +49,19 @@ Un'unità fatturabile standard può includere fino a 10 raccolte di processi sta
 
 Se si trovano tra 1 e 10 raccolte di processi standard, verrà addebitata per 1 unità standard di fatturazione. Se si trovano tra 11 e 20 raccolte di processi standard, verranno addebitate 2 unità standard di fatturazione. Se si trovano tra 21 e 30 raccolte di processi standard, verranno addebitate 3 unità standard di fatturazione.
 
-## Unità fatturabili premium
+## Unità fatturabili P10 Premium
 
-Unità fatturabili premium può includere fino a 10.000 raccolte di processi premium. Poiché una raccolta di processi premium può avere al massimo da 50 processi per ogni raccolta di processi, un'unità di fatturazione premium consente una sottoscrizione di processi fino a 500.000 – fino a quasi 22 miliardi esecuzioni del processo ogni mese.
+Un'unità fatturabile P10 Premium può includere fino a 10.000 raccolte processi P10 Premium. Poiché in una raccolta processi P10 Premium è consentito un massimo di 50 processi per ogni raccolta, un'unità di fatturazione Premium consente una sottoscrizione con un massimo di 500.000 processi, fino a quasi 22 miliardi di esecuzioni di processi ogni mese.
 
-Se si trovano tra 1 e 10.000 raccolte processi premium, verrà addebitata 1 unità fatturazione premium. Se si trovano tra processi e raccolte 20.000 premium di intervallo 10.001, verrà addebitato 2 unità fatturazione premium e così via.
+Se il numero di raccolte processi Premium è compreso tra 1 e 10.000 , verrà addebitata 1 unità fatturazione P10 Premium. Se il numero di raccolte processi Premium è compreso tra 10,001 e 20,000, verranno addebitate 2 unità fatturazione P10 Premium e così via.
 
-Pertanto, raccolte di processi premium hanno la stessa funzionalità come le raccolte di processi standard ma forniscono un'interruzione di prezzo, nel caso in cui l'applicazione richiede una notevole quantità di raccolte di processi.
+Le raccolte processi P10 Premium hanno la stessa funzionalità delle raccolte processi Standard ma offrono una riduzione di prezzo nel caso in cui l'applicazione richieda una notevole quantità di raccolte processi.
+
+## Unità fatturabili P20 Premium
+
+Un'unità fatturabile P20 Premium può includere fino a 5.000 raccolte processi P20 Premium. Poiché in una raccolta processi P20 Premium sono consentite al massimo 1.000 processi per ogni raccolta, un'unità di fatturazione Premium consente una sottoscrizione con un massimo di 5.000.000 processi, fino a quasi 220 miliardi esecuzioni di processi ogni mese.
+
+Le raccolte di processi P20 Premium forniscono le stesse funzionalità delle raccolte di processi P10 Premium ma supportano anche un maggiore numero processi per ogni raccolta e un numero totale di processi maggiore rispetto alla raccolta P10 Premium assicurando maggiore scalabilità.
 
 ## Stato attivo e fatturazione
 
@@ -86,4 +92,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo per Servizi cloud in Azure
@@ -83,7 +83,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 1.  In Visual Studio, nel computer di sviluppo, scegliere **Team Explorer** dal menu Visualizza oppure premere CTRL+\\, CTRL+M. Nella finestra di Team Explorer espandere il nodo **Compilazioni** o scegliere la pagina **Compilazioni** e fare clic su **Nuova definizione di compilazione**.
 
-    ![][0]
+    ![Opzione Nuova definizione di compilazione][0]
 
 2.  Selezionare la scheda **Trigger** e specificare le condizioni desiderate relativamente al momento in cui si desidera che il pacchetto venga creato. Specificare **Integrazione continuata** per compilare il pacchetto ogni volta che ha luogo un'archiviazione del controllo del codice sorgente.
 
@@ -95,7 +95,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 6.  Scegliere **Argomenti MSBuild** e impostare gli argomenti della riga di comando MSBuild appropriati come descritto al precedente punto 2. Immettere ad esempio **/t:Publish /p:PublishDir=\\\myserver\\drops\** per compilare un pacchetto e copiare i relativi file nel percorso \\\myserver\\drops\\:
 
-    ![][2]
+    ![Argomenti MSBuild][2]
 
     **Nota:** la copia dei file in una condivisione pubblica semplifica la distribuzione manuale dei pacchetti dal computer di sviluppo.
 
@@ -105,7 +105,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 In questa sezione viene descritto come creare uno script di Windows PowerShell che pubblicherà l'output del pacchetto dell'app per cloud in Azure usando parametri facoltativi. Questo script può essere chiamato dopo il passaggio di compilazione nell'automazione della compilazione personalizzata. È possibile chiamare lo script anche da attività del flusso di lavoro del modello di processo in Visual Studio TFS Team Build.
 
-1.  Installare i [cmdlet di Azure PowerShell][] (0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
+1.  Installare i [cmdlet di Azure PowerShell][] \(0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
 
 2.  Avviare Azure PowerShell usando il menu o la pagina Start. Con l'avvio in questa modalità, verranno caricati i cmdlet di Azure PowerShell.
 
@@ -145,7 +145,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    Questo è in genere seguito da verifica tramite esecuzione di test e da uno scambio di indirizzi VIP. Tale scambio può essere eseguito con il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) o il cmdlet Move-Deployment.
+    Questo è in genere seguito da verifica tramite esecuzione di test e da uno scambio di indirizzi VIP. Tale scambio di indirizzi VIP può essere eseguito nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) o con il cmdlet Move-Deployment.
 
     **Scenario di esempio 2**: distribuzione continua di un servizio di test dedicato nell'ambiente di produzione
 
@@ -169,7 +169,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    In alternativa è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione con il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    In alternativa è possibile esportare il file di certificato PFX con la chiave privata e caricare i certificati in ogni servizio cloud di destinazione tramite il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Aggiorna distribuzione ed Elimina distribuzione -> Nuova distribuzione**
 
@@ -204,7 +204,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![Elenco di argomenti][3]
 
     Il codice XAML corrispondente sarà analogo al seguente:
 
@@ -256,7 +256,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
         -   PublishScriptFilePath, di tipo String
 
-            ![][4]
+            ![Nuove variabili][4]
 
     4.  Se si usa TFS 2012 o versione precedente, aggiungere un'attività ConvertWorkspaceItem all'inizio della nuova sequenza. Se si usa TFS 2013 o versione successiva, aggiungere un'attività GetLocalPath all'inizio della nuova sequenza. Per ConvertWorkspaceItem impostare le proprietà come segue: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. Per un'attività GetLocalPath impostare la proprietà IncomingPath su 'PublishScriptLocation' e Result su 'PublishScriptFilePath'. Questa attività converte il percorso dello script di pubblicazione dai percorsi server TFS (se applicabile) in un percorso standard di disco locale.
 
@@ -284,7 +284,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     Il risultato finale delle attività del flusso di lavoro di pubblicazione sarà simile al seguente nella finestra di progettazione:
 
-    ![][5]
+    ![Attività flusso di lavoro][5]
 
     Il risultato finale delle attività del flusso di lavoro di pubblicazione sarà simile al seguente nel codice XAML:
 
@@ -333,7 +333,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename' *Qui usare il nome del servizio cloud appropriato*
+    4.  ServiceName = 'mycloudservicename' * Qui usare il nome del servizio cloud appropriato*
 
     5.  Environment = 'Staging'
 
@@ -343,7 +343,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![Valori delle proprietà dei parametri][6]
 
 10. Salvare le modifiche nella definizione di compilazione.
 
@@ -573,4 +573,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

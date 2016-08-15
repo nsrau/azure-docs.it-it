@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="07/29/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -28,6 +28,40 @@ Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela affinch�
 -	È possibile pubblicare una domanda nel [thread Disqus](#comments) alla fine del presente documento di FAQ e interagire con il team di Cache di Azure e altri membri della community in merito a questo articolo.
 -	Per raggiungere un pubblico maggiore, è possibile pubblicare una domanda sul [Forum MSDN di Cache di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e interagire con il team di Cache di Azure e altri membri della community.
 -	È possibile anche inviare un messaggio di posta elettronica all'indirizzo relativo al [feedback esterno su Cache di Azure](mailto:azurecache@microsoft.com).
+
+## Informazioni di base sulla Cache Redis di Azure
+
+Le domande frequenti di questa sezione illustrano alcuni dei concetti di base sulla Cache Redis di Azure.
+
+-    [Informazioni su Cache Redis di Azure](#what-is-azure-redis-cache)
+-    [Come si procede per iniziare a usare Cache Redis di Azure?](#how-can-i-get-started-with-azure-redis-cache)
+
+Le domande frequenti riportate di seguito riguardano i concetti e le domande di base su Cache Redis di Azure e le risposte sono riportate nelle altre sezioni di domande frequenti.
+
+-	[Quali offerte e dimensioni della Cache Redis è consigliabile usare?](#what-redis-cache-offering-and-size-should-i-use)
+-	[Quali client della cache Redis è possibile usare?](#what-redis-cache-clients-can-i-use)
+-	[Esiste un emulatore locale per la cache Redis di Azure?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[In che modo si esegue il monitoraggio dell'integrità e delle impostazioni della cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+
+
+### Informazioni su Cache Redis di Azure
+
+Cache Redis di Azure si basa sulla popolare [cache Redis](http://redis.io) open source. Consente di accedere a una cache Redis sicura e dedicata, gestita da Microsoft e accessibile da qualsiasi applicazione in Azure. Per una panoramica più dettagliata, vedere la pagina di prodotto di [Cache Redis di Azure](https://azure.microsoft.com/services/cache/) su Azure.com.
+
+
+### Come si procede per iniziare a usare Cache Redis di Azure?
+
+Esistono diversi modi per iniziare a usare Cache Redis di Azure.
+
+-    È possibile eseguire una delle esercitazioni disponibili per [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node. js](cache-nodejs-get-started.md) e [Python](cache-python-get-started.md).
+-    È possibile guardare il video sulla [compilazione di app ad alte prestazioni con Cache Redis di Microsoft Azure](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+-    È possibile consultare la documentazione del client per i client con la stessa lingua di sviluppo del progetto per vedere come usare Redis. Esistono molti client Redis che possono essere utilizzati con Cache Redis di Azure. Per un elenco dei client Redis, vedere [http://redis.io/clients](http://redis.io/clients).
+
+
+Se non si dispone di un account Azure, è possibile:
+
+-    [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=redis_cache_hero): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti.
+-    [Attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 ## Domande frequenti sulla pianificazione
 
@@ -181,7 +215,7 @@ Facoltativamente, è possibile configurare un file [redis.conf](http://redis.io/
 <a name="cache-reference"></a>
 ### Perché la Cache Redis di Azure non offre un riferimento alla libreria di classi MSDN, analogamente ad altri servizi di Azure?
 
-Cache Redis di Microsoft Azure si basa sulla nota Cache Redis open source, a cui è possibile accedere da un'ampia gamma di [client Redis](http://redis.io/clients) disponibili per numerosi linguaggi di programmazione. Ogni client ha un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](http://redis.io/commands).
+Cache Redis di Microsoft Azure si basa sulla nota cache Redis open source, a cui è possibile accedere da un'ampia gamma di [client Redis](http://redis.io/clients) disponibili per numerosi linguaggi di programmazione. Ogni client ha un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](http://redis.io/commands).
 
 Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, sono disponibili alcune esercitazioni che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi. Per accedere a queste esercitazioni, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e fare clic sul linguaggio desiderato dallo strumento di selezione del linguaggio all'inizio dell'articolo.
 
@@ -266,7 +300,7 @@ Come configurare questa impostazione:
 
 -	In ASP.NET usare l'[impostazione di configurazione "minIoThreads"][] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application\_Start in global.asax.cs.
 
-> **Nota importante:** il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si dispone di un computer a 4 core e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
+> **Nota importante:** il valore specificato in questo elemento di configurazione è un'impostazione *per memoria centrale*. Ad esempio, se si dispone di un computer a 4 memorie centrali e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
 
 -	Al di fuori di ASP.NET, usare l'API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
@@ -376,4 +410,4 @@ Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, ve
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

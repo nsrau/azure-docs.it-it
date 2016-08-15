@@ -1,7 +1,7 @@
 <properties
    pageTitle="Loop, ambiti e scomposizione batch delle app per la logica | Microsoft Azure"
    description="Concetti di loop, ambito e scomposizione batch delle app per la logica"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
