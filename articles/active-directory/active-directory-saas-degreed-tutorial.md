@@ -56,7 +56,7 @@ Per configurare l'integrazione di Degreed in Azure AD, è necessario aggiungere 
 
 **Per aggiungere Degreed dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Degreed adottando il modello seguente: **"https://<nome società>.degreed.com"**.
+    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Degreed adottando il modello seguente: `https://degreed.com/?orgsso=<company code>`
 
     b. Fare clic su **Avanti**.
 
@@ -271,4 +271,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

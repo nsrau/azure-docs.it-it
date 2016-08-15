@@ -13,12 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Usare Distcp per copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake
 
-Dopo avere creato un cluster HDInsight con accesso a un account Archivio Data Lake, è possibile usare gli strumenti dell'ecosistema Hadoop, ad esempio Distcp, per copiare i dati **da e in** una risorsa di archiviazione del cluster HDInsight in un account Archivio Data Lake. Questo articolo include istruzioni per eseguire questa operazione.
+> [AZURE.SELECTOR]
+- [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
+
+Dopo avere creato un cluster HDInsight con accesso a un account Data Lake Store, è possibile usare gli strumenti dell'ecosistema Hadoop, ad esempio Distcp, per copiare i dati **da e in** una risorsa di archiviazione del cluster HDInsight in un account Data Lake Store. Questo articolo include istruzioni per eseguire questa operazione.
 
 ##Prerequisiti
 
@@ -26,11 +31,11 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- **Cluster Azure HDInsight** con accesso all'account Archivio Data Lake. Vedere [Creare un cluster HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
+- **Cluster Azure HDInsight** con accesso a un account Data Lake Store. Vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
 
 ## Apprendimento rapido con i video
 
-[Guardare questo video](https://mix.office.com/watch/1liuojvdx6sie) su come copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake con DistCp.
+[Guardare questo video](https://mix.office.com/watch/1liuojvdx6sie) su come copiare dati tra i BLOB di archiviazione di Azure e Data Lake Store con DistCp.
 
 ## Usare Distcp da Desktop remoto (cluster Windows) o SSH (cluster Linux)
 
@@ -56,13 +61,13 @@ Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiar
 
 		hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-	I contenuti della cartella **/example/data/gutenberg/** nel BLOB di archiviazione di Azure verranno copiati in **/myfolder** nell'account Archivio Data Lake.
+	I contenuti della cartella **/example/data/gutenberg/** nel BLOB di archiviazione di Azure verranno copiati in **/myfolder** nell'account Data Lake Store.
 
 6. Analogamente, usare Distcp per copiare dati dall'account Archivio Data Lake al BLOB di archiviazione di Azure.
 
 		hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-	I contenuti di **/myfolder** nell'account di Archivio Data Lake verranno copiati nella cartella **/example/data/gutenberg/** nel BLOB di archiviazione di Azure.
+	I contenuti di **/myfolder** nell'account Data Lake Store verranno copiati nella cartella **/example/data/gutenberg/** nel BLOB del servizio di archiviazione di Azure.
 
 ## Vedere anche
 
@@ -71,4 +76,4 @@ Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiar
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

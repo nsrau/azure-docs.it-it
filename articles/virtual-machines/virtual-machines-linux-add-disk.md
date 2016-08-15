@@ -240,6 +240,8 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
 
+## Risoluzione dei problemi
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Passaggi successivi
 
@@ -247,4 +249,4 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 - Esaminare le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale Linux](virtual-machines-linux-optimization.md) per garantire che la VM Linux sia configurata correttamente.
 - Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

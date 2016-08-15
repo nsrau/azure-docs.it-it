@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato | Microsoft Azure"
 	description="Viene descritto come effettuare il pagamento se la sottoscrizione di Azure presenta un saldo dovuto non pagato"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@ Per istruzioni su come modificare il metodo di pagamento in Azure, vedere [come 
 
 > [AZURE.NOTE] Se la sottoscrizione di Azure viene disabilitata, seguire la procedura disponibile nell'articolo [Cosa fare in caso di annullamento della sottoscrizione di Azure](billing-subscription-become-disable.md) per riattivarla.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

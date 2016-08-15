@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Indicazioni tecniche sulla resilienza di Azure
 
@@ -61,4 +61,4 @@ Le informazioni sono organizzate negli articoli seguenti:
 
 Questo articolo fa parte di una serie relativa al materiale sussidiario sulla resilienza di Azure. Se si è interessati ad altri articoli di questa serie, iniziare con [Ripristino da errori locali](resiliency-technical-guidance-recovery-local-failures.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

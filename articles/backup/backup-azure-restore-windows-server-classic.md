@@ -3,8 +3,8 @@
    description="Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/09/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Ripristinare file in un computer di Windows Server o in un client di Windows con il modello di distribuzione classica
@@ -43,7 +43,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Nello stesso computer](./media/backup-azure-restore-windows-server-classic/samemachine.png)
 
-4. È possibile scegliere di selezionare **Sfoglia elenco file** o **Cerca file**.
+4. È possibile scegliere di selezionare ** Sfoglia elenco file** o **Cerca file**.
 
     Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file**. Ai fini di questa sezione, si procede con l'opzione predefinita.
 
@@ -123,4 +123,4 @@ Include la terminologia utilizzata in questi passaggi:
 - [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 - [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

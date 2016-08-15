@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del connettore Azure Storage Blob nelle app per la logica | Microsoft Azure App Service" 
    description="Come creare e configurare l'app per le API o il connettore Azure Storage Blob e usarlo in un'app per la logica in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="msftman" 
    manager="erikre" 
@@ -25,4 +25,4 @@ Da questa pagina è stato rimosso il contenuto destinato alle app per la logica 
 - [Leggere ulteriori informazioni su questo nuovo connettore](../connectors/connectors-create-api-azureblobstorage.md)
 - Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

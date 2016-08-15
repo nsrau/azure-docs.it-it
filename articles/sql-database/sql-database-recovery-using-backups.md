@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # Ripristinare un database SQL di Azure mediante i backup automatici del database
@@ -65,7 +65,7 @@ Il ripristino di un database eliminato consente di ripristinare un database all'
 
 > [AZURE.IMPORTANT] Se si elimina un'istanza del server di database SQL di Azure, vengono eliminati anche tutti i relativi database e non possono essere recuperati. Non è attualmente disponibile alcun supporto per il ripristino di un server eliminato.
 
-È possibile usare lo stesso nome o un nuovo nome di database per il database ripristinato. È possibile usare il [portale di Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+È possibile usare lo stesso nome o un nuovo nome di database per il database ripristinato. È possibile usare il [Portale di Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o il [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Ripristino di un database eliminato: portale di Azure](sql-database-restore-deleted-database-portal.md)
@@ -73,7 +73,7 @@ Il ripristino di un database eliminato consente di ripristinare un database all'
 
 ## Ripristino geografico
 
-Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando l'ultimo [backup giornaliero automatico](sql-database-automated-backups.md) con replica geografica. Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un guasto. È possibile usare il [portale di Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) o il [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando l'ultimo [backup giornaliero automatico](sql-database-automated-backups.md) con replica geografica. Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un guasto. È possibile usare il [portale di Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) o il [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 > [AZURE.SELECTOR]
 - [Ripristino geografico: portale di Azure](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 
 |API|Descrizione|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Ripristina un database|
+|[REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Ripristina un database|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Restituisce lo stato durante un'operazione di ripristino|
 ||||
 
@@ -122,4 +122,4 @@ I backup automatici proteggono i database da errori dell'utente e delle applicaz
 - Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

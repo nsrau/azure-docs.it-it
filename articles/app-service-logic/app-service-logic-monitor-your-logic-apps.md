@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -138,4 +138,4 @@ I dati di telemetria di Hub eventi o Archiviazione possono essere sfruttati in a
 - [Creazione di un modello di distribuzione di app per la logica](app-service-logic-create-deploy-template.md)
 - [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

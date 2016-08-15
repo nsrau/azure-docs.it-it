@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -657,7 +657,13 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 **Sintassi:** `String PCase(string)`
 
+**Osservazioni:**
+
+- Questa funzione attualmente non offre una corretta conversione di maiuscole e minuscole in caso di parola interamente in maiuscolo, come un acronimo.
+
 **Esempio:** `PCase("TEsT")` Restituisce "Test".
+
+`PCase(LCase("TEST"))` Restituisce "Test".
 
 ----------
 ### RandomNum
@@ -678,7 +684,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 **Sintassi:** `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Esempio:** `RemoveDuplicates([proxyAddresses])` Restituisce un attributo proxyAddress puro in cui sono stati rimossi tutti i valori duplicati.
+**Esempio:** `RemoveDuplicates([proxyAddresses])` Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
 
 ----------
 ### Replace
@@ -726,7 +732,7 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)` Restituisce Raksmorgas
 
-`ReplaceChars("O’Neil",%ReplaceString%)` Restituisce "ONeil", viene definita la rimozione della virgoletta singola.
+`ReplaceChars("O’Neil",%ReplaceString%)` Restituisce "ONeil". Viene definita la rimozione della virgoletta singola.
 
 ----------
 ### Right
@@ -775,7 +781,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 ----------
 ### StringFromGuid
 
-**Descrizione:** La funzione StringFromGuid accetta un GUID binario e lo converte in una stringa
+**Descrizione:** La funzione StringFromGuid accetta un GUID binario e lo converte in una stringa.
 
 **Sintassi:** `str StringFromGuid(bin GUID)`
 
@@ -834,7 +840,7 @@ Value può anche essere la funzione Error che restituirà una stringa personaliz
 ----------
 ### Word
 
-**Descrizione:** La funzione Word restituisce una parola contenuta in una stringa, in base ai parametri che descrivono i delimitatori da usare e al numero della parola da restituire.
+**Descrizione:** La funzione Word restituisce una parola contenuta in una stringa, in base ai parametri che descrivono i delimitatori da usare e il numero della parola da restituire.
 
 **Sintassi:** `str Word(str string, num WordNumber, str delimiters)`
 
@@ -859,4 +865,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panoramica di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Usare le funzionalità di Enterprise Integration Pack per abilitare processi aziendali e scenari di integrazione tramite il Servizio app di Microsoft Azure" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 - [Altre informazioni sulle mappe](./app-service-logic-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -64,12 +64,12 @@ La procedura seguente consente di creare una nuova formula da zero.
 
 	- **Nome formula**: immettere un nome per la formula. Questo valore verrà visualizzato nell'elenco delle immagini di base quando si crea una macchina virtuale. Il nome viene convalidato durante la digitazione e, se non è valido, un messaggio indicherà i requisiti per un nome valido.
 	- **Descrizione**: immettere una descrizione significativa per la formula. Questo valore è disponibile dal menu di scelta rapida della formula quando si crea una macchina virtuale.
-	- **Immagine**: questo campo visualizza il nome dell'immagine di base selezionata nel pannello precedente. 
+	- **Immagine**: questo campo visualizza il nome dell'immagine di base selezionata nel pannello precedente.
 	- **Dimensioni macchina virtuale**: selezionare uno degli elementi predefiniti che specificano le memorie centrali del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare.
 	- **Rete virtuale**: selezionare questa opzione, quindi la rete virtuale desiderata.
 	- **Subnet**: selezionare questa opzione, quindi la subnet desiderata.
 	- **Indirizzo IP pubblico**: se i criteri del lab sono impostati per consentire gli indirizzi IP pubblici per la subnet selezionata, specificare se l'indirizzo IP deve essere pubblico selezionando **Sì** o **No**. In caso contrario, questa opzione è disabilitata e impostata su **No**.
-	- **Elementi**: selezionare questa opzione, quindi, dall’elenco di elementi, selezionare e configurare gli elementi che si vuole aggiungere all’immagine di base. Si noti che i parametri degli elementi che sono stringhe protette non vengono visualizzati, poiché la formula non salva i valori delle stringhe protette. 
+	- **Elementi**: selezionare questa opzione, quindi, dall’elenco di elementi, selezionare e configurare gli elementi che si vuole aggiungere all’immagine di base. Si noti che i parametri degli elementi che sono stringhe protette non vengono visualizzati, poiché la formula non salva i valori delle stringhe protette.
 
     	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -142,7 +142,11 @@ Per eliminare una formula, seguire questa procedura:
 
     ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+## Post di blog correlati
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/) (Immagini personalizzate o formule?)
+
 ## Passaggi successivi
 Dopo aver aggiunto una formula da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

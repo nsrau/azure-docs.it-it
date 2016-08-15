@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuzione di tabelle in SQL Data Warehouse
@@ -187,7 +187,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Passaggi successivi
 
-Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary]. Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary].
+
+Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -312,4 +314,4 @@ Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relat
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

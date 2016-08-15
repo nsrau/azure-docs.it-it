@@ -430,7 +430,7 @@ Indipendentemente dall'attività svolta, spesso il codice deve interagire con al
 
 L'accodamento si basa su un concetto semplice: un'applicazione colloca un messaggio in una coda e il messaggio viene quindi letto da un'altra applicazione. Se l'applicazione richiede solo questo semplice servizio, il servizio Code di Azure risulta la scelta ottimale.
 
-Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Analogie e differenze tra le code di Azure e le code del bus di servizio"). In molti scenari saranno valide entrambe le soluzioni.
+Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [Analogie e differenze tra le code di Azure e le code del bus di servizio](http://msdn.microsoft.com/library/azure/hh767287.aspx). In molti scenari saranno valide entrambe le soluzioni.
 
 **Scenari di coda**
 
@@ -606,4 +606,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

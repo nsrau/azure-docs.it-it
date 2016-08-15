@@ -3,8 +3,8 @@
 	description="Introduzione al backup dei database SQL Server tramite il servizio Backup di Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Backup di Azure per carichi di lavoro di SQL server tramite DPM
@@ -174,4 +174,4 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 • [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

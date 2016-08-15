@@ -3,7 +3,7 @@
 	description="Recuperare i dati che sono stati protetti in un archivio di Backup di Azure da un server DPM registrato in tale archivio."
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/05/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Ripristino dei dati da un altro server DPM nell'archivio di backupRipristino dei dati da un altro server DPM nell'archivio di backup
 Ora è possibile recuperare i dati protetti in un archivio di Backup di Azure da un server DPM registrato in tale archivio. Il processo per farlo è completamente integrato nella console di gestione DPM ed è simile agli altri flussi di lavoro di ripristino.
@@ -86,8 +86,8 @@ Per ripristinare i dati da un altro server DPM:
 | :-------------: |:-------------| :-----|
 |1\.|		Questo server non è registrato nell'insieme di credenziali specificate per le credenziali dell'insieme di credenziali.|	**Causa:** questo errore viene visualizzato quando il file di archivio dell’insieme di credenziali selezionato non appartiene a un insieme di credenziali di backup associato al server DPM in cui viene tentato il ripristino. <br> **Risoluzione:** scaricare il file di archivio delle credenziali dall'archivio di backup nel quale il server DPM è registrato.|
 |2\.|		I dati ripristinabili non sono disponibili o il server selezionato non è un server DPM.|	**Causa:** non sono presenti altri server DPM con DPM 2012 R2 UR7 registrati per l'archivio di backup, i server DPM con DPM 2012 R2 UR7 non hanno ancora caricato i metadati o il server selezionato è non server DPM (noto come Windows Server o Client di Windows). <br> **Risoluzione:** se sono presenti altri server DPM registrati per l'archivio di backup, assicurarsi che SCDPM 2012 R2 UR7 e l'agente di Backup di Azure più recente siano installati. <br>Se sono presenti altri server DPM registrati nell'archivio di backup con DPM 2012 R2 UR7, attendere un giorno dopo l'installazione di UR7 per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup precedentemente protetti nel cloud. I dati saranno disponibili per il ripristino.|
-|3\.|		Nessun altro server DPM viene registrato nell'insieme di credenziali.|	**Causa:** non esistono altri server DPM con DPM 2012 R2 UR7 o precedente che siano registrati nell'archivio da cui si sta tentando il ripristino.<br> **Risoluzione:** se sono presenti altri server DPM registrati per l'archivio di backup, assicurarsi che SCDPM 2012 R2 UR7 e l'agente di Backup di Azure più recente siano installati.<br>Se sono presenti altri server DPM registrati negli archivi di backup con DPM 2012 R2 UR7, attendere un giorno dopo l'installazione di UR7 per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup precedentemente protetti nel cloud. I dati saranno disponibili per il ripristino.|
-|4\.|		La passphrase di crittografia fornita non corrisponde alla passphrase associata ai server seguenti: **<server name>**|	**Causa:** la passphrase di crittografia utilizzata nel processo di crittografia dai dati del server DPM che è stata ripristinata non corrisponde alla passphrase di crittografia fornita. L'agente non è in grado di decrittografare i dati. Di conseguenza il ripristino non riesce.<br> **Risoluzione:** specificare la stessa passphrase di crittografia esatta associata al server DPM i cui dati sono stati ripristinati.|
+|3\.|		Nessun altro server DPM viene registrato nell'insieme di credenziali.|	**Causa:** non esistono altri server DPM con DPM 2012 R2 UR7 o versione successiva registrati nell'archivio da cui si sta tentando il ripristino.<br>** Risoluzione:** se sono presenti altri server DPM registrati nell'insieme di credenziali per il backup, assicurarsi che SCDPM 2012 R2 UR7 e l'agente di Backup di Azure più recente siano installati.<br>Se sono presenti altri server DPM registrati nell'insieme di credenziali per il backup con DPM 2012 R2 UR7, attendere un giorno dopo l'installazione di UR7 per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup precedentemente protetti nel cloud. I dati saranno disponibili per il ripristino.|
+|4\.|		La passphrase di crittografia fornita non corrisponde alla passphrase associata al server seguente: **<nome server>**|	**Causa:** la passphrase di crittografia utilizzata nel processo di crittografia dai dati del server DPM che è stata ripristinata non corrisponde alla passphrase di crittografia fornita. L'agente non è in grado di decrittografare i dati. Di conseguenza il ripristino non riesce.<br>**Risoluzione:** specificare esattamente la stessa passphrase di crittografia associata al server DPM i cui dati sono stati ripristinati.|
 
 ## Domande frequenti
 1. **Impossibile aggiungere un server DPM esterno da un altro server DPM dopo l'installazione di UR7 e dell'agente Azure Backup più recente?**
@@ -103,4 +103,4 @@ Per ripristinare i dati da un altro server DPM:
 ## Passaggi successivi:
 [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

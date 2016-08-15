@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # informazioni su NoSQL in Microsoft Azure
@@ -35,4 +35,4 @@ In questo caso, sono disponibili due risorse:
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

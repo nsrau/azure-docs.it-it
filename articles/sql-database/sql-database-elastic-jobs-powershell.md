@@ -434,7 +434,7 @@ Criteri di esecuzione che attualmente consentono la definizione di:
 * Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastici.
 * Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
 * Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
-* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi. Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2). 
+* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi. Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
 * Numero massimo di tentativi: Il numero massimo di tentativi all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:
@@ -521,7 +521,7 @@ Impostare le seguenti variabili in modo da riflettere la configurazione della de
 
 Per aggiungere un database a una raccolta personalizzata specifica, usare il cmdlet [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx).
 
-	$serverName = "{Database Server Name}"
+	$databaseServerName = "{Database Server Name}"
 	$databaseName = "{Database Name}"
 	$customCollectionName = "{Custom Database Collection Name}"
 	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
@@ -680,4 +680,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

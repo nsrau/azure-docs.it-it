@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limiti di capacità di SQL Data Warehouse
@@ -29,6 +29,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 | Connessione del database | Sessioni simultanee aperte | 1024<br/><br/>È supportato un massimo di 1024 connessioni attive, ciascuna delle quali può inviare richieste a un database SQL Data Warehouse contemporaneamente. Si noti che sono previsti dei limiti sul numero di query effettivamente eseguibili in contemporanea. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione.|
 | Connessione del database | Memoria massima per le istruzioni preparate | 20 MB |
 | [Gestione del carico di lavoro][] | Numero massimo di query simultanee | 32<br/><br/> Per impostazione predefinita, SQL Data Warehouse esegue un massimo di 32 query simultanee, le query restanti vengono inserite in coda.<br/><br/>Quando gli utenti vengono assegnati a una classe di risorse superiore, il livello di concorrenza può diminuire. Alcune query, come ad esempio le query DMV, possono essere sempre eseguite.|
+| [Tempdb][] | Dimensioni massime del database Tempdb | 399 GB per DW100. Pertanto il database Tempdb DWU1000 ha come dimensioni 3,99 TB |
 
 
 ## Oggetti di database
@@ -45,7 +46,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 | Table | Caratteri per valore limite della partizione.| 4000 |
 | Indice | Indici non in cluster per tabella. | 999<br/><br/>Si applica solo alle tabelle rowstore.|
 | Indice | Indici in cluster per tabella. | 1<br><br/>Si applica sia alle tabelle rowstore che alle tabelle columnstore.|
-| Indice | Righe in un gruppo righe dell'indice columnstore | 1024<br/><br/>Ogni indice columnstore viene implementato come più indici columnstore. Si noti che se si inseriscono 1024 righe in un indice columnstore SQL Data Warehouse, non tutte le righe andranno nello stesso gruppo righe.|
+| Indice | Righe in un gruppo righe dell'indice columnstore | 1\.024<br/><br/>Ogni indice columnstore viene implementato come più indici columnstore. Si noti che se si inseriscono 1024 righe in un indice columnstore SQL Data Warehouse, non tutte le righe andranno nello stesso gruppo righe.|
 | Indice | Compilazioni simultanee di indici columnstore in cluster. | 32<br/><br/>Si applica quando gli indici columnstore cluster vengono compilati tutti in tabelle diverse. È consentita solo una compilazione dell'indice columnstore in cluster per tabella. Le richieste aggiuntive resteranno in coda.|
 | Indice | Dimensioni della chiave indice. | 900 byte<br/><br/>Si applica solo agli indici rowstore.<br/><br/>È possibile creare indici in colonne varchar con una dimensione massima di oltre 900 byte se i dati esistenti nelle colonne non superano i 900 byte quando viene creato l'indice. Tuttavia, le azioni INSERT o UPDATE successive eseguite nelle colonne che causano un aumento delle dimensioni totali oltre i 900 byte avranno esito negativo.|
 | Indice | Colonne chiave per indice. | 16<br/><br/>Si applica solo agli indici rowstore. Gli indici columnstore in cluster includono tutte le colonne.|
@@ -77,7 +78,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 | SELECT | Colonne per JOIN | 1024 colonne<br/><br/>Il JOIN non può includere più di 1024 colonne. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
 | SELECT | Byte per le colonne GROUP BY. | 8060<br/><br/>Le colonne nella clausola GROUP BY possono avere un massimo di 8060 byte.|
 | SELECT | Byte per le colonne ORDER BY | 8060<br/><br/>Le colonne nella clausola ORDER BY possono avere un massimo di 8060 byte.|
-| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti in una singola espressione di una query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere la pagina relativa al messaggio di errore [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni][].|
+| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti in una singola espressione di una query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere la pagina relativa al messaggio [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni][].|
 
 
 ## Metadata
@@ -104,10 +105,11 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [Unità Data Warehouse (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [panoramica degli argomenti di riferimento di SQL Data Warehouse]: ./sql-data-warehouse-overview-reference.md
 [Gestione del carico di lavoro]: ./sql-data-warehouse-develop-concurrency.md
+[Tempdb]: ./sql-data-warehouse-tables-temporary.md
 
 <!--MSDN references-->
 [Dati di overflow della riga che superano 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

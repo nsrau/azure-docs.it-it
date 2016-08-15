@@ -18,7 +18,11 @@
 
 # Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 
-Azure Data Lake Store fornisce uno strumento da riga di comando, [AdlCopy](http://aka.ms/downloadadlcopy), per copiare dati dalle seguenti origini:
+> [AZURE.SELECTOR]
+- [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
+Azure Data Lake Store fornisce uno strumento da riga di comando, [AdlCopy](http://aka.ms/downloadadlcopy), per copiare dati dalle origini seguenti:
 
 * Dal BLOB di Archiviazione di Azure a Data Lake Store. Non è possibile usare lo strumento AdlCopy per copiare dati da Archivio Data Lake ai BLOB di Archiviazione di Azure.
 
@@ -169,4 +173,4 @@ Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nel
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

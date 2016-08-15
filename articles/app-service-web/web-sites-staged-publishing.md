@@ -68,7 +68,7 @@ Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in
 
 5. Fare clic sull'URL dell'app nel pannello dello slot. Tenere presente che lo slot di distribuzione dispone di un nome host specifico ed è inoltre un'app attiva. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Non è presente alcun contenuto dopo la creazione dello slot di distribuzione. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti. È ad esempio possibile [pubblicare in questo slot con git](web-sites-publish-source-control.md).
+Non è presente alcun contenuto dopo la creazione dello slot di distribuzione. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti. È ad esempio possibile [pubblicare in questo slot con git](app-service-deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 ## Configurazione per gli slot di distribuzione ## ##
@@ -100,7 +100,7 @@ Per configurare un'impostazione app o una stringa di connessione in modo da adat
 
 >[AZURE.IMPORTANT] Prima di scambiare un'app Web da uno slot di distribuzione alla produzione, accertarsi che tutte le impostazioni non specifiche dello slot siano configurate esattamente nel modo in cui si desidera nello slot di destinazione.
 
-1. Per scambiare gli slot di distribuzione, fare clic sul pulsante **Scambia** nella barra dei comandi dell'app Web o di uno slot di distribuzione. Assicurarsi che l'origine e la destinazione dello scambio siano impostati correttamente. In genere, la destinazione dello scambio è rappresentata dallo slot di produzione.  
+1. Per scambiare gli slot di distribuzione, fare clic sul pulsante **Scambia** nella barra dei comandi dell'app Web o di uno slot di distribuzione. Assicurarsi che l'origine e la destinazione dello scambio siano impostati correttamente. In genere, la destinazione dello scambio è rappresentata dallo slot di produzione.
 
 	![Pulsante Swap][SwapButtonBar]
 
@@ -114,7 +114,7 @@ Lo scambio automatico semplifica gli scenari DevOps nei quali si desidera distri
 
 La configurazione dello scambio automatico per uno slot è semplice. Attenersi ai passaggi indicati di seguito:
 
-1. Nel pannello **Slot di distribuzione**, selezionare uno slot non di produzione, fare clic su **Tutte le impostazioni** per il pannello di tale slot.  
+1. Nel pannello **Slot di distribuzione**, selezionare uno slot non di produzione, fare clic su **Tutte le impostazioni** per il pannello di tale slot.
 
 	![][Autoswap1]
 
@@ -162,7 +162,7 @@ Nel pannello di uno slot di distribuzione, fare clic su **Elimina** nella barra 
 
 Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione delle app Web in Azure App Service.
 
-- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../powershell-install-configure.md).  
+- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../powershell-install-configure.md).
 
 ----------
 
@@ -283,4 +283,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0803_2016-->

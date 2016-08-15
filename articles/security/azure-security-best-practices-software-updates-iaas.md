@@ -13,18 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
-#Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure
+# Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure
 
-Prima di addentrarsi in una qualsiasi discussione sulle procedure consigliate per un ambiente [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) di Azure, è importante comprendere quali sono gli scenari che richiedono la gestione degli aggiornamenti software. Il diagramma sottostante dovrebbe risultare utile in questo senso:
+Prima di addentrarsi in una qualsiasi discussione sulle procedure consigliate per un ambiente [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) di Azure, è importante comprendere quali sono gli scenari che richiedono la gestione degli aggiornamenti software e le responsabilità. Il diagramma riportato di seguito consente di comprendere questi limiti:
 
-![Modelli di cloud e responsabilità](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
+![Modelli di cloud e responsabilità](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-Nel modello di data center tradizionale, in cui l'intera infrastruttura è locale, l'utente ha la piena responsabilità della gestione degli aggiornamenti per sistemi operativi, applicazioni, dispositivi di rete, come router e commutatori, e hardware (firmware). In uno scenario IaaS si dovrà comunque continuare a gestire gli aggiornamenti dei sistemi operativi e delle applicazioni, tuttavia l'intera infrastruttura su cui poggiano i sistemi operativi e le applicazioni viene gestita da Microsoft. In tutti questi modelli i clienti continuano a essere proprietari dei propri dati e responsabili della loro protezione a livello di endpoint.
+La colonna più a sinistra mostra sette responsabilità (definite nelle sezioni che seguono) che le organizzazioni devono considerare che contribuiscono alla sicurezza e alla privacy di un ambiente di elaborazione.
+ 
+Classificazione e responsabilità dei dati e Protezione di client ed endpoint sono responsabilità in capo esclusivamente ai clienti mentre le responsabilità Fisica, Host e Rete sono in capo ai provider di servizi cloud nei modelli PaaS e SaaS.
 
-In uno scenario PaaS si avranno ancora meno responsabilità per gli aggiornamenti software, perché la gestione degli aggiornamenti per il sistema operativo è a cura di Microsoft. In uno scenario SaaS Microsoft si assume la responsabilità degli aggiornamenti software per l'intero stack.
+Le responsabilità rimanenti sono condivise tra clienti e i provider di servizi cloud. Alcune responsabilità richiedono che il provider di servizi cloud e il cliente gestiscano e amministrino la responsabilità insieme, tra queste compare il controllo dei loro domini. Ad esempio, si consideri la Gestione di identità e accesso quando si usano i servizi Azure Active Directory; la configurazione dei servizi, come l'autenticazione a più fattori, è responsabilità del cliente, ma garantire l'efficacia della funzionalità è responsabilità di Microsoft Azure.
+
+> [AZURE.NOTE] Per altre informazioni sulle responsabilità condivise nel cloud, leggere l'articolo sulle [responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
 
 Questi stessi principi si applicano a uno scenario ibrido, dove l'azienda usa macchine virtuali IaaS di Azure che comunicano con le risorse locali, come illustrato nel diagramma seguente.
 
@@ -118,4 +122,4 @@ Oltre alle considerazioni generali descritte in questo articolo, è consigliabil
 
 Usare le linee guida descritte in questo articolo per determinare le opzioni migliori per gli aggiornamenti software delle macchine virtuali nell'ambiente IaaS di Azure. Esistono molte analogie tra le procedure consigliate per gli aggiornamenti software in un data center tradizionale e un ambiente IaaS di Azure, quindi è consigliabile valutare i criteri di aggiornamento software attuali e includere nel processo di aggiornamento software globale le macchine virtuali di Azure e le procedure consigliate pertinenti descritte in questo articolo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

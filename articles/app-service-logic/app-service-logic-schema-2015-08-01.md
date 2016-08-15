@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -464,4 +464,4 @@ In previsione dei nuovi tipi di contenuto che verranno aggiunti a breve, la funz
 ## Presto disponibile: API Enterprise Integration
 Attualmente non esistono versioni gestite delle API Enterprise Integration, ad esempio AS2, ma saranno presto disponibili, come illustrato nella [guida di orientamento](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Nel frattempo, è possibile usare le API BizTalk distribuite esistenti con l'azione HTTP, come descritto nella sezione "Uso delle app per le API già distribuite" di questo articolo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso di Gestione connessione ibrida | Microsoft Azure App Service" 
-	description="Installare e configurare Gestione connessione ibrida e connettersi ai connettori locali in Azure App Service" 
+	pageTitle="Uso di Gestione connessione ibrida | Microsoft Azure" 
+	description="Installare e configurare Gestione connessione ibrida e connettersi ai connettori locali in App per la logica" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Connettersi ai connettori locali in Azure App Service usando Gestione connessione ibrida
+# Connettersi ai connettori locali i usando Gestione connessione ibrida
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. La versione con disponibilità a livello generale delle app per la logica usa un gateway per la connettività locale. Altre informazioni sul nuovo [gateway](app-service-logic-gateway-connection.md) e sulle [app per la logica con disponibilità a livello generale](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-Per usare un sistema locale, il servizio app di Azure usa Gestione connessione ibrida. Alcuni connettori possono connettersi a un sistema locale, ad esempio SQL Server, SAP, SharePoint e così via.
+Per usare un sistema locale, il servizio App per la logica usa Gestione connessione ibrida. Alcuni connettori possono connettersi a un sistema locale, ad esempio SQL Server, SAP, SharePoint e così via.
 
 Gestione connessione ibrida è un programma di installazione di tipo ClickOnce che viene installato in un server IIS all'interno della rete protetta da un firewall. Con l'inoltro del bus di servizio di Azure, Gestione connessione ibrida autentica il sistema locale con il connettore in Azure.
 
@@ -87,7 +87,7 @@ Porta di sistema locale | Nel sistema locale aprire la porta usata dal sistema. 
  - In Gestione IIS (inetmgr) dovrebbe essere elencato il sito Web ***MicrosoftAzureBizTalkHybridListener*** e dovrebbe essere in esecuzione.
  - Questo sito Web usa ***HybridListenerAppPool*** che viene eseguito come account utente predefinito locale di *NetworkService*. Dovrebbe essere avviato anche questo pool di applicazioni.
 3. Nel server IIS verificare che sia installato il connettore e che sia in esecuzione:
- - Viene creato un sito Web per il connettore del servizio app. Se ad esempio è stato creato un connettore SQL, sarà presente un sito Web ***MicrosoftSqlConnector\_nnn***. In Gestione IIS (inetmgr) verificare che sia elencato questo sito Web e che sia avviato.
+ - Viene creato un sito Web per il connettore. Se ad esempio è stato creato un connettore SQL, sarà presente un sito Web ***MicrosoftSqlConnector\_nnn***. In Gestione IIS (inetmgr) verificare che sia elencato questo sito Web e che sia avviato.
  - Questo sito Web usa un proprio pool di applicazioni IIS denominato ***HybridAppPoolnnn***. Questo pool di applicazioni viene eseguito come account utente predefinito locale di *NetworkService*. Questo sito Web e il pool di applicazioni devono essere entrambi avviati.
  - Individuare il connettore locale. Se ad esempio il sito Web del connettore usa la porta 6569, passare a http://localhost:6569. Non è configurato un documento predefinito, per cui è previsto il messaggio `HTTP Error 403.14 - Forbidden error`.
 4. Nel firewall verificare che siano aperte le porte TCP elencate in questo argomento.
@@ -109,7 +109,7 @@ Porta di sistema locale | Nel sistema locale aprire la porta usata dal sistema. 
 
 ## Domande frequenti
 
-**DOMANDA**: esistono due programmi Gestione connessione ibrida. Qual è la differenza?
+**DOMANDA**: esistono due tipologie di Gestione connessione ibrida. Qual è la differenza?
 
 **Risposta**: esiste la tecnologia [Connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) usata principalmente dalle app Web (in precedenza siti Web) e dalle app per dispositivi mobili (in precedenza servizi mobili) per connettersi al sistema locale. Questa Gestione connessione ibrida ha un proprio programma di [installazione](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa un servizio BizTalk di Azure (in modo invisibile). Supporta solo i protocolli TCP e HTTP.
 
@@ -140,4 +140,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

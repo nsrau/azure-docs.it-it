@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di query Hive con Hadoop in HDInsight mediante PowerShell
@@ -142,11 +142,11 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 	> [AZURE.NOTE] Se **ExitCode** è un valore diverso da 0, vedere [Risoluzione dei problemi](#troubleshooting).
 
-    Questo esempio permette inoltre di archiviare i file scaricati nella cartella **example/data/WordCountOutput** nella directory da cui è stato eseguito lo script.
+    Questo esempio consente anche di archiviare i file scaricati in un file **output.txt** nella directory da cui viene eseguito lo script.
 
-##Visualizzare l’output
+###Visualizzare l’output
 
-L'output del processo MapReduce è archiviato nei file con il nome *part-r-#####*. Per vedere le parole e i numeri generati dal processo, aprire il file **example/data/WordCountOutput/part-r-00000** in un editor di testo.
+Per vedere le parole e i numeri generati dal processo, aprire il file **output.txt** in un editor di testo.
 
 > [AZURE.NOTE] I file di output di un processo MapReduce non sono modificabili. Se pertanto si esegue di nuovo l'esempio, è necessario cambiare il nome del file di output.
 
@@ -183,4 +183,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -537,7 +537,7 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - Eseguire questo esempio da un altro computer. Non avrà accesso alle chiavi di crittografia e quindi non avrà accesso ai dati non crittografati e non verrà eseguito correttamente.
 - [Ruotare e pulire le chiavi](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Eseguire la migrazione dei dati già crittografati con la crittografia sempre attiva](https://msdn.microsoft.com/library/mt621539.aspx)
-- Distribuire i certificati della crittografia sempre attiva ad altri computer client
+- [Installare certificati con crittografia sempre attiva in altri computer client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (vedere la sezione *Making Certificates Available to Applications and Users* su come rendere disponibili i certificati per applicazioni e utenti).
 
 
 ## Informazioni correlate
@@ -548,4 +548,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

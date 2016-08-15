@@ -289,4 +289,4 @@ Quando si fa clic sul riquadro Everbridge nel pannello di accesso, si dovrebbe a
 [204]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

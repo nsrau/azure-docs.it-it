@@ -1,7 +1,7 @@
 <properties
    pageTitle="Informazioni su come creare un'app per le API di BizTalk Rules nell'app per la logica | Microsoft Azure"
    description="Questo argomento illustra le funzionalità del connettore BizTalk Rules e fornisce istruzioni sul suo utilizzo"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -230,4 +230,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Uso della rete CDN di Azure con CORS"
+	pageTitle="Uso della rete CDN di Azure con CORS | Microsoft Azure"
 	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure con CORS (Cross-Origin Resource Sharing)."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Uso della rete CDN di Azure con CORS     
@@ -23,7 +23,7 @@
 CORS (Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Per ridurre il rischio di attacchi tramite script da altri siti, tutti i Web browser moderni implementano una restrizione di sicurezza nota come [regola della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy). Questo impedisce a una pagina Web di chiamare le API in un dominio diverso. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare le API in un altro dominio.
  
 ## Funzionamento
-1.	Il browser invia la richiesta OPTIONS con un'intestazione HTTP **Origin**. Il valore di questa intestazione è il dominio che ha gestito la pagina padre. Quando una pagina tenta di accedere da https://www.contoso.com ai dati di un utente nel dominio fabrikam.com, è necessario inviare a tale sito l'intestazione di richiesta seguente: 
+1.	Il browser invia la richiesta OPTIONS con un'intestazione HTTP **Origin**. Il valore di questa intestazione è il dominio che ha gestito la pagina padre. Quando una pagina tenta di accedere da https://www.contoso.com ai dati di un utente nel dominio fabrikam.com, è necessario inviare a tale sito l'intestazione di richiesta seguente:
     
     `Origin: https://www.contoso.com`
  
@@ -81,4 +81,4 @@ Anziché usare espressioni regolari, è possibile creare una regola separata per
 
 Nei profili della rete CDN Standard di Azure, l'unico meccanismo per consentire più origini senza l'uso dell'origine con caratteri jolly consiste nella [memorizzazione della stringa di query nella cache](cdn-query-string.md). È necessario abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizzerà nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

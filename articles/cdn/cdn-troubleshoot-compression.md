@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN: Risoluzione dei problemi di compressione dei file"
-	description="Risolvere i problemi relativi alla compressione dei file CDN."
+	pageTitle="Risoluzione dei problemi di compressione di file nella rete CDN di Azure | Microsoft Azure"
+	description="Risolvere i problemi relativi alla compressione di file nella rete CDN di Azure."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Risoluzione dei problemi della compressione dei file CDN
@@ -99,4 +99,4 @@ L'intestazione HTPP **ramite** indica al server Web che la richiesta viene passa
 - **IIS 6**: [impostare HcNoCompressionForProxies = "FALSE" nelle proprietà della Metabase di IIS](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 e versioni successive**: [impostare sia **noCompressionForHttp10** che **noCompressionForProxies** su False nella configurazione del server](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

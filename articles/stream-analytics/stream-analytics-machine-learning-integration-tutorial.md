@@ -1,13 +1,14 @@
-<properties 
-	pageTitle="Esercitazione: Analisi dei sentimenti con l'analisi di flusso di Azure e Azure Machine Learning | Microsoft Azure" 
-	description="Come sfruttare la funzione definita dall'utente e Machine Learning nei processi di Analisi di flusso"
+<properties
+	pageTitle="Analisi dei sentimenti con Analisi di flusso di Azure e Azure Machine Learning | Microsoft Azure"
+	description="Come usare una funzione definita dall'utente e Machine Learning in un processo di analisi di flusso"
 	keywords=""
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
+
 
 <tags 
 	ms.service="stream-analytics" 
@@ -19,135 +20,129 @@
 	ms.author="jeffstok"
 />
 
-# Esercitazione: Eseguire l'analisi dei sentimenti con analisi di flusso e Machine Learning #
+# Analisi dei sentimenti con Analisi di flusso di Azure e Azure Machine Learning #
 
-Questa esercitazione è stata realizzata per consentire la configurazione rapida dell'integrazione di un semplice processo di Analisi di flusso con Machine Learning. Si sfrutterà un modello di Machine Learning per l'analisi dei sentimenti proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio dei sentimenti in tempo reale. Questa esercitazione è utile per comprendere scenari come l'analisi dei sentimenti in tempo reale in un flusso di dati di Twitter, l'analisi dei record delle chat dei clienti con il personale del supporto, i commenti in forum/blog/video e diversi altri scenari di assegnazione punteggi predittivi in tempo reale.
-  
-In questa esercitazione viene fornito un file CSV di esempio contenente testo (come illustrato sotto nella figura 1) come input nell'archivio BLOB di Azure. Il processo applicherà il modello di analisi dei sentimenti come funzione definita dall'utente ai dati del testo di esempio dell'archivio BLOB. Il risultato finale verrà inserito nello stesso nell'archivio BLOB di Azure in un altro file CSV. Un diagramma di questa configurazione è disponibile sotto nella figura 2. Per uno scenario più realistico, questo input per l'archivio BLOB può essere sostituito con il flusso di dati di Twitter provenienti da un input di Hub eventi di Azure. È anche possibile compilare una visualizzazione in tempo reale di [Power BI](https://powerbi.microsoft.com/) del sentimento di aggregazione. Le iterazioni future di questo articolo includeranno tali estensioni.
+Questo articolo è realizzato per consentire di configurare rapidamente l'integrazione di un semplice processo di Analisi di flusso con Machine Learning. Utilizzando un modello di Machine Learning per l'analisi dei sentimenti proveniente dalla raccolta Cortana Intelligence, verrà analizzato il flusso di dati di testo e determinato il punteggio dei sentimenti in tempo reale. Le informazioni di questo articolo illustrano scenari come l'analisi dei sentimenti in tempo reale in un flusso di dati di Twitter, l'analisi dei record delle chat dei clienti con il personale del supporto, la valutazione dei commenti in forum/blog/video e diversi altri scenari di determinazione di punteggi predittivi in tempo reale.
 
-Figura 1:
+Questo articolo offre un file CSV di esempio con input di testo nell'archivio BLOB di Azure, come da figura seguente. Il processo applica il modello di analisi dei sentimenti come funzione definita dall'utente ai dati del testo di esempio dell'archivio BLOB. Il risultato finale viene inserito nello stesso archivio BLOB di Azure in un altro file CSV.
 
-![Figura 1 dell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
+![Analisi di flusso e Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
 
-Figura 2:
+L'immagine seguente illustra questa configurazione. Per uno scenario più realistico, è possibile sostituire l'archivio BLOB con il flusso di dati di Twitter provenienti da un input di Hub eventi di Azure. È anche possibile compilare una visualizzazione in tempo reale del sentimento di aggregazione in [Microsoft Power BI](https://powerbi.microsoft.com/).
 
-![Figura 2 dell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
+![Analisi di flusso e Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
 
 ## Prerequisiti
 
-I prerequisiti per questo articolo sono i seguenti:
+I prerequisiti per completare le attività illustrate in questo articolo sono:
 
-1.	Una sottoscrizione di Azure attiva
-2.	Un file CSV contenente alcuni dati. Quello illustrato nella figura 2 è fornito [in GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) per il download o è possibile crearne uno nuovo. Questa esercitazione è stata scritta presumendo che venga usato quello disponibile per il download.
+-	Una sottoscrizione di Azure attiva.
+-	Un file CSV contenente alcuni dati. È possibile scaricare il file mostrato nella Figura 1 da [GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) oppure è possibile creare un file personalizzato. Per questo articolo si presuppone l'utilizzo del file da scaricare su GitHub.
 
-In generale, verranno eseguiti i passaggi seguenti:
+In generale, per completare le attività illustrate in questo articolo, sarà necessario eseguire le operazioni seguenti:
 
-1.	Caricare il file di input CSV in Archiviazione BLOB
-2.	Aggiungere un modello di analisi dei sentimenti dalla raccolta Cortana Intelligence all'area di lavoro di Machine Learning
-3.	Distribuire questo modello come servizio Web nell'area di lavoro di Azure Machine Learning
-4.	Creare un processo di Analisi di flusso che chiami questo servizio Web come funzione per determinare il sentimento per l'input di testo
-5.	Avviare il processo di Analisi di flusso ed esaminare l'output
-
+1.	Caricare il file di input CSV in Archivio BLOB di Azure.
+2.	Aggiungere un modello di analisi dei sentimenti dalla raccolta Cortana Intelligence all'area di lavoro di Azure Machine Learning.
+3.	Distribuire questo modello come servizio Web nell'area di lavoro di Machine Learning.
+4.	Creare un processo di Analisi di flusso che chiami questo servizio Web come funzione per determinare il sentimento per l'input di testo.
+5.	Avviare il processo di Analisi di flusso ed esaminare l'output.
 
 ## Caricare il file di input CSV in Archiviazione BLOB
 
-Per questo passaggio, è possibile usare qualsiasi file CSV, incluso quello specificato nell'introduzione. Per caricare il file, è possibile usare [Azure Storage Explorer](http://storageexplorer.com/) o Visual Studio, ma anche un codice personalizzato. Per questa esercitazione vengono forniti esempi per Visual Studio.
+Per questo passaggio, è possibile utilizzare un file CSV qualsiasi, ad esempio il già citato file da scaricare da GitHub. Per caricare il file, è possibile usare [Esplora archivi di Microsoft Azure](http://storageexplorer.com/) o Visual Studio, ma anche un codice personalizzato. Gli esempi illustrati sono basati su Visual Studio.
 
-1.	Espandere Azure e fare clic con il pulsante destro del mouse su **Archiviazione**. Scegliere **Associa archiviazione esterna** e specificare **Nome account** e **Chiave account**.
+1.	In Visual Studio fare clic su **Azure** > **Archiviazione** > **Associa archiviazione esterna**. Digitare il **nome dell'account** e la **chiave dell'account**.
 
-    ![Esplora server nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
+    ![Analisi di flusso e Machine Learning, Esplora server](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
-2.	Espandere l'archiviazione associata, scegliere **Crea contenitore BLOB** e immettere un nome logico. Una volta creato, fare doppio clic sul contenitore per visualizzarne i contenuti (per il momento sarà vuoto).
+2.	Espandere l'archiviazione associata al Passaggio 1, scegliere **Crea contenitore BLOB**, quindi immettere un nome logico. Dopo aver creato il contenitore, aprirlo per visualizzarne il contenuto. In questa fase, sarà vuoto.
 
-    ![Creazione BLOB nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
+    ![Analisi di flusso e Machine Learning, creare BLOB](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
 
-3.	Caricare il file CSV facendo clic sull'icona **Carica BLOB** e quindi scegliere **file dal disco locale**.
+3.	Per caricare il file CSV, fare clic su **Carica BLOB** e quindi sul **file del disco locale**.
 
-## Aggiungere il modello di analisi dei sentimenti dalla raccolta Cortana Intelligence
+## Aggiungere il modello di analisi dei sentimenti dalla raccolta Cortana Intelligence.
 
-1.	Scaricare il [modello di analisi predittiva dei sentimenti](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) nella raccolta Cortana Intelligence.
-2.	Fare clic su **Open** in Studio:
+1.	Scaricare il [modello di analisi predittiva dei sentimenti](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dalla raccolta Cortana Intelligence.
+2.	In Machine Learning Studio fare clic su **Apri in Studio**.
 
-    ![Apertura di Machine Learning Studio nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
+    ![Analisi di flusso e Machine Learning, aprire Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
-3.	Effettuare l'accesso per passare all'area di lavoro. Scegliere la posizione più adatta alla propria.
-4.	Fare clic su **Run** nella parte inferiore di Studio.
-5.	Una volta in esecuzione, fare clic su **Deploy Web Service**.
-6.	Il modello di analisi dei sentimenti è pronto per essere usato. Per la convalida, fare clic sul pulsante **test** e immettere il testo di input, ad esempio "I love Microsoft". Il test restituirà un risultato simile al seguente:
+3.	Effettuare l'accesso per passare all'area di lavoro. Selezionare la posizione più adatta alla propria.
+4.	Fare clic su **Esegui** in basso.
+5.	Una volta avviato il processo, fare clic su **Deploy Web Service** (Distribuisci servizio Web).
+6.	Il modello di analisi dei sentimenti è pronto per essere usato. Per effettuare una verifica, fare clic sul pulsante **Test** e fornire l'input di testo, ad esempio "I love Microsoft". Dovrebbe comparire un risultato simile al seguente:
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
-![Dati di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
+![Analisi di flusso e Machine Learning, dati di analisi](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
 
-Fare clic sul collegamento della cartella di lavoro **Excel 2010 or earlier** per ottenere la chiave API e l'URL che saranno necessari in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per sfruttare un modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'esercitazione presume che sia necessario per questo scenario.
+Nella colonna **App** fare clic sul collegamento **Excel 2010 or earlier workbook** (Cartella di lavoro di Excel 2010 o versione precedente) per ottenere la chiave API e l'URL da usare in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per usare il modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'articolo presume che sia necessario per questo scenario.
 
-![Esperimento di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
+Prendere nota dell'URL del servizio Web e della chiave di accesso forniti nel file di Excel scaricato, come mostrato di seguito:
 
-Prendere nota dell'URL del servizio Web e della chiave di accesso dal file di Excel scaricato, come mostrato di seguito:
-
-![Riepilogo rapido nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)
+![Analisi di flusso e Machine Learning, panoramica rapida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)
 
 ## Creare un processo di Analisi di flusso che usi il modello di Machine Learning
 
-1.	Passare al [portale di gestione di Azure](https://manage.windowsazure.com).
-2.	Fare clic su **Nuovo**, **Servizi dati**, **Analisi di flusso** e **Creazione rapida**. Specificare il **Nome processo** e l'**Area** appropriata per il processo e scegliere un **Account di archiviazione per il monitoraggio a livello di area**.
-3.	Una volta creato il processo, passare alla scheda **Input** e fare clic su **Aggiungi input**.
+1.	Accedere al [portale di Azure](https://manage.windowsazure.com).
+2.	Fare clic su **Nuovo** > **Servizi dati** > **Analisi di flusso** > **Creazione rapida**. Digitare un nome da assegnare al processo in **Nome processo**, immettere l'area del processo appropriata in **Area** e quindi selezionare l'account in **Account di archiviazione di monitoraggio regionale**.
+3.	Dopo aver creato il processo, nella scheda **Input** fare clic su **Aggiungere un input**.
 
-    ![Aggiunta di input di Machine Learning ai dati nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
+    ![Analisi di flusso e Machine Learning, aggiungere input di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
-4.	Nella prima pagina della finestra della procedura guidata **Aggiungi input** selezionare **Flusso dati** e fare clic su Avanti. Nella seconda pagina selezionare **Archiviazione BLOB** come input e fare clic su **Avanti**.
-5.	Nella pagina **Impostazioni archiviazione BLOB** della procedura guidata specificare il nome del contenitore BLOB dell'account di archiviazione definito in precedenza durante il caricamento dei dati. Fare clic su **Avanti**. Scegliere **CSV** come **Formato di serializzazione degli eventi**. Accettare le impostazioni predefinite per le altre **Impostazioni di serializzazione**. Fare clic su **OK**.
-6.	Passare alla scheda **Output** e fare clic su **Aggiungi un output**.
+4.	Nella prima pagina della finestra della procedura guidata **Aggiungi input** selezionare **Flusso dati** e fare clic su **Avanti**. Nella pagina successiva fare clic su **Archivio BLOB** come input, quindi su **Avanti**.
+5.	Nella pagina **Impostazioni archivio BLOB** della procedura guidata specificare il nome del contenitore BLOB dell'account di archiviazione definito in precedenza durante il caricamento dei dati. Fare clic su **Avanti**. In **Formato di serializzazione eventi** scegliere **CSV**. Per le altre **Impostazioni di serializzazione**, accettare le impostazioni predefinite. Fare clic su **OK**.
+6.	Nella scheda **Output** fare clic su **Aggiungi un output**.
 
-    ![Aggiunta di output nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
+    ![Analisi di flusso e Machine Learning, aggiungere output](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-7.	Scegliere **Archivio BLOB** e specificare gli stessi parametri a eccezione del contenitore. **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. Per **Output**, inserire "testoutput". I nomi dei contenitori devono essere diversi. Verificare che questo contenitore esista.
-8.	Fare clic su **Avanti** per configurare le **Impostazioni di serializzazione** dell'output. Come per Input, scegliere **CSV** e fare clic su **OK**.
+7.	Fare clic su **Archivio BLOB**, quindi immettere gli stessi parametri, ad eccezione del contenitore. Il valore di **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. In **Output** immettere "testoutput". I nomi dei contenitori devono essere diversi. Verificare che il contenitore in questione esista.
+8.	Fare clic su **Avanti** per configurare le **Impostazioni di serializzazione** dell'output. Come per **Input**, scegliere **CSV** e fare clic sul pulsante **OK**.
 9.	Passare alla scheda **Funzioni** e fare clic su **Aggiungi una funzione di Machine Learning**.
 
-    ![Aggiunta di una funzione di Machine Learning nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
+    ![Analisi di flusso e Machine Learning, aggiungere funzione di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
-10.	Nella pagina **Impostazioni servizio Web Machine Learning** individuare l'area di lavoro, il servizio Web e l'endpoint predefinito di Machine Learning. Per questa esercitazione, applicare manualmente le impostazioni per acquisire familiarità con la configurazione di un servizio Web per qualsiasi area di lavoro purché si conoscano l'URL e la CHIAVE. Specificare l'**URL** e la **Chiave API** dell'endpoint. Fare quindi clic su **OK**.
+10.	Nella pagina **Impostazioni servizio Web di Machine Learning** individuare l'area di lavoro, il servizio Web e l'endpoint predefinito di Machine Learning. Per questo articolo, applicare manualmente le impostazioni per acquisire familiarità con la configurazione di un servizio Web per qualsiasi area di lavoro purché si conoscano l'URL e la chiave API. Immettere l'**URL** e la **Chiave API** dell'endpoint. Fare clic su **OK**.
 
-    ![Servizio Web di Machine Learning nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
+    ![Analisi di flusso e Machine Learning, servizio Web di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
-11.	Passare alla scheda **Query** e modificare la query come mostrato di seguito:
+11.	Nella scheda **Query** modificare la query come indicato di seguito:
 
-```
-	WITH subquery AS (  
-		SELECT text, sentiment(text) as result from input  
-	)  
-	  
-	Select text, result.[Score]  
-	Into output  
-	From subquery  
-```    
-
-Quindi, fare semplicemente clic su **Salva** per salvare la query.
+ ```
+ 	WITH subquery AS (  
+ 		SELECT text, sentiment(text) as result from input  
+  	)  
+ 
+ 	Select text, result.[Score]  
+ 	Into output  
+ 	From subquery  
+ ```    
+12.	Fare clic su **Salva** per salvare la query.
 
 ## Avviare il processo di Analisi di flusso ed esaminare l'output
 
-1.	Fare clic su **Avvia** nella parte inferiore del processo.
-2.	Nella finestra di dialogo **Avvia query** scegliere **Ora personalizzata** e selezionare un orario precedente al caricamento del file CSV in Archiviazione Blob. Fare clic su **OK**.
+1.	Fare clic su **Avvia** nella parte inferiore della pagina del processo.
+2.	Nella finestra di dialogo **Avvia query** fare clic su **Ora personalizzata**, quindi selezionare un orario precedente al caricamento del file CSV in Archiviazione Blob. Fare clic su **OK**.
 
-    ![Ora personalizzata nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)
+    ![Analisi di flusso e Machine Learning, ora personalizzata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)
 
-3.	Passare ad Archiviazione BLOB con lo strumento usato quando è stato caricato il file CSV. Per questa esercitazione è stato usato Visual Studio.
-4.	In pochi minuti dall'avvio del processo, viene creato il contenitore di output in cui viene caricato un file CSV.
-5.	Fare doppio clic sul file per aprire l'editor CSV predefinito e visualizzare un contenuto simile al seguente:
+3.	Passare all'archivio BLOB tramite lo strumento utilizzato per caricare il file CSV, ad esempio Visual Studio.
+4.	A pochi minuti dall'avvio del processo, viene creato il contenitore di output in cui viene caricato un file CSV.
+5.	Aprire il file nell'editor CSV predefinito. Dovrebbe essere visualizzato un risultato simile al seguente.
 
-    ![Visualizzazione csv nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)
+    ![Analisi di flusso e Machine Learning, visualizzazione CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)
 
-## Conclusioni
+## Conclusione
 
-In questa esercitazione è stato creato un processo di Analisi di flusso che legge i flussi di dati di testo e l'analisi dei sentimenti applicata in tempo reale. Tutto questo è stato fatto senza doversi preoccupare delle difficoltà derivanti dalla compilazione di un modello di analisi dei sentimenti. Questo è uno dei vantaggi della suite Cortana Intelligence.
+In questo articolo viene illustrato come creare un processo dell'analisi di flusso che legge il flusso dei dati di testo e applica l'analisi dei sentimenti ai dati in tempo reale. Per eseguire queste operazioni, non è necessario preoccuparsi della complessità di compilare un modello di analisi dei sentimenti. Questo è uno dei vantaggi della suite Cortana Intelligence.
 
-È possibile osservare anche le metriche correlate alla funzione Azure Machine Learning. Fare clic sulla scheda **MONITOR**. Sono presenti tre metriche correlate alla funzione.
-  
-- FUNCTION REQUESTS indica il numero di richieste per il servizio Web di Machine Learning.
-- FUNCTION EVENTS indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta per il servizio Web ML contiene fino a 1000 eventi.
-- FAILED FUNCTION REQUESTS indica il numero di richieste non riuscite per il servizio Web di Machine Learning.
+È possibile osservare anche le metriche correlate alla funzione Azure Machine Learning. Per farlo, fare clic sulla scheda **Monitoraggio**. Sono visualizzate tre metriche correlate alla funzione.
 
-    ![Visualizzazione monitoraggio ML nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
+- **Richieste della funzione** indica il numero di richieste inviate al servizio Web di Machine Learning.
+- **Eventi della funzione** indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta a un servizio Web di Machine Learning contiene fino a 1.000 eventi.
+- **Richieste della funzione non riuscite** indica il numero di richieste non riuscite per il servizio Web di Machine Learning.
 
-<!---HONumber=AcomDC_0727_2016-->
+    ![Analisi di flusso e Machine Learning, visualizzazione di monitoraggio di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
+
+<!---HONumber=AcomDC_0803_2016-->

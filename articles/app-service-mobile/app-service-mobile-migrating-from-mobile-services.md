@@ -287,17 +287,17 @@ Non sarà più possibile usare il comando _azure mobile_ per gestire il sito di 
 | mobile show _nome_ | site show _nome_ |
 | mobile restart _nome_ | site restart _nome_ |
 | mobile redeploy _nome_ | site deployment redeploy _commitId_ _nome_ |
-| mobile key set _nome_ _tipo_ _valore_ | site appsetting delete _chiave_ _nome_ <br/> site appsetting add _chiave_=\_valore\_ _nome_ |
+| mobile key set _nome_ _tipo_ _valore_ | site appsetting delete _chiave_ _nome_ <br/> site appsetting add _chiave_=_valore_ _nome_ |
 | mobile config list _nome_ | site appsetting list _nome_ |
 | mobile config get _nome_ _chiave_ | site appsetting show _chiave_ _nome_ |
-| mobile config set _nome_ _chiave_ | site appsetting delete _chiave_ _nome_ <br/> site appsetting add _chiave_=\_valore\_ _nome_ |
+| mobile config set _nome_ _chiave_ | site appsetting delete _chiave_ _nome_ <br/> site appsetting add _chiave_=_valore_ _nome_ |
 | mobile domain list _nome_ | site domain list _nome_ |
 | mobile domain add _nome_ _dominio_ | site domain add _dominio_ _nome_ |
 | mobile domain delete _nome_ | site domain delete _dominio_ _nome_ |
 | mobile scale show _nome_ | site show _nome_ |
 | mobile scale change _nome_ | site scale mode _modalità_ _nome_ <br /> site scale instances _istanze_ _nome_ |
 | mobile appsetting list _nome_ | site appsetting list _nome_ |
-| mobile appsetting add _nome_ _chiave_ _valore_ | site appsetting add _chiave_=\_valore\_ _nome_ |
+| mobile appsetting add _nome_ _chiave_ _valore_ | site appsetting add _chiave_=_valore_ _nome_ |
 | mobile appsetting delete _nome_ _chiave_ | site appsetting delete _chiave_ _nome_ |
 | mobile appsetting show _nome_ _chiave_ | site appsetting delete _chiave_ _nome_ |
 
@@ -334,7 +334,7 @@ Risoluzione: Microsoft sta lavorando per risolvere il problema. Se si vuole clon
 
 ### Le modifiche a web.config non funzionano
 
-Se si ha un sito ASP.NET, le modifiche al file `Web.config` non funzionano. Il servizio app di Azure compila un file `Web.config` appropriato durante l'avvio per supportare il runtime di Servizi mobili. È possibile eseguire l'override di alcune impostazioni, ad esempio le intestazioni personalizzate, tramite un file di trasformazione XML. Creare un file denominato `applicationHost.xdt`. Questo file deve essere salvato nella directory `D:\home\site` del servizio di Azure. Questa operazione può essere eseguita tramite uno script di distribuzione personalizzato o direttamente tramite Kudu. Di seguito è riportato un documento di esempio:
+Se si usa un sito ASP.NET, le modifiche al file `Web.config` non funzioneranno. Il servizio app di Azure compila un file `Web.config` appropriato durante l'avvio per supportare il runtime di Servizi mobili. È possibile eseguire l'override di alcune impostazioni, ad esempio le intestazioni personalizzate, tramite un file di trasformazione XML. Creare un file denominato `applicationHost.xdt`. Questo file deve essere salvato nella directory `D:\home\site` del servizio di Azure. Questa operazione può essere eseguita tramite uno script di distribuzione personalizzato o direttamente tramite Kudu. Di seguito è riportato un documento di esempio:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -353,7 +353,7 @@ Se si ha un sito ASP.NET, le modifiche al file `Web.config` non funzionano. Il s
 </configuration>
 ```
 
-Per altre informazioni, consultare la documentazione [XDT transform samples] \(Esempi di trasformazioni XDT) in GitHub.
+Per altre informazioni, vedere la documentazione [XDT transform samples] (Esempi di trasformazioni XDT) in GitHub.
 
 ### Non è possibile aggiungere a Gestione traffico servizi mobili di cui è stata eseguita la migrazione
 
@@ -381,16 +381,16 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi di Servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[Prezzi di Servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentazione sulla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [portale di Azure]: https://portal.azure.com
-[area di Azure]: https://azure.microsoft.com/regions/
+[area di Azure]: https://azure.microsoft.com/it-IT/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
-[distribuzione continua]: ../app-service-web/web-sites-publish-source-control.md
+[distribuzione continua]: ../app-service-web/app-service-continuous-deployment.md
 [convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/it-IT/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
@@ -409,4 +409,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

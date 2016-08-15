@@ -22,7 +22,7 @@ Questa esercitazione illustra come eseguire *distribuzioni di versioni di antepr
 La *distribuzione di versioni di anteprima* è un processo che convalida una nuova funzionalità o una modifica con un numero limitato di clienti reali ed è un test importante in uno scenario di produzione. È simile al test di versioni beta e viene talvolta definita come "anteprima di test controllato". Molte aziende di grandi dimensioni con una presenza Web usano questo approccio per ottenere la convalida preventiva degli aggiornamenti di app nella proprià attività di [sviluppo Agile](https://en.wikipedia.org/wiki/Agile_software_development). Il servizio app di Azure consente di integrare il test nell'ambiente di produzione con la pubblicazione continua e Application Insights per implementare lo stesso scenario DevOps. I vantaggi di questo approccio includono:
 
 - **Ottenere commenti e suggerimenti reali _prima_ del rilascio di aggiornamenti in produzione**: avere commenti e suggerimenti prima di rilasciare un aggiornamento è un vantaggio unico rispetto a riceverli dopo averlo rilasciato. È possibile testare gli aggiornamenti con traffico utente e comportamenti reali con la tempestività desiderata nel ciclo di vita del prodotto.
-- **Migliorare lo [sviluppo continuo basato su test(CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)**: grazie all'integrazione di test nell'ambiente di produzione con l'integrazione continua e la strumentazione con Application Insights, la convalida dell'utente avviene tempestivamente e automaticamente nel ciclo di vita del prodotto. Questo approccio consente di ridurre gli investimenti in termini di tempo per l'esecuzione di test manuali.
+- **Migliorare lo [sviluppo continuo basato su test](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** (CTDD, Continuous test-driven development): grazie all'integrazione di test nell'ambiente di produzione con l'integrazione continua e la strumentazione con Application Insights, la convalida dell'utente avviene tempestivamente e automaticamente nel ciclo di vita del prodotto. Questo approccio consente di ridurre gli investimenti in termini di tempo per l'esecuzione di test manuali.
 - **Ottimizzare il flusso di lavoro di test**: automatizzando i test nell'ambiente di produzione con la strumentazione di monitoraggio continuo, è potenzialmente possibile raggiungere gli obiettivi dei vari tipi di test in un singolo processo, ad esempio [integrazione](https://en.wikipedia.org/wiki/Integration_testing), [regressione](https://en.wikipedia.org/wiki/Regression_testing), [usabilità](https://en.wikipedia.org/wiki/Usability_testing), accessibilità, localizzazione, [prestazioni](https://en.wikipedia.org/wiki/Software_performance_testing), [sicurezza](https://en.wikipedia.org/wiki/Security_testing) e [accettazione](https://en.wikipedia.org/wiki/Acceptance_testing).
 
 Una distribuzione di versioni di anteprima non riguarda semplicemente il routing del traffico live. In questo tipo di distribuzione si vogliono ottenere informazioni il più rapidamente possibile, sia nel caso di un bug imprevisto, di una riduzione del livello delle prestazioni o di problemi relativi all'esperienza utente. Tenere presente che si sta trattando con clienti reali. Per procedere quindi correttamente, è necessario assicurarsi di avere configurato la distribuzione di versioni di anteprima per raccogliere tutti i dati necessari per prendere una decisione basata su informazioni aggiornate per il passaggio successivo. Questa esercitazione illustra come raccogliere i dati con Application Insights, ma è possibile usare New Relic o altre tecnologie adatte al proprio scenario.
@@ -48,15 +48,17 @@ In questa esercitazione si apprenderà come combinare gli scenari seguenti per t
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/). Si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, una volta esauriti i crediti, sarà comunque possibile mantenere l'account e continuare a usare i servizi di Azure gratuiti, come le app Web.
+> + È possibile [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/). Con la sottoscrizione di Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Configurare l'app Web di produzione
 
 >[AZURE.NOTE] Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
 >
->Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
+>Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](app-service-continuous-deployment.md#Step7). È necessario eseguire questa operazione una sola volta.
 
 In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a cui si desidera apportare modifiche tramite la pubblicazione continua. In questo scenario si distribuirà nell'ambiente di produzione un modello sviluppato e testato.
 
@@ -96,7 +98,7 @@ L'app di produzione è così configurata. A questo punto, si immagini di ricever
 
 5. Aprire *& lt;radice\_repository >*\\src\\MultiChannelToDo.sln in Visual Studio.
 6. Ripristinare tutti i pacchetti Nuget facendo clic con il pulsante destro del mouse sulla soluzione > **Gestisci pacchetti NuGet** per la soluzione > **Ripristina**.
-6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo.Web** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Modificare il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
+6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo.Web** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Cambia il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
 7. Nel portale di Azure, aprire il pannello per la risorsa **MultiChannelToDo.Web** di Application Insights. Quindi nella parte **Integrità applicazione** fare clic su **Informazioni su come raccogliere i dati relativi ai caricamenti di pagina del browser** > copiare il codice.
 7. Aggiungere il codice di strumentazione JS copiato a *& lt; radice\_repository >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, appena prima del tag `<heading>` di chiusura. Dovrebbe contenere la chiave di strumentazione univoca della risorsa di Application Insights.
 
@@ -157,7 +159,7 @@ Potrebbe trattarsi di un esempio improbabile. Tuttavia, si apporterà un miglior
 ### Instrumentare l'app server per il monitoraggio e la metrica
 Questa è una digressione, perché lo scenario illustrato in questa esercitazione riguarda solo l'app client. Per completezza, si configurerà tuttavia l'app sul lato server.
 
-6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Modificare il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
+6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Cambia il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
 12. In Git Shell eseguire il commit e il push delle modifiche al fork in GitHub. Attendere quindi che i client aggiornino il browser.
 
         git add -A :/
@@ -255,7 +257,7 @@ Di nuovo per completezza, si configurerà l'app sul lato server. A differenza de
 
 ## Procedere all'aggiornamento: configurare il ramo beta
 
-2. Aprire *& lt;radice\_repository>*\\ARMTemplates\\ProdAndStagetest.json e trovare le risorse `appsettings` (cercare `"name": "appsettings"`). Ne sono disponibili 4, una per ogni slot. 
+2. Aprire *& lt;radice\_repository>*\\ARMTemplates\\ProdAndStagetest.json e trovare le risorse `appsettings` (cercare `"name": "appsettings"`). Ne sono disponibili 4, una per ogni slot.
 
 2. Per ogni risorsa `appsettings` aggiungere un'impostazione dell'app `"environment": "[parameters('slotName')]"` alla fine della matrice `properties`. Ricordare di terminare la riga precedente con una virgola.
 
@@ -375,4 +377,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0803_2016-->

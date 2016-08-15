@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/23/2016"
+   ms.date="07/29/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticazione in Azure SQL Data Warehouse
@@ -37,11 +37,9 @@ Per connettersi a SQL Data Warehouse è necessario fornire le informazioni segue
 - Password
 - Database predefinito (facoltativo)
 
-È importante notare che gli utenti devono essere autenticati utilizzando l'autenticazione di SQL. Attualmente l'autenticazione attendibile non è supportata.
-
 Per impostazione predefinita la connessione si connetterà al database master e non al database utente. Per connettersi al database utente è possibile scegliere di effettuare una delle seguenti operazioni:
 
-1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT o nella stringa di connessione dell’applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
+1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT, SSMS o nella stringa di connessione dell'applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
 2. Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
 
 > [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l'articolo [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
@@ -78,7 +76,7 @@ I passaggi di configurazione includono le procedure seguenti per configurare e u
 5. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
 6. Connettersi al data warehouse usando le identità di Azure AD
 
-La differenza principale tra l'uso dell'autenticazione di Azure Active Directory con il database SQL di Azure e Azure SQL Data Warehouse consiste nella necessità di usare SQL Server Data Tools invece di SQL Server Management Studio per connettersi a SQL Data Warehouse. SQL Data Warehouse richiede almeno la versione di aprile 2016 (versione 14.0.60311.1) di SQL Server Data Tools per Visual Studio 2015. Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ### Informazioni dettagliate
 - Completare la procedura dettagliata. La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi uguale per il database SQL di Azure e Azure SQL Data Warehouse. Seguire la procedura riportata nell'argomento [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
@@ -93,4 +91,4 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

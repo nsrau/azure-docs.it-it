@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del connettore BizTalk Edifact nelle app per la logica | Microsoft Azure App Service" 
    description="Come creare e configurare l'app per le API o il connettore BizTalk Edifact e usarlo in un'app per la logica in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -42,25 +42,17 @@ Il connettore Edifact può essere usato come trigger o come azione.
 
 ### Trigger
 - Avviare la progettazione del flusso di app per la logica di Azure.
-- Fare clic su Edifact Connector nel riquadro destro:  
-![Impostazioni di trigger][3]
-- Fare clic su ->:  
-![Opzioni di trigger][4]
-- Il connettore EDIFACT espone un solo trigger. Selezionare *Release Batch*:  
-![Input di Release Batch][5]
-- Questo trigger non include input. Fare clic su ->:  
-![Configurazione di Release Batch][6]
+- Fare clic su Edifact Connector nel riquadro destro:![Impostazioni di trigger][3]
+- Fare clic su ->: ![Opzioni di trigger][4]
+- Il connettore EDIFACT espone un solo trigger. Selezionare *Release Batch*: ![Input di Release Batch][5]
+- Questo trigger non include input. Fare clic su ->: ![Configurazione di Release Batch][6]
 - Come parte dell'output, il connettore restituisce il payload Edifact, l'ID del contratto nonché informazioni che indicano se il messaggio viene inviato in batch.
 
 ### Azione
-- Fare clic su Edifact Connector nel riquadro destro:  
-![Impostazioni di azione][7]
-- Fare clic su ->:  
-![Elenco di azioni][8]
-- Il connettore Edifact supporta molte azioni. Selezionare *Encode*:  
-![Input di Encode][9]
-- Fornire gli input per l'azione e configurarla:  
-![Configurazione di Encode][10]
+- Fare clic su Edifact Connector nel riquadro destro:![Impostazioni di azione][7]
+- Fare clic su ->: ![Elenco di azioni][8]
+- Il connettore Edifact supporta molte azioni. Selezionare *Encode*: ![Input di Encode][9]
+- Fornire gli input per l'azione e configurarla: ![Configurazione di Encode][10]
 
 	Parametro|Tipo|Descrizione del parametro
 ---|---|---
@@ -100,4 +92,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

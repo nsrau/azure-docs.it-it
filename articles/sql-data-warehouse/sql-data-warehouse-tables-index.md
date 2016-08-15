@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Per aggiungere un indice non cluster a una tabella è sufficiente specificare CLUSTERED INDEX nella clausola WITH:
+Per aggiungere un indice non cluster a una tabella, è sufficiente utilizzare la sintassi seguente:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] Quando si usa CREATE INDEX, per impostazione predefinita viene creato un indice non cluster. Inoltre, un indice non cluster è consentito solo in una tabella di archiviazione riga (HEAP o CLUSTERED INDEX). Non è possibile usare indici non cluster su CLUSTERED COLUMNSTORE INDEX.
+
 
 ## Ottimizzazione degli indici columnstore cluster
 
@@ -306,7 +309,7 @@ Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse), [Tipi di dati per le tabelle in SQL Data Warehouse][Data Types], [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Partitioning tables in SQL Data Warehouse][Partition] (Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] (Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Table Overview][Overview] (Panoramica sulle tabelle), [Table Data Types][Data Types] (Tipi di dati per le tabelle), [Distributing a Table][Distribute] (Distribuzione di tabelle ), [Partitioning a table][Partition] (Partizionamento di una tabella), [Maintaining table statistics][Statistics] (Gestione delle statistiche nelle tabelle) e [Temporary tables][Temporary] (Tabelle temporanee). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -338,4 +341,4 @@ Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Ware
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

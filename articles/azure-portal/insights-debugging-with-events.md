@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Visualizzare eventi e log di controllo" 
-	description="Informazioni su come visualizzare tutti gli eventi che si verificano nella sottoscrizione di Azure." 
-	authors="HaniKN-MSFT" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="Visualizzare eventi e log di controllo"
+	description="Informazioni su come visualizzare tutti gli eventi che si verificano nella sottoscrizione di Azure."
+	authors="HaniKN-MSFT"
+	manager="kamrani"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/28/2015"
 	ms.author="hanikn"/>
 
 # Visualizzare eventi e log di controllo
@@ -26,17 +26,17 @@ Tutte le operazioni eseguite sulle risorse di Azure sono interamente controllate
 2. Fare clic su **Sfoglia** e selezionare **Log di controllo**. ![Hub di esplorazione](./media/insights-debugging-with-events/Insights_Browse.png)
 3. Si aprirà un pannello contenente tutti gli eventi che hanno avuto effetto sulle sottoscrizioni negli ultimi 7 giorni. In alto un grafico mostra i dati per livello e sotto c'è l'elenco completo dei log: ![Tutti gli eventi](./media/insights-debugging-with-events/Insights_AllEvents.png)
 
->[AZURE.NOTE]Nel portale di Azure è possibile visualizzare solo i 500 eventi più recenti per una determinata sottoscrizione.
+>[AZURE.NOTE] Nel portale di Azure è possibile visualizzare solo i 500 eventi più recenti per una determinata sottoscrizione.
 
 4. È possibile fare clic su qualsiasi voce di log per visualizzare gli eventi che la costituiscono. Ad esempio, quando si distribuisce qualcosa a un gruppo di risorse, potrebbero venire create o modificate molte risorse diverse. Per ogni voce è possibile visualizzare:
-    * **Livello** dell'evento: ad esempio, potrebbe essere solo qualcosa di cui tenere traccia (**Informativo**) o qualcosa per cui si sono verificati problemi e che è necessario conoscere (**Errore**). 
+    * **Livello** dell'evento: ad esempio, potrebbe essere solo qualcosa di cui tenere traccia (**Informativo**) o qualcosa per cui si sono verificati problemi e che è necessario conoscere (**Errore**).
     * **Stato**: lo stato finale sarà in genere **Completato** o **Non riuscito**, ma potrebbe essere anche **Accettato** per le operazioni con esecuzione prolungata.
     * *Quando* si è verificato l'evento.
     * *Chi* ha eventualmente eseguito l'operazione. Non tutte le operazioni vengono eseguite dagli utenti, alcune vengono eseguite da servizi back-end e quindi non hanno un **Chiamante**.
     * **ID di correlazione** dell'evento: identificatore univoco per questo set di operazioni.
 
 5. Da qui è possibile passare al pannello dei dettagli per vedere le specifiche dell'evento.
-   
+
     ![Gruppi di risorse](./media/insights-debugging-with-events/Insights_EventDetails.png)
 
     Per gli eventi non riusciti (**Failed**), in questa pagina sono normalmente incluse le sezioni **Substatus** e **Properties** che contengono informazioni dettagliate utili a scopo di debug.
@@ -70,6 +70,6 @@ Una volta scelto cosa si vuole visualizzare, fare clic sul pulsante **Aggiorna**
 
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verifica un evento.
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
-* [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.  
+* [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0803_2016-->

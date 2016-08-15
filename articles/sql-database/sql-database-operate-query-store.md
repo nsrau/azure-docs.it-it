@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -53,7 +53,7 @@ Per garantire il funzionamento continuo e affidabile, il database SQL di Azure h
 
 Il database SQL di Azure usa i dati raccolti per:
 
-- ***Apprendere modelli di utilizzo su un numero elevato di database e migliorare di conseguenza la qualità e affidabilità delle funzionalità:*** l'archivio query viene migliorato con ogni aggiornamento del database SQL di Azure. 
+- ***Apprendere modelli di utilizzo su un numero elevato di database e migliorare di conseguenza la qualità e affidabilità delle funzionalità:*** l'archivio query viene migliorato con ogni aggiornamento del database SQL di Azure.
 - ***Risolvere o attenuare i problemi causati dall'archivio query:*** il database SQL di Azure può rilevare e limitare i problemi che hanno un notevole impatto sul carico di lavoro dei clienti, con bassa latenza (meno di un'ora). Nella maggior parte dei casi i problemi vengono gestiti mediante l'impostazione temporanea dell'archivio query su ***OFF***.
 
 Di tanto in tanto, gli aggiornamenti dell'archivio query introducono modifiche alle impostazioni predefinite applicate alle configurazioni interne e raramente a quelle esterne (per i clienti). Di conseguenza, l'esperienza del cliente con l'archivio query sul database SQL di Azure può differire rispetto agli ambienti locali a causa dell'azione automatica eseguita dalla piattaforma Azure:
@@ -93,7 +93,7 @@ Se si desidera mantenere le impostazioni personalizzate, usare [ALTER DATABASE c
 
 Per altre informazioni, vedere gli articoli dedicati ai seguenti argomenti:
 
-- [Un registratore dei dati di volo per il database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [Un registratore dei dati di volo per il database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
 - [Monitoraggio delle prestazioni mediante l'archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 
@@ -101,4 +101,4 @@ Per altre informazioni, vedere gli articoli dedicati ai seguenti argomenti:
 
 - [Monitoraggio delle prestazioni mediante l'archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/15/2016"
+   ms.date="08/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -26,17 +26,27 @@ SQL Data Warehouse consente un massimo di 1.024 connessioni simultanee. Tutte le
 
 I limiti di concorrenza sono regolati da due concetti, **query simultanee** e **slot di concorrenza**. Perché una query venga eseguita, è necessario che rientri nel limite di concorrenza delle query e nell'allocazione di slot di concorrenza.
 
-- Le **query simultanee** equivalgono semplicemente al numero di query in esecuzione contemporaneamente. SQL Data Warehouse supporta fino a 32 **query simultanee** nei DW di dimensioni maggiori, DW1000 e superiori. Tuttavia, poiché il numero di query simultanee varia in base al numero di DWU, di seguito è riportata una tabella che mostra le limitazioni per DWU.
-- Gli **slot di concorrenza** rappresentano un concetto più dinamico. Per ogni query è possibile utilizzare uno o più slot di concorrenza. Il numero esatto di slot utilizzato da una query dipende dalle dimensioni di SQL Data Warehouse e dalla [classe di risorse](#resource-classes) della query.
+- Le **query simultanee** equivalgono semplicemente al numero di query in esecuzione contemporaneamente. SQL Data Warehouse supporta fino a 32 query simultanee.
+- In base alle Unità Data Warehouse (DWU), vengono allocati **slot di concorrenza**. Ogni 100 DWU, vengono forniti 4 slot di concorrenza. Ad esempio, per DW100 vengono allocati 4 slot di concorrenza e per DW1000 ne vengono allocati 40. Ogni query utilizza uno o più slot di concorrenza, a seconda della [classe di risorse](#resource-classes) della query. Le query in esecuzione nella classe di risorse smallrc utilizzano uno slot di concorrenza. Le query in esecuzione in una classe di risorse superiore utilizzeranno più slot di concorrenza.
 
-La tabella seguente descrive i limiti sia per le query simultanee che per gli slot di concorrenza.
+La tabella seguente descrive i limiti sia per le query simultanee che per gli slot di concorrenza a seconda delle dimensioni della DWU.
 
 ### Limiti di concorrenza
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :--------------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| Numero massimo di query simultanee | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| Numero massimo di slot di concorrenza | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
+| DWU | Numero massimo di query simultanee | Numero di slot di concorrenza allocati |
+| :----  | :---------------------: | :-------------------------: |
+| DW100 | 32 | 4 |
+| DW200 | 32 | 8 |
+| DW300 | 32 | 12 |
+| DW400 | 32 | 16 |
+| DW500 | 32 | 20 |
+| DW600 | 32 | 24 |
+| DW1000 | 32 | 40 |
+| DW1200 | 32 | 48 |
+| DW1500 | 32 | 60 |
+| DW2000 | 32 | 80 |
+| DW3000 | 32 | 120 |
+| DW6000 | 32 | 240 |
 
 Quando viene raggiunta una di queste soglie, le nuove query vengono messe in coda. Le query in coda vengono eseguite in base al metodo FIFO (First In, First Out) man mano che le altre query vengono completate e gli slot scendono al di sotto dei limiti.
 
@@ -44,7 +54,7 @@ Quando viene raggiunta una di queste soglie, le nuove query vengono messe in cod
 
 ## Classi di risorse
 
-Le classi di risorse sono una parte essenziale della gestione del carico di lavoro di SQL Data Warehouse, perché consentono di allocare più memoria e/o cicli della CPU alle query eseguite da un determinato utente. Esistono quattro classi di risorse che è possibile assegnare a un utente in formato di **ruolo del database**. Le quattro classi di risorse sono **smallrc, mediumrc, largerc e xlargerc**. Agli utenti nel ruolo smallrc viene assegnata una quantità di memoria più piccola e ciò consente una concorrenza maggiore. Al contrario, agli utenti con il ruolo xlargerc vengono assegnate grandi quantità di memoria e quindi l'esecuzione contemporanea è consentita a un minor numero di query.
+Attraverso le classi di risorse si controllano l'allocazione di memoria e cicli di CPU assegnati a una query. Esistono quattro classi di risorse che è possibile assegnare a un utente in formato di **ruolo del database**. Le quattro classi di risorse sono **smallrc, mediumrc, largerc e xlargerc**. Agli utenti nel ruolo smallrc viene assegnata una quantità di memoria più piccola e ciò consente una concorrenza maggiore. Al contrario, agli utenti con il ruolo xlargerc vengono assegnate grandi quantità di memoria e quindi l'esecuzione contemporanea è consentita a un minor numero di query.
 
 Per impostazione predefinita, ogni utente è membro della classe di risorse piccola (smallrc). Per aumentare la classe di risorse viene usata la procedura `sp_addrolemember`, mentre per diminuirla viene usata la procedura `sp_droprolemember`. Questo comando, ad esempio, aumenta la classe di risorse di loaduser a largerc:
 
@@ -54,7 +64,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 È buona norma creare utenti assegnati in modo permanente a una classe di risorse invece di modificare la classe di risorse di un utente. I caricamenti in tabelle columnstore cluster, ad esempio, creano indici di qualità superiore quando viene allocata una quantità di memoria maggiore. Per assicurarsi che caricamenti abbiano accesso alla memoria superiore, creare un utente specifico per il caricamento dei dati e assegnare permanentemente a questo utente una classe di risorse superiore.
 
-Esistono alcuni tipi di query per cui l'allocazione di maggiore memoria non dà alcun vantaggio; queste query verranno sempre eseguite nella classe di risorse ridotta, a prescindere dall'allocazione della classe di risorse. Forzare sempre l'esecuzione di queste query in una classe di risorse piccola ne consente l'esecuzione quando gli slot di concorrenza sono sotto pressione e impedisce che utilizzino più slot di quelli necessari. Le [Eccezioni della classe di risorse](#resource-class-exceptions) sono descritte più avanti in questo articolo.
+Esistono alcuni tipi di query per cui l'allocazione di maggiore memoria non dà alcun vantaggio; queste query verranno sempre eseguite nella classe di risorse ridotta, a prescindere dall'allocazione della classe di risorse. Forzare sempre l'esecuzione di queste query in una classe di risorse piccola ne consente l'esecuzione quando gli slot di concorrenza sono sotto pressione e impedisce che utilizzino più slot di quelli necessari. Le [Eccezioni della classe di risorse](#query-exceptions-to-concurrency-limits) sono descritte più avanti in questo articolo.
 
 Altri dettagli sulla classe di risorse:
 
@@ -62,62 +72,85 @@ Altri dettagli sulla classe di risorse:
 - Mentre un utente può essere aggiunto a una o più classi di risorse superiori, gli utenti acquisiranno gli attributi della classe di risorse più alta a cui sono assegnati. Ovvero, se a un utente sono assegnate mediumrc e largerc, verrà applicata la classe di risorse superiore, largerc.
 - La classe di risorse dell'utente amministratore di sistema non può essere modificata.
  
-Altri dettagli ed esempi di creazione di utenti e assegnazione a classi di risorse sono disponibili nella sezione[Gestione degli utenti](#Managing-users) alla fine di questo articolo.
+Per un esempio dettagliato, vedere [Esempio di modifica della classe di risorse di un utente](#changing-user-resource-class-example) alla fine di questo articolo
 
 ## Allocazione della memoria
 
 Esistono vantaggi e svantaggi legati all'incremento della classe di risorse dell'utente. Se da un lato aumentare una classe di risorse per un utente può significare che le query hanno accesso a una maggiore quantità memoria e possono essere eseguite più velocemente, dall'altro classi di risorse superiori riducono il numero di query simultanee che è possibile eseguire. Questo è il compromesso tra il fatto di allocare grandi quantità di memoria a una singola query e consentire l'esecuzione simultanea di altre query che necessitano di allocazioni di memoria. Se a un utente vengono allocate grandi quantità di memoria per una query, gli altri utenti non potranno accedere alla stessa memoria per eseguire una query.
 
-Nella tabella seguente la memoria allocata è associata a ogni distribuzione per classe DWU e classe di risorse. In SQL Data Warehouse sono presenti 60 distribuzioni per ogni database. Ad esempio, una query in esecuzione in DW2000 nella classe di risorse xlarge avrà accesso a 6.400 MB in ognuno dei 60 database distribuiti.
+Nella tabella seguente la memoria allocata è associata a ogni distribuzione per classe DWU e classe di risorse. In SQL Data Warehouse sono presenti 60 distribuzioni. Ad esempio, una query in esecuzione in DW2000 nella classe di risorse xlarge avrà accesso a 6.400 MB di memoria in ognuno dei 60 database distribuiti.
 
 ### Allocazioni di memoria per ogni distribuzione (MB)
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| smallrc | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 |
-| mediumrc | 100 | 200 | 200 | 400 | 400 | 400 | 800 | 800 | 800 | 1\.600 | 1\.600 | 3\.200 |
-| largerc | 200 | 400 | 400 | 800 | 800 | 800 | 1\.600 | 1\.600 | 1\.600 | 3\.200 | 3\.200 | 6\.400 |
-| xlargerc | 400 | 800 | 800 | 1\.600 | 1\.600 | 1\.600 | 3\.200 | 3\.200 | 3\.200 | 6\.400 | 6\.400 | 12\.800 |
+| DWU | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100 | 100 | 100 | 200 | 400 |
+| DW200 | 100 | 200 | 400 | 800 |
+| DW300 | 100 | 200 | 400 | 800 |
+| DW400 | 100 | 400 | 800 | 1\.600 |
+| DW500 | 100 | 400 | 800 | 1\.600 |
+| DW600 | 100 | 400 | 800 | 1\.600 |
+| DW1000 | 100 | 800 | 1\.600 | 3\.200 |
+| DW1200 | 100 | 800 | 1\.600 | 3\.200 |
+| DW1500 | 100 | 800 | 1\.600 | 3\.200 |
+| DW2000 | 100 | 1\.600 | 3\.200 | 6\.400 |
+| DW3000 | 100 | 1\.600 | 3\.200 | 6\.400 |
+| DW6000 | 100 | 3\.200 | 6\.400 | 12\.800 |
 
-
-Usando lo stesso esempio precedente, a una query a livello di sistema in esecuzione in DW2000 nella classe di risorse xlarge viene allocato un totale di 375 GB di memoria (6.400 MB * 60 distribuzioni/1.024 per la conversione in GB).
+Usando lo stesso esempio precedente, a una query in esecuzione in DW2000 nella classe di risorse xlarge viene allocato un totale di 375 GB di memoria (6.400 MB * 60 distribuzioni/1.024 per la conversione in GB) nell'intero SQL Data Warehouse.
 
 ### Allocazioni di memoria a livello di sistema (GB)
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-|smallrc | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 |
-|mediumrc | 6 | 12 | 12 | 23 | 23 | 23 | 47 | 47 | 47 | 94 | 94 | 188 |
-|largerc | 12 | 23 | 23 | 47 | 47 | 47 | 94 | 94 | 94 | 188 | 188 | 375 |
-|xlargerc | 23 | 47 | 47 | 94 | 94 | 94 | 188 | 188 | 188 | 375 | 375 | 750 |
+| DWU | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100 | 6 | 6 | 12 | 23 |
+| DW200 | 6 | 12 | 23 | 47 |
+| DW300 | 6 | 12 | 23 | 47 |
+| DW400 | 6 | 23 | 47 | 94 |
+| DW500 | 6 | 23 | 47 | 94 |
+| DW600 | 6 | 23 | 47 | 94 |
+| DW1000 | 6 | 47 | 94 | 188 |
+| DW1200 | 6 | 47 | 94 | 188 |
+| DW1500 | 6 | 47 | 94 | 188 |
+| DW2000 | 6 | 94 | 188 | 375 |
+| DW3000 | 6 | 94 | 188 | 375 |
+| DW6000 | 6 | 188 | 375 | 750 |
+
 
 ## Utilizzo di slot di concorrenza
 
-Come indicato in precedenza, maggiore è la classe di risorse, più memoria viene concessa. Poiché la memoria è una risorsa fissa, maggiore è la quantità di memoria allocata per ogni query, minore è la concorrenza che può essere supportata. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU, nonché gli slot utilizzati da ogni classe di risorse.
+Maggiore è la classe di risorse in cui vengono eseguite le query, maggiore sarà la memoria concessa. Poiché la memoria è una risorsa fissa, maggiore è la quantità di memoria allocata per ogni query, minore è la concorrenza che può essere supportata. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU, nonché gli slot utilizzati da ogni classe di risorse.
 
 ### Allocazione e consumo di slot di concorrenza
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| **Allocazione** | | | | | | | | | | | | |
-| Numero massimo di query simultanee | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| Numero massimo di slot di concorrenza | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
-| **Utilizzo di slot** | | | | | | | | | | | | |
-| smallrc | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| mediumrc | 1 | 2 | 2 | 4 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 32 |
-| largerc | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 64 |
-| xlargerc | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 | 64 | 128 |
+| DWU | Numero massimo di query simultanee | Numero di slot di concorrenza allocati | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
+| :----  | :---------------------: | :-------------------------: | :-----: | :------: | :-----: | :------: |
+| DW100 | 32 | 4 | 1 | 1 | 2 | 4 |
+| DW200 | 32 | 8 | 1 | 2 | 4 | 8 |
+| DW300 | 32 | 12 | 1 | 2 | 4 | 8 |
+| DW400 | 32 | 16 | 1 | 4 | 8 | 16 |
+| DW500 | 32 | 20 | 1 | 4 | 8 | 16 |
+| DW600 | 32 | 24 | 1 | 4 | 8 | 16 |
+| DW1000 | 32 | 40 | 1 | 8 | 16 | 32 |
+| DW1200 | 32 | 48 | 1 | 8 | 16 | 32 |
+| DW1500 | 32 | 60 | 1 | 8 | 16 | 32 |
+| DW2000 | 32 | 80 | 1 | 16 | 32 | 64 |
+| DW3000 | 32 | 120 | 1 | 16 | 32 | 64 |
+| DW6000 | 32 | 240 | 1 | 32 | 64 | 128 |
 
-Da questa tabella è possibile vedere che l'esecuzione di SQL Data Warehouse come DW1000 offre un totale di 40 slot di concorrenza per un massimo di 32 query simultanee. Se l'esecuzione avviene da parte di tutti gli utenti nella classe di risorse ridotta, risultano consentite 32 query simultanee, poiché ognuna richiede 1 slot di concorrenza. Se l'esecuzione avviene da parte di tutti gli utenti nella classe di risorse di medie dimensioni, per le distribuzioni di ogni utente vengono allocati 800 MB per un'allocazione di memoria totale pari a 47 GB e il numero degli utenti simultanei di questa classe di risorse di medie dimensioni viene limitato a 8.
+
+Da questa tabella è possibile vedere che l'esecuzione di SQL Data Warehouse come DW1000 alloca un totale di 40 slot di concorrenza per un massimo di 32 query simultanee. Se l'esecuzione avviene da parte di tutti gli utenti nella classe di risorse ridotta, risultano consentite 32 query simultanee, poiché ognuna richiede 1 slot di concorrenza. Se l'esecuzione avviene da parte di tutti gli utenti di un DW1000 in una classe di risorse di medie dimensioni, per ogni query vengono allocati 800 MB a distribuzione, per un'allocazione di memoria totale pari a 47 GB per query, mentre il numero degli utenti simultanei viene limitato a 5 (40 slot di concorrenza, 8 per ogni utente mediumrc).
 
 ## Priorità delle query
 
-In realtà esistono in totale otto gruppi di carichi di lavoro che controllano il comportamento delle classi di risorse. Tuttavia, solo quattro degli otto gruppi di carichi di lavoro vengono utilizzati in una data DWU. Questo approccio ha senso, perché ogni gruppo di carichi di lavoro viene assegnato a smallrc, mediumrc, largerc oppure a xlargerc. È importante comprendere questi gruppi di carichi di lavoro sottostanti perché alcuni di essi sono impostati sul livello di **PRIORITÀ** più elevato. La priorità viene usata per la pianificazione della CPU. Le query eseguite con priorità alta otterranno 3 volte più cicli della CPU rispetto a quelle con priorità media. Di conseguenza, i mapping degli slot della concorrenza determinano anche la priorità della CPU. Quando una query utilizza 16 o più slot, viene eseguita con priorità alta.
+In realtà, le classi di risorse vengono implementate mediante i gruppi di carichi di lavoro. Esistono in totale otto gruppi di carichi di lavoro che controllano il comportamento delle classi di risorse nelle DWU di varie dimensioni. in ogni DWU vengono utilizzati solo quattro degli otto gruppi di carichi di lavoro. Il senso di questo approccio è assegnare a ogni gruppo di carichi di lavoro una delle quattro classi di risorse, tra smallrc, mediumrc, largerc o xlargerc. È importante comprendere per alcuni gruppi di carichi di lavoro viene impostato il livello di **PRIORITÀ** più elevato. La priorità viene usata per la pianificazione della CPU. Le query eseguite con priorità **alta** otterranno 3 volte più cicli della CPU rispetto a quelle con priorità **media**. Di conseguenza, i mapping degli slot della concorrenza determinano anche la priorità della CPU. Quando una query utilizza 16 o più slot, viene eseguita con priorità alta.
 
 Di seguito sono riportati i mapping di priorità per ogni gruppo di carichi di lavoro.
 
+### Mapping dei gruppi di carichi di lavoro agli slot di concorrenza e relativa importanza
+
 | Gruppi di carichi di lavoro | Mapping di Slot di concorrenza | Mapping di priorità |
-| :------------------  | :----------------------: | :----------------- |
+| :-------------- | :----------------------: | :----------------- |
 | SloDWGroupC00 | 1 | Media |
 | SloDWGroupC01 | 2 | Media |
 | SloDWGroupC02 | 4 | Media |
@@ -127,10 +160,12 @@ Di seguito sono riportati i mapping di priorità per ogni gruppo di carichi di l
 | SloDWGroupC06 | 64 | Alto |
 | SloDWGroupC07 | 128 | Alto |
 
-Per un SQL Data Warehouse DW500 i gruppi di carichi di lavoro attivi saranno associati alle classi di risorse come segue.
+Come illustrato nel grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza), DW500 utilizza 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. Tali valori possono essere consultati nel grafico qui sopra per stabilire l'importanza di ogni classe di risorse.
+
+### Mapping dell'importanza delle classi di risorse in DW500
 
 | Classe di risorse | Gruppo di carico | Numero di slot di concorrenza usate | Importance |
-| :--------------- | :------------- | :--------------------:   | :--------- |
+| :------------- | :------------- | :--------------------: | :--------- |
 | smallrc | SloDWGroupC00 | 1 | Media |
 | mediumrc | SloDWGroupC02 | 4 | Media |
 | largerc | SloDWGroupC03 | 8 | Media |
@@ -185,9 +220,28 @@ ORDER BY
 ;
 ```
 
-## Eccezioni della classe di risorse
+## Query che rispettano i limiti di concorrenza
 
-La maggior parte delle query rispetta le classi di risorse, tuttavia esistono alcune eccezioni. In genere ciò si verifica quando le risorse necessarie per soddisfare l'azione sono insufficienti. Vale a dire che le eccezioni riguardano in genere casi in cui una query non userà mai la memoria più elevata allocata dalle classi di risorse superiori. In questi casi, viene sempre usata la classe di risorse predefinita o piccola (smallrc), indipendentemente dalla classe di risorse assegnata all'utente. Ad esempio, `CREATE LOGIN` viene sempre eseguito in smallrc. Le risorse necessarie per svolgere questa operazione sono molto bassa e pertanto non avrebbe senso di includere la query nel modello di slot della concorrenza. Sarebbe uno spreco di pre-allocare grandi quantità di memoria per questa azione. Escludendo `CREATE LOGIN` dal modello slot concorrenza SQL Data Warehouse può essere molto più efficiente.
+La maggior parte delle query è regolata da classi di risorse. Queste query devono rientrare in entrambe le soglie delle query simultanee e degli slot di concorrenza. Come utente finale, è possibile scegliere di escludere una query dal modello di slot di concorrenza.
+
+Le istruzioni seguenti **non** rispettano le classi di risorse:
+
+- INSERT SELECT
+- AGGIORNAMENTO
+- DELETE
+- SELEZIONARE (quando si esegue una query sulle tabelle utente)
+- ALTER INDEX REBUILD
+- ALTER INDEX REORGANIZE
+- MODIFICA TABELLA RICOMPILAZIONE
+- CREATE INDEX
+- CREARE L'INDICE COLUMNSTORE CLUSTER
+- CREATE TABLE AS SELECT (CTAS)
+- Caricamento dei dati
+- Operazioni di spostamento dati condotte dal Servizio di spostamento dati (DMS)
+
+## Eccezioni query ai limiti di concorrenza
+
+Alcune query non rispettano la classe di risorse alla quale è assegnato l'utente. Queste eccezioni ai limiti di concorrenza vengono effettuate quando le risorse di memoria necessarie per un particolare comando sono basse, spesso perché il comando è un'operazione dei metadati. Con queste eccezioni, si evita di allocare più memoria alle query che non ne hanno bisogno. In questi casi, viene sempre usata la classe di risorse piccola predefinita (smallrc), indipendentemente dalla classe di risorse effettivamente assegnata all'utente. Ad esempio, in smallrc verrà sempre eseguita `CREATE LOGIN`. Le risorse necessarie per svolgere questa operazione sono molto bassa e pertanto non avrebbe senso di includere la query nel modello di slot della concorrenza. Sarebbe uno spreco di pre-allocare grandi quantità di memoria per questa azione. Escludendo `CREATE LOGIN` dal modello slot concorrenza SQL Data Warehouse può essere molto più efficiente.
 
 Le istruzioni seguenti **non** rispettano le classi di risorse:
 
@@ -214,27 +268,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-### Query che rispettano i limiti di concorrenza
-
-È importante ricordare che la maggior parte delle query degli utenti finali sono probabilmente disciplinati dalle classi di risorse. La regola generale prevede che il carico di lavoro di query attiva deve rientrare in entrambe le simultanee query e la concorrenza slot soglie a meno che non è stata esclusa in modo specifico della piattaforma. Come un utente finale è possibile scegliere di escludere una query dal modello di slot della concorrenza. Una volta superata una soglia, la query viene accodata. Le query in coda verranno risolte in ordine di priorità in base all'ora di invio.
-
-Le istruzioni seguenti **non** rispettano le classi di risorse:
-
-- INSERT SELECT
-- AGGIORNAMENTO
-- DELETE
-- SELEZIONARE (quando si esegue una query sulle tabelle utente)
-- ALTER INDEX REBUILD
-- ALTER INDEX REORGANIZE
-- MODIFICA TABELLA RICOMPILAZIONE
-- CREATE INDEX
-- CREARE L'INDICE COLUMNSTORE CLUSTER
-- CREATE TABLE AS SELECT
-- Caricamento dei dati
-- Operazioni di spostamento dati condotte dal Servizio di spostamento dati (DMS)
-
-
-## Gestione degli utenti
+## Esempio di modifica della classe di risorse di un utente
 
 1. **Creare un account di accesso:** aprire una connessione al database **master** per SQL Data Warehouse ed eseguire i comandi seguenti.
 	
@@ -273,7 +307,7 @@ Le istruzioni seguenti **non** rispettano le classi di risorse:
 
 ## Rilevamento di query in coda e altre viste a gestione dinamica
 
-La DMV `sys.dm_pdw_exec_requests` può essere usata per identificare le query in attesa in una coda di concorrenza.
+La DMV `sys.dm_pdw_exec_requests` può essere usata per identificare le query in attesa in una coda di concorrenza. Le query in attesa di uno slot di concorrenza saranno in stato **sospeso**.
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
@@ -381,7 +415,7 @@ FROM	sys.dm_pdw_wait_stats w;
 
 ## Passaggi successivi
 
-Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] \(Ricompilazione degli indici per migliorare la qualità del segmento).
+Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] (Ricompilazione degli indici per migliorare la qualità del segmento).
 
 <!--Image references-->
 
@@ -394,4 +428,4 @@ Per altre informazioni sulla gestione degli utenti e della sicurezza del databas
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->
