@@ -54,18 +54,21 @@ Per questi scenari è necessario quanto segue:
 
 ## Configurare l'app per le API del connettore SAP creata ##
 
-Trovare l'app per le API creata scegliendo Sfoglia -> App per le API -> Nome dell'app per le API appena creata. Viene visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita: ![][2]
+Trovare l'app per le API creata scegliendo Sfoglia -> App per le API -> Nome dell'app per le API appena creata. Viene visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita:  
+![][2]
 
 Il connettore SAP richiede la connettività ibrida per la connessione a *qualsiasi* endpoint SAP. Per stabilire la connettività ibrida seguire questa procedura:
 
 1. Copiare la stringa di connessione primaria
 2. Fare clic sul collegamento 'Scarica e configura'
 3. Seguire il processo di installazione che viene avviato e, quando viene richiesto, fornire la stringa di connessione primaria
-4. Dopo aver completato il processo di installazione viene visualizzata una finestra di dialogo simile alla seguente: ![][3]
+4. Dopo aver completato il processo di installazione viene visualizzata una finestra di dialogo simile alla seguente:  
+![][3]
 
 Per altre informazioni, vedere [Integrazione con un server SAP locale](app-service-logic-integrate-with-an-on-premise-sap-server.md).
 
-A questo punto, quando si passa nuovamente all'app per le API creata, lo stato della connessione ibrida visualizzato sarà Connected: ![][4]
+A questo punto, quando si passa nuovamente all'app per le API creata, lo stato della connessione ibrida visualizzato sarà Connected:  
+![][4]
 
 Nota: per passare alla stringa di connessione secondaria è sufficiente ripetere la configurazione della connessione ibrida e inserire la stringa di connessione secondaria al posto della stringa di connessione primaria.
 
@@ -73,11 +76,14 @@ Nota: per passare alla stringa di connessione secondaria è sufficiente ripetere
 
 Il connettore SAP può essere usato come azione/passaggio solo in un'app per la logica.
 
-Durante la creazione/modifica di un'app per la logica, scegliere l'app per le API del connettore SAP creata in precedenza. Vengono elencate tutte le azioni consentite tra cui scegliere: ![][5]
+Durante la creazione/modifica di un'app per la logica, scegliere l'app per le API del connettore SAP creata in precedenza. Vengono elencate tutte le azioni consentite tra cui scegliere:  
+![][5]
 
-Selezionando un'azione vengono elencati i relativi parametri di input. Fornire i valori appropriati e fare clic sull'icona con il segno di spunta: ![][6]
+Selezionando un'azione vengono elencati i relativi parametri di input. Fornire i valori appropriati e fare clic sull'icona con il segno di spunta:  
+![][6]
 
-L'azione/passaggio ora viene visualizzato come configurato nell'app per la logica. Verranno visualizzati gli output dell'operazione, che possono essere usati come input in un passaggio successivo: ![][7]
+L'azione/passaggio ora viene visualizzato come configurato nell'app per la logica. Verranno visualizzati gli output dell'operazione, che possono essere usati come input in un passaggio successivo:  
+![][7]
 
 Completare l'app per la logica per definire il processo aziendale e quindi eseguirla per raggiungere lo scopo desiderato.
 
