@@ -3,9 +3,9 @@
    description="Informazioni su come usare route definite dall'utente e l'inoltro IP per inoltrare il traffico a dispositivi virtuali di rete in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Cosa sono le route definite dall'utente e l'inoltro IP
 Quando si aggiungono macchine virtuali (VM) a una rete virtuale (VNet) in Azure, si noterà che le macchine virtuali sono in grado di comunicare con altri in rete, automaticamente. Non è necessario specificare un gateway, anche se le macchine virtuali si trovano in subnet diverse. Lo stesso vale per la comunicazione tra macchine virtuali e rete Internet pubblica e anche rete locale se è presente una connessione ibrida tra Azure e il proprio Data Center.
@@ -28,13 +28,13 @@ Questo flusso di comunicazione è possibile perché Azure utilizza una serie di 
 
 Nella figura seguente viene illustrato un semplice programma di installazione con una rete virtuale, due subnet e alcune macchine virtuali, con le route di sistema che consentono il flusso del traffico IP.
 
-![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure1.png)
+![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure1.png)  
 
 Sebbene l'utilizzo di route del sistema faciliti il traffico automaticamente per la distribuzione, esistono casi in cui si desidera controllare il routing dei pacchetti tramite un dispositivo virtuale. Questo è possibile tramite la creazione di route definite dall'utente che specifichino l'hop successivo per i pacchetti che passano a una subnet specifica per accedere all'applicazione virtuale e tramite l’attivazione dell'inoltro IP per la macchina virtuale in esecuzione come dispositivo virtuale.
 
 Nella figura seguente viene illustrato un esempio di route definite dall'utente e di inoltro IP per imporre i pacchetti inviati a una subnet da un altro per passare attraverso un dispositivo virtuale su una terza subnet.
 
-![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure2.png)
+![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure2.png)  
 
 >[AZURE.IMPORTANT] Le route definite dall'utente vengono applicate solo al traffico da una subnet. non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Inoltre, il dispositivo in cui si vuole inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi.
 
@@ -59,7 +59,7 @@ Ogni subnet creata in una rete virtuale viene associata automaticamente a una ta
 
 - **Regola di rete virtuale locale**: questa regola viene creata automaticamente per ogni subnet in una rete virtuale. Specifica che vi è un collegamento diretto tra le macchine virtuali nella rete virtuale e che non esiste alcun hop successivo intermediario.
 - **Regola Locale**: questa regola si applica a tutto il traffico destinato ad un intervallo di indirizzi locali e utilizza il gateway VPN come destinazione hop successiva.
-- **Regola Internet**: questa regola gestisce tutto il traffico destinato all’Internet pubblico e utilizza il gateway internet di infrastruttura come hop successivo per tutto il traffico destinato a Internet.
+- **Regola Internet**: questa regola gestisce tutto il traffico destinato alla rete Internet pubblica e usa il gateway Internet dell'infrastruttura come hop successivo per tutto il traffico destinato a Internet.
 
 ### Route definite dall'utente
 Per la maggior parte degli ambienti saranno necessarie solo le route di sistema già definite da Azure. Tuttavia, è necessario creare una tabella di route e aggiungere una o più route in casi specifici, ad esempio:
@@ -77,10 +77,10 @@ Le subnet si basano su route predefinite fino a quando una tabella di route vien
 
 Per informazioni su come creare route definite dall'utente, vedere[come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale passa attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
+>[AZURE.IMPORTANT] Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. È anche possibile aggiungere una route definita dall'utente a GatewaySubnet per inoltrare tutto il traffico da locale ad Azure tramite l'appliance virtuale. Si tratta di un'aggiunta recente.
 
 ### Route BGP
-Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP propagare route dalla rete locale in Azure. Queste route BGP vengono utilizzate nello stesso modo delle route predefinite e delle route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](../expressroute/expressroute-introduction.md).
+Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP propagare route dalla rete locale in Azure. Queste route BGP vengono utilizzate nello stesso modo delle route predefinite e delle route definite dall'utente in ogni subnet di Azure. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
 
 >[AZURE.IMPORTANT] È possibile configurare l'ambiente Azure per utilizzare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita utente per 0.0.0.0/0 subnet che utilizza il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
@@ -91,7 +91,7 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 
 ## Passaggi successivi
 
-- Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](virtual-network-create-udr-arm-template.md) e associarle alle subnet.
+- Informazioni su come [Creare route definite dall'utente in Resource Manager usando un modello](virtual-network-create-udr-arm-template.md) e associarle alle subnet.
 - Informazioni su come [creare route nel modello di distribuzione classica](virtual-network-create-udr-classic-ps.md) e associarle a subnet.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="navalev"
    manager=""
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
-   ms.author="navale;tomfitz"/>
+   ms.date="08/04/2016"
+   ms.author="navale;tomfitz"/>  
    
 # Procedura dettagliata per un modello di Resource Manager
 
@@ -26,13 +26,13 @@ Ecco un'infrastruttura comune:
 * Una singola NIC e un indirizzo IP di macchina virtuale per ogni macchina virtuale.
 * Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
 
-![architettura](./media/resource-group-overview/arm_arch.png)
+![architettura](./media/resource-group-overview/arm_arch.png)  
 
 Questo argomento descrive la procedura per la creazione di un modello di Resource Manager per tale infrastruttura. Il modello finale creato è basato su un modello di avvio rapido denominato [2 VM in un servizio di bilanciamento del carico e regole per il bilanciamento del carico](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 Per semplificare, creare prima di tutto un account di archiviazione e distribuirlo. Al termine della creazione dell'account di archiviazione, sarà possibile aggiungere altre risorse e ridistribuire il modello per completare l'infrastruttura.
 
->[AZURE.NOTE] Durante la creazione del modello è possibile usare un editor di qualsiasi tipo. Visual Studio offre strumenti che semplificano lo sviluppo di modelli, ma non è necessario Visual Studio per completare questa esercitazione. Per un'esercitazione sull'uso di Visual Studio per creare una distribuzione di App Web e database SQL, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+>[AZURE.NOTE] Durante la creazione del modello è possibile usare un editor di qualsiasi tipo. Visual Studio offre strumenti che semplificano lo sviluppo di modelli, ma non è necessario Visual Studio per completare questa esercitazione. Per un'esercitazione sull'uso di Visual Studio per creare una distribuzione di app Web e database SQL, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Creare il modello di Azure Resource Manager
 
@@ -72,7 +72,7 @@ Nella sezione **resources** aggiungere un oggetto che definisce l'account di arc
 
 Per quanto riguarda la provenienza dei valori e delle proprietà, Le proprietà **type**, **name**, **apiVersion** e **location** sono elementi standard disponibili per tutti i tipi di risorse. Per informazioni sugli elementi comuni, vedere [Risorse](resource-group-authoring-templates.md#resources). Per **name** viene impostato un valore di parametro passato durante la distribuzione e per **location** viene impostata la posizione usata dal gruppo di risorse. Nelle sezioni seguenti si vedrà come determinare **type** e **apiVersion**.
 
-La sezione **properties** contiene tutte le proprietà univoche per un determinato tipo di risorsa. I valori specificati in questa sezione corrispondono esattamente all'operazione PUT nell'API REST per la creazione di quel tipo di risorsa. Quando si crea un account di archiviazione, è necessario fornire un **accountType**. Si noti che nell'[API REST per la creazione di un account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) la sezione properties dell'operazione REST contiene anche una proprietà **accountType** e i valori consentiti sono documentati. In questo esempio il tipo di account è impostato su **Standard\_LRS**, ma è possibile specificare un altro valore o consentire agli utenti di passare il tipo di account come un parametro.
+La sezione **properties** contiene tutte le proprietà univoche per un determinato tipo di risorsa. I valori specificati in questa sezione corrispondono esattamente all'operazione PUT nell'API REST per la creazione di quel tipo di risorsa. Quando si crea un account di archiviazione, è necessario specificare un valore per **accountType**. Si noti che nell'[API REST per la creazione di un account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) la sezione properties dell'operazione REST contiene anche una proprietà **accountType** e i valori consentiti sono documentati. In questo esempio il tipo di account è impostato su **Standard\_LRS**, ma è possibile specificare un altro valore o consentire agli utenti di passare il tipo di account come un parametro.
 
 Tornare ora alla sezione **parameters** per verificare come viene definito il nome dell'account di archiviazione. Per altre informazioni sull'uso dei parametri, vedere [Parametri](resource-group-authoring-templates.md#parameters).
 
@@ -152,7 +152,7 @@ Dopo la definizione dell'account di archiviazione, aggiungere un set di disponib
 }
 ```
 
-Si noti che **name** è impostato sul valore di una variabile. Per questo modello è necessario specificare il nome del set di disponibilità in diversi punti. La gestione del modello risulta più semplice se tale valore viene definito una volta e poi usato in diversi punti.
+Si noti che la proprietà **name** è impostata sul valore di una variabile. Per questo modello è necessario specificare il nome del set di disponibilità in diversi punti. La gestione del modello risulta più semplice se tale valore viene definito una volta e poi usato in diversi punti.
 
 Il valore specificato per **type** contiene sia il provider di risorse che il tipo di risorsa. Per i set di disponibilità, il provider di risorse è **Microsoft.Compute** e il tipo di risorsa è **availabilitySets**. Per ottenere l'elenco dei provider di risorse disponibili è possibile eseguire il comando PowerShell seguente:
 
@@ -182,7 +182,7 @@ In alternativa, per l'interfaccia della riga di comando di Azure, il comando seg
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
-**availabilitySets** dovrebbe essere visualizzato come uno dei tipi all'interno di **Microsoft.Compute**. Il nome completo del tipo è **Microsoft.Compute/availabilitySets**. È possibile determinare il nome del tipo di risorsa per qualsiasi risorsa nel modello.
+L'oggetto **availabilitySets** dovrebbe essere visualizzato come uno dei tipi all'interno di **Microsoft.Compute**. Il nome completo del tipo è **Microsoft.Compute/availabilitySets**. È possibile determinare il nome del tipo di risorsa per qualsiasi risorsa nel modello.
 
 ## IP pubblico
 Definire un indirizzo IP pubblico. Anche in questo caso, vedere l'[API REST per indirizzi IP pubblici](https://msdn.microsoft.com/library/azure/mt163590.aspx) per informazioni sulle proprietà da impostare.
@@ -246,7 +246,7 @@ Creare una rete virtuale con una subnet. Per tutte le proprietà da impostare, v
 }
 ```
 
-## Bilanciamento del carico
+## Servizio di bilanciamento del carico
 A questo punto è possibile creare un servizio di bilanciamento del carico esterno. Dato che il servizio di bilanciamento del carico usa indirizzi IP pubblici, è necessario dichiarare una dipendenza dall'indirizzo IP pubblico nella sezione **dependsOn**. Ciò significa che il servizio di bilanciamento del carico non viene distribuito fino al termine della distribuzione dell'indirizzo IP pubblico. Se non si definisce questa dipendenza, si riceve un messaggio di errore perché Azure Resource Manager prova a distribuire le risorse in parallelo e a impostare il servizio di bilanciamento del carico su un indirizzo IP pubblico che ancora non esiste.
 
 In questa definizione risorse viene creato anche un pool di indirizzi back-end, due regole NAT in ingresso per RDP nelle macchine virtuali e una regola di bilanciamento del carico con un probe TCP sulla porta 80. Per tutte le proprietà, vedere l'[API REST per il servizio di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163574.aspx).
@@ -381,7 +381,7 @@ Creare due interfacce di rete, una per ogni macchina virtuale. Anziché dover in
 }
 ```
 
-## Macchine virtuali
+## Macchina virtuale
 Creare due macchine virtuali usando la funzione copyIndex(), come per la creazione delle [interfacce di rete](#network-interface). La creazione della macchina virtuale dipende dall'account di archiviazione, dall'interfaccia di rete e dal set di disponibilità. Questa macchina virtuale verrà creata da un'immagine del Marketplace, come definito nella proprietà `storageProfile`. L'oggetto `imageReference` viene usato per definire l'editore di immagini, l'offerta, lo SKU e la versione. Infine, è necessario configurare un profilo di diagnostica per abilitare la diagnostica della macchina virtuale.
 
 Per trovare le proprietà rilevanti per un'immagine del Marketplace, vedere l'articolo relativo alla [selezione di immagini di macchine virtuali Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) o alla [selezione di immagini di macchine virtuali Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
@@ -577,6 +577,6 @@ Il modello è stato completato. È possibile confrontare il modello con il model
 
 - [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) è uno strumento ideale per visualizzare i modelli di Azure Resource Manager, perché potrebbero risultare troppo grandi per essere comprensibili solo mediante la lettura del file JSON.
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

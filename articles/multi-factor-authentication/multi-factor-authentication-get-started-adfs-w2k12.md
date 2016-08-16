@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
-	editor="curtland"/>
+	editor="curtland"/>  
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 
@@ -64,7 +64,7 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 A questo punto, il server Multi-Factor Authentication è configurato per essere un provider di autenticazione aggiuntivo per l'uso con AD FS.
 
 ## Installare un'istanza autonoma dell'adapter AD FS usando l'SDK del servizio Web
-1. Installare l'SDK del servizio Web sul server che esegue il server Multi-Factor Authentication.
+1. Installare l'SDK del servizio Web nel server che esegue il server Multi-Factor Authentication.
 2. Copiare i file seguenti dalla directory \\Programmi\\Multi-Factor Authentication Server al server in cui si prevede di installare l'adapter AD FS:
   - MultiFactorAuthenticationAdfsAdapterSetup64.msi
   - Register-MultiFactorAuthenticationAdfsAdapter.ps1
@@ -85,4 +85,4 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 
 Per registrare l'adapter, eseguire lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 in \\Programmi\\Multi-Factor Authentication Server\\ in PowerShell. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

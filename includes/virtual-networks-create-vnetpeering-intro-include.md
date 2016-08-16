@@ -2,7 +2,9 @@ Peering reti virtuale è un meccanismo che consente di connettere due reti virtu
 
 Il peering reti virtuali è in anteprima pubblica. Per usarlo, è necessario registrarsi con il comando seguente:
 
-> [AZURE.NOTE] Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network –force
+    Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

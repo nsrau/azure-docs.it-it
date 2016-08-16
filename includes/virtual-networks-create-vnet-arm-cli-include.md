@@ -11,7 +11,7 @@
 
 		info:    New mode is arm
 
-3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -29,7 +29,7 @@
 		data:
 		info:    group create command OK
 
-	- **-n (o --name)**. Nome del nuovo gruppo di risorse. Per questo scenario, *TestRG*.
+	- **-n (o --nome)**. Nome del nuovo gruppo di risorse. Per questo scenario, *TestRG*.
 	- **-l (o --location)**. L'area di Azure in cui verrà creato il nuovo gruppo di risorse. Per questo scenario, *centralus*.
 
 4. Eseguire il comando per **creare reti virtuali di Azure** per creare una rete virtuale e una subnet, come illustrato di seguito.
@@ -52,7 +52,7 @@
 		info:    network vnet create command OK
 
 	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creata la rete virtuale. Per questo scenario, *TestRG*.
-	- **-n (o --name)**. Nome della rete virtuale da creare. Per questo scenario, *TestVNet*
+	- **-n (o --nome)**. Nome della rete virtuale da creare. Per questo scenario, *TestVNet*
 	- **-a (o --address-prefixes)**. Elenco di blocchi CIDR usati per lo spazio degli indirizzi della rete virtuale. Per questo scenario, *192.168.0.0/16*
 	- **-l (o --location)**. La regione in cui verrà creata la rete virtuale. Per questo scenario, *centralus*.
 
@@ -75,7 +75,7 @@
 		info:    network vnet subnet create command OK
 
 	- **-e (o --vnet-name**. Nome della rete virtuale in cui verrà creata la subnet. Per questo scenario, *TestVNet*.
-	- **-n (o --name)**. Nome della nuova subnet. Per questo scenario, *FrontEnd*.
+	- **-n (o --nome)**. Nome della nuova subnet. Per questo scenario, *FrontEnd*.
 	- **-a (o --address-prefix)**. Blocco CIDR di subnet. Per questo scenario, *192.168.1.0/24*.
 
 6. Ripetere il passaggio 5 per creare altre subnet, se necessario. Per questo scenario, eseguire il comando seguente per creare la subnet *BackEnd*.
@@ -106,4 +106,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

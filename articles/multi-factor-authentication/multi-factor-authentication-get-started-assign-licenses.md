@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Assegnazione di una licenza di Azure MFA, Azure AD Premium o Enterprise Mobility Suite agli utenti
 
@@ -24,13 +24,13 @@ Se sono state acquistate licenze di Azure MFA, Azure AD Premium o Enterprise Mob
 --------------------------------------------------------------------------------
 
 1. Accedere al **portale di Azure classico** come amministratore.
-2. A sinistra, selezionare **Active Directory**.
+2. A sinistra selezionare **Active Directory**.
 3. Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.
 4. Nella parte superiore della pagina della directory selezionare **Licenze**. ![Assegnare licenze](./media/multi-factor-authentication-get-started-assign-licenses/assign1.png)
-5. Nella pagina Licenze selezionare **Azure Multi-Factor Authentication**, **Active Directory Premium** o **Enterprise Mobility Suite**. Se è presente una sola opzione, risulterà selezionata automaticamente. 
+5. Nella pagina Licenze selezionare **Azure Multi-Factor Authentication**, **Active Directory Premium** o **Enterprise Mobility Suite**. Se è presente una sola opzione, risulterà selezionata automaticamente.
 6. Nella parte inferiore della pagina fare clic su **Assegna**. ![Assegnare licenze](./media/multi-factor-authentication-get-started-assign-licenses/assign3.png)
 6. Nella casella visualizzata **fare clic** accanto agli utenti o ai gruppi a cui si vogliono assegnare le licenze. Verrà visualizzato un **segno di spunta verde**.
 7. **Fare clic** sul segno di spunta per salvare le modifiche. ![Assegnare licenze](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. Verrà visualizzato un messaggio che indica quante licenze sono state assegnate e quante non sono riuscite. Fare clic su **OK**. ![Assegnare licenze](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->
