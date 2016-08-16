@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="cdn"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+	ms.date="08/09/2016"
+	ms.author="casoper"/>  
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
 
@@ -31,7 +31,7 @@ L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre di
 
 ## Funzionamento
 
-![Panoramica della rete CDN](./media/cdn-overview/cdn-overview.png)
+![Panoramica della rete CDN](./media/cdn-overview/cdn-overview.png)  
 
 1. Un utente (Alice) richiede un file, detto anche asset, usando un URL con un nome di dominio particolare, ad esempio `<endpointname>.azureedge.net`. Il servizio DNS instrada la richiesta alla località POP (Point of Presence) che offre le migliori prestazioni. In genere questo è il POP geograficamente più vicino all'utente.
 
@@ -39,7 +39,7 @@ L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre di
 
 3. L'origine restituisce il file al server perimetrale, comprese le intestazioni HTTP facoltative che descrivono la durata (TTL) del file.
 
-4. Il server perimetrale memorizza il file nella cache e lo restituisce al richiedente originale (Alice). Il file rimarrà nella cache del server perimetrale fino alla scadenza del valore TTL. Se l'origine ha specificato un valore TTL, il valore predefinito è 7 giorni.
+4. Il server perimetrale memorizza il file nella cache e lo restituisce al richiedente originale (Alice). Il file rimane nella cache del server perimetrale fino alla scadenza del valore TTL. Se l'origine ha specificato un valore TTL, il valore predefinito è di sette giorni.
 
 5. Altri utenti (ad esempio Bob) possono quindi richiedere lo stesso file usando lo stesso URL e anche essere indirizzati allo stesso POP.
 
@@ -57,6 +57,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 | Bilanciamento del carico. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Protezione DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Memorizzazione nella cache della stringa di query](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtro di paese](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -78,8 +79,8 @@ I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete C
 
 Per informazioni sul funzionamento della rete CDN, guardare il [video della sessione di Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev-net.md) o [Node. js](./cdn-app-dev-node.md).
+Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev-net.md) o [Node.js](./cdn-app-dev-node.md).
 
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

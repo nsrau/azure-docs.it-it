@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
 
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti. Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->  
 
 >[AZURE.NOTE] Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 >
->DirSync e Azure AD Sync sono funzionalità deprecate. Per altre informazioni, vedere [Eseguire l'aggiornamento dello Strumento di sincronizzazione di Microsoft Azure Active Directory ("DirSync") e di Azure Active Directory Sync ("Azure AD Sync")](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync e Azure AD Sync sono funzionalità deprecate. Altre informazioni sono disponibili [qui](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Usare la seguente chiave per ognuna delle tabelle.
@@ -92,6 +92,6 @@ Possibilità di interrompere il flusso di attributi da AD ad Azure AD | ● | �
 Personalizzazione avanzata dei flussi di attributi | ● | ● | | ● | ●
 
 ## Passaggi successivi
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

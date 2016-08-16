@@ -30,8 +30,9 @@ Questa esercitazione illustra i passaggi per creare un insieme di credenziali de
 - Macchine virtuali classiche
 - Macchine virtuali di Archiviazione Standard
 - Macchine virtuali di Archiviazione Premium
+- VM crittografate usando Crittografia dischi di Azure, con file BEK e KEK (supportati con Powershell)
 
-Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Premium, vedere la sezione relativa al [backup e ripristino di macchine virtuali di Archiviazione Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
+Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Premium, vedere [Backup e ripristino di macchine virtuali di Archiviazione Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms).
 
 >[AZURE.NOTE] Questa esercitazione presuppone che sia disponibile una macchina virtuale nella sottoscrizione di Azure e che al servizio Backup sia stato concesso l'accesso alla macchina virtuale. Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questo articolo si applica a Resource Manager e alle VM distribuite in Resource Manager.
 
@@ -54,7 +55,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Scegliere **Sfoglia** dal menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
+2. Scegliere **Esplora** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insieme di credenziali dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -62,31 +63,31 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)  
 
-    Si apre il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+    Verrà aperto il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)  
 
 4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
 5. Fare clic su **Sottoscrizione** per visualizzare l'elenco di sottoscrizioni disponibili. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
-6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco di gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
+6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
 
     >[AZURE.IMPORTANT] Se si non è certi della località della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, sarà necessario creare un insieme di credenziali dei servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali dei servizi di ripristino e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
 
-8. Fare clic su **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato nell'elenco degli insiemi di credenziali dei servizi di ripristino.
+8. Fare clic su **Crea**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato nell'elenco degli insiemi di credenziali dei servizi di ripristino.
 
-    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)  
 
 Ora che l'insieme di credenziali è stato creato, è possibile apprendere come impostare la replica di archiviazione.
 
 ### Impostare la replica di archiviazione
 
-L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la [panoramica Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la panoramica in [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -94,7 +95,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 2. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione backup** per aprire il pannello **Configurazione backup**. Nel pannello **Configurazione backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
-    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)  
 
     Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
@@ -102,10 +103,10 @@ Per modificare le impostazioni di replica di archiviazione:
 
 Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire il processo di individuazione per verificare che vengano identificate le eventuali nuove macchine virtuali aggiunte alla sottoscrizione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area. Nel portale di Azure lo scenario fa riferimento a ciò che si inserirà nell'insieme di credenziali dei servizi di ripristino. I criteri determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino.
 
-1. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali dei servizi di ripristino ma si è nel portale di Azure, nel menu dell'hub fare clic su **Esplora**.
+1. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali dei servizi di ripristino, ma ci si trova nel portale di Azure, scegliere **Sfoglia** dal menu Hub.
 
   - Nell'elenco di risorse digitare **Servizi di ripristino**.
-  - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, fare clic su di esso.
+  - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzata l'opzione, fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -114,56 +115,56 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     Viene aperto il dashboard dell'insieme di credenziali selezionato.
 
-    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-vms-first-look-arm/vault-settings.png)
+    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-vms-first-look-arm/vault-settings.png)  
 
 2. Scegliere **Backup** dal menu del dashboard dell'insieme di credenziali per aprire il pannello Backup.
 
-    ![Pannello Backup aperto](./media/backup-azure-vms-first-look-arm/backup-button.png)
+    ![Pannello Backup aperto](./media/backup-azure-vms-first-look-arm/backup-button.png)  
 
     Quando si apre il pannello, il servizio Backup cerca le nuove VM nella sottoscrizione.
 
-    ![Individuare le VM](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
+    ![Individuare le VM](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)  
 
-3. Nel pannello Backup fare clic su **Obiettivo di backup** per aprire il pannello Obiettivo di backup
+3. Nel pannello Backup fare clic su **Obiettivo del backup** per aprire il pannello corrispondente.
 
-    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
+    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)  
 
-4. Nel pannello Obiettivo di backup impostare **Dove è in esecuzione il carico di lavoro** su Azure e **Di che cosa si vuole eseguire il backup** su Macchina virtuale, quindi fare clic su **OK**.
+4. Nel pannello Obiettivo del backup impostare **Posizione di esecuzione del carico di lavoro** su Azure ed **Elementi di cui eseguire il backup** su Macchina virtuale, quindi fare clic su **OK**.
 
     Il pannello Obiettivo di backup si chiude e viene visualizzato il pannello Criterio di backup.
 
-    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
+    ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)  
 
 5. Nel pannello Criterio di backup selezionare il criterio di backup che si vuole applicare all'insieme di credenziali e fare clic su **OK**.
 
     ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    I dettagli del criterio predefinito vengono elencati nei dettagli. Per creare un nuovo criterio, selezionare **Crea nuovo** dal menu a discesa. Il menu a discesa contiene anche un'opzione per impostare l'orario in cui lo snapshot viene acquisito sulle 19. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Una volta fatto clic su **OK**, il criterio di backup viene associato all'insieme di credenziali.
+    I dettagli del criterio predefinito vengono elencati nei dettagli. Per creare un nuovo criterio, selezionare **Crea nuovo** dal menu a discesa. Il menu a discesa contiene anche un'opzione per impostare l'orario in cui lo snapshot viene acquisito sulle 19. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Dopo aver fatto clic su **OK**, il criterio di backup viene associato all'insieme di credenziali.
 
     Scegliere quindi le VM da associare all'insieme di credenziali.
 
 6. Scegliere le macchine virtuali da associare al criterio specificato e fare clic su **Seleziona**.
 
-    ![Selezionare il carico di lavoro](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    ![Selezionare il carico di lavoro](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)  
 
     Se la VM desiderata non è visibile, controllare che esista nella stessa località di Azure dell'insieme di credenziali dei servizi di ripristino.
 
-7. Ora che sono state definite tutte le impostazioni per l'insieme di credenziali, nel pannello Backup fare clic su **Abilita backup** nella parte inferiore della pagina. Il criterio verrà distribuito nell'insieme di credenziali e nelle VM.
+7. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel pannello Backup fare clic su **Abilita backup** nella parte inferiore della pagina. Il criterio verrà distribuito nell'insieme di credenziali e nelle VM.
 
-    ![Abilitare il backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+    ![Abilitare il backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)  
 
 
 ## Passaggio 3: Backup iniziale
 
 Distribuire un criterio di backup nella macchina virtuale non significa eseguire il backup dei dati. Per impostazione predefinita, il primo backup pianificato (definito nel criterio di backup) è il backup iniziale. Fino all'esecuzione del backup iniziale, lo stato dell'ultimo backup nel pannello **Processi di Backup** è **Avviso (backup iniziale in sospeso)**.
 
-![Backup in sospeso](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
+![Backup in sospeso](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)  
 
-A meno che l'avvio del backup iniziale non sia imminente, è consigliabile eseguire **Esegui backup**.
+A meno che l'avvio del backup iniziale non sia imminente, è consigliabile scegliere l'opzione **Esegui backup ora**.
 
-Per eseguire **Esegui backup**:
+Per usare **Esegui backup ora**:
 
-1. Nel riquadro **Backup** del dashboard dell'insieme di credenziali fare clic su **Macchine virtuali di Azure** <br/> ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. Nel riquadro **Backup** del dashboard dell'insieme di credenziali fare clic su **Macchine virtuali di Azure**. <br/> ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
     Si apre il pannello **Elementi di backup**.
 
@@ -177,7 +178,7 @@ Per eseguire **Esegui backup**:
 
 3. Per verificare che il backup iniziale sia stato completato, nel riquadro **Processi di backup** del dashboard dell'insieme di credenziali fare clic su **Macchine virtuali di Azure**.
 
-    ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+    ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)  
 
     Si apre il pannello dei processi di backup.
 
@@ -202,8 +203,8 @@ La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine vir
 | **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installazione dell'agente di macchine virtuali | <li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. | <li> Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
-| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. | Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. |
-| Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
+| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. | Seguire le istruzioni sull'[aggiornamento dell'agente di VM Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
+| Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà** e quindi scegliere la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
 
 
 ### Estensione di backup
@@ -219,4 +220,4 @@ In caso di problemi nell'esecuzione di alcune attività di questo articolo, vede
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

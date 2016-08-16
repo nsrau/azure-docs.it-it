@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="api-management" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/24/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 #Informazioni su Gestione API
 
@@ -43,7 +43,7 @@ In questo argomento viene fornita una panoramica sui concetti chiave di Gestione
 
 Le API costituiscono la base di un'istanza del servizio Gestione API. Ogni API rappresenta un set di operazioni disponibile per gli sviluppatori. Ogni API contiene un riferimento al servizio back-end che implementa l'API e le relative operazioni sono mappate alle operazioni implementate dal servizio back-end. Le operazioni in Gestione API sono altamente configurabili e offrono il controllo sul mapping degli URL, sui parametri di query e percorsi, sul contenuto della richiesta e della risposta e sulla memorizzazione nella cache della risposta delle operazioni. È anche possibile implementare i criteri relativi a restrizioni IP, quote e limitazione di frequenza al livello dell'API o della singola operazione.
 
-Per altre informazioni, vedere [Come creare le API][] e [Come aggiungere operazioni a un'API][].
+Per altre informazioni, vedere [Come creare API in Gestione API di Azure][] e [Come aggiungere operazioni a un'API in Gestione API di Azure][].
 
 
 ## <a name="products"> </a> Prodotti
@@ -52,7 +52,7 @@ I prodotti rappresentano il modo in cui le API sono presentate agli sviluppatori
 
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono.
 
-Per altre informazioni, vedere [Come creare e pubblicare un prodotto][] e il video seguente.
+Per altre informazioni, vedere [Come creare e pubblicare un prodotto in Gestione API di Azure][] e il video seguente.
 
 > [AZURE.VIDEO using-products]
 
@@ -107,9 +107,9 @@ Per altre informazioni su Gestione API, guardare la presentazione seguente dalla
 [Policies]: #policies
 [Portale per sviluppatori]: #developer-portal
 
-[Come creare le API]: api-management-howto-create-apis.md
-[Come aggiungere operazioni a un'API]: api-management-howto-add-operations.md
-[Come creare e pubblicare un prodotto]: api-management-howto-add-products.md
+[Come creare API in Gestione API di Azure]: api-management-howto-create-apis.md
+[Come aggiungere operazioni a un'API in Gestione API di Azure]: api-management-howto-add-operations.md
+[Come creare e pubblicare un prodotto in Gestione API di Azure]: api-management-howto-add-products.md
 [Come creare e usare i gruppi]: api-management-howto-create-groups.md
 [Come associare i gruppi agli sviluppatori]: api-management-howto-create-groups.md#associate-group-developer
 [Come creare e configurare impostazioni di prodotto avanzate]: api-management-howto-product-with-rules.md
@@ -122,4 +122,4 @@ Per altre informazioni su Gestione API, guardare la presentazione seguente dalla
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

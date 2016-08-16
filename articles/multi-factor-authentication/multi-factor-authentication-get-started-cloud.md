@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
 Questo articolo illustra come iniziare a usare Azure multi-Factor Authentication nel cloud.
 
 > [AZURE.NOTE]  La documentazione seguente fornisce informazioni su come abilitare gli utenti tramite il **portale di Azure classico**. Se occorrono informazioni su come configurare Azure multi-Factor Authentication per gli utenti di Office 365, vedere [Configurare l'autenticazione a più fattori per Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=it-IT&rs=it-IT&ad=US)
 
-![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
+![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)  
 
 ## Prerequisiti
 Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario soddisfare i prerequisiti seguenti.
@@ -51,7 +51,7 @@ Per abilitare MFA per gli utenti, seguire questa procedura.
 7.  **Selezionare** la casella accanto al nome.
 7.  A destra fare clic su **Attiva**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Fare clic su **Abilita Multi-Factor Auth**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-9.  Si noterà che lo stato dell'utente è cambiato da **Disattivato** in **Attivato**. ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
+9.  Si noterà che lo stato dell'utente è passato da **Disattivato** ad **Attivato**. ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
 10.  Dopo avere abilitato gli utenti, è consigliabile inviare una notifica tramite posta elettronica. È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
 
 
@@ -85,9 +85,9 @@ PowerShell può essere un'opzione utile per abilitare gli utenti in blocco. Attu
     }
 
 
-Per altre informazioni sugli stati utente, vedere l'articolo relativo agli [stati utente in Azure multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+Per altre informazioni sugli stati utente, vedere [Stati utente in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 ## Passaggi successivi
 Dopo avere configurato l'autenticazione a più fattori nel cloud, è possibile configurare e impostare la distribuzione. Vedere [Configurazione di Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

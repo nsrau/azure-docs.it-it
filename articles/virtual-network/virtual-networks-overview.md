@@ -1,11 +1,11 @@
 <properties
    pageTitle="Panoramica della rete virtuale (VNet) di Azure"
-   description="Informazioni sulle reti virtuali in Azure"
+   description="Informazioni sulle reti virtuali in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,21 +13,21 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
-# Panoramica di Rete virtuale
+# Panoramica della rete virtuale
 
 Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
 
 Per meglio comprendere le reti virtuali, vedere la figura seguente che mostra una rete locale semplificata.
 
-![Rete locale](./media/virtual-networks-overview/figure01.png)
+![Rete locale](./media/virtual-networks-overview/figure01.png)  
 
 La figura precedente mostra una rete locale connessa a Internet pubblico attraverso un router. È anche possibile visualizzare un firewall tra il router e una rete perimetrale che ospita un server DNS e un server farm Web. Il server farm Web è con carico bilanciato usando un servizio di bilanciamento del carico hardware che viene esposto a Internet e consuma risorse dalla subnet interna. La subnet interna è separata dalla rete perimetrale da un altro firewall e ospita i server, i server di database e i server delle applicazioni del controller di dominio di Active Directory.
 
 La stessa rete può essere ospitata in Azure come illustrato nella figura seguente.
 
-![Rete virtuale di Azure](./media/virtual-networks-overview/figure02.png)
+![Rete virtuale di Azure](./media/virtual-networks-overview/figure02.png)  
 
 Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'accesso dalla propria VNet a Internet pubblico senza la necessità di alcuna configurazione. I firewall possono essere sostituiti da gruppi di sicurezza di rete (NSG) applicati a ogni singola subnet. I servizi di bilanciamento del carico fisici vengono sostituiti da servizi di bilanciamento del carico Internet e interni in Azure.
 
@@ -93,6 +93,6 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 - [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md) e subnet.
 - [Creare una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
-- Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
+- Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,17 +12,14 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="08/10/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
 
+Dopo aver distribuito l'applicazione Web in qualsiasi host, è possibile configurare test Web per monitorarne la disponibilità e la velocità di risposta. [Visual Studio Application Insights](app-insights-overview.md) invia richieste Web a intervalli regolari da diversi punti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Dopo aver distribuito l'applicazione Web, è possibile configurare test web per monitorarne la disponibilità e la velocità di risposta. Application Insights invia richieste Web a intervalli regolari da vari punti distribuiti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
-
-![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)  
 
 È possibile configurare test Web per qualsiasi endpoint HTTPS accessibile dalla rete Internet pubblica.
 
@@ -40,11 +37,11 @@ Sono disponibili due tipi di test Web:
 
 Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vuole visualizzare i dati sulla disponibilità nella stessa posizione.
 
-Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](https://portal.azure.com) e creare una nuova risorsa di Application Insights.
+Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights.
 
-![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
+![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)  
 
-Verrà aperto il pannello Panoramica per la nuova risorsa. Per trovarlo in qualsiasi momento nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia**.
+Verrà aperto il pannello Panoramica per la nuova risorsa. Per trovarlo in qualsiasi momento nel [portale di Azure](https://portal.azure.com), fare clic su **Esplora**.
 
 ### <a name="setup"></a>2. Creare un test Web
 
@@ -53,23 +50,23 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
-- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti come parte del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro la scadenza definita per l'intero test.
-- Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
-- **Frequenza test**: impostare la frequenza di esecuzione dei test da ogni posizione di test. Con una frequenza di 5 minuti e cinque posizioni di test, il sito verrà testato in media ogni minuto.
-- Le **posizioni dei test** sono le ubicazioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 posizioni.
+- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti nell'ambito del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test.
+- **Abilita nuovi tentativi**: quando il test ha esito negativo, viene eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
+- **Frequenza test**: impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza di 5 minuti e cinque località di test, il sito verrà testato in media ogni minuto.
+- **Località di test**: sono le posizioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
 
 - **Criteri di successo**:
 
-    **Test timeout**: diminuire questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, è necessario che tutti gli script, i file di stile, le immagini e altre risorse dipendenti siano stati ricevuti entro questo intervallo.
+    **Timeout test**: ridurre questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, è necessario che tutti gli script, i file di stile, le immagini e le altre risorse dipendenti siano stati ricevuti entro questo periodo.
 
-    **Risposta HTTP**: codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
+    **Risposta HTTP**: codice di stato restituito che viene conteggiato come operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
-    Stringa relativa alla **corrispondenza di contenuto**, quale "Benvenuto!" Verrà verificato che sia presente in tutte le risposte. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
+    **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", di cui viene verificata la presenza in tutte le risposte. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
 
 
 - Per impostazione predefinita, gli **Avvisi** vengono inviati se si verificano errori in tre posizioni in cinque minuti. Un errore in una posizione può indicare un errore di rete e non un problema con il sito. È comunque possibile modificare la soglia in modo da aumentare la sensibilità del test e modificare i destinatari a cui inviare i messaggi di posta elettronica.
 
-    È possibile configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) chiamato quando viene generato un avviso. Si noti però che attualmente i parametri di query non vengono passati come proprietà.
+    È possibile configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso. Si noti però che attualmente i parametri di query non vengono passati come proprietà.
 
 #### Testare più URL
 
@@ -78,11 +75,11 @@ Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile ve
 
 ### <a name="monitor"></a>3. Visualizzare i report di disponibilità
 
-Dopo 1 o 2 minuti fare clic su **Aggiorna** nel pannello della disponibilità o dei test Web. (l'aggiornamento non viene eseguito automaticamente).
+Dopo 1 o 2 minuti fare clic su **Aggiorna** nel pannello dei test Web o di disponibilità (l'aggiornamento non viene eseguito automaticamente).
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)  
 
-Fare clic su qualsiasi barra nel grafico di riepilogo in alto per ottenere una visualizzazione più dettagliata di quel periodo di tempo.
+Fare clic su qualsiasi barra nel grafico di riepilogo per ottenere una visualizzazione più dettagliata di tale periodo di tempo.
 
 Questi grafici combinano i risultati per tutti i test Web di questa applicazione.
 
@@ -94,7 +91,7 @@ Il tempo di risposta registrato è il tempo impiegato per il caricamento complet
 
 In caso di errore di caricamento dei componenti, il test viene contrassegnato come non riuscito.
 
-## <a name="failures"></a>Se si verificano errori...
+## <a name="failures"></a>In caso di errori...
 
 Fare clic su un punto rosso.
 
@@ -102,34 +99,34 @@ Fare clic su un punto rosso.
 
 In alternativa, scorrere verso il basso e fare clic su un test con risultato inferiore al 100%.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)  
 
-Ciò consente di visualizzare i risultati di tale test.
+Verranno visualizzati i risultati del test.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
+![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)  
 
 Il test viene eseguito da diverse posizioni&#151;selezionarne una in cui i risultati siano inferiori al 100%.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
+![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)  
 
 
 Scorrere verso il basso fino a **Test non superati** e selezionare un risultato.
 
 Fare clic sul risultato per valutarlo nel portale e visualizzare il motivo dell'errore.
 
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
+![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)  
 
 
 In alternativa, scaricare il file dei risultati ed esaminarlo in Visual Studio.
 
 
-*Ha un aspetto corretto ma è segnalato come errore?* Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. Se uno di essi non riesce, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente.
+*Ha un aspetto corretto ma è segnalato come errore?* Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente.
 
 
 
 ## Test Web in più passaggi
 
-È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dei carrelli acquisti.
+È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
 
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
@@ -141,15 +138,15 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
 1. Creare un progetto di test delle prestazioni Web.
 
-    ![In Visual Studio, creare un nuovo progetto dal modello di test di carico e prestazioni Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![In Visual Studio creare un progetto dal modello di test di carico e prestazioni Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)  
 
 2. Aprire il file con estensione webtest e iniziare la registrazione.
 
-    ![Aprire il file con estensione webtest e fare clic su Registra.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
+    ![Aprire il file con estensione webtest e fare clic su Registra.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)  
 
 3. Eseguire le azioni utente che si vuole simulare nel test: aprire il sito Web, aggiungere un prodotto al carrello e così via. Quindi, arrestare il test.
 
-    ![Il registratore esecuzioni dei test Web viene eseguito in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
+    ![Il registratore esecuzioni dei test Web viene eseguito in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)  
 
     Non creare uno scenario lungo, in quanto è presente un limite di 100 passaggi e 2 minuti.
 
@@ -163,7 +160,7 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
     Il programma di esecuzione del test Web apre un browser Web e ripete le azioni registrate. Verificare che funzioni come previsto.
 
-    ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
+    ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)  
 
 
 #### 2\. Caricare il test Web in Application Insights
@@ -182,7 +179,7 @@ Visualizzare i risultati del test e gli eventuali errori nello stesso modo dei t
 
 Un motivo frequente di errore è l'eccessiva durata del test. L'esecuzione non deve superare i due minuti.
 
-Non dimenticare che, perché il test riesca, tutte le risorse di una pagina devono essere caricate correttamente, inclusi script, fogli di stile, immagini e così via.
+Non dimenticare che, perché il test abbia esito positivo, tutte le risorse di una pagina devono essere caricate correttamente, inclusi script, fogli di stile, immagini e così via.
 
 Si noti che il test Web deve essere interamente contenuto nel file con estensione webtest: non è possibile usare funzioni codificate nel test.
 
@@ -191,11 +188,11 @@ Si noti che il test Web deve essere interamente contenuto nel file con estension
 
 Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare tempi specifici impostandoli come parametri del test, StartTime e EndTime.
 
-![Un test Web con parametri.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
+![Un test Web con parametri.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)  
 
 Quando si esegue il test, si vuole che EndTime sia sempre l'ora corrente e StartTime 15 minuti fa.
 
-I plug-in del test Web consentono di definire questa impostazione.
+I plug-in del test Web consentono di impostare questi parametri.
 
 1. Aggiungere un plug-in del test Web per ciascun valore di parametro desiderato. Nella barra degli strumenti del test Web scegliere **Aggiungi plug-in test Web**.
 
@@ -205,23 +202,23 @@ I plug-in del test Web consentono di definire questa impostazione.
 
 2. Aprire le proprietà di ciascun plug-in. Assegnare un nome al plug-in e impostarlo in modo che usi l'ora corrente. Per uno di essi, impostare Aggiungi minuti = -15.
 
-    ![Set name, Use Current Time e Add Minutes.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
+    ![Set name, Use Current Time e Add Minutes.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)  
 
 3. Nei parametri del test Web, usare {{nome plug-in}} per fare riferimento a un nome di plug-in.
 
-    ![Nel parametro di test usare {{nome plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
+    ![Nel parametro di test usare {{nome plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)  
 
 Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
 
 ## Gestione degli accessi
 
-Se gli utenti accedono all'app, è possibile simulare l'accesso in diversi modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
+Se gli utenti accedono all'app, è possibile simulare l'accesso in vari modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
 
 In tutti i casi è necessario creare un account solo a scopo di test. Se possibile, limitarne le autorizzazioni in modo che sia un account di sola lettura.
 
 * Nome utente e password semplici: registrare un test Web nel modo consueto. Eliminare prima di tutto i cookie.
-* Autenticazione SAML: è possibile usare il plug-in SAML disponibile per i test Web.
-* Segreto client: da usare se l'applicazione ha un percorso di accesso che comporta un segreto client. Azure Active Directory ne fornisce uno.
+* Autenticazione SAML: usare il plug-in SAML disponibile per i test Web.
+* Segreto client: se l'applicazione ha un percorso di accesso che prevede un segreto client, usare tale percorso. Azure Active Directory offre l'accesso con segreto client.
 * Autenticazione aperta: ad esempio, l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client, si consiglia quindi di cercare prima di tutto il segreto client. Se il test deve eseguire l'accesso tramite OAuth, procedere come indicato di seguito:
  * Usare uno strumento come Fiddler per esaminare il traffico tra il Web browser, il sito di autenticazione e l'app.
  * Eseguire due o più accessi usando computer o browser diversi oppure a distanza di tempo, per lasciar scadere i token.
@@ -234,7 +231,7 @@ In tutti i casi è necessario creare un account solo a scopo di test. Se possibi
 
 Aprire un singolo test per modificarlo o disabilitarlo.
 
-![Modificare o disabilitare un test Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Modificare o disabilitare un test Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)  
 
 Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di manutenzione sul servizio.
 
@@ -244,13 +241,13 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Quando si crea un test, si è invitati a connettersi o a creare un account di Visual Studio Team Services.
 
-Al termine del test verranno mostrati i tempi di risposta e le percentuali di successo.
+Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
 
 ## Automazione
 
-* Vedere [Creating an Application Insights Web Test and Alert Programmatically](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) (Creazione di un test Web e di un avviso di Application a livello di programmazione) per usare script di PowerShell per configurare automaticamente un test Web.
-* Configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) chiamato quando viene generato un avviso.
+* [Usare script di PowerShell per configurare automaticamente un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/).
+* Configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
 ## Domande? Problemi?
 
@@ -260,7 +257,7 @@ Al termine del test verranno mostrati i tempi di risposta e le percentuali di su
 
 * *HTTPS è supportato?*
 
-    Attualmente, sono supportati SSL 3.0 e TLS 1.0.
+    Sono supportati TLS 1.1 e TLS 1.2.
 
 * *Esiste una differenza tra "test Web" e "test di disponibilità"?*
 
@@ -268,7 +265,7 @@ Al termine del test verranno mostrati i tempi di risposta e le percentuali di su
 
 * *È possibile usare test di disponibilità nel server interno protetto da un firewall?*
 
-    Configurare il firewall per consentire le richieste dagli [indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md#availability).
+    Configurare il firewall per consentire richieste dagli [indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md#availability).
 
 * *Non è possibile caricare un test Web in più passi*
 
@@ -285,7 +282,7 @@ Al termine del test verranno mostrati i tempi di risposta e le percentuali di su
 
     È previsto un limite di 100 richieste per ogni test.
 
-    Il test verrà arrestato se la durata dell'esecuzione è superiore a due minuti.
+    Il test viene arrestato se la durata dell'esecuzione è superiore a due minuti.
 
 * *È possibile eseguire un test con certificati client?*
 
@@ -305,11 +302,11 @@ Al termine del test verranno mostrati i tempi di risposta e le percentuali di su
 [Indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md)
 
 
-<!--Link references-->
+<!--Link references-->  
 
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

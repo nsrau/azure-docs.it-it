@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
- ms.author="dobett"/>
+ ms.date="08/09/2016"
+ ms.author="dobett"/>  
 
 # Informazioni sulle soluzioni preconfigurate di Azure IoT Suite
 
@@ -34,8 +34,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoraggio remoto][lnk-getstarted-preconfigured] | Sì | Sì | Sì | Sì | - | 
-| [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
+| [Monitoraggio remoto][lnk-getstarted-preconfigured] | Sì | Sì | Sì | Sì | - | | [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
 
 - *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
 - *Identità del dispositivo*: gestione delle identità univoche di ogni dispositivo connesso.
@@ -74,7 +73,7 @@ Un hub IoT riceve i dati di telemetria dai dispositivi in un singolo endpoint. U
 
 L'hub IoT rende disponibili i dati di telemetria ricevuti attraverso l'endpoint di lettura dei dati di telemetria sul lato servizio.
 
-## Azure Stream Analytics
+## Analisi di flusso di Azure
 
 La soluzione preconfigurata usa tre processi di [Analisi di flusso di Azure][lnk-asa] per filtrare i flussi di dati di telemetria provenienti dai dispositivi:
 
@@ -111,7 +110,7 @@ Il portale della soluzione è un'interfaccia utente basata sul Web che viene dis
 - Inviare comandi a dispositivi specifici.
 - Gestire regole e azioni.
 
-In questa soluzione preconfigurata il portale della soluzione fa parte del **back-end della soluzione IoT** ed è incluso nella **connettività aziendale e di elaborazione** nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
+In questa soluzione preconfigurata il portale della soluzione fa parte del **back-end della soluzione IoT** ed è incluso nella **connettività aziendale e di elaborazione** nell'[architettura della soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 ## Passaggi successivi
 
@@ -131,4 +130,4 @@ Dopo aver acquisito informazioni sulle soluzioni preconfigurate è possibile ini
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
