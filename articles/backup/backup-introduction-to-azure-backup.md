@@ -6,7 +6,7 @@
 	authors="markgalioto"
 	manager="cfreeman"
 	editor="tysonn"
-	keywords="backup e ripristino; servizi di ripristino; soluzioni di backup"/>  
+	keywords="backup e ripristino; servizi di ripristino; soluzioni di backup"/>
 
 <tags
 	ms.service="backup"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="07/21/2016"
-	ms.author="jimpark; trinadhk"/>  
+	ms.author="jimpark; trinadhk"/>
 
 # Informazioni su Backup di Azure
 Backup di Azure è il servizio usato per eseguire il backup e il ripristino dei dati in Microsoft Cloud. Sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Consente anche di proteggere gli asset eseguiti nel cloud. Backup di Azure fornisce servizi di ripristino basati su un'infrastruttura di altissimo livello che garantisce scalabilità, durabilità e disponibilità elevata.
@@ -62,14 +62,15 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 
 | Carico di lavoro | Computer di origine | Soluzione di Backup di Azure |
 | --- | --- |---|
-| File e cartelle | Windows Server | <p>[Agente di Backup di Azure](backup-configure-vault.md)</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| File e cartelle | Client Windows | <p>[Agente di Backup di Azure](backup-configure-vault.md)</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Macchina virtuale Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Macchina virtuale Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ agente di Backup di Azure)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| VM IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | VM IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| File e cartelle | Windows Server | <p>[Agente di Backup di Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| File e cartelle | Client Windows | <p>[Agente di Backup di Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Macchina virtuale Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Macchina virtuale Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
+| Macchine virtuali IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## Supporto Linux e ARM
 
@@ -106,25 +107,25 @@ Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funz
 
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di Azure (estensione VM) |
 | ------- | --- | --- | --- | ---- |
-| Insieme di credenziali di Backup di Azure | ![Sì][green]   | ![Sì][green]   | ![Sì][green] | ![Sì][green]   |
-| Archiviazione su disco | | ![Sì][green]   | ![Sì][green]   | |
-| Archiviazione su nastro | | ![Sì][green]   | | |
-| Compressione (nell'insieme di credenziali per il backup) | ![Sì][green] | ![Sì][green]  | ![Sì][green] | |
-| Backup incrementale | ![Sì][green]   | ![Sì][green]   | ![Sì][green]   | ![Sì][green]   |
-| Deduplicazione dei dischi | | ![Parzialmente][yellow]   | ![Parzialmente][yellow]  | | |
+| Insieme di credenziali di Backup di Azure | ![Sì][green] | ![Sì][green] | ![Sì][green] | ![Sì][green] |
+| Archiviazione su disco | | ![Sì][green] | ![Sì][green] | |
+| Archiviazione su nastro | | ![Sì][green] | | |
+| Compressione (nell'insieme di credenziali per il backup) | ![Sì][green] | ![Sì][green]| ![Sì][green] | |
+| Backup incrementale | ![Sì][green] | ![Sì][green] | ![Sì][green] | ![Sì][green] |
+| Deduplicazione dei dischi | | ![Parzialmente][yellow] | ![Parzialmente][yellow]| | |
 
-![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)  
+![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
 
 L'insieme di credenziali di Backup è la destinazione di archiviazione preferita in tutti i componenti. System Center DPM e il server di Backup consentono anche di avere una copia del disco locale. Solo System Center DPM consente tuttavia di scrivere i dati su un dispositivo di archiviazione su nastro.
 
 #### Backup incrementale
-Ogni componente supporta il backup incrementale indipendentemente dall'archivio di destinazione, che sia un disco, un nastro o un insieme di credenziali di backup. Il backup incrementale garantisce l'archiviazione e la rapidità dei backup, trasferendo solo le modifiche apportate dall'ultimo backup.
+Ogni componente supporta il backup incrementale indipendentemente dall'archivio di destinazione, che sia un disco, un nastro o un insieme di credenziali di backup. Il backup incrementale garantisce velocità ed efficienza nell'archiviazione dei backup. A questo scopo, trasferisce nell'archivio di destinazione solo le modifiche apportate dall'ultimo backup.
 
 #### Compressione
 I backup vengono compressi per ridurre lo spazio di archiviazione necessario. L'estensione della macchina virtuale è il solo componente che non usa alcuna compressione. Con l'estensione VM, tutti i dati di backup vengono copiati dall'account di archiviazione del cliente all'insieme di credenziali di backup nella stessa area, senza compressione. La procedura senza compressione comporta un leggero aumento dello spazio di archiviazione usato, ma consente di abbreviare i tempi di ripristino.
 
 #### Deduplicazione
-La deduplicazione è supportata per System Center DPM e per il server di Backup in caso di [distribuzione in una macchina virtuale Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La deduplicazione viene eseguita a livello di host usando la deduplicazione di Windows Server nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
+La deduplicazione è supportata per System Center DPM e per il server di Backup quando sono [distribuiti in una macchina virtuale Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La deduplicazione viene eseguita a livello di host usando la deduplicazione di Windows Server nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
 
 >[AZURE.WARNING] La deduplicazione non è disponibile in Azure per i componenti di Backup. Quando System Center DPM e il server di Backup vengono distribuiti in Azure, i dischi di archiviazione collegati alla macchina virtuale non possono essere deduplicati.
 
@@ -132,43 +133,43 @@ La deduplicazione è supportata per System Center DPM e per il server di Backup 
 
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di Azure (estensione VM) |
 | ------- | --- | --- | --- | ---- |
-| Sicurezza di rete (in Azure) | ![Sì][green]   |![Sì][green]   | ![Sì][green]   | ![Parzialmente][yellow]  |
-| Sicurezza dei dati (in Azure) | ![Sì][green] |![Sì][green]   | ![Sì][green]   | ![Parzialmente][yellow]  |
+| Sicurezza di rete (in Azure) | ![Sì][green] |![Sì][green] | ![Sì][green] | ![Parzialmente][yellow]|
+| Sicurezza dei dati (in Azure) | ![Sì][green] |![Sì][green] | ![Sì][green] | ![Parzialmente][yellow]|
 
-![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)  
+![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
 
 Tutto il traffico di backup dai server all'insieme di credenziali di Backup viene crittografato con Advanced Encryption Standard 256. I dati vengono inviati tramite un collegamento HTTPS protetto. I dati di backup vengono archiviati anche nell'insieme di credenziali di Backup in formato crittografato. Solo il cliente ha la passphrase per sbloccare i dati. Microsoft non può decrittografare i dati di backup
 
 >[AZURE.WARNING] La chiave usata per crittografare i dati di backup è unicamente a disposizione del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
 
-Per il backup delle VM di Azure, è necessario configurare la crittografia *nella* macchina virtuale. Usare BitLocker nelle macchine virtuali Windows e **DM-Crypt** nelle macchine virtuali Linux. Backup di Azure non esegue automaticamente la crittografia dei dati di backup provenienti da questo percorso.
+Per il backup delle VM di Azure, è necessario configurare la crittografia *nella* macchina virtuale. Usare BitLocker nelle macchine virtuali di Windows e **dm-crypt** nelle macchine virtuali di Linux. Backup di Azure non esegue automaticamente la crittografia dei dati di backup provenienti da questo percorso.
 
 ### Carichi di lavoro supportati
 
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di Azure (estensione VM) |
 | ------- | --- | --- | --- | ---- |
-| Computer Windows Server: file e cartelle | ![Sì][green]   | ![Sì][green] | ![Sì][green]   | |
-| Computer client di Windows: file e cartelle | ![Sì][green] | ![Sì][green]   | ![Sì][green]   | |
-| Macchina virtuale Hyper-V (Windows) | | ![Sì][green]   | ![Sì][green] | |
-| Macchina virtuale Hyper-V (Linux) | | ![Sì][green]   | ![Sì][green]   | |
-| Microsoft SQL Server | | ![Sì][green] | ![Sì][green]   | |
-| Microsoft SharePoint | | ![Sì][green] | ![Sì][green]   | |
-| Microsoft Exchange | | ![Sì][green]   | ![Sì][green] | |
-| Macchina virtuale di Azure (Windows) | | | | ![Sì][green]   |
-| Macchina virtuale di Azure (Linux) | | | | ![Sì][green]   |
+| Computer Windows Server: file e cartelle | ![Sì][green] | ![Sì][green] | ![Sì][green] | |
+| Computer client di Windows: file e cartelle | ![Sì][green] | ![Sì][green] | ![Sì][green] | |
+| Macchina virtuale Hyper-V (Windows) | | ![Sì][green] | ![Sì][green] | |
+| Macchina virtuale Hyper-V (Linux) | | ![Sì][green] | ![Sì][green] | |
+| Microsoft SQL Server | | ![Sì][green] | ![Sì][green] | |
+| Microsoft SharePoint | | ![Sì][green] | ![Sì][green] | |
+| Microsoft Exchange | | ![Sì][green] | ![Sì][green] | |
+| Macchina virtuale di Azure (Windows) | | | | ![Sì][green] |
+| Macchina virtuale di Azure (Linux) | | | | ![Sì][green] |
 
-![chiave tabella](./media/backup-introduction-to-azure-backup/table-key-2.png)  
+![chiave tabella](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 ### Rete
 
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di Azure (estensione VM) |
 | ------- | --- | --- | --- | ---- |
-| Compressione di rete (nel server di backup) | | ![Sì][green] | ![Sì][green]   | |
-| Compressione di rete (nell'insieme di credenziali di backup) | ![Sì][green]   | ![Sì][green]   | ![Sì][green]   | |
+| Compressione di rete (nel server di backup) | | ![Sì][green] | ![Sì][green] | |
+| Compressione di rete (nell'insieme di credenziali di backup) | ![Sì][green] | ![Sì][green] | ![Sì][green] | |
 | Protocollo di rete (nel server di backup) | | TCP | TCP | |
 | Protocollo di rete (nell'insieme di credenziali di backup) | HTTPS | HTTPS | HTTPS | HTTPS |
 
-![chiave tabella](./media/backup-introduction-to-azure-backup/table-key-2.png)  
+![chiave tabella](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 Poiché l'estensione della macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, non è necessario ottimizzare il traffico. Il traffico attraversa la rete di archiviazione locale nel data center di Azure, quindi considerata la larghezza di banda non c'è una particolare esigenza di compressione.
 

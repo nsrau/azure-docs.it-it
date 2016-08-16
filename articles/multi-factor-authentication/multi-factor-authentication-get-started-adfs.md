@@ -19,12 +19,12 @@
 
 
 
-<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Se l'azienda ha federato la Active Directory locale con Azure Active Directory tramite ADFS, le due opzioni seguenti per l'utilizzo di Azure Multi-Factor Authentication sono disponibili.
 
-- Proteggere le risorse cloud mediante Azure Multi-Factor Authentication o Active Directory Federation Services
-- Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication
+- Proteggere le risorse cloud mediante Azure Multi-Factor Authentication o Active Directory Federation Services 
+- Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication 
 
 Nella tabella seguente è riepilogata l'esperienza di autenticazione tra le risorse di protezione con Azure Multi-Factor Authentication e ADFS
 
