@@ -138,10 +138,10 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 ##Creazione di criteri
 Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
 	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole. 
-	3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. 
+	2.	Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole.  
+	3.	Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
 	![Alt text][8]
-	4. Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
+	4.	Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
 Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:
@@ -242,4 +242,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->
