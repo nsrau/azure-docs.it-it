@@ -117,8 +117,7 @@ In questa soluzione preconfigurata il portale della soluzione fa parte del **bac
 
 Per altre informazioni sulle architetture delle soluzioni IoT, vedere il documento relativo all'[architettura di riferimento dei servizi IoT di Microsoft Azure][lnk-refarch].
 
-- [Iniziare a usare le soluzioni preconfigurate IoT][lnk-preconf-get-started]
-- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-maintenance]
+Dopo aver acquisito informazioni sulle soluzioni preconfigurate è possibile iniziare distribuendo la soluzione preconfigurata per il *monitoraggio remoto*: [Introduzione alle soluzioni preconfigurate][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -132,4 +131,4 @@ Per altre informazioni sulle architetture delle soluzioni IoT, vedere il documen
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->
