@@ -641,7 +641,7 @@ La rete e la risoluzione dei nomi sono parti fondamentali della distribuzione di
 
 La creazione di una rete virtuale di Azure consente di definire l'intervallo di indirizzi degli indirizzi IP privati allocati dalla funzionalità DHCP di Azure. Negli scenari cross-premise l'intervallo di indirizzi IP definito verrà comunque allocato usando DHCP di Azure. La risoluzione dei nomi di dominio verrà tuttavia eseguita in locale, presupponendo che le VM facciano parte di un dominio locale, e sarà quindi possibile risolvere indirizzi che si trovano al di là di diversi servizi cloud di Azure.
 
-[comment]: <> (MSSedusch still needed? TODO Originally an Azure Virtual Network was bound to an Affinity Group. Questa configurazione comportava la limitazione di una rete virtuale di Azure all'unità di scala di Azure a cui era stato assegnato il gruppo di affinità. La rete virtuale era quindi limitata alle risorse disponibili nell'unità di scala di Azure. Questa impostazione è stata modificata e ora le reti virtuali di Azure possono essere estese su più unità di scala di Azure. È tuttavia necessario che le reti virtuali di Azure **NON** siano più associate ai gruppi di affinità in fase di creazione. Come indicato in precedenza, contrariamente a quanto suggerito un anno fa, **NON occorre più usare i gruppi di affinità di Azure**. Per informazioni dettagliate, vedere <https://azure.microsoft.com/blog/regional-virtual-networks/>.
+[comment]: <> (MSSedusch still needed? TODO Originally an Azure Virtual Network was bound to an Affinity Group. Questa configurazione comportava la limitazione di una rete virtuale di Azure all'unità di scala di Azure a cui era stato assegnato il gruppo di affinità. La rete virtuale era quindi limitata alle risorse disponibili nell'unità di scala di Azure. Questa impostazione è stata modificata e ora le reti virtuali di Azure possono essere estese su più unità di scala di Azure. È tuttavia necessario che le reti virtuali di Azure **NON** siano più associate ai gruppi di affinità in fase di creazione. Come indicato in precedenza, contrariamente a quanto suggerito un anno fa, **NON occorre più usare i gruppi di affinità di Azure**. Per informazioni dettagliate, vedere <https://azure.microsoft.com/blog/regional-virtual-networks/>.)
 
 Ogni macchina virtuale di Azure deve essere connessa a una rete virtuale.
 
@@ -770,9 +770,9 @@ Il portale di Azure fornisce funzionalità di base per distribuire e configurare
 * Caricare i dischi rigidi virtuali in Azure
 * Copiare macchine virtuali
 
-[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? )
+[comment]: <> (MShermannd TODO what about automation service for SAP VMs?)
 [comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible)
-[comment]: <> (MSSedusch Nel portale di Azure non è consentito, inoltre, alcun tipo di automazione relativa alla distribuzione. Attività quali la distribuzione con script di più macchine virtuali non possono essere eseguite con il portale di Azure).
+[comment]: <> (MSSedusch Nel portale di Azure non è consentito, inoltre, alcun tipo di automazione relativa alla distribuzione. Attività quali la distribuzione con script di più macchine virtuali non possono essere eseguite con il portale di Azure.)
 
 ### Gestione con i cmdlet di Microsoft Azure PowerShell
 Windows PowerShell è un framework potente ed estensibile che è stato ampiamente adottato dai clienti che distribuiscono grandi quantità di sistemi in Azure. Dopo l'installazione dei cmdlet di PowerShell in un desktop, un portatile o una stazione di gestione dedicata, i cmdlet di PowerShell possono essere eseguiti in modalità remota.
@@ -1935,3 +1935,4 @@ I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i se
 * Ha senso, invece, il backup della VM che contiene la directory globale del sistema SAP e di tutti i profili delle varie istanze; tale backup deve essere eseguito con Windows Backup oppure, ad esempio, con tar in Linux. Dato che esistono differenze tra Windows Server 2008 (R2) e Windows Server 2012 (R2), e che il backup risulta più semplice usando le release più recenti di Windows Server, è consigliabile eseguire Windows Server 2012 (R2) come sistema operativo guest Windows.
 
 <!---HONumber=AcomDC_0803_2016-->
+
