@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Integrazione di Data Lake Store con altri servizi di Azure
@@ -82,6 +82,6 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 
 - [Panoramica di Data Lake Store di Azure](data-lake-store-overview.md)
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
-- [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  
+- [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

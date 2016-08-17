@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Definire i criteri del lab
+
+> [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
 ## Panoramica
 
@@ -28,7 +30,7 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
+1. Selezionare **Esplora** e poi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -44,11 +46,11 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 	- [Allowed VM Sizes](#set-allowed-vm-sizes) - Selezionare l'elenco delle dimensioni consentite per le macchine virtuali nel lab. Un utente può creare macchine virtuali solo da questo elenco.
 
-	- [Numero massimo di VM per utente](#set-maximum-vms-per-user): specificare il numero massimo di VM che possono essere create da un utente.
+	- [Maximum VMs per user](#set-maximum-vms-per-user) (Numero massimo di VM per utente): specificare il numero massimo di VM che possono essere create da un utente.
 
-	- [Numero totale di VM consentite](#set-total-vms-allowed): specificare il numero massimo di VM che possono essere create per un lab.
+	- [Total VMs allowed](#set-total-vms-allowed) (VM totali consentite): specificare il numero massimo di VM che possono essere create per un lab.
 
-	- [Arresto automatico](#set-auto-shutdown): specificare il momento in cui le VM del lab corrente si arrestano automaticamente.
+	- [Auto shutdown](#set-auto-shutdown) (Arresto automatico): specificare il momento in cui le VM del lab corrente si arrestano automaticamente.
 
 	- [Avvio automatico](#set-auto-start): specificare il momento in cui le VM del lab corrente si avviano automaticamente.
 
@@ -56,7 +58,7 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 I criteri per l'impostazione delle dimensioni consentite per le macchine virtuali permettono di ridurre al minimo gli sprechi specificando le dimensioni consentite per le macchine virtuali nel lab. Se questi criteri sono attivati, per la creazione di macchine virtuali è possibile utilizzare solo le dimensioni selezionate da questo elenco.
 
-1. Nel pannello **Impostazioni** del lab toccare **Dimensioni VM consentite** in **Criteri VM**.
+1. Nel pannello **Impostazioni** del lab toccare **Allowed VM Sizes** (Dimensioni VM consentite) in **VM Policies** (Criteri VM).
 
 	![Impostazioni](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
  
@@ -70,13 +72,13 @@ I criteri per l'impostazione delle dimensioni consentite per le macchine virtual
 
 Il criterio per **Maximum VMs per user** (Numero massimo di VM per utente) consente di specificare il numero massimo di VM che possono essere create da un singolo utente. Se un utente prova a creare una nuova VM quando è stato raggiunto il limite per utente, un messaggio di errore indicherà che non è possibile creare la macchina virtuale.
 
-1. Nel pannello **Impostazioni** del lab, in **Criteri VM**, selezionare **Numero massimo di VM per utente**.
+1. Nel pannello **Impostazioni** del lab, in **VM Policies** (Criteri VM), selezionare **Maximum VMs per user** (Numero massimo di VM per utente).
 
 	![Impostazioni](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 
-1. Se si abilitano questi criteri, nella casella di testo **Maximum VMs allowed per User** immettere un valore numerico per indicare il numero massimo di macchine virtuali che un utente può creare. Se si immette un numero non valido, l'interfaccia utente visualizza il numero massimo consentito per questo campo.
+1. Se si abilitano questi criteri, nella casella di testo **Maximum VMs allowed per User** (Numero massimo di VM consentite per utente) immettere un valore numerico per indicare il numero massimo di macchine virtuali che un utente può creare. Se si immette un numero non valido, l'interfaccia utente visualizza il numero massimo consentito per questo campo.
 
 1. Selezionare **Salva**.
 
@@ -84,7 +86,7 @@ Il criterio per **Maximum VMs per user** (Numero massimo di VM per utente) conse
 
 Il criterio per **Total VMs allowed** (VM totali consentite) consente di specificare il numero massimo di macchine virtuali che è possibile creare per il lab corrente. Se un utente prova a creare una nuova VM quando è stato raggiunto il limite per il lab, un messaggio di errore indicherà che non è possibile creare la macchina virtuale.
 
-1. Nel pannello **Impostazioni** del lab, in **Criteri VM**, selezionare **VM totali consentite**.
+1. Nel pannello **Impostazioni** del lab, in **VM Policies** (Criteri VM), selezionare **Total VMs allowed** (VM totali consentite).
 
 	![Impostazioni](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
 
@@ -98,7 +100,7 @@ Il criterio per **Total VMs allowed** (VM totali consentite) consente di specifi
 
 I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel lab permettendo di specificare l'ora dell'arresto delle macchine virtuali del lab.
 
-1. Nel pannello **Impostazioni** del lab, in **Criteri VM**, selezionare **Arresto automatico**.
+1. Nel pannello **Impostazioni** del lab, in **VM Policies** (Criteri VM), selezionare **Auto shutdown** (Arresto automatico).
 
 	![Impostazioni](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -108,13 +110,13 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 1. Selezionare **Salva**.
 
-1. Per impostazione predefinita, dopo l'abilitazione questi criteri verranno applicati a tutte le macchine virtuali nel lab corrente. Per rimuovere questa impostazione da una VM specifica, aprire il pannello della macchina virtuale e modificare la rispettiva impostazione **Auto Shutdown**.
+1. Per impostazione predefinita, dopo l'abilitazione questi criteri verranno applicati a tutte le macchine virtuali nel lab corrente. Per rimuovere questa impostazione da una VM specifica, aprire il pannello della macchina virtuale e modificare la rispettiva impostazione **Auto Shutdown** (Arresto automatico).
 
 ## Configurare l'avvio automatico
 
 I criteri di avvio automatico consentono di specificare l'ora in cui devono essere avviate le macchine virtuali nel lab corrente.
 
-1. Nel pannello **Impostazioni** del lab, in **Criteri VM**, selezionare **Arresto automatico**.
+1. Nel pannello **Impostazioni** del lab, in **VM Policies** (Criteri VM), selezionare **Avvio automatico**.
 
 	![Impostazioni](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -124,15 +126,15 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 
 1. Selezionare **Salva**.
 
-1. Dopo l'abilitazione, questi criteri non vengono applicati automaticamente alle VM del lab corrente. Per applicare questa impostazione a una macchina virtuale specifica, aprire il pannello della VM e modificare la rispettiva impostazione **Auto Start**.
+1. Dopo l'abilitazione, questi criteri non vengono applicati automaticamente alle VM del lab corrente. Per applicare questa impostazione a una macchina virtuale specifica, aprire il pannello della VM e modificare la rispettiva impostazione **Avvio automatico**.
 
 ## Passaggi successivi
 
 Dopo avere definito e applicato i diversi criteri per le VM per il lab, è possibile eseguire le operazioni seguenti:
 
-- [Configurare la gestione dei costi](./devtest-lab-configure-cost-management.md) - Spiega come usare il **grafico della tendenza dei costi mensili stimati** per visualizzare i costi stimati del mese in corso fino alla data odierna e la proiezione dell'ammontare dei costi a fine mese.
-- [Creare un'immagine personalizzata](./devtest-lab-create-template.md) - Quando si crea una macchina virtuale, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
-- [Configurare immagini del Marketplace](./devtest-lab-configure-marketplace-images.md) - Lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
-- [Creare una VM in un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova macchina virtuale da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
+- [Tendenza dei costi mensili stimati](./devtest-lab-configure-cost-management.md): spiega come usare il grafico della **tendenza dei costi mensili stimati** per visualizzare i costi stimati del mese in corso fino alla data odierna e la proiezione dell'ammontare dei costi a fine mese.
+- [Creare un'immagine personalizzata](./devtest-lab-create-template.md): quando si crea una VM, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
+- [Configurare le impostazioni dell'immagine di Azure Marketplace in un lab](./devtest-lab-configure-marketplace-images.md): DevTest Labs supporta la creazione di nuove VM basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
+- [Aggiungere una macchina virtuale con elementi a un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova VM da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

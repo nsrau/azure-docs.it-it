@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione DBMS
@@ -445,7 +445,7 @@ ___
 > ![Linux][Logo_Linux] Linux
 >
 > Per compilare un RAID software in Linux sono supportati solo MDADM e LVM (Logical Volume Manager). Per altre informazioni, leggere gli articoli seguenti:
-> * [Configurare RAID software su Linux][virtual-machines-linux-configure-raid] (per MDADM)
+> * [Configurare RAID software su Linux][virtual-machines-linux-configure-raid] \(per MDADM)
 > * [Configurare LVM in una macchina virtuale Linux in Azure][virtual-machines-linux-configure-lvm]
 
 
@@ -537,7 +537,8 @@ Questa funzione deve essere configurata appositamente durante il rollout delle m
 Allo scopo di creare configurazioni a disponibilità elevata di distribuzioni DBMS, indipendentemente dalla singola funzionalità DBMS con disponibilità elevata usata, per le macchine virtuali DBMS è necessario quanto segue:
 
 * Aggiungere le macchine virtuali alla stessa rete virtuale di Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
-* Le macchine virtuali della configurazione a disponibilità elevata devono trovarsi anch'esse nella stessa subnet. La risoluzione dei nomi tra le varie subnet non è possibile nelle distribuzioni solo cloud. Funziona solo la risoluzione dell'IP. Se si usa la connettività da sito a sito o ExpressRoute per le distribuzioni cross-premise, è già presente una rete con almeno una subnet. La risoluzione dei nomi viene eseguita in base all'infrastruttura di rete e ai criteri di Active Directory locali. [comment]: <> (MSSedusch TODO Test if still true in ARM)
+* Le macchine virtuali della configurazione a disponibilità elevata devono trovarsi anch'esse nella stessa subnet. La risoluzione dei nomi tra le varie subnet non è possibile nelle distribuzioni solo cloud. Funziona solo la risoluzione dell'IP. Se si usa la connettività da sito a sito o ExpressRoute per le distribuzioni cross-premise, è già presente una rete con almeno una subnet. La risoluzione dei nomi viene eseguita in base all'infrastruttura di rete e ai criteri di Active Directory locali. 
+[comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### Indirizzi IP
 È consigliabile impostare le macchine virtuali per le configurazioni a disponibilità elevata in modo resiliente. In Azure non è possibile fare affidamento sugli indirizzi IP per indirizzare i partner a disponibilità elevata all'interno della configurazione a disponibilità elevata, a meno che non vengano usati indirizzi IP statici. Azure prevede due tipi di "arresto":
@@ -615,7 +616,8 @@ Il funzionamento della compressione del database nelle macchine virtuali di Azur
 A partire da SQL Server 2014 è possibile archiviare file di database direttamente nell'archivio BLOB di Azure senza salvarli in un disco rigido virtuale. Quando, in particolare, si usa l'archiviazione Standard di Azure o tipi di VM di dimensioni ridotte, questa funzionalità può essere applicata in determinati scenari per ovviare al numero limitato di operazioni di I/O al secondo supportate dai dischi rigidi virtuali che è possibile montare in alcuni tipi di VM di dimensioni ridotte. Si tratta però di una funzionalità valida per i database utente e non per i database di sistema di SQL Server, che funziona anche per i file di log e di dati di SQL Server. Se si preferisce distribuire un database di SQL Server per SAP in questo modo invece di salvarlo in dischi rigidi virtuali, tenere presente quanto segue:
 
 * L'account di archiviazione usato deve trovarsi nella stessa area di Azure di quello usato per distribuire la VM in cui è in esecuzione SQL Server.
-* Le considerazioni elencate in precedenza in merito alla distribuzione di dischi rigidi virtuali in diversi account di archiviazione di Azure sono valide anche per questo metodo di distribuzione. Questo significa che il numero di operazioni di I/O viene tenuto in considerazione ai fini dei limiti dell'account di archiviazione di Azure. [comment]: <> (MSSedusch TODO But this will use network bandwith and not storage bandwith, doesn't it?)
+* Le considerazioni elencate in precedenza in merito alla distribuzione di dischi rigidi virtuali in diversi account di archiviazione di Azure sono valide anche per questo metodo di distribuzione. Questo significa che il numero di operazioni di I/O viene tenuto in considerazione ai fini dei limiti dell'account di archiviazione di Azure. 
+[comment]: <> (MSSedusch TODO But this will use network bandwith and not storage bandwith, doesn't it?)
 
 Per informazioni dettagliate su questo tipo di distribuzione, vedere <https://msdn.microsoft.com/library/dn385720.aspx>
  
@@ -1356,4 +1358,4 @@ Tutti gli altri argomenti generali, ad esempio i set di disponibilità di Azure 
 
 Vedere anche il capitolo [Riepilogo generale su SQL Server per SAP in Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess"/>
 
 # Ottimizzazione delle transazioni per SQL Data Warehouse
@@ -33,6 +33,8 @@ Azure SQL Data Warehouse esegue il commit delle modifiche al database usando i l
 ## Confronto tra registrazione minima e registrazione completa
 
 A differenza delle operazioni con registrazione completa, che usano il log delle transazioni per tenere traccia di ogni modifica di riga, le operazioni con registrazione minima tengono traccia unicamente delle allocazioni di extent e delle modifiche ai metadati. La registrazione minima prevede quindi la registrazione delle sole informazioni necessarie per eseguire il rollback della transazione in caso di errore o di richiesta esplicita (`ROLLBACK TRAN`). Dato che nel log delle transazioni viene registrata una quantità di informazioni notevolmente inferiore, le operazioni con registrazione minima offrono prestazioni migliori rispetto alle operazioni con registrazione completa di dimensioni simili. Il minor numero di scritture nel log delle transazioni comporta anche la generazione di una quantità molto inferiore di dati di log e quindi operazioni di I/O più efficienti.
+
+I limiti di sicurezza delle transazioni si applicano solo alle operazioni con registrazione completa.
 
 >[AZURE.NOTE] le operazioni con registrazione minima possono partecipare alle transazioni esplicite. È possibile eseguire il rollback delle operazioni con registrazione minima, dal momento che viene tenuta traccia di tutte le modifiche alle strutture di allocazione. È importante comprendere che la registrazione delle modifiche è minima e non assente.
 
@@ -54,6 +56,8 @@ Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 - UPDATE on LOB Types .WRITE
 - SELECT..INTO
 -->
+
+>[AZURE.NOTE] Le operazioni di spostamento dei dati interni (ad esempio `BROADCAST` e `SHUFFLE`) non sono interessate dal limite di sicurezza delle transazioni.
 
 ## Registrazione minima con caricamento bulk
 
@@ -424,4 +428,4 @@ Vedere [Transazioni in SQL Data Warehouse][] per ulteriori informazioni su limit
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

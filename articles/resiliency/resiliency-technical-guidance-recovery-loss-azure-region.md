@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Materiale sussidiario sulla resilienza di Azure: ripristino dopo un'interruzione di servizio di un'area
 
@@ -106,7 +106,7 @@ Il [ripristino geografico](../sql-database/sql-database-recovery-using-backups.m
 
 ####Replica geografica attiva
 
-La [replica geografica attiva](../sql-database/sql-database-geo-replication-overview.md) è disponibile per i database a tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate, vedere gli articoli per [configurare la replica geografica](../sql-database/sql-database-geo-replication-portal.md) e [il failover al database secondario](../sql-database/sql-database-geo-replication-failover-portal.md). Fare riferimento a [Progettare un'applicazione per il ripristino di emergenza cloud tramite la replica geografica attiva nel database SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Aggiornare un'applicazione senza tempo di inattività](../sql-database/sql-database-business-continuity-application-upgrade.md) per informazioni dettagliate su come progettare e implementare applicazioni e relativi aggiornamenti senza tempi di inattività.
+La [replica geografica attiva](../sql-database/sql-database-geo-replication-overview.md) è disponibile per i database a tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate, vedere gli articoli per [configurare la replica geografica](../sql-database/sql-database-geo-replication-portal.md) e [il failover al database secondario](../sql-database/sql-database-geo-replication-failover-portal.md). Fare riferimento a [Progettare un'applicazione per il ripristino di emergenza cloud tramite la replica geografica attiva nel database SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Aggiornare un'applicazione senza tempo di inattività](../sql-database/sql-database-manage-application-rolling-upgrade.md) per informazioni dettagliate su come progettare e implementare applicazioni e relativi aggiornamenti senza tempi di inattività.
 
 ###SQL Server nelle macchine virtuali
 
@@ -214,4 +214,4 @@ I file di configurazione offrono il modo più rapido per configurare una rete vi
 
 Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). Il prossimo articolo di questa serie riguarda il [ripristino da un data center locale ad Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

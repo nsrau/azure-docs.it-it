@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
 
-> [AZURE.NOTE] Visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di elementi personalizzati](/documentation/videos/how-to-author-custom-artifacts)
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## Panoramica
 Gli **Elementi** vengono utilizzati per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Un elemento è costituito da un file di definizione dell’elemento e altri file di script archiviati in una cartella in un archivio git. I file di definizione dell’elemento sono costituiti da JSON ed espressioni che è possibile utilizzare per specificare gli elementi da installare in una macchina virtuale. Ad esempio, è possibile definire il nome dell’elemento, il comando da eseguire e i parametri che vengono resi disponibili quando si esegue il comando. È possibile fare riferimento ad altri file di script all'interno del file di definizione dell'elemento in base al nome.
@@ -118,10 +118,14 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 	![Esempio di archivio git dell’elemento](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Aggiungere l'archivio di elementi al lab, vedere l'articolo sull'[aggiunta di un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
+1. Aggiungere l'archivio elementi al lab. Vedere l'articolo sull'[Aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
+
+## Post di blog correlati
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di AD esistente usando un modello ARM in Azure DevTest Labs)
 
 ## Passaggi successivi
 
-- Informazioni su come [aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
+- Informazioni su come [Aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

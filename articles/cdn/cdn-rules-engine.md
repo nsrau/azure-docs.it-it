@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Rete CDN - Override del comportamento HTTP predefinito mediante il motore regole"
-	description="Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP, come ad esempio la distribuzione di determinati tipi di contenuto, la definizione di un criterio di memorizzazione nella cache e la modifica delle intestazioni HTTP."
+	pageTitle="Override del comportamento HTTP predefinito nella rete CDN di Azure con il motore regole | Microsoft Azure"
+	description="Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP nella rete CDN di Azure, ad esempio la distribuzione di determinati tipi di contenuto, la definizione di criteri di memorizzazione nella cache e la modifica delle intestazioni HTTP."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Override del comportamento HTTP predefinito mediante il motore regole
@@ -28,7 +28,7 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci**.
 
-	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-rules-engine/cdn-rules-manage-btn.png)
+	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
 	Si aprirà il portale di gestione della rete CDN.
 
@@ -48,7 +48,7 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 	>[AZURE.TIP] Vi sono molti tipi di condizioni di corrispondenza disponibili nell'elenco a discesa. Facendo clic sull'icona blu delle informazioni a sinistra della condizione di corrispondenza viene illustrata la condizione selezionata in modo dettagliato.
 	>
-	>Per l'elenco completo delle condizioni di corrispondenza illustrate in modo dettagliato, vedere [Condizione di corrispondenza del motore regole e Informazioni sulle funzionalità](cdn-rules-engine-details.md#match-conditions).
+	>Per l'elenco completo delle condizioni di corrispondenza illustrate in modo dettagliato, vedere [Condizione di corrispondenza del motore regole e Informazioni sulle funzionalità](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
 
 5.  Fare clic sul pulsante **+** accanto a **Funzionalità** per aggiungere una nuova funzionalità. Nell'elenco a discesa a sinistra, selezionare **Forza interna Max-Age**. Nella casella di testo che viene visualizzata, inserire **300**. Lasciare i valori predefiniti restanti.
 
@@ -56,7 +56,7 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 	>[AZURE.NOTE] Come con le condizioni di corrispondenza, fare clic sull'icona blu delle informazioni a sinistra della nuova funzionalità per visualizzare i dettagli su questa funzionalità. Nel caso di **Forza interna Max-Age**, è stato eseguito l'override dell'asset **Cache-Control** e delle intestazioni **Scadenze** per controllare quando il nodo edge della rete CDN aggiornerà l'asset dall'origine. L’esempio di 300 secondi indica che il nodo edge della rete CDN memorizza l’asset nella cache per 5 minuti prima di aggiornare la risorsa dall'origine.
 	>
-	>Per l'elenco completo delle funzionalità illustrate in modo dettagliato, vedere [Condizione di corrispondenza del motore regole e Informazioni sulle funzionalità](cdn-rules-engine-details.md#features).
+	>Per l'elenco completo delle funzionalità illustrate in modo dettagliato, vedere [Condizione di corrispondenza del motore regole e Informazioni sulle funzionalità](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
 
 6.  Fare clic sul pulsante **Aggiungi** per salvare la nuova regola. La nuova regola ora è in attesa di approvazione. Dopo l’approvazione, lo stato viene modificato da **XML in sospeso** a **XML Attivo**.
 
@@ -64,6 +64,6 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 ## Vedere anche
 * [Vedere il video relativo alle nuove potenti funzionalità Premium della rete CDN di Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)
-* [Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole](cdn-rules-engine-details.md)
+* [Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole](https://msdn.microsoft.com/library/mt757336.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

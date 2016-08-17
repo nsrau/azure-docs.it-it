@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure Insights: Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights. | Microsoft Azure"
-	description="Informazioni su come usare le voci del log di controllo del servizio per chiamare URL Web o inviare notifiche di posta elettronica in Azure Insights."
+	description="Informazioni su come usare le voci del log di controllo del servizio per chiamare URL Web o inviare notifiche di posta elettronica in Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -102,7 +102,7 @@ Quando diventa disponibile un nuovo evento, l'avviso relativo agli eventi del lo
 |timestamp|	Timestamp in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento|
 |resourceId |URI dell'ID risorsa che identifica in modo univoco la risorsa|
 |resourceGroupName|Nome del gruppo risorse della risorsa interessata|
-|properties |Set di coppie <Key  Value> (ad esempio, Dictionary<String  String>) contenente i dettagli relativi all'evento|
+|properties |Set di coppie <Key, Value>, ad esempio Dictionary<String, String>, contenente i dettagli relativi all'evento|
 |event|Elemento contenente i metadati relativi all'evento|
 |autorizzazione|Acquisisce le proprietà RBAC dell'evento. In genere includono "action", "role" e "scope".|
 |category | Categoria dell'evento. I valori supportati includono: Administrative, Alert, Security, ServiceHealth, Recommendation|
@@ -119,4 +119,4 @@ Quando diventa disponibile un nuovo evento, l'avviso relativo agli eventi del lo
 |status|Stringa che descrive lo stato dell'operazione. I valori comuni sono: Started, In Progress, Succeeded, Failed, Active, Resolved|
 |subStatus|	In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (HTTP stato codice: 503), Gateway Timeout (codice di stato HTTP: 504)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

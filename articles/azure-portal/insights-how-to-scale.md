@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Scalare il conteggio delle istanze manualmente o automaticamente"
+	pageTitle="Ridimensionare il conteggio delle istanze manualmente o automaticamente| Microsoft Azure"
 	description="Informazioni su come scalare i servizi di Azure."
 	authors="stepsic-microsoft-com"
 	manager="ronmart"
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -28,11 +28,9 @@ Prima di scalare in base al conteggio delle istanze, occorre tenere presente che
 
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, quindi passare alla risorsa da scalare, ad esempio un **piano di servizio App**.
 
-2. Il riquadro **Scalabilità** in **Operazioni** indicherà lo stato della scalabilità: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Attivato** nel caso in cui il ridimensionamento venga effettuato in base a una o più metriche delle prestazioni.
-![Riquadro Scalabilità](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. Il riquadro **Scalabilità** in **Operazioni** indicherà lo stato della scalabilità: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Attivato** nel caso in cui il ridimensionamento venga effettuato in base a una o più metriche delle prestazioni. ![Riquadro Scalabilità](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Facendo clic sul riquadro, verrà visualizzato il pannello **Scalabilità**. Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il servizio.
-![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+3. Facendo clic sul riquadro, verrà visualizzato il pannello **Scalabilità**. Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il servizio. ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
 
 >[AZURE.NOTE] In questo grafico verranno visualizzate solo le azioni eseguite con la scalabilità automatica. Se si regola manualmente il conteggio delle istanze, la modifica non verrà applicata nel grafico.
 
@@ -59,13 +57,11 @@ Per regolare automaticamente il numero di istanze in base a una metrica, selezio
 
 ### Aggiunta o modifica di una regola
 
-1. Scegliere **regole per la pianificazione e le prestazioni** nell'elenco a discesa **Ridimensiona di**:
-![Regole delle prestazioni](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. Scegliere **regole per la pianificazione e le prestazioni** nell'elenco a discesa **Ridimensiona di**: ![Regole delle prestazioni](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. Se prima era attiva la scalabilità automatica, si vedranno esattamente le regole impostate.
 
-3. Per scalare in base a un'altra metrica, fare clic sulla riga **Aggiungi regola**. È anche possibile fare clic su una delle righe esistenti per passare dalla metrica impostata in precedenza alla metrica in base alla quale si vuole scalare.
-![Aggiungi regola](./media/insights-how-to-scale/Insights_AddRule.png)
+3. Per scalare in base a un'altra metrica, fare clic sulla riga **Aggiungi regola**. È anche possibile fare clic su una delle righe esistenti per passare dalla metrica impostata in precedenza alla metrica in base alla quale si vuole scalare. ![Aggiungi regola](./media/insights-how-to-scale/Insights_AddRule.png)
 
 4. Ora è necessario selezionare la metrica in base a cui si desidera scalare. Quando si sceglie una metrica, esistono un paio di aspetti da considerare:
     * La *risorsa* da cui proviene la metrica. In genere, sarà la stessa della risorsa da scalare. Tuttavia, se si desidera scalare in base alla profondità di una coda di archiviazione, la risorsa è la coda in base a cui si desidera scalare.
@@ -109,13 +105,11 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 
 2. Ad esempio, per applicare un profilo durante la settimana, nell'elenco a discesa **Giorni** deselezionare **Sabato** e **Domenica**.
 
-3. Per applicare un profilo durante il giorno, impostare **Ora di inizio** sull'ora del giorno in cui si desidera iniziare.
-![Ricorrenza predefinita](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+3. Per applicare un profilo durante il giorno, impostare **Ora di inizio** sull'ora del giorno in cui si desidera iniziare. ![Ricorrenza predefinita](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Fare clic su **OK**.
 
-5. Successivamente, sarà necessario aggiungere il profilo da applicare in altri orari. Fare clic sulla riga **Aggiungi profilo**.
-![Non al lavoro](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+5. Successivamente, sarà necessario aggiungere il profilo da applicare in altri orari. Fare clic sulla riga **Aggiungi profilo**. ![Non al lavoro](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. Assegnare un nome al secondo nuovo profilo, ad esempio **Non al lavoro**.
 
@@ -127,8 +121,7 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 
 9. Fare clic su **OK**.
 
-10. A questo punto, sarà necessario aggiungere le regole da applicare con il secondo profilo. Fare clic su **Aggiungi regola** per costruire la stessa regola applicata con il profilo predefinito.
-![Aggiungi regola a Non al lavoro](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+10. A questo punto, sarà necessario aggiungere le regole da applicare con il secondo profilo. Fare clic su **Aggiungi regola** per costruire la stessa regola applicata con il profilo predefinito. ![Aggiungi regola a Non al lavoro](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Assicurarsi di creare una regola sia per la scalabilità orizzontale che per la riduzione, altrimenti durante il profilo il conteggio delle istanze aumenterà (o diminuirà) soltanto.
 
@@ -143,4 +136,4 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

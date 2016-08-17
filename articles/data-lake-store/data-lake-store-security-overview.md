@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/18/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Sicurezza in Archivio Azure Data Lake
@@ -68,7 +68,7 @@ Per istruzioni, vedere [Assegnare utenti o gruppi di sicurezza ad account di Arc
 
 ### Uso degli ACL per le operazioni sui file system
 
-Azure Data Lake Store è un file system gerarchico come HDFS e supporta [ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), consentendo diritti di accesso in lettura (r), scrittura (w) ed esecuzione (x) a risorse concesse a proprietario, gruppo proprietario e altri utenti/gruppi. Nell'anteprima pubblica di Archivio Data Lake (versione corrente) gli ACL sono abilitati solo per la cartella radice, ossia gli ACL applicati a tale cartella sono applicabili anche a tutte le cartelle e/o a tutti i file figlio. Nelle versioni future sarà possibile impostare gli ACL per qualsiasi file o cartella.
+Azure Data Lake Store è un file system gerarchico come HDFS e supporta [ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), consentendo diritti di accesso in lettura (r), scrittura (w) ed esecuzione (x) a risorse concesse a proprietario, gruppo proprietario e altri utenti/gruppi. Nella versione di anteprima pubblica di Data Lake Store (versione corrente) gli ACL possono essere abilitati nella cartella radice, nelle sottocartelle e nei singoli file. Gli elenchi di controllo di accesso applicati alla cartella radice saranno applicabili anche a ogni cartella e file figlio.
 
 È consigliabile definire gli ACL per molti utenti usando [gruppi di sicurezza](../active-directory/active-directory-accessmanagement-manage-groups.md). Raggruppare gli utenti in un gruppo di sicurezza, quindi assegnare gli ACL per il file e la cartella al gruppo di sicurezza. Ciò è utile quando si fornisce accesso personalizzato perché è previsto un limite in cui è possibile aggiungere solo un massimo di nove voci come parte dell'accesso stesso. Vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Archivio di Azure Data Lake](data-lake-store-secure-data.md#filepermissions) per altre informazioni sulla protezione dei dati presenti in Data Lake Store usando gruppi di sicurezza AAD.
 
@@ -109,11 +109,13 @@ Per gli audit trail per la gestione degli account, è possibile visualizzare e s
 
 Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i log nella scheda **Log di diagnostica**.
 
+Per altre informazioni sull'uso dei log di diagnostica con Azure Data Lake Store, vedere [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md).
+
 ## Riepilogo
 
 I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protetta e facile da usare. Archivio Azure Data Lake è stato progettato per soddisfare questi requisiti con la gestione delle identità e l'autenticazione tramite l'integrazione di Azure Active Directory, l'autorizzazione basata su ALC, l'isolamento della rete, la crittografia dei dati in transito e inattivi (disponibile in futuro) e il controllo.
 
-Se si desidera vedere nuove funzionalità incluse in Data Lake Store, inviare commenti e suggerimenti al [forum Uservoice](https://feedback.azure.com/forums/327234-data-lake).
+Se si vogliono vedere nuove funzionalità incluse in Data Lake Store, inviare commenti e suggerimenti al [forum Uservoice](https://feedback.azure.com/forums/327234-data-lake).
 
 ## Vedere anche
 
@@ -121,4 +123,4 @@ Se si desidera vedere nuove funzionalità incluse in Data Lake Store, inviare co
 - [Introduzione ad Archivio Data Lake](data-lake-store-get-started-portal.md)
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

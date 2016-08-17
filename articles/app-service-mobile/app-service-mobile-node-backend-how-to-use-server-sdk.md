@@ -132,7 +132,7 @@ Quando si crea un nuovo back-end dell'app per dispositivi mobili Node.js usando 
 
 1. Se non è già stato fatto, installare Git. I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-2. Seguire i passaggi nella sezione [Abilitare il repository dell’app Web](../app-service-web/web-sites-publish-source-control.md#Step4) per abilitare il repository Git per il sito di back-end, prendendo nota del nome utente e della password della distribuzione.
+2. Seguire i passaggi in [Abilitare il repository dell'app del servizio app](../app-service-web/web-sites-deploy-local-git.md#Step3) per abilitare il repository Git per il sito di back-end, prendendo nota del nome utente e della password della distribuzione.
 
 3. Nel pannello di back-end dell'app per dispositivi mobili annotare l'impostazione **URL clone Git**.
 
@@ -917,4 +917,4 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

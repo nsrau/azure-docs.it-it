@@ -4,16 +4,16 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
 # Metriche comuni per la scalabilità automatica di Azure Insights
@@ -51,33 +51,33 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 |Nome della metrica|	Unità|
 |---|---|
-|\\Processor(\_Total)\\% Tempo processore |Percentuale|
-|\\Processor(\_Total)\\% Tempo privilegiato |Percentuale|
-|\\Processor(\_Total)\\% Tempo utente |Percentuale|
-|\\Processor Information(\_Total)\\Frequenza processore |Conteggio|
-|\\System\\Processi| Conteggio|
-|\\Process(\_Total)\\Conteggio dei thread| Conteggio|
-|\\Process(\_Total)\\Conteggio degli handle |Conteggio|
-|\\Memory\\% Byte vincolati in uso |Percentuale|
-|\\Memory\\Byte disponibili| Byte|
-|\\Memory\\Byte vincolati |Byte|
-|\\Memory\\Limite memoria vincolata| Byte|
-|\\Memory\\Byte del pool di paging| Byte|
-|\\Memory\\Byte del pool non di paging| Byte|
-|\\PhysicalDisk(\_Total)\\% Tempo disco| Percentuale|
-|\\PhysicalDisk(\_Total)\\% Tempo lettura disco| Percentuale|
-|\\PhysicalDisk(\_Total)\\% Tempo scrittura disco| Percentuale|
-|\\PhysicalDisk(\_Total)\\Trasferimenti disco/sec |Conteggio al secondo|
-|\\PhysicalDisk(\_Total)\\Letture disco/sec |Conteggio al secondo|
-|\\PhysicalDisk(\_Total)\\Scritture disco/sec |Conteggio al secondo|
-|\\PhysicalDisk(\_Total)\\Byte da/a disco/sec |Byte al secondo|
-|\\PhysicalDisk(\_Total)\\Byte letti da disco/sec| Byte al secondo|
-|\\PhysicalDisk(\_Total)\\Byte scritti su disco/sec |Byte al secondo|
-|\\PhysicalDisk(\_Total)\\Lunghezza media coda del disco| Conteggio|
-|\\PhysicalDisk(\_Total)\\Lunghezza media lettura coda del disco| Conteggio|
-|\\PhysicalDisk(\_Total)\\Lunghezza media scrittura coda del disco |Conteggio|
-|\\LogicalDisk(\_Total)\\% di spazio disponibile| Percentuale|
-|\\LogicalDisk(\_Total)\\Megabyte liberi| Conteggio|
+|\\Processor(\_Totale)\\% Tempo processore |Percentuale|
+|\\Processor(\_Total)\\% Privileged Time |Percentuale|
+|\\Processor(\_Total)\\% User Time |Percentuale|
+|\\Processor Information(\_Total)\\Processor Frequency |Numero|
+|\\System\\Processes|	Numero|
+|\\Process(\_Total)\\Thread Count|	Numero|
+|\\Process(\_Total)\\Handle Count |Numero|
+|\\Memory\\% Committed Bytes In Use |Percentuale|
+|\\Memory\\Available Bytes|	Byte|
+|\\Memory\\Committed Bytes |Byte|
+|\\Memory\\Commit Limit|	Byte|
+|\\Memory\\Pool Paged Bytes|	Byte|
+|\\Memory\\Pool Nonpaged Bytes|	Byte|
+|\\PhysicalDisk(\_Total)\\% Disk Time|	Percentuale|
+|\\PhysicalDisk(\_Total)\\% Disk Read Time|	Percentuale|
+|\\PhysicalDisk(\_Total)\\% Disk Write Time|	Percentuale|
+|\\DiscoFisico(\_Totale)\\Trasferimenti disco/secondo |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Disk Reads/sec |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Disk Writes/sec |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Disk Bytes/sec |Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec|	Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Avg. Lunghezza coda disco|	Numero|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length|	Numero|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length |Numero|
+|\\LogicalDisk(\_Total)\\% Free Space|	Percentuale|
+|\\LogicalDisk(\_Total)\\Free Megabytes|	Numero|
 
 
 
@@ -164,20 +164,20 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ## Metriche di archiviazione usate comunemente
 È possibile eseguire il ridimensionamento in base alla lunghezza della coda di archiviazione, ovvero il numero di messaggi nella coda di archiviazione. La lunghezza della coda di archiviazione è una metrica speciale e la soglia applicata corrisponde al numero di messaggi per ogni istanza. Ciò significa che se sono presenti due istanze e la soglia è impostata su 100, il ridimensionamento viene eseguito quando il numero totale di messaggi nella coda è pari a 200. Ad esempio, 100 messaggi per ogni istanza.
 
-È possibile configurare questa opzione nel pannello **Impostazioni** del portale di Azure. Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Azure Resource Manager per l'uso di *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
+È possibile configurare questa opzione nel pannello **Impostazioni** del portale di Azure. Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione Scalabilità automatica nel modello di Azure Resource Manager per l'uso di *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
 
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
+ ```
 
 ## Metriche del bus di servizio usate comunemente
 
 È possibile eseguire il ridimensionamento in base alla lunghezza della coda del bus di servizio, ovvero il numero di messaggi nella coda del bus di servizio. La lunghezza della coda del bus di servizio è una metrica speciale e la soglia specificata che viene applicata corrisponde al numero di messaggi per ogni istanza. Ciò significa che se sono presenti due istanze e la soglia è impostata su 100, il ridimensionamento viene eseguito quando il numero totale di messaggi nella coda è pari a 200. Ad esempio, 100 messaggi per ogni istanza.
 
-Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Azure Resource Manager per l'uso di *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
+Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione Scalabilità automatica nel modello di Azure Resource Manager per l'uso di *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -187,4 +187,4 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 
 >[AZURE.NOTE] Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

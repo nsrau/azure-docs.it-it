@@ -211,6 +211,7 @@ Ogni volta che Automation DSC per Azure esegue una verifica di coerenza su un no
     ![Screenshot del pannello Report](./media/automation-dsc-getting-started/NodeReport.png)
 
 Nel pannello per un singolo report è possibile visualizzare per la verifica di coerenza corrispondente le informazioni di stato seguenti.
+
 - Stato del report: il nodo può essere "Conforme" o "Non conforme", quando il nodo è in modalità **ApplyAndMonitor** e il computer non è nello stato previsto, oppure la configurazione può essere "Non riuscita".
 - Ora di inizio della verifica di coerenza.
 - Runtime totale della verifica di coerenza.
@@ -266,4 +267,4 @@ Se non si vuole più che un nodo venga gestito da Automation DSC per Azure, è p
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

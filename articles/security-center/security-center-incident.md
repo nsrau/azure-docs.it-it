@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="08/03/2016"
    ms.author="yurid"/>
 
 # Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure 
@@ -36,11 +36,11 @@ Nel Centro sicurezza, un evento imprevisto della sicurezza è un'aggregazione di
 
 2.  Fare clic sul riquadro per espanderlo. In caso di rilevamento di un evento imprevisto della sicurezza, verrà visualizzato nel grafico degli avvisi di sicurezza come illustrato in questa immagine.
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)
+    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)  
 
 3.	Si noti che la descrizione dell'evento imprevisto della sicurezza ha un'icona diversa rispetto agli altri avvisi. Fare clic su di essa per visualizzare altri dettagli sull'evento imprevisto.
 
-	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)
+	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)  
 
 4. 	Nel pannello **Security incident detected** (Rilevato evento imprevisto sicurezza) verranno visualizzati altri dettagli sull'evento imprevisto della sicurezza, che includono la descrizione completa dell'evento imprevisto, la gravità (che in questo caso è alta), lo stato corrente dell'evento imprevisto (che in questo caso è ancora *attivo*), la risorsa che ha subito attacchi (in questo caso *VM1*), la procedura di correzione e in basso gli avvisi inclusi nell'evento imprevisto. Per ottenere altre informazioni su ogni avviso, è sufficiente fare clic su di esso. Verrà aperto un altro pannello, come illustrato di seguito.
 
@@ -56,11 +56,11 @@ Le informazioni visualizzate in questo pannello variano in base all'avviso. Per 
 
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
+- [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
 - [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

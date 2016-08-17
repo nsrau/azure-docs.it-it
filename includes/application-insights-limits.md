@@ -9,14 +9,14 @@ Totale dei punti dati mensile per la visualizzazione di richieste, eventi, dipen
 Velocità dati [di traccia e di log](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
 Velocità dati [di eccezione](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
 Totale della velocità dati per richieste, eventi, dipendenze e telemetria delle visualizzazioni di pagine | 200 dp/s | 500 dp/s
-Conservazione [dati non elaborati](../articles/application-insights/app-insights-diagnostic-search.md) | 7 giorni
-Conservazione [dati aggregati](../articles/application-insights/app-insights-metrics-explorer.md) | 90 giorni
+Conservazione dei dati non elaborati per [Ricerca](../articles/application-insights/app-insights-diagnostic-search.md) e [Analytics](../articles/application-insights/app-insights-analytics.md) | 7 giorni
+Conservazione dei dati aggregati per [Esplora metriche](../articles/application-insights/app-insights-metrics-explorer.md) | 90 giorni
 Numero nomi di [proprietà](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Lunghezza nome proprietà | 100 | 
-Lunghezza valore proprietà | 1000 | 
+Lunghezza nome proprietà | 150 | 
+Lunghezza valore proprietà | 8192 | 
 Lunghezza messaggio di traccia e di eccezione | 10000 |
 Numero nomi di [metriche](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Lunghezza nome di metrica | 100 | 
+Lunghezza nome di metrica | 150 | 
 [Test della disponibilità](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> Un punto dati è un evento o un valore di metrica singolo, con proprietà e misurazioni associate.
@@ -27,4 +27,4 @@ Lunghezza nome di metrica | 100 |
  
 [Informazioni su prezzi e quote in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

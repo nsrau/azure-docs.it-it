@@ -46,7 +46,7 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) nell'introduzione a Microsoft Power BI Embedded.
+6. Immettere il nome della **raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) nell'introduzione a Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -100,7 +100,7 @@ L'esempio di **Microsoft Power BI Embedded** è un'app Web dashboard di esempio 
 
 Il codice di esempio di **Microsoft Power BI Embedded** è suddiviso come indicato di seguito. Ogni sezione contiene il nome del file nella soluzione PowerBI-embedded.sln in modo che sia possibile trovare facilmente il codice nell'esempio.
 
-> [AZURE.NOTE] Questa sezione è un riepilogo del codice di esempio e illustra in che modo è stato scritto. L'esempio sarà descritto più nel dettaglio con il passaggio alla disponibilità generale. Per visualizzare l'esempio completo, caricare la soluzione PowerBI-embedded.sln in Visual Studio.
+> [AZURE.NOTE] Questa sezione è un riepilogo del codice di esempio e illustra in che modo è stato scritto. Per visualizzare l'esempio completo, caricare la soluzione PowerBI-embedded.sln in Visual Studio.
 
 ### Modello
 L'esempio è composto da **ReportsViewModel** e **ReportViewModel**.
@@ -120,6 +120,15 @@ L'esempio è composto da **ReportsViewModel** e **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Stringa di connessione
+La stringa di connessione deve essere nel formato seguente:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+L'uso di attributi comuni di server e database avrà esito negativo. Ad esempio: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### Visualizza
 La **visualizzazione** gestisce la visualizzazione di più **report** di Power BI e di un **report** di Power BI.
@@ -145,7 +154,7 @@ La **visualizzazione** gestisce la visualizzazione di più **report** di Power B
         </div>
     </div>
 
-Report.cshtml: imposta **Model.AccessToken** e l'espressione lambda per **PowerBIReportFor**.
+Report.cshtml: imposta **Model.AccessToken** e l'espressione Lambda per **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

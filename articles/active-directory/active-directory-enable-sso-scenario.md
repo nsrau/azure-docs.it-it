@@ -24,7 +24,7 @@ Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale 
 
 2. Per garantire la sicurezza e la governance, l'organizzazione deve controllare chi può accedere alle applicazioni e chi vi accede effettivamente
 
-Nel mondo delle applicazioni cloud è possibile usare le identità per controllare "*CHI può fare COSA*".
+Nel mondo delle applicazioni cloud è possibile usare le identità per controllare "* CHI può fare COSA *".
 
 Detto con la terminologia IT:
 
@@ -32,7 +32,7 @@ Detto con la terminologia IT:
 
 - *Cosa* corrisponde a *gestione degli accessi*, ovvero la gestione degli accessi alle risorse protette.
 
-La combinazione di questi due componenti è nota come *Gestione delle identità e degli accessi*, definita dal gruppo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) come "*la disciplina di sicurezza che consente alle persone corrette di accedere alle risorse appropriate, al momento opportuno e per i giusti motivi*".
+La combinazione di questi due componenti è nota come *Gestione delle identità e degli accessi*, definita dal gruppo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) come "* la disciplina di sicurezza che consente alle persone corrette di accedere alle risorse appropriate, al momento opportuno e per i giusti motivi *".
 
 Allora qual è il problema? Se le identità e gli accessi *non sono gestiti* in un'unica posizione con una soluzione integrata:
 

@@ -1,7 +1,7 @@
 <properties
 pageTitle="Informazioni su come usare il connettore SharePoint Online nelle app per la logica | Microsoft Azure"
 description="Creare app per la logica con il connettore SharePoint Online per la gestione degli elenchi SharePoint."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -86,7 +86,7 @@ SharePoint supporta le azioni seguenti:
 |[Ottieni elenchi](connectors-create-api-sharepointonline.md#get-lists)|Questa operazione recupera elenchi SharePoint da un sito.|
 ### Informazioni dettagliate sulle azioni
 
-Ecco i dettagli per le azioni e i trigger per questo connettore con le relative risposte:
+Di seguito sono indicati i dettagli per le azioni e i trigger di questo connettore con le relative risposte:
 
 
 
@@ -668,4 +668,4 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Procedure consigliate per Azure SQL Data Warehouse
@@ -80,12 +80,12 @@ Poiché le tabelle columnstore in genere non effettuano il push dei dati in un s
 
 Quando si esegue una query su una tabella columnstore, l'esecuzione sarà più rapida se si selezionano solo le colonne necessarie.
 
-Vedere anche [Indicizzazione di tabelle in SQL Data Warehouse][] e [Guida agli indici columnstore][].
+Vedere anche gli argomenti sull'[indicizzazione di tabelle][], sulla [guida agli indici columnstore][] e sulla [ricompilazione degli indici columnstore][].
 
 ## Utilizzare una classe di risorse più grande per migliorare le prestazioni delle query
 SQL Data Warehouse usa i gruppi di risorse per allocare la memoria per le query. Per impostazione predefinita, tutti gli utenti vengono assegnati alla classe di risorse piccola, che garantisce 100 MB di memoria per distribuzione. Poiché ci sono sempre 60 distribuzioni e a ogni distribuzione viene assegnato un minimo di 100 MB, l'allocazione di memoria totale a livello di sistema è di 6.000 MB o poco meno di 6 GB. Alcune query, ad esempio i join di grandi dimensioni oppure le operazioni di caricamento in tabelle columnstore cluster, risultano avvantaggiate da allocazioni di una quantità maggiore di memoria. Alcune query, come le operazioni di sola analisi, non traggono alcun vantaggio. D'altra parte, l'uso di classi di risorse più grandi influisce sulla concorrenza, quindi sarà necessario tenere in considerazione questo aspetto prima di spostare tutti gli utenti in una classe di risorse di grandi dimensioni.
  
-Vedere anche [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][].
+Vedere anche [Gestione della concorrenza e del carico di lavoro][].
 
 ## Usare una classe di risorse più piccola per aumentare la concorrenza
 Se si nota che le query utente sembrano avere un lungo ritardo, è possibile che gli utenti siano in esecuzione in classi di risorse più grandi e stiano utilizzando molti slot di concorrenza, con il conseguente inserimento in coda di altre query. Per vedere se le query degli utenti vengono inserite in coda, eseguire `SELECT * FROM sys.dm_pdw_waits` per verificare se vengono restituite righe.
@@ -108,13 +108,16 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei commenti
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Gestione della concorrenza e del carico di lavoro]: ./sql-data-warehouse-develop-concurrency.md
 [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]: ./sql-data-warehouse-develop-concurrency.md
 [Create Table As Select (CTAS) in SQL Data Warehouse]: ./sql-data-warehouse-develop-ctas.md
 [Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
 [Tipi di dati per le tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-data-types.md
 [Distribuzione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-distribute.md
 [Indicizzazione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-index.md
+[indicizzazione di tabelle]: ./sql-data-warehouse-tables-index.md
 [Possibili cause di una qualità scadente dell'indice columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[ricompilazione degli indici columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Partitioning tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-partition.md
 [Managing statistics on tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-temporary.md
@@ -150,7 +153,7 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei commenti
 [sys.dm\_pdw\_sql\_requests (Transact-SQL)]: https://msdn.microsoft.com/library/mt203889.aspx
 [sys.dm\_pdw\_dms\_workers (Transact-SQL)]: https://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_waits (Transact-SQL)]: https://msdn.microsoft.com/library/mt203893.aspx
-[Guida agli indici columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
+[guida agli indici columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 [scelta della modalità di distribuzione delle tabelle]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
@@ -159,4 +162,4 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei commenti
 [forum di Stack Overflow su Azure SQL Data Warehouse]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

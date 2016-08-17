@@ -168,7 +168,7 @@ Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestion
 	npm run start
 	```
 
-8. Quando il prompt dei comandi segnala che i servizi sono stati avviati, aprire un Web browser (sono attualmente supportati Edge/IE 11+/Safari/Chrome) e passare all'app di gestione dei dispositivi disponibile nell'URL seguente per visualizzare i dispositivi simulati: <http://127.0.0.1:3003>.
+8. Quando il prompt dei comandi segnala che i servizi sono stati avviati, aprire un Web browser (sono attualmente supportati Microsoft Edge/IE 11+/Safari/Chrome) e passare all’app di gestione dei dispositivi disponibile nell’URL seguente per visualizzare i dispositivi simulati: <http://127.0.0.1:3003>.
 
 	![][img-dm-ui]
 

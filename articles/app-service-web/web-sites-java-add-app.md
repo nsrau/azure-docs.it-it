@@ -25,7 +25,7 @@ Il percorso della cartella **webapps** varia a seconda della configurazione del 
 - Se si configura il sito Web usando la raccolta di applicazioni di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\bin\\application\_server\\webapps**, dove **application\_server** è il nome del server applicazioni usato per il sito Web.
 - Se si configura il sito Web usando l'interfaccia utente di configurazione di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\webapps**.
 
-Si noti che è possibile usare il controllo del codice sorgente per caricare l'applicazione o le pagine Web, anche negli scenari di integrazione continuata. Istruzioni per l'utilizzo del controllo del codice sorgente con l'applicazione web sono disponibili all'indirizzo [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md). Per caricare l'applicazione o le pagine Web è anche possibile usare FTP.
+Si noti che è possibile usare il controllo del codice sorgente per caricare l'applicazione o le pagine Web, anche negli [scenari di integrazione continua](app-service-continuous-deployment.md). Per caricare l'applicazione o le pagine Web è anche possibile usare FTP.
 
 Dopo avere caricato il file WAR nella cartella **webapps**, il server applicazioni Tomcat ne rileverà l'aggiunta e lo caricherà automaticamente. Si noti che se vengono copiati file (eccetto i file WAR) nella directory ROOT, è necessario riavviare il server applicazioni per usarli. La funzionalità di caricamento automatico per i siti Web Java Tomcat in esecuzione in Azure si basa su un nuovo file WAR aggiunto o su nuovi file o nuove directory create nella cartella **webapps**.
 
@@ -40,4 +40,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

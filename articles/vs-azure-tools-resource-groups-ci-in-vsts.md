@@ -3,8 +3,8 @@
 	description="Descrive come configurare l'integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure in Visual Studio."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="tfitzmac"
-	manager="timlt"
+	authors="mlearned"
+	manager="erickson-doug"
 	editor="" />
 
  <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
-	ms.author="tomfitz" />
+	ms.date="08/01/2016"
+	ms.author="mlearned" />
 
 # Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure
 
@@ -121,7 +121,7 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
 
     | Parametro | Descrizione|
     |---|---|
-    | -ResourceGroupLocation | Valore della posizione geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/it-IT/regions/).| |
+    | -ResourceGroupLocation | Valore della posizione geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).| |
     | -ResourceGroupName | Nome del gruppo di risorse usato per la distribuzione.| |
     | -UploadArtifacts | Questo parametro, se presente, specifica che gli elementi devono essere caricati in Azure dal sistema locale. È sufficiente impostare questa opzione se la distribuzione del modello richiede elementi aggiuntivi che si prevede di preparare usando lo script di PowerShell, ad esempio gli script di configurazione o i modelli annidati. |
     | -StorageAccountName | Nome dell'account di archiviazione usato per la preparazione degli elementi per questa distribuzione. Questo parametro è obbligatorio solo se si copiano elementi in Azure. L'account di archiviazione non verrà creato automaticamente dalla distribuzione, deve esistere già.| |
@@ -160,4 +160,4 @@ Per altre informazioni su Gestione risorse di Azure e sui gruppi di risorse di A
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

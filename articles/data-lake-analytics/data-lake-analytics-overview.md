@@ -1,11 +1,11 @@
 <properties 
    pageTitle="Panoramica di Microsoft Azure Data Lake Analytics | Azure" 
-   description="Data Lake Analytics è un servizio di calcolo dei Big Data di Azure che consente di usare i dati per la gestione delle attività aziendali mediante le informazioni dettagliate ricavate dai dati archiviati nel cloud, indipendentemente dalla loro posizione o dimensione. Data Lake Analytics consente di eseguire queste operazioni nel modo più semplice, scalabile ed economico possibile." 
+   description="Data Lake Analytics è un servizio di calcolo dei Big Data di Azure che consente di usare i dati per la gestione delle attività aziendali mediante le informazioni dettagliate ricavate dai dati archiviati nel cloud, indipendentemente dalla loro posizione o dimensione. Data Lake Analytics consente di eseguire queste operazioni nel modo più semplice, scalabile ed economico possibile. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
    manager="paulettm" 
-   editor="cgronlun"/>
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>
+   ms.author="edmaca"/>  
 
 # Panoramica di Microsoft Azure Data Lake Analytics
 
@@ -25,7 +25,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
 
 ## Funzionalità principali
 
-- **Scalabilità dinamica** 
+- **Scalabilità dinamica**
 
     Data Lake Analytics è stato progettato da zero per garantire scalabilità e prestazioni di livello cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati. Al termine del processo, il servizio riduce automaticamente le risorse, permettendo di pagare solo per la potenza di elaborazione effettivamente usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. In questo modo, è possibile concentrarsi solo sulla logica di business e non sul modo in cui elaborare e archiviare set di dati di grandi dimensioni.
 
@@ -55,7 +55,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-    - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+    - [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
     - [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
     
 - U-SQL e sviluppo
@@ -67,14 +67,15 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
     - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Accesso ai log di diagnostica per Azure Data Lake Analytics)
 
 - Esercitazione end-to-end
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
-    - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+    - [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
 - Feedback
     - [Commentare il backlog della documentazione](data-lake-analytics-documentation-backlog.md)
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

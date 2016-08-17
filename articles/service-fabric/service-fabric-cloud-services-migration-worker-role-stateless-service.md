@@ -217,16 +217,16 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ## Attività di avvio
 
-Le attività di avvio sono azioni eseguite prima dell'avvio di un'applicazione. Un'attività di avvio viene in genere usata per eseguire script di installazione con privilegi elevati. Sia Servizi Cloud che Service Fabric supportano attività di avvio. La differenza principale riguarda il fatto che in Servizi Cloud un'attività di avvio è collegata a una VM, perché fa parte di un'istanza del ruolo, mentre in Service Fabric un'attività di avvio è collegata a un servizio che non è associato a una VM specifica.
+Le attività di avvio sono azioni eseguite prima dell'avvio di un'applicazione. Un'attività di avvio viene in genere usata per eseguire script di installazione con privilegi elevati. Sia Servizi Cloud che Service Fabric supportano attività di avvio. La differenza principale riguarda il fatto che in Servizi cloud un'attività di avvio è collegata a una VM, perché fa parte di un'istanza del ruolo, mentre in Service Fabric un'attività di avvio è collegata a un servizio che non è associato a una VM specifica.
 
- | Microsoft Azure | Service Fabric
+ | Servizi cloud | Service Fabric
 --- | --- | ---
 Percorso di configurazione | ServiceDefinition.csdef | ServiceManifest.xml
 Privilegi | "limitato" o "con privilegi elevati" | qualsiasi account utente o computer
 Sequenziazione | "semplice", "background", "in primo piano" | l'esecuzione dell'attività di avvio deve essere completata prima dell'avvio del servizio.
 
-### Microsoft Azure
-In Servizi cloud è configurato un punto di ingresso di avvio per ogni ruolo in ServiceDefintion.csdef.
+### Servizi cloud
+In Servizi cloud è configurato un punto di ingresso di avvio per ogni ruolo in ServiceDefinition.csdef.
 
 ```xml
 
@@ -267,7 +267,7 @@ Sia Servizi Cloud che Service Fabric sono integrati in Visual Studio con modelli
 
 ##Passaggi successivi
 
-Altre informazioni su Reliable Services di Service Fabric e le differenze fondamentali tra Servizi cloud e architettura dell'applicazione di Service Fabric per comprendere come sfruttare il set completo di funzionalità di Service Fabric.
+Altre informazioni su Reliable Services di Service Fabric e le differenze fondamentali tra Servizi cloud e l'architettura dell'applicazione di Service Fabric per comprendere come sfruttare il set completo di funzionalità di Service Fabric.
 
  - [Introduzione a Reliable Services di Service Fabric](./service-fabric-reliable-services-quick-start.md)
 
@@ -277,4 +277,4 @@ Altre informazioni su Reliable Services di Service Fabric e le differenze fondam
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

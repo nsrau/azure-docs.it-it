@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # Come configurare i servizi cloud
 
@@ -56,7 +53,7 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 - Scrittura disco
 - Rete in ingresso
 - Rete in uscita
-- Percentuale CPU 
+- Percentuale CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

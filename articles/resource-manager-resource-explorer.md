@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="08/01/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Usare Esplora risorse di Azure per visualizzare e modificare le risorse
@@ -34,7 +34,7 @@ Quando si analizza un gruppo di risorse è possibile vedere i provider per i qua
 
 Da qui è possibile iniziare a esaminare le istanze di risorse. La schermata riportata di seguito mostra l'istanza di SQL Server `sltest` nella visualizzazione albero. Sul lato destro è possibile visualizzare informazioni sulle richieste API REST utilizzabili con tale risorsa. Passando al nodo di una risorsa, Esplora risorse formula automaticamente la richiesta GET per recuperare informazioni sulla risorsa. Nell'ampia area di testo sotto l'URL verrà visualizzata la risposta dell'API.
 
-Dopo avere acquisito familiarità con i modelli ARM, anche il contenuto del corpo inizierà a sembra familiare. La sezione **properties** della risposta corrisponde ai valori che è possibile fornire nella sezione **properties** del modello.
+Dopo avere acquisito familiarità con i modelli di Resource Manager, anche il contenuto del corpo inizierà a sembrare familiare. La sezione **properties** della risposta corrisponde ai valori che è possibile fornire nella sezione **properties** del modello.
 
 ![sql server](./media/resource-manager-resource-explorer/are-03-sqlserver-with-response.png)
 
@@ -70,8 +70,8 @@ La scheda PowerShell in Esplora risorse mostra i cmdlet da utilizzare per intera
 Per altre informazioni sui cmdlet di Azure PowerShell vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md)
 
 ## Riepilogo
-Quando si lavora con ARM, Esplora risorse può rivelarsi uno strumento estremamente utile. È una preziosa soluzione per utilizzare PowerShell per eseguire query e apportare modifiche. Se si utilizza l'API REST, è un ottimo modo per iniziare a utilizzare e testare rapidamente le chiamate API prima di avviare la scrittura di codice. E, se si scrivono modelli ARM, è un prezioso strumento per comprendere la gerarchia delle risorse e individuare la posizione in cui inserire la configurazione. È possibile apportare una modifica nel portale per ritrovare poi le voci corrispondenti in Esplora risorse.
+Quando si lavora con Resource Manager, Esplora risorse può rivelarsi uno strumento estremamente utile. È una preziosa soluzione per utilizzare PowerShell per eseguire query e apportare modifiche. Se si utilizza l'API REST, è un ottimo modo per iniziare a utilizzare e testare rapidamente le chiamate API prima di avviare la scrittura di codice. Se si scrivono modelli è un prezioso strumento per comprendere la gerarchia delle risorse e trovare la posizione in cui inserire la configurazione. È possibile apportare una modifica nel portale per ritrovare poi le voci corrispondenti in Esplora risorse.
 
 Per altre informazioni vedere il [video di Channel 9 con Scott Hanselman e David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -65,8 +65,6 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
-
-
 ## Tabelle delle dimensioni
 
 Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dimensione.
@@ -221,8 +219,33 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_GS4|16|224|8|Disco SSD locale = 448 GB |32|2112| 40\.000 1.000 MB al secondo | estremamente alta |
 |Standard\_GS5|32|448|8|Disco SSD locale = 896 GB |64|4224| 80\.000 2.000 MB al secondo | estremamente alta |
 
+## Serie N
+
+Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni a elevato utilizzo di calcolo e reti, nonché algoritmi, tra cui applicazioni e simulazioni basate su CUDA e OpenCL.
 
 
+### Istanze NV
+Le istanze NV sono basate su GPU NVIDIA Tesla M60 e NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti potranno visualizzare i propri dati o le proprie simulazioni. Gli utenti potranno visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore e inoltre eseguire singoli carichi di lavoro di precisione, come la codifica e il rendering. Il modello Tesla M60 ospita 4.096 core CUDA in una dual GPU con un massimo di 36 flussi H264 da 1080p.
+
+
+| Dimensione | Core | GPU | Memoria | Disco |
+|------|-------|----------------|--------|-------------|
+| NV6 | 6 | 1 x NVIDIA M60 | 56 GB | SSD da 380 GB |
+| NV12 | 12 | 2 x NVIDIA M60 | 112 GB | SSD da 680 GB |
+| NV24 | 24 | 4 x NVIDIA M60 | 224 GB | SSD da 1.440 GB | 
+
+
+
+### Istanze NC
+
+Le istanze NC sono basate su GPU NVIDIA Tesla K80. Gli utenti possono ora elaborare i dati molto più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, analisi dettagliate e altro ancora. Il modello Tesla K80 ospita 4.992 core CUDA in una dual GPU con prestazioni che raggiungono 2,91 teraflop di precisione doppia e 8,93 teraflop di precisione singola.
+
+
+| Dimensione | Core | GPU | Memoria | Disco |
+|------|-------|----------------|--------|-------------|
+| NC6 | 6 | 1 x NVIDIA K80 | 56 GB | SSD da 380 GB |
+| NC12 | 12 | 2 x NVIDIA K80 | 112 GB | SSD da 680 GB |
+| NC24 | 24 | 4 x NVIDIA K80 | 224 GB | SSD da 1.440 GB |
 
 ## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell 
 
@@ -241,4 +264,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

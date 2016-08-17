@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Test delle prestazioni e della scalabilità con Azure DocumentDB
@@ -25,32 +25,20 @@ Questo è un articolo di riferimento per gli sviluppatori che intendono implemen
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 - Dove è possibile trovare un'applicazione client .NET di esempio per il test delle prestazioni di Azure DocumentDB?
-- Quali sono i fattori chiave che hanno impatto sulle prestazioni end-to-end delle richieste eseguite su Azure DocumentDB?
 - Com'è possibile ottenere livelli di velocità effettiva elevati con Azure DocumentDB dall'applicazione client?
 
-Per iniziare a usare il codice, scaricare il progetto dall'esempio relativo al [test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark).
+Per iniziare a usare il codice, scaricare il progetto dall'[esempio relativo al test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark).
 
 > [AZURE.NOTE] L'obiettivo di questa applicazione è illustrare le procedure consigliate per ottenere prestazioni migliori di DocumentDB con un numero ridotto di computer client. L'applicazione non è stata realizzata per dimostrare la capacità massima del servizio, che può essere aumentata senza limiti.
 
-## Opzioni principali di configurazione del client
-DocumentDB è un database distribuito rapido e flessibile, perfettamente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per aumentare o ridurre il livello del database con DocumentDB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una chiamata al metodo SDK. Tuttavia, durante il test della scalabilità, è importante notare che DocumentDB è accessibile tramite chiamate di rete. Se si sta scrivendo un'applicazione client autonoma per l'esecuzione del test delle prestazioni di DocumentDB, è necessario configurarla appropriatamente per contrastare l'impatto della latenza di rete sulle misurazioni delle prestazioni.
+Se si cercano opzioni di configurazione lato client per migliorare le prestazioni di DocumentDB, vedere [Suggerimenti sulle prestazioni per DocumentDB](documentdb-performance-tips.md).
 
-Per ottenere migliori prestazioni end-to-end con DocumentDB, considerare le opzioni di configurazione client seguenti:
-
-- **Aumentare il numero di thread/attività**: poiché le chiamate a DocumentDB vengono eseguite sulla rete, può essere necessario modificare il grado di parallelismo delle richieste in modo che i tempi di attesa dell'applicazione client tra le richieste siano molto ridotti. Ad esempio, se si sta usando la [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx) di .NET, creare centinaia di attività di lettura o scrittura in DocumentDB.
-- **Eseguire test nella stessa area di Azure**: quando possibile, eseguire il test da una macchina virtuale o da un servizio app distribuito nella stessa area di Azure. Per un confronto approssimativo, le chiamate a DocumentDB eseguite nella stessa area vengono completate entro 1-2 ms, ma la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 ms.
-- **Aumentare System.Net MaxConnections per ogni host**: le richieste di DocumentDB vengono eseguite su HTTPS/REST per impostazione predefinita e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare questa proprietà su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni DocumentDB contemporaneamente. In .NET questa proprietà è [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
-- **Avviare GC sul lato server**: in alcuni casi, può essere utile ridurre la frequenza di Garbage Collection. In .NET impostare [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) su true.
-- **Usare la connettività diretta**: usare l'opzione per la [Connettività diretta](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) al fine di ottenere prestazioni ottimali.
-- **Implementare il backoff a intervalli RetryAfter**: durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. In questo modo, si garantiscono tempi di attesa minimi tra i tentativi. Vedere [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
-- **Aumentare il carico di lavoro client**: se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/s), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a eseguire il push dell'account di DocumentDB tramite l'aumento delle istanze delle applicazioni client su più server.
-
-## Introduzione
+## Eseguire l'applicazione per il test delle prestazioni
 Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riportato di seguito, come descritto nella procedura seguente. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle applicazioni client.
 
-**Passaggio 1**: scaricare il progetto dall'esempio relativo al [test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare la biforcazione del repository GitHub.
+**Passaggio 1**: scaricare il progetto dall'[esempio relativo al test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare la biforcazione del repository GitHub.
 
-**Passaggio 2**: modificare le impostazioni di EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) nel file app.config.
+**Passaggio 2**: modificare le impostazioni di EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) nel file App.config.
 
 > [AZURE.NOTE] Prima del provisioning delle raccolte con velocità effettiva elevata, consultare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/) per stimare i costi di ogni raccolta. DocumentDB addebita l'archiviazione e la velocità effettiva in modo indipendente su base oraria, è quindi possibile risparmiare eliminando o riducendo la velocità effettiva delle raccolte DocumentDB al termine del test.
 
@@ -100,18 +88,19 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riporta
 	DocumentDBBenchmark completed successfully.
 
 
-**Passaggio 4 (se necessario)**: la velocità effettiva segnalata (UR/s) dallo strumento deve essere analoga o maggiore di quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Se occorre assistenza con questi passaggi, contattare Microsoft tramite l'[apposita pagina](askdocdb@microsoft.com) o creando un ticket di supporto.
+**Passaggio 4 (se necessario)**: la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Se occorre assistenza con questo passaggio, contattare Microsoft tramite l'[apposita pagina](askdocdb@microsoft.com) o creando un ticket di supporto.
 
 Quando l'app è in esecuzione, è possibile provare diversi [criteri di indicizzazione](documentdb-indexing-policies.md) e [livelli di coerenza](documentdb-consistency-levels.md) per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
-## Riepilogo
-In questo articolo è stato descritto come eseguire il test delle prestazioni e della scalabilità con DocumentDB usando un'app console .NET e opzioni di configurazione delle chiavi riesaminate per ottenere prestazioni ottimali da Azure DocumentDB. Per informazioni aggiuntive, fare riferimento ai collegamenti seguenti sull'utilizzo di DocumentDB.
+## Passaggi successivi
+In questo articolo è stato illustrato come eseguire test delle prestazioni e della scalabilità con DocumentDB usando un'app della console .NET. Per informazioni aggiuntive, fare riferimento ai collegamenti seguenti sull'utilizzo di DocumentDB.
 
 * [Esempio di test delle prestazioni in DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Suggerimenti sulle prestazioni per DocumentDB](documentdb-performance-tips.md)
 * [Partizionamento lato server in DocumentDB](documentdb-partition-data.md)
 * [Raccolte e livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
 * [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

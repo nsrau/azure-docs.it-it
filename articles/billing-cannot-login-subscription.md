@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Non è possibile accedere per gestire la sottoscrizione di Azure | Microsoft Azure"
 	description="Descrive le informazioni di risoluzione dei problemi per alcuni dei problemi di accesso della sottoscrizione di Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -54,4 +54,4 @@ Ora che è possibile accedere ad Azure con un account aziendale, ecco le modific
 
 Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

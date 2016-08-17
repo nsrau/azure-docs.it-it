@@ -101,6 +101,8 @@ Opzione 2: specificare un nome, la dimensione e il nome del set di disponibilit�
 
 Per i valori InstanceSize per le macchine virtuali di serie D-, DS- o G-, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+>[AZURE.NOTE] Se si dispone di un contratto Enterprise con Software Assurance e si intende sfruttare il [vantaggio dell'uso ibrido](https://azure.microsoft.com/pricing/hybrid-use-benefit/) di Windows Server, aggiungere il parametro **-LicenseType** al cmdlet **New-AzureVMConfig**, passando il valore **Windows\_Server** come caso d'uso tipico. Controllare che si stia usando un'immagine caricata, poiché con il vantaggio dell'uso ibrido non è consentito usare un'immagine standard della raccolta.
+
 Facoltativamente, per un computer Windows autonomo, specificare l'account amministratore locale e la password.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
@@ -260,4 +262,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

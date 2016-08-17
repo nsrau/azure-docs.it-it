@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Compilazione di configurazioni in Azure Automation DSC | Microsoft Azure" 
-   description="Panoramica di due modi per compilare configurazioni dello stato desiderato (DSC, Desired State Configuration): nel portale di Azure e con Windows PowerShell." 
+   description="Panoramica di due modi per compilare configurazioni dello stato desiderato (DSC, Desired State Configuration): nel portale di Azure e con Windows PowerShell. " 
    services="automation" 
    documentationCenter="na" 
    authors="coreyp-at-msft" 
@@ -185,11 +185,11 @@ I riferimenti agli asset sono gli stessi nelle configurazioni di Azure Automatio
 - [Variabili](automation-variables.md)
 
 ###Asset credenziali###
-Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset delle credenziali con **Get-AutomationPSCredential**, gli asset delle credenziali possono essere passati anche con i parametri, se necessario. Se una configurazione accetta un parametro di tipo **PSCredential**, è necessario passare il nome stringa di un asset credenziale di Automazione di Azure come valore di tale parametro, invece di un oggetto PSCredential. In background, l'asset credenziali di Automazione di Azure con tale nome verrà recuperato e passato alla configurazione.
+Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset di credenziali con **Get-AutomationPSCredential**, gli asset di credenziali possono essere passati anche con i parametri, se necessario. Se una configurazione accetta un parametro di tipo **PSCredential**, è necessario passare il nome stringa di un asset di credenziali di Automazione di Azure come valore di tale parametro, invece di un oggetto PSCredential. In background, l'asset credenziali di Automazione di Azure con tale nome verrà recuperato e passato alla configurazione.
 
 Per garantire la sicurezza delle credenziali nelle configurazioni dei nodi (documenti di configurazione MOF), è necessario crittografare le credenziali nel file MOF delle configurazioni dei nodi. Automazione di Azure va oltre e crittografa l'intero file MOF. Attualmente è però necessario comunicare a PowerShell DSC che l'output delle credenziali in testo normale durante la generazione dei file MOF delle configurazioni dei nodi è corretto, perché PowerShell DSC non sa che dopo la generazione Automazione di Azure crittograferà l'intero file MOF tramite un processo di compilazione.
 
-Per comunicare a PowerShell DSC che l'output delle credenziali in testo normale nei file MOF delle configurazioni dei nodi generati è corretto, è possibile usare <a href="#configurationdata">**ConfigurationData**</a>. È consigliabile passare `PSDscAllowPlainTextPassword = $true` tramite **ConfigurationData** per ogni nome del blocco di nodi che viene visualizzato nella configurazione DSC e usa le credenziali.
+Per comunicare a PowerShell DSC che l'output delle credenziali in testo normale nei file MOF delle configurazioni dei nodi generati è corretto, è possibile usare <a href="#configurationdata">**ConfigurationData**</a>. È consigliabile passare `PSDscAllowPlainTextPassword = $true`tramite **ConfigurationData** per il nome di ogni blocco di nodi visualizzato nella configurazione DSC che usa le credenziali.
 
 L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di Automazione.
 
@@ -208,7 +208,7 @@ L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di
     	}
     }
 
-È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni di nodo al server di pull di Automation DSC per Azure, **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni del nodo al server di pull di Automation DSC per Azure, **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 
     $ConfigData = @{
@@ -228,4 +228,4 @@ L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

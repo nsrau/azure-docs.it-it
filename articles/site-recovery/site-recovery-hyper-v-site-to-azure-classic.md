@@ -42,7 +42,7 @@ Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la
 
 ## Prerequisiti di Azure
 
-- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
+- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/storage-introduction.md). Si noti che lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse non è supportato.
 - È necessaria una rete virtuale di Azure in modo che le macchine virtuali di Azure siano connesse a una rete quando si esegue il failover dal sito primario.
 
@@ -64,11 +64,11 @@ Durante la distribuzione di Azure Site Recovery verranno installati il provider 
 - È consigliabile eseguire sempre le versioni più recenti del provider e dell'agente, disponibili nel portale di Site Recovery.
 - Tutti i server Hyper-V di un insieme devono essere della stessa versione del provider e dell'agente.
 - Il provider in esecuzione nel server si connette a Site Recovery via Internet. È possibile eseguire questa operazione senza un proxy, con le impostazioni proxy attualmente configurate nel server Hyper-V oppure con le impostazioni proxy personalizzate configurate durante l'installazione del provider. Assicurarsi che il server proxy da usare possa accedere a questi URL per la connessione ad Azure:
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *. store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *. store.core.windows.net
 	
 - Consentire anche gli indirizzi IP descritti in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
@@ -90,7 +90,7 @@ Questa immagine illustra i diversi canali e le porte di comunicazione usati da S
 
 4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
 
-5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](pricing/details/site-recovery/).
+5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 6. Fare clic su **Create vault**.
 
@@ -138,25 +138,19 @@ Se si desidera eseguire l’installazione in un cluster Hyper-V, eseguire i pass
 
 8. Al termine dell'installazione, proseguire con la configurazione per registrare il server nell'insieme di credenziali.
 
-	![Installazione completata](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.png)
-
-
-9. Nella pagina **Connessione Internet** specificare la modalità di connessione tra Provider e Azure Site Recovery. Selezionare **Usa impostazioni proxy del sistema predefinite** per usare le impostazioni di connessione a Internet predefinite configurate nel server. Se non si specifica un valore, verranno utilizzate le impostazioni predefinite.
-
-	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider4.png)
-
 9. Nella pagina **Impostazioni insieme di credenziali** fare clic su **Sfoglia** per selezionare il file di chiave. Specificare la sottoscrizione di Azure Site Recovery, il nome dell'insieme di credenziali e il sito Hyper-V a cui appartiene il server Hyper-V.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/select-key.png)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 
+10. Nella pagina **Connessione Internet** specificare la modalità di connessione tra Provider e Azure Site Recovery. Selezionare **Usa impostazioni proxy del sistema predefinite** per usare le impostazioni di connessione a Internet predefinite configurate nel server. Se non si specifica un valore, verranno utilizzate le impostazioni predefinite.
+
+	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
 
 11. La procedura di registrazione ha inizio e il server viene registrato nell'insieme di credenziali.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.png)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 
 11. Al termine della registrazione, i metadati del server Hyper-V vengono recuperati da Azure Site Recovery e il server viene visualizzato nella scheda **Siti Hyper-V** della pagina **Server** all'interno dell'insieme di credenziali.
-
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider6.png)
 
 
 ### Installare il provider dalla riga di comando
@@ -192,7 +186,7 @@ I parametri includono:
 
 	![Create storage account](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] Lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse non è supportato.
+>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
 
 
 ## Passaggio 5: Creare e configurare gruppi di protezione
@@ -221,7 +215,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 
 >[AZURE.NOTE] La protezione di macchine virtuali che eseguono Linux con un indirizzo IP statico non è supportata.
 
-1. Nella scheda **Macchine** del gruppo di protezione, fare clic** su Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione.
+1. Nella scheda **Macchine** del gruppo di protezione, fare clic su** Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione**.
 2. Nella pagina **Abilita protezione macchine virtuali** selezionare le macchine virtuali da proteggere.
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -235,7 +229,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
 		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
+	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali* nome\_macchina\_virtuale* > **Configura**, tra cui:
 
 		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
 
@@ -245,7 +239,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 
 			- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
 			- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
-			- Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda. 	
+			- Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
 		- **Rete di Azure**: specificare la rete in cui la macchina virtuale deve eseguire il failover. Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
 		- **Subnet**: per ogni scheda di rete nella macchina virtuale, selezionare la subnet nella rete di Azure a cui deve connettersi la macchina dopo il failover.
 		- **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per usare un indirizzo IP statico, è possibile specificare l'indirizzo IP per la macchina virtuale di destinazione per assicurarsi che la macchina abbia lo stesso indirizzo IP dopo il failover. Se non si specifica un indirizzo IP, al momento del failover verrà assegnato un qualsiasi indirizzo disponibile. Se si specifica un indirizzo che si sta usando, il failover avrà esito negativo.
@@ -275,7 +269,7 @@ Per testare completamente la replica e la distribuzione di rete è necessario co
 
 Eseguire il failover di test come descritto di seguito:
 
->[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789).
+>[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789)
 
 1. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
 2. Nella pagina **Conferma failover di test** selezionare **Nessuno** o una rete di Azure specifica. Tenere presente che se si seleziona **Nessuno**, il failover di test verifica che la macchina virtuale venga replicata correttamente in Azure ma non controlla la configurazione della rete di replica.
@@ -305,4 +299,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

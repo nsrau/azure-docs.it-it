@@ -6,14 +6,14 @@
    authors="lodipalm"
    manager="barbkess"
    editor=""
-   tags="azure-sql-data-warehouse"/>
+   tags="azure-sql-data-warehouse"/>  
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/29/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati dall'archivio BLOB di Azure in Azure SQL Data Warehouse (Azure Data Factory)
@@ -39,13 +39,13 @@ Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure
 
 Prima di iniziare questa esercitazione, è necessario avere le risorse seguenti.
 
-   + **BLOB di archiviazione Azure**: questa esercitazione usa il BLOB di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione][].
+   + **BLOB del servizio di archiviazione di Azure**: questa esercitazione usa il BLOB del servizio di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione][].
 
-   + **SQL Data Warehouse**: questa esercitazione sposta i dati dal BLOB di archiviazione di Azure in SQL Data Warehouse e quindi è necessario avere un data warehouse online che viene caricato con i dati di esempio AdventureWorksDW. Se non si ha già un data warehouse, vedere le informazioni su come [effettuare il provisioning][Create a SQL Data Warehouse]. Se è disponibile un data warehouse, ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente][Load sample data into SQL Data Warehouse].
+   + **SQL Data Warehouse**: questa esercitazione sposta i dati dal BLOB del servizio di archiviazione di Azure in SQL Data Warehouse e quindi è necessario avere un data warehouse online che viene caricato con i dati di esempio AdventureWorksDW. Se non si ha già un data warehouse, vedere le informazioni su come [effettuarne il provisioning][Create a SQL Data Warehouse]. Se è disponibile un data warehouse, ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente][Load sample data into SQL Data Warehouse].
 
    + **Azure Data Factory**: Azure Data Factory completerà il caricamento effettivo, quindi è necessario averne uno da usare per creare la pipeline per lo spostamento dei dati. Se non ne è già disponibile uno, vedere le informazioni su come crearlo nel passaggio 1 in [Introduzione ad Azure Data Factory (editor di Data Factory)][].
 
-   + **AZCopy**: per copiare i dati di esempio dal client locale al BLOB di archiviazione di Azure, è necessario AZCopy. Per istruzioni di installazione, vedere la [documentazione di AZCopy][].
+   + **AZCopy**: per copiare i dati di esempio dal client locale al BLOB del servizio di archiviazione di Azure, è necessario AZCopy. Per istruzioni di installazione, vedere la [documentazione di AZCopy][].
 
 ## Passaggio 1: Copiare i dati di esempio nel BLOB di archiviazione di Azure
 
@@ -214,7 +214,7 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 - [Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure][]. In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 - [Esercitazione in uno scenario reale][]. Si tratta di un'esercitazione dettagliata per l'uso di Azure Data Factory.
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [documentazione di AZCopy]: ../storage/storage-use-azcopy.md
@@ -234,9 +234,9 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 
 <!--MSDN references-->
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Percorso di apprendimento per Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [portale di Azure]: https://portal.azure.com
 [Scaricare i dati di esempio]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

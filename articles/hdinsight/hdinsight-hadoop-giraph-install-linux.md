@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/02/2016"
 	ms.author="larryfr"/>
 
 # Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
@@ -105,15 +105,11 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 3. Usare il codice seguente per archiviare i dati nell'archiviazione primaria del cluster HDInsight:
 
-		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
+		hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
 
-3. Per ottenere il nome di dominio completo (FQDN) del nodo head del cluster, utilizzare quanto segue:
+4. Eseguire l'esempio SimpleShortestPathsComputation tramite il seguente comando:
 
-        hostname -f
-        
-4. Eseguire l'esempio SimpleShortestPathsComputation tramite il seguente comando: Sostituire __NODO HEAD__ con il nome FQDN restituito dal passaggio precedente:
-
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+		 yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	I parametri usati con questo comando sono descritti nella tabella seguente.
 
@@ -122,7 +118,7 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | File JAR contenente gli esempi. |
 	| `org.apache.giraph.GiraphRunner` | Classe usata per avviare gli esempi. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | Esempio che verrà eseguito. In questo caso, calcolerà il percorso più breve tra ID 1 e tutti gli altri ID nel grafico. |
-	| `-ca mapred.job.tracker=HEADNODE:9010` | Nodo head del cluster. |
+	| `-ca mapred.job.tracker=headnodehost:9010` | Nodo head del cluster. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | Formato di input da usare per i dati di input. |
 	| `-vip /example/data/tiny_graph.txt` | File di dati di input. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | Formato di output. In questo caso, ID e valore come testo normale. |
@@ -133,7 +129,7 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 5. Al termine del processo, i risultati verranno archiviati nella directory __wasbs:///example/out/shotestpaths__. I file creati inizieranno con __part-m-\_\_ e termineranno con un numero che indica il primo file, il secondo e così via. Usare la stringa seguente per ver visualizzare l'output:
 
-		hadoop fs -text /example/output/shortestpaths/*
+		hdfs dfs -text /example/output/shortestpaths/*
 
 	L'output sarà simile al seguente:
 
@@ -158,4 +154,4 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

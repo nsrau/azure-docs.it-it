@@ -1,19 +1,19 @@
 <properties
-  pageTitle="Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure | Microsoft Azure"
-  description="Trasferire i dati di diagnostica di Azure in un account di archiviazione di Azure e visualizzarli"
-  services="cloud-services"
-  documentationCenter=".net"
-  authors="rboucher"
-  manager="jwhit"
-  editor="tysonn" />
+	pageTitle="Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure | Microsoft Azure"
+	description="Trasferire i dati di diagnostica di Azure in un account di archiviazione di Azure e visualizzarli"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor="tysonn" />
 <tags
-  ms.service="cloud-services"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="na"
-  ms.date="02/20/2016"
-  ms.author="robb" />
+	ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/01/2016"
+	ms.author="robb" />
 
 # Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
 
@@ -85,7 +85,7 @@ Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti 
 
 - Esplora server in Visual Studio: se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile usare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati di tabelle e BLOB di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- [Azure Storage Explorer di Neudesic](http://azurestorageexplorer.codeplex.com/) è un utile strumento di interfaccia utente grafica per esaminare e modificare i dati nei progetti di archiviazione di Azure, inclusi i log delle applicazioni Azure.
+- [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OSX e Linux.
 
 - [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) include Azure Diagnostics Manager che consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure.
 
@@ -94,4 +94,4 @@ Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti 
 
 [Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

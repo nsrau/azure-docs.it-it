@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Rete CDN: risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404"
+	pageTitle="Risoluzione dei problemi degli endpoint di rete CDN che restituiscono stati di tipo 404 | Microsoft Azure"
 	description="Risolvere i problemi relativi ai codici di risposta 404 con endpoint della rete CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404
@@ -67,7 +67,7 @@ Un altro elemento da controllare sono le porte **HTTP** e **HTTPS**. Nella maggi
 
 Si supponga tuttavia che l'URL per il file di origine testato in precedenza sia `http://www.contoso.com:8080/file.txt`. Si noti `:8080` alla fine del segmento del nome host. Indica al browser di usare la porta `8080` per connettersi al server Web `www.contoso.com`, quindi sarà necessario immettere 8080 nel campo **Porta HTTP**. È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
 
-> [AZURE.NOTE] Gli endpoint della **rete CDN di Azure fornita da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco di porte di origine non consentite, vedere l'articolo [Dettagli del comportamento della rete CND di Azure fornita da Akamai](cdn-akamai-behavior-details.md).
+> [AZURE.NOTE] Gli endpoint della **rete CDN di Azure fornita da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco delle porte di origine non consentite, vedere [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Porte di origine consentite in Rete CDN di Azure da Akamai).
   
 ### Controllare le impostazioni dell'endpoint
 
@@ -97,4 +97,4 @@ Ad esempio, nell'endpoint di esempio si vuole che tutte le risorse nell'account 
 
 Cosa accade se si vuole usare la rete CDN per ogni percorso nell'origine? Si supponga di voler esporre solo il percorso `publicblob`. Se si immette */publicblob* nel campo **Percorso dell'origine**, l'endpoint inserirà */publicblob* prima di ogni richiesta all'origine. Ciò significa che la richiesta per `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` richiederà in effetti la parte della richiesta dell'URL, `/publicblob/lorem.txt`, aggiungendo `/publicblob` all'inizio. Ciò comporta una richiesta per `/publicblob/publicblob/lorem.txt` dall'origine. Se tale percorso non viene risolto in un file effettivo, l'origine restituirà uno stato 404. L'URL corretto per recuperare lorem.txt in questo esempio sarà in effetti `https://cdndocdemo.azureedge.net/lorem.txt`. Si noti che non è incluso il percorso */publicblob*, perché la parte della richiesta dell'URL è `/lorem.txt` e l'endpoint aggiunge `/publicblob`, con il conseguente passaggio della richiesta `/publicblob/lorem.txt` all'origine.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

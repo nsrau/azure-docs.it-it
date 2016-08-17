@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gestire e monitorare le app per le API e i connettori nel servizio app | Microsoft Azure"
-	description="Visualizzare le prestazioni dei connettori e delle app per le API nel servizio app di Azure; architettura dei microservizi"
+	description="Visualizzare le prestazioni dei connettori e delle app per le API in App per la logica; architettura dei microservizi"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # Gestire e monitorare le app per le API e i connettori predefiniti
@@ -110,14 +110,14 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 - Selezionare **Definizione API** per aprire il file Swagger creato automaticamente per l'app per le API specifica.
 - Selezionare **Dipendenze** per visualizzare i file richiesti dall'app per le API. Se ad esempio si usa SAP Connector, vengono installati alcuni file aggiuntivi in Gestione connessioni ibride in locale. Queste dipendenze sono visualizzate nel pannello dell'app per le API.
 
-> [AZURE.IMPORTANT] Quando si visualizzano le proprietà dell'app per le API, in **Informazioni di base** sono presenti i collegamenti **Host** e **Gateway** che aprono nuovi pannelli:
+>[AZURE.IMPORTANT] Quando si visualizzano le proprietà dell'app per le API, in **Informazioni di base** sono presenti i collegamenti **Host** e **Gateway** che aprono nuovi pannelli:
 >
 > ![][host]
 >
-> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway.
+>Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. <br/><br/>
 
 
->[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a provare le app per la logica prima di iscriversi per ottenere un account Azure, vedere [Crea un'app del Servizio app di Azure](https://tryappservice.azure.com/?appservice=logic). È possibile creare un'app per la logica di base temporanea. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre informazioni
 
@@ -137,4 +137,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>  
 
 # Creare un peering reti virtuali usando il portale di Azure
 
@@ -77,57 +77,57 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 
 1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. In questo esempio si useranno due sottoscrizioni A e B e due utenti, utente A e utente B, con privilegi nelle rispettive sottoscrizioni.
-2. Nel portale fare clic su Esplora e scegliere Reti virtuali. Fare clic sulla rete virtuale e quindi su Aggiungi.
+3. Nel portale fare clic su Esplora e scegliere Reti virtuali. Fare clic sulla rete virtuale e quindi su Aggiungi.
 
     ![Scenario 2 Esplora](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. Nel pannello Aggiungi accesso fare clic per selezionare un ruolo e scegliere Collaboratore Rete. Fare clic su Aggiungi utenti, digitare il nome di accesso dell'utente B e fare clic su OK.
+4. Nel pannello Aggiungi accesso fare clic per selezionare un ruolo e scegliere Collaboratore Rete. Fare clic su Aggiungi utenti, digitare il nome di accesso dell'utente B e fare clic su OK.
 
     ![Controllo degli accessi in base al ruolo](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-   Questo non è un requisito, perché il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di utenti con privilegi dell'altra rete virtuale come utenti nella rete virtuale locale facilita la configurazione nel portale.
+    Questo non è un requisito, perché il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di utenti con privilegi dell'altra rete virtuale come utenti nella rete virtuale locale facilita la configurazione nel portale.
 
-4. Accedere quindi al portale di Azure come utente B, ovvero l'utente con privilegi per la sottoscrizione B. Seguire i passaggi precedenti per aggiungere l'utente A come Collaboratore Rete.
+5. Accedere quindi al portale di Azure come utente B, ovvero l'utente con privilegi per la sottoscrizione B. Seguire i passaggi precedenti per aggiungere l'utente A come Collaboratore Rete.
 
     ![Controllo degli accessi in base al ruolo 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    NOTA: è possibile disconnettersi e accedere a entrambe le sessioni utente nel browser per assicurarsi che l'autorizzazione sia abilitata correttamente.
+    NOTA: è possibile disconnettersi e accedere in entrambe le sessioni utente nel browser per assicurarsi che l'autorizzazione sia abilitata correttamente.
 
-5. Accedere al portale come utente A, passare al pannello VNET3, fare clic su Peer, selezionare la casella di controllo "Conosco l'ID della risorsa" e digitare l'ID della risorsa per VNET5 nel formato seguente.
+6. Accedere al portale come utente A, passare al pannello VNET3, fare clic su Peer, selezionare la casella di controllo "Conosco l'ID della risorsa" e digitare l'ID della risorsa per VNET5 nel formato seguente.
 
     /subscriptions/<ID sottoscrizione>/resourceGroups/<NomeGruppoRisorse>/providers/Microsoft.Network/VirtualNetwork/<Nome rete virtuale>
 
-    ![ID risorsa](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
+    ![ID risorsa](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)  
 
-6. Accedere al portale come utente B e seguire il passaggio precedente per creare il collegamento per il peering da VNET5 a VNet3.
+7. Accedere al portale come utente B e seguire il passaggio precedente per creare il collegamento per il peering da VNET5 a VNet3.
 
-    ![ID risorsa 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
+    ![ID risorsa 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)  
 
-7. Verrà stabilito il peering e tutte le macchine virtuali in VNet3 potranno comunicare con tutte le macchine virtuali in VNet5.
+8. Verrà stabilito il peering e tutte le macchine virtuali in VNet3 potranno comunicare con tutte le macchine virtuali in VNet5.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
 1. Come primo passaggio viene creato il collegamento per il peering reti virtuali da HubVnet a VNET1. Si noti che l'opzione Consenti traffico inoltrato non è selezionata per il collegamento.
 
-    ![Peering di base](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
+    ![Peering di base](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)  
 
 2. Come passaggio successivo è possibile creare collegamenti per il peering da VNET1 a HubVnet. Si noti che l'opzione "Consenti traffico inoltrato" è selezionata.
 
-    ![Peering di base](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
+    ![Peering di base](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)  
 
 3. Dopo aver stabilito il peering, è possibile vedere questo [articolo](virtual-network-create-udr-arm-ps.md) e creare route definite dall'utente per reindirizzare il traffico di VNet1 attraverso un'appliance virtuale per usarne le funzionalità. Quando si specifica l'indirizzo hop successivo nella route, è possibile impostarlo sull'indirizzo IP dell'appliance virtuale nella rete virtuale peer HubVNet.
 
 ## Rimuovere il peering reti virtuali
 
-1.	Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+1.	Da un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2.	Passare al pannello Reti virtuali, fare clic su Peer, fare clic sul collegamento da rimuovere e scegliere il pulsante Elimina.
 
-    ![Elimina1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
+    ![Elimina1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)  
 
 3. Dopo la rimozione di un collegamento nel peering reti virtuali, lo stato del collegamento peer sarà Disconnesso.
 
-    ![Elimina2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
+    ![Elimina2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)  
 
 4. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

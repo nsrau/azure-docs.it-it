@@ -1,7 +1,7 @@
 <properties
    pageTitle="Installazione di App per la logica nel gateway dati locale | Microsoft Azure"
    description="Informazioni su come installare il gateway dati locale per l'uso in un'app per la logica."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ I log di Gateway di gestione dati e PowerBIGateway sono reperibili in **Registri
 - [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 - [Connettori di App per la logica](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

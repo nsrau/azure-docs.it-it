@@ -36,8 +36,8 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 
 **Versioni del framework**. Impostare le opzioni seguenti se l'app usa uno dei seguenti framework:
 
-- **.NET Framework**: consente di impostare la versione di .NET Framework. 
-- **PHP**: impostare la versione PHP oppure scegliere **disattivato** per disabilitare PHP. 
+- **.NET Framework**: consente di impostare la versione di .NET Framework.
+- **PHP**: impostare la versione PHP oppure scegliere **disattivato** per disabilitare PHP.
 - **Java**: consente di selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
 - **Python**: consente di selezionare la versione Python oppure impostare **DISATTIVATO** per disabilitare Python.
 
@@ -61,7 +61,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 
 In questa sezione vengono riportate coppie di nome/valore che verranno caricate all'avvio dell'app.
 
-- Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
+- Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti.
 
 - Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING\_. Entrambe contengono lo stesso valore.
 
@@ -92,7 +92,7 @@ Usare quest'area per aggiungere processori script personalizzati allo scopo di g
 
 - **Estensione**. L'estensione file da gestire, ad esempio *.php o handler.fcgi.
 - **Percorso processore script**. Il percorso assoluto del processore script. Le richieste di file che corrispondono a questo modello saranno elaborate dal processore script. Utilizzare il percorso `D:\home\site\wwwroot` per fare riferimento alla directory radice della propria app.
-- **Argomenti aggiuntivi**. Argomenti facoltativi della riga dei comando per il processore script 
+- **Argomenti aggiuntivi**. Argomenti facoltativi della riga dei comando per il processore script
 
 
 ### Applicazioni e directory virtuali 
@@ -105,11 +105,11 @@ Per configurare applicazioni e directory virtuali, specificare ogni directory vi
 Per abilitare i log di diagnostica:
 
 1. Nel pannello dell'app Web, fare clic su **Tutte le impostazioni**.
-2. Fare clic su **Log diagnostici**. 
+2. Fare clic su **Log diagnostici**.
 
 Opzioni per la scrittura dei log di diagnostica da un'applicazione Web che supporta la registrazione:
 
-- **Registrazione applicazioni**. Consente di scrivere i log delle applicazioni nel file system. La registrazione ha una durata di 12 ore. 
+- **Registrazione applicazioni**. Consente di scrivere i log delle applicazioni nel file system. La registrazione ha una durata di 12 ore.
 
 **Livello**. Quando viene abilitata la registrazione, questa opzione consente di specificare la quantità di informazioni registrata (Errore, Avviso, Informazioni, Dettagliato).
 
@@ -148,8 +148,8 @@ Per visualizzare i nomi di dominio, fare clic su **Tutte le impostazioni** > **D
 
 ### Deployments
 
-- Configurare la distribuzione continua. Vedere [Uso di Git per distribuire app Web nel servizio app di Azure]
-- Slot di distribuzione. Vedere [Distribuire app Web negli ambienti di gestione temporanea nel servizio app di Azure].
+- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] \(Uso di Git per distribuire app Web nel servizio app di Azure)
+- Slot di distribuzione. Vedere [Configurare ambienti di staging per le app Web nel servizio app di Azure].
 
 Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni** > **Slot di distribuzione**.
 
@@ -173,7 +173,7 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./web-sites-custom-domain-name.md
-[Distribuire app Web negli ambienti di gestione temporanea nel servizio app di Azure]: ./web-sites-staged-publishing.md
+[Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
 [Abilitare HTTPS per un'app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
 [Procedura: monitorare lo stato degli endpoint]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
@@ -181,7 +181,6 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [Scalare un'app Web nel servizio app di Azure]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Uso di Git per distribuire app Web nel servizio app di Azure]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 
@@ -189,4 +188,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

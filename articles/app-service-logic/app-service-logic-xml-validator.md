@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso di BizTalk XML Validator nelle app per la logica in Servizio app di Azure | Microsoft Azure"
    description="Convalidare schemi usando BizTalk XML Validator in un'app per la logica"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -64,4 +64,4 @@ L'azione restituisce l'output sotto forma di oggetto. L'output contiene il model
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

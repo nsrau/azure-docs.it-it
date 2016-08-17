@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/19/2016"
+   ms.date="07/28/2016"
    ms.author="mcoskun"/>
 
 # Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
@@ -48,42 +48,28 @@ Attualmente **Microsoft.ServiceFabric.Data.Collections** include due raccolte:
 - [ReliableQueue](https://msdn.microsoft.com/library/azure/dn971527.aspx): rappresenta una coda FIFO (First-In First-Out) replicata, transazionale e asincrona. Simile a **ConcurrentQueue**, il valore può essere di qualsiasi tipo.
 
 ## Livelli di isolamento
-Il livello di isolamento è una misura del grado di isolamento raggiunto. Il termine isolamento indica che una transazione si comporta come se si trovasse in un sistema che consente l'esecuzione di una sola transazione in un determinato momento.
-
-Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica.
-
-Le raccolte Reliable Collections supportano due livelli di isolamento:
+Il livello di isolamento definisce il grado in cui la transazione deve essere isolata dalle modifiche apportate da altre transazioni. Le raccolte Reliable Collections supportano due livelli di isolamento:
 
 - **Repeatable Read**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per altre informazioni, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 - **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. È come se le istruzioni di una transazione ottenessero uno snapshot dei dati di cui è stato eseguito il commit così come si presentavano al momento dell'avvio della transazione. Gli snapshot tra le Reliable Collections sono coerenti. Per altre informazioni, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
-Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
+Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione. La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-### ReliableDictionary
-| Operazione\\Ruolo | Primario | Secondaria |
+| Operazione\\Ruolo | Primario | Secondario |
 | --------------------- | :--------------- | :--------------- |
 | Lettura di entità singola | Repeatable Read | Snapshot |
 | Enumerazione\\Conteggio | Snapshot | Snapshot |
 
-### ReliableQueue
-| Operazione\\Ruolo | Primario | Secondaria |
-| --------------------- | :--------------- | :--------------- |
-| Lettura di entità singola | Snapshot | Snapshot |
-| Enumerazione\\Conteggio | Snapshot | Snapshot |
+>[AZURE.NOTE] Alcuni esempi comuni per le operazioni sulla singola entità `IReliableDictionary.TryGetValueAsync` e `IReliableQueue.TryPeekAsync`.
 
-## Modello di persistenza
-Reliable State Manager e le raccolte Reliable Collections seguono un modello di persistenza basato su log e checkpoint. Si tratta di un modello in cui ogni modifica apportata allo stato viene registrata sul disco e applicata solo in memoria. Lo stesso stato completo viene reso persistente solo occasionalmente (noto anche come Checkpoint). Ecco il vantaggio che offre:
-
-- Per migliorare le prestazioni, le differenze vengono restituite in operazioni di scrittura sequenziali di solo accodamento sul disco.
-
-Per comprendere meglio il modello basato su log e checkpoint, considerare prima di tutto lo scenario con disco infinito. Reliable State Manager registra ogni operazione prima che venga replicata. Questo consente alla raccolta Reliable Collections di applicare l'operazione solo in memoria. Dal momento che i log sono persistenti, anche se la replica ha esito negativo e deve essere riavviata, Reliable State Manager dispone di informazioni sufficienti per riprodurre tutte le operazioni perse dalla replica. Poiché il disco è infinito, non è mai necessario rimuovere i record del log e Reliable Collections deve gestire solo lo stato in memoria.
-
-Si prenda ora in considerazione lo scenario con disco finito. A un certo punto, Reliable State Manager non avrà più spazio su disco a disposizione. Prima che questo accada, Reliable State Manager deve troncare il proprio log per fare spazio ai record più recenti. Richiederà quindi alle Reliable Collections di inserire un checkpoint del proprio stato in memoria sul disco. È responsabilità delle raccolte Reliable Collections rendere persistente il proprio stato fino a tale punto. Dopo che le raccolte Reliable Collections hanno completato i propri checkpoint, Reliable State Manager può troncare il log per liberare spazio su disco. In questo modo, quando è necessario riavviare la replica, le raccolte Reliable Collections ripristineranno il proprio stato in corrispondenza del checkpoint e Reliable State Manager ripristinerà e riprodurrà tutte le modifiche apportate allo stato a partire dal checkpoint.
+Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
 ## Blocco
 Nelle raccolte Reliable Collections tutte le transazioni si articolano in due fasi: una transazione non rilascia i blocchi acquisiti fino a quando non termina con un'interruzione o un commit.
 
-Le raccolte Reliable Collections acquisiscono sempre blocchi esclusivi. Per le operazioni di lettura, il blocco dipende da due fattori. Le operazioni di lettura eseguite con Shapshot Isolation sono prive di blocchi. Per impostazione predefinita, ogni operazione di lettura ripetibile acquisisce blocchi condivisi. Tuttavia, per ogni operazione di lettura che supporta Repeatable Read, l'utente può chiedere un blocco di aggiornamento al posto del blocco condiviso. Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma comune di deadlock che si verifica quando più transazioni bloccano le risorse per un potenziale aggiornamento in un secondo momento.
+L'operazione Reliable Dictionary usa il blocco a livello di riga per tutte le operazioni sulla singola entità. L'operazione Reliable Queue bilancia la concorrenza per la proprietà FIFO transazionale rigorosa. Reliable Queue usa i blocchi a livello di operazione che consentono una transazione con `TryPeekAsync` e/o `TryDequeueAsync` e una transazione con `EnqueueAsync` alla volta. Si noti che per mantenere il modello FIFO, se `TryPeekAsync` o `TryDequeueAsync` rileva che la coda affidabile è vuota, bloccherà anche `EnqueueAsync`.
+
+Le operazioni di scrittura acquisiscono sempre blocchi esclusivi. Per le operazioni di lettura, il blocco dipende da due fattori. Le operazioni di lettura eseguite con Shapshot Isolation sono prive di blocchi. Per impostazione predefinita, ogni operazione di lettura ripetibile acquisisce blocchi condivisi. Tuttavia, per ogni operazione di lettura che supporta Repeatable Read, l'utente può chiedere un blocco di aggiornamento al posto del blocco condiviso. Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma comune di deadlock che si verifica quando più transazioni bloccano le risorse per un potenziale aggiornamento in un secondo momento.
 
 La matrice di compatibilità dei blocchi è disponibile di seguito:
 
@@ -97,16 +83,27 @@ Si noti che un argomento timeout delle API Reliable Collections viene usato per 
 
 Lo scenario di deadlock sopra descritto è un perfetto esempio di come il blocco di aggiornamento possa impedire i deadlock.
 
-## Recommendations
+## Modello di persistenza
+Reliable State Manager e le raccolte Reliable Collections seguono un modello di persistenza basato su log e checkpoint. Si tratta di un modello in cui ogni modifica apportata allo stato viene registrata sul disco e applicata solo in memoria. Lo stesso stato completo viene reso persistente solo occasionalmente (noto anche come Checkpoint). Il vantaggio è che per migliorare le prestazioni, le differenze vengono restituite in operazioni di scrittura sequenziali di solo accodamento sul disco.
 
-- Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetValueAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
+Per comprendere meglio il modello basato su log e checkpoint, considerare prima di tutto lo scenario con disco infinito. Reliable State Manager registra ogni operazione prima che venga replicata. Questo consente alla raccolta Reliable Collections di applicare l'operazione solo in memoria. Dal momento che i log sono persistenti, anche se la replica ha esito negativo e deve essere riavviata, Reliable State Manager dispone di informazioni sufficienti per riprodurre tutte le operazioni perse dalla replica. Poiché il disco è infinito, non è mai necessario rimuovere i record del log e Reliable Collections deve gestire solo lo stato in memoria.
+
+Si prenda ora in considerazione lo scenario con disco finito. Mano a mano che si accumulano i record di log, Reliable State Manager non avrà più spazio su disco a disposizione. Prima che questo accada, Reliable State Manager deve troncare il proprio log per fare spazio ai record più recenti. Richiederà quindi alle Reliable Collections di inserire un checkpoint del proprio stato in memoria sul disco. È responsabilità delle raccolte Reliable Collections rendere persistente il proprio stato fino a tale punto. Dopo che le raccolte Reliable Collections hanno completato i propri checkpoint, Reliable State Manager può troncare il log per liberare spazio su disco. In questo modo, quando è necessario riavviare la replica, le raccolte Reliable Collections ripristineranno il proprio stato in corrispondenza del checkpoint e Reliable State Manager ripristinerà e riprodurrà tutte le modifiche apportate allo stato a partire dal checkpoint.
+
+>[AZURE.NOTE] L'aggiunta di un altro valore di checkpoint migliora le prestazioni del ripristino nella maggior parte dei casi. Questo avviene perché i checkpoint contengono solo le versioni più recenti.
+
+## Indicazioni
+
+- Non modificare un oggetto di tipo personalizzato restituito dalle operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetValueAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
 - Eseguire una copia completa dell'oggetto di tipo personalizzato restituito prima di modificarlo. Poiché le strutture e i tipi predefiniti vengono passati per valore, non è necessario eseguirne una copia completa.
 - Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
 - Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
-- Gli enumeratori costruiti all'interno dell'ambito di una transazione non devono essere usati al di fuori dell'ambito della transazione.
+- Non usare un'enumerazione all'esterno dell'ambito di transazione in che è stata creata.
 - Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
 - Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze sull'implementazione per l'unione dei checkpoint.
+- Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 - Per il ripristino di emergenza, è consigliabile usare la funzionalità di backup e ripristino.
+- Evitare di combinare le operazioni di singola entità e a più entità, ad esempio `GetCountAsync`, `CreateEnumerableAsync`, nella stessa transazione a causa dei diversi livelli di isolamento.
 
 Occorre tenere presente i concetti seguenti:
 
@@ -119,6 +116,7 @@ Occorre tenere presente i concetti seguenti:
 ## Passaggi successivi
 
 - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+- [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
 - [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
 - [Eseguire il backup e il ripristino di Reliable Services (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
 - [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
@@ -126,4 +124,4 @@ Occorre tenere presente i concetti seguenti:
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

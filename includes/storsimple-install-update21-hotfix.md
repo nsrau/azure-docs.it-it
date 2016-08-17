@@ -60,7 +60,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
 
 6. Digitare **Y** quando viene richiesto di confermare l'installazione dell'hotfix.
 
-> [AZURE.IMPORTANT] Se si installa l'aggiornamento 2.2, installare solo il file binario preceduto da "all-hcsmdssoftwareudpate". Non installare gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da all-cismdsagentupdatebundle. In caso contrario, verrà generato un errore.
+	> [AZURE.IMPORTANT] Se si installa l'aggiornamento 2.2, installare solo il file binario preceduto da "all-hcsmdssoftwareudpate". Non installare gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da all-cismdsagentupdatebundle. In caso contrario, verrà generato un errore.
 
 7. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus`. L'aggiornamento verrà innanzitutto completato sul controller passivo. Dopo aver aggiornato il controller passivo, si verificherà un failover e l'aggiornamento verrà quindi applicato all'altro controller. L'aggiornamento è completato quando entrambi i controller vengono aggiornati.
 
@@ -102,13 +102,13 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     - `MdsAgentVersion: 30.0.4698.16`
 
 	Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
+	
+	> [AZURE.IMPORTANT] È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti.
 
 9. Ripetere i passaggi da 3 a 5 per installare il resto degli aggiornamenti rapidi in modalità normale.
 
-	> [AZURE.IMPORTANT] È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti.
-	
-	
 	- L'aggiornamento di iSCSI KB3146621
+	
 	- L'aggiornamento WMI KB3103616
 	
 
@@ -241,4 +241,4 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
 
 1. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Sul portale potrebbe non essere visualizzata l’installazione degli aggiornamenti di modalità manutenzione per 24 ore.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

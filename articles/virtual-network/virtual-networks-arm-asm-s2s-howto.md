@@ -40,7 +40,7 @@ Per creare il gateway VPN per la rete virtuale classica, seguire le istruzioni r
 1. Aprire il portale classico da https://manage.windowsazure.com e immettere le credenziali, se necessario.
 2. Nell'angolo in basso a sinistra della schermata, fare clic sul pulsante **NUOVO**, su **SERVIZI DI RETE**, su **RETI VIRTUALI**, quindi su **AGGIUNGI RETE LOCALE**.
 3. Nella finestra **Specifica i dettagli della rete locale**, digitare un nome per la rete virtuale di Gestione risorse di Azure a cui si desidera effettuare la connessione, quindi nell'angolo in basso a destra della finestra, fare clic sul pulsante con la freccia.
-3. Nella casella di testo dello spazio degli indirizzi **IP INIZIALE**, digitare il prefisso di rete per la rete virtuale di Gestione risorse di Azure a cui si desidera effettuare la connessione. 
+3. Nella casella di testo dello spazio degli indirizzi **IP INIZIALE**, digitare il prefisso di rete per la rete virtuale di Gestione risorse di Azure a cui si desidera effettuare la connessione.
 4. Nell'elenco a discesa **CIDR (CONTEGGIO INDIRIZZI)**, selezionare il numero di bit utilizzati per la porzione di rete del blocco CIDR usato dalla rete virtuale di Gestione risorse di Azure a cui si desidera effettuare la connessione.
 5. In **INDIRIZZO IP DISPOSITIVI VPN (FACOLTATIVO)**, digitare qualsiasi indirizzo IP pubblico valido. Questo indirizzo IP verrà modificato in un secondo momento. Quindi fare clic sul pulsante con il segno di spunta in basso a destra della schermata. Nella figura seguente vengono illustrate le impostazioni di esempio per questa pagina.
 
@@ -64,7 +64,7 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 
 3. Creare un indirizzo IP pubblico del gateway utilizzando il comando riportato di seguito.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 
 5. Creare un oggetto di configurazione IP per il gateway eseguendo il comando riportato di seguito. La subnet del gateway richiede un ID. Tale subnet deve esistere nella rete virtuale.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] I parametri *SubnetId* e *PublicIpAddressId* devono ricevere rispettivamente la proprietà ID dalla subnet e gli oggetti degli indirizzi IP. Non è possibile utilizzare una stringa semplice.
 	
 5. Creare il gateway della rete virtuale di Gestione risorse di Azure utilizzando il comando riportato di seguito.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Una volta creato il gateway VPN, recuperare il relativo indirizzo IP pubblico utilizzando il comando riportato di seguito. Copiare l'indirizzo IP, sarà necessario configurare la rete locale per la rete virtuale classica.
@@ -118,4 +119,4 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 - Leggere ulteriori informazioni su [NRP (Network Resource Provider) per Gestione risorse di Azure](resource-groups-networking.md).
 - Creare una [soluzione end-to-end che connette una rete virtuale classica a una rete virtuale di Gestione risorse di Azure utilizzando una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

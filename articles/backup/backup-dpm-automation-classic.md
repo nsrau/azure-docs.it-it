@@ -3,8 +3,8 @@
 	description="Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="jwhit"
+	authors="Nkolli1"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="jimpark; aashishr; anuragm"/>
+	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
 # Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
@@ -340,4 +340,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 - Per altre informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Analizzare i modelli di utilizzo della rete CDN"
+	pageTitle="Analizzare i modelli di utilizzo della rete CDN di Azure | Microsoft Azure"
 	description="È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report: larghezza di banda, dati trasferiti, riscontri, stati della Cache, percentuale riscontri Cache, dati trasferiti IPV4/IPV6."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Analizzare i modelli di utilizzo della rete CDN
+# Analizzare i modelli di utilizzo della rete CDN di Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@
 - Stati della cache
 - Percentuale riscontri cache
 - Dati trasferiti IPv4/IPV6
+
+## Accesso ai report HTTP avanzati
+
+1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci**.
+
+	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-reports/cdn-manage-btn.png)
+
+	Si aprirà il portale di gestione della rete CDN.
+
+2. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Core Reports** (Report di base). Fare clic sul report desiderato nel menu.
+
+	![Portale di gestione della rete CDN, menu Core Reports (Report di base)](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## Larghezza di banda
 
@@ -122,7 +135,7 @@ Il report non include:
 - Richieste di asset le cui intestazioni indicano che non devono essere memorizzate nella cache. Ad esempio, le intestazioni Cache-Control: private, Cache-Control: no-cache o Pragma: no-cache impediscono la memorizzazione nella cache di un asset.
 - Richieste di intervallo di byte di contenuti parzialmente memorizzati nella cache.
 
-La formula è: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
+La formula è: (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100
 
 - Selezionare l'intervallo di date per visualizzare i dati di oggi/questa settimana/questo mese e così via, oppure immettere date personalizzate, quindi scegliere "Vai" per assicurarsi che la selezione venga aggiornata.
 - È possibile esportare e scaricare i dati facendo clic sull'icona del foglio di excel che si trova accanto a "Vai".
@@ -144,4 +157,4 @@ Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV
 
 I report possono essere generati solo negli ultimi 18 mesi.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

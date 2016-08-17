@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
+
+> [AZURE.NOTE] Questo white paper è stato aggiornato l'ultima volta nel 2015 e non è ancora stato modificato per prendere in considerazione aggiornamenti apportati a DocumentDB, ad esempio [distribuzione globale dei dati](documentdb-distribute-data-globally.md) e [raccolte partizionate](documentdb-partition-data.md). Per un'introduzione attuale a DocumentDB, vedere [Introduzione a DocumentDB: un Database NoSQL JSON](documentdb-introduction.md).
 
 Non sono sicuro se DocumentDB è adatto per l'applicazione o i dati? Informazioni sulle modalità di archiviazione e accesso dei dati JSON ad Azure DocumentDB. In tal caso, questo white paper introduttivo di David Chappell è un buon punto di partenza. Viene illustrato come è possibile usufruire della massima flessibilità che forniscono i dati JSON senza schema, consentendo di gestire facilmente le modifiche alla struttura di dati.
 
@@ -31,4 +33,4 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 **Download PDF:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

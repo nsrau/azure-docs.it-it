@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare e gestire database SQL di Azure con scalabilità orizzontale | Micosoft Azure"
+	pageTitle="Creare e gestire database SQL di Azure con scalabilità orizzontale tramite processi elastici (anteprima) | Micosoft Azure"
 	description="Informazioni sulla gestione e la creazione di un processo elastico di database."
 	services="sql-database"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/27/2016"
 	ms.author="ddove"/>
 
-# Creare e gestire database SQL di Azure con scalabilità orizzontale (anteprima)
+# Creare e gestire database SQL di Azure con scalabilità orizzontale tramite processi elastici (anteprima)
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

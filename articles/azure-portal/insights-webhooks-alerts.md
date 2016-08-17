@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Come configurare gli avvisi di Azure per l'invio ad altri sistemi"
+	pageTitle="Come configurare gli avvisi di Azure per l'invio ad altri sistemi | Microsoft Azure"
 	description="Reindirizzare gli avvisi di Azure ad altri sistemi non Azure"
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,8 +33,8 @@ Nella schermata Creazione/aggiornamento avvisi nel [portale di Azure](https://po
 
 L'autenticazione può essere di due tipi:
 
-1. **Autenticazione basata su token**: in questo caso l'URI del webhook verrà salvato con un ID token, ad esempio **https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
-2.	**Autenticazione di base** (uso di ID utente e password): in questo caso l'URI del webhook verrà salvato come **https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
+1. **Autenticazione basata su token**: in questo caso l'URI del webhook verrà salvato con un ID token, ad esempio *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
+2.	**Autenticazione di base** (uso di ID utente e password): in questo caso l'URI del webhook verrà salvato come *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
 
 ## Schema del payload
 
@@ -100,7 +100,7 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
 |resourceId |S | |URI dell'ID risorsa che identifica in modo univoco la risorsa|
 |resourceRegion |S | |Area/posizione della risorsa interessata|
 |portalLink |S | |Collegamento diretto al portale di Azure per la pagina di riepilogo delle risorse|
-|properties |N |Facoltativo |È un set di coppie <Key  Value> (ad esempio, Dictionary<String  String>) contenente i dettagli relativi all'evento. Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, gli utenti possono immettere una coppia chiave/valori che può essere passata tramite il payload. Il metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query)|
+|properties |N |Facoltativo |È un set di coppie <Key, Value>, ad esempio Dictionary<String, String>, contenente i dettagli relativi all'evento. Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, gli utenti possono immettere una coppia chiave/valori che può essere passata tramite il payload. Il metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query)|
 
 
 >[AZURE.NOTE] Non è possibile usare il campo properties tramite il portale. Nella prossima versione di Insights SDK sarà possibile impostare le proprietà tramite l'API degli avvisi.
@@ -123,4 +123,4 @@ Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguent
 
 [Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

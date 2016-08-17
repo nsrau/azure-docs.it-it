@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Programma MVP per la sicurezza di Azure
@@ -28,4 +28,4 @@ Anche se non ci sono requisiti particolari per diventare MVP, anche perché dipe
 
 Si è esperti della sicurezza di Azure? Si conosce qualcuno che lo sia? È possibile [nominare se stessi o qualcun altro](https://mvp.microsoft.com/Nomination/nominate-an-mvp) per diventare MVP della sicurezza di Azure oggi stesso.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

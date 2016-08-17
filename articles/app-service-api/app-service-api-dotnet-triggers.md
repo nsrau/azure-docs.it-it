@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Trigger delle app per le API del servizio app | Microsoft Azure" 
 	description="Come implementare i trigger in un'app per le API in Servizio app di Azure." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
@@ -342,4 +342,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

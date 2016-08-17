@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2016"
+   ms.date="08/02/2016"
    ms.author="alkohli" />
 
 # Installare l'aggiornamento 2.2 nel dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Questa esercitazione illustra come installare l'aggiornamento 2.2 in un dispositivo StorSimple dove è in esecuzione una versione precedente del software tramite il portale di Azure classico e usando il metodo hotfix. Il metodo hotfix è usato quando viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
 
-L'aggiornamento 2.2 comprende gli aggiornamento del software del dispositivo, iSCSI e WMI. Se si esegue l'aggiornamento da una versione precedente all'aggiornamento 2, è necessario anche applicare driver LSI, Spaceport, Storport e gli aggiornamenti firmware del disco. Gli aggiornamenti del software del dispositivo, WMI, iSCSI, del driver LSI, Spaceport, e le correzioni Storport non sono problematici e possono essere applicati tramite il portale di Azure classico. Gli aggiornamenti del firmware del disco sono problematici e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
+L'aggiornamento 2.2 comprende gli aggiornamento del software del dispositivo, iSCSI e WMI. Se si esegue l'aggiornamento dalla versione 2.1, dovrà essere applicato solo l'aggiornamento del software del dispositivo. Se si esegue l'aggiornamento da una versione precedente all'aggiornamento 2, è necessario anche applicare driver LSI, Spaceport, Storport e gli aggiornamenti firmware del disco. Gli aggiornamenti del software del dispositivo, WMI, iSCSI, del driver LSI, Spaceport, e le correzioni Storport non sono problematici e possono essere applicati tramite il portale di Azure classico. Gli aggiornamenti del firmware del disco sono problematici e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
 
 > [AZURE.IMPORTANT]
 
@@ -63,7 +63,7 @@ Le versioni software che possono essere aggiornate usando il metodo hotfix sono:
 
 - Aggiornamento 0.1, 0.2, 0.3
 - Aggiornamento 1, 1.1, 1.2
-- Aggiornamento 2. 2.1
+- Aggiornamento 2, 2.1
 
 > [AZURE.IMPORTANT]
 >
@@ -77,7 +77,7 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 #### Scaricare gli aggiornamenti per un dispositivo che esegue il software di aggiornamento 2.1
 
-**Se il dispositivo esegue l'aggiornamento 2.1**, è necessario scaricare solo l'aggiornamento del software KB3179904. Installare solo il file binario preceduto da "all-hcsmdssoftwareudpate". Non installare gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da `all-cismdsagentupdatebundle`. In caso contrario, verrà generato un errore.
+**Se il dispositivo esegue l'aggiornamento 2.1**, è necessario scaricare solo l'aggiornamento del software KB3179904. Installare solo il file binario preceduto da "all-hcsmdssoftwareudpate". Non installare gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da `all-cismdsagentupdatebundle`. In caso contrario, verrà generato un errore. Questo aggiornamento non provoca interruzioni: l'I/O non verrà interrotto e il dispositivo non andrà incontro ad alcun tempo di inattività.
 
 
 #### Scaricare gli aggiornamenti per un dispositivo che esegue il software di aggiornamento 2
@@ -86,9 +86,9 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3179904 | Aggiornamento software &#42; | Normale | ~ 45 min. |
-| 2\. | KB3146621 | Pacchetto iSCSI | Normale | ~ 20 min. |
-| 3\. | KB3103616 | Pacchetto WMI | Normale | ~ 12 min. |
+| 1\. | KB3179904 | Aggiornamento software &#42; | Regolare <br></br>Senza interruzioni | ~ 45 min. |
+| 2\. | KB3146621 | Pacchetto iSCSI | Regolare <br></br>Senza interruzioni | ~ 20 min. |
+| 3\. | KB3103616 | Pacchetto WMI | Regolare <br></br>Senza interruzioni | ~ 12 min. |
 
 
  & #42; *Tenere presente che l'aggiornamento del software è costituito da due file binari: l'aggiornamento del software del dispositivo preceduto da `all-hcsmdssoftwareupdate` e gli elementi di configurazione e l'aggiornamento dell'agente MDS preceduti da `all-cismdsagentupdatebundle`. L'aggiornamento del software del dispositivo deve essere installato prima degli elementi di configurazione e dell'agente MDS. È inoltre necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` dopo aver applicato l'aggiornamento dell'agente Cis e Mds (e prima di applicare i restanti aggiornamenti).*
@@ -99,15 +99,15 @@ Il metodo hotfix prevede i tre passaggi seguenti:
  
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4\. | KB3121900 | Driver e firmware LSI | Normale | ~ 20 min. |
+| 4\. | KB3121900 | Driver e firmware LSI | Regolare <br></br>Senza interruzioni | ~ 20 min. |
 
 
 <br></br> **Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0, 1.1 e 1.2**, è necessario scaricare e installare Spaceport e la correzione Storport. Sono già installati se si sta eseguendo l'aggiornamento o 2.
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5\. | KB3090322 | Correzione Spaceport </br> Windows Server 2012 R2 | Normale | ~ 20 min. |
-| 6\. | KB3080728 | Correzione Storport </br> Windows Server 2012 R2 | Normale | ~ 20 min. |
+| 5\. | KB3090322 | Correzione Spaceport </br> Windows Server 2012 R2 | Regolare <br></br>Senza interruzioni | ~ 20 min. |
+| 6\. | KB3080728 | Correzione Storport </br> Windows Server 2012 R2 | Regolare <br></br>Senza interruzioni | ~ 20 min. |
 
 
 
@@ -116,7 +116,7 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7\. | KB3121899 | Firmware del disco | Manutenzione | ~ 30 min. |
+| 7\. | KB3121899 | Firmware del disco | Manutenzione <br></br>Con interruzioni | ~ 30 min. |
  
 <br></br>
 
@@ -134,6 +134,6 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 ## Passaggi successivi
 
-Altre informazioni sulla [versione dell'aggiornamento 2.1](storsimple-update21-release-notes.md)
+Altre informazioni sulla [versione dell'aggiornamento 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="Database SQL di Microsoft Azure, migrazione del database, importazione del database, importazione del file BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@ Eseguire i passaggi seguenti in modo da usare l'utilità della riga di comando [
 1. Aprire un prompt dei comandi e passare a una directory contenente l'utilità da riga di comando sqlpackage.exe, disponibile in Visual Studio e SQL Server.
 2. Eseguire il comando sqlpackage.exe riportato di seguito con gli argomenti seguenti per l'ambiente:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:< server\_name > /tdn:< database\_name > /tu:< user\_name > /tp:< password > /sf:< source\_file >
 
 	| Argomento | Descrizione |
 	|---|---|
-	| < server_name > | nome server di destinazione |
-	| < database_name > | nome database di destinazione |
-	| < user_name > | nome utente nel server di destinazione |
+	| < server\_name > | nome server di destinazione |
+	| < database\_name > | nome database di destinazione |
+	| < user\_name > | nome utente nel server di destinazione |
 	| < password > | password utente |
-	| < source_file > | nome e percorso del file BACPAC importato |
+	| < source\_file > | nome e percorso del file BACPAC importato |
 
 	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -57,7 +57,7 @@ Eseguire i passaggi seguenti in modo da usare l'utilità della riga di comando [
 ## Risorse aggiuntive
 
 - [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)
+- [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

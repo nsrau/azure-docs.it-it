@@ -219,10 +219,8 @@ Per rimuovere un proprietario da un gruppo, usare Remove-AzureADGroupOwner:
 
 Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-Altre istruzioni del responsabile del programma Microsoft Rob de Jong sono disponibili sul [blog dedicato ai gruppi](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad) di Rob.
-
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

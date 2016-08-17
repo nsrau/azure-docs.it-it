@@ -33,7 +33,7 @@ Questo articolo elenca i codici di errore di SQL per le applicazioni client del 
 
 ## Errori di connessione del database, guasti e altri errori temporanei
 
-La tabella seguente illustra i codici di errore SQL per errori di perdita della connessione e altri errori temporanei che possono verificarsi quando l'applicazione tenta di accedere al database SQL.
+La tabella seguente illustra i codici di errore SQL per errori di perdita della connessione e altri errori temporanei che possono verificarsi quando l'applicazione tenta di accedere al database SQL. Per esercitazioni introduttive sulla connessione al database SQL di Azure, vedere [Connessione del database SQL di Azure](sql-database-libraries.md).
 
 ### Errori di connessione del database ed errori temporanei più comuni
 
@@ -95,9 +95,7 @@ Durante la copia di un database nel database SQL di Azure, possono essere rileva
 
 ## Errori di governance delle risorse
 
-
 I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utilizzo del database SQL di Azure, ad esempio:
-
 
 - La transazione è rimasta aperta troppo a lungo.
 - La transazione contiene troppi blocchi.
@@ -149,15 +147,13 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'utilizzo di poo
 Argomenti correlati:
 
 * [Creare un pool di database elastici (C#)](sql-database-elastic-pool-create-csharp.md)
-* [Gestire un pool di database elastici (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Gestire un pool di database elastici (C#)](sql-database-elastic-pool-manage-csharp.md).
 * [Creare un pool di database elastici (PowerShell)](sql-database-elastic-pool-create-powershell.md)
-* [Monitorare e gestire un pool di database elastici (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+* [Monitorare e gestire un pool di database elastici (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## Errori generali
 
-
 I seguenti errori non rientrano nelle categorie precedenti.
-
 
 |Codice di errore|Gravità|Descrizione|
 |---:|---:|:---|
@@ -226,10 +222,9 @@ I seguenti errori non rientrano nelle categorie precedenti.
 |45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare.|
 |45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare.|
 
-
 ## Collegamenti correlati
 
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

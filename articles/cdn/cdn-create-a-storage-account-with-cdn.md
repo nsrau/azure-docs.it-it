@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Come utilizzare la rete CDN | Microsoft Azure"
-	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico."
+	pageTitle="Integrare un account di archiviazione con la rete CDN | Microsoft Azure"
+	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di BLOB da Archiviazione di Azure."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -33,13 +33,13 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 **Per creare un account di archiviazione per una sottoscrizione di Azure**
 
 1.  Accedere al [portale di Azure](https://portal.azure.com).
-2.  Nell'angolo in alto a sinistra della schermata fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo** selezionare **Dati + Archiviazione**, quindi fare clic su **Account di archiviazione**. Lasciare selezionata l’opzione **Classico** come modello di distribuzione, quindi fare clic su **Crea**.
+2.  Nell'angolo in alto a sinistra della schermata fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo** selezionare **Dati + Archiviazione**, quindi fare clic su **Account di archiviazione**.
 
-    Appare il pannello **Account di archiviazione**.
+    Viene visualizzato il pannello **Crea account di archiviazione**.
 
     ![Create Storage Account][create-new-storage-account]
 
-4. Nel campo **Archiviazione**, immettere un nome di sottodominio. Il nome può contenere tra 3 e 24 lettere minuscole e numeri.
+4. Nel campo **Nome** digitare il nome di un sottodominio. Il nome può contenere tra 3 e 24 lettere minuscole e numeri.
 
     Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione. Per fare riferimento a una risorsa contenitore nel servizio BLOB, usare un URI con il formato seguente, dove *&lt;StorageAccountLabel&gt;* corrisponde al valore immesso in **Immettere un URL**:
 
@@ -49,15 +49,15 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 	Questo valore viene usato anche come nome dell'account di archiviazione nel portale o quando si accede a questo account a livello di codice.
 
-5.  Selezionare un **Piano tariffario** oppure usare il valore predefinito. Per altre informazioni sui piani tariffari, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+5. Lasciare le impostazioni predefinite per **Modello di distribuzione**, **Tipologia account**, **Prestazioni** e **Replica**.
 
-6.  Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
+6. Selezionare la **Sottoscrizione** con cui verrà usato l'account di archiviazione.
 
-7. Selezionare la **Sottoscrizione** con cui verrà usato l'account di archiviazione.
+7. Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
 
-8.  Fare clic su **Crea**. Il completamento del processo di creazione dell'account di archiviazione potrebbe richiedere diversi minuti.
+8. Selezionare la località per l'account di archiviazione.
 
-9.  Per verificare che l'account di archiviazione sia stato creato correttamente, assicurarsi che l'account sia incluso negli elementi elencati per **Archiviazione** con stato **Online**.
+8. Fare clic su **Crea**. Il completamento del processo di creazione dell'account di archiviazione potrebbe richiedere diversi minuti.
 
 
 ## Passaggio 2: Creare un nuovo profilo di rete CDN
@@ -135,4 +135,4 @@ Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

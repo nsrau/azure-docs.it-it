@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure
 
@@ -131,4 +131,4 @@ Quando si crea un piano di disponibilità e ripristino di emergenza dell'applica
 
 Questo articolo fa parte di una serie dedicata a ripristino di emergenza e disponibilità elevata per le applicazioni Azure. L'articolo successivo della serie riguarda [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

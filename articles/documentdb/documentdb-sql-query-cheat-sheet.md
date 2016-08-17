@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# Foglio informativo PDF di SQL DocumentDB
+# Foglio informativo PDF sulle query SQL di DocumentDB
 
 Il **Foglio informativo sulle query SQL di DocumentDB** consente di scrivere rapidamente query per i dati di DocumentDB tramite la visualizzazione di query del database, parole chiave, funzioni integrate e operatori comuni in un foglio di riferimento PDF facile stampare.
 
@@ -31,7 +31,7 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 
 ![Foglio informativo sulle query SQL di DocumentDB: un riferimento rapido PDF per la sintassi SQL supportata da DocumentDB - foglio informativo SQL, foglio informativo SQL PDF, riferimento rapido SQL][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## Ulteriore assistenza nella scrittura di query SQL
@@ -39,4 +39,8 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 - Per un esplorare le opzioni delle query disponibili in DocumentDB, vedere [Query di DocumentDB](documentdb-sql-query.md).
 - Per la documentazione di riferimento correlata, vedere [Linguaggio delle query SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+## Note sulla versione
+
+Aggiornata il 29/7/2016 per includere TOP.
+
+<!---HONumber=AcomDC_0803_2016-->

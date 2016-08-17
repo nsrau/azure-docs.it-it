@@ -67,7 +67,6 @@ Fare clic sulla scheda **CONFIGURE**.
 Dalla scheda di configurazione è possibile:
 
 - Sospendere l'accesso all'area di lavoro di Machine Learning facendo clic su DENY. Gli utenti non saranno più in grado di aprire l'area di lavoro in Machine Learning Studio. Per ripristinare l'accesso, fare clic su ALLOW.
-- Modificare il proprietario dell'area di lavoro specificando un account Microsoft diverso.
 
 Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine Learning Studio, fare clic su **Accesso a ML Studio** nella scheda **DASHBOARD** (vedere la nota sopra relativa a **Accesso a ML Studio**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
 
@@ -97,4 +96,4 @@ Fare clic sulla scheda **CONFIGURA** per modificare la descrizione, controllare 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

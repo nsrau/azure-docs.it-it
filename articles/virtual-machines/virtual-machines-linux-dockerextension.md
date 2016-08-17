@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Informazioni sull'estensione di VM Docker in Azure | Microsoft Azure"
+   pageTitle="Informazioni sull'estensione VM Docker in Azure | Microsoft Azure"
    description="Informazioni su come usare l'estensione di VM Docker per distribuire in modo rapido e sicuro un ambiente di Docker in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -20,18 +20,18 @@
 
 Docker è una nota piattaforma di creazione dell'immagine e gestione di contenitori che consente di lavorare rapidamente con contenitori in Linux (e anche Windows). Con Azure, è possibile distribuire Docker in alcuni modi diversi a seconda delle esigenze:
 
-- Per creare rapidamente il prototipo di un'app o se già si conosce e si usa Docker Machine, è possibile [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md) per distribuire host Docker in Azure.
-- Per una distribuzione del modello di base, è possibile usare l'estensione della VM Docker per le macchine virtuali di Azure. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso di base di ruolo, diagnostica e configurazione post-distribuzione.
-- L'estensione della VM Docker supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.
-- È anche possibile [distribuire un cluster Docker Swarm completo in servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che sfruttano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
+- Per creare rapidamente il prototipo di un'app, è possibile [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md) per distribuire host Docker in Azure.
+- L'estensione della VM Docker per le macchine virtuali di Azure è usata per le distribuzioni conformi al modello di base. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso di base di ruolo, diagnostica e configurazione post-distribuzione.
+- L'estensione della VM Docker supporta anche Docker Compose. Docker Compose usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.
+- È anche possibile [distribuire un cluster Docker Swarm completo in servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che usano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
 
 Questo articolo illustra l'uso di modelli di Resource Manager per distribuire l'estensione di VM Docker in un ambiente personalizzato, di produzione, definito dall'utente.
 
 ## Estensione di VM Docker di Azure per distribuzioni di modelli
 
-L'estensione della VM Docker per Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale Linux. È anche possibile usare l'estensione per definire e distribuire applicazioni contenitore con Docker Compose. Tramite modelli di Resource Manager, l'ambiente può quindi essere nuovamente distribuito in modo coerente. L'uso dell'estensione della VM Docker per Azure è ideale per ambienti di sviluppo o produzione più affidabili, dal momento che prevede alcuni controlli aggiuntivi rispetto al semplice uso di Docker Machine o alla creazione manuale dell'host Docker.
+L'estensione della VM Docker per Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale Linux. L'estensione viene anche usata per definire e distribuire applicazioni contenitore con Docker Compose. Dal momento che prevede controlli aggiuntivi rispetto all'uso di Docker Machine o alla creazione manuale dell'host Docker, è ideale per ambienti di sviluppo o produzione più affidabili.
 
-Con Azure Resource Manager è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente, ad esempio gli host Docker, l'archiviazione, i controlli degli accessi basati sui ruoli (RBAC), la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Il vantaggio dell'uso di modelli di Resource Manager rispetto al semplice impiego di Docker Machine è che è possibile definire altri controlli degli accessi, archiviazione, host di Docker e così via ed essere in grado di riprodurre le distribuzioni in base alle esigenze future.
+Tramite Azure Resource Manager, è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente. I modelli consentono di definire gli host Docker, l'archiviazione, il controllo degli accessi basato sui ruoli, la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Utilizzando i modelli di Resource Manager, sarà anche possibile riprodurre le distribuzioni in base alle esigenze future.
 
 ## Distribuire un modello con l'estensione di VM Docker:
 
@@ -70,8 +70,7 @@ info:    group create command OK
 ```
 
 ## Distribuire il primo contenitore nginx
-
-Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. Gli strumenti Docker sono già installati, quindi si proverà a creare un contenitore nginx:
+Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. Si provi a eseguire un contenitore nginx:
 
 ```
 sudo docker run -d -p 80:80 nginx
@@ -98,15 +97,15 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-Aprire un Web browser e immettere il nome DNS specificato durante la distribuzione per visualizzare il contenitore in azione:
+Per vedere il contenitore in azione, aprire un Web browser e immettere il nome DNS specificato durante la distribuzione:
 
 ![Esecuzione di un contenitore ngnix](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-Per altre informazioni sull'estensione della VM Docker, ad esempio la configurazione della porta TCP del daemon Docker, la configurazione della sicurezza e la distribuzione di contenitori con Docker Compose, vedere [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/) (Estensione della macchina virtuale di Azure per il progetto GitHub Docker).
+Se lo si desidera, è possibile configurare la porta TCP del daemon Docker o le impostazioni di sicurezza oppure distribuire contenitori mediante Docker Compose. Per ulteriori informazioni, vedere l'articolo sull'[estensione macchina virtuale di Azure per il progetto GitHub Docker](https://github.com/Azure/azure-docker-extension/).
 
 ## Riferimento al modello JSON per l'installazione dell'estensione di VM Docker
 
-In questo esempio viene usato un modello di avvio rapido. È possibile usare i propri modelli di Resource Manager esistenti per installare l'estensione di VM Docker su macchine virtuali definite nel modello aggiungendo il codice seguente al file di definizione JSON:
+In questo esempio viene usato un modello di avvio rapido. Per distribuire l'estensione VM Docker di Azure con i propri modelli di Resource Manager, aggiungere quanto segue:
 
 ```
 {
@@ -139,4 +138,4 @@ Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

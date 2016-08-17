@@ -196,7 +196,7 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 | Nomi di dominio | Porte | Descrizione |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Listener in Inoltro del Bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | 
-| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | 
+| *.servicebus.windows.net | 9350-9354, 5671 | Inoltro del bus di servizio su TCP facoltativo | 
 | *.core.windows.net | 443 | HTTPS | 
 | *.clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |
@@ -426,4 +426,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 ## Passaggi successivi
 - Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per avere informazioni dettagliate sul gateway.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
