@@ -71,9 +71,9 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 |:--|:--|
 | Tipo=IISLog | Tutti i record del log di IIS. |
 | Tipo=IISLog EventLevelName=error | Tutti gli eventi di Windows con livello di gravità dell'errore. |
-| Tipo=W3CIISLog | Measure count() by cIP | Numero di voci del log di IIS in base all'indirizzo IP del client. |
-| Tipo=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | Numero di voci del log di IIS per ULR per l'host www.contoso.com. |
-| Tipo=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| Numero totale di byte ricevuti da ogni computer che esegue IIS. |
+| Tipo=W3CIISLog &#124; Measure count() by cIP | Numero di voci del log di IIS in base all'indirizzo IP del client. |
+| Tipo=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Numero di voci del log di IIS per ULR per l'host www.contoso.com. |
+| Tipo=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Numero totale di byte ricevuti da ogni computer che esegue IIS. |
 
 ## Passaggi successivi
 

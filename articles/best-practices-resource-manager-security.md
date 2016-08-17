@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -35,7 +35,7 @@ Macchine virtuali di Azure, Gestione risorse di Azure e Insieme di credenziali c
       - Modelli per distribuire le chiavi
       - Modelli per distribuire una macchina virtuale con riferimenti alle chiavi
       - Materiale chiave effettive nell'insieme di credenziali. Ogni modello, e l'azione, può essere in diversi ruoli RBAC per la separazione completa dei compiti.
-- Il caricamento dei segreti in una macchina virtuale in fase di distribuzione avviene tramite un canale diretto tra l'infrastruttura di Azure e l'insieme di credenziali chiave entro i confini del data center Microsoft. Una volta che le chiavi sono nell'insieme di credenziali chiave, non vedono mai 'luce' su un canale non attendibile all'esterno del data center.  
+- Il caricamento dei segreti in una macchina virtuale in fase di distribuzione avviene tramite un canale diretto tra l'infrastruttura di Azure e l'insieme di credenziali chiave entro i confini del data center Microsoft. Una volta che le chiavi sono nell'insieme di credenziali chiave, non vedono mai 'luce' su un canale non attendibile all'esterno del data center.
 - Gli insiemi di credenziali chiave sono sempre regionali e pertanto hanno sempre la località (e la sovranità) con le macchine virtuali. Non esistono insiemi di credenziali chiave globali.
 
 ### Separazione delle chiavi dalle distribuzioni
@@ -339,4 +339,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Per configurare routing e inoltro IP, vedere [Creare route definite dall'utente in Gestione risorse mediante un modello](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

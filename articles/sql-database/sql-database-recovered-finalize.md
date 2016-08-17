@@ -3,7 +3,7 @@
    description="Ripristino temporizzato, Database SQL di Microsoft Azure, ripristino del database, recupero del database, portale di Azure classico, portale di Azure classico"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -56,4 +56,4 @@ Per ulteriori sulle regole di avviso per il database, vedere [Procedura: ricever
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

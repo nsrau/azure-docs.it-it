@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -49,4 +49,4 @@ Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-st
 * Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

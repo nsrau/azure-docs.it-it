@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/21/2016"
 	ms.author="femila"/>
 
 # Domande frequenti su impostazioni e dati in roaming
@@ -67,19 +67,20 @@ Quando più account Azure AD da diversi tenant di Azure AD si trovano sullo stes
 
 1. È prima di tutto necessario il GUID per ogni tenant di Azure AD. Aprire il portale di Azure classico e selezionare un tenant di Azure AD. Il GUID per il tenant si trova nell'URL nella barra degli indirizzi del browser, come indicato di seguito: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Quando il GUID è disponibile, sarà necessario aggiungere la chiave del Registro di sistema seguente: **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\SettingSync\\WinMSIPC<GUID ID tenant>**. Dalla chiave <**GUID ID tenant**> creare un nuovo valore multistringa (REG-MULTI-SZ) denominato **AllowedRMSServerUrl** e, per i rispettivi dati, specificare gli URL del punto di distribuzione degli altri tenant di Azure a cui accede il dispositivo.
-3. Per trovare gli URL del punto di distribuzione delle licenze, eseguire il cmdlet **Get-AadrmConfiguration**. Se i valori per **LicensingIntranetDistributionPointUrl **e **LicenseingExtranetDistributionPointUrl** sono diversi, specificarli entrambi. Se i valori sono uguali, specificare il valore solo una volta.
+3. Per trovare gli URL del punto di distribuzione delle licenze, eseguire il cmdlet **Get-AadrmConfiguration**. Se i valori per **LicensingIntranetDistributionPointUrl** e **LicenseingExtranetDistributionPointUrl** sono diversi, specificarli entrambi. Se i valori sono uguali, specificare il valore solo una volta.
 
 
 ## Quali sono le opzioni disponibili per le impostazioni di roaming per le applicazioni desktop di Windows esistenti?
 Il roaming è disponibile solo per le app di Windows universale. Sono disponibili due opzioni per l'abilitazione del roaming in un'applicazione desktop di Windows esistente:
 
 - Con [Desktop Bridge](http://aka.ms/desktopbridge) è possibile spostare facilmente le applicazioni desktop di Windows esistenti alla piattaforma UWP (Universal Windows Platform). In questo caso, saranno richieste modifiche minime al codice per poter sfruttare i vantaggi del roaming dei dati delle app di Azure AD. Desktop Bridge fornisce alle app dell'utente un'identità di un'app necessaria per abilitare il roaming dei dati dell'app per le app desktop esistenti.
-- Con [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) è possibile creare un modello di impostazioni personalizzate per le app desktop di Windows esistenti e abilitare il roaming solo per le app Win32. Questa opzione non richiede allo sviluppatore di app di modificare il codice dell'app. UE-V è limitato al roaming di Active Directory locale per i clienti che hanno acquistato Microsoft Desktop Optimization Pack. 
+- Con [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) è possibile creare un modello di impostazioni personalizzate per le app desktop di Windows esistenti e abilitare il roaming solo per le app Win32. Questa opzione non richiede allo sviluppatore di app di modificare il codice dell'app. UE-V è limitato al roaming di Active Directory locale per i clienti che hanno acquistato Microsoft Desktop Optimization Pack.
 
-L'amministratore può configurare UEV per il roaming solo dei dati dell'app desktop di Windows, disabilitando il roaming delle impostazioni del sistema operativo Windows e i dati di app universali tramite i [criteri di gruppo di UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
+L'amministratore può configurare UE-V per il roaming solo dei dati dell'app desktop di Windows, disabilitando il roaming delle impostazioni del sistema operativo Windows e i dati di app universali tramite i [criteri di gruppo di UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
 
 - Disabilitare i Criteri di gruppo per il "roaming delle impostazioni di Windows"
 - Abilitare i Criteri di gruppo per "non sincronizzare le app di Windows"
+- Disabilitare il roaming "IE" nella sezione delle applicazioni
 
 In futuro è possibile che Microsoft esamini eventuali soluzioni per integrare strettamente UE-V in Windows ed estendere UE-V per il roaming delle impostazioni tramite il cloud di Azure AD.
 
@@ -96,15 +97,15 @@ Microsoft si impegna a proteggere i dati dei clienti. I dati delle impostazioni 
 In Windows 10 non è disponibile alcuna impostazione di Criteri di gruppo o MDM per disabilitare il roaming per una singola applicazione. Gli amministratori del tenant possono disabilitare la sincronizzazione dei dati dell'app per tutte le app in un dispositivo gestito, ma non è disponibile alcun controllo più preciso a livello di singola app o all'interno delle app.
 
 ## Che cosa possono fare i singoli utenti per abilitare/disabilitare il roaming?
-Nell'app **Impostazioni** passare ad **Account** ->** Sincronizza le impostazioni**. In questa pagina è possibile visualizzare gli account usati per il roaming delle impostazioni e abilitare o disabilitare singoli gruppi di impostazioni da sottoporre a roaming.
+Nell'app **Impostazioni** passare ad **Account** -> **Sync your settings** (Sincronizza impostazioni). In questa pagina è possibile visualizzare gli account usati per il roaming delle impostazioni e abilitare o disabilitare singoli gruppi di impostazioni da sottoporre a roaming.
 
 ##Quali sono i consigli di Microsoft per l'abilitazione del roaming in Windows 10?
 Microsoft offre alcune soluzioni per il roaming delle impostazioni, inclusi Profili utente mobili, UE-V e Enterprise State Roaming. Microsoft si impegna a effettuare un investimento in Enterprise stato Roaming nelle future versioni di Windows. Se l'organizzazione non è pronta o non approva lo spostamento dei dati sul cloud, Microsoft consiglia di usare UE-V come tecnologia di roaming primaria. Se l'organizzazione richiede il supporto per il roaming per applicazioni desktop di Windows esistenti, ma vuole passare al cloud, Microsoft consiglia di usare sia Enterprise State Roaming che UE-V. Anche se UE-V e Enterprise State Roaming sono tecnologie molto simili, non si escludono a vicenda e attualmente si integrano per assicurare che l'organizzazione offra i servizi di roaming richiesti dagli utenti.
 
 Quando si usano Enterprise State Roaming e UE-V, vengono applicate le regole seguenti:
 
-- Il servizio Enterprise State Roaming è l'agente di roaming principale nel dispositivo. UE-V viene usato per integrare il "divario Win32". 
-- Il roaming di UE-V per le impostazioni di Windows e per i dati delle app UWP moderne deve essere disabilitato con i Criteri di gruppo di UE-V, perché questi elementi rientrano già nel servizio Enterprise State Roaming. 
+- Il servizio Enterprise State Roaming è l'agente di roaming principale nel dispositivo. UE-V viene usato per integrare il "divario Win32".
+- Il roaming di UE-V per le impostazioni di Windows e per i dati delle app UWP moderne deve essere disabilitato con i Criteri di gruppo di UE-V, perché questi elementi rientrano già nel servizio Enterprise State Roaming.
 
 ##In che modo Enterprise State Roaming supporta Virtual Desktop Infrastructure (VDI)?
 Enterprise State Roaming è supportato solo negli SKU client di Windows 10, ma non per gli SKU server. Se una macchina virtuale client è ospitata in un computer hypervisor e un utente finale accede in remoto alla macchina virtuale, verranno effettuato il roaming dei dati dell'utente. Se più utenti condividono lo stesso sistema operativo e gli utenti accedono in remoto a un server per un'esperienza desktop completa, il roaming potrebbe non funzionare. L'ultimo scenario basato sulla sessione non è ufficialmente supportato.
@@ -116,11 +117,12 @@ Se l'organizzazione usa già il roaming in Windows 10 con la sottoscrizione grat
 ## Problemi noti
 
 - L'accesso tramite smart card o smart card virtuale a Windows provoca l'interruzione del funzionamento della sincronizzazione delle impostazioni. Se si prova ad accedere al dispositivo usando una smart card o una smart card virtuale, la sincronizzazione non funzionerà più. È possibile che questo problema venga risolto da aggiornamenti futuri a Windows 10.
-- La sincronizzazione dei Preferiti di Internet Explorer non funziona per le versioni precedenti della build di Windows 10. Per il funzionamento della sincronizzazione dei Preferiti di Internet Explorer è necessario l'aggiornamento cumulativo di maggio per Windows 10 (build 10.0.10586.318 o successiva).
-- In determinate condizioni, è possibile che Enterprise State Roaming non riesca a sincronizzare i dati se è configurata Multi-Factor Authentication (MFA). 
-    - Se l'utente è configurato per richiedere [Azure Multi-Factor Authentication](multi-factor-authentication.md) nel portale di Azure AD, l'utente potrebbe non riuscire a sincronizzare le impostazioni durante l'accesso a un dispositivo Windows 10 con una password. Questo tipo di configurazione di autenticazione a più fattori è progettato per proteggere un account amministratore di Azure. È possibile che gli utenti amministratori siano ancora in grado di sincronizzare le impostazioni effettuando l'accesso a dispositivi Windows 10 usando il PIN di [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o, in alternativa, completare l'autenticazione a più fattori durante l'accesso ad altri servizi di Azure, come Office 365. 
+- La sincronizzazione dei Preferiti di Internet Explorer non funziona per le versioni precedenti della build di Windows 10. Per il funzionamento della sincronizzazione dei Preferiti di Internet Explorer è necessario l'aggiornamento cumulativo di luglio per Windows 10 (build 10586.494 o successiva).
+- In determinate condizioni, è possibile che Enterprise State Roaming non riesca a sincronizzare i dati se è configurata Multi-Factor Authentication (MFA).
+    - Se l'utente è configurato per richiedere [Azure Multi-Factor Authentication](multi-factor-authentication.md) nel portale di Azure AD, l'utente potrebbe non riuscire a sincronizzare le impostazioni durante l'accesso a un dispositivo Windows 10 con una password. Questo tipo di configurazione di autenticazione a più fattori è progettato per proteggere un account amministratore di Azure. Gli utenti amministratori potrebbero ancora essere in grado di sincronizzare le impostazioni effettuando l'accesso a dispositivi Windows 10 usando il PIN di [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o, in alternativa, completare l'autenticazione a più fattori durante l'accesso ad altri servizi di Azure, come Office 365.
     - La sincronizzazione può non riuscire se l'amministratore configura criteri di accesso condizionale per l'autenticazione a più fattori di AD FS e il token di accesso del dispositivo scade. Assicurarsi di disconnettersi e accedere con il PIN di [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o completare l'autenticazione a più fattori durante l'accesso ad altri servizi di Azure, come Office 365.
-
+   
+- Se un computer è aggiunto a un dominio con registrazione automatica nei dispositivi Azure AD, possono verificarsi errori di sincronizzazione se il computer rimane a lungo esterno e non è possibile completare l'autenticazione di dominio. Per risolvere questo problema, connettere il computer a una rete aziendale per poter riprendere la sincronizzazione.
 
 
 ## Argomenti correlati
@@ -129,4 +131,4 @@ Se l'organizzazione usa già il roaming in Windows 10 con la sottoscrizione grat
 - [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

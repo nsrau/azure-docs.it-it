@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del connettore Oracle Database nelle app per la logica | Servizio app di Microsoft Azure"
    description="Come creare e configurare l'app per le API o il connettore Oracle Database e usarlo in un'app per la logica nel servizio app di Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -120,4 +120,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

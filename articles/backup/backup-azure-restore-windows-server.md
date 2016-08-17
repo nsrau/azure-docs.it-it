@@ -3,8 +3,8 @@
    description="Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/10/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
@@ -29,7 +29,7 @@ In questo articolo viene illustrata la procedura necessaria per eseguire due tip
 
 In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali dei servizi di ripristino di Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 ## Recuperare i dati nello stesso computer
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
@@ -117,4 +117,4 @@ Include la terminologia utilizzata in questi passaggi:
 ## Passaggi successivi
 - Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

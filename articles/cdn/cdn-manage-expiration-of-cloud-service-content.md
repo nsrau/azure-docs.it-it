@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="05/11/2016"
+ ms.date="07/28/2016"
  ms.author="casoper"/>
 
 # Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -25,15 +25,17 @@ Per il contenuto statico, come immagini e fogli di stile, è possibile definire 
 
 L'esempio di codice XML seguente mostra l'impostazione di **clientCache** in modo da specificare una durata massima di tre giorni:
 
-	<configuration>
-	  <system.webServer>
-	        <staticContent>
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
-	        </staticContent>
-	  </system.webServer>
-	</configuration>
+```xml
+<configuration>
+	<system.webServer>
+		<staticContent>
+			<clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>
+```
 
-Specificando **UseMaxAge** si aggiunge un'intestazione Cache-Control: max-age=<nnn> alla risposta in base al valore specificato nell'attributo **CacheControlMaxAge**. Il formato dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è <days>.<hours>:<min>:<sec>. Per altre informazioni sul nodo **clientCache** vedere la pagina [Cache client<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
+Specificando **UseMaxAge** si aggiunge un'intestazione Cache-Control: max-age=<nnn> alla risposta in base al valore specificato nell'attributo **CacheControlMaxAge**. Il formato dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è <giorni>.<ore>:<min>:<sec>. Per altre informazioni sul nodo **clientCache** vedere la pagina[Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache) (Cache client <clientCache>).
 
 Per il contenuto restituito da applicazioni come le pagine aspx, è possibile impostare a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache**. Per altre informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).
 
@@ -41,13 +43,15 @@ Se si vuole memorizzare nella cache il contenuto dell'applicazione a livello di 
 
 Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il codice seguente:
 
-            // Set the caching parameters.
-            Response.Cache.SetExpires(DateTime.Now.AddHours(1));
-            Response.Cache.SetCacheability(HttpCacheability.Public);
-            Response.Cache.SetLastModified(DateTime.Now);
+```csharp
+// Set the caching parameters.
+Response.Cache.SetExpires(DateTime.Now.AddHours(1));
+Response.Cache.SetCacheability(HttpCacheability.Public);
+Response.Cache.SetLastModified(DateTime.Now);
+```
 
 ##Vedere anche
 
 [Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Precaricamento di risorse in un endpoint della rete CDN di Azure"
+	pageTitle="Precaricare asset in un endpoint della rete CDN di Azure | Microsoft Azure"
 	description="Informazioni su come precaricare il contenuto memorizzato nella cache in un endpoint della rete CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Precaricamento di risorse in un endpoint della rete CDN di Azure
@@ -60,4 +60,4 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

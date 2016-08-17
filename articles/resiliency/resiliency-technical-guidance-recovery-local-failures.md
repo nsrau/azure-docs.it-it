@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
 
@@ -223,4 +223,4 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 
 Questo articolo fa parte della serie [Indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino dopo un'interruzione di servizio di un'area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

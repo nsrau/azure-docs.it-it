@@ -189,8 +189,8 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | --: | :-- | :-- |
 | 90 | [Backup automatici del database SQL](sql-database-automated-backups.md) | Informazioni sui backup predefiniti del database SQL che consentono di ripristinare un database SQL di Azure a un momento precedente o di copiare un database in uno nuovo in un'area geografica (fino a 35 giorni). |
 | 91 | [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione. |
-| 92 | [Aggiornare un'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md) | Questa sezione fornisce informazioni su come evitare tempo di inattività durante l'aggiornamento di un'applicazione. |
-| 93 | [Scenari di continuità aziendale del database SQL di Azure](sql-database-business-continuity-scenarios.md) | Scenari di continuità aziendale del database SQL di Azure |
+| 92 | [Aggiornare un'applicazione senza tempo di inattività](sql-database-manage-application-rolling-upgrade.md) | Questo articolo fornisce informazioni su come evitare tempo di inattività durante l'aggiornamento di un'applicazione. |
+| 93 | [Scenari di continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | Scenari di continuità aziendale del database SQL di Azure |
 | 94 | [Come ripristinare una singola tabella nel backup del database SQL di Azure](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Learn how to restore a single table from Azure SQL Database backup. |
 | 95 | [Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica attiva nel database SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Informazioni su come progettare soluzioni di ripristino di emergenza cloud per la pianificazione della continuità aziendale usando la replica geografica per il backup di dati delle app con il database SQL di Azure. |
 | 96 | [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md) | Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL. |
@@ -205,7 +205,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 105 | [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md) | Ripristinare un database SQL di Azure (Portale di Azure) |
 | 106 | [Ripristinare un database SQL di Azure con PowerShell](sql-database-restore-deleted-database-powershell.md) | Ripristinare un database SQL di Azure (PowerShell). |
 | 107 | [Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center](sql-database-troubleshoot-backup-and-restore.md) | Informazioni su come ripristinare un database cloud in seguito a errori e interruzioni tramite i backup e le repliche nel database SQL di Azure. |
-| 108 | [Ripristinare un database SQL di Azure in seguito a un errore](sql-database-user-error-recovery.md) | Vengono fornite informazioni relative alla modalità di recupero da errori causati dall'utente, del recupero da un danneggiamento accidentale dei dati o dall'eliminazione di un database utilizzando la funzionalità di ripristino temporizzato (PITR) del database SQL di Azure. |
+| 108 | [Ripristinare un database SQL di Azure in seguito a un errore](sql-database-business-continuity.md) | Vengono fornite informazioni relative alla modalità di recupero da errori causati dall'utente, del recupero da un danneggiamento accidentale dei dati o dall'eliminazione di un database utilizzando la funzionalità di ripristino temporizzato (PITR) del database SQL di Azure. |
 | 109 | [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](storage-use-storage-sql-server-backup-restore.md) | Informazioni su come eseguire il backup di SQL Server in Archiviazione di Azure. Vengono illustrati i vantaggi del backup dei database SQL in Archiviazione di Azure. |
 
 
@@ -396,4 +396,4 @@ This bullet link is improperly disallowed by publishing automation due to presen
 - [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
 -->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

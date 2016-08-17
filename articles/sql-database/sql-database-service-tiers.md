@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="CarlRabeler"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="sql-database"
@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="07/05/2016"
-	ms.author="carlrab"/>
+	ms.date="08/10/2016"
+	ms.author="carlrab"/>  
 
 # Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
 
@@ -37,11 +37,11 @@ Per singoli database sono disponibili più livelli di prestazioni all'interno di
 
 Le caratteristiche delle prestazioni riportate di seguito si applicano a database creati con [SQL Database V12](sql-database-v12-whats-new.md). In situazioni in cui l'hardware sottostante in Azure ospita più database, il database ottiene comunque un set garantito di risorse e le caratteristiche relative alle prestazioni previste per il database non saranno interessate.
 
-[AZURE.INCLUDE [Tabella dei livelli di servizio del database SQL](../../includes/sql-database-service-tiers-table.md)]
+[AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
 
 Per una migliore comprensione delle DTU, vedere la [sezione DTU](#understanding-dtus) in questo argomento.
 
->[AZURE.NOTE] Per una spiegazione dettagliata di tutte le altre righe in questa tabella livelli di servizio, vedere [Limiti e capacità a livello di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+>[AZURE.NOTE] Per una spiegazione dettagliata di tutte le altre righe in questa tabella dei livelli di servizio, vedere [Limiti e funzionalità dei livelli di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Livelli di servizio e di prestazioni per pool elastici in eDTU
 Oltre a creare e a ridimensionare un database singolo, è anche possibile gestire più database all'interno di un [pool elastico](sql-database-elastic-pool.md). Tutti i database in un pool elastico condividono un set comune di risorse. Le caratteristiche delle prestazioni sono misurate dalle *unità di transazione del database elastico* (eDTU). Come con i database singoli, per i pool sono disponibili tre livelli di servizio: **Basic**, **Standard** e **Premium**. Per i pool questi tre livelli definiscono i limiti delle prestazioni complessive e diverse funzionalità.
@@ -90,6 +90,6 @@ Dopo aver determinato il livello di servizio per il pool, è possibile determina
 
 ## Risorse aggiuntive
 
-Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant di tipo software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

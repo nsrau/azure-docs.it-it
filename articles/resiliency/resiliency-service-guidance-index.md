@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 # Indicazioni sulla resilienza dei servizi di Microsoft Azure
@@ -38,4 +38,4 @@ I collegamenti relativi alle indicazioni per la progettazione seguenti sono indi
 ##Passaggi successivi
 Se si cercano indicazioni incentrate in modo più generico su sistemi e soluzioni, vedere [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide) (Ripristino di emergenza e disponibilità elevata per applicazioni basate su Microsoft Azure).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panoramica degli schemi e di Enterprise Integration Pack | Servizio app di Microsoft Azure | Microsoft Azure" 
 	description="Informazioni su come usare gli schemi con Enterprise Integration Pack e le app per la logica" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # Informazioni sugli schemi ed Enterprise Integration Pack  
@@ -30,7 +30,7 @@ Nel portale di Azure:
 5. Selezionare il pulsante **Add** (Aggiungi) nel pannello Schemi che si apre ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Immettere il **Name** (Nome) per lo schema, quindi selezionare l'icona della cartella sul lato destro della casella di testo **Schema** per caricare il file dello schema. Dopo aver completato il processo di caricamento, selezionare il pulsante **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. Selezionare l'icona di notifica a forma di *campana* per visualizzare lo stato di avanzamento del processo di caricamento dello schema. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Selezionare il riquadro **Schemi**. Questa operazione aggiorna il riquadro e consente la visualizzazione del numero progressivo dello schema, che indica che il nuovo schema è stato aggiunto correttamente. Dopo aver selezionato il riquadro **Schemi**, anche lo schema appena aggiunto viene visualizzato nel pannello Schemi sulla destra. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. Selezionare il riquadro **Schemi**. Questa operazione aggiorna il riquadro e consente la visualizzazione del numero progressivo dello schema, che indica che il nuovo schema è stato aggiunto correttamente. Dopo aver selezionato il riquadro **Schemi**, lo schema appena aggiunto verrà visualizzato anche nel pannello Schemi a destra. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## Procedura: Usare gli schemi
@@ -57,4 +57,4 @@ Nel portale di Azure:
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

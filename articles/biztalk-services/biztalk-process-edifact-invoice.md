@@ -1,7 +1,7 @@
 <properties
    pageTitle="Esercitazione: Elaborare fatture EDIFACT mediante Servizi BizTalk di Microsoft Azure | Servizi BizTalk di Microsoft Azure"
    description="Come creare e configurare l'app per le API o il connettore Box e usarlo in un'app per la logica in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -313,4 +313,4 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
 
@@ -22,7 +22,7 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 
 -  prima che Azure Multi-Factor Authentication per i servizi Terminal venga attivata, è necessario riavviare il computer.
 -  Se "Richiedere corrispondenza utente Azure Multi-Factor Authentication" è selezionata e non si è nell'elenco degli utenti, non sarà possibile accedere alla macchina dopo il riavvio.
--  La funzione IP attendibili dipende da se l'applicazione può fornire l'IP del client con l'autenticazione. Attualmente solo la funzione Servizi Terminal è supportata.  
+-  La funzione IP attendibili dipende da se l'applicazione può fornire l'IP del client con l'autenticazione. Attualmente solo la funzione Servizi Terminal è supportata.
 
 
 
@@ -46,7 +46,7 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 7. Fare clic sul pulsante Aggiungi...
 8. Selezionare IP singolo Se si desidera ignorare un singolo indirizzo IP.
 9. Selezionare intervallo IP se si desidera ignorare un intero intervallo IP. Esempio: 10.63.193.1-10.63.193.100.
-10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa. 
+10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa.
 11. Fare clic sul pulsante OK.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

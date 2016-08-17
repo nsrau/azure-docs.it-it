@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso di BizTalk XPath Extractor in app per la logica in Servizio app di Azure | Microsoft Azure"
    description="BizTalk XPath Extractor"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -47,4 +47,4 @@ L'azione restituisce l'output sotto forma di stringa - Risultato. Il risultato c
 <!-- Links -->
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

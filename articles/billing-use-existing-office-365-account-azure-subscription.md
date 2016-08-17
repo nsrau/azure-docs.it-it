@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Condividere un tenant singolo di Azure AD per le sottoscrizioni di Office 365 e Azure | Microsoft Azure"
 	description="Informazioni su come condividere il tenant di Azure AD per Office 365 e i suoi utenti con la sottoscrizione di Azure o viceversa"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -147,4 +147,4 @@ Per altre informazioni vedere [Associare le sottoscrizioni di Azure ad Azure Act
 ##Passaggi successivi
 Esiste uno scenario correlato in cui sono state acquistate separatamente la sottoscrizione di Azure e l'abbonamento a Office 365 e si vuole poter accedere al tenant di Office 365 dalla sottoscrizione di Azure. Per informazioni su come eseguire questa attività, vedere [Associare un tenant di Office 365 con una sottoscrizione di Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

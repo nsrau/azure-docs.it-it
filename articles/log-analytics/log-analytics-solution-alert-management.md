@@ -119,11 +119,11 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 |:--|:--|
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR | Avvisi critici generati durante le ultime 24 ore |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR | Avvertenze generate durante le ultime 24 ore |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR | measure count() as Count by SourceDisplayName | Origini con avvisi critici generati durante le ultime 24 ore |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName | Origini con avvisi critici generati durante le ultime 24 ore |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed | Avvisi critici generati durante le ultime 24 ore e che sono ancora attivi |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed | Avvisi critici generati durante le ultime 24 ore e che sono chiusi |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | measure count() as Count by AlertSeverity | Avvisi generati durante l'ultimo giorno raggruppati in base alla relativa gravità |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | sort RepeatCount desc | Avvisi generati durante l'ultimo giorno raggruppati in base al relativo valore di conteggio |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity | Avvisi generati durante l'ultimo giorno raggruppati in base alla relativa gravità |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc | Avvisi generati durante l'ultimo giorno raggruppati in base al relativo valore di conteggio |
 
 ## Passaggi successivi
 

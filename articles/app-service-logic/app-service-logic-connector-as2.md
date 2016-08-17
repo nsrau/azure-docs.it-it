@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del connettore AS2 nelle app per la logica | Microsoft Azure App Service" 
    description="Come creare e configurare l'app per le API o il connettore AS2 e usarlo in un'app per la logica in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -122,4 +122,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

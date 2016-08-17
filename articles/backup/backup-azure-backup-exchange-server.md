@@ -3,8 +3,8 @@
 	description="Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="shivamg"
+	authors="MaanasSaran"
+	manager="NKolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/19/2016"
-	ms.author="anuragm;jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
 # Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
@@ -132,4 +132,4 @@ Per i punti di ripristino online sono disponibili cinque tipi:
 
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

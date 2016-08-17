@@ -1,39 +1,38 @@
 <properties
-	pageTitle="App nativa di .NET v2.0 di Azure AD | Microsoft Azure"
-	description="Come creare un'app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="App .NET nativa 2.0 di Azure Active Directory | Microsoft Azure"
+description="Come creare un'app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Aggiungere l'accesso a un'applicazione Desktop di Windows
 
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app desktop con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione. Consente inoltre all'app di comunicare in modo sicuro con un'API Web di back-end e con [Microsoft Graph](https://graph.microsoft.io) e alcune API unificate di [Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> [AZURE.NOTE] Non tutti gli scenari e le funzionalità di Azure Active Directory (AD) sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 Per le [app .NET native in esecuzione in un dispositivo](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD fornisce la Microsoft Identity Authentication Library (MSAL). L'unico scopo di MSAL è consentire all'app di ottenere facilmente i token per le chiamate ai servizi Web. Per dimostrare la semplicità di questa operazione, in questo esempio viene creata un'app .NET WPF To Do List che:
 
--	Consente agli utenti di accedere e ottiene i token di accesso usando il [protocollo di autenticazione OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
--	Chiama in modo sicuro un servizio Web To Do List di back-end, anch'esso protetto da OAuth 2.0.
--	Disconnette gli utenti.
+- Consente agli utenti di accedere e ottiene i token di accesso usando il [protocollo di autenticazione OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+- Chiama in modo sicuro un servizio Web To Do List di back-end, anch'esso protetto da OAuth 2.0.
+- Disconnette l'utente.
 
 ## Scaricare il codice di esempio
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) o clonare la struttura:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 Al termine dell'esercitazione, verrà fornita anche l'app completata.
 
@@ -247,9 +246,10 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 Ora è possibile passare ad argomenti più avanzati. È possibile:
 
-- [Protezione dell'API Web TodoListService con l'endpoint v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Protezione dell'API Web TodoListService con l'endpoint 2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Per altre risorse, vedere:
+
 - [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow, tag "msal" >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ Per altre risorse, vedere:
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

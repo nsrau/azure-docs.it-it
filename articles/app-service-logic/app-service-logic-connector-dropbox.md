@@ -4,7 +4,7 @@
 	authors="msftman"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -26,4 +26,4 @@ Da questa pagina è stato rimosso il contenuto destinato alle app per la logica 
 - [Leggere ulteriori informazioni su questo nuovo connettore](../connectors/connectors-create-api-dropbox.md)
 - Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

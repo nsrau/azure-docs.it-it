@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="kipandya"/>
    
    
@@ -54,9 +54,7 @@ Infine, dato che DocumentDB è completamente [senza schema][vldb], non è necess
 
 ## Abilitazione della distribuzione globale 
 
-È possibile distribuire i dati in locale o a livello globale associando l'account di database DocumentDB con una o più aree di Azure. È possibile distribuire i dati a livello globale o restringerli a una singola area aggiungendo o rimuovendo le aree dall'account di database in qualsiasi momento. Gli account di database DocumentDB che supportano l'assegnazione a più aree possono essere creati tramite Azure Marketplace selezionando "DocumentDB – Multi-Region Database Account" (DocumentDB - Account di database multiarea).
-
-
+È possibile distribuire i dati in locale o a livello globale associando l'account di database DocumentDB con una o più aree di Azure. È possibile aggiungere o rimuovere aree all'account di database account in qualsiasi momento.
 
 ## Passaggi successivi
 
@@ -81,12 +79,12 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/it-IT/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/it-IT/regions/#services
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

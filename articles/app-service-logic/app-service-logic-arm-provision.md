@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Creare un'app per la logica usando modelli di Gestione risorse di Azure in Servizio app di Azure | Microsoft Azure" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app per la logica vuota per la definizione dei flussi di lavoro." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@ Questa particolare definizione viene eseguita una volta ogni ora e consente di e
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

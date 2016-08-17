@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Aggiungere il connettore OneDrive nelle app per la logica | Microsoft Azure"
 	description="Panoramica del connettore OneDrive con i parametri dell'API REST."
-	services="app-servicelogic"    
+	services="logic-apps"    
 	documentationCenter=""     
 	authors="MandiOhlinger"    
 	manager="erikre"    
@@ -414,4 +414,4 @@ La tabella seguente riporta le risposte alle azioni e ai trigger e le descrizion
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell'[elenco delle API](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

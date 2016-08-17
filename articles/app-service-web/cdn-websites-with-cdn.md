@@ -23,7 +23,7 @@ Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) può essere int
 
 L'integrazione di app Web con la rete CDN di Azure offre i vantaggi seguenti:
 
-- Integrazione della distribuzione del contenuto (immagini, script e fogli di stile) come parte del [processo di distribuzione continua](web-sites-publish-source-control.md) dell'app Web
+- Integrazione della distribuzione del contenuto (immagini, script e fogli di stile) come parte del [processo di distribuzione continua](app-service-continuous-deployment.md) dell'app Web
 - Facile aggiornamento dei pacchetti NuGet nell'app Web nel servizio app di Azure, come le versioni di jQuery o Bootstrap
 - Gestione dell'applicazione Web e del contenuto gestito dalla rete CDN dalla stessa interfaccia di Visual Studio
 - Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
@@ -571,4 +571,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

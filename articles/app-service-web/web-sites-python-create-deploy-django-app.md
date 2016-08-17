@@ -58,9 +58,9 @@ Il primo passaggio per la creazione di un'app consiste nella creazione dell'app 
 
 1. Accedere al portale di Azure e scegliere il **nuovo** pulsante nell'angolo inferiore sinistro.
 3. Nella casella di ricerca digitare "python".
-4. Nei risultati della ricerca, selezionare **Django**, quindi fare clic su **Crea**.
+4. Nei risultati della ricerca selezionare **Django** (pubblicata da PTVS), quindi fare clic su **Crea**.
 5. Configurare la nuova applicazione Django, come la creazione di un nuovo piano di servizio dell'applicazione e un nuovo gruppo di risorse per esso. Fare quindi clic su **Crea**.
-6. Configurare la pubblicazione Git per l'app Web appena creata seguendo le istruzioni disponibili in [Distribuzione dell'archivio Git locale nel servizio app di Azure](app-service-deploy-local-git.md).
+6. Configurare la pubblicazione Git per l'app Web appena creata seguendo le istruzioni disponibili in [Distribuzione del repository Git locale nel servizio app di Azure](app-service-deploy-local-git.md).
 
 ## Informazioni generali sull'applicazione
 
@@ -516,4 +516,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

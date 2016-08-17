@@ -29,7 +29,7 @@ Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows
 
 Sono necessari gli elementi seguenti:
 
-* Oracle JRE 1.6 o versione successiva o Zulu JRE 1.6 o versione successiva
+* Oracle JRE 1.6 o versione successiva o isiZulu JRE 1.6 o versione successiva
 * Una sottoscrizione a [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 *Se è disponibile un'app Web già attiva, è possibile seguire la procedura alternativa per [aggiungere l'SDK al server Web in fase di esecuzione](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Connessione al gateway dati locale delle app per la logica | Microsoft Azure"
    description="Informazioni su come creare una connessione al gateway dati locale da un'app per la logica."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -70,4 +70,4 @@ La connessione deve ora essere configurata correttamente per l'uso nella app per
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

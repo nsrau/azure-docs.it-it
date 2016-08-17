@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/25/2016"
-	ms.author="sdanie"/>
+	ms.date="08/09/2016"
+	ms.author="sdanie"/>  
 
 # Gestire la prima API in Gestione API di Azure
 
@@ -63,19 +63,19 @@ Il sistema è costituito dai componenti seguenti:
 
 Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di Azure classico][] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
 
-![API Management new instance][api-management-create-instance-menu]
+![API Management new instance][api-management-create-instance-menu]  
 
 Per **URL** specificare un nome univoco di sottodominio da usare per l'URL del servizio.
 
 Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante **Avanti**.
 
-![New API Management service][api-management-create-instance-step1]
+![New API Management service][api-management-create-instance-step1]  
 
 Immettere **Contoso Ltd.** in **Nome organizzazione** e specificare l'indirizzo di posta elettronica nel campo **Indirizzo di posta elettronica dell'amministratore**.
 
 >[AZURE.NOTE] Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure][].
 
-![New API Management service][api-management-create-instance-step2]
+![New API Management service][api-management-create-instance-step2]  
 
 Le istanze del servizio Gestione API sono disponibili in tre livelli: Developer, Standard e Premium. Per impostazione predefinita, le nuove istanze del servizio Gestione API vengono create nel livello Developer. Per selezionare il livello Standard o Premium, selezionare la casella di controllo **Impostazioni avanzate** e scegliere il livello desiderato nella schermata seguente.
 
@@ -83,7 +83,7 @@ Le istanze del servizio Gestione API sono disponibili in tre livelli: Developer,
 
 Selezionare la casella di controllo per creare l'istanza del servizio.
 
-![New API Management service][api-management-instance-created]
+![New API Management service][api-management-instance-created]  
 
 Dopo aver creato l'istanza del servizio, l'operazione successiva consiste nel creare o importare un'API.
 
@@ -97,26 +97,26 @@ Un'API rappresenta un set di operazioni che possono essere richiamate da un'appl
 
 Le API vengono configurate dal portale di pubblicazione, accessibile dal portale di Azure classico. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
 
-![Portale di pubblicazione][api-management-management-console]
+![Portale di pubblicazione][api-management-management-console]  
 
 Per importare l'API Calcolatrice, fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere **Importa API**.
 
-![Pulsante Importa API][api-management-import-api]
+![Pulsante Importa API][api-management-import-api]  
 
 Per configurare l'API Calcolatrice, seguire questa procedura:
 
-1. Fare clic su **Da URL**, immettere **http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e fare clic sul pulsante di opzione **Swagger**.
-2. Digitare **calc** nella casella di testo **Suffisso URL API Web**.
+1. Fare clic su **Da URL**, immettere http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **Specification document URL** (URL documento specifica) e fare clic sul pulsante di opzione **Swagger**.
+2. Digitare **calc** nella casella di testo **Suffisso dell'URL dell'API Web**.
 3. Fare clic sulla casella **Prodotti (facoltativo)** e scegliere **Starter**.
 4. Fare clic su **Salva** per importare l'API.
 
-![Aggiunta nuova API][api-management-import-new-api]
+![Aggiunta nuova API][api-management-import-new-api]  
 
 >[AZURE.NOTE] **Gestione API** supporta attualmente sia la versione 1.2 che la versione 2.0 del documento Swagger per l'importazione. Anche se la [specifica Swagger 2.0](http://swagger.io/specification) dichiara che le proprietà `host`, `basePath` e `schemes` sono facoltative, il documento Swagger 2.0 **DEVE** contenere queste proprietà. In caso contrario, non verrà importato.
 
 Una volta importata l'API, la pagina di riepilogo dell'API viene visualizzata nel portale di pubblicazione.
 
-![API summary][api-management-imported-api-summary]
+![Riepilogo dell'API][api-management-imported-api-summary]  
 
 La sezione API comprende diverse schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. È possibile usare la scheda [Impostazioni](api-management-howto-create-apis.md#configure-api-settings) per visualizzare e modificare la configurazione di un'API. La scheda [Operazioni](api-management-howto-add-operations.md) consente di gestire le operazioni dell'API. La scheda **Sicurezza** consente di configurare l'autenticazione del gateway per il server back-end usando l'autenticazione di base o l'[autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e per configurare l'[autorizzazione utente con OAuth 2.0](api-management-howto-oauth2.md). La scheda **Problemi** consente di visualizzare i problemi segnalati dagli sviluppatori che stanno usando le API. La scheda **Prodotti** viene usata per configurare i prodotti contenenti l'API.
 
@@ -131,13 +131,13 @@ Per effettuare chiamate a un'API, gli sviluppatori devono prima sottoscrivere un
 
 ## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
 
-È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questo passaggio dell'esercitazione verrà chiamata l'operazione **Aggiungere due integer** dell'API Calcolatrice di base. Fare clic su **Portale per sviluppatori** nel menu in alto a destra del portale di pubblicazione.
+È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in modo pratico. In questo passaggio dell'esercitazione verrà chiamata l'operazione **Aggiungere due integer** dell'API Calcolatrice di base. Fare clic su **Portale per sviluppatori** nel menu in alto a destra del portale di pubblicazione.
 
-![Portale per sviluppatori][api-management-developer-portal-menu]
+![Portale per sviluppatori][api-management-developer-portal-menu]  
 
-Fare clic su **API** nel menu superiore e quindi su **Calcolatrice di base** per visualizzare le operazioni disponibili.
+Fare clic su **API** nel menu in alto e quindi su **Calcolatrice di base** per visualizzare le operazioni disponibili.
 
-![Portale per sviluppatori][api-management-developer-portal-calc-api]
+![Portale per sviluppatori][api-management-developer-portal-calc-api]  
 
 Notare le descrizioni e i parametri di esempio che sono stati importati assieme alle API e alle operazioni, che costituiscono la documentazione destinata agli sviluppatori che useranno l'operazione. È possibile aggiungere queste descrizioni anche quando le operazioni vengono aggiunte manualmente.
 
@@ -147,21 +147,21 @@ Per chiamare l'operazione **Aggiungere due integer**, fare clic su **Prova**.
 
 È possibile immettere alcuni valori per i parametri o mantenere quelli predefiniti e quindi fare clic su **Invia**.
 
-![GET HTTP][api-management-invoke-get]
+![HTTP Get][api-management-invoke-get]  
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati lo **Stato della risposta**, le **Intestazioni della risposta** ed eventualmente il **contenuto della risposta**.
 
-![Response][api-management-invoke-get-response]
+![Response][api-management-invoke-get-response]  
 
 ## <a name="view-analytics"></a>Visualizzare l'analisi
 
 Per visualizzare l'analisi per la Calcolatrice di base, tornare al portale di pubblicazione selezionando **Gestisci** nel menu in alto a destra nel portale per sviluppatori.
 
-![Manage][api-management-manage-menu]
+![Manage][api-management-manage-menu]  
 
 La visualizzazione predefinita del portale di pubblicazione è il **dashboard**, che offre una panoramica dell'istanza di Gestione API.
 
-![Dashboard][api-management-dashboard]
+![Dashboard][api-management-dashboard]  
 
 Passare il puntatore del mouse sul grafico della **Calcolatrice di base** per visualizzare le metriche specifiche relative all'utilizzo dell'API in un dato periodo di tempo.
 
@@ -169,13 +169,13 @@ Passare il puntatore del mouse sul grafico della **Calcolatrice di base** per vi
 
 Fare clic su **Visualizza dettagli** per visualizzare la pagina di riepilogo per l'API, inclusa una versione più estesa delle metriche visualizzate.
 
-![Analytics][api-management-mouse-over]
+![Analytics][api-management-mouse-over]  
 
-![Riepilogo][api-management-api-summary-metrics]
+![Summary][api-management-api-summary-metrics]  
 
 Per report e metriche dettagliate fare clic su **Analisi** nel menu **Gestione API** sulla sinistra.
 
-![Panoramica][api-management-analytics-overview]
+![Overview][api-management-analytics-overview]  
 
 La sezione **Analisi** include le quattro schede seguenti:
 
@@ -245,4 +245,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

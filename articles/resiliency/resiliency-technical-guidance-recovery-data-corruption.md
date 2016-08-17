@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure: ripristino dal danneggiamento o dall'eliminazione accidentale dei dati
 
@@ -91,4 +91,4 @@ Per altre informazioni sulle funzionalità di backup e ripristino di Azure, vede
 
 Questo articolo fa parte di una serie relativa alle [indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). Per altre informazioni su resilienza, ripristino di emergenza e risorse a disponibilità elevata, vedere le [risorse aggiuntive](./resiliency-technical-guidance.md#additional-resources) per le informazioni tecniche sulla resilienza di Azure.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

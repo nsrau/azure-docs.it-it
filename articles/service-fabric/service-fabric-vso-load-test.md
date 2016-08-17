@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="10/28/2015"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Eseguire test di carico dell'applicazione usando Visual Studio Team Services
@@ -141,4 +141,4 @@ Il test di carico di Visual Studio Team Services fornisce API che consentono di 
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

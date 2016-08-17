@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transazioni in SQL Data Warehouse
@@ -56,19 +56,21 @@ Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, vedere
 ## Stato della transazione
 SQL Data Warehouse usa la funzione XACT\_STATE() per segnalare una transazione non riuscita con il valore -2. Ciò significa che la transazione non è riuscita ed è contrassegnata solo per il rollback.
 
-> [AZURE.NOTE] L'uso di -2 da parte della funzione XACT\_STATE per indicare una transazione non riuscita rappresenta un comportamento diverso da SQL Server. SQL Server usa il valore -1 per rappresentare una transazione di cui non è possibile eseguire il commit. SQL Server è in grado di tollerare alcuni errori all'interno di una transazione senza doverne indicare l'impossibilità di eseguire il commit. Ad esempio, SELECT 1/0 causa un errore, ma non applica alla transazione lo stato per cui non è possibile eseguire il commit. SQL Server consente anche letture nella transazione di cui non è possibile eseguire il commit. In SQL Data Warehouse ciò non è possibile. Se si verifica un errore in una transazione di SQL Data Warehouse, passerà automaticamente allo stato -2, inclusi gli errori di SELECT 1/0. È quindi importante verificare il codice dell'applicazione per vedere se usa XACT\_STATE().
+> [AZURE.NOTE] L'uso di -2 da parte della funzione XACT\_STATE per indicare una transazione non riuscita rappresenta un comportamento diverso da SQL Server. SQL Server usa il valore -1 per rappresentare una transazione di cui non è possibile eseguire il commit. SQL Server è in grado di tollerare alcuni errori all'interno di una transazione senza doverne indicare l'impossibilità di eseguire il commit. Ad esempio, `SELECT 1/0` causa un errore, ma non applica alla transazione lo stato per cui non è possibile eseguire il commit. SQL Server consente anche letture nella transazione di cui non è possibile eseguire il commit. SQL Data Warehouse, invece, non consente questa operazione. Se si verifica un errore in una transazione SQL Data Warehouse, verrà inserito automaticamente lo stato-2 e non sarà più possibile eseguire ulteriori istruzioni SELECT finché non verrà eseguito il rollback dell'istruzione. È quindi importante verificare il codice dell'applicazione per vedere se usa XACT\_STATE(), perché potrebbe necessario modificarlo.
 
-In SQL Server può essere visualizzato un frammento di codice simile al seguente:
+Ad esempio, in SQL Server potrebbe essere visualizzata una transazione simile alla seguente:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,49 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Si noti che l'istruzione `SELECT` si verifica prima dell'istruzione `ROLLBACK`. Notare anche che l'impostazione della variabile `@xact` usa DECLARE e non `SELECT`.
+Se si lascia il codice come qui sopra, si otterrà il seguente messaggio di errore:
 
-In SQL Data Warehouse il codice dovrà essere simile al seguente:
+Msg 111233, livello 16, stato 1, riga 1 111233;La transazione corrente è stata interrotta ed è stato eseguito il rollback di tutte le modifiche in sospeso. Causa: non è stato eseguito il rollback in modo esplicito di una transazione in uno stato di solo rollback prima di un'istruzione DDL, DML o SELECT.
+
+Inoltre non si otterrà l'output delle funzioni di ERROR\_*.
+
+È quindi necessario modificare leggermente il codice in SQL Data Warehouse:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,13 +130,21 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Si noti che il rollback della transazione deve essere eseguito prima della lettura delle informazioni sull'errore nel blocco `CATCH`.
+A questo punto si osserva il comportamento previsto. L'errore della transazione viene gestito e le funzioni ERROR\_* forniscono i valori previsti.
+
+Ciò dimostra che il `ROLLBACK` della transazione doveva essere eseguito prima della lettura delle informazioni sull'errore nel blocco `CATCH`.
 
 ## Funzione Error\_Line()
-È importante sottolineare anche che SQL Data Warehouse non implementa né supporta la funzione ERROR\_LINE(). Se è contenuta nel codice sarà necessario rimuoverla per renderlo compatibile con SQL Data Warehouse. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altre informazioni su questa funzionalità, vedere [Usare etichette per instrumentare query in SQL Data Warehouse][].
+È importante sottolineare anche che SQL Data Warehouse non implementa né supporta la funzione ERROR\_LINE(). Se è contenuta nel codice sarà necessario rimuoverla per renderlo compatibile con SQL Data Warehouse. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altre informazioni su questa funzionalità, vedere l'articolo [Usare etichette per instrumentare query in SQL Data Warehouse][].
 
 ## Uso di THROW e RAISERROR
 THROW è l'implementazione più moderna per la generazione di eccezioni in SQL Data Warehouse, ma è supportata anche RAISERROR. Esistono tuttavia alcune differenze a cui vale la pena prestare attenzione.
@@ -129,7 +161,9 @@ Ecco quali sono:
 - Nessuna transazione distribuita
 - Non sono consentite transazioni annidate
 - Non sono consentiti punti di salvataggio
-- Nessun supporto per DDL come `CREATE TABLE` all'interno della transazione definita dall'utente
+- Nessuna transazione denominata
+- Nessuna transazione contrassegnata
+- Nessun supporto per DDL come `CREATE TABLE` all'interno di una transazione definita dall'utente
 
 ## Passaggi successivi
 Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse][]. Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
@@ -147,4 +181,4 @@ Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzaz
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

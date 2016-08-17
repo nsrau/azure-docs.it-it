@@ -3,7 +3,7 @@
    description="Suggerimenti per l'uso di Azure Machine Learning con Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -138,8 +138,8 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 [Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
-[esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-create-experiment/
-[Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-what-is-machine-learning/
+[esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [portale di Azure]: https://portal.azure.com/
 
@@ -149,4 +149,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

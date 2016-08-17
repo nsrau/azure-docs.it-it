@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Informazioni sugli addebiti di Azure Marketplace | Microsoft Azure"
 	description="Descrive gli addebiti relativi agli ordini del Marketplace."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -59,11 +59,11 @@ Per modificare il metodo di pagamento, seguire questa procedura:
 
 1. Fare clic su **Modifica modalità di pagamento**.
 
-    	![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+    ![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Paga con** consente di selezionare la carta di credito. L'opzione **Aggiungi nuovo metodo di pagamento** consente di aggiungere una nuova carta di credito.
 
-    	![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    ![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gestione degli ordini
 Nella pagina della panoramica di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
@@ -98,4 +98,4 @@ Per visualizzare gli addebiti effettivi, seguire questa procedura:
 
     ![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

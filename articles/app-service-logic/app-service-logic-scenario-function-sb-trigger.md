@@ -1,7 +1,7 @@
 <properties
    pageTitle="Scenario dell'app per la logica: Creare un trigger del bus di servizio di Funzioni di Azure | Microsoft Azure"
    description="Utilizzare Funzioni di Azure un trigger del bus di servizio per un'app per la logica"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@ Per effettuare una prova, aggiungere un messaggio in coda tramite uno strumento 
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

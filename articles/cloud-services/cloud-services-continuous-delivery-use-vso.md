@@ -268,7 +268,7 @@ Questo passaggio si applica solo alle app Web, non ai servizi cloud. Per inserir
 	![][50]
 
 ## Passaggi successivi
-Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Team Services, vedere [Eseguire test delle unità nella compilazione](http://go.microsoft.com/fwlink/p/?LinkId=510474). Se si usa Git, vedere [Condividere il codice in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Distribuzione continua tramite GIT in Azure App Service](../app-service-web/web-sites-publish-source-control.md). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Team Services, vedere [Eseguire test delle unità nella compilazione](http://go.microsoft.com/fwlink/p/?LinkId=510474). Se si usa Git, vedere [Share your code with Git and Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) (Condividere il codice con Git e Visual Studio) e [Continuous deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md) (Distribuzione continua nel servizio app di Azure). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,4 +321,4 @@ Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Tea
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

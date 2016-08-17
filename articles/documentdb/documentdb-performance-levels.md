@@ -95,7 +95,7 @@ Le raccolte di DocumentDB permettono di raggruppare i dati sulla base di modelli
 
 È consigliabile che l'applicazione usi un numero ridotto di raccolte, a meno che non si dispone di requisiti di archiviazione o throughput elevati. Assicurarsi di avere ben compreso i modelli di applicazione per la creazione di nuove raccolte. È possibile scegliere di riservare la creazione della raccolta come un'azione di gestione gestita all'esterno dell'applicazione. Analogamente, la regolazione del livello delle prestazioni per una raccolta cambierà la tariffa oraria con la quale la raccolta viene fatturata. Se l'applicazione consente di regolarli in modo dinamico, è opportuno monitorare i livelli delle prestazioni della raccolta.
 
-## <a href="changing-performance-levels-using-the-azure-portal"></a>Passare dal livello S1, S2, S3 alle prestazioni definite dall'utente
+## <a id="changing-performance-levels-using-the-azure-portal"></a>Passare dal livello S1, S2, S3 alle prestazioni definite dall'utente
 
 Seguire questa procedura per passare da livelli di velocità effettiva predefiniti a livelli di velocità effettiva definiti dall'utente nel portale di Azure. L'uso di livelli di velocità effettiva definiti dall'utente permette di personalizzare la velocità effettiva in base alle esigenze. Se si usa un account S1, con pochi clic è possibile aumentare la velocità effettiva predefinita da 250 UR/sec a 400 UR/sec.
 
@@ -162,7 +162,7 @@ Visitare [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a href="change-throughput"></a>Modifica della velocità effettiva di una raccolta
+## <a id="change-throughput"></a>Modifica della velocità effettiva di una raccolta
 
 Se si usano già prestazioni definite dall'utente, è possibile modificare la velocità effettiva della raccolta eseguendo le operazioni seguenti. Se è necessario passare da un livello di prestazioni S1, S2 o S3 (prestazioni predefinite) a prestazioni definite dall'utente, vedere [Passare dal livello S1, S2, S3 alle prestazioni definite dall'utente](#changing-performance-levels-using-the-azure-portal).
 
@@ -193,4 +193,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

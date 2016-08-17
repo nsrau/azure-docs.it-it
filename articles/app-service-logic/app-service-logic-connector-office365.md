@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del connettore Office 365 nelle app per la logica | Microsoft Azure App Service"
    description="Come creare e configurare l'app per le API o il connettore Office 365 e usarlo in un'app per la logica in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -131,4 +131,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

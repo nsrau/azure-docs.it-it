@@ -48,15 +48,17 @@ In questa esercitazione si apprenderà come combinare gli scenari seguenti per t
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/). Si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, una volta esauriti i crediti, sarà comunque possibile mantenere l'account e continuare a usare i servizi di Azure gratuiti, come le app Web.
+> + È possibile [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/). Con la sottoscrizione di Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Configurare l'app Web di produzione
 
 >[AZURE.NOTE] Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
 >
->Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
+>Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](app-service-continuous-deployment.md#Step7). È necessario eseguire questa operazione una sola volta.
 
 In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a cui si desidera apportare modifiche tramite la pubblicazione continua. In questo scenario si distribuirà nell'ambiente di produzione un modello sviluppato e testato.
 
@@ -94,11 +96,11 @@ L'app di produzione è così configurata. A questo punto, si immagini di ricever
 
 ## Procedere all'approfondimento: instrumentare l'app client per il monitoraggio e la metrica
 
-5. Aprire *& lt;radice\_repository >*\\src\\MultiChannelToDo.sln in Visual Studio.
+5. Aprire *&lt;radice\_repository >*\\src\\MultiChannelToDo.sln in Visual Studio.
 6. Ripristinare tutti i pacchetti Nuget facendo clic con il pulsante destro del mouse sulla soluzione > **Gestisci pacchetti NuGet** per la soluzione > **Ripristina**.
-6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo.Web** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Modificare il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
+6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo.Web** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Cambia il gruppo di risorse in ToDoApp*&lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
 7. Nel portale di Azure, aprire il pannello per la risorsa **MultiChannelToDo.Web** di Application Insights. Quindi nella parte **Integrità applicazione** fare clic su **Informazioni su come raccogliere i dati relativi ai caricamenti di pagina del browser** > copiare il codice.
-7. Aggiungere il codice di strumentazione JS copiato a *& lt; radice\_repository >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, appena prima del tag `<heading>` di chiusura. Dovrebbe contenere la chiave di strumentazione univoca della risorsa di Application Insights.
+7. Aggiungere il codice di strumentazione JS copiato a *&lt; radice\_repository >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, appena prima del tag `<heading>` di chiusura. Dovrebbe contenere la chiave di strumentazione univoca della risorsa di Application Insights.
 
         <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
@@ -157,7 +159,7 @@ Potrebbe trattarsi di un esempio improbabile. Tuttavia, si apporterà un miglior
 ### Instrumentare l'app server per il monitoraggio e la metrica
 Questa è una digressione, perché lo scenario illustrato in questa esercitazione riguarda solo l'app client. Per completezza, si configurerà tuttavia l'app sul lato server.
 
-6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Modificare il gruppo di risorse in ToDoApp*& lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
+6. Fare clic con il pulsante destro del mouse su **MultiChannelToDo** > **Aggiungi Application Insights Telemetry** > **Configura impostazioni** > Cambia il gruppo di risorse in ToDoApp*&lt;suffisso\_personalizzato>* > **Aggiungi Application Insights al progetto**.
 12. In Git Shell eseguire il commit e il push delle modifiche al fork in GitHub. Attendere quindi che i client aggiornino il browser.
 
         git add -A :/
@@ -220,7 +222,7 @@ Poiché si raccolgono dati sul comportamento del client, si dovrà [aggiungere u
 ### Aggiungere tag specifici dello slot alla metrica dell'app server
 Di nuovo per completezza, si configurerà l'app sul lato server. A differenza dell'app client che è stata instrumentata in JavaScript, i tag specifici dello slot per l'app server sono instrumentati con codice .NET.
 
-1. Aprire *& lt;radice\_repository>*\\src\\MultiChannelToDo\\Global.asax.cs. Aggiungere il blocco di codice seguente, subito prima della parentesi graffa chiusa dello spazio dei nomi.
+1. Aprire *&lt;radice\_repository>*\\src\\MultiChannelToDo\\Global.asax.cs. Aggiungere il blocco di codice seguente, subito prima della parentesi graffa chiusa dello spazio dei nomi.
 
 		namespace MultiChannelToDo
 		{
@@ -255,7 +257,7 @@ Di nuovo per completezza, si configurerà l'app sul lato server. A differenza de
 
 ## Procedere all'aggiornamento: configurare il ramo beta
 
-2. Aprire *& lt;radice\_repository>*\\ARMTemplates\\ProdAndStagetest.json e trovare le risorse `appsettings` (cercare `"name": "appsettings"`). Ne sono disponibili 4, una per ogni slot. 
+2. Aprire *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStagetest.json e trovare le risorse `appsettings` (cercare `"name": "appsettings"`). Ne sono disponibili 4, una per ogni slot.
 
 2. Per ogni risorsa `appsettings` aggiungere un'impostazione dell'app `"environment": "[parameters('slotName')]"` alla fine della matrice `properties`. Ricordare di terminare la riga precedente con una virgola.
 
@@ -297,7 +299,7 @@ Ritornare all'app che si vuole migliorare.
 
         git checkout beta
 
-2. In *& lt;radice\_repository>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml trovare il tag `<li>` e aggiungere l'attributo `style="cursor:pointer"`, come illustrato di seguito.
+2. In *&lt;radice\_repository>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml trovare il tag `<li>` e aggiungere l'attributo `style="cursor:pointer"`, come illustrato di seguito.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
 
@@ -375,4 +377,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0803_2016-->

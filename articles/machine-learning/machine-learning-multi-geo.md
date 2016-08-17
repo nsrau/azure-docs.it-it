@@ -44,10 +44,10 @@ Per gestire a livello di programmazione i servizi web, ad esempio per la ripetiz
 
 ### Punti da notare
 
-1.	È possibile copiare solo esperimenti tra aree di lavoro che appartengono alla stessa area geografica. In futuro, sarà possibile copiare esperimenti tra aree di lavoro in più aree geografiche.
-2.	Il selettore dell’area visualizzerà solo le aree di lavoro di una determinata area geografica alla volta. In futuro, sarà possibile visualizzare un elenco completo delle aree di lavoro a cui si ha accesso contemporaneamente in più aree geografiche.  
-3.	Un’area di lavoro con accesso libero o Guest (anonimo) verrà creata e ospitata in Stati Uniti centro-meridionali. In futuro, sarà possibile creare aree di lavoro ad accesso libero/Guest nell'area che si desidera.  
-4.	I servizi Web distribuiti da un'area di lavoro nell’Asia sudorientale verranno anche ospitati in Asia sudorientale. In futuro, sarà possibile garantire la flessibilità della creazione di esperimenti in un'unica area e della distribuzione di endpoint generati del servizio web in aree diverse.  
+1.	In questo modo è possibile copiare solo esperimenti tra aree di lavoro che appartengono alla stessa area geografica. Se è necessario copiare un esperimento fra aree di lavoro diverse, per farlo è possibile usare il commandlet di [PowerShell](http://aka.ms/amlps) [*Copy-AmlExperiment*](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment). Un'altra soluzione alternativa consiste nel pubblicare l'esperimento nella raccolta in modalità non in elenco, quindi aprirlo nell'area di lavoro dall'altra area.
+2.	Il selettore dell’area visualizzerà solo le aree di lavoro di una determinata area geografica alla volta. In futuro, sarà possibile visualizzare un elenco completo delle aree di lavoro a cui si ha accesso contemporaneamente in più aree geografiche.
+3.	Un’area di lavoro con accesso libero o Guest (anonimo) verrà creata e ospitata in Stati Uniti centro-meridionali. In futuro, sarà possibile creare aree di lavoro ad accesso libero/Guest nell'area che si desidera.
+4.	I servizi Web distribuiti da un'area di lavoro nell’Asia sudorientale verranno anche ospitati in Asia sudorientale. In futuro, sarà possibile garantire la flessibilità della creazione di esperimenti in un'unica area e della distribuzione di endpoint generati del servizio web in aree diverse.
 
 ## Altre informazioni
 
@@ -59,4 +59,4 @@ Aggiungere una domanda sul [forum di Azure Machine Learning](https://social.msdn
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

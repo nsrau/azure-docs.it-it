@@ -21,12 +21,20 @@
 
 
 ## Panoramica dei passaggi
-1. Creare una a connessione ibrida immettendo il nome host o l'indirizzo IP della risorsa locale nella rete privata.
+1. Creare una a connessione ibrida immettendo il **nome host** o l'**FQDN** della risorsa locale nella rete privata.
 2. Collegare App Web di Azure o App per dispositivi mobili di Azure alla connessione ibrida.
 3. Installare Gestione connessioni ibride nella risorsa locale e connettersi a una specifica connessione ibrida. Il portale di Azure consente di eseguire l'installazione e la connessione con un solo clic.
 4. Gestire le connessioni ibride e le relative chiavi di connessione.
 
 In questo argomento vengono riportati i passaggi seguenti.
+
+> [AZURE.IMPORTANT] È possibile impostare un endpoint della connessione ibrida su un indirizzo IP. Se si usa un indirizzo IP, la risorsa locale può essere raggiunta o meno, a seconda del client. La connessione ibrida dipende dal client che esegue una ricerca DNS. Nella maggior parte dei casi, il __client__ è il codice dell'applicazione. Se il client non esegue una ricerca DNS, ovvero non prova a risolvere l'indirizzo IP come se fosse un nome di dominio (x.x.x. x), il traffico non verrà inviato attraverso la connessione ibrida.
+>
+> Ad esempio (pseudocodice), è possibile definire **10.4.5.6** come host locale:
+> 
+> **Lo scenario seguente funziona:** `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> 
+> **Lo scenario seguente non funziona:** `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 
 
 ## <a name="CreateHybridConnection"></a>Creare una connessione ibrida
@@ -48,7 +56,7 @@ Una connessione ibrida può essere creata nel portale di Azure usando le app Web
 	Proprietà | Descrizione
 --- | ---
 Nome | Il nome della connessione ibrida deve essere univoco e non può essere uguale al nome del servizio BizTalk. È possibile inserire qualsiasi nome, ma è consigliabile sceglierne uno che descriva lo scopo specifico. Alcuni esempi:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Alcuni esempi:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Alcuni esempi:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>Se si usa l'indirizzo IPv4, il codice del client o dell'applicazione potrebbero non risolvere l'indirizzo IP. Vedere la nota importante all'inizio di questo argomento.
 Port | Immettere il numero di porta della risorsa locale. Ad esempio, se si usa App Web, immettere la porta 80 o 443. Se si usa SQL Server, immettere la porta 1433.
 
 5. Per completare la configurazione, fare clic sul segno di spunta.
@@ -152,4 +160,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="04/07/2016"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Pubblicare un'applicazione in un cluster remoto tramite Visual Studio
@@ -107,4 +107,4 @@ Per altre informazioni su come automatizzare il processo di pubblicazione in un 
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
 	description="Questo argomento illustra il benchmark ASDB (Azure SQL Database Benchmark) usato per la misurazione delle prestazioni del database SQL di Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -130,4 +130,4 @@ Il benchmark ASDB misura le prestazioni relative del database SQL di Azure in es
 
 [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

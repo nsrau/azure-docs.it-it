@@ -66,8 +66,8 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 |:--|:--|
 | Tipo=Event | Tutti gli eventi di Windows. |
 | Tipo=Event EventLevelName=error | Tutti gli eventi di Windows con livello di gravità dell'errore. |
-| Tipo=Event | Measure count() by Source | Numero di eventi di Windows per origine. |
-| Tipo=Event EventLevelName=error | Measure count() by Source | Numero di eventi di errore di Windows per origine. |
+| Tipo=Event &#124; Measure count() by Source | Numero di eventi di Windows per origine. |
+| Tipo=Event EventLevelName=error &#124; Measure count() by Source | Numero di eventi di errore di Windows per origine. |
 
 ## Passaggi successivi
 

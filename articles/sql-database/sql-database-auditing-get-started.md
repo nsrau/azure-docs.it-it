@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2016"
-	ms.author="carlrabeler; ronitr"/>
+	ms.author="CarlRabeler; ronitr"/>
 
 # Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo in genere è disponibile per i livelli di servizio Basic, Standard e Premium.
@@ -175,4 +175,4 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

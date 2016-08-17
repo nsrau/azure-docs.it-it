@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Ripristinare una macchina virtuale in una nuova dai backup archiviati in un insi
 
 1. Nella schermata per la **selezione di un'istanza di ripristino** specificare i dettagli del percorso in cui ripristinare la macchina virtuale.
 
-  - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Non è supportata la sovrascrittura di macchine virtuali esistenti. 
+  - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Non è supportata la sovrascrittura di macchine virtuali esistenti.
   - Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
 
         Qualunque nome di servizio cloud selezionato deve essere univoco a livello globale. In genere, il nome del servizio cloud viene associato a un URL pubblico nel formato [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già stato usato. Se si sceglie di creare un nuovo servizio cloud, a questo viene assegnato lo stesso nome della macchina virtuale. In tal caso, il nome della macchina virtuale deve essere sufficientemente univoco da poter essere applicato al servizio cloud associato.
@@ -101,6 +101,9 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) per la macchina virtuale nel portale di Azure.
+
+## Operazioni successive al ripristino
+Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza, la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/virtual-machines-linux-classic-reset-access.md) nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino.
 
 ## Backup per le macchine virtuali ripristinate
 Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.
@@ -155,4 +158,4 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

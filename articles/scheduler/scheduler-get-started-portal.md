@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
- ms.author="krisragh"/>
+ ms.date="08/10/2016"
+ ms.author="krisragh"/>  
 
 # Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 
@@ -25,7 +25,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 2.  Fare clic su **+Nuovo**, digitare _Utilità di pianificazione_ nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]  
 
 3.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
 
@@ -43,7 +43,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
     3.  **URL:** ` http://www.microsoft.com`
 
-   ![][action-settings]
+      ![][action-settings]  
 
 5.  Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
 
@@ -55,7 +55,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
     4. **Termina entro**: due giorni dalla data odierna
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Fare clic su **Crea**
 
@@ -69,22 +69,22 @@ Un processo appena creato viene visualizzato nel dashboard principale di Azure. 
 
 3.  Pianificazione
 
-4.  History
+4.  Cronologia
 
 5.  Utenti
 
-   ![][job-overview]
+    ![][job-overview]  
 
 ### Proprietà
 
 Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
-   ![][job-properties]
+   ![][job-properties]  
 
 
 ### Impostazioni di azione
 
-Per configurare un processo, fare clic su un processo nella schermata **Processi**. Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
+Per configurare un processo, fare clic sul processo corrispondente nella schermata **Processi**. Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
 
 Per tutti i tipi di azione è possibile modificare i criteri per i tentativi e l'azione di errore.
 
@@ -94,24 +94,24 @@ Per le azioni di tipo coda di archiviazione, è possibile modificare l'account d
 
 Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio.
 
-   ![][job-action-settings]
+   ![][job-action-settings]  
 
 ### Pianificazione
 
 Permette di riconfigurare la pianificazione creata nella procedura guidata di creazione rapida.
 
-Offre la possibilità di compilare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md).
+Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md)
 
 È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente).
 
-   ![][job-schedule]
+   ![][job-schedule]  
 
 
 ### Cronologia
 
 La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
-1.  Stato
+1.  Status
 
 2.  Dettagli
 
@@ -123,15 +123,15 @@ La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di p
 
 6.  Ora di fine dell'esecuzione
 
-   ![][job-history]
+   ![][job-history]  
 
 È possibile fare clic su un'esecuzione per visualizzarne i **Dettagli cronologia**, inclusa l'intera risposta per ogni esecuzione. La finestra di dialogo consente anche di copiare la risposta negli appunti.
 
-   ![][job-history-details]
+   ![][job-history-details]  
 
 ### Utenti
 
-Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
+Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
 
 ## Vedere anche
@@ -182,4 +182,4 @@ Il controllo degli accessi in base al ruolo di Azure consente una gestione degli
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

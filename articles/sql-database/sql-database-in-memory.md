@@ -107,7 +107,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) negli Appunti.
+3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) negli Appunti.
  - Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
 
 4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo.
@@ -233,7 +233,7 @@ end
 ```
 
 
-Per creare la versione \_ondisk dello script T-SQL precedente per ostress.exe, occorre semplicemente sostituire le due occorrenze della sottostringa *\_inmem* con *\_ondisk*. Questa sostituzione interessa i nomi delle tabelle e delle stored procedure.
+Per creare la versione \_ondisk dello script T-SQL precedente per ostress.exe, occorre semplicemente sostituire le due occorrenze della sottostringa *\_inmem* substring con *\_ondisk*. Questa sostituzione interessa i nomi delle tabelle e delle stored procedure.
 
 
 ### Installare le utilità RML e ostress
@@ -286,7 +286,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copiare il testo della riga di comando ostress.exe precedente negli Appunti.
 
-3. Sostituire <placeholders> per i parametri -S -U -P -d con i valori reali corretti.
+3. Sostituire i <segnaposto> dei parametri -S -U -P -d con i valori reali corretti.
 
 4. Eseguire la riga di comando modificata in una finestra dei comandi RML.
 
@@ -319,7 +319,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Risultati previsti per il confronto
 
-I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con l'utilità ostress in esecuzione in una macchina virtuale di Azure nella stessa area di Azure del database.
+I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con l'utilità ostress in esecuzione in una VM di Azure nella stessa area di Azure del database.
 
 
 
@@ -348,7 +348,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
  - Usare esattamente questo nome.
  - Scegliere qualsiasi livello di servizio Premium.
 
-2. Copiare [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) negli Appunti.
+2. Copiare [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) negli Appunti.
  - Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
  - Lo script crea la tabella delle dimensioni e due tabelle dei fatti. Ogni tabella dei fatti viene popolata con 3,5 milioni di righe.
  - Il completamento dello script potrebbe richiedere 15 minuti.
@@ -371,7 +371,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 #### Query fondamentali per il confronto dell'indice columnstore
 
 
-[Qui](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) sono disponibili diversi tipi di query T-SQL che è possibile eseguire per migliorare le prestazioni. Dal passaggio 2, nello script T-SQL è presente una coppia di query di interesse diretto. Le due query differiscono per una sola riga:
+[Qui](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) sono disponibili diversi tipi di query T-SQL che è possibile eseguire per migliorare le prestazioni. Dal passaggio 2, nello script T-SQL è presente una coppia di query di interesse diretto. Le due query differiscono per una sola riga:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -537,4 +537,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

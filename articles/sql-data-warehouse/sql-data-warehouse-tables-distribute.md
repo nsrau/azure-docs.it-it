@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuzione di tabelle in SQL Data Warehouse
@@ -179,7 +179,7 @@ Un modo semplice per identificare eventuali asimmetrie dei dati in una tabella c
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse). Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse). Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
 
 ```sql
 select *
@@ -187,7 +187,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Passaggi successivi
 
-Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary]. Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary].
+
+Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -312,4 +314,4 @@ Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relat
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

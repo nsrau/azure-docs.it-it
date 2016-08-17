@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Introduzione ad Azure Active Directory Premium"
-	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web del contratti multilicenza."
+	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web Volume Licensing."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila" 
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/25/2016"
-	ms.author="markvi"/>
+	ms.author="markvi"/>  
 
 # Introduzione ad Azure Active Directory Premium
 
@@ -23,7 +23,7 @@ Sono disponibili diverse opzioni per l'iscrizione ad Active Directory Premium:
 
 **Azure oppure Office 365**: un sottoscrittore di Azure oppure Office 365 può acquistare Active Directory Premium online. Per informazioni dettagliate vedere i video relativi a [come acquistare Azure Active Directory Premium (clienti esistenti)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) o [come acquistare Azure Active Directory Premium (nuovi clienti)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
-**Enterprise Mobility Suite**: Enterprise Mobility Suite è una soluzione economicamente conveniente che consente alle organizzazioni di usare con un unico piano di licenze i servizi Active Directory Premium, Azure Rights Management, Microsoft Intune. Per altre informazioni, visitare il sito Web di [Enterprise Mobility Suite](https://www.microsoft.com/it-IT/server-cloud/enterprise-mobility/overview.aspx). Per ottenere una versione di valutazione gratuita di 30 giorni, fare clic [qui](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility + Security**: Enterprise Mobility + Security (in precedenza Enterprise Mobility Suite) è una soluzione economicamente conveniente che consente alle organizzazioni di usare con un unico piano di licenze i servizi Active Directory Premium, Azure Rights Management e Microsoft Intune. Per altre informazioni, vedere il sito Web [Enterprise Mobility + Security](https://www.microsoft.com/it-IT/server-cloud/enterprise-mobility/overview.aspx). Per ottenere una versione di valutazione gratuita di 30 giorni, fare clic [qui](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Contratti multilicenza Microsoft**: Azure Active Directory Premium è disponibile tramite un programma [Microsoft Enterprise Agreement](https://www.microsoft.com/it-IT/licensing/licensing-programs/enterprise.aspx) (250 o più licenze) o un programma [Open Volume License](https://www.microsoft.com/it-IT/licensing/licensing-programs/open-license.aspx) (da 5 a 250 licenze).
@@ -56,7 +56,7 @@ Per ogni acquisto successivo relativo a questa directory, le licenze vengono att
 
 1. Per avviare l'attivazione, fare clic su **Accedi** o **Iscriviti**.
 
-    ![Accesso][1]
+    ![Accesso][1]  
 
 
 
@@ -64,11 +64,11 @@ Per ogni acquisto successivo relativo a questa directory, le licenze vengono att
 
     - Se si vuole creare un nuovo tenant di Azure Active Directory da usare con il piano di licenze, fare clic su **Iscriviti** per aprire la finestra di dialogo **Creazione del profilo dell'account**.
 
-        ![Creare un profilo di account][2]
+        ![Creare un profilo di account][2]  
 
 Al termine, viene visualizzata la finestra di dialogo seguente a conferma dell'attivazione del piano di licenze per il tenant.
 
-![Conferma][3]
+![Conferma][3]  
 
 ## Passaggio 3: Attivare l'accesso ad Azure Active Directory
 
@@ -78,7 +78,7 @@ Quando viene effettuato il provisioning delle licenze nella directory, viene inv
 
 Se si prova ad attivare l'accesso ad Azure Active Directory prima di ricevere il messaggio di posta elettronica di benvenuto, viene visualizzato il messaggio di errore seguente.
 
-![L'accesso non è disponibile][9]
+![L'accesso non è disponibile][9]  
 
 Dopo la ricezione del messaggio di posta elettronica, attendere alcuni minuti prima di ripetere il tentativo.
 
@@ -91,43 +91,43 @@ Anche i nuovi amministratori inclusi nella sottoscrizione possono attivare l'acc
 
 **Per attivare l'accesso ad Azure Active Directory, seguire questa procedura:**
 
-1. Nel **messaggio di posta elettronica di benvenuto** fare clic su **Accedi**. 
+1. Nel **messaggio di posta elettronica di benvenuto** fare clic su **Accedi**.
     
-    ![Messaggio di posta elettronica di benvenuto][4]
+    ![Messaggio di posta elettronica di benvenuto][4]  
 
 2. Dopo aver eseguito l'accesso, è necessario completare un'autenticazione a due fattori mediante una verifica per dispositivi mobili:
 
-    ![Verifica per dispositivi mobili][5]
+    ![Verifica per dispositivi mobili][5]  
 
 L'attivazione potrebbe richiedere alcuni minuti. Quando l'accesso viene attivato, la barra marrone scompare ed è possibile fare clic su **Portale**.
 
-![Attendere. Configurazione in corso][6]
+![Attendere. Configurazione in corso][6]  
 
 In questo caso, l'accesso ad Azure è limitato ad Azure Active Directory.
 
-![Funzionalità di Azure][7]
+![Funzionalità di Azure][7]  
 
 Se invece si riesce ad accedere ad Azure grazie a un'iscrizione precedente, è possibile eseguire l'aggiornamento dell'accesso di Azure Active Directory all'accesso di Azure completo attivando sottoscrizioni Azure aggiuntive. In questi casi il portale di Azure classico offre maggiori funzionalità.
 
-![Funzionalità di Azure][8]
+![Funzionalità di Azure][8]  
 
 
 
 ## Passaggio 4: Assegnare le licenze agli account utente
 
-Prima di iniziare a usare il piano acquistato, è necessario assegnare manualmente le licenze agli account utente dell'organizzazione per consentire loro di usufruire dell'ampia gamma di funzionalità fornite dal livello Premium. Attenersi alla procedura seguente per assegnare le licenze agli utenti e consentire loro di usare le funzionalità di Azure Active Directory Premium.
+Prima di iniziare a usare il piano acquistato, è necessario assegnare manualmente le licenze agli account utente dell'organizzazione per consentire loro di usufruire dell'ampia gamma di funzionalità offerta dal livello Premium. Attenersi alla procedura seguente per assegnare le licenze agli utenti e consentire loro di usare le funzionalità di Azure Active Directory Premium.
 
 **Per assegnare licenze agli utenti, seguire questa procedura:**
 
 1. Accedere al portale di Azure classico come amministratore globale della directory che si vuole personalizzare.
 2. Fare clic su **Active Directory**, quindi selezionare la directory in cui si desidera assegnare le licenze.
-3. Fare clic sulla scheda **Licenze**, selezionare **Active Directory Premium** o **Enterprise Mobility Suite**, quindi fare clic su **Assegna**.
+3. Fare clic sulla scheda **Licenze**, selezionare **Active Directory Premium** o **Enterprise Mobility Suite** e quindi fare clic su **Assegna**.
 
-    ![Piani di licenze][10]
+    ![Piani di licenze][10]  
 
 4. Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.
 
-    ![Assegnare licenze][11]
+    ![Assegnare licenze][11]  
 
 ### Limitazioni relative alle licenze
 
@@ -137,13 +137,13 @@ Alcuni piani di licenze fanno parte di altri piani di licenze o includono a loro
 
 Quando si assegna una licenza a un utente, è possibile specificare una località di utilizzo primaria nelle proprietà dell'account. Se non viene specificata una località di utilizzo, all'utente verrà assegnata automaticamente la località del tenant.
 
-![Posizione degli utenti][12]
+![Posizione degli utenti][12]  
 
 La disponibilità di servizi e funzionalità per un servizio cloud Microsoft varia in base al paese o all'area geografica. È possibile che un servizio, ad esempio VoIP (Voice over Internet Protocol), sia disponibile solo in alcuni paesi o aree geografiche. È inoltre possibile che alcune funzionalità di un servizio siano limitate per motivi legali in determinati paesi o aree geografiche. Per verificare se un servizio o una funzionalità è disponibile con o senza limitazioni, cercare il proprio paese o area geografica nel sito dedicato alle limitazioni relative alle licenze del servizio.
 
 ## Passaggi successivi
 
-- [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
+- [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
@@ -160,4 +160,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

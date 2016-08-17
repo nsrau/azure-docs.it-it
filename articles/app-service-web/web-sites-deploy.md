@@ -103,7 +103,7 @@ Svantaggio della distribuzione da un servizio di controllo del codice sorgente b
 ###<a name="vsts"></a>Come eseguire una distribuzione continua da un servizio di controllo del codice sorgente basato sul cloud
 Nel [portale di Azure](https://portal.azure.com) è possibile configurare la distribuzione continua da GitHub, Bitbucket e Visual Studio Team Services.
 
-* [Distribuzione continua nel servizio app di Azure](app-service-continous-deployment.md)
+* [Distribuzione continua nel servizio app di Azure](app-service-continuous-deployment.md).
 
 ## <a name="localgitdeployment"></a>Distribuire dall'archivio Git locale
 Se il team di sviluppo usa un servizio locale di gestione del codice sorgente locale basato su archivio Git, è possibile configurare questo servizio come origine di distribuzione al servizio app.
@@ -234,4 +234,4 @@ Per informazioni su come usare il controllo degli accessi in base al ruolo di Az
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -207,7 +207,7 @@ Queste **operazioni** sono consentite sui tipi elencati sopra.
 | string *operatore* string | <, <=, ==, >=, >, != | double |
 | timestamp *operatore* timestamp | <, <=, ==, >=, >, != | double |
 | timeinterval *operatore* timeinterval | <, <=, ==, >=, >, != | double |
-| double *operatore* double | &&, || | double |
+| double *operatore* double | &&, &#124;&#124; | double |
 
 Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 

@@ -189,7 +189,7 @@ Selezionare i primi 10|15|Totale 150|155|1275
 
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo. Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
-##Superamento dei limiti della velocità effettiva riservata
+##<a id="RequestRateTooLarge"></a>Superamento dei limiti della velocità effettiva riservata
 Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
 
 	HTTP Status 429
@@ -220,4 +220,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

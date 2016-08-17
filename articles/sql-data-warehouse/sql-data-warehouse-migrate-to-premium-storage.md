@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -73,8 +73,8 @@ La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, or
 | **Area** | **Data di inizio prevista** | **Data di fine prevista** |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia orientale | Non ancora determinata | Non ancora determinata |
-| Australia sudorientale | Non ancora determinata | Non ancora determinata |
-| Brasile meridionale | Non ancora determinata | Non ancora determinata |
+| Australia sudorientale | 10 agosto 2016 | 24 agosto 2016 |
+| Brasile meridionale | 10 agosto 2016 | 24 agosto 2016 |
 | Canada centrale | 23 giugno 2016 | 1 luglio 2016 |
 | Canada orientale | 23 giugno 2016 | 1 luglio 2016 |
 | Stati Uniti centrali | 23 giugno 2016 | 4 luglio 2016 |
@@ -86,10 +86,10 @@ La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, or
 | India centrale | 23 giugno 2016 | 1 luglio 2016 |
 | India meridionale | 23 giugno 2016 | 1 luglio 2016 |
 | India occidentale | Non ancora determinata | Non ancora determinata |
-| Giappone orientale | Non ancora determinata | Non ancora determinata |
+| Giappone orientale | 10 agosto 2016 | 24 agosto 2016 |
 | Giappone occidentale | Non ancora determinata | Non ancora determinata |
 | Stati Uniti centro-settentrionali | Non ancora determinata | Non ancora determinata |
-| Europa settentrionale | Non ancora determinata | Non ancora determinata |
+| Europa settentrionale | 10 agosto 2016 | 24 agosto 2016 |
 | Stati Uniti centro-meridionali | 23 giugno 2016 | 2 luglio 2016 |
 | Asia sudorientale | 23 giugno 2016 | 1 luglio 2016 |
 | Europa occidentale | 23 giugno 2016 | 8 luglio 2016 |
@@ -97,8 +97,6 @@ La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, or
 
 ## Migrazione self-service ad Archiviazione Premium
 Se si preferisce mantenere il controllo sui tempi di inattività, è possibile usare la procedura seguente per eseguire la migrazione di un data warehouse esistente da Archiviazione Standard in Archiviazione Premium. Se si sceglie di eseguire la migrazione self-service, è necessario completarla prima dell'inizio della migrazione automatica nella stessa area, per evitare il rischio di conflitti dovuti alla migrazione automatica. Vedere in proposito la [pianificazione della migrazione automatica][].
-
-> [AZURE.NOTE] SQL Data Warehouse con Archiviazione Premium attualmente non ha ridondanza geografica. Ciò significa che, dopo la migrazione del data warehouse in Archiviazione Premium, i dati risiedono soltanto nell'area corrente. Quando saranno disponibili, i backup geografici eseguiranno una copia del data warehouse ogni 24 ore nell'[area abbinata di Azure][], che permette di eseguire il ripristino dal backup geografico in qualsiasi area di Azure. Quando la funzionalità di backup geografico sarà disponibile per le migrazioni self-service, verrà annunciato nel [sito principale della documentazione][]. Le migrazioni automatiche, invece, non avranno questa limitazione.
 
 ### Istruzioni per la migrazione self-service
 Se si preferisce mantenere il controllo sui tempi di inattività, è possibile eseguire la migrazione self-service del data warehouse usando la funzionalità di backup/ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, usare la procedura riportata di seguito come [soluzione alternativa per la ridenominazione][].
@@ -112,18 +110,18 @@ Se si preferisce mantenere il controllo sui tempi di inattività, è possibile e
 >	-  Auditing at the Database level will need to be re-enabled
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
-#### Facoltativo: soluzione alternativa per la ridenominazione 
-Due database nello stesso server logico non possono avere lo stesso nome. SQL Data Warehouse attualmente non supporta la possibilità di rinominare un data warehouse. Le istruzioni riportate di seguito offrono una soluzione alternativa da usare nel corso di una migrazione self-service. Nota: le migrazioni automatiche non avranno questa limitazione.
+#### Facoltativo: Procedura di ridenominazione durante la migrazione 
+Due database nello stesso server logico non possono avere lo stesso nome. SQL Data Warehouse ora supporta la possibilità di rinominare un data warehouse.
 
 Ai fini di questo esempio, si supponga che il data warehouse esistente in Archiviazione Standard sia attualmente denominato "MyDW".
 
-1.	[Sospendere][] "MyDW". Verrà eseguito un backup automatico
-2.	[Ripristinare][] dallo snapshot più recente un nuovo database con un nome diverso, ad esempio "MyDWTemp"
-3.	Eliminare "MyDW". **Se non viene eseguito questo passaggio, verranno addebitati entrambi i data warehouse.**
-4.	Dato che "MyDWTemp" è un data warehouse di nuova creazione, per un certo periodo di tempo non sarà disponibile un backup per il ripristino. È consigliabile continuare a eseguire operazioni in "MyDWTemp" per alcune ore prima di procedere con i passaggi 5 e 6.
-5.	[Sospendere][] "MyDWTemp". Verrà eseguito un backup automatico.
-6.	[Ripristinare][] dallo snapshot più recente di "MyDWTemp" un nuovo database denominato "MyDW".
-7.	Eliminare "MyDWTemp". **Se non viene eseguito questo passaggio, verranno addebitati entrambi i data warehouse.**
+1.	Rinominare "MyDW" facendo seguire il comando ALTER DATABASE a un elemento come "MyDW\_BeforeMigration". Questa operazione termina tutte le transazioni esistenti e deve essere eseguita nel database master abbia esito positivo.
+```
+ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
+```
+2.	[Sospendere][] "MyDW\_BeforeMigration" per eseguire un backup automatico
+3.	[Ripristinare][] dallo snapshot più recente un nuovo database con il nome di prima (es: "MyDW")
+4.	Eliminare "MyDW\_BeforeMigration". **Se non viene eseguito questo passaggio, verranno addebitati entrambi i data warehouse.**
 
 > [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
 > 
@@ -139,8 +137,8 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 [pianificazione della migrazione automatica]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
 [creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[area abbinata di Azure]: ./best-practices-availability-paired-regions.md
-[sito principale della documentazione]: ./services/sql-data-warehouse.md
+[Azure paired region]: ./best-practices-availability-paired-regions.md
+[main documentation site]: ./services/sql-data-warehouse.md
 [Sospendere]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Ripristinare]: ./sql-data-warehouse-manage-database-restore-portal.md
 [soluzione alternativa per la ridenominazione]: #optional-rename-workaround
@@ -149,7 +147,7 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 
 
 <!--Other Web references-->
-[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
 	description="In questo argomento viene trattato l'aspetto di gestione della sicurezza dopo il ripristino o il failover di un database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -95,4 +95,4 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 
 ## Risorse aggiuntive
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

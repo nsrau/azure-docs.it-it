@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Come annullare la sottoscrizione di Azure | Microsoft Azure"
 	description="Descrive come annullare la sottoscrizione di Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@ Se si annulla la sottoscrizione, tutti i servizi verranno eliminati immediatamen
 4. Selezionare **Sì, annullare la sottoscrizione**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Fare clic su ![checkButton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) per chiudere la finestra di dialogo e tornare alla pagina di sottoscrizione.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0803_2016-->

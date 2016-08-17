@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -45,7 +45,7 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui Ã
 ## Creare un nuovo connettore SAP
 1. Accedere al portale di Azure.
 2. Selezionare **Nuovo**.
-3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
+3. Nel pannello di creazione, selezionare **Calcolo** > **Azure Marketplace**.
 4. Nel pannello Marketplace selezionare **App per le API** e quindi eseguire la ricerca di SAP nella barra di ricerca: ![App per le API del connettore SAP][2]
 5. Selezionare **SAP Connector** pubblicato da Microsoft.
 6. Nel pannello Connettore SAP selezionare **Crea**.
@@ -124,4 +124,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. Ãˆ
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

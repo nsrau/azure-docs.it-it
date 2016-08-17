@@ -1,11 +1,12 @@
 <properties
    pageTitle="Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure | Microsoft Azure"
    description="Fornisce una panoramica concettuale sull'utilizzo dell’API di fatturazione e dell’API RestCard di Azure, che sono utilizzate per fornire informazioni sul consumo di risorse e sulle tendenze di Azure."
-   services="billing"
+   services=""
    documentationCenter=""
    authors="BryanLa"
    manager="mbaldwin"
-   editor=""/>
+   editor=""
+   tags="billing"/>
 
 <tags
    ms.service="billing"
@@ -50,7 +51,7 @@ Clienti e partner possono utilizzare l'API RateCard delle risorse di Azure per o
 
 Di seguito sono illustrati alcuni scenari resi possibili con la combinazione di API di utilizzo e API RateCard:
 
-- **Spesa Azure durante il mese**: i clienti possono utilizzare le API di utilizzo e RateCard in combinazione per ottenere informazioni dettagliate relativamente alle spese per il cloud durante il mese, analizzando gli intervalli orari e giornalieri dell’utilizzo e le stime dei costi. 
+- **Spesa Azure durante il mese**: i clienti possono utilizzare le API di utilizzo e RateCard in combinazione per ottenere informazioni dettagliate relativamente alle spese per il cloud durante il mese, analizzando gli intervalli orari e giornalieri dell’utilizzo e le stime dei costi.
 
 - **Configurazione degli avvisi**: clienti e partner possono configurare avvisi basati sulle risorse o avvisi monetari sul consumo cloud, grazie alle stime sul consumo e sui costi ottenute tramite l’API di utilizzo e RateCard.
 
@@ -78,4 +79,4 @@ In [Cloud Cruiser e integrazione dell’API di fatturazione di Microsoft Azure](
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
    keywords="migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -23,9 +23,9 @@ Questo articolo illustra come eseguire la migrazione di un database locale di SQ
 
 I passaggi necessari alla migrazione sono i seguenti:
 
-- **Test per la compatibilità**: la prima cosa da fare è convalidare la compatibilità del database con la [versione 12 del database SQL](sql-database-v12-whats-new.md). 
-- **Risolvere gli eventuali problemi di compatibilità**: se la convalida non riesce, è necessario correggere gli errori.  
-- **Eseguire la migrazione**: una volta che il database è compatibile, è possibile utilizzare uno o più metodi per eseguire la migrazione. 
+- **Test per la compatibilità**: la prima cosa da fare è convalidare la compatibilità del database con la [versione 12 del database SQL](sql-database-v12-whats-new.md).
+- **Risolvere gli eventuali problemi di compatibilità**: se la convalida non riesce, è necessario correggere gli errori.
+- **Eseguire la migrazione**: una volta che il database è compatibile, è possibile utilizzare uno o più metodi per eseguire la migrazione.
 
 SQL Server fornisce diversi metodi per eseguire ognuna di queste attività. Questo articolo illustra una panoramica dei metodi disponibili per queste attività. Il diagramma seguente illustra passaggi e metodi.
 
@@ -44,11 +44,11 @@ Per verificare i problemi di compatibilità del database SQL prima di iniziare i
 - [Preparazione aggiornamento](http://www.microsoft.com/download/details.aspx?id=48119)
 - [MIGRAZIONE GUIDATA DATABASE SQL DI AZURE](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
-- [SSDT (SQL Server Data Tools) per Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT usa le regole di compatibilità più aggiornate per rilevare le incompatibilità con la versione 12 del database SQL. Se rileva problemi di compatibilità, questo strumento è in grado di risolverli direttamente. Attualmente questo è il metodo consigliato per testare e risolvere i problemi di compatibilità con la versione 12 del database SQL. 
-- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage è un'utilità della riga di comando che esegue test per rilevare i problemi di compatibilità e genera un report contenente i problemi rilevati. Se si utilizza questo strumento, assicurarsi di utilizzare la versione più recente per utilizzare le regole di compatibilità più aggiornate. Se vengono rilevati errori, è necessario utilizzare un altro strumento per risolvere i problemi di compatibilità rilevati, in particolare si consiglia di usare SSDT.  
+- [SSDT (SQL Server Data Tools) per Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT usa le regole di compatibilità più aggiornate per rilevare le incompatibilità con la versione 12 del database SQL. Se rileva problemi di compatibilità, questo strumento è in grado di risolverli direttamente. Attualmente questo è il metodo consigliato per testare e risolvere i problemi di compatibilità con la versione 12 del database SQL.
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage è un'utilità della riga di comando che esegue test per rilevare i problemi di compatibilità e genera un report contenente i problemi rilevati. Se si utilizza questo strumento, assicurarsi di utilizzare la versione più recente per utilizzare le regole di compatibilità più aggiornate. Se vengono rilevati errori, è necessario utilizzare un altro strumento per risolvere i problemi di compatibilità rilevati, in particolare si consiglia di usare SSDT.
 - [Procedura guidata dell'applicazione livello dati in SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): la procedura guidata rileva gli errori e genera un report a schermo. Se non vengono rilevati errori, è possibile continuare e completare la migrazione al database SQL. Se vengono rilevati errori, è necessario utilizzare un altro strumento per risolvere i problemi di compatibilità rilevati, in particolare si consiglia di usare SSDT.
-- [Anteprima di Preparazione aggiornamento di Microsoft SQL Server 2016](http://www.microsoft.com/download/details.aspx?id=48119): questo strumento autonomo, attualmente in anteprima, rileva e genera un report degli errori di compatibilità con la versione 12 del database SQL. Questo strumento non dispone ancora delle regole di compatibilità più recenti. Se non vengono rilevati errori, è possibile continuare e completare la migrazione al database SQL. Se vengono rilevati errori, è necessario utilizzare un altro strumento per risolvere i problemi di compatibilità rilevati, in particolare si consiglia di usare SSDT. 
-- [SAMW (SQL Azure Migration Wizard, Migrazione guidata database SQL di Microsoft Azure)](sql-database-cloud-migrate-fix-compatibility-issues.md): si tratta di uno strumento codeplex che usa le regole di compatibilità della versione 11 del database SQL di Microsoft Azure per rilevare errori di compatibilità con la versione 12 del database SQL di Microsoft Azure. Nel caso in cui vengano rilevati errori di compatibilità, alcuni problemi possono essere risolti direttamente da questo strumento. È possibile che questo strumento rilevi errori di compatibilità che non è necessario correggere ma è stato il primo strumento di supporto alla migrazione del database SQL di Microsoft Azure, quindi dispone di molto materiale di supporto nella community di SQL Server. Inoltre, è possibile completare la migrazione direttamente da questo strumento. 
+- [Anteprima di Preparazione aggiornamento di Microsoft SQL Server 2016](http://www.microsoft.com/download/details.aspx?id=48119): questo strumento autonomo, attualmente in anteprima, rileva e genera un report degli errori di compatibilità con la versione 12 del database SQL. Questo strumento non dispone ancora delle regole di compatibilità più recenti. Se non vengono rilevati errori, è possibile continuare e completare la migrazione al database SQL. Se vengono rilevati errori, è necessario utilizzare un altro strumento per risolvere i problemi di compatibilità rilevati, in particolare si consiglia di usare SSDT.
+- [SAMW (SQL Azure Migration Wizard, Migrazione guidata database SQL di Microsoft Azure)](sql-database-cloud-migrate-fix-compatibility-issues.md): si tratta di uno strumento codeplex che usa le regole di compatibilità della versione 11 del database SQL di Microsoft Azure per rilevare errori di compatibilità con la versione 12 del database SQL di Microsoft Azure. Nel caso in cui vengano rilevati errori di compatibilità, alcuni problemi possono essere risolti direttamente da questo strumento. È possibile che questo strumento rilevi errori di compatibilità che non è necessario correggere ma è stato il primo strumento di supporto alla migrazione del database SQL di Microsoft Azure, quindi dispone di molto materiale di supporto nella community di SQL Server. Inoltre, è possibile completare la migrazione direttamente da questo strumento.
 
 ## Risolvere i problemi di compatibilità della migrazione del database
 
@@ -71,7 +71,7 @@ Per correggere gli errori rilevati, usare uno dei seguenti strumenti di migrazio
 - [MIGRAZIONE GUIDATA DATABASE SQL DI AZURE](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
 - Usare [SSDT (SQL Server Data Tools) per Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): per usare SSDT, importare lo schema del database in SQL Server Data Tools per Visual Studio, compilare il progetto per una distribuzione della versione 12 del database SQL, risolvere tutti i problemi di compatibilità rilevati in SSDT e sincronizzare quindi le modifiche con il database di origine o con una sua copia. Attualmente questo è il metodo consigliato per testare e risolvere i problemi di compatibilità con la versione 12 del database SQL. Fare clic sul collegamento relativo alla [procedura dettagliata per l'uso di SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-- Usare [SSMS (SQL Server Management Studio)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): per usare SSMS, è necessario eseguire i comandi di Transact-SQL per correggere gli errori rilevati con un altro strumento. Questo metodo è destinato principalmente agli utenti avanzati che possono modificare lo schema del database direttamente nel database di origine. 
+- Usare [SSMS (SQL Server Management Studio)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): per usare SSMS, è necessario eseguire i comandi di Transact-SQL per correggere gli errori rilevati con un altro strumento. Questo metodo è destinato principalmente agli utenti avanzati che possono modificare lo schema del database direttamente nel database di origine.
 - Usare [SAMW (SQL Azure Migration Wizard, Migrazione guidata database SQL di Microsoft Azure)](sql-database-cloud-migrate-fix-compatibility-issues.md): per usare SAMW, generare uno script Transact-SQL dal database di origine. Quando possibile, tale script viene trasformato dalla procedura guidata per rendere lo schema compatibile con la versione 12 del database SQL. Una volta completata questa operazione, SAMW si connette alla versione 12 del database SQL per eseguire lo script. Questo strumento analizzerà anche i file di traccia per determinare i problemi di compatibilità. Lo script può essere generato solo con lo schema o può includere dati in formato BCP.
 
 ## Eseguire la migrazione di un database di SQL Server compatibile nel database SQL
@@ -106,6 +106,6 @@ Per eseguire la migrazione con tempi di inattività minimi, usare la [replica di
 ##Risorse aggiuntive
 
 - [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md) [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

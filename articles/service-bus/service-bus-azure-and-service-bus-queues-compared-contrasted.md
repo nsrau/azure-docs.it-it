@@ -179,7 +179,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 |---|---|---|
 |Dimensioni massime della coda|**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione)|**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive").|
 |Dimensioni massime del messaggio|**64 KB**<br/><br/>(48 KB quando si usa la codifica **Base64**)<br/><br/>Grazie alla combinazione di code e BLOB, Azure supporta messaggi di grandi dimensioni consentendo di accodare fino a 200 GB per un singolo elemento.|**256 KB** o **1 MB**<br/><br/>(inclusi sia l'intestazione sia il corpo, dimensioni massime dell'intestazione: 64 KB), <br/><br/>a seconda del [livello di servizio](service-bus-premium-messaging.md).|
-|Durata TTL massima del messaggio|**7 giorni**|**Illimitato**|
+|Durata TTL massima del messaggio|**7 giorni**|**`TimeSpan.Max`**|
 |Numero massimo di code|**Illimitato**|**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato)|
 |Numero massimo di client concorrenti|**Illimitato**|**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP)|
 
@@ -211,8 +211,8 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 |API PHP|**Sì**|**Sì**|
 |API Node.js|**Sì**|**Sì**|
 |Supporto metadati arbitrario|**Sì**|**No**|
-|Regole di denominazione delle code|**Lunghezza massima pari a 63 caratteri**<br/><br/>(le lettere del nome di una coda devono essere minuscole)|**Lunghezza massima pari a 260 caratteri**<br/><br/>(percorsi e nomi di coda con distinzione tra maiuscole e minuscole)|
-|Funzione di recupero della lunghezza della coda|**Sì**<br/><br/>(valore indicativo se i messaggi scadono oltre il TTL senza essere eliminati)|**Sì**<br/><br/>(esatto, valore temporizzato)|
+|Regole di denominazione delle code|**Lunghezza massima pari a 63 caratteri**<br/><br/>Le lettere del nome di una coda devono essere minuscole.|**Lunghezza massima pari a 260 caratteri**<br/><br/>I percorsi e i nomi di code fanno distinzione tra maiuscole e minuscole.|
+|Funzione di recupero della lunghezza della coda|**Sì**<br/><br/>Il valore è indicativo se i messaggi scadono oltre il TTL senza essere eliminati.|**Sì**<br/><br/> Valore esatto e temporizzato.|
 |Funzione di visualizzazione|**Sì**|**Sì**|
 
 ### Informazioni aggiuntive
@@ -249,7 +249,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Per ottenere una velocità effettiva più elevata, usare più code del bus di servizio. Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md).
 
-- Quando viene raggiunta la velocità effettiva massima per una coda del bus di servizio, viene restituita al client della coda una risposta [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (se si usa l'API di messaggistica .NET) o HTTP 503 (se si usa l'API REST) per indicare che la coda è limitata.
+- Quando viene raggiunta la velocità effettiva massima per una coda del bus di servizio, viene restituita al client della coda una risposta [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx), se si usa l'API di messaggistica .NET, o HTTP 503, se si usa l'API REST, per indicare che è in corso la limitazione della coda.
 
 ## Autenticazione e autorizzazione
 
@@ -275,9 +275,9 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 |---|---|---|
 |Costo della transazione della coda|**$0.0036**<br/><br/>(per 100.000 transazioni)|**Livello Basic**: **$ 0,05**<br/><br/>(per milioni di operazioni)|
 |Operazioni fatturabili|**Tutte**|**Solo invio/ricezione**<br/><br/>(nessun addebito per altre operazioni)|
-|Transazioni inattive|**Fatturabile**<br/><br/>(l'esecuzione di query su una coda vuota viene contata come transazione fatturabile)|**Fatturabile**<br/><br/>(una ricezione in una coda vuota è considerata un messaggio fatturabile)|
+|Transazioni inattive|**Fatturabile**<br/><br/> L'esecuzione di query su una coda vuota viene conteggiata come transazione fatturabile.|**Fatturabile**<br/><br/> Una ricezione in una coda vuota è considerata un messaggio fatturabile.|
 |Costo di archiviazione|**$ 0,07**<br/><br/>(per GB/mese)|**$ 0,00**|
-|Costi di trasferimento dei dati in uscita|**$ 0,12 - $ 0,19**<br/><br/>(a seconda dell'area geografica)|**$ 0,12 - $ 0,19**<br/><br/>(a seconda dell'area geografica)|
+|Costi di trasferimento dei dati in uscita|**$ 0,12 - $ 0,19**<br/><br/> Il valore varia a seconda dell'area geografica.|**$ 0,12 - $ 0,19**<br/><br/> Il valore varia a seconda dell'area geografica.|
 
 ### Informazioni aggiuntive
 
@@ -313,4 +313,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 [portale di Azure classico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

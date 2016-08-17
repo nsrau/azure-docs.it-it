@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panoramica dei partner ed Enterprise Integration Pack | Servizio app di Microsoft Azure" 
 	description="Informazioni su come usare i partner con Enterprise Integration Pack e le app per la logica" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -65,4 +65,4 @@ Dopo aver creato un contratto, è possibile usarlo mediante il portale di Azure 
 ## Passaggi successivi
 - [Creare un contratto AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

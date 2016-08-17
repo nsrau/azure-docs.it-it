@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure | Microsoft Azure"
 	description="Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="vikdesai"
 	manager="msmbaldwin"
@@ -48,4 +48,4 @@ Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

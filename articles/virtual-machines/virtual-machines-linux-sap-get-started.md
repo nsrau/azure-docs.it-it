@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # Uso di SAP in macchine virtuali (VM) Linux
@@ -331,4 +331,4 @@ Ultimo aggiornamento: marzo 2016
 
 [Questa guida è disponibile qui][dbms-guide]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

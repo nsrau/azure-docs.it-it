@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
-	editor="curtland"/>
+	editor="curtland"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Aggiornamento dell'agente PhoneFactor al server Azure multi-Factor Authentication
 
@@ -51,7 +51,7 @@ Per l'aggiornamento dall'agente PhoneFactor V5.x o versione meno recente al serv
 
 <li>Se richiesto, attivare il server Multi-Factor Authentication e assicurarsi che venga assegnato al gruppo di replica corretto.
 
-<li>Se l'SDK del servizio Web in precedenza è stato installato il, installare il nuovo SDK servizio Web tramite l'interfaccia utente del server Multi-Factor Authentication. Si noti che il nome predefinito della directory virtuale è adesso "MultiFactorAuthWebServiceSdk" anziché "PhoneFactorWebServiceSdk". Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, si consente all'installazione di usare il nuovo nome predefinito, è necessario modificare l'URL in tutte le applicazioni che fanno riferimento all'SDK del servizio Web, ad esempio il portale utenti e il servizio Web app per dispositivi mobili in modo che punti al percorso corretto.
+<li>Se l'SDK del servizio Web in precedenza è stato installato, installare il nuovo SDK servizio Web tramite l'interfaccia utente del server Multi-Factor Authentication. Si noti che il nome predefinito della directory virtuale è adesso "MultiFactorAuthWebServiceSdk" anziché "PhoneFactorWebServiceSdk". Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, si consente all'installazione di usare il nuovo nome predefinito, è necessario modificare l'URL in tutte le applicazioni che fanno riferimento all'SDK del servizio Web, ad esempio il portale utenti e il servizio Web app per dispositivi mobili in modo che punti al percorso corretto.
 
 <li>Se il portale utenti in precedenza è stato installato nel server dell'agente PhoneFactor, installare il nuovo portale utenti Multi-Factor Authentication tramite la relativa interfaccia utente. Si noti che il nome predefinito della directory virtuale è adesso "MultiFactorAuth" anziché "PhoneFactor". Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, se si consente all'installazione di usare il nuovo nome predefinito, è necessario fare clic sull'icona del portale utenti nel server Multi-Factor Authentication e aggiornare l'URL del portale utente nella scheda Impostazioni.
 
@@ -69,4 +69,4 @@ Per l'aggiornamento dall'agente PhoneFactor V5.x o versione meno recente al serv
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

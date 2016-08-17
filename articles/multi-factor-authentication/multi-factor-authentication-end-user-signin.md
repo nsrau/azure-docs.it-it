@@ -28,12 +28,12 @@ A seconda di come si accede e di come si utilizza l'autenticazione a più fattor
 
 Cosa si farà?|Descrizione
 :------------- | :------------- | 
-[Accesso con telefono cellulare o dell'ufficio](#accesso-con-telefono-cellulare-o-dellufficio) | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
-[Accesso con l’app per dispositivi mobili utilizzando la notifica](#accesso-con-lapp-per-dispositivi-mobili-utilizzando-la-notifica) | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con notifiche.
-[Accesso con app per dispositivi mobili utilizzando il codice di verifica](#accesso-con-app-per-dispositivi-mobili-utilizzando-il-codice-di-verifica) | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con un codice di verifica.
-[Accesso con un metodo alternativo](#accesso-con-un-metodo-alternativo) | Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
+<a href="#1">Accesso con telefono cellulare o dell'ufficio</a> | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
+<a href="#2">Accesso con l’app per dispositivi mobili utilizzando la notifica</a> | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con notifiche.
+<a href="#3">Accesso con app per dispositivi mobili utilizzando il codice di verifica</a> | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con un codice di verifica.
+<a href="#4">Accesso con un metodo alternativo</a> | Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
 
-## Accesso con telefono cellulare o dell'ufficio
+<h2 id="1">Accesso con telefono cellulare o dell'ufficio</h2>
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
 
@@ -50,7 +50,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 - Ora dovrebbe essere stato effettuato l'accesso.</li>
 
-## Accesso con l’app per dispositivi mobili utilizzando la notifica
+<h2 id="2">Accesso con l’app per dispositivi mobili utilizzando la notifica</h2>
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con l’app per dispositivi mobili quando si riceve una notifica.
 
@@ -70,7 +70,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-## Accesso con app per dispositivi mobili utilizzando il codice di verifica
+<h2 id="3">Accesso con app per dispositivi mobili utilizzando il codice di verifica</h2>
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con l’app per dispositivi mobili quando si utilizza un codice di verifica.
 
@@ -88,7 +88,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-## Accesso con un metodo alternativo
+<h2 id="4">Accesso con un metodo alternativo</h2>
 
 
 Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.

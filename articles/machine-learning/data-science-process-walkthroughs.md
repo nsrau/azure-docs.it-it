@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2016" 
+	ms.date="08/03/2016" 
 	ms.author="bradsev" />
 
 
@@ -36,8 +36,11 @@ La procedura dettagliata [Processo di analisi scientifica dei dati per i team in
 La procedura dettagliata [Processo di analisi scientifica dei dati per i team in azione con cluster Hadoop di Azure HDInsight in un set di dati da 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md) illustra uno scenario end-to-end che usa un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati e progettarne le funzionalità in base a uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente.
 
 
-## Usare Spark in Azure HDInsight
+## Analisi scientifica dei dati mediante Python con Spark in Azure
 La procedura dettagliata [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md) usa il processo di analisi scientifica dei dati per i team in uno scenario end-to-end con un [cluster Spark di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare ed esplorare i dati e progettarne le funzionalità in base al set di dati disponibile pubblicamente relativo a corse e tariffe in taxi nella città di New York.
+
+## Analisi scientifica dei dati mediante Scala con Spark in Azure
+La procedura dettagliata [Data Science using Scala with Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md) (Analisi scientifica dei dati mediante Scala con Spark in Azure) illustra come usare Scala per attività di Machine Learning con supervisione con la libreria di Machine Learning (MLlib) scalabile per Spark e pacchetti SparkML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'utilizzo dei modelli. I modelli creati includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti.
 
 
 ## Usare Analisi e Archivio Azure Data Lake
@@ -49,4 +52,8 @@ La procedura dettagliata [Panoramica dell'analisi scientifica dei dati con Spark
 ## Usare T-SQL con i servizi R di SQL Server
 La procedura dettagliata [In-Database Advanced Analytics for SQL Developers](https://msdn.microsoft.com/library/mt683480.aspx) (Analisi avanzata nel database per gli sviluppatori SQL) fornisce ai programmatori SQL indicazioni pratiche per la compilazione di una soluzione di analisi avanzata con Transact-SQL usando i servizi R di SQL Server per rendere operativa una soluzione R.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Passaggi successivi
+
+Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess).
+
+<!---HONumber=AcomDC_0803_2016-->

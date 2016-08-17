@@ -76,7 +76,7 @@ L'esercitazione successiva della serie distribuisce il front-end dell'applicazio
 
 2. Compilare la soluzione per ripristinare i pacchetti NuGet.
 
-	Per osservare l'applicazione in esecuzione prima di distribuirla, è possibile eseguirla in locale. È sufficiente verificare che tutti e tre i progetti siano progetti di avvio. Sarà necessario usare Internet Explorer o Edge perché tali browser consentono le chiamate JavaScript tra le origini agli URL `http://localhost`.
+	Per osservare l'applicazione in esecuzione prima di distribuirla, è possibile eseguirla in locale. È sufficiente verificare che tutti e tre i progetti siano progetti di avvio. Sarà necessario usare Internet Explorer o Microsoft Edge perché tali browser consentono le chiamate JavaScript tra le origini agli URL `http://localhost`.
 
 ## Usare l'interfaccia utente e i metadati dell'API Swagger
 
@@ -100,7 +100,7 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 	![Scaricare i metadati JSON in Internet Explorer](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-	Se si usa Chrome, Firefox o Edge, il browser visualizza il codice JSON nella finestra del browser. Ogni browser gestisce JSON in modo diverso e la finestra del browser potrebbe non essere esattamente uguale a quella dell'esempio.
+	Se si usa Chrome, Firefox o Microsoft Edge, il browser visualizza il codice JSON nella finestra del browser. Ogni browser gestisce JSON in modo diverso e la finestra del browser potrebbe non essere esattamente uguale a quella dell'esempio.
 
 	![Metadati JSON in Chrome](./media/app-service-api-dotnet-get-started/chromev1json.png)
 

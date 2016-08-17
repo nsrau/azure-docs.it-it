@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/30/2016" 
 	ms.author="tarcher"/>
 
 # Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
@@ -30,15 +30,15 @@ In questo articolo viene illustrato il metodo Campionamento CPU per la profilatu
 
 Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debugging** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**. È anche possibile vedere http://referencesource.microsoft.com/symbols, dove potrebbero essere disponibili file di simboli aggiuntivi.
 
-![][4]
+![Opzioni dei simboli][4]
 
 Se lo si desidera, è possibile semplificare i rapporti generati dal profiler impostando Just My Code. Se Just My Code è abilitato, gli stack di chiamate funzione vengono semplificati, in modo che le chiamate interamente interne alle librerie e a .NET Framework non vengano visualizzate nei rapporti. Scegliere **Opzioni** dal menu **Strumenti**. Espandere quindi il nodo **Strumenti per le prestazioni** e scegliere **Generale**. Selezionare la casella di controllo **Abilita Just My Code per i rapporti del profiler**.
 
-![][17]
+![Opzioni di Just My Code][17]
 
 Queste istruzioni sono applicabili a un progetto esistente o a un nuovo progetto. Se si crea un nuovo progetto per provare ad applicare le tecniche illustrate di seguito, scegliere un progetto **Servizi cloud di Azure** in C# e quindi selezionare un **ruolo Web** e un **ruolo di lavoro**.
 
-![][5]
+![Ruoli del progetto Servizi cloud di Azure][5]
 
 A scopo esemplificativo, aggiungere al progetto codice la cui esecuzione richiede molto tempo e che illustri alcuni problemi ovvi relativi alle prestazioni. Aggiungere ad esempio il codice seguente a un progetto di tipo ruolo di lavoro:
 
@@ -76,11 +76,11 @@ Invece di eseguire la profilatura dell'applicazione avviandola dall'IDE di Visua
 
 A tale scopo, scegliere **Profiler** dal menu **Analizza**, quindi fare clic su **Connetti/Disconnetti**.
 
-![][6]
+![Opzione per il collegamento del profilo][6]
 
 Per un ruolo di lavoro individuare il processo WaWorkerHost.exe.
 
-![][7]
+![Processo WaWorkerHost][7]
 
 Se la cartella del progetto si trova su un'unità di rete, il profiler richiederà di specificare un percorso diverso per il salvataggio dei rapporti di profilatura.
 
@@ -92,17 +92,17 @@ Se la cartella del progetto si trova su un'unità di rete, il profiler richieder
 
 Per visualizzare il log, avviare l'interfaccia utente dell'emulatore di calcolo.
 
-![][8]
+![Avviare l'interfaccia utente dell'emulatore di calcolo][8]
 
 Aprire la finestra della console del log del ruolo di lavoro nell'interfaccia utente dell'emulatore di calcolo, facendo clic sulla barra del titolo nella finestra della console. Nel log è possibile verificare l'ID dei processi.
 
-![][9]
+![Visualizzare l'ID processo][9]
 
 Dopo la connessione, eseguire la procedura nell'interfaccia utente dell'applicazione, se necessario, per riprodurre lo scenario.
 
 Per interrompere la profilatura, scegliere il collegamento **Interrompi la profilatura**.
 
-![][10]
+![Opzione Arresta profilatura][10]
 
 ## 3: Visualizzare i rapporti relativi alle prestazioni
 
@@ -110,18 +110,18 @@ Viene visualizzato il rapporto relativo alle prestazioni dell'applicazione.
 
 A questo punto, l'esecuzione del profiler viene interrotta, i dati vengono salvati in un file con estensione vsp e viene visualizzato un rapporto che include un'analisi di tali dati.
 
-![][11]
+![Report del profiler][11]
 
 
 Se nel percorso critico è visibile il file String.wstrcpy, fare clic su Just My Code per modificare la visualizzazione, in modo da mostrare solo il codice utente. Se è visualizzato String.Concat, provare a selezionare il pulsante Mostra tutto il codice.
 
 Come si può notare, il metodo Concatenate e String.Concat richiedono una parte significativa del tempo di esecuzione.
 
-![][12]
+![Analisi del report][12]
 
 Se è stato aggiunto il codice di concatenazione di stringa disponibile in questo articolo, nell'Elenco attività dovrebbe essere visualizzato un avviso corrispondente. È anche possibile che venga visualizzato un avviso relativo a una quantità eccessiva di Garbage Collection, dovuta al numero di stringhe eliminate.
 
-![][14]
+![Avvisi di prestazioni][14]
 
 ## 4: Apportare modifiche e confrontare le prestazioni
 
@@ -140,11 +140,11 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 
 Eseguire di nuovo la verifica delle prestazioni e quindi confrontare le prestazioni. Se le esecuzioni si trovano nella stessa sessione, in Esplora prestazioni è possibile selezionare entrambi i rapporti, aprire il menu di scelta rapida e quindi scegliere **Confronta rapporto di prestazioni**. Se si desidera effettuare un confronto con un'esecuzione in un'altra sessione relativa alle prestazioni, aprire il menu **Analizza** e quindi scegliere **Confronta rapporto di prestazioni**. Specificare entrambi i file nella casella della finestra di dialogo visualizzata.
 
-![][15]
+![Opzione Confronta report di prestazioni][15]
 
 Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
-![][16]
+![Report di confronto][16]
 
 Congratulazioni. sono state eseguite le operazioni preliminari con il profiler.
 
@@ -186,4 +186,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

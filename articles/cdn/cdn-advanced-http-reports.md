@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Report HTTP avanzati"
+	pageTitle="Report HTTP avanzati nella rete CDN di Azure | Microsoft Azure"
 	description="Report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Report HTTP avanzati nella rete CDN di Microsoft Azure
@@ -28,11 +28,13 @@ Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di
 
 1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci**.
 
-	![Pulsante Gestisci del pannello relativo al profilo della rete CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
 	Verrà aperto il portale di gestione della rete CDN.
 
 2. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Report HTTP avanzati**. Fare clic su **Piattaforma HTTP grande**.
+
+	![Portale di gestione della rete CDN, menu Report avanzati](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	Vengono visualizzate le opzioni dei report.
 
@@ -194,6 +196,6 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
-* [Analizzare le prestazioni perimetrali](cdn-edge-performance.md)
+* [Analizzare delle prestazioni edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

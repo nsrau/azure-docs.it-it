@@ -29,7 +29,7 @@ Data factory supporta attualmente solo lo spostamento di dati da DB2 ad altri ar
 
 Azure Data Factory fornisce il driver incorporato con il supporto di DB2 (SQLAM 9/10/11) compresi DB2 per LUW (Linux, Unix e Windows), DB2 per z/OS e DB2 per i (noto anche come AS/400) per il Gateway di gestione dati da connettere al database DB2, a partire dalla versione del gateway 2.1. Di conseguenza non è più necessario installare manualmente i driver quando si copiano dati da DB2.
 
-> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
 
 
 ## Esempio: Copiare i dati da DB2 a BLOB di Azure
@@ -322,4 +322,4 @@ Char | String
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

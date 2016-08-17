@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del connettore Azure Machine Learning nelle app per la logica| Servizio app di Microsoft Azure"
    description="Informazioni su come creare e configurare il connettore Azure Machine Learning e usarlo in un'app per la logica nel servizio app di Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@ Con il connettore Azure ML per le app per la logica è possibile impostare l'ese
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

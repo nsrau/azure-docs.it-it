@@ -3,8 +3,8 @@
    description="Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="trinadhk"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="06/08/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
@@ -45,7 +45,7 @@ Il numero totale di "punti di conservazione" specificati in questi criteri è pa
 ![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Criteri di mantenimento giornaliero**: i backup eseguiti quotidianamente vengono archiviati per 7 giorni.
-2. **Criteri di mantenimento settimanale**: i backup eseguiti ogni sabato a mezzanotte e alle 18.00 verranno conservati per 4 settimane.
+2. **Criteri di conservazione settimanale**: i backup eseguiti ogni sabato a mezzanotte e alle 18.00 verranno conservati per 4 settimane.
 3. **Criteri di mantenimento mensile**: i backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato di ogni mese verranno conservati per 12 mesi.
 4. **Criteri di mantenimento annuale**: i backup eseguiti a mezzanotte dell'ultimo sabato di ogni mese di marzo verranno conservati per 10 anni.
 
@@ -71,4 +71,4 @@ Per ulteriori informazioni sul Backup di Azure vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="App per la logica come endpoint che è possibile chiamare"
    description="Come creare e configurare gli endpoint del trigger e usarli in un'app per la logica nel servizio app di Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ Questa funzionalità è disponibile tramite **Gestione API**:
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

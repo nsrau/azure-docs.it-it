@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Microsoft Security Response Center
@@ -40,4 +40,4 @@ Altre informazioni su questi programmi sono disponibili nella pagina [MSRC Bug B
 
 Per altre informazioni su MSRC, visitare la [home page MSRC](https://technet.microsoft.com/library/dn440717.aspx).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

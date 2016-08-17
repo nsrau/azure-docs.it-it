@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Risoluzione dei problemi relativi all'iscrizione ad Azure | Microsoft Azure"
 	description="Risolvere le cause più comuni dei problemi che possono verificarsi durante l'iscrizione ad Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -81,4 +81,4 @@ Suggerimenti:
 Suggerimenti:
 - se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione della versione di valutazione gratuita non riesce, prendere in considerazione l'acquisto di una sottoscrizione con pagamento in base al consumo. L'utente potrebbe inoltre aver diritto a un'offerta con vantaggi. Per altre informazioni, vedere la [pagina dettagli dell'offerta Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) anziché il piano della versione di valutazione gratuita di Azure. Si noti che i piani con vantaggi richiedono prerequisiti specifici.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
