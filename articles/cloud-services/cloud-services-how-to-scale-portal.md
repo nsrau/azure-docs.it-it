@@ -43,11 +43,11 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
 Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del servizio cloud.
 
-1. Nel pannello del servizio cloud, nel riquadro **Roles and Instances** (Ruoli e istanze), selezionare il nome del servizio cloud. **IMPORTANTE**: assicurarsi di selezionare il ruolo del servizio cloud, non l'istanza del ruolo che si trova sotto il ruolo.
+1. Nel pannello del servizio cloud, nel riquadro **Ruoli e istanze**, selezionare il nome del servizio cloud. **IMPORTANTE**: assicurarsi di selezionare il ruolo del servizio cloud, non l'istanza del ruolo che si trova sotto il ruolo.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 
-2. Selezionare il riquadro **Scale** (Scalabilità).
+2. Selezionare il riquadro **Ridimensiona**.
 
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
