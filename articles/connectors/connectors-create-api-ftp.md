@@ -39,9 +39,14 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 Questo esempio illustrerà come usare il trigger **FTP - When a file is added or modified** (FTP - Quando un file viene aggiunto o modificato) per avviare un flusso di lavoro dell'app per la logica quando viene aggiunto o modificato un file in un server FTP. In un esempio riguardante un'organizzazione si potrebbe usare questo trigger per monitorare una cartella FTP per nuovi file di ordini dei clienti. È quindi possibile usare un'azione connettore FTP, come **Get file content** (Ottieni contenuto di file) per recuperare il contenuto dell'ordine a scopo di elaborazione successiva e di archiviazione nel database degli ordini.
 
-1. Immettere *sftp* nella casella di ricerca della finestra di progettazione dell'app per la logica, quindi selezionare il trigger **FTP - When a file is added or modified** (FTP - Quando un file viene aggiunto o modificato) ![Immagine di trigger FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) Si apre il controllo **When a file is added or modified** (Quando un file viene aggiunto o modificato) ![Immagine di trigger FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
-- Selezionare **...** sul lato destro del controllo. Si apre il controllo di selezione della cartella ![Immagine di trigger FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)
-- Selezionare **>** (freccia destra) e individuare la cartella da monitorare per rilevare i file nuovi o modificati. Selezionare la cartella e notare che ora è visualizzata nel controllo **Folder** (Cartella). ![Immagine di trigger FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
+1. Immettere *sftp* nella casella di ricerca della finestra di progettazione dell'app per la logica, quindi selezionare il trigger **FTP - When a file is added or modified** (FTP - Quando un file viene aggiunto o modificato)  
+![Immagine di trigger FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+Si apre il controllo **When a file is added or modified** (Quando un file viene aggiunto o modificato)  
+![Immagine di trigger FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Selezionare **...** sul lato destro del controllo. Si apre il controllo di selezione della cartella  
+![Immagine di trigger FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Selezionare **>** (freccia destra) e individuare la cartella da monitorare per rilevare i file nuovi o modificati. Selezionare la cartella e notare che ora è visualizzata nel controllo **Folder** (Cartella).  
+![Immagine di trigger FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
 A questo punto, l’app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro quando un file viene modificato o creato nella cartella FTP specificata.
@@ -57,12 +62,18 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 Dopo aver aggiunto un trigger, seguire questi passaggi per aggiungere un'azione che otterrà il contenuto del file nuovo o modificato individuato dal trigger.
 
 1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione che recupera il contenuto del file sul server FTP
-- Selezionare il collegamento **Aggiungi un’azione**. ![Immagine di azione FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Selezionare il collegamento **Aggiungi un’azione**.  
+![Immagine di azione FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 - Immettere *FTP* per cercare tutte le azioni correlate a FTP.
-- Selezionare **FTP - Get file content** (FTP - Ottieni contenuto di file) come azione da eseguire quando viene individuato un file nuovo o modificato nella cartella FTP. ![Immagine di azione FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png) Si apre il controllo **Get file content** (Ottieni contenuto di file). **Nota**: verrà richiesto di autorizzare l'app per la logica ad accedere all'account sul server FTP, se non lo si è già fatto in precedenza. ![Immagine di azione FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Selezionare **FTP - Get file content** (FTP - Ottieni contenuto di file) come azione da eseguire quando viene individuato un file nuovo o modificato nella cartella FTP.  
+![Immagine di azione FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+Si apre il controllo **Get file content** (Ottieni contenuto di file). **Nota**: verrà richiesto di autorizzare l'app per la logica ad accedere all'account sul server FTP, se non lo si è già fatto in precedenza.  
+![Immagine di azione FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)  
 - Selezionare il controllo **File** (lo spazio bianco sotto **FILE***). In questo caso è possibile usare le varie proprietà dal file nuovo o modificato individuato sul server FTP.
-- Selezionare l'opzione **File content** (Contenuto del file). ![Immagine di azione FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)
--  Il controllo viene aggiornato e indica che l'azione **FTP - Get file content** (FTP - Ottieni contenuto di file) recupererà il *contenuto del file* nuovo o modificato sul server FTP. ![Immagine di azione FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Selezionare l'opzione **File content** (Contenuto del file).  
+![Immagine di azione FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  Il controllo viene aggiornato e indica che l'azione **FTP - Get file content** (FTP - Ottieni contenuto di file) recupererà il *contenuto del file* nuovo o modificato sul server FTP.  
+![Immagine di azione FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)       
 - Salvare il lavoro e poi aggiungere un file nella cartella FTP per testare il flusso di lavoro.
 
 A questo punto l'app per la logica è stata configurata con un trigger per monitorare una cartella su un server FTP e avviare il flusso di lavoro quando viene individuato un nuovo file o un file modificato sul server FTP stesso.

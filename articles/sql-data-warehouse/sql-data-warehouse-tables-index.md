@@ -309,7 +309,7 @@ Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Table Overview]\[Overview] \(Panoramica sulle tabelle), [Table Data Types][Data Types] \(Tipi di dati per le tabelle), [Distributing a Table][Distribute] \(Distribuzione di tabelle ), [Partitioning a table][Partition] \(Partizionamento di una tabella), [Maintaining table statistics][Statistics] \(Gestione delle statistiche nelle tabelle) e [Temporary tables][Temporary] \(Tabelle temporanee). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Table Overview][Overview] \(Panoramica sulle tabelle), [Table Data Types][Data Types] \(Tipi di dati per le tabelle), [Distributing a Table][Distribute] \(Distribuzione di tabelle ), [Partitioning a table][Partition] \(Partizionamento di una tabella), [Maintaining table statistics][Statistics] \(Gestione delle statistiche nelle tabelle) e [Temporary tables][Temporary] \(Tabelle temporanee). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
