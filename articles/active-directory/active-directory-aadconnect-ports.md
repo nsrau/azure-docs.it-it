@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 
@@ -26,7 +26,7 @@ Il documento seguente è un riferimento tecnico per fornire informazioni sulle p
 ## Tabella 1 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e l'AD locale.
 
-Protocollo | Porte | Descrizione
+Protocol | Porte | Descrizione
 --------- | --------- |---------
 DNS|53 (TCP/UDP)| Ricerche DNS della foresta di destinazione.
 Kerberos|88 (TCP/UDP)| Autenticazione Kerberos per la foresta Active Directory.
@@ -38,7 +38,7 @@ RPC |1024-65353 (porta RPC elevata casuale)(TCP/UDP)|Usato durante la configuraz
 ## Tabella 2 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
-Protocollo |Porte |Descrizione
+Protocol |Porte |Descrizione
 --------- | --------- |---------
 HTTP|80 (TCP/UDP)|Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
 HTTPS|443 (TCP/UDP)|Usato per la sincronizzazione con Azure AD.
@@ -48,7 +48,7 @@ Per un elenco delle porte e degli indirizzi IP di Office 365, vedere [URL e inte
 ## Tabella 3 - Azure AD Connect e server federativi/WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP.
 
-Protocollo |Porte |Descrizione
+Protocol |Porte |Descrizione
 --------- | --------- |---------
 HTTP|80 (TCP/UDP)|Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
 HTTPS|443 (TCP/UDP)|Usato per la sincronizzazione con Azure AD.
@@ -57,14 +57,14 @@ WinRM|5985| Listener di Gestione remota Windows
 ## Tabella 4 - server federativi e WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
 
-Protocollo |Porte |Descrizione
+Protocol |Porte |Descrizione
 --------- | --------- |---------
 HTTPS|443 (TCP/UDP)|Usato per l'autenticazione.
 
 ## Tabella 5 - WAP e utenti
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra gli utenti e i server WAP.
 
-Protocollo |Porte |Descrizione
+Protocol |Porte |Descrizione
 --------- | --------- |--------- |
 HTTPS|443 (TCP/UDP)|Usato per l'autenticazione del dispositivo.
 TCP|49443 (TCP)|Usato per l'autenticazione del certificato.
@@ -76,7 +76,7 @@ Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari p
 ### Tabella 6a - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.
 
-Protocollo |Porte |Descrizione
+Protocol |Porte |Descrizione
 --------- | --------- |--------- |
 HTTPS|443 (TCP/UDP)| In uscita
 Bus di servizio di Azure|5671 (TCP/UDP)| In uscita
@@ -84,4 +84,4 @@ Bus di servizio di Azure|5671 (TCP/UDP)| In uscita
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere [la sezione Requisiti dell'agente di Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

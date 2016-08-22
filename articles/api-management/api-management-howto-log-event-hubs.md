@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 
@@ -117,7 +117,7 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 -	Altre informazioni sull'integrazione di Gestione API e Hub eventi
 	-	[Informazioni di riferimento per l'entità logger](https://msdn.microsoft.com/library/azure/mt592020.aspx)
 	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Monitorare le API con Gestione API di Azure, Hub eventi e Runscope](api-management-log-to-eventhub-sample.md)	
+	-	[Monitorare le API con Gestione API di Azure, Hub eventi e Runscope](api-management-log-to-eventhub-sample.md)
 
 ## Guardare un video con la procedura dettagliata
 
@@ -133,4 +133,4 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

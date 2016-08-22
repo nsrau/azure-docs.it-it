@@ -1,6 +1,6 @@
 Risorsa|Limite predefinito
 ---|---
-Numero massimo di account di archiviazione per sottoscrizione|100<sup>1</sup>
+Numero di account di archiviazione per sottoscrizione|200<sup>1</sup>
 TB per account di archiviazione|500 TB
 Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione|L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB)
 Dimensione massima di un singolo contenitore BLOB o di una singola tabella o coda|500 TB
@@ -28,15 +28,15 @@ Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree US)|20 
 Numero massimo in entrata <sup>2</sup> per account di archiviazione (aree europee e asiatiche)|5 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 10 Gbps per LRS
 Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree europee e asiatiche)|10 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 15 Gbps per LRS
 
-<sup>1</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 100 account di archiviazione, inviare una richiesta tramite il [supporto di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione.
+<sup>1</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 200 account di archiviazione, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione.
 
 <sup>2</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
 <sup>3</sup>le opzioni di replica di archiviazione di Azure includono:
 
 - **RA-GRS**: Archiviazione con ridondanza geografica e accesso in lettura. Se RA-GRS è abilitata, le destinazioni di uscita per la posizione secondaria sono identiche a quelle per la posizione primaria.
-- **GRS**: archiviazione con ridondanza geografica. 
-- **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
-- **LRS**: archiviazione con ridondanza locale. 
+- **GRS**: archiviazione con ridondanza geografica.
+- **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi.
+- **LRS**: archiviazione con ridondanza locale.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

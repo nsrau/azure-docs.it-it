@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -27,8 +27,8 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 | **Area** | **Data warehouse creato prima di questa data** |
 | :------------------ | :-------------------------------- |
 | Australia orientale | Archiviazione Premium non ancora disponibile |
-| Australia sudorientale | Archiviazione Premium non ancora disponibile |
-| Brasile meridionale | Archiviazione Premium non ancora disponibile |
+| Australia sudorientale | 5 agosto 2016 |
+| Brasile meridionale | 5 agosto 2016 |
 | Canada centrale | 25 maggio 2016 |
 | Canada orientale | 26 maggio 2016 |
 | Stati Uniti centrali | 26 maggio 2016 |
@@ -40,10 +40,10 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 | India centrale | 27 maggio 2016 |
 | India meridionale | 26 maggio 2016 |
 | India occidentale | Archiviazione Premium non ancora disponibile |
-| Giappone orientale | Archiviazione Premium non ancora disponibile |
+| Giappone orientale | 5 agosto 2016 |
 | Giappone occidentale | Archiviazione Premium non ancora disponibile |
 | Stati Uniti centro-settentrionali | Archiviazione Premium non ancora disponibile |
-| Europa settentrionale | Archiviazione Premium non ancora disponibile |
+| Europa settentrionale | 5 agosto 2016 |
 | Stati Uniti centro-meridionali | 27 maggio 2016 |
 | Asia sudorientale | 24 maggio 2016 |
 | Europa occidentale | 25 maggio 2016 |
@@ -99,7 +99,7 @@ La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, or
 Se si preferisce mantenere il controllo sui tempi di inattività, è possibile usare la procedura seguente per eseguire la migrazione di un data warehouse esistente da Archiviazione Standard in Archiviazione Premium. Se si sceglie di eseguire la migrazione self-service, è necessario completarla prima dell'inizio della migrazione automatica nella stessa area, per evitare il rischio di conflitti dovuti alla migrazione automatica. Vedere in proposito la [pianificazione della migrazione automatica][].
 
 ### Istruzioni per la migrazione self-service
-Se si preferisce mantenere il controllo sui tempi di inattività, è possibile eseguire la migrazione self-service del data warehouse usando la funzionalità di backup/ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, usare la procedura riportata di seguito come [soluzione alternativa per la ridenominazione][].
+Se si preferisce mantenere il controllo sui tempi di inattività, è possibile eseguire la migrazione self-service del data warehouse usando la funzionalità di backup/ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, usare la procedura riportata di seguito come [Procedura di ridenominazione durante la migrazione][].
 
 1.	[Sospendere][] il data warehouse. Verrà eseguito un backup automatico
 2.	[Ripristinare][] il data warehouse dallo snapshot più recente
@@ -129,6 +129,34 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Passaggi successivi
+Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Se si verificano problemi relativi alle prestazioni, è consigliabile ricompilare gli indici columnstore cluster usando lo script riportato di seguito. Questa operazione forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
+
+**Prerequisiti:**
+
+1.	È necessario eseguire Data Warehouse con almeno 1.000 DWU (vedere [Ridimensionare la potenza di calcolo][]).
+2.	L'utente che esegue lo script deve essere nel [ruolo mediumrc][] o superiore.
+	1.	Per aggiungere un utente a questo ruolo, eseguire questo codice:
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````  
+
+````sql
+-------------------------------------------------------------------------------
+-- Passaggio 1: creare una tabella per controllare la ricompilazione degli indici
+-- Eseguire come utente in mediumrc o superiore
+--------------------------------------------------------------------------------
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+ 
+--------------------------------------------------------------------------------
+-- Passaggio 2: eseguire le ricompilazioni degli indici Se si verifica un errore di script, il codice riportato di seguito può essere eseguito nuovamente per riavviare il processo dal punto in cui si è interrotto.
+-- Eseguire come utente in mediumrc o superiore
+--------------------------------------------------------------------------------
+
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+go
+-------------------------------------------------------------------------------
+-- Passaggio 3: tabella di pulizia creata nel passaggio 1
+--------------------------------------------------------------------------------
+drop table sql\_statements; go ````
+
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
 <!--Image references-->
@@ -141,13 +169,15 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 [main documentation site]: ./services/sql-data-warehouse.md
 [Sospendere]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Ripristinare]: ./sql-data-warehouse-manage-database-restore-portal.md
-[soluzione alternativa per la ridenominazione]: #optional-rename-workaround
+[Procedura di ridenominazione durante la migrazione]: #optional-steps-to-rename-during-migration
+[Ridimensionare la potenza di calcolo]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[ruolo mediumrc]: ./sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

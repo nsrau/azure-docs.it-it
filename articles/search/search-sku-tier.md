@@ -14,8 +14,8 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/25/2016"
-	ms.author="heidist"/>
+	ms.date="08/08/2016"
+	ms.author="heidist"/>  
 
 # Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 
@@ -51,10 +51,10 @@ Livello|Scenari principali
 ----|-----------------
 **Free**|Servizio condiviso gratuito usato per la valutazione, l'analisi o piccoli carichi di lavoro. Essendo condiviso con altri sottoscrittori, la velocità effettiva e l'indicizzazione delle query varieranno in base agli altri utenti che usano il servizio. La capacità è ridotta (50 MB o 3 indici con un massimo di 10.000 documenti l'uno).
 **Basic**|Piccoli carichi di lavoro di produzione su hardware dedicato. Disponibilità elevata. La capacità prevede al massimo di 3 e 1 partizione (2 GB).
-Standard 1 (**S1**)|Supporta combinazioni flessibili di partizioni (12) e repliche (12); usato per i carichi di lavoro di produzione medi su hardware dedicato. È possibile allocare partizioni e repliche in combinazioni supportate da un numero massimo di 36 unità di ricerca fatturabili. In questo piano le partizioni sono da 25 GB e il valore QPS è pari a circa 15 query al secondo.
-Standard 2 (**S2**)|Esegue carichi di lavoro di produzione più elevati usando le stesse 36 unità di ricerca del piano S1 ma con partizioni e repliche di dimensioni maggiori. In questo piano le partizioni sono da 100 GB e il valore QPS è pari a circa 60 query al secondo.
-Standard 3 (**S3**) - Anteprima|Esegue carichi di lavoro di produzione in proporzione più elevati su sistemi di fascia superiore, in configurazioni fino a 12 partizioni o 12 repliche in meno di 36 unità di ricerca. In questo piano le partizioni sono da 200 GB e il valore QPS è pari a circa 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
-Standard 3 ad alta densità (**S3 HD**) - Anteprima|Un numero elevato di indici più piccoli. È disponibile solo una partizione da 200 GB. Il valore QPS è pari a più di 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
+**S1**|Lo Standard 1 supporta combinazioni flessibili di partizioni (12) e repliche (12). Viene usato per i carichi di lavoro di produzione medi su hardware dedicato. È possibile allocare partizioni e repliche in combinazioni supportate da un numero massimo di 36 unità di ricerca fatturabili. In questo piano le partizioni sono da 25 GB e il valore QPS è pari a circa 15 query al secondo.
+**S2**|Lo Standard 2 esegue carichi di lavoro di produzione più elevati usando le stesse 36 unità di ricerca del piano S1 ma con partizioni e repliche di dimensioni maggiori. In questo piano le partizioni sono da 100 GB e il valore QPS è pari a circa 60 query al secondo.
+**S3** (Anteprima)|Lo Standard 3 esegue carichi di lavoro di produzione in proporzione più elevati su sistemi di fascia superiore, in configurazioni fino a 12 partizioni o 12 repliche in meno di 36 unità di ricerca. In questo piano le partizioni sono da 200 GB e il valore QPS è pari a circa 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
+**S3 HD** (Anteprima)|Lo Standard 3 ad alta densità è progettato per un numero elevato di indici più piccoli. È disponibile solo una partizione da 200 GB. Il valore QPS è pari a più di 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
 
 > [AZURE.NOTE] I valori massimi per le repliche e le partizioni vengono fatturati come unità di servizio (al massimo 36 unità per servizio). Ciò impone un limite effettivo inferiore rispetto al valore massimo nominale. Per usare ad esempio il numero massimo di 12 repliche si possono avere non oltre 3 partizioni perché 12 * 3 = 36 unità. Analogamente, ridurre le repliche a 3 per usare il numero di partizioni massimo. Per un grafico delle combinazioni consentite, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro in Ricerca di Azure](search-capacity-planning.md).
 
@@ -80,7 +80,7 @@ Query al secondo|N/D|~3 per replica|~15 per replica|~60 per replica|>60 per repl
 Le domande seguenti consentono di prendere la decisione corretta per gli SKU per il carico di lavoro.
 
 1. Si hanno requisiti in termini di **contratti di servizio**? Restringere la decisione sugli SKU alle tipologie Basic o Standard (non anteprima).
-2. **Quanti indici** sono necessari? Una delle variabili principali che influiranno sulla decisione per gli SKU è il numero di indici supportato da ogni SKU. Il supporto degli indici è notevolmente diverso nei piani tariffari più bassi. Il requisito del numero di indici supportato potrebbe essere un fattore determinante nella scelta dello SKU.
+2. **Quanti indici** sono necessari? Una delle variabili principali che influiranno sulla decisione per gli SKU è il numero di indici supportato da ogni SKU. Il supporto degli indici è notevolmente diverso nei piani tariffari più bassi. Il requisito relativo al numero di indici può essere determinante nella scelta dello SKU.
 3. **Quanti documenti** verranno caricati in ogni indice? Il numero e le dimensioni dei documenti determinano le dimensioni finali dell'indice. Supponendo che si possano stimare le dimensioni previste dell'indice, è possibile confrontare tale numero con le dimensioni della partizione per ogni SKU, estese per il numero di partizioni necessarie per archiviare un indice di tali dimensioni.
 4. **Qual è il carico di query previsto**? Dopo aver determinato i requisiti di archiviazione, prendere in considerazione i carichi di lavoro di query. S2 ed entrambi gli SKU S3 offrono una velocità effettiva quasi equivalente, ma i requisiti in termini di contratto di servizio escludono gli SKU di anteprima.
 
@@ -101,4 +101,4 @@ Dopo aver determinato lo SKU corretto, continuare con la procedura:
 - [Creare un servizio di ricerca nel portale](search-create-service-portal.md)
 - [Modificare l'allocazione di partizioni e repliche per la scalabilità del servizio](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

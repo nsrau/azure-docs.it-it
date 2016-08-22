@@ -5,7 +5,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/18/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 #Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
 Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
@@ -45,4 +45,4 @@ Il monitoraggio frequente di queste risorse consente di ottenere informazioni su
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

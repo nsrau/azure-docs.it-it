@@ -1,12 +1,13 @@
+
 <properties
    pageTitle="Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Utilizzare l'interfaccia della riga di comando di Azure per creare da zero una risorsa di archiviazione, una VM Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete."
+   description="Usare l'interfaccia della riga di comando di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 
 <tags
    ms.service="virtual-machines-linux"
@@ -1275,4 +1276,4 @@ Se lo si desidera, è possibile consultare [ulteriori informazioni su come esegu
 
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

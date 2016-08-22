@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="douglasl"/>
+	ms.date="08/05/2016"
+	ms.author="douglasl"/>  
 
 # Abilitare Database Estensione per un database
 
@@ -24,24 +24,26 @@ Se si seleziona **Attività | Estensione | Abilita** per una tabella e non è st
 
 Per abilitare Database Estensione in un database o una tabella è necessario disporre delle autorizzazioni db\_owner. Per abilitare Database Estensione in un database è necessario disporre anche delle autorizzazioni CONTROL DATABASE.
 
+ >   [AZURE.NOTE] Se in seguito si disabilita Estensione database, tenere presente che la disabilitazione di Estensione database per una tabella o un database non elimina l'oggetto remoto. Per eliminare la tabella o il database remoto è necessario rimuoverli usando il portale di gestione di Azure. Gli oggetti remoti continuano a comportare l'addebito di costi in Azure fino a quando non vengono eliminati manualmente.
+
 ## Prima di iniziare
 
--   Prima di configurare un database per l'estensione, è consigliabile eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle idonei per l'estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per Database Estensione](sql-server-stretch-database-identify-databases.md).
+-   Prima di configurare un database per l'estensione, è consigliabile eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle idonei per l'estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco. Per altre informazioni, vedere [Identificare i database e le tabelle per Estensione database](sql-server-stretch-database-identify-databases.md).
 
 -   Vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
--   Database Estensione esegue la migrazione dei dati in Azure. Per questo motivo è necessario disporre di un account Azure e di una sottoscrizione per la fatturazione. Per avere un account Azure, [fare clic qui](http://azure.microsoft.com/pricing/free-trial/).
+-   Database Estensione esegue la migrazione dei dati in Azure. Per questo motivo è necessario disporre di un account Azure e di una sottoscrizione per la fatturazione. Per ottenere un account Azure, [fare clic qui](http://azure.microsoft.com/pricing/free-trial/).
 
 -   Avere a disposizione le informazioni di connessione e di accesso necessarie per creare un nuovo server di Azure o per selezionare un server di Azure esistente.
 
-## <a name="EnableTSQLServer"></a>Prerequisito: Abilitare Estensione Database sul server
+## <a name="EnableTSQLServer"></a>Prerequisito: Abilitare Estensione Database nel server
 Prima di abilitare Database Estensione in un database o una tabella, è necessario abilitarla nel server locale. Per eseguire questa operazione è necessario disporre delle autorizzazioni sysadmin o serveradmin.
 
--   Se si dispone delle autorizzazioni amministrative necessarie, la procedura guidata **Abilitare il database per l’estensione** consente di configurare il server per l'estensione.
+-   Se sono disponibili le autorizzazioni amministrative necessarie, la procedura guidata **Abilitare il database per l'estensione** consente di configurare il server per l'estensione.
 
 -   Se non si dispone delle autorizzazioni necessarie, un amministratore deve abilitare l'opzione manualmente eseguendo **sp\_configure** prima di eseguire la procedura guidata o eseguire la procedura guidata stessa.
 
-Per abilitare manualmente Database Estensione sul server, eseguire **sp\_configure** e attivare l'opzione dell'**archivio dati remoto**. L'esempio seguente consente di abilitare l'opzione dell'**archivio dati remoto** impostandone il valore su 1.
+Per abilitare manualmente Estensione database nel server, eseguire **sp\_configure** e attivare l'opzione **remote data archive**. L'esempio seguente consente di abilitare l'opzione **remote data archive** impostandone il valore su 1.
 
 ```
 EXEC sp_configure 'remote data archive' , '1';
@@ -50,12 +52,12 @@ GO
 RECONFIGURE;
 GO
 ```
-Per altre informazioni, vedere l'articolo su come [configurare l'opzione di configurazione del server dell'archivio dati remoto](https://msdn.microsoft.com/library/mt143175.aspx) e su [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
+Per altre informazioni, vedere [Configure the remote data archive Server Configuration Option](https://msdn.microsoft.com/library/mt143175.aspx) (Configurare l'opzione di configurazione del server remote data archive) e [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
-## <a name="Wizard"></a>Con la procedura guidata abilitare Database Estensione in un database
+## <a name="Wizard"></a>Usare la procedura guidata per abilitare Estensione database in un database
 Per informazioni sulla procedura guidata Abilitare il database per l'estensione, incluse le informazioni da immettere e le opzioni da selezionare, vedere [Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](sql-server-stretch-database-wizard.md).
 
-## <a name="EnableTSQLDatabase"></a>Con Transact-SQL abilitare Database Estensione in un database
+## <a name="EnableTSQLDatabase"></a>Usare Transact-SQL per abilitare Estensione database in un database
 Prima di abilitare Database Estensione nelle singole tabelle, è necessario abilitarlo nel database.
 
 Per abilitare Database Estensione in un database o una tabella è necessario disporre delle autorizzazioni db\_owner. Per abilitare Database Estensione in un database è necessario disporre anche delle autorizzazioni CONTROL DATABASE.
@@ -66,7 +68,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
     È possibile trovare facilmente i valori richiesti e creare la regola del firewall cercando di connettersi al server di Azure da Esplora oggetti in SQL Server Management Studio (SSMS). SSMS aiuta a creare la regola aprendo la seguente finestra di dialogo che include già i valori dell'indirizzo IP richiesti.
 
-	![Creare una regola firewall in SSMS][FirewallRule]
+	![Creare una regola firewall in SSMS][FirewallRule]  
 
 3.  Per configurare un database di SQL Server per Database Estensione, il database deve avere una chiave master del database. La chiave master del database consente di proteggere le credenziali usate da Database Estensione per la connessione al database remoto. Di seguito è riportato un esempio che crea una nuova chiave master del database.
 
@@ -78,7 +80,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 	GO
     ```
 
-    Per altre informazioni sulla chiave master del database, vedere l'istruzione [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e l'articolo [Creare la chiave master di un database](https://msdn.microsoft.com/library/aa337551.aspx).
+    Per altre informazioni sulla chiave master del database, vedere [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e [Creare la chiave master di un database](https://msdn.microsoft.com/library/aa337551.aspx).
 
 4.  Quando si configura un database per Database Estensione, è necessario specificare le relative credenziali da usare per la comunicazione tra SQL Server locale e il server Azure remoto. Sono disponibili due opzioni.
 
@@ -96,7 +98,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
         GO
         ```
 
-		Per altre informazioni sulle credenziali, vedere l'istruzione [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). Per la creazione di credenziali sono necessarie le autorizzazioni ALTER ANY CREDENTIAL.
+		Per altre informazioni sulle credenziali, vedere [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). Per la creazione di credenziali sono necessarie le autorizzazioni ALTER ANY CREDENTIAL.
 
     -   È possibile usare un account del servizio federato per SQL Server per comunicare con il server Azure remoto quando le condizioni seguenti sono tutte true.
 
@@ -110,7 +112,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 5.  Per configurare un database per Database Estensione, eseguire il comando ALTER DATABASE.
 
-    1.  Per l'argomento SERVER, specificare il nome di un server Azure esistente, tra cui la parte `.database.windows.net` del nome, ad esempio `MyStretchDatabaseServer.database.windows.net`.
+    1.  Per l'argomento SERVER, specificare il nome di un server Azure esistente, inclusa la parte `.database.windows.net` del nome, ad esempio `MyStretchDatabaseServer.database.windows.net`.
 
     2.  Immettere le credenziali amministratore esistenti con l'argomento CREDENTIAL o specificare FEDERATED\_SERVICE\_ACCOUNT = ON. Nell'esempio seguente vengono fornite credenziali esistenti.
 
@@ -133,7 +135,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 -   [Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
 
--   [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
+-   [Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
 ## Vedere anche
 
@@ -143,4 +145,4 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 [FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

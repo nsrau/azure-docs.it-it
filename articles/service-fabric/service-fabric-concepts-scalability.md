@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
-   ms.author="aprameyr"/>
+   ms.date="08/10/2016"
+   ms.author="aprameyr"/>  
 
 # Scalabilità delle applicazioni di Service Fabric
 Service Fabric di Azure semplifica la creazione di applicazioni scalabili bilanciando il carico tra servizi, partizioni e repliche in tutti i nodi di un cluster. Questo consente un utilizzo ottimale delle risorse.
@@ -60,4 +60,4 @@ Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli ar
 
 - [Definizione e gestione dello stato](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

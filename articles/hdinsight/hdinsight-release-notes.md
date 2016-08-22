@@ -14,11 +14,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="nitinme"/>
+	ms.date="08/03/2016"
+	ms.author="nitinme"/>  
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata in data 01/08/2016
+
+Numeri di versione completi per i cluster HDInsight basati su Linux distribuiti con questa versione:
+
+|HDI |Cluster versione HDI |HDP |Compilazione HDP |Compilazione Ambari |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.8028416 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
+|3\.3 |3\.3.1000.0.8028416 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
+|3\.4 |3\.4.1000.0.8053402 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+
+Numeri di versione completi per i cluster HDInsight basati su Windows distribuiti con questa versione:
+
+|HDI |Cluster versione HDI |HDP |Compilazione HDP |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.1005.2488842 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.1005.2488842 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.1005.2488842 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.1005.2488842 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.1005.2488842 |2\.3 |2\.3.3.1-25 |
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Modifiche apportate ai cluster HDInsight 3.4 | Il valore predefinito per le configurazioni Hive seguenti è stato modificato per ottenere prestazioni migliori <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul>| Service | Tutti| N/D|
+| In questa versione sono incluse le correzioni seguenti | HIVE-13632, HIVE-12897, HIVE-12907, HIVE-12908, HIVE-12988, HIVE-13510, HIVE-13572, HIVE-13716, HIVE-13726, HIVE-12505, HIVE-13632, HIVE-13661, HIVE-13705, HIVE-13743, HIVE-13810, HIVE-13857, HIVE-13902, HIVE-13911, HIVE-13933| Service | Tutti| N/D
 
 ## Note sulla versione di HDInsight rilasciata il 14/07/2016
 
@@ -85,7 +112,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Spark in HDInsight è disponibile a livello generale | Questa versione offre miglioramenti di disponibilità, scalabilità e produttività per Apache Spark open source in HDInsight. <ul><li>Contratto di servizio leader di settore per una disponibilità del 99,9% che lo rende adatto per i carichi di lavoro aziendali impegnativi.</li><li>Livello di archiviazione scalabile tramite Azure Data Lake Store.</li><li>Strumenti di produttività per ogni fase dell'esplorazione e dello sviluppo dei dati. I notebook Jupyter con kernel Spark personalizzato consentono l'esplorazione interattiva dei dati, l'integrazione con dashboard BI come Power BI, Tableau e Qlik è perfetta per la condivisione rapida dei dati e il reporting continuo, il plug-in IntelliJ è un'opzione affidabile per lo sviluppo e il debug a lungo termine di elementi di codice.</li></ul>| Servizio | Spark| N/D|
+| Spark in HDInsight è disponibile a livello generale | Questa versione offre miglioramenti di disponibilità, scalabilità e produttività per Apache Spark open source in HDInsight. <ul><li>Contratto di servizio leader di settore per una disponibilità del 99,9% che lo rende adatto per i carichi di lavoro aziendali impegnativi.</li><li>Livello di archiviazione scalabile con Azure Data Lake Store.</li><li>Strumenti di produttività per ogni fase dell'esplorazione e dello sviluppo dei dati. I Jupyter Notebook con kernel Spark personalizzato consentono l'esplorazione interattiva dei dati, l'integrazione con dashboard BI come Power BI, Tableau e Qlik è perfetta per la condivisione rapida dei dati e il reporting continuo, il plug-in IntelliJ è un'opzione affidabile per lo sviluppo e il debug a lungo termine di elementi di codice.</li></ul>| Service | Spark| N/D|
 | Strumenti di HDInsight per IntelliJ | Questo è un plug-in IntelliJ IDEA per cluster HDInsight Spark. Consente le funzionalità seguenti.<ul><li>Creare e scrivere facilmente un'applicazione Spark in Scala e Java con il supporto alla creazione avanzata per IntelliSense, la formattazione automatica, il controllo degli errori e così via.</li><li>Testare l'applicazione Spark localmente.</li><li>Inviare processi al cluster HDInsight Spark e recuperare i risultati.</li><li>Connettersi ad Azure e accedere a tutti i cluster Spark associati con le sottoscrizioni di Azure.</li><li>Navigare in tutte le risorse di archiviazione associate del cluster HDInsight Spark.</li><li>Navigare in tutta la cronologia dei processi e le informazioni dei processi per il cluster HDInsight Spark.</li><li>Eseguire il debug remoto dei processi Spark dal computer desktop.</li></ul>| Strumenti | Spark| N/D
 
 ## Note sulla versione di HDInsight rilasciata il 13/05/2016
@@ -105,7 +132,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Aggiornamento della versione di Spark e altre correzioni di bug | Questa versione aggiorna la versione Spark nel cluster HDInsight a 1.6.1 e corregge altri bug| Servizio | Spark| N/D
+| Aggiornamento della versione di Spark e altre correzioni di bug | Questa versione aggiorna la versione Spark nel cluster HDInsight a 1.6.1 e corregge altri bug| Service | Spark| N/D
 
 ## Note sulla versione di HDInsight dell'11/04/2016
 
@@ -127,9 +154,9 @@ Questa versione contiene gli aggiornamenti seguenti.
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Problemi di aggiornamento metastore personalizzato per HDI 3.4 | La creazione del cluster non viene eseguita correttamente se si usa un metastore personalizzato già usato in una versione precedente di un altro cluster HDInsight. Ciò è dovuto a un errore nello script di aggiornamento, ora risolto| Creazione del cluster | Tutti | N/D
 | Ripristino a seguito dell'arresto anomalo del sistema Livy | Fornisce resilienza dello stato del processo per qualsiasi processo inviato tramite Livy | Affidabilità | Spark su Linux| N/D
-| Contenuto Jupyter a disponibilità elevata | Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebook | Spark su Linux| N/D
-| Rimozione di hiveContext nei notebook Jupyter | Usare l'oggetto `%%sql` invece di `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Notebook | Cluster Spark su Linux| N/D
-| Rimozione di versioni precedenti di Spark | La versione meno recente Spark 1.3.1 verrà rimossa dal servizio il 31/05 | Servizio | Cluster Spark in Windows | N/D
+| Contenuto Jupyter a disponibilità elevata | Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebook | Spark su Linux| N/D
+| Rimozione di hiveContext nei notebook Jupyter | Usare l'oggetto `%%sql` invece di `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebook | Cluster Spark su Linux| N/D
+| Rimozione di versioni precedenti di Spark | La versione meno recente Spark 1.3.1 verrà rimossa dal servizio il 31/05 | Service | Cluster Spark in Windows | N/D
 
 ## Note sulla versione di HDInsight rilasciata il 29/03/2016
 
@@ -149,11 +176,11 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| È stata aggiunta la versione 3.4 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.4 di HDInsight (basata su HDP 2.4) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.4 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti i cluster Linux| N/D
-| HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per altre informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servizio | Hadoop e Spark su Linux| N/D
-| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per altre informazioni, vedere la [panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
-| Spark 1.6.0 | I cluster HDInsight 3.4 ora includono Spark 1.6.0| Servizio | Cluster Spark su Linux| N/D
-| Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servizio | Cluster Spark su Linux | N/D
+| È stata aggiunta la versione 3.4 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.4 di HDInsight (basata su HDP 2.4) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.4 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Service | Tutti i cluster Linux| N/D
+| HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per altre informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Service | Hadoop e Spark su Linux| N/D
+| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per altre informazioni, vedere [Panoramica di R Server su HDInsight (anteprima)](hdinsight-hadoop-r-server-overview.md).| Service | Hadoop e Spark su Linux| N/D
+| Spark 1.6.0 | I cluster HDInsight 3.4 ora includono Spark 1.6.0| Service | Cluster Spark su Linux| N/D
+| Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Service | Cluster Spark su Linux | N/D
 
 ## Note sulla versione di HDInsight rilasciata il 22/03/2016
 
@@ -172,7 +199,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Servizio | Tutti| N/D
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Service | Tutti| N/D
 
 
 ## Note sulla versione di HDInsight rilasciata il 10/03/2016
@@ -192,7 +219,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Servizio | Tutti| N/D
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Service | Tutti| N/D
 
 ## Note per la versione di HDInsight rilasciata il 27/01/2016
 
@@ -211,7 +238,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Servizio | Tutti| N/D
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Service | Tutti| N/D
 
 ## Note sulla versione di HDInsight rilasciata il 02/12/2015
 
@@ -230,7 +257,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| È stata aggiunta la versione 3.3 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.3 di HDInsight (basata su HDP 2.3) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.3 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti| N/D
+| È stata aggiunta la versione 3.3 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.3 di HDInsight (basata su HDP 2.3) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.3 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Service | Tutti| N/D
 
 ## Note per la versione di HDInsight rilasciata il 30/11/2015
 
@@ -247,7 +274,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight e le versioni HDP per i cluster HDInsight 3.2 (Windows e Linux) | Con questa versione, le versioni di HDInsight e HDP sono state aggiornate | Servizio | Tutti| N/D
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight e le versioni HDP per i cluster HDInsight 3.2 (Windows e Linux) | Con questa versione, le versioni di HDInsight e HDP sono state aggiornate | Service | Tutti| N/D
 
 
 ## Note sulla versione di HDInsight rilasciata il 27/10/2015
@@ -265,8 +292,8 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni di HDInsight aggiornate per tutti i cluster di HDInsight (Windows e Linux) | Con questa versione, le versioni di HDInsight e HDP sono state aggiornate | Servizio | Tutti| N/D
-| Jupyter corretto per i cluster di Windows Spark con cluster in lettere maiuscole | I cluster con nomi DNS specificati in lettere maiuscole presentavano problemi con i notebook Jupyter a causa di una verifica della richiesta di origine. La correzione ha riguardato la modifica del nome DNS per la configurazione di Jupyter in lettere minuscole. | Servizio | HDInsight Spark (Windows)| N/D
+| Versioni di HDInsight aggiornate per tutti i cluster di HDInsight (Windows e Linux) | Con questa versione, le versioni di HDInsight e HDP sono state aggiornate | Service | Tutti| N/D
+| Jupyter corretto per i cluster di Windows Spark con cluster in lettere maiuscole | I cluster con nomi DNS specificati in lettere maiuscole presentavano problemi con i notebook Jupyter a causa di una verifica della richiesta di origine. La correzione ha riguardato la modifica del nome DNS per la configurazione di Jupyter in lettere minuscole. | Service | HDInsight Spark (Windows)| N/D
 
 
 ## Note per la versione di HDInsight rilasciata il 20/10/2015
@@ -284,9 +311,9 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versione HDP predefinita modificata in HDP 2.2 | La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. | Servizio | Tutti| N/D |
+| Versione HDP predefinita modificata in HDP 2.2 | La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. | Service | Tutti| N/D |
 |Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode\*, workernode\* e zookeepernode\* a hn\*, wn\* e zk\*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servizio | Cluster HDInsight basati su Linux | N/D |
-| Modifiche di configurazione | Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> | Servizio | Tutti | N/D |
+| Modifiche di configurazione | Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> | Service | Tutti | N/D |
 
 
 ## Note per la versione di HDInsight rilasciata il 09/09/2015
@@ -303,7 +330,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questa versione le versioni di HDInsight sono state aggiornate | Servizio | Tutti| N/D |
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questa versione le versioni di HDInsight sono state aggiornate | Service | Tutti| N/D |
 
 ## Note per la versione di HDInsight rilasciata il 31/07/2015
 
@@ -319,7 +346,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Correggere il flusso di lavoro della nuova immagine del nodo del cluster Spark | Corretto un bug che impediva il ripristino dei nodi del cluster Spark dopo la nuova immagine | Servizio | Spark| N/D |
+| Correggere il flusso di lavoro della nuova immagine del nodo del cluster Spark | Corretto un bug che impediva il ripristino dei nodi del cluster Spark dopo la nuova immagine | Service | Spark| N/D |
 
 
 ## Note per la versione di HDInsight rilasciata il 31/07/2015
@@ -336,7 +363,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questa versione le versioni di HDInsight sono state aggiornate | Servizio | Tutti| N/D |
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questa versione le versioni di HDInsight sono state aggiornate | Service | Tutti| N/D |
 
 
 ## Note per la versione di HDInsight rilasciata il 07/07/2015
@@ -383,7 +410,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Versioni aggiornate di HDP per i cluster HDInsight 3.2</td>
 <td>Con questa versione HDInsight 3.2 distribuisce HDP 2.2.6.1</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -473,7 +500,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Correzione per errore gateway non valido 502 per i cluster Storm</td>
 <td>Questa versione corregge un bug che interessa l'API per l'invio di processi che ha comportato l'inattività del sito Web dopo un riavvio.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Storm</td>
 <td>N/D</td>
 </tr>
@@ -506,7 +533,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Varie correzioni di bug</td>
 <td>Questa versione corregge bug correlati al provisioning di cluster.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti i tipi di cluster</td>
 <td>N/D</td>
 </tr>
@@ -710,13 +737,13 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Correzioni di bug</td>
 <td>Diverse correzioni di bug per il servizio</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 01/04/2015
 
@@ -759,7 +786,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Aggiornamento di Python alla versione 2.7.8</td>
 <td>Aggiornamento di Python su cluster HDInsight alla versione 2.7.8, contenente alcuni importanti aggiornamenti per la sicurezza per le versioni di HDInsight 2.1, 3.0, 3.1 e 3.2</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -775,7 +802,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Ridimensionamento dei nodi in un cluster HBase</td>
 <td>È ora possibile ridimensionare i nodi (verso l'alto e verso il basso) nei cluster HBase per HDInsight versioni 3.1 e 3.2</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>HBase</td>
 <td>N/D</td>
 </tr>
@@ -791,7 +818,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Aggiornamento della configurazione di JVM</td>
 <td>Il valore del parametro di configurazione di JVM networkaddress.cache.ttl è stato portato a 300 secondi dal valore predefinito -1 per le versioni di HDInsight 3.1 e 3.2. Questo valore di configurazione controlla i criteri di memorizzazione nella cache relativi a ricerche di nomi completate con esito positivo dal servizio dei nomi. In questo modo viene corretto un bug correlato alla crescita e alla riduzione dei cluster HBase.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>HBase</td>
 <td>N/D</td>
 </tr>
@@ -821,7 +848,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 03/03/2015
 
@@ -848,7 +875,7 @@ Questa versione contiene l'aggiornamento seguente.
 <tr>
 <td>Miglioramenti dell'affidabilità</td>
 <td>Sono state apportate correzioni che assicurano una migliore scalabilità del servizio per gestire un aumento del carico rispetto alla creazione del cluster.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -856,7 +883,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 18/02/2015
 
@@ -891,7 +918,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>HDinsight in Linux (anteprima)</td>
 <td>È possibile distribuire cluster per l'esecuzione in Ubuntu Linux. Per altri dettagli, vedere Introduzione a HDInsight su Linux.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -899,7 +926,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Disponibilità generale di Storm</td>
 <td>I cluster Apache Storm sono in genere disponibili. Per altri dettagli, vedere Introduzione all'uso di Storm in HDInsight.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Storm</td>
 <td>N/D</td>
 </tr>
@@ -907,7 +934,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Dimensioni delle macchine virtuali</td>
 <td>Azure HDInsight è disponibile per più tipi e dimensioni di macchine virtuali. HDInsight può usare macchine virtuali di dimensioni da A2 ad A7 per scopi generali, nodi della serie D che integrano unità SSD (Solid-State Drive) e processori più veloci del 60 percento. Può usare inoltre macchine virtuali di dimensioni A8 e A9 con supporto per InfiniBand per connessioni di rete più veloci.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -915,7 +942,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Scalabilità del cluster</td>
 <td>È possibile modificare il numero di nodi dati per un cluster HDInsight in esecuzione senza che sia necessario eliminarlo o ricrearlo. Attualmente questa possibilità è offerta solo dai tipi di cluster Hadoop Query e Apache Storm. Il supporto per il tipo di cluster Apache HBase sarà disponibile a breve. Per altre informazioni, vedere Gestire i cluster di HDInsight.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Hadoop, Storm</td>
 <td>N/D</td>
 </tr>
@@ -931,7 +958,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Connettore Hadoop per DocumentDB</td>
 <td>Il connettore Hadoop per DocumentDB consente di eseguire operazioni complesse di aggregazione, analisi e manipolazione sui documenti JSON senza schema archiviati in raccolte DocumentDB o in account di database. Per altre informazioni e per un'esercitazione, vedere Eseguire un processo Hadoop usando DocumentDB e HDInsight.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -939,13 +966,13 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Correzioni di bug</td>
 <td>Sono state apportate diverse correzioni di bug di minore entità per i servizi di HDInsight. Non sono previste modifiche del comportamento rilevabili dai clienti.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 06/02/2015
 
@@ -971,7 +998,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <tr>
 <td>Correzioni di bug</td>
 <td>Sono state apportate diverse correzioni di bug di minore entità per i servizi di HDInsight. Non sono previste modifiche del comportamento rilevabili dai clienti.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -999,7 +1026,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 29/01/2015
 
@@ -1026,7 +1053,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 <td>Correzioni di bug</td>
 <td>Sono state apportate alcune importanti correzioni di bug che migliorano l'affidabilità dei cluster HDInsight durante gli aggiornamenti di Azure.</td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Tutti</td>
 <td>N/D</td>
 </tr>
@@ -1034,7 +1061,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 5/1/2015
 
@@ -1105,7 +1132,7 @@ Questa versione contiene l'aggiornamento seguente.
 <tr>
 <td>Errori intermittenti durante la creazione dei cluster a causa di un carico eccessivo</td>
 <td><p>L'algoritmo migliorato per il download dei pacchetti HDP durante la creazione dei cluster permette una gestione più efficace degli errori dovuti a un carico eccessivo.</p></td>
-<td>Servizio</td>
+<td>Service</td>
 <td>Hadoop, Hbase, Storm</td>
 <td>N/D</td>
 </tr>
@@ -1113,7 +1140,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 18/12/2014
 
@@ -1138,7 +1165,7 @@ Questa versione include l'aggiornamento dei componenti indicato di seguito.
 
 
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDinsight rilasciata il 05/12/2014
 
@@ -1240,7 +1267,7 @@ Questa versione include gli aggiornamenti dei componenti indicati di seguito.
 <td>N/D</td>
 </tr>
 </table>
-<br>
+<br>  
 
 ## Note per la versione di HDInsight rilasciata il 14/11/2014
 
@@ -1289,7 +1316,7 @@ Per imparare a usare HDInsight, esaminare nel dettaglio alcuni scenari di base, 
 <td>https://issues.apache.org/jira/browse/HADOOP-11248</td>
 </tr>
 </table>
-<br>
+<br>  
 
 
 **Nota**: per illustrare le nuove funzionalità rese disponibili dalla personalizzazione dei cluster, sono state documentate le procedure che usano azioni di script per installare moduli Spark e R in un cluster. Per altre informazioni, vedere:
@@ -1343,7 +1370,7 @@ Questa versione include gli aggiornamenti dei componenti indicati di seguito.
 <td>N/D</td>
 </tr>
 </table>
-<br>
+<br>  
 
 **Nota**: il bug che impediva la visualizzazione del numero di versione completo nel portale o la restituzione di tale numero da parte dell'SDK o di PowerShell è stato risolto in questa versione.
 
@@ -1358,7 +1385,7 @@ Questa versione dell'hotfix ha risolto una perdita di memoria in Templeton che i
 
 * Sono state fornite nuove impostazioni di memoria per l'implementazione predefinita del cluster HDInsight. Le precedenti impostazioni di memoria predefinite non tenevano adeguatamente conto delle indicazioni relative al numero di core CPU implementati. Queste nuove impostazioni di memoria dovrebbero offrire valori predefiniti migliori, sulla base delle raccomandazioni di Hortonworks. Per modificare queste impostazioni, consultare la documentazione di riferimento dell'SDK sulla modifica della configurazione del cluster. Le nuove impostazioni di memoria usate dal cluster HDInsight predefinito con 4 core CPU (8 contenitori) sono elencate nella tabella seguente. Vengono forniti tra parentesi anche i valori usati prima di questa versione.
 
-<table border="1">
+<table border="1">  
 <tr><th>Componente</th><th>Allocazione della memoria</th></tr>
 <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (in precedenza 512 MB)</td></tr>
 <tr><td> yarn.scheduler.maximum-allocation</td><td>6.144 MB (invariato)</td></tr>
@@ -1378,7 +1405,7 @@ Per altre informazioni sulle impostazioni di configurazione di memoria usate da 
 
 Per quanto riguarda Azure PowerShell e il messaggio di errore HDInsight SDK: "*Cluster is not configured for HTTP services access*":
 
-* Questo errore è un [problema di compatibilità](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) noto che può verificarsi a causa di una differenza tra la versione di SDK HDInsight o Azure PowerShell e la versione del cluster. Per i cluster creati sulla versione 8/15 o successiva esiste il supporto della nuova funzionalità di provisioning nelle reti virtuali, che però non viene interpretata correttamente dalle versioni precedenti di SDK HDInsight o Azure PowerShell. Il risultato è un errore in alcune operazioni di invio dei processi. Se si usano le API di HDInsight SDK o i cmdlet di Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**) per inviare i processi, è possibile che tali operazioni abbiano esito negativo e che venga generato il messaggio di errore "*Cluster <clustername> is not configured for HTTP services acces*." In alternativa, a seconda dell'operazione, è possibile che venga generato un altro messaggio che informa che *non è possibile eseguire la connessione al cluster*.
+* Questo errore è un [problema di compatibilità](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) noto che può verificarsi a causa di una differenza tra la versione di SDK HDInsight o Azure PowerShell e la versione del cluster. Per i cluster creati sulla versione 8/15 o successiva esiste il supporto della nuova funzionalità di provisioning nelle reti virtuali, che però non viene interpretata correttamente dalle versioni precedenti di SDK HDInsight o Azure PowerShell. Il risultato è un errore in alcune operazioni di invio dei processi. Se si usano le API di HDInsight SDK o i cmdlet di Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**) per inviare i processi, è possibile che tali operazioni abbiano esito negativo e che venga generato il messaggio di errore "*Cluster <clustername> is not configured for HTTP services access* (Il cluster <nomecluster> non è configurato per l'accesso ai servizi HTTP)". In alternativa, a seconda dell'operazione, è possibile che venga generato un altro messaggio che informa che *non è possibile eseguire la connessione al cluster*.
 
 * Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -1424,7 +1451,7 @@ Questi problemi di compatibilità sono stati risolti nelle versioni più recenti
 * HDInsight versione 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versione 2.1 (HDP1.3 e Hadoop 1.2) verranno rimossi dal portale di gestione di Azure. È possibile continuare a creare cluster Hadoop per queste versioni usando il cmdlet di Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) oppure usando [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Per altre informazioni, fare riferimento alla pagina relativa al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 * Modifiche a Hortonworks Data Platform (HDP) in questa versione:
 
-<table border="1">
+<table border="1">  
 <tr><th>HDP</th><th>Modifiche</th></tr>
 <tr><td>HDP 1.3/HDI 2.1</td><td>Nessuna modifica</td></tr>
 <tr><td>HDP 2.0/HDI 3.0</td><td>Nessuna modifica</td></tr>
@@ -1610,7 +1637,7 @@ Tra HDInsight 2.x (HDP1.x) e HDInsight 3.x (HDP2.x) sono state apportate le segu
 
 
 ### Driver
-Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correzioni di bug
@@ -1652,4 +1679,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

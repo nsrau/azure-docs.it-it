@@ -3,22 +3,28 @@
    description="Informazioni su come creare un probe personalizzato per il gateway applicazione usando PowerShell nel modello di distribuzione classica"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>
+/>  
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />  
 
 # Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
+> [AZURE.SELECTOR]
+- [Portale di Azure](application-gateway-create-probe-portal.md)
+- [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
+
+<BR>  
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
@@ -27,7 +33,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## Creare un nuovo gateway applicazione
+## Creare un gateway applicazione
 
 Per creare un gateway applicazione:
 
@@ -37,9 +43,9 @@ Per creare un gateway applicazione:
 
 ### Creare una risorsa del gateway applicazione
 
-Per creare il gateway, usare il cmdlet **New-AzureApplicationGateway**, sostituendo i valori esistenti con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
+Per creare il gateway, usare il cmdlet **New-AzureApplicationGateway**, sostituendo i valori esistenti con quelli personalizzati. La fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
-L'esempio seguente mostra come creare un nuovo gateway applicazione usando una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1".
+L'esempio seguente mostra come creare un gateway applicazione usando una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1".
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -71,7 +77,7 @@ Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-Azu
 >[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
 
- *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
+ *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
 ## Configurare un gateway applicazione
 
@@ -151,7 +157,7 @@ Copiare il testo seguente in Blocco note.
 
 Modificare i valori tra parentesi per gli elementi di configurazione. Salvare il file con estensione XML.
 
-L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e inviare il traffico di rete alla porta back-end 80 tra due indirizzi IP usando un probe personalizzato.
+L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e l'invio del traffico di rete alla porta back-end 80 tra due indirizzi IP con un probe personalizzato.
 
 >[AZURE.IMPORTANT] L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
 
@@ -160,14 +166,14 @@ Viene aggiunto un nuovo elemento di configurazione <Probe> per configurare i pro
 
 I parametri di configurazione sono:
 
-- **Name**: nome di riferimento per il probe personalizzato.
-- **Protocol**: protocollo usato (i valori possibili sono HTTP o HTTPS).
-- **Host** e **Path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si ha un sito Web http://contoso.com/, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
-- **Interval**: configura i controlli dell'intervallo di probe in secondi.
+- **Name**: nome di riferimento del probe personalizzato.
+- **Protocol**: protocollo usato. I valori possibili sono HTTP o HTTPS.
+- **Host** e **Path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
+- **Interval**: configura i controlli dell'intervallo di probe, in secondi.
 - **Timeout**: definisce il timeout del probe per un controllo della risposta HTTP.
 - **UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
-Si fa riferimento al nome del probe nella configurazione <BackendHttpSettings> per assegnare il pool back-end che userà le impostazioni di probe personalizzato.
+Nella configurazione <BackendHttpSettings> viene fatto riferimento al nome del probe per assegnare il pool back-end che userà le impostazioni del probe personalizzato.
 
 ## Aggiungere una configurazione di probe personalizzata a un gateway applicazione esistente
 
@@ -220,6 +226,6 @@ Aggiornare la configurazione del gateway applicazione con il nuovo file XML usan
 
 Per configurare l'offload SSL (Secure Sockets Layer), vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Configurazione e gestione dell'accesso all'hub IoT
@@ -24,7 +24,7 @@ In questo articolo vengono fornite informazioni che aiutano i professionisti del
 
 I dispositivi possono comunicare con l'hub IoT in Azure tramite una varietà di protocolli. In genere, la scelta del protocollo è determinata dai requisiti specifici della soluzione. Nella tabella seguente sono elencate le porte in uscita che devono essere aperte affinché un dispositivo possa utilizzare un protocollo specifico:
 
-| Protocollo | Porte |
+| Protocol | Porte |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
@@ -44,7 +44,7 @@ L'accesso ad altri endpoint di gestione in un hub IoT viene controllato anche tr
 
 Questo articolo contiene informazioni specifiche per i professionisti dell’IT e gli sviluppatori che eseguono la configurazione dei propri ambienti di sviluppo e test. La [sezione sulla protezione nella Guida per sviluppatori di hub IoT Azure][lnk-devguide] fornisce informazioni aggiuntive sui token e sul sistema di autorizzazioni nell'hub IoT.
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
@@ -59,4 +59,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

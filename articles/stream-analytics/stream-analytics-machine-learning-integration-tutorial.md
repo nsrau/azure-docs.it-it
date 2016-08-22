@@ -16,9 +16,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/08/2016" 
 	ms.author="jeffstok"
-/>
+/>  
 
 # Analisi dei sentimenti con Analisi di flusso di Azure e Azure Machine Learning #
 
@@ -114,7 +114,7 @@ Prendere nota dell'URL del servizio Web e della chiave di accesso forniti nel fi
  		SELECT text, sentiment(text) as result from input  
   	)  
  
- 	Select text, result.[Score]  
+ 	Select text, result.[Scored Labels]  
  	Into output  
  	From subquery  
  ```    
@@ -145,4 +145,4 @@ In questo articolo viene illustrato come creare un processo dell'analisi di flus
 
     ![Analisi di flusso e Machine Learning, visualizzazione di monitoraggio di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

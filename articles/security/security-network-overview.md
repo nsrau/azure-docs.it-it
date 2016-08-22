@@ -1,11 +1,11 @@
 <properties
    pageTitle="Panoramica della sicurezza di rete di Azure | Microsoft Azure"
-   description="Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell'area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree."
+   description=" Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell'area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
-   editor="TomSh"/>
+   manager="MBaldwin"
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
-   ms.author="terrylan"/>
+   ms.date="08/09/2016"
+   ms.author="terrylan"/>  
 
 # Panoramica della sicurezza di rete di Azure
 
@@ -44,7 +44,7 @@ Altre informazioni:
 ## Controllo di accesso alla rete
 Il controllo di accesso alla rete comporta la limitazione della connettività da e verso subnet o dispositivi specifici all'interno di una rete virtuale di Azure. L'obiettivo del controllo di accesso alla rete consiste nel garantire che le macchine virtuali e i servizi siano accessibili solo agli utenti e ai dispositivi a cui si vuole concedere l'accesso. I controlli di accesso si basano su decisioni secondo cui le connessioni da e verso una macchina virtuale o un servizio sono consentite o negate.
 
-Azure supporta diversi tipi di controllo di accesso alla rete. Sono inclusi:
+Azure supporta diversi tipi di controllo di accesso alla rete. inclusi i seguenti:
 
 - Controllo a livello rete
 - Controllo di route e tunneling forzato
@@ -146,7 +146,7 @@ Altre informazioni:
 
 - [Configurare una connessione da rete virtuale a rete virtuale con Azure Resource Manager e PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## Availability
+## Disponibilità
 La disponibilità è un componente fondamentale di qualsiasi programma di sicurezza. Se gli utenti e i sistemi non possono accedere alle risorse necessarie attraverso la rete, il servizio può essere considerato compromesso. Azure offre tecnologie di rete che supportano i meccanismi a disponibilità elevata seguenti:
 
 - Bilanciamento del carico basato su HTTP
@@ -179,7 +179,7 @@ A differenza del bilanciamento del carico basato su HTTP, il bilanciamento del c
 - Supporto per qualsiasi protocollo a livello dell'applicazione.
 - Bilanciamento del carico tra macchine virtuali di Azure e istanze del ruolo di Servizi cloud.
 - Può essere usato per applicazioni e macchine virtuali con connessione Internet (bilanciamento del carico esterno) e senza connessione Internet (bilanciamento del carico interno).
-- Monitoraggio di endpoint, che viene usato per determinare se i servizi controllati dal servizio di bilanciamento del carico sono diventati non disponibili.
+- Monitoraggio endpoint, che viene usato per determinare se i servizi controllati dal servizio di bilanciamento del carico sono diventati non disponibili.
 
 Altre informazioni:
 
@@ -265,4 +265,4 @@ Altre informazioni:
 
 - [Introduzione al Centro sicurezza di Azure](../security-center/security-center-intro.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

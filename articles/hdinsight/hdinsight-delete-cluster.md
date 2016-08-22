@@ -13,8 +13,8 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/20/2016"
-ms.author="larryfr"/>
+ms.date="08/09/2016"
+ms.author="larryfr"/>  
 
 #Come eliminare un cluster HDInsight
 
@@ -48,4 +48,4 @@ Da un prompt, usare il comando seguente per eliminare il cluster:
     
 Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

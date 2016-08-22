@@ -3,7 +3,7 @@
    description="Informazioni su come controllare il routing in reti virtuali mediante PowerShell nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 #Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante PowerShell
 
@@ -24,7 +24,6 @@
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
 In questo articolo viene illustrato il modello di distribuzione classica.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -110,4 +109,4 @@ Per abilitare l'inoltro dell'indirizzo IP sulla macchina virtuale FW1, attenersi
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

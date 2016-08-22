@@ -3,7 +3,7 @@
    description="Come modificare le impostazioni del server DNS in una rete virtuale usando un file di configurazione di rete virtuale nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
@@ -14,14 +14,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 
 # Indicazione delle impostazioni DNS in un file di configurazione di rete virtuale
 
 Un file di configurazione di rete dispone di due elementi che è possibile utilizzare per specificare le impostazioni Domain Name System (DNS):**DnsServers**e**DnsServerRef**. È possibile aggiungere un elenco dei server DNS specificando gli indirizzi IP e nomi di riferimento all’elemento **DnsServers**. È quindi possibile utilizzare un elemento**DnsServerRef**per specificare le voci del server DNS che vengono utilizzate per siti di rete diversi all'interno della rete virtuale.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica.
 
 Il file di configurazione di rete può contenere i seguenti elementi. Il titolo di ogni elemento è collegato a una pagina che fornisce informazioni aggiuntive sulle impostazioni del valore dell'elemento.
 
@@ -47,7 +47,7 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
 	  <DnsServerRef name="ID3" />
 	</DnsServersRef>
 
->[AZURE.NOTE] Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome* del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per *nome* DnsServer.
+>[AZURE.NOTE] Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome*del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per*nome* DnsServer.
 
 ## Passaggi successivi
 
@@ -55,4 +55,4 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
 - Informazioni sullo [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 - [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0810_2016-->

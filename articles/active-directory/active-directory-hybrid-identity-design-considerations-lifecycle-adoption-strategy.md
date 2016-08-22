@@ -4,9 +4,9 @@
 	description="Consente di definire le attività della gestione ibrida delle identità in base alle opzioni disponibili per ogni fase del ciclo di vita."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
@@ -95,4 +95,4 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -201,7 +201,7 @@ Nel provider `Microsoft.Compute/virtualMachines` del modello, sarà presente un 
           }
 ```
 
-È possibile utilizzare [questo modello esistente per creare una VM da un'immagine personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) oppure consultare le informazioni sulla [creazione di modelli di Azure Resource Manager] (../resource-group-authoring templates.md).
+È possibile usare [questo modello esistente per creare una VM da un'immagine personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) oppure consultare le informazioni sulla [creazione di modelli di Azure Resource Manager personalizzati](../resource-group-authoring-templates.md).
 
 Dopo aver configurato un modello, creare le VM tramite il comando `azure group deployment create`. Specificare l'URI del modello JSON con il parametro `--template-uri`:
 
@@ -221,4 +221,4 @@ azure group deployment create --resource-group TestTemplateRG
 ## Passaggi successivi
 Dopo avere preparato e caricato il disco rigido virtuale, è possibile ottenere altre informazioni sull'[uso di Azure Resource Manager e dei modelli](../resource-group-overview.md). È anche consigliabile [aggiungere un disco dati](virtual-machines-linux-add-disk.md) alle nuove VM. Se nelle VM sono in esecuzione applicazioni a cui si deve accedere, assicurarsi di [aprire le porte e gli endpoint](virtual-machines-linux-nsg-quickstart.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

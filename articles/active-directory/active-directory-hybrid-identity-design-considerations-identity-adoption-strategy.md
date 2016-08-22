@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 
 # Definire una strategia di adozione della soluzione ibrida di gestione delle identità
@@ -37,7 +37,7 @@ Gli scenari definiti nella figura precedente sono:
 
 - **Identità cloud**: si tratta di identità che esistono solo nel cloud. Nel caso di Azure AD, risiedono nella directory di Azure AD dell'organizzazione.
 - **Identità sincronizzate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti. L'hash della password dell'utente viene sincronizzato dall'ambiente locale al cloud in ciò che viene chiamato un hash della password. Lo svantaggio di questa soluzione è che se un utente viene disabilitato nell'ambiente locale, la visualizzazione dello stato dell'account aggiornato in Azure AD può richiedere fino a 3 ore. Questo è dovuto all'intervallo di tempo del processo di sincronizzazione.
-- **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  
+- **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.
  
 >[AZURE.NOTE]
 Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
@@ -153,8 +153,8 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
 Tenere presente che le funzionalità seguenti non sono supportate e non devono essere scelte come implementazione:
 
 - Non è supportato lo scenario che prevede più server del servizio di sincronizzazione Azure AD Connect connessi alla stessa directory di Azure AD, anche se sono configurati per sincronizzare set di oggetti che si escludono a vicenda
-- Non è supportata la sincronizzazione dello stesso utente in più directory di Azure AD. 
-- Non è inoltre supportata la modifica della configurazione per fare in modo che gli utenti di un'istanza di Azure AD vengano visualizzati come contatti in un'altra directory di Azure AD. 
+- Non è supportata la sincronizzazione dello stesso utente in più directory di Azure AD.
+- Non è inoltre supportata la modifica della configurazione per fare in modo che gli utenti di un'istanza di Azure AD vengano visualizzati come contatti in un'altra directory di Azure AD.
 - Non è consentito modificare il servizio di sincronizzazione Azure AD Connect per la connessione a più directory di Azure AD.
 - Come previsto da progettazione, le directory di Azure AD sono isolate. Non è supportata la modifica della configurazione del servizio di sincronizzazione Azure AD Connect in modo da leggere dati da un'altra directory di Azure AD nel tentativo di creare un elenco di indirizzi globale comune e unificato tra le directory. Non è inoltre supportata l'esportazione di utenti come contatti in un'altra istanza locale di AD mediante il servizio di sincronizzazione Azure AD Connect.
 
@@ -169,11 +169,11 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 
 | Asset da proteggere | Autenticazione a più fattori nel cloud | Autenticazione a più fattori in locale |
 |---------------------------------------------------------------|------------------|----------------|
-| App Microsoft | yes | yes |
-| App SaaS nella Raccolta di app | yes | yes |
-| Le applicazioni IIS pubblicate tramite proxy app per Azure AD | yes | yes |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD | no | yes |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto | no | yes |
+| App Microsoft | sì | sì |
+| App SaaS nella Raccolta di app | sì | sì |
+| Le applicazioni IIS pubblicate tramite proxy app per Azure AD | sì | sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD | no | sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto | no | sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti ed eventualmente cambiare il tipo di soluzione. A questo scopo, usare la tabella seguente:
 
@@ -200,4 +200,4 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

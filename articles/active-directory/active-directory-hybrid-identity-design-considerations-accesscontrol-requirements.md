@@ -4,9 +4,9 @@
 	description="Illustra gli elementi fondamentali dell'identità e specifica i requisiti di accesso alle risorse previsti per gli utenti in un ambiente ibrido."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
 Durante la progettazione di una soluzione di identità ibrida, le aziende hanno la possibilità di valutare i requisiti di accesso per le risorse che prevedono di rendere disponibili agli utenti. L'accesso ai dati coinvolge tutti i quattro pilastri dell'identità, ovvero:
@@ -73,4 +73,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

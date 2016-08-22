@@ -13,21 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
 # Creare un report della cronologia delle modifiche relative all'accesso
 
-Quando non si è l'unico proprietario delle sottoscrizioni di Azure o delle risorse e dei gruppi di risorse che contengono, è necessario tenere traccia di tutte le modifiche relative all'accesso. Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
+Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
 
 ## Creare un rapporto con Azure PowerShell
-Per creare un report della cronologia delle modifiche relative all'accesso in PowerShell, usare il comando seguente:
+Per creare un report della cronologia delle modifiche relative all'accesso in PowerShell, usare il comando `Get-AzureRMAuthorizationChangeLog`. Ulteriori dettagli su questo cmdlet sono disponibili in [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
 
-```
-Get-AzureRMAuthorizationChangeLog
-```
-
-È possibile specificare la proprietà delle assegnazioni da elencare, ad esempio:
+Quando si chiama questo comando, è possibile specificare la proprietà delle assegnazioni da elencare, ad esempio:
 
 | Proprietà | Descrizione |
 | -------- | ----------- |
@@ -50,21 +46,18 @@ Questo comando di esempio elenca tutte le modifiche relative all'accesso nella s
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - Schermata](./media/role-based-access-control-configure/access-change-history.png)
+![PowerShell Get-AzureRMAuthorizationChangeLog - Schermata](./media/role-based-access-control-configure/access-change-history.png)  
 
 ## Creare un rapporto con l’interfaccia di riga di comando di Azure
-Per creare un report della cronologia delle modifiche relative all'accesso nell'interfaccia della riga di comando, usare il comando seguente:
-```
-azure role assignment changelog list
-```
+Per creare un report della cronologia delle modifiche relative all'accesso nell'interfaccia della riga di comando, usare il comando `azure role assignment changelog list`.
 
 ## Esportare in un foglio di calcolo
 Per salvare il report o modificare i dati, esportare le modifiche relative all'accesso in un file CSV. Sarà quindi possibile visualizzare il report in un foglio di calcolo per la revisione.
 
-![Log delle modifiche visualizzato come foglio di calcolo - Schermata](./media/role-based-access-control-configure/change-history-spreadsheet.png)
+![Log delle modifiche visualizzato come foglio di calcolo - Schermata](./media/role-based-access-control-configure/change-history-spreadsheet.png)  
 
 ## Vedere anche
 - Introduzione al [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md)
 - Utilizzare i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

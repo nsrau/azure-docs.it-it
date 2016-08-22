@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
-	ms.author="sstein"/>
+	ms.date="08/09/2016"
+	ms.author="sstein"/>  
 
 
 # Configurare le regole firewall a livello di server per il database SQL di Azure con PowerShell
@@ -31,7 +31,7 @@
 
 Il database SQL di Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL per consentire l'accesso al database in modo selettivo.
 
-> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). È necessario aprire alcune porte TCP aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione "V12 del database SQL: all'esterno rispetto all'interno" di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). Se si apportano le connessioni all'interno del cloud di Azure, è necessario aprire alcune porte TCP aggiuntive. Per ulteriori informazioni, vedere la sezione "V12 del database SQL: all'esterno rispetto all'interno" di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 [AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
@@ -86,4 +86,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

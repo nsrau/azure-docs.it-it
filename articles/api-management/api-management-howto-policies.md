@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 
 #Criteri in Gestione API di Azure
@@ -25,7 +25,7 @@ Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, 
 
 I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, a meno che i criteri non specifichino diversamente. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
 
 ## <a name="scopes"> </a>Come configurare criteri
 I criteri possono essere configurati a livello globale o nell'ambito di un [prodotto][], un'[API][] o un'[operazione][]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
@@ -38,7 +38,7 @@ L'editor dei criteri comprende tre sezioni principali: l'ambito criteri (in alto
 
 Per iniziare a configurare i criteri, prima è necessario selezionare l'ambito in cui applicare i criteri. Nella schermata seguente è selezionato il prodotto **Starter**. Il quadratino accanto al nome del criterio indica che un criterio è già applicato a questo livello.
 
-![Ambito][policies-scope]
+![Scope][policies-scope]
 
 Poiché è già stato applicato un criterio, la configurazione viene mostrata nella visualizzazione definizione.
 
@@ -73,7 +73,7 @@ Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP
 		<address>1.2.3.4</address>
 	</ip-filter>
 
-![Salva][policies-save]
+![Save][policies-save]
 
 Dopo aver configurato le istruzioni per il criterio, fare clic su **Salva** per propagare immediatamente le modifiche al gateway di Gestione API.
 
@@ -151,4 +151,4 @@ Vedere il video seguente sulle espressioni di criteri.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

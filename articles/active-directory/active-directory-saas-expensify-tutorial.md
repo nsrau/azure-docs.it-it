@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="jeedes"/>
+	ms.date="08/04/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Expensify
@@ -58,7 +58,7 @@ Per configurare l'integrazione di Expensify in Azure AD, è necessario aggiunger
 
 **Per aggiungere Expensify dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -218,9 +218,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 ### Creazione di un utente test di Expensify
 
-In questa sezione viene creato un utente chiamato Britta Simon in Expensify. Expensify supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita.
-
-Non è necessario alcun intervento dell'utente in questa sezione. Quando si accede a Expensify se l'utente non esiste ancora, viene creato un nuovo utente. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
+In questa sezione viene creato un utente chiamato Britta Simon in Expensify. Collaborare con il team di supporto di Expensify per aggiungere gli utenti alla piattaforma Expensify.
 
 > [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di Expensify.
 
@@ -233,23 +231,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 **Per assegnare Britta Simon a Expensify, seguire questa procedura:**
 
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-	![Assegna utente][201]
+	![Assegna utente][201]  
 
 2. Nell'elenco di applicazioni selezionare **Expensify**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_50.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_50.png)  
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]
+	![Assegna utente][203]  
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]
+	![Assegna utente][205]  
 
 
 
@@ -265,7 +263,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_02.png
@@ -283,4 +281,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

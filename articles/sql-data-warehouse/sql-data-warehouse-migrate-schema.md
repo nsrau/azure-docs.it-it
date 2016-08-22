@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/08/2016"
+   ms.author="jrj;barbkess;sonyama"/>  
 
 # Eseguire la migrazione dello schema in SQL Data Warehouse#
 
@@ -23,19 +23,19 @@ I riepiloghi seguenti consentono di capire le differenze tra l'uso di SQL Server
 ### Funzionalità delle tabelle
 SQL Data Warehouse non usa né supporta le funzionalità seguenti:
 
-- Chiavi primarie  
-- Chiavi esterne  
-- Vincoli CHECK  
-- Vincoli UNIQUE  
-- Indici univoci  
-- Colonne calcolate  
-- Colonne di tipo sparse  
-- Tipi definiti dall'utente  
-- Viste indicizzate  
-- Identità  
-- Sequenze  
-- Trigger  
-- Sinonimi  
+- Chiavi primarie
+- Chiavi esterne
+- Vincoli CHECK
+- Vincoli UNIQUE
+- Indici univoci
+- Colonne calcolate
+- Colonne di tipo sparse
+- Tipi definiti dall'utente
+- Viste indicizzate
+- Identità
+- Sequenze
+- Trigger
+- Sinonimi
 
 
 ### Differenze nei tipi di dati
@@ -43,7 +43,7 @@ SQL Data Warehouse supporta i tipi di dati business comuni elencati di seguito:
 
 - bigint
 - binary
-- bit
+- Bit
 - char
 - date
 - datetime
@@ -130,7 +130,7 @@ Dopo la migrazione dello schema del database in SQLDW, è possibile passare a un
 
 Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Eseguire la migrazione del codice]: sql-data-warehouse-migrate-code.md
@@ -140,6 +140,6 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--MSDN references-->
 
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

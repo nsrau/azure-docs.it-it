@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure (Azure CLI) | Microsoft Azure"
-	description="Informazioni su come gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure, ad esempio ottenere un elenco dei ruoli e delle relative azioni, nonché assegnare i ruoli nell'ambito della sottoscrizione e dell'applicazione."
+	description="Informazioni su come gestire il controllo degli accessi in base al ruolo (RBAC) con l'interfaccia della riga di comando di Azure, ad esempio ottenere un elenco dei ruoli e delle relative azioni, nonché assegnare i ruoli nell'ambito della sottoscrizione e dell'applicazione."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
 	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+	ms.author="kgremban"/>  
 
 # Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 - [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 - [API REST](role-based-access-control-manage-access-rest.md)
 
-Il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager consente di gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
+È possibile usare il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager per gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
 Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre di quanto segue:
 
@@ -33,7 +33,7 @@ Per usare l'interfaccia della riga di comando di Azure per gestire il controllo 
 ## Elenco dei ruoli
 
 ###	Elencare tutti i ruoli disponibili
-Per elencare tutti i ruoli disponibili, usare
+Per elencare tutti i ruoli disponibili, usare:
 
 		azure role list
 
@@ -74,8 +74,8 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 
 ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di assegnazione di ruoli per gruppo - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
-###	Elencare le assegnazioni di ruoli per un utente, inclusi quelli assegnati ai gruppi di un utente
-Per elencare le assegnazioni di ruolo per un utente specifico, usare:
+###	Elencare i ruoli assegnati a un utente
+Per avere un elenco dei ruoli assegnati a un determinato utente e delle assegnazioni ai gruppi di utenti, utilizzare:
 
 	azure role assignment list --signInName <user email>
 
@@ -83,7 +83,7 @@ Per elencare le assegnazioni di ruolo per un utente specifico, usare:
 
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-L'esempio seguente indica le assegnazioni di ruolo concesse all'utente *sameert@aaddemo.com*. Include i ruoli assegnati direttamente all'utente, ma anche i ruoli ereditati da gruppi.
+L'esempio seguente indica le assegnazioni di ruolo concesse all'utente *sameert@aaddemo.com*. Include i ruoli assegnati direttamente all'utente, oltre ai ruoli ereditati dai gruppi.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -91,10 +91,10 @@ azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {
 azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
 ```
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di assegnazione di ruoli per utente - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di assegnazione di ruoli per utente - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)  
 
 ##	Concedere l'accesso
-Dopo aver individuato il ruolo che si desidera assegnare, per concedere l'accesso usare:
+Per concedere l'accesso dopo aver individuato il ruolo da assegnare, usare:
 
     azure role assignment create
 
@@ -106,7 +106,7 @@ Per assegnare un ruolo a un gruppo nell'ambito della sottoscrizione, usare:
 L'esempio seguente assegna il ruolo *Reader* a *Christine Koch's Team* nell'ambito *subscriptions*.
 
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Assegnazione di ruoli creata per gruppo - Schermata](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Assegnazione di ruoli creata per gruppo - Schermata](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)  
 
 ###	Assegnare un ruolo a un'applicazione nell'ambito della sottoscrizione
 Per assegnare un ruolo a un'applicazione nell'ambito della sottoscrizione, usare:
@@ -115,7 +115,7 @@ Per assegnare un ruolo a un'applicazione nell'ambito della sottoscrizione, usare
 
 L'esempio seguente assegna il ruolo *Collaboratore* a un'applicazione *Azure AD* nella sottoscrizione selezionata.
 
- ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Assegnazione di ruoli creata per applicazione](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
+ ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Assegnazione di ruoli creata per applicazione](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)  
 
 ###	Assegnare un ruolo a un utente nell'ambito di un gruppo di risorse
 Per assegnare un ruolo a un utente nell'ambito di un gruppo di risorse, usare:
@@ -140,32 +140,32 @@ Per rimuovere un'assegnazione di ruolo, usare:
 
     azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-L'esempio seguente rimuove l'assegnazione del ruolo *Collaboratore Macchina virtuale* da *sammert@aaddemo.com* nel gruppo di risorse *Pharma-Sales-ProjectForcast*. Rimuove quindi l'assegnazione del ruolo da un gruppo nella sottoscrizione.
+L'esempio seguente rimuove l'assegnazione del ruolo *Collaboratore Macchina virtuale* dall'utente *sammert@aaddemo.com* nel gruppo di risorse *Pharma-Sales-ProjectForcast*. Nell'esempio viene quindi rimossa l'assegnazione del ruolo da un gruppo nella sottoscrizione.
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Eliminazione dell'assegnazione di ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Eliminazione dell'assegnazione di ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)  
 
 ## Creare un ruolo personalizzato
-Per creare un ruolo personalizzato, usare il comando:
+Per creare un ruolo personalizzato, usare:
 
 	azure role create --inputfile <file path>
 
-Nell'esempio seguente viene creato un ruolo personalizzato denominato *Operatore macchina virtuale* che concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni. In questo esempio viene usato un file json come input.
+Nell'esempio seguente viene creato il ruolo personalizzato denominato *Operatore macchina virtuale*. Il ruolo personalizzato concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni. In questo esempio viene usato un file JSON come input.
 
-![JSON - Definizione di ruolo personalizzato - Schermata](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
+![JSON - Definizione di ruolo personalizzato - Schermata](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)  
 
 ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Creazione di ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modificare un ruolo personalizzato
 
-Per modificare un ruolo personalizzato, usare il comando `azure role show` per recuperare la definizione di ruolo. Apportare quindi le modifiche desiderate al file di definizione del ruolo. Usare infine `azure role set` per salvare la definizione del ruolo modificata.
+Per modificare un ruolo personalizzato, usare il comando `azure role show` per recuperare la definizione di ruolo. Successivamente, apportare le modifiche desiderate al file di definizione del ruolo. Usare infine `azure role set` per salvare la definizione del ruolo modificata.
 
 	azure role set --inputfile <file path>
 
-L'esempio seguente aggiunge l'operazione Microsoft.Insights/diagnosticSettings/* alle **Azioni** e una sottoscrizione di Azure alla proprietà **AssignableScopes** del ruolo personalizzato Operatore macchina virtuale.
+L'esempio seguente aggiunge l'operazione *Microsoft.Insights/diagnosticSettings/* alle **Azioni** e una sottoscrizione di Azure alla proprietà **AssignableScopes** del ruolo personalizzato Operatore macchina virtuale.
 
-![JSON - Modifica della definizione di ruolo personalizzata - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+![JSON - Modifica della definizione di ruolo personalizzata - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)  
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Impostazione dei ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Impostazione dei ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)  
 
 ## Eliminare un ruolo personalizzato
 
@@ -173,19 +173,19 @@ Per eliminare un ruolo personalizzato, usare prima di tutto il comando `azure ro
 
 Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale*.
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Eliminazione dei ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Eliminazione dei ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)  
 
 ## Elencare ruoli personalizzati
 
 Per elencare i ruoli disponibili per l'assegnazione a un ambito, usare il comando `azure role list`.
 
-Nell'esempio seguente vengono elencati tutti i ruoli disponibili per l'assegnazione nella sottoscrizione selezionata.
+L'esempio seguente elenca tutti i ruoli disponibili per l'assegnazione nella sottoscrizione selezionata.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
-![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di ruoli di Azure - Schermata](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)  
 
 Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non è disponibile nella sottoscrizione *Production4* poiché la sottoscrizione non si trova nella proprietà **AssignableScopes** del ruolo.
 
@@ -202,4 +202,4 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 ## Argomenti relativi a Controllo degli accessi in base al ruolo
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -53,15 +53,15 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 
 3. Nel pannello **Backup**, fare clic su **Archiviazione: non configurata** per configurare un account di archiviazione.
 
-	![Scelta dell'account di archiviazione][ChooseStorageAccount]
+	![Scegliere l'account di archiviazione][ChooseStorageAccount]
 	
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si desidera, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nei rispettivi pannelli. Al termine, fare clic su **Seleziona**.
 	
-	![Scelta dell'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
+	![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
 5. Nel pannello **Configura impostazioni di backup** rimasto aperto, fare clic su **Impostazioni del database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-	![Scelta dell'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
+	![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
 
 	> [AZURE.NOTE] 	Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni dell'applicazione** per l'app.
 
@@ -80,7 +80,7 @@ Dopo aver configurato un account di archiviazione e un contenitore per backup, �
 
 1. Nel pannello **Backup**, fare clic su **Pianificazione: non configurata**.
 
-	![Scelta dell'account di archiviazione](./media/web-sites-backup/05ScheduleBackup.png)
+	![Scegliere l'account di archiviazione](./media/web-sites-backup/05ScheduleBackup.png)
 	
 1. Nel pannello **Impostazioni di pianificazione backup**, impostare **Backup pianificati** su **Attivato**, quindi configurare la pianificazione dei backup come desiderato e fare clic su **OK**.
 	
@@ -88,11 +88,11 @@ Dopo aver configurato un account di archiviazione e un contenitore per backup, �
 	
 4. Nel pannello **Configura impostazioni di backup** rimasto aperto, fare clic su **Impostazioni di archiviazione**, quindi scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si desidera, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nei rispettivi pannelli. Al termine, fare clic su **Seleziona**.
 	
-	![Scelta dell'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
+	![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
 5. Nel pannello **Configura impostazioni di backup**, fare clic su **Impostazioni del database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-	![Scelta dell'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
+	![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
 
 	> [AZURE.NOTE] 	Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni dell'applicazione** per l'app.
 
@@ -160,7 +160,7 @@ Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
-<!-- IMAGES -->
+<!-- IMAGES -->  
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
 [ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount.png
 [IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
@@ -176,4 +176,4 @@ Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

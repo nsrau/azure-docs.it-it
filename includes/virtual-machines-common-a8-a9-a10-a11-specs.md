@@ -43,11 +43,11 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 * **Sottoscrizione di Azure**: se si prevede di distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/) è possibile usare solo un numero limitato di core di calcolo di Azure.
 
-* **Quota di core**: può essere necessario aumentare la quota di core nella sottoscrizione di Azure dal valore predefinito di 20 core per sottoscrizione,se si usa il modello di distribuzione classica, o 20 core per area, se si usa il modello di distribuzione Resource Manager. Per richiedere un aumento della quota, aprire un ticket di supporto gratuito, come descritto in [Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Quota di core**: può essere necessario aumentare la quota di core nella sottoscrizione di Azure dal valore predefinito di 20 core per sottoscrizione,se si usa il modello di distribuzione classica, o 20 core per area, se si usa il modello di distribuzione Resource Manager. Per richiedere un aumento della quota, aprire un ticket di supporto gratuito, come descritto in [Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
 
     >[AZURE.NOTE]Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. Le quote di Azure sono limiti di credito e non garanzie di capacità. A prescindere dalla quota, viene addebitato solo l'uso dei core effettivamente impiegati.
 
-* **Rete virtuale**: non è necessaria una [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) di Azure per usare le istanze a elevato utilizzo di calcolo. Per molti scenari potrebbe essere tuttavia necessaria almeno una rete virtuale di Azure basata sul cloud. Per l'accesso alle risorse locali, potrebbe essere necessaria anche una connessione da sito a sito, ad esempio un server licenze per le applicazioni. È necessario creare una nuova rete virtuale per distribuire le istanze. L'aggiunta di una macchina virtuale A8, A9, A10 o A11 a una rete virtuale in un gruppo di affinità non è supportata.
+* **Rete virtuale**: non è necessaria una [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) di Azure per usare le istanze a elevato utilizzo di calcolo. Per molti scenari potrebbe essere tuttavia necessaria almeno una rete virtuale di Azure basata sul cloud. Per l'accesso alle risorse locali, potrebbe essere necessaria anche una connessione da sito a sito, ad esempio un server licenze per le applicazioni. Se è necessaria, creare una nuova rete virtuale per distribuire le istanze. L'aggiunta di una macchina virtuale A8, A9, A10 o A11 a una rete virtuale in un gruppo di affinità non è supportata.
 
 * **Servizio cloud o set di disponibilità**: per connettersi tramite la rete RDMA, le VM con dimensioni A8 e A9 devono essere distribuite nello stesso servizio cloud, se si usa il modello di distribuzione classica, o nello stesso set di disponibilità, se si usa il modello di distribuzione Azure Resource Manager.
 
@@ -57,4 +57,4 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 * **Spazio degli indirizzi della rete RDMA**: la rete RDMA in Azure riserva lo spazio degli indirizzi 172.16.0.0/16. Se si prevede di eseguire applicazioni MPI in istanze A8 e A9 in una rete virtuale di Azure, verificare che lo spazio degli indirizzi della rete virtuale non si sovrapponga alla rete RDMA.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

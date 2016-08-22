@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Monitorare le metriche del servizio in Microsoft Azure | Microsoft Azure"
 	description="Informazioni su come personalizzare i grafici di monitoraggio in Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-    documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>  
 
 # Monitorare le metriche del servizio
 
@@ -59,7 +59,7 @@ La maggior parte delle metriche mostrano le tendenze nel tempo, ma alcuni dati, 
 
 È inoltre possibile visualizzare le quote di utilizzo nel pannello per le risorse per cui sono previste quote:
 
-![Utilizzo](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+![Uso](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
 Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere a livello di codice al set completo di quote di utilizzo.
 
@@ -72,4 +72,4 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * Usare [Application Insights per app JavaScript e pagine Web](../application-insights/app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

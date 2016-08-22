@@ -14,52 +14,50 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
-	ms.author="josephd"/>
+	ms.date="08/08/2016" 
+	ms.author="josephd"/>  
 
 # Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
 
-In questo argomento viene descritta la creazione di un ambiente cloud ibrido per testare un'applicazione line-of-business basata su Web ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
+Questo argomento descrive la creazione di un ambiente cloud ibrido simulato per testare un'applicazione line-of-business basata su Web ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)  
 
-Per un esempio di applicazione LOB di produzione ospitata in Azure, vedere il progetto di architettura **Applicazioni line-of-business** in [Progetti e diagrammi dell’architettura del Software Microsoft](http://msdn.microsoft.com/dn630664).
+Questa configurazione è costituita da:
 
-Questa configurazione consente di simulare un'applicazione LOB nell'ambiente di produzione di Azure dal percorso su Internet. È costituita da:
-
-- Una rete locale semplificata (la subnet Corpnet).
+- Una rete locale simulata ospitata in Azure (la rete virtuale TestLab).
 - Una rete virtuale cross-premise ospitata in Azure (TestVNET).
-- Una connessione VPN da sito a sito.
-- Un server line-of-business, SQL Server e un controller di dominio secondario nella rete virtuale TestVNET.
+- Una connessione VPN da rete virtuale a rete virtuale.
+- Un server LOB basato sul Web, SQL Server e un controller di dominio secondario nella rete virtuale TestVNET.
 
 Questa configurazione rappresenta una base e un punto di partenza comune da cui è possibile:
 
 - Sviluppare e testare le applicazioni LOB ospitate in Internet Information Services (IIS) con un back-end del database di SQL Server 2014 in Azure.
-- Eseguire il test di questo carico di lavoro IT basato sul cloud ibrido.
+- Eseguire il test di questo carico di lavoro IT basato sul cloud ibrido simulato.
 
 La configurazione di questo ambiente di test cloud ibrido prevede tre fasi principali:
 
-1.	Configurare l'ambiente cloud ibrido per l'esecuzione di test.
+1.	Configurare l'ambiente cloud ibrido simulato.
 2.	Configurare il computer SQL server (SQL1).
 3.	Configurare il server LOB (LOB1).
 
-Questo carico di lavoro richiede una sottoscrizione di Azure. Se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Questo carico di lavoro richiede una sottoscrizione di Azure. Se si ha una sottoscrizione di MSDN o di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-## Fase 1: Impostare l'ambiente cloud ibrido
+Per un esempio di applicazione LOB di produzione ospitata in Azure, vedere il progetto di architettura **Applicazioni line-of-business** in [Progetti e diagrammi dell’architettura del Software Microsoft](http://msdn.microsoft.com/dn630664).
 
-Utilizzare le istruzioni nell’argomento [Configurare l’ambiente cloud ibrido per il test](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md). Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
+## Fase 1: Configurare l'ambiente cloud ibrido simulato
+
+Creare l'[ambiente di test cloud ibrido simulato](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
 
 Questa è la configurazione corrente.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
-
-> [AZURE.NOTE] Per la fase 1, è possibile configurare anche l'[ambiente di test del cloud ibrido simulato](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)  
  
 ## Fase 2: Configurare il computer SQL server (SQL1)
 
 Dal portale di Azure avviare il computer DC2, se necessario.
 
-Successivamente, creare una macchina virtuale di Azure per SQL1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri <and>.
+Successivamente, creare una macchina virtuale per SQL1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri <and>.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -83,18 +81,9 @@ Successivamente, creare una macchina virtuale di Azure per SQL1 con questi coman
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Usare il portale di Azure per connettersi a SQL1 con l'account amministratore locale.
+Usare il portale di Azure per connettersi a SQL1 con l'account amministratore locale di SQL1.
 
-1.	Nel riquadro sinistro del portale di gestione di Azure, fare clic su **Macchine virtuali**, quindi su **In esecuzione** nella colonna Stato per SQL1.
-2.	Nella barra delle applicazioni fare clic su **Connetti**.
-3.	Quando viene richiesto di aprire SQL1.rdp, fare clic su **Apri**.
-4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
-5.	Quando vengono richieste le credenziali, usare le seguenti:
-	- Nome: **SQL1\**[Nome dell'account amministratore locale]
-	- Password: [Nome dell'account amministratore locale]
-6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
-
-Configurare le regole di Windows Firewall per consentire il traffico per il test di connettività di base e SQL Server. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in SQL1 eseguire questi comandi.
+Configurare quindi le regole di Windows Firewall per consentire il traffico di SQL Server e per i test di connettività di base. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in SQL1 eseguire questi comandi.
 
 	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
@@ -102,7 +91,7 @@ Configurare le regole di Windows Firewall per consentire il traffico per il test
 
 Il comando ping restituirà quattro risposte dall'indirizzo IP 192.168.0.4.
 
-Quindi, aggiungere il disco dati aggiuntivo come nuovo volume con la lettera di unità F:.
+Aggiungere quindi il disco dati aggiuntivo in SQL1 come nuovo volume con la lettera di unità F:.
 
 1.	Nel riquadro sinistro di Server Manager fare clic su **Servizi file e archiviazione**, quindi scegliere **Dischi**.
 2.	Nel riquadro del contenuto nel gruppo **Dischi** fare clic su **disco 2** (con la **Partizione** impostata su **Sconosciuto**).
@@ -121,14 +110,14 @@ Eseguire questi comandi al prompt dei comandi di Windows PowerShell in SQL1:
 	md f:\Log
 	md f:\Backup
 
-Aggiungere SQL1 al dominio CORP di Active Directory con questi comandi al prompt di Windows PowerShell.
+Aggiungere SQL1 al dominio CORP di Windows Server Active Directory con questi comandi al prompt di Windows PowerShell in SQL1.
 
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
 Usare l'account CORP\\User1 quando viene richiesto di specificare le credenziali dell'account di dominio per il comando **Add-Computer**.
 
-Dopo il riavvio, usare il portale di Azure per connettersi a SQL1 *con l'account amministratore locale*.
+Dopo il riavvio, usare il portale di Azure per connettersi a SQL1 *con l'account amministratore locale di SQL1*.
 
 Configurare quindi SQL Server 2014 in modo che usi l'unità F: per i nuovi database e per le autorizzazioni dell'account utente.
 
@@ -150,11 +139,11 @@ Configurare quindi SQL Server 2014 in modo che usi l'unità F: per i nuovi datab
 
 Questa è la configurazione corrente.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)  
  
 ## Fase 3: Configurare il server LOB (LOB1)
 
-Innanzitutto, creare una macchina virtuale di Azure per LOB1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale.
+Creare prima di tutto una macchina virtuale per LOB1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
@@ -174,7 +163,7 @@ Innanzitutto, creare una macchina virtuale di Azure per LOB1 con questi comandi 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name LOB1-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Usare quindi il portale di Azure per connettersi a LOB1 con le credenziali dell'account amministratore locale.
+Usare quindi il portale di Azure per connettersi a LOB1 con le credenziali dell'account amministratore locale di LOB1.
 
 Configurare quindi una regola di Windows Firewall per permettere il traffico per il test della connettività di base. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in LOB1 eseguire questi comandi.
 
@@ -194,28 +183,28 @@ Dopo il riavvio, usare il portale di Azure per connettersi a LOB1 con l'account 
 
 Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 
-1.	Eseguire Server Manager, quindi fare clic su **Aggiungi ruoli e funzionalità**.
-2.	Nella pagina Prima di iniziare fare clic su **Avanti**.
-3.	Nella pagina Selezione tipo di installazione fare clic su **Avanti**.
-4.	Nella pagina Selezione server di destinazione fare clic su **Avanti**.
-5.	Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco dei **Ruoli**.
+1.	In Server Manager fare clic su **Aggiungi ruoli e funzionalità**.
+2.	Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
+3.	Nella pagina **Selezione tipo di installazione** fare clic su **Avanti**.
+4.	Nella pagina **Selezione server di destinazione** fare clic su **Avanti**.
+5.	Nella pagina **Ruoli server** fare clic su **Server Web (IIS)** nell'elenco **Ruoli**.
 6.	Quando richiesto, fare clic su **Aggiungi funzionalità**, quindi su **Avanti**.
-7.	Nella pagina Selezione funzionalità fare clic su **Avanti**.
-8.	Nella pagina Server Web (IIS) fare clic su **Avanti**.
-9.	Nella pagina Selezione servizi ruolo selezionare o deselezionare le caselle di controllo per i servizi necessari per i test dell'applicazione LOB, quindi fare clic su**Avanti**.
-10.	Nella pagina Conferma selezioni per l'installazione fare clic su **Installa**.
+7.	Nella pagina **Selezione funzionalità** fare clic su **Avanti**.
+8.	Nella pagina **Server Web (IIS)** fare clic su **Avanti**.
+9.	Nella pagina **Selezione servizi ruolo** selezionare o deselezionare le caselle di controllo per i servizi necessari per i test dell'applicazione LOB e quindi fare clic su **Avanti**.
+10.	Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.
 11.	Attendere il completamento dell'installazione dei componenti, quindi fare clic su **Chiudi**.
-12.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
+12.	Dal portale di Azure connettersi al computer CLIENT1 con le credenziali dell'account CORP\\User1 e quindi avviare Internet Explorer.
 13.	Nella barra degli Indirizzi digitare **http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
 
 Questa è la configurazione corrente.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
  
-Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web in LOB1 e per i test delle funzionalità e delle prestazioni dalla subnet Corpnet.
+Questo ambiente è ora pronto per la distribuzione dell'applicazione basata su Web in LOB1 e per i test delle funzionalità da CLIENT1 nella subnet Corpnet.
 
 ## Passaggio successivo
 
-- Distribuire altri [carichi di lavoro](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) in questo ambiente.
+- Aggiungere una nuova macchina virtuale usando il [portale di Azure](virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

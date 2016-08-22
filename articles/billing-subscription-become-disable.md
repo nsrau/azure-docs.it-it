@@ -60,9 +60,9 @@ Per risolvere questo problema, scegliere una delle alternative seguenti:
 
 ## Come abilitare nuovamente la sottoscrizione
 
-Per abilitare di nuovo una sottoscrizione annullata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
+Per abilitare di nuovo una sottoscrizione disabilitata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)  
 
 Se non è possibile accedere al portale, inviare la richiesta di supporto dal sito Web del supporto tecnico di Azure o dal Centro account di Azure:
 
@@ -71,4 +71,4 @@ Se non è possibile accedere al portale, inviare la richiesta di supporto dal si
 
 Per altre informazioni, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,8 +12,8 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/04/2016"
+   ms.author="cherylmc"/>  
 
 # Domande frequenti su ExpressRoute
 
@@ -184,21 +184,10 @@ ExpressRoute Premium include le funzionalità seguenti.
  - Connettività ai servizi di Office 365 e a CRM Online.
 
 ### Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
-La tabella seguente illustra i limiti incrementati per il numero di VNet collegabili a un circuito ExpressRoute. Il limite predefinito è 10.
+Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virtuali per ogni circuito ExpressRoute.
 
-**Limiti dei circuiti**
 
-| **Dimensioni circuito** | **Numero di collegamenti VNet per l'installazione predefinita** | **Numero di collegamenti VNet con ExpressRoute Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | 10 |
-| 100 Mbps | 10 | 20 |
-| 200 Mbps | 10 | 25 |
-| 500 Mbps | 10 | 40 |
-| 1 Gbps | 10 | 50 |
-| 2 Gbps | 10 | 60 |
-| 5 Gbps | 10 | 75 |
-| 10 Gbps | 10 | 100 |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### Come si abilita ExpressRoute Premium?
@@ -225,7 +214,7 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 1. Per assicurarsi di soddisfare i requisiti previsti, vedere la [pagina relativa ai prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md).
 3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-4. Attenersi alla procedura indicata nei flussi di lavoro che seguono per configurare la connettività dei [Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito](expressroute-workflows.md).
+4. Seguire la procedura indicata nei flussi di lavoro sotto per configurare la connettività dei [Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito](expressroute-workflows.md).
 
 >[AZURE.IMPORTANT] Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a CRM Online.
 
@@ -251,4 +240,4 @@ Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se Exp
 ### È possibile accedere a Dynamics AX Online tramite una connessione ExpressRoute?
 No, l'operazione non è supportata.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

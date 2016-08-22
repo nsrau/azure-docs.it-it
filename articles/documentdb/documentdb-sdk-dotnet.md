@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
-	description="Tutte le informazioni su .NET SDK, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET SDK." 
+	pageTitle="SDK e API di DocumentDB .NET | Microsoft Azure" 
+	description="Tutte le informazioni sull'SDK e sull'API .NET, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET SDK." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="rnagpal"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>  
 
-# DocumentDB SDK
+# SDK e API di DocumentDB 
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [SDK per Java](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-## DocumentDB .NET SDK
+## SDK e API di DocumentDB .NET
 
-<table>
-<tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-<tr><td>**Documentazione**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**Esempi**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<table>  
+<tr><td>**Download dell'SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**Documentazione sull'API**</td><td>[.NET API Reference Documentation (Documentazione di riferimento sull'API .NET)](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Esempi**</td><td>[.NET code samples (Esempi di .NET in DocumentDB)](documentdb-dotnet-samples.md)</td></tr>
 <tr><td>**Introduzione**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Esercitazione sull'app Web**</td><td>[Web application development with DocumentDB (Esercitazione su MVC ASP.NET: Sviluppo di applicazioni Web con DocumentDB)](documentdb-dotnet-application.md)</td></tr>
 <tr><td>**Framework attualmente supportato**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
@@ -65,7 +68,7 @@
   - Aggiunta del supporto per la durata (TTL) relativa ai documenti.
 
 ### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
-  - Corretto un bug nel pacchetto Nuget dell'SDK .NET per creare il pacchetto come parte di una soluzione del servizio cloud di Azure.
+  - Correzione di un bug nel pacchetto Nuget di .NET SDK per creare il pacchetto come parte di una soluzione del servizio cloud di Azure.
   
 ### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md).
@@ -78,7 +81,7 @@
     - Operatore Take per abilitare il comportamento SELECT TOP in LINQ
     - Operatore CompareTo per abilitare i confronti di intervallo di stringa
     - Operatori Conditional (?) e Coalesce (??)
-  - **[Correzione]** ArgumentOutOfRangeException durante l'unione della proiezione del modello con Where-In nella query linq. [n. 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Correzione]** ArgumentOutOfRangeException durante l'unione della proiezione del modello con Where-In nella query linq. [N. 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corretto]** Se Select non è l'ultima espressione il provider LINQ presuppone che non ci sia alcuna proiezione e produce SELECT * in modo non corretto. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -123,7 +126,7 @@
   
 		**NB: Possible breaking change** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	Se è presente un codice che esegue il provisioning delle raccolte con criteri di indicizzazione personalizzati, tale codice dovrà essere aggiornato per supportare la nuova classe IndexingPolicy. Se non sono presenti criteri di indicizzazione, tale modifica non avrà alcun impatto.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Supporto per il partizionamento dei dati con IPartitionResolver e le nuove classi HashPartitionResolver e RangePartitionResolver
@@ -144,38 +147,39 @@ Tra l'anteprima e la disponibilità generale è stata apportata una modifica al 
 ## Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
+Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [AZURE.WARNING]
 Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
  
-<br/>
+<br/>  
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.9.2](#1.9.2) | 2016 23 luglio |--- 
-| 1.9.1 | Deprecato |--- | 1.9.0 | Deprecato |--- 
+| [1\.9.2](#1.9.2) | 23 luglio 2016 |--- 
+| 1.9.1 | Deprecato |--- 
+| 1.9.0 | Deprecato |--- 
 | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
-| [1\.7.1](#1.7.1) | 6 maggio 2016 |--- 
+| [1\.7.1](#1.7.1) | 06 maggio 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.3](#1.6.3) | 2016 8 aprile |--- 
-| [1\.6.2](#1.6.2) | 2016 29 marzo |--- 
-| [1\.5.3](#1.5.3) | 2016 19 febbraio |--- 
-| [1\.5.2](#1.5.2) | 2015 14 dicembre |--- 
-| [1\.5.1](#1.5.1) | 2015 23 novembre |--- 
-| [1\.5.0](#1.5.0) | 2015 5 ottobre |--- 
-| [1\.4.1](#1.4.1) | 2015 25 augusto |--- 
-| [1\.4.0](#1.4.0) | 2015 13 agosto |--- 
-| [1\.3.0](#1.3.0) | 2015 5 agosto |--- 
-| [1\.2.0](#1.2.0) | 2015 6 luglio |--- 
-| [1\.1.0](#1.1.0) | 2015 30 aprile |--- 
-| [1\.0.0](#1.0.0) | 2015 8 aprile |--- 
-| [0\.9.3 versione non definitiva](#0.9.x-preview) | 2015 12 marzo | 29 febbraio 2016 
-| [0\.9.2 versione non definitiva](#0.9.x-preview) | 2015 gennaio | 29 febbraio 2016 
-| [.9.1 versione non definitiva](#0.9.x-preview) | 2014 13 ottobre | 2016 29 febbraio 
-| [0\.9.0 versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
+| [1\.6.3](#1.6.3) | 08 aprile 2016 |--- 
+| [1\.6.2](#1.6.2) | 29 marzo 2016 |--- 
+| [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
+| [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- 
+| [1\.4.1](#1.4.1) | 25 agosto 2015 |--- 
+| [1\.4.0](#1.4.0) | 13 agosto 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 agosto 2015 |--- 
+| [1\.2.0](#1.2.0) | 06 luglio 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 aprile 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
+| [0\.9.3 - versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 
+| [0\.9.2 - versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 
+| [.9.1 - versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 
+| [0\.9.0 - versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -184,4 +188,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

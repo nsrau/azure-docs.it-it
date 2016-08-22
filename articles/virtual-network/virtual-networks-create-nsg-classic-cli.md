@@ -3,11 +3,11 @@
    description="Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
-/>
+/>  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Come creare gruppi di sicurezza di rete (in modalità classica) nell'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. È inoltre possibile [creare gruppi di sicurezza di rete nel modello di distribuzione di Gestione risorse](virtual-networks-create-nsg-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica. È inoltre possibile [creare gruppi di sicurezza di rete nel modello di distribuzione di Gestione risorse](virtual-networks-create-nsg-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -72,7 +72,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 		     true   
 		info:    network nsg create command OK
 
-	Parametri:
+	Parametri
 
 	- **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
 	- **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
@@ -98,7 +98,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 		data:    Priority                        : 100
 		info:    network nsg rule create command OK
 
-	Parametri:
+	Parametri
 
 	- **-a (o --nsg-name)**. Nome del gruppo di sicurezza di rete in cui verrà creata la regola. Per questo scenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nome per la nuova regola. Per questo scenario, *rdp-rule*.
@@ -178,7 +178,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		     true   
 		info:    network nsg create command OK
 
-	Parametri:
+	Parametri
 
 	- **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
 	- **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
@@ -239,4 +239,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Utilizzare il telefono dell'ufficio come metodo di contatto con Azure Multi-Factor Authentication
 
@@ -32,7 +32,7 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 <li>Selezionare la modalità preferita da utilizzare con il telefono cellulare - SMS o telefonata.</li>
 <li>Fare clic su Avanti.</li>
 <li>Fare clic sul pulsante Verifica ora. Verrà avviata una chiamata al telefono dell'ufficio. Assicurarsi di essere accanto al telefono.
-<li>Fare clic su Avanti</li>
+<li>Fare clic su Avanti.</li>
 <li>A questo punto, è stato impostato il metodo di contatto e ora è arrivato il momento di impostare le password per le app non basate su browser come Outlook 2010 o versione precedente. Se non si utilizzano queste app fare clic su **Done**. In caso contrario, continuare con il passaggio successivo.
 <li>Se si usano queste app, copiare la password fornita.</li>
 
@@ -43,4 +43,4 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 
 <center>![Installazione](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

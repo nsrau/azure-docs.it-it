@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="swkrish"/>
+	ms.date="08/09/2016"
+	ms.author="swkrish"/>  
 
 # Azure Active Directory B2C: domande frequenti
 
@@ -58,7 +58,22 @@ Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C ne
 
 ### Come si personalizzano i messaggi di posta elettronica di verifica (il contenuto e il campo "Da:") inviati da Azure AD B2C?
 
-Usare la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. Il campo "Da:" può essere modificato tramite il team di supporto.
+È possibile usare la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. In particolare, è possibile personalizzare i due elementi di posta elettronica seguenti:
+
+- **Logo del banner**: in basso a destra.
+- **Colore di sfondo**: in alto.
+
+	![Screenshot di un messaggio di posta elettronica di verifica personalizzato](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+
+La firma della posta elettronica contiene il nome del tenant B2C fornito al momento della creazione del tenant B2C. È possibile modificare il nome seguendo queste istruzioni:
+
+- Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione.
+- Accedere al tenant B2C.
+- Fare clic sulla scheda **Configura**.
+- Modificare il campo **Nome** nella sezione **Proprietà directory**.
+- Fare clic su **Save** nella parte inferiore della pagina.
+
+Attualmente non è possibile modificare il campo "Da:" del messaggio di posta elettronica. Se si è interessati a questa funzionalità e alla completa personalizzazione del corpo del messaggio di posta elettronica di verifica, votare la funzionalità su [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails).
 
 ### Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 
@@ -108,7 +123,7 @@ Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 - Selezionare un utente alla volta, escludendo l'utente con il quale si è connessi attualmente, ovvero l'amministratore della sottoscrizione. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
 - Fare clic sulla scheda **Applicazioni**.
 - Selezionare **Applicazioni di proprietà dell'azienda** nel campo a discesa **Mostra** e fare clic sul segno di spunta.
-- Nell'elenco verrà visualizzata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina e quindi su **SÌ** quando richiesto.
+- Nell'elenco verrà visualizzata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
 - Passare di nuovo all'estensione di Active Directory e selezionare il tenant di B2C.
 - Nella parte inferiore della pagina fare clic su **Elimina**. Seguire le istruzioni sullo schermo per completare il processo.
 
@@ -118,10 +133,10 @@ No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non 
 
 ### Come è possibile segnalare problemi relativi ad Azure AD B2C?
 
-Vedere [Anteprima di Azure Active Directory B2C: invio di richieste di supporto](active-directory-b2c-support.md).
+Vedere [Azure Active Directory B2C: Inviare richieste di supporto](active-directory-b2c-support.md).
 
 ## Altre informazioni
 
 È consigliabile rivedere le informazioni correnti relative a [limitazioni del servizio, restrizioni e vincoli](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

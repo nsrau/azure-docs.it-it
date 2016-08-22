@@ -3,11 +3,11 @@
    description="Informazioni su come distribuire più macchine virtuali con funzionalità Multi-NIC mediante l’interfaccia della riga di comando di Azure nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 #Distribuire le macchine virtuali con funzionalità Multi-NIC (classiche) tramite l’interfaccia della riga di comando di Azure di Azure
 
@@ -174,4 +174,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

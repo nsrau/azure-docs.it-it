@@ -3,9 +3,9 @@
    description="Informazioni su come gestire gli elenchi di controllo di accesso con PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell
 
@@ -95,4 +95,4 @@ In alcuni scenari potrebbe essere necessario rimuovere un oggetto ACL di rete da
 
 [Che cos'è un elenco di controllo di accesso di rete?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

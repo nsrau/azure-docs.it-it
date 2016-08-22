@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
-   ms.author="danlep"/>
+   ms.date="08/05/2016"
+   ms.author="danlep"/>  
 
 # Articoli tecnici per le VM Windows nel modello di distribuzione classica
 
 
-Tutta la documentazione necessaria per creare e gestire macchine virtuali basate su Windows nel modello di distribuzione classica.
+Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azure basate su Windows nel modello di distribuzione classica.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## Panoramica
+## Overview
 
 [Informazioni sulle macchine virtuali](virtual-machines-windows-about.md)
 
@@ -71,7 +71,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 [Creare un set di disponibilità per le macchine virtuali](virtual-machines-windows-classic-configure-availability.md)
 
 
-## Distribuire
+## Distribuisci
 
 [Creare una macchina virtuale personalizzata che esegue Windows](virtual-machines-windows-classic-createportal.md)
 
@@ -89,8 +89,6 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 ## Manage
 
 [Gestire le macchine virtuali con Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Comandi equivalenti di Gestione risorse e Gestione dei servizi per le attività della macchina virtuale con interfaccia della riga di comando di Azure](virtual-machines-windows-cli-manage.md)
 	
 [Connettere reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 [Backup automatico per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## riferimento
 [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Service Management](../virtual-machines-command-line-tools.md)
 
@@ -178,7 +179,6 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 [API .NET di gestione dei servizi](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Documentazione di riferimento sui cmdlet di PowerShell per la gestione dei servizi di Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
 
 ## Risoluzione dei problemi
 
@@ -192,4 +192,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

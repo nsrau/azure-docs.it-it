@@ -15,13 +15,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/13/2016"
-   ms.author="masashin"/>
+   ms.author="masashin"/>  
 
 # Indicazioni di monitoraggio e diagnostica
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Panoramica
+## Overview
 Le applicazioni distribuite e i servizi in esecuzione nel cloud sono, per loro natura, componenti software complessi che comprendono molte parti mobili. In un ambiente di produzione è importante essere in grado di rilevare il modo in cui gli utenti usano il sistema, di tracciare l'utilizzo delle risorse e, in generale, di monitorare l'integrità e le prestazioni del sistema stesso. Queste informazioni possono essere usate come strumento diagnostico per rilevare e correggere i problemi, nonché per individuare potenziali problemi e impedire che si verifichino.
 
 ## Scenari di monitoraggio e diagnostica
@@ -520,7 +520,7 @@ _Figura 5. Utilizzo di un servizio separato per consolidare e pulire i dati di s
 ### Archiviazione dei dati di strumentazione
 Le discussioni precedenti hanno rappresentato una panoramica semplicistica del modo in cui vengono archiviati i dati di strumentazione. In realtà, è più sensato archiviare tipi diversi di informazioni tramite le tecnologie più adatte al modo in cui ogni tipo verrà utilizzato.
 
-Ad esempio, l'archiviazione BLOB e l'archiviazione tabelle di Azure presentano alcune somiglianze nella modalità di accesso, ma hanno alcune limitazioni per quanto riguarda le operazioni che è possibile eseguire attraverso di esse. Anche la granularità dei dati al loro interno è diversa. Se è necessario eseguire altre operazioni di analisi o servono funzionalità di ricerca full-text sui dati, è preferibile usare l'archiviazione dei dati che fornisce funzionalità ottimizzate per specifici tipi di query e accesso ai dati. ad esempio:
+Ad esempio, l'archiviazione BLOB e l'archiviazione tabelle di Azure presentano alcune somiglianze nella modalità di accesso, ma hanno alcune limitazioni per quanto riguarda le operazioni che è possibile eseguire attraverso di esse. Anche la granularità dei dati al loro interno è diversa. Se è necessario eseguire altre operazioni di analisi o servono funzionalità di ricerca full-text sui dati, è preferibile usare l'archiviazione dei dati che fornisce funzionalità ottimizzate per specifici tipi di query e accesso ai dati. Ad esempio:
 
 - I dati dei contatori delle prestazioni possono essere archiviati in un database SQL per abilitare l'analisi ad hoc.
 - I log di traccia possono essere archiviati in modo più efficiente in Azure DocumentDB.
@@ -664,4 +664,4 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 - [Ricevere notifiche di avviso](./azure-portal/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="genemi"/>
+	ms.date="08/01/2016"
+	ms.author="genemi"/>  
 
 
 # Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL
@@ -253,7 +253,7 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 - [Funzionalità di anteprima](https://azure.microsoft.com/services/preview/) di Microsoft Azure
 
 
-<!--Anchors-->
+<!--Anchors-->  
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

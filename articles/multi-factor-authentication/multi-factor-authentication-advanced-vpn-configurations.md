@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/04/2016"
+	ms.author="billmath"/>  
 
 # Scenari avanzati con Azure Multi-Factor Authentication e soluzioni VPN di terze parti
 È possibile usare Azure Multi-Factor Authentication per connettersi rapidamente a un'ampia gamma di soluzioni VPN di terze parti. tra cui i dispositivi VPN Cisco® ASA e VPN SSL Citrix NetScaler SSL e i client VPN SSL Juniper Networks Secure Access/Pulse Secure Connect Secure.
@@ -43,4 +43,4 @@ Guida alla configurazione | Descrizione
 [Configurazione del client VPN SSA Juniper/Pulse Secure e Azure MFA per LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Illustra le modalità di integrazione del client VPN SSL Juniper/Pulse Secure con Azure MFA tramite LDAP|
 [Configurazione del client VPN SSA Juniper/Pulse Secure e Azure MFA per RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Illustra le modalità di integrazione del client VPN SSL Juniper/Pulse Secure con Azure MFA tramite RADIUS
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

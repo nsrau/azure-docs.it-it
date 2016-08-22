@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="jeedes"/>
+	ms.date="08/05/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con TargetProcess
@@ -23,7 +23,7 @@ Questa esercitazione descrive l'integrazione di TargetProcess con Azure Active D
 
 L'integrazione di TargetProcess con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a TargetProcess 
+- È possibile controllare in Azure AD chi può accedere a TargetProcess
 - È possibile abilitare gli utenti per l'accesso automatico a TargetProcess (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory classico.
 
@@ -43,7 +43,7 @@ Per configurare l'integrazione di Azure AD con TargetProcess, sono necessari gli
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
@@ -51,7 +51,7 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di TargetProcess dalla raccolta 
+1. Aggiunta di TargetProcess dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di TargetProcess in Azure AD, è necessario aggiu
 
 **Per aggiungere TargetProcess dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On per TargetProcess, è necessario un dom
 	![Configura accesso Single Sign-On](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione TargetProcess, (ad esempio **https://fabrikam.TargetProcess.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione TargetProcess, ad esempio *https://fabrikam.TargetProcess.com/*.
 
     b. Fare clic su **Avanti**.
  
@@ -284,7 +284,7 @@ Quando si fa clic sul riquadro TargetProcess nel pannello di accesso, si dovrebb
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_02.png
@@ -302,4 +302,4 @@ Quando si fa clic sul riquadro TargetProcess nel pannello di accesso, si dovrebb
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

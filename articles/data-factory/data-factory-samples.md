@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="spelluru"/>
+	ms.date="08/08/2016" 
+	ms.author="spelluru"/>  
 
 # Azure Data Factory: esempi
 
@@ -117,4 +117,4 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 Per informazioni dettagliate sull'uso di Visual Studio per creare entità di Data Factory e pubblicarle in Azure, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

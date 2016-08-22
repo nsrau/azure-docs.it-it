@@ -43,7 +43,7 @@ Se la macchina virtuale contiene già dei tag, verranno visualizzati tutti i tag
 
 Se si desidera aggiungere i tag tramite PowerShell, è possibile utilizzare il comando `Set-AzureRmResource`. Nota: Quando si aggiornano i tag tramite PowerShell, i tag vengono aggiornati nel loro complesso. Se si aggiunge un tag a una risorsa che già dispone di tag, sarà pertanto necessario includere tutti i tag che si desidera inserire nella risorsa. Di seguito è riportato un esempio di come aggiungere ulteriori tag a una risorsa tramite Cmdlets di PowerShell.
 
-Questo primo cmdlet imposta tutti i tag inseriti in *MyTestVM* per la variabile *tag*, usando la funzione `Get-AzureRmResource` e `Tags`.
+Questo primo cmdlet imposta tutti i tag inseriti in *MyTestVM* sulla variabile *$tags* usando `Get-AzureRmResource` e la proprietà `Tags`.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -62,11 +62,11 @@ Il secondo comando consente di visualizzare i tag per la variabile specificata.
         Value		Production
         Name		Environment
 
-Il terzo comando aggiunge un altro tag alla variabile *tags*. Si noti l'uso di **+=** per aggiungere la nuova coppia chiave/valore all'elenco *tags*.
+Il terzo comando aggiunge un altro tag alla variabile *$tags*. Si noti l'uso di **+=** per aggiungere la nuova coppia chiave/valore all'elenco *$tags*.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-Il quarto comando imposta tutti i tag definiti nella variabile *tags* sulla risorsa specificata. In questo caso, è MyTestVM.
+Il quarto comando imposta tutti i tag definiti nella variabile *$tags* sulla risorsa specificata. In questo caso, è MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
@@ -103,4 +103,4 @@ Per altre informazioni sull'assegnazione di tag tramite PowerShell, consultare i
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0810_2016-->

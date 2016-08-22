@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="jeedes"/>
+	ms.date="08/05/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con 23 Video
 
-Questa esercitazione illustra come integrare 23 Video con Azure Active Directory (Azure AD).<br>L'integrazione di 23 Video con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive l’integrazione di 23 Video con Azure Active Directory (Azure AD). L'integrazione di 23 Video con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a 23 Video 
+- È possibile controllare in Azure AD chi può accedere a 23 Video
 - È possibile abilitare gli utenti per l'accesso automatico a 23 Video (Single Sign-On) con i propri account Azure AD
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -40,13 +40,13 @@ Per configurare l'integrazione di Azure AD con 23 Video, sono necessari gli elem
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di 23 Video dalla raccolta 
+1. Aggiunta di 23 Video dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -55,20 +55,36 @@ Per configurare l'integrazione di 23 Video in Azure AD, è necessario aggiungere
 
 **Per aggiungere 23 Video dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **23 Video**.<br><br> ![Applicazioni][5]<br>
-7. Nel riquadro dei risultati selezionare **23 Video**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>![Applicazioni][25]<br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+
+	![Applicazioni][2]  
+
+4. Fare clic su **Add** nella parte inferiore della pagina.
+
+	![Applicazioni][3]  
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]  
+
+6. Nella casella di ricerca digitare **23 Video**.
+
+	![Applicazioni][5]  
+
+7. Nel riquadro dei risultati selezionare **23 Video**, quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Applicazioni][25]  
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con 23 Video in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di 23 Video che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 23 Video.<br> La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in 23 Video.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di 23 Video che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 23 Video. La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in 23 Video.
  
 Per configurare e testare l'accesso Single Sign-On di Azure AD con 23 Video, è necessario completare i blocchi predefiniti seguenti:
 
@@ -80,23 +96,31 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con 23 Video, è 
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione 23 Video.<br>
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione 23 Video.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con 23 Video, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **23 Video** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **23 Video** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a 23 Video** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Accesso Single Sign-On di Azure AD][7] <br>
+	![Configura accesso Single Sign-On][6]
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Accesso Single Sign-On di Azure AD][8] <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a 23 Video** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+
+	![Accesso Single Sign-On di Azure AD][7]  
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Accesso Single Sign-On di Azure AD][8]
  
-     a. Nella casella di testo **URL di risposta** digitare l'URL usato dagli utenti per accedere al sito 23 Video, ad esempio **https://britta-simon.23Video.com/saml/login*).
+     a. Nella casella di testo **URL di risposta** digitare l'URL usato dagli utenti per accedere al sito 23 Video, ad esempio *https://britta-simon.23Video.com/saml/login*.
 
      > [AZURE.NOTE] L'integrazione di Active Directory tramite SAML 2.0 è disponibile per tutti gli utenti di 23 Video. Per ottenere i metadati corrispondenti, contattare il supporto tecnico all'indirizzo [support@23company.com](mailto:support@23company.com).
 
-     b. Fare clic su **Avanti**.
+     b. Fare clic su **Next**.
  
-4. Nella pagina **Configura accesso Single Sign-On in 23 Video** seguire questa procedura.<br><br>![Accesso Single Sign-On di Azure AD][9] <br>
+4. Nella pagina **Configura accesso Single Sign-On in 23 Video** seguire questa procedura:
+
+	![Accesso Single Sign-On di Azure AD][9]  
 
     a. Fare clic su Download certificato e quindi salvare il file nel computer.
 
@@ -105,27 +129,41 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     c. Fare clic su **Avanti**.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su**Avanti**.
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+	![Accesso Single Sign-On di Azure AD][10]
+
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+  
+	![Accesso Single Sign-On di Azure AD][11]  
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
+
+![Creare un utente di Azure AD][20]  
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png)  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
- 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png)  
+ 
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png)  
+
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png)  
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -133,7 +171,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina **Profilo utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png)
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -143,9 +183,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png)  
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png)
   
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -164,11 +208,17 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in 23 Video.
 1. Passare a **Impostazioni**.
 
 
-2. Nella sezione **Utenti** fare clic su **Configura**. <br><br>![Assegna utente][400]<br>
+2. Nella sezione **Utenti** fare clic su **Configura**.
 
-3. Fare clic su **Aggiungi nuovo utente**. <br><br>![Assegna utente][401]<br>
+	![Assegna utente][400]  
 
-4. Nella sezione **Invita qualcuno a questo sito** seguire questa procedura: <br><br>![Assegna utente][402]<br>
+3. Fare clic su **Aggiungi nuovo utente**.
+
+	![Assegna utente][401]
+
+4. Nella sezione **Invita qualcuno a questo sito** seguire questa procedura:
+
+	![Assegna utente][402]  
 
     a. Nella casella di testo **E-mail addresses** digitare l'indirizzo di posta elettronica di Britta Simon in Azure Active Directory.
 
@@ -177,22 +227,35 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in 23 Video.
 
 ### Assegnazione dell'utente test di Azure AD
 
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a 23 Video. <br><br>![Assegna utente][200] <br>
+Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a 23 Video.
+
+![Assegna utente][200]  
 
 **Per assegnare Britta Simon a 23 Video, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Assegna utente][201] <br>
-2. Nell'elenco delle applicazioni selezionare **23 Video**. <br><br>![Assegna utente][202] <br>
-1. Scegliere **Utenti** dal menu in alto. <br><br>![Assegna utente][203] <br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+
+	![Assegna utente][201]  
+
+2. Nell'elenco delle applicazioni selezionare **23 Video**.
+
+	![Assegna utente][202]  
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
+
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** nella barra degli strumenti in basso.
+
+	![Assegna utente][205]  
 
 
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro 23 Video nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione 23 Video.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro 23 Video nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione 23 Video.
 
 
 ## Risorse aggiuntive
@@ -228,4 +291,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,11 +1,11 @@
 <properties
    pageTitle="Informazioni generali sulla sicurezza della gestione delle identità di Azure| Microsoft Azure"
-   description="Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità."
+   description=" Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
-   editor="TomSh"/>
+   manager="MBaldwin"
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
-   ms.author="terrylan"/>
+   ms.date="08/09/2016"
+   ms.author="terrylan"/>  
 
 # Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -31,7 +31,7 @@ L'obiettivo di questo articolo è offrire informazioni generali sulle funzionali
 
 Questo articolo è incentrato sulle seguenti funzionalità principali di gestione delle identità di Azure:
 
-- Accesso Single Sign-On
+- Single sign-on
 - Proxy inverso
 - Autenticazione a più fattori
 - Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
@@ -41,7 +41,7 @@ Questo articolo è incentrato sulle seguenti funzionalità principali di gestion
 - Identity Protection
 - Gestione delle identità ibrida
 
-## Accesso Single Sign-On
+## Single sign-on
 
 Single Sign-On (SSO) consente di accedere a tutte le applicazioni e risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Una volta effettuato l'accesso, è possibile accedere a tutte le applicazioni senza dover effettuare l’autenticazione (ad esempio, digitare una password) una seconda volta.
 
@@ -157,4 +157,4 @@ Altre informazioni:
 - [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 - [Blog del team di Active Directory](https://blogs.technet.microsoft.com/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

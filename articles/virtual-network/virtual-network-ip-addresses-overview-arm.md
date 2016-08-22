@@ -3,10 +3,10 @@
    description="Informazioni sugli indirizzi IP pubblici e privati in Gestione risorse di Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
-   tags="azure-resource-manager" />
+   tags="azure-resource-manager" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Indirizzi IP in Azure
 È possibile assegnare indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e Internet. In Azure è possibile usare due tipi di indirizzi IP:
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
 
-Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+Se si ha familiarità con il modello di distribuzione classica, verificare le [differenze tra gli indirizzi IP nella versione classica e in Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Database SQL](../sql-database/sql-database-technical-overview.md) e [Archiviazione di Azure](../storage/storage-introduction.md).
@@ -136,4 +136,4 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 - [Distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md)
 - [Come impostare un indirizzo IP statico privato nel portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

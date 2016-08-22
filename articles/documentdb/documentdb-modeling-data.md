@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="stbaro"/>
+	ms.date="08/05/2016" 
+	ms.author="stbaro"/>  
 
 #Modellazione dei dati in DocumentDB#
 Anche se con i database privi di schema, come Azure DocumentDB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.
@@ -122,7 +122,7 @@ In questo caso, sarebbe meglio prendere in considerazione il modello seguente.
 		
 	Post document:
 	{
-		"id": 1,
+		"id": "1",
 		"name": "What's new in the coolest Cloud",
 		"summary": "A blog post by someone real famous",
 		"recentComments": [
@@ -134,7 +134,7 @@ In questo caso, sarebbe meglio prendere in considerazione il modello seguente.
 
 	Comment documents:
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 4, "author": "anon", "comment": "more goodness"},
 			{"id": 5, "author": "bob", "comment": "tails from the field"},
@@ -143,7 +143,7 @@ In questo caso, sarebbe meglio prendere in considerazione il modello seguente.
 		]
 	},
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 100, "author": "anon", "comment": "yet more"},
 			...
@@ -198,7 +198,7 @@ Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di az
 	
     Stock documents:
     {
-        "id": 1,
+        "id": "1",
         "symbol": "zaza",
         "open": 1,
         "high": 2,
@@ -208,7 +208,7 @@ Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di az
         "pe": 5.89
     },
     {
-        "id": 2,
+        "id": "2",
         "symbol": "xcxc",
         "open": 89,
         "high": 93.24,
@@ -249,13 +249,13 @@ Il codice JSON seguente modella editori e libri.
 	}
 
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
+	{"id": "1", "name": "DocumentDB 101" }
+	{"id": "2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "3", "name": "Taking over the world one JSON doc at a time" }
 	...
-	{"id": 100, "name": "Learn about Azure DocumentDB" }
+	{"id": "100", "name": "Learn about Azure DocumentDB" }
 	...
-	{"id": 1000, "name": "Deep Dive in to DocumentDB" }
+	{"id": "1000", "name": "Deep Dive in to DocumentDB" }
 
 Se il numero di libri per editore è piccolo e ha una crescita limitata, può essere utile archiviare il riferimento ai libri nel documento dell'editore. Se invece il numero di libri per editore è illimitato, questo modello di dati darà origine a matrici modificabili e in costante crescita, come nel documento dell'editore di esempio precedente.
 
@@ -268,13 +268,13 @@ Cambiando un po' le cose, si ottiene un modello che rappresenta sempre gli stess
 	}
 	
 	Book documents: 
-	{"id": 1,"name": "DocumentDB 101", "pub-id": "mspress"}
-	{"id": 2,"name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
-	{"id": 3,"name": "Taking over the world one JSON doc at a time"}
+	{"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
+	{"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
+	{"id": "3","name": "Taking over the world one JSON doc at a time"}
 	...
-	{"id": 100,"name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
+	{"id": "100","name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
 	...
-	{"id": 1000,"name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
+	{"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
 
 Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento dell'editore. Ora abbiamo un solo riferimento all'editore nel documento di ogni libro.
 
@@ -286,35 +286,35 @@ In un database relazionale le relazioni *molti a molti* vengono spesso modellate
 Si potrebbe essere tentati di replicare la stessa cosa con i documenti e di generare un modello di dati simile al seguente.
 
 	Author documents: 
-	{"id": 1, "name": "Thomas Andersen" }
-	{"id": 2, "name": "William Wakefield" }
+	{"id": "a1", "name": "Thomas Andersen" }
+	{"id": "a2", "name": "William Wakefield" }
 	
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
-	{"id": 4, "name": "Learn about Azure DocumentDB" }
-	{"id": 5, "name": "Deep Dive in to DocumentDB" }
+	{"id": "b1", "name": "DocumentDB 101" }
+	{"id": "b2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "b3", "name": "Taking over the world one JSON doc at a time" }
+	{"id": "b4", "name": "Learn about Azure DocumentDB" }
+	{"id": "b5", "name": "Deep Dive in to DocumentDB" }
 	
 	Joining documents: 
-	{"authorId": 1, "bookId": 1 }
-	{"authorId": 2, "bookId": 1 }
-	{"authorId": 1, "bookId": 2 }
-	{"authorId": 1, "bookId": 3 }
+	{"authorId": "a1", "bookId": "b1" }
+	{"authorId": "a2", "bookId": "b1" }
+	{"authorId": "a1", "bookId": "b2" }
+	{"authorId": "a1", "bookId": "b3" }
 
 Funzionerebbe, ma, per caricare un autore con i suoi libri o un libro con il suo autore, sarebbero sempre necessarie almeno altre due query sul database; una query per creare un join del documento e quindi un'altra query per recuperare il documento effettivo di cui viene creato il join.
 
 Se la tabella join si limita a incollare insieme due gruppi di dati, allora perché non eliminarla del tutto? Tenere in considerazione quanto segue.
 
 	Author documents:
-	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
-	{"id": 2, "name": "William Wakefield", "books": [1, 4]}
+	{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+	{"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 	
 	Book documents: 
-	{"id": 1, "name": "DocumentDB 101", "authors": [1, 2]}
-	{"id": 2, "name": "DocumentDB for RDBMS Users", "authors": [1]}
-	{"id": 3, "name": "Learn about Azure DocumentDB", "authors": [1]}
-	{"id": 4, "name": "Deep Dive in to DocumentDB", "authors": [2]}
+	{"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
+	{"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
+	{"id": "b3", "name": "Learn about Azure DocumentDB", "authors": ["a1"]}
+	{"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
 
 Se avessimo un autore, sapremmo immediatamente quali libri ha scritto e, al contrario, se avessimo caricato un documento relativo ai libri, conosceremmo gli ID degli autori. Questo evita la query intermedia sulla tabella join riducendo il numero di round trip al server che l'applicazione deve eseguire.
 
@@ -329,11 +329,11 @@ Si consideri il codice JSON seguente.
 
 	Author documents: 
 	{
-	    "id": 1,
+	    "id": "a1",
 	    "firstName": "Thomas",
 	    "lastName": "Andersen",		
 	    "countOfBooks": 3,
-	 	"books": [1, 2, 3],
+	 	"books": ["b1", "b2", "b3"],
 		"images": [
 			{"thumbnail": "http://....png"}
 			{"profile": "http://....png"}
@@ -341,11 +341,11 @@ Si consideri il codice JSON seguente.
 		]
 	},
 	{
-	    "id": 2,
+	    "id": "a2",
 	    "firstName": "William",
 	    "lastName": "Wakefield",
 	    "countOfBooks": 1,
-		"books": [1, 4, 5],
+		"books": ["b1", "b4", "b5"],
 		"images": [
 			{"thumbnail": "http://....png"}
 		]
@@ -353,18 +353,18 @@ Si consideri il codice JSON seguente.
 	
 	Book documents:
 	{
-		"id": 1,
+		"id": "b1",
 		"name": "DocumentDB 101",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-			{"id": 2, "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
 		]
 	},
 	{
-		"id": 2,
+		"id": "b2",
 		"name": "DocumentDB for RDBMS Users",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
 		]
 	}
 
@@ -393,4 +393,4 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 E infine, per informazioni aggiuntive sulla modellazione di dati e il partizionamento orizzontale per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Monitorare le query utente in Azure SQL Data Warehouse
@@ -34,18 +34,18 @@ Panoramica delle considerazioni, delle procedure consigliate e delle attività p
 
 ## Passaggi successivi
 
-Per altri suggerimenti relativi alla gestione, vedere [Gestire i database in Azure SQL Data Warehouse][].
+Per altri suggerimenti relativi alla gestione, andare alla [Panoramica della gestione][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
-[Trovare query con esecuzione prolungata]: ./sql-data-warehouse-manage-monitor.md
-[Gestione della concorrenza e del carico di lavoro]: ./sql-data-warehouse-develop-concurrency.md
-[Gestire i database in Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-manage.md
+[Trovare query con esecuzione prolungata]: sql-data-warehouse-manage-monitor.md
+[Gestione della concorrenza e del carico di lavoro]: sql-data-warehouse-develop-concurrency.md
+[Panoramica della gestione]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

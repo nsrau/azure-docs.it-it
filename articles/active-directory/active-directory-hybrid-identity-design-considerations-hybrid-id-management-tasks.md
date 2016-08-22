@@ -3,9 +3,9 @@
 	description="Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Pianificare il ciclo di vita dell’identità ibrida 
 
@@ -33,19 +33,19 @@ Per definire le attività di gestione di un'identità ibrida, è necessario iden
 
 Per definire correttamente tali requisiti, assicurarsi che venga fornita una risposta alle domande seguenti:
 
-- Opzioni di provisioning: 
+- Opzioni di provisioning:
  - La soluzione di identità ibrida prevede un sistema affidabile per il provisioning e la gestione delle credenziali di accesso all'account?
  - Come verrebbero gestiti gli utenti, i gruppi e le password?
- - La gestione del ciclo di vita dell'identità è sufficientemente reattiva? 
+ - La gestione del ciclo di vita dell'identità è sufficientemente reattiva?
       - Quanto dura la sospensione dell'account per l'aggiornamento delle password?
       
 - Gestione delle licenze:
  - La soluzione di identità ibrida è in grado di gestire anche la gestione delle licenze?
      - In caso affermativo, quali funzionalità sono disponibili?
-- La soluzione prevede anche la gestione delle licenze basata su gruppo? 
-      - In caso affermativo, è possibile assegnare ad essa un gruppo di sicurezza? 
-       - In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo? 
-        - Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso? 
+- La soluzione prevede anche la gestione delle licenze basata su gruppo?
+      - In caso affermativo, è possibile assegnare ad essa un gruppo di sicurezza?
+       - In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo?
+        - Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso?
 
 - Integrazione con provider di identità di terze parti:
 - È possibile integrare questa soluzione ibrida con provider di identità di terze parti per implementare accessi di tipo Single Sign-On?
@@ -64,4 +64,4 @@ Uno dei principali obiettivi della gestione delle identità è quello di raccogl
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

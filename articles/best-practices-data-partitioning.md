@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Panoramica
+## Overview
 
 In molte soluzioni su larga scala, i dati vengono suddivisi in partizioni separate per poter essere gestiti e per poter accedervi separatamente. La strategia di partizionamento deve essere scelta attentamente per ottimizzare le prestazioni riducendo al minimo gli effetti negativi. Il partizionamento può aiutare a migliorare la scalabilità, ridurre i conflitti e ottimizzare le prestazioni. Un altro vantaggio offerto dal partizionamento è costituito dalla possibilità di suddividere i dati in base al modello di utilizzo. È possibile ad esempio archiviare i dati meno recenti e usati raramente in un archivio dati più economico.
 
@@ -564,4 +564,4 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Che cos'è la Ricerca di Azure?]: search/search-what-is-azure-search.md
 [Informazioni sul database SQL]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

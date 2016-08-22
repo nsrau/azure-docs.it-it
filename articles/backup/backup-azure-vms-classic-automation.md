@@ -4,8 +4,8 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
-	editor=""/>
+	manager="cfreeman"
+	editor=""/>  
 
 <tags
 	ms.service="backup"
@@ -13,29 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="markgal;trinadhk;jimpark" />
 
 
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [Gestione risorse](backup-azure-vms-automation.md)
 - [Classico](backup-azure-vms-classic-automation.md)
 
-Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure.
+Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali di Azure. Azure offre due diversi modelli di distribuzione per creare e utilizzare le risorse: Resouce Manager e classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 ## Concetti
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Vedere l'[introduzione al backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md) nella documentazione del servizio Backup di Azure,
+Questo articolo fornisce informazioni specifiche per i cmdlet di PowerShell usati per eseguire il backup di macchine virtuali. Per informazioni introduttive sulla protezione delle macchine virtuali di Azure, vedere [Pianificare l'infrastruttura di backup delle macchine virtuali in Azure](backup-azure-vms-introduction.md).
 
-> [AZURE.WARNING] Prima di iniziare, assicurarsi di avere gli elementi di base per i [prerequisiti](backup-azure-vms-prepare.md) necessari per usare il servizio Backup di Azure, e le [limitazioni](backup-azure-vms-prepare.md#limitations) della soluzione attuale di backup della macchina virtuale.
+> [AZURE.NOTE] Prima di iniziare, vedere i [prerequisiti](backup-azure-vms-prepare.md) necessari per utilizzare il servizio Backup di Azure e le [limitazioni](backup-azure-vms-prepare.md#limitations) della soluzione di backup delle macchine virtuali corrente.
 
-Per un utilizzo efficace di PowerShell, è necessario comprendere la gerarchia degli oggetti e da dove iniziare.
+Per un uso efficace di PowerShell, è opportuno comprendere la gerarchia degli oggetti e da dove iniziare.
 
-![Gerarchia oggetti](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
+![Gerarchia oggetti](./media/backup-azure-vms-classic-automation/object-hierarchy.png)  
 
 I due flussi più importanti sono quelli relativi all'attivazione della protezione per una macchina virtuale e al ripristino dei dati da un punto di ripristino. Questo articolo fornisce le informazioni necessarie per acquisire familiarità con l'uso dei cmdlet di PowerShell per abilitare questi due scenari.
 
@@ -100,7 +99,7 @@ PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg”
 
 
 ### Registrazione delle macchine virtuali
-Il primo passaggio per la configurazione del backup nel servizio Backup di Azure prevede la registrazione del computer o della macchina virtuale in un insieme di credenziali del servizio Backup di Azure. Il cmdlet **Register-AzureRmBackupContainer** accetta l'informazione di input di una macchina virtuale IaaS di Azure e la registra nell'insieme di credenziali specificato. L'operazione di registrazione associa la macchina virtuale di Azure all'insieme di credenziali di backup e tiene traccia della macchina virtuale per la durata del backup.
+Il primo passaggio per la configurazione del backup nel servizio Backup di Azure prevede la registrazione del computer o della macchina virtuale in un insieme di credenziali del servizio Backup di Azure. Il cmdlet **Register-AzureRmBackupContainer** accetta le informazioni di input di una macchina virtuale IaaS di Azure e le registra nell'insieme di credenziali specificato. L'operazione di registrazione associa la macchina virtuale di Azure all'insieme di credenziali di backup e tiene traccia della macchina virtuale per la durata del backup.
 
 L'operazione di registrazione della macchina virtuale con il servizio Backup di Azure crea un oggetto contenitore di livello superiore. Un contenitore in genere contiene più elementi di cui si può eseguire il backup, ma nel caso delle macchine virtuali sarà presente un solo elemento di backup per il contenitore.
 
@@ -123,7 +122,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [AZURE.NOTE] Il fuso orario del campo BackupTime in PowerShell è UTC. Tuttavia, quando l'orario di backup viene visualizzato nel portale di Azure, il fuso orario è allineato a quello del sistema locale assieme alla differenza dall'ora UTC.
 
-I criteri di backup sono associati ai criteri di conservazione. I criteri di conservazione definiscono per quanto tempo un punto di ripristino viene mantenuto nel servizio Backup di Azure. Il cmdlet **New-AzureRmBackupRetentionPolicy** crea oggetti PowerShell che contengono le informazioni relative ai criteri di conservazione. Questi oggetti di criteri di conservazione vengono usati come input per il cmdlet *New-AzureRmBackupProtectionPolicy* o direttamente con il cmdlet *Enable-AzureRmBackupProtection*.
+I criteri di backup sono associati ai criteri di conservazione. I criteri di conservazione definiscono per quanto tempo un punto di ripristino viene mantenuto nel servizio Backup di Azure. Il cmdlet **New-AzureRmBackupRetentionPolicy** crea oggetti PowerShell che includono le informazioni relative ai criteri di conservazione. Questi oggetti di criteri di conservazione vengono usati come input per il cmdlet *New-AzureRmBackupProtectionPolicy* o direttamente con il cmdlet *Enable-AzureRmBackupProtection*.
 
 I criteri di backup consentono di definire quando viene eseguito il backup di un elemento e con quale frequenza. Il cmdlet **New-AzureRmBackupProtectionPolicy** crea un oggetto PowerShell che contiene le informazioni relative ai criteri di backup. I criteri di backup vengono usati come input per il cmdlet *Enable-AzureRmBackupProtection*.
 
@@ -172,7 +171,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Invece di eseguire il polling dei processi per ottenere lo stato di completamento, operazione non necessaria che prevede codice aggiuntivo, è più facile usare il cmdlet **Wait-AzureRmBackupJob**. Se usato in uno script, il cmdlet sospende l'esecuzione fino al completamento del processo o fino a quando non viene raggiunto il valore di timeout specificato.
+Invece di eseguire il poll dei processi per ottenere lo stato di completamento, operazione non necessaria che prevede codice aggiuntivo, è più facile usare il cmdlet **Wait-AzureRmBackupJob**. Se usato in uno script, il cmdlet sospende l'esecuzione fino al completamento del processo o fino a quando non viene raggiunto il valore di timeout specificato.
 
 ```
 PS C:\> Wait-AzureRmBackupJob -Job $joblist[0] -Timeout 43200
@@ -185,7 +184,7 @@ Per ripristinare i dati di backup, è necessario identificare l'elemento sottopo
 
 ### Selezionare la macchina virtuale
 
-Per ottenere l'oggetto PowerShell che individua l'elemento di backup corretto, è necessario iniziare dal contenitore nell'insieme di credenziali, quindi procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **Get-AzureRmBackupContainer** e inviarlo al cmdlet **Get-AzureRmBackupItem**.
+Per ottenere l'oggetto PowerShell che individua l'elemento di backup corretto, è necessario iniziare dal contenitore nell'insieme di credenziali, quindi procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **Get-AzureRmBackupContainer** e inviarlo tramite pipe al cmdlet **Get-AzureRmBackupItem**.
 
 ```
 PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRmBackupItem
@@ -340,10 +339,10 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Se si vogliono aggiungere funzionalità per la creazione di grafici sull'output del report, leggere il post sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) nel blog TechNet
+Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere il post [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Creazione di grafici con PowerShell) nel blog TechNet
 
 ## Passaggi successivi
 
-Se si preferisce utilizzare PowerShell per interagire con le risorse di Azure, consultare l’articolo di PowerShell per la protezione di Windows Server, [Distribuire e gestire il servizio di backup per Windows Server](./backup-client-automation-classic.md). È inoltre disponibile un articolo di PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il servizio di backup per DPM](./backup-dpm-automation-classic.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
+Se si preferisce usare PowerShell per interagire con le risorse di Azure, vedere l'articolo di PowerShell per la protezione di Windows Server, [Distribuire e gestire il servizio di backup per Windows Server](./backup-client-automation-classic.md). È disponibile anche un articolo di PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il servizio di backup per DPM](./backup-dpm-automation-classic.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

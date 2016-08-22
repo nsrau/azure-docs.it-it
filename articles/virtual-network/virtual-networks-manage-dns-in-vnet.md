@@ -3,9 +3,9 @@
    description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Gestire server DNS usati da una rete virtuale
 
@@ -57,12 +57,4 @@ Per modificare un elenco di server DNS usando un file di configurazione di rete,
 
 1. Riavviare le macchine virtuali contenute nella rete virtuale in modo che possano acquisire le nuove impostazioni DNS.
 
-## Passaggi successivi
-
-[Come gestire le proprietà della rete virtuale (VNet)](../virtual-networks-settings)
-
-[Come usare gli indirizzi IP pubblici in una rete virtuale](../virtual-networks-public-ip-within-vnet)
-
-[Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,21 +3,28 @@
    description="Informazioni su come creare un probe personalizzato per il gateway applicazione con PowerShell in Gestione risorse"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />  
 
-# Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Gestione risorse di Azure
+# Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
+
+> [AZURE.SELECTOR]
+- [Portale di Azure](application-gateway-create-probe-portal.md)
+- [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
+
+<BR>  
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -99,7 +106,7 @@ Creare una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appgw-rg" per
 
 ### Passaggio 1
 
-Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e indirizza il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Ogni istanza avrà un indirizzo IP.
+Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -107,7 +114,7 @@ Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". 
 ### Passaggio 2
 
 
-Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
+Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere gli endpoint di indirizzi IP dell'applicazione.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -119,9 +126,9 @@ Il probe personalizzato viene configurato in questo passaggio.
 
 I parametri usati sono:
 
-- **-Interval**: configura i controlli dell'intervallo di probe in secondi.
+- **-Interval**: configura i controlli dell'intervallo di probe, in secondi.
 - **-Timeout**: definisce il timeout del probe per un controllo della risposta HTTP.
-- **-Hostname e -path**: completare il percorso URL richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si ha un sito Web http://contoso.com/, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
+- **-Hostname e -path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
 - **-UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
 <BR>
@@ -131,7 +138,7 @@ I parametri usati sono:
 
 ### Passaggio 4
 
-Configurare le impostazioni del gateway applicazione "poolsetting01" per il traffico nel pool back-end. Questo passaggio prevede anche una configurazione di timeout per la risposta del pool back-end a una richiesta del gateway applicazione. Quando una risposta back-end raggiunge un limite di timeout, il gateway applicazione annullerà la richiesta. È diverso dal timeout del probe che è solo per la risposta back-end ai controlli del probe.
+Configurare le impostazioni del gateway applicazione "poolsetting01" per il traffico nel pool back-end. Questo passaggio prevede anche una configurazione di timeout per la risposta del pool back-end a una richiesta del gateway applicazione. Quando una risposta del back-end raggiunge un limite di timeout, il gateway applicazione annulla la richiesta. È diverso dal timeout del probe che è solo per la risposta back-end ai controlli del probe.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 
@@ -238,4 +245,4 @@ Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicati
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

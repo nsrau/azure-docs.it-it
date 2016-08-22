@@ -26,7 +26,7 @@ Si potrebbe eseguire il training del modello una sola volta usando una versione 
 
 Questo potrebbe essere l'approccio migliore, ma creare 1.000 esperimenti di training in Azure Machine Learning che rappresentano le singole località non è molto pratico. Oltre a essere un'attività piuttosto complessa, è anche inefficiente perché ogni esperimento avrà gli stessi componenti ad eccezione del set di dati di training.
 
-Per fortuna, l'[API di ripetizione del training di Azure Machine Learning ](machine-learning-retrain-models-programmatically.md) permette di eseguire questa operazione, automatizzando l'attività con [Azure Machine Learning PowerShell](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
+Per fortuna, l'[API di ripetizione del training di Azure Machine Learning ](machine-learning-retrain-models-programmatically.md) permette di eseguire questa operazione, automatizzando l'attività con [Azure Machine Learning PowerShell](machine-learning-powershell-module.md).
 
 > [AZURE.NOTE] Per eseguire l'esempio più velocemente, il numero di località verrà ridotto da 1.000 a 10, ma gli stessi principi e procedure si applicano anche a 1.000 località. L'unica differenza è che per eseguire il training di 1.000 set di dati è consigliabile eseguire in parallelo lo script di PowerShell riportato di seguito. Come eseguire questa operazione non rientra nell'ambito di questo articolo, ma in Internet è possibile trovare esempi di multithreading con PowerShell.
 
@@ -161,4 +161,4 @@ Di seguito è riportato il listato del codice sorgente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

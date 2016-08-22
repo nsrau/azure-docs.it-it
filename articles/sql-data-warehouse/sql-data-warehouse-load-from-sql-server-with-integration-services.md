@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
-   ms.author="lodipalm;sonyama;barbkess"/>
+   ms.date="08/08/2016"
+   ms.author="lodipalm;sonyama;barbkess"/>  
 
 # Caricare dati da SQL Server in Azure SQL Data Warehouse (SSIS)
 
@@ -61,9 +61,9 @@ Per eseguire questa esercitazione, è necessario:
 ## Passaggio 1: Creare un nuovo progetto di Integration Services
 
 1. Avviare Visual Studio 2015.
-2. Scegliere **Nuovo | Progetto** dal menu **File**.
-3. Passare ai tipi di progetto **Installati | Modelli | Business Intelligence | Integration Services**.
-4. Selezionare **Progetto di Integration Services**. Specificare i valori per **Nome** e **Percorso** e quindi scegliere **OK**.
+2. Selezionare **Nuovo dal menu **File**.| Project**.
+3. Passare a **Installato.| Templates | Business Intelligence | Integration Services** project types.
+4. Selezionare **Progetto di Integration Services**. Specificare i valori per **Nome** e **Percorso**, quindi selezionare **OK**.
 
 Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSIS). Visual Studio apre quindi la finestra di progettazione per il nuovo pacchetto SSIS singolo (package.dtsx) nel progetto. Vengono visualizzate le aree dello schermo seguenti:
 
@@ -71,7 +71,7 @@ Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSI
 - Al centro l'area di progettazione con più schede. In genere si usano almeno le schede **Flusso di controllo** e **Flusso di dati**.
 - A destra i riquadri **Esplora soluzioni** e **Proprietà**.
 
-    ![][01]
+    ![][01]  
 
 ## Passaggio 2: Creare il flusso di dati di base
 
@@ -83,31 +83,31 @@ Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSI
 3. Dall'elenco Altre origini nella Casella degli strumenti trascinare un'origine ADO.NET nell'area di progettazione. Con l'adattatore di origine ancora selezionato modificare il nome in **Origine SQL Server** nel riquadro **Proprietà**.
 4. Dall'elenco Altre destinazioni nella Casella degli strumenti trascinare una destinazione ADO.NET nell'area di progettazione sotto l'origine ADO.NET. Con l'adattatore di destinazione ancora selezionato modificare il nome in **Destinazione SQL DW** nel riquadro **Proprietà**.
 
-    ![][09]
+    ![][09]  
 
 ## Passaggio 3: Configurare l'adattatore di origine
 
 1. Fare doppio clic sull'adattatore di origine per aprire la **Editor origine ADO.NET**.
 
-    ![][03]
+    ![][03]  
 
-2. Nella scheda **Gestione connessione** di **Editor origine ADO.NET**, fare clic sul pulsante **Nuovo** accanto all'elenco **Gestione connessione ADO.NET** per aprire la finestra di dialogo **Configura gestione connessione ADO.NET** e creare le impostazioni di connessione per il database di SQL Server da cui questa esercitazione carica i dati.
+2. Nella scheda **Gestione connessione** di **Editor origine ADO.NET**, fare clic sul pulsante **Nuovo** accanto all'elenco **Gestione connessione ADO.NET** per aprire la finestra di dialogo **Configura gestione connessione ADO.NET** e creare le impostazioni di connessione per il database del server SQL da cui questa esercitazione carica i dati.
 
-    ![][04]
+    ![][04]  
 
 3. Nella finestra di dialogo **Configura gestione connessione ADO.NET** fare clic sul pulsante **Nuovo** per aprire la finestra di dialogo **Gestione connessione** e creare una nuova connessione dati.
 
-    ![][05]
+    ![][05]  
 
 4. Nella finestra di dialogo **Gestione connessione** eseguire le operazioni seguenti.
 
     1. Per **Provider** selezionare il provider di dati SqlClient.
-    2. Per **Nome server** immettere il nome di SQL Server.
+    2. Per **Nome server** immettere il nome del server SQL.
     3. Nella sezione **Accesso al server** selezionare o immettere le informazioni di autenticazione.
     4. Nella sezione **Connessione al database** selezionare il database di esempio AdventureWorks.
     5. Fare clic su **Test connessione**.
     
-        ![][06]
+        ![][06]  
     
     6. Nella finestra di dialogo che segnala i risultati del test di connessione fare clic su **OK** per tornare alla finestra di dialogo **Gestione connessione**.
     7. Nella finestra di dialogo **Gestione connessione** fare clic su **OK** per tornare alla finestra di dialogo **Configura gestione connessione ADO.NET**.
@@ -115,7 +115,7 @@ Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSI
 5. Nella finestra di dialogo **Configura gestione connessione ADO.NET** fare clic su **OK** per tornare a **Editor origine ADO.NET**.
 6. Nell'elenco **Nome della tabella o Nome della vista** in **Editor origine ADO.NET** selezionare la tabella**Sales.SalesOrderDetail**.
 
-    ![][07]
+    ![][07]  
 
 7. Fare clic su **Anteprima** per visualizzare le prime 200 righe di dati nella tabella di origine nella finestra di dialogo **Anteprima risultati query**.
 
@@ -129,7 +129,7 @@ Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSI
 1. Selezionare l'adattatore di origine nell'area di progettazione.
 2. Selezionare la freccia blu che si estende dall'adattatore di origine e trascinarla nell'editor di destinazione finché non si ancora.
 
-    ![][10]
+    ![][10]  
 
     In un pacchetto SSIS tipico si usano molti altri componenti dalla Casella degli strumenti di SSIS tra l'origine e destinazione per ristrutturare, trasformare e pulire i dati man mano che passano attraverso il flusso di dati SSIS. Per mantenere questo esempio il più semplice possibile, l'origine viene connessa direttamente alla destinazione.
 
@@ -152,21 +152,21 @@ Visual Studio viene aperto e crea un nuovo progetto di Integration Services (SSI
 5. Nella finestra di dialogo **Configura gestione connessione ADO.NET** fare clic su **OK** per tornare a **Editor destinazione ADO.NET**.
 6. In **Editor destinazione ADO.NET**, fare clic su **Nuovo** accanto all'elenco **Usa una tabella o una vista** per aprire la finestra di dialogo **Crea tabella** per creare una nuova tabella di destinazione con un elenco di colonne corrispondente alla tabella di origine.
 
-    ![][12a]
+    ![][12a]  
 
-7. Nella finestra di dialogo **Crea tabella** eseguire le operazioni seguenti:
+7. Nella finestra di dialogo **Crea tabella** eseguire le operazioni seguenti.
 
     1. Modificare il nome della tabella di destinazione in **SalesOrderDetail**.
     2. Rimuovere la colonna **rowguid**. Il tipo di dati **uniqueidentifier** non è supportato in SQL Data Warehouse.
     3. Modificare il tipo di dati della colonna **LineTotal** in **money**. Il tipo di dati **Decimal** non è supportato in SQL Data Warehouse. Per informazioni sui tipi di dati supportati, vedere [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
     
-        ![][12b]
+        ![][12b]  
     
     4. Fare clic su **OK** per creare la tabella e tornare a **Editor destinazione ADO.NET**.
 
 8. In **Editor destinazione ADO.NET** selezionare la scheda **Mapping** per vedere in che modo le colonne nell'origine vengono mappate alle colonne nella destinazione.
 
-    ![][13]
+    ![][13]  
 
 9. Fare clic su **OK** per completare la configurazione dell'origine dati.
 
@@ -180,7 +180,7 @@ Quando inizia l'esecuzione del pacchetto, verranno visualizzate rotelline gialle
 
 Al termine dell'esecuzione del pacchetto vengono visualizzati segni di spunta verde per indicare che l'operazione è riuscita, nonché il numero totale di righe di dati caricati dall'origine alla destinazione.
 
-![][15]
+![][15]  
 
 Congratulazioni. SQL Server Integration Services è stato usato correttamente per caricare i dati in Azure SQL Data Warehouse.
 
@@ -190,7 +190,7 @@ Congratulazioni. SQL Server Integration Services è stato usato correttamente pe
 - Informazioni su come eseguire il debug e risolvere i problemi relativi ai pacchetti direttamente nell'ambiente di progettazione. Iniziare da qui: [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti][].
 - Informazioni su come distribuire i progetti e i pacchetti SSIS nel server Integration Services o in un altro percorso di archiviazione. Iniziare da qui: [Distribuzione di progetti e pacchetti][].
 
-<!-- Image references -->
+<!-- Image references -->  
 [01]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
 [02]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
 [03]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
@@ -218,10 +218,10 @@ Congratulazioni. SQL Server Integration Services è stato usato correttamente pe
 [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti]: https://msdn.microsoft.com/library/ms137625.aspx
 [Distribuzione di progetti e pacchetti]: https://msdn.microsoft.com/library/hh213290.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
 [versioni di valutazione di SQL Server]: https://www.microsoft.com/it-IT/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/it-IT/products/visual-studio-community-vs.aspx
 [database di esempio AdventureWorks 2014]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

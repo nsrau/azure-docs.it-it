@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
-   ms.author="sstein"/>
+   ms.date="08/08/2016"
+   ms.author="sstein"/>  
 
 # Indicazioni sui livelli di prezzo del database SQL
 
- Vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello di servizio e di prestazione più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente.
+ Le indicazioni sul piano tariffario offrono suggerimenti per individuare il livello di servizio e di prestazioni più adatto all'esecuzione di un carico di lavoro di un database SQL di Azure esistente.
 
 > [AZURE.NOTE] Suggerimenti sui piano tariffari sono disponibili solo per i database Web e Business e per i pool di database elastici e solo nel [portale di Azure](https://portal.azure.com/).
 
@@ -34,7 +34,7 @@ Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
 
 
 
-## Panoramica
+## Overview
 
 Il servizio Database SQL consente di analizzare le prestazioni e i requisiti di funzionalità correnti valutando l'utilizzo delle risorse cronologiche per un database SQL. Inoltre, il livello di servizio accettabile minimo viene determinato in base alle dimensioni del database e vengono abilitate le funzionalità di [continuità aziendale](sql-database-business-continuity.md) funzionalità.
 
@@ -44,7 +44,7 @@ Le informazioni vengono analizzate e viene suggerito il livello di prestazioni e
 - I dati vengono analizzati in intervalli di 15 secondi e ciascuna serie di risultati di ogni intervallo è suddivisa in livello di servizio esistente e livello di prestazioni più adatti per la gestione del carico di lavoro della medesima serie di risultati.
 - Questi campioni di 15 secondi vengono quindi aggregati nell'analisi più grande su un periodo di 15-30 giorni più grande e vengono indicati il livello di prestazioni e il livello di servizio in grado di gestire in modo ottimale il 95% del carico di lavoro cronologico.
 
-### Recommendations
+### Indicazioni
 
 In base all'utilizzo del database, esistono 2 categorie di indicazioni che possono verificarsi:
 
@@ -88,7 +88,7 @@ Le indicazioni sul livello dei prezzi offrono un'esperienza automatizzata per la
 A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento o di un downgrade in genere non si verifica immediatamente. Il portale fornirà notifiche come le transizioni del nuovo livello di database o è possibile monitorare lo stato di aggiornamento eseguendo una query della vista [sys.dm\_operation\_status (database SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx) nel database master del server di Database SQL.
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

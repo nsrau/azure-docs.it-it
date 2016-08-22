@@ -3,9 +3,9 @@
  description="Libreria client di Gestione dei dispositivi dell'hub IoT di Azure"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
- editor=""/>
+ editor=""/>  
 
 <tags
  ms.service="iot-hub"
@@ -14,11 +14,11 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure
 
-## Panoramica
+## Overview
 
 La libreria client di Gestione dei dispositivi dell'hub IoT di Azure consente di gestire i dispositivi IoT con l'hub IoT di Azure. "Gestire" significa anche riavviare, ripristinare le impostazioni predefinite e aggiornare il firmware. Attualmente viene fornita una libreria C indipendente dalla piattaforma, ma presto verrà aggiunto il supporto per altri linguaggi. Come descritto in [Panoramica di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-overview], in Gestione dei dispositivi dell'hub IoT i concetti chiave sono tre:
 
@@ -206,7 +206,7 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 
 ## Passaggi successivi
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
@@ -235,4 +235,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>  
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -63,13 +63,13 @@ Per le macchine virtuali più recenti create con Resource Manager (set di scalab
 ```
 |Campo |Obbligatorio?|	Descrizione|
 |---|---|---|
-|operation |yes |Il valore deve essere "Scale"|
-|sendToSubscriptionAdministrator |yes |Il valore deve essere "true" o "false"|
-|sendToSubscriptionCoAdministrators |yes |Il valore deve essere "true" o "false"|
-|customEmails |yes |Il valore può essere null o la matrice di stringhe di messaggi di posta elettronica|
-|webhooks |yes |Il valore può essere null o un URI valido|
-|serviceUri |yes |Un URI HTTPS valido|
-|properties |yes |Il valore deve essere vuoto {} o può contenere coppie chiave-valore|
+|operation |sì |Il valore deve essere "Scale"|
+|sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false"|
+|sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false"|
+|customEmails |sì |Il valore può essere null o la matrice di stringhe di messaggi di posta elettronica|
+|webhooks |sì |Il valore può essere null o un URI valido|
+|serviceUri |sì |Un URI HTTPS valido|
+|properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore|
 
 
 ## Autenticazione nei webhook
@@ -110,10 +110,10 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 
 |Campo |Obbligatorio?|	Descrizione|
 |---|---|---|
-|status |yes |Stato che indica che è stata generata un'azione di scalabilità automatica|
-|operation|	yes |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In"|
-|contesto|	yes |Contesto dell'azione di scalabilità automatica|
-|timestamp|	yes |Timestamp in cui è stata attivata l'azione di scalabilità automatica|
+|status |sì |Stato che indica che è stata generata un'azione di scalabilità automatica|
+|operation|	sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In"|
+|context|	sì |Contesto dell'azione di scalabilità automatica|
+|timestamp|	sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica|
 |id |Sì|	ID di Resource Manager dell'impostazione di scalabilità automatica|
 |name |Sì|	Nome dell'impostazione di scalabilità automatica|
 |informazioni dettagliate|	Sì |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze|
@@ -127,4 +127,4 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 |newCapacity|	Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa|
 |Proprietà|	No|	Facoltativo. Set di coppie < chiave, valore > (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
