@@ -134,7 +134,7 @@ Le informazioni classificate come pubbliche includono dati e file non critici pe
 | Responsabile | | | X | | |
 | Amministratore | | | | | X |
 | Utente* | | X | | X | |
-**Un responsabile può concedere agli utenti diritti aggiuntivi, ad esempio di modifica ed eliminazione*
+* *Un responsabile può concedere agli utenti diritti aggiuntivi, ad esempio di modifica ed eliminazione*
 
 > [AZURE.NOTE] Questa tabella è solo un esempio rappresentativo e non include un elenco completo di ruoli e diritti.
 

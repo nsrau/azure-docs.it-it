@@ -1683,8 +1683,18 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 
 || |
 |---|-------------|
-| + | Add |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| + | Aggiungi |
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a
+|`>` |Maggiore
+|`>=`|Maggiore o uguale a
+|`<>`|Non uguale a
+|`!=`|Non uguale a
 
 
 ### abs

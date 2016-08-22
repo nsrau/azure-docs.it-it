@@ -209,6 +209,7 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)  
 
 ## Vedere anche
-- [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

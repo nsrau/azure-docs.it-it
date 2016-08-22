@@ -18,7 +18,7 @@
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 
-## Overview
+## Panoramica
 Dal rilascio dei servizi di archiviazione di Microsoft Azure, Microsoft ha sviluppato diverse procedure comprovate per usare questi servizi in modo ottimale. In questo articolo vengono riepilogate le procedure più importanti, presentate sotto forma di elenco di controllo. L'intento dell'articolo è di consentire agli sviluppatori di applicazioni di assicurarsi di stare usando le procedure comprovate con l'archiviazione di Azure e di aiutarli a individuare altre eventuali procedure da adottare. Questo articolo non intende coprire tutti i possibili casi di ottimizzazione delle prestazioni e della scalabilità, pertanto esclude quelli che hanno effetti trascurabili o che non sono applicabili a un significativo numero di scenari. Per quanto è possibile prevedere il comportamento dell'applicazione durante la progettazione, è opportuno effettuare una valutazione preliminare di questi aspetti per evitare progettazioni che potrebbero causare problemi in termini di prestazioni.
 
 Ogni sviluppatore di applicazioni che usa l'archiviazione di Azure dovrebbe leggere attentamente questo articolo e verificare che l'applicazione su cui sta lavorando segua tutte le procedure comprovate elencate di seguito.
@@ -258,7 +258,7 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 -	.NET: Impostare ParallelOperationThreadCount in un oggetto BlobRequestOptions da usare.
 -	Java/Android: Usare BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: Usare parallelOperationThreadCount nelle opzioni della richiesta o nel servizio BLOB.
--	C++: Usare il metodo blob\_request\_options::set\_parallelism\_factor.
+-	C++: Usare il metodo blob_request_options::set_parallelism_factor.
 
 ####<a name="subheading22"></a>Caricamento rapido di più BLOB
 Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della redazione di questo documento, un account di archiviazione con ridondanza locale (LRS) basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, un valore molto più alto della velocità effettiva supportata da un singolo BLOB. [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.

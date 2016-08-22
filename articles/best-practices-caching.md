@@ -151,7 +151,8 @@ Prendere in considerazione la possibilità di implementare una cache locale priv
 
 Questo approccio richiede una configurazione attenta per evitare che la cache locale diventi obsoleta rispetto alla cache condivisa. Tuttavia, la cache locale funge da buffer se la cache condivisa non è raggiungibile. Nella Figura 3 viene illustrata questa struttura.
 
-![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) _Figura 3: uso di una cache locale, privata con una cache condivisa_
+![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) 
+_Figura 3: uso di una cache locale, privata con una cache condivisa_
 
 Per supportare la cache di grandi dimensioni che contengono dati di durata relativamente lunga, alcuni servizi cache forniscono un'opzione di disponibilità elevata che implementa il failover automatico, se la cache non è più disponibile. Questo approccio implica in genere la replica in un server di cache secondario dei dati memorizzati nella cache archiviati in un server di cache primario, implicando anche il passaggio al server secondario se il server primario non funziona o se la connessione viene persa.
 

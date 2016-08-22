@@ -144,7 +144,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Igloo Software ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Igloo Software** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-igloo-software-tutorial/IC783974.png "Assegna utenti")  
 

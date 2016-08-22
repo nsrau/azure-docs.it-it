@@ -19,7 +19,7 @@
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## Overview
+## Panoramica
 
 Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creazione e il supporto di applicazioni client con Archiviazione di Microsoft Azure. Data la natura distribuita di un'applicazione Azure, la diagnostica e la risoluzione dei problemi di prestazioni possono risultare più complesse che in ambienti tradizionali.
 
@@ -144,14 +144,14 @@ La libreria client di archiviazione archivia i dati di log lato client nel perco
 
 1. Installare [Fiddler](http://www.telerik.com/download/fiddler).
 2. Avviare Fiddler.
-2. Selezionare **Strumenti| Fiddler Options**.
+2. Selezionare **Strumenti | Opzioni Fiddler**.
 3. Nella finestra di dialogo Opzioni, verificare che siano selezionate le opzioni **Acquisisci HTTPS CONNECTs** e **Decrittografa il traffico HTTPS**, come illustrato di seguito.
 
 ![Configurare le opzioni Fiddler](./media/storage-e2e-troubleshooting-classic-portal/fiddler-options-1.png)
 
 Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyzer, quindi creare una sessione di analisi per analizzare la traccia e i log. Per raccogliere una traccia di rete in Message Analyzer:
 
-1. In Message Analyzer selezionare **File| Quick Trace | Unencrypted HTTPS**.
+1. In Message Analyzer selezionare **File | Traccia rapida | HTTPS non crittografato**.
 2. La traccia inizierà immediatamente. Selezionare **Interrompi** per interrompere la traccia in modo da poterla configurare solo per il traffico di archiviazione.
 3. Selezionare **Modifica** per modificare la sessione di traccia.
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
@@ -347,7 +347,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
 | Aumento di PercentTimeoutError (tutti) | *StatusCode == 500 | Tutti |
 | Aumento di PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
