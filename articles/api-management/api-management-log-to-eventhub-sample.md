@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/25/2016"
-    ms.author="v-darmi"/>
+    ms.date="08/09/2016"
+    ms.author="darrmi"/>  
 
 # Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
 
@@ -72,7 +72,7 @@ Per potere creare questo messaggio, è necessario sfruttare le [espressioni di c
 ### Dichiarazione di criteri
 È necessario evidenziare alcuni aspetti di questa espressione di criteri. Il criterio log-to-eventhub ha un attributo denominato logger-id che fa riferimento al nome del logger creato nel servizio Gestione API. I dettagli relativi alla configurazione di un logger dell'Hub eventi nel servizio Gestione API sono disponibili nel documento [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md). Il secondo attributo è un parametro opzionale che indica all'Hub eventi la partizione in cui archiviare il messaggio. Hub eventi usa le partizioni per abilitare la scalabilità e richiede almeno due partizioni. Il recapito ordinato dei messaggi è garantito solo entro una partizione. Se non si indica all'Hub eventi la partizione in cui inserire il messaggio, verrà usato un algoritmo round-robin per distribuire il carico. È tuttavia possibile che ciò provochi l'elaborazione non ordinata di alcuni messaggi.
 
-### Partizioni
+### Partitions
 Per assicurarsi che i messaggi vengano recapitati ai consumer in base all'ordine stabilito e sfruttare i vantaggi della capacità di distribuzione del carico delle partizioni, è possibile scegliere di inviare messaggi di richiesta HTTP a una partizione e messaggi di risposta HTTP a una seconda partizione. In questo modo si assicurerà una distribuzione uniforme del carico e sarà possibile garantire che tutte le richieste e le risposte vengano utilizzate nell'ordine stabilito. È possibile che una risposta venga utilizzata prima della risposta corrispondente, ma questo non costituisce un problema, perché è disponibile un meccanismo diverso per la correlazione delle richieste alle risposte e si sa che le richieste precedono sempre le risposte.
 
 ### Payload HTTP
@@ -252,7 +252,7 @@ L'esempio è costituito da una semplice applicazione console che rimane in attes
 
 L'immagine animata seguente illustra l'effettuazione di una richiesta a un'API nel portale per sviluppatori, la ricezione, l'elaborazione e l'inoltro del messaggio nell'applicazione console e quindi la visualizzazione della richiesta e della risposta in Runscope Traffic Inspector.
 
-![Illustrazione dell'inoltro di una richiesta a Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Illustrazione dell'inoltro di una richiesta a Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)  
 
 ## Riepilogo
 Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffico HTTP verso e dalle API. Hub eventi di Azure è una soluzione a scalabilità elevata e costi ridotti per l'acquisizione e l'inserimento del traffico in sistemi di elaborazione secondari per operazioni di registrazione e monitoraggio e per altre analisi avanzate. La connessione a sistemi di monitoraggio del traffico di terze parti come Runscope è semplice quanto scrivere qualche dozzina di righe di codice.
@@ -268,4 +268,4 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

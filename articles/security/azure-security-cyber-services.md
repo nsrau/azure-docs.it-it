@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
-   ms.author="yurid"/>
+   ms.date="08/09/2016"
+   ms.author="yurid"/>  
 
 # Servizi Microsoft per la sicurezza informatica
 
@@ -37,4 +37,4 @@ Altre informazioni sui servizi offerti da Microsoft:
 
 [Altre informazioni](https://aka.ms/cyberserv) sui servizi di consulenza sulla sicurezza dei servizi Microsoft.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

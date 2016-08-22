@@ -12,12 +12,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="06/01/2016"
-	ms.author="tamram" />
+	ms.date="08/03/2016"
+	ms.author="tamram" />  
 
 # Esempi di archiviazione di Azure
 
-## Panoramica
+## Overview
 Utilizzare i collegamenti seguenti per visualizzare e scaricare esempi di risorse di archiviazione di Azure funzionanti.
 
 ## Libreria di esempio di codice Azure
@@ -90,4 +90,4 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 - [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
 - [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

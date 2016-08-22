@@ -3,10 +3,10 @@
    description="Informazioni sugli indirizzi IP pubblici e privati in Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
-   tags="azure-service-management" />
+   tags="azure-service-management" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Indirizzi IP (classici) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
@@ -74,7 +74,7 @@ Gli indirizzi IP pubblici statici (riservati) sono comunemente usati negli scena
 ### Riepilogo
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP pubblici.
 
-|Risorsa|Dinamico|Statico|Indirizzi IP multipli|
+|Risorsa|Dinamico|Static|Più indirizzi IP|
 |---|---|---|---|
 |Servizio cloud|Sì|Sì|Sì|
 |Istanza del ruolo PaaS o della macchine virtuale IaaS|Sì|No|No|
@@ -124,7 +124,7 @@ Nel caso di un servizio cloud *autonomo*, sarà possibile risolvere i nomi host 
 ### Riepilogo
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP privati.
 
-|Risorsa|Dinamico|Statico|Indirizzi IP multipli|
+|Risorsa|Dinamico|Static|Più indirizzi IP|
 |---|---|---|---|
 |Macchine virtuali (in un servizio cloud *autonomo*)|Sì|Sì|Sì|
 |Istanza del ruolo PaaS (in un servizio cloud *autonomo*)|Sì|No|Sì|
@@ -166,4 +166,4 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 ## Passaggi successivi
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-classic-pportal.md) con il portale classico.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

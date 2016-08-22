@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -165,7 +165,7 @@ La memorizzazione nella cache consente di impostare uno specifico periodo di tem
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
-## Indirizzi IP attendibili
+## IP attendibili
 
 Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda. Le funzionalità sono disponibili per i tenant di Azure AD che dispongono di licenze Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
 
@@ -319,11 +319,11 @@ Gli utenti possono inoltre creare password dell'app in un secondo momento modifi
 
 ![Password dell'app](./media/multi-factor-authentication-whats-next/app2.png)
 
-### Per creare password dell'app se non si ha una sottoscrizione di Office 365 o Azure
+### Per creare password per le app se non si ha una sottoscrizione di Office 365 o Azure
 --------------------------------------------------------------------------------
 1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Nella parte superiore selezionare il profilo.
-3. Fare clic sul nome utente e selezionare Verifica aggiuntiva di sicurezza.
+3. Fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
 5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
 6. Fare clic su **Crea**
 7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
@@ -376,4 +376,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

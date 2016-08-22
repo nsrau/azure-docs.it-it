@@ -3,9 +3,9 @@
    description="Introduzione al nuovo Provider di risorse di rete in Gestione risorse di Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Provider di risorse di rete
 Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure (ARM) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
@@ -50,7 +50,7 @@ Ogni risorsa prevede un set comune di proprietà e il proprio set di proprietà.
 |---|---|---|
 |**nome**|Nome univoco per le risorse. Ogni tipo di risorsa dispone delle proprie restrizioni di denominazione.|PIP01, VM01, NIC01|
 |**Località**|Area di Azure in cui sarà creata la VM.|westus, eastus|
-|**id**|Identificazione univoca basata su URI|/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
+|**id**|Identificazione univoca basata su URI|/subscriptions/<GUIDsub>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
 
 È possibile controllare le proprietà delle singole risorse nelle sezioni seguenti.
 
@@ -249,7 +249,7 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 4. Fare clic su **Modifica parametri** e selezionare una località, ad esempio *West US*, per la rete virtuale e le subnet.
 5. Se necessario, modificare i parametri **ADDRESSPREFIX** e **SUBNETPREFIX** e quindi fare clic su **OK**.
 6. Fare clic su **Seleziona un gruppo di risorse** e quindi fare clic sul gruppo di risorse a cui si desidera aggiungere la rete virtuale e le subnet. In alternativa, è possibile creare un nuovo gruppo di risorse facendo clic su **Crea nuovo**.
-3. Fare clic su **Create**. Si noti il riquadro che visualizza la **distribuzione del modello di provisioning**. Dopo aver eseguito la distribuzione, viene visualizzata una schermata simile alla seguente.
+3. Fare clic su **Crea**. Si noti il riquadro che visualizza la **distribuzione del modello di provisioning**. Dopo aver eseguito la distribuzione, viene visualizzata una schermata simile alla seguente.
 
 ![Distribuzione del modello di esempio](./media/resource-groups-networking/Figure6.png)
 
@@ -264,4 +264,4 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 
 [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

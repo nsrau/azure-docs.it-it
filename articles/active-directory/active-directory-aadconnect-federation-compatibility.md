@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Elenco di compatibilità di federazione di Azure AD
 Azure Active Directory offre la sicurezza di accesso Single Sign-On e di applicazione avanzata per Office 365 e altri Microsoft Online Services per implementazioni ibride o solo cloud senza richiedere alcuna soluzione non Microsoft. Analogamente alla maggior parte dei Microsoft Online Services, Office 365 è integrato con Azure Active Directory per i servizi di directory, l'autenticazione e l'autorizzazione. Azure Active Directory offre anche l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per le applicazioni SaaS supportate, vedere la raccolta di applicazioni Azure Active Directory.
@@ -22,8 +22,7 @@ Azure Active Directory offre la sicurezza di accesso Single Sign-On e di applica
 Per le organizzazioni che hanno investito in soluzioni di federazione non Microsoft, questo argomento include le istruzioni per la configurazione dell'accesso Single Sign-On per gli utenti Active Directory di Windows Server con Microsoft Online Services tramite i provider di identità non Microsoft inclusi nell'elenco di compatibilità di federazione di Azure Active Directory riportato di seguito.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
-[Oxford Computer Group](http://oxfordcomputergroup.com/), una terza parte, ha testato per conto di Microsoft queste esperienze di accesso Single Sign-On usando provider di identità non Microsoft in più casi d'uso comuni con Azure Active Directory.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/), una terza parte, ha testato per conto di Microsoft queste esperienze di accesso Single Sign-On usando provider di identità non Microsoft in più casi d'uso comuni con Azure Active Directory.
 
 Per informazioni su come ottenere il provider di identità di terze parti elencato di seguito, contattare Oxford Computer Group all'indirizzo [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
@@ -37,7 +36,7 @@ Per informazioni su come ottenere il provider di identità di terze parti elenca
 - [Virtual Identity Server Federation Services di Optimal IDM](#optimal-idm-virtual-identity-server-federation-services)
 - [PingFederate 6.11](#pingfederate-611)
 - [PingFederate 7.2](#pingfederate-72)
-- [PingFederate 8.x](#pingfederate-8.x)
+- [PingFederate 8.x](#pingfederate-8x)
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
@@ -66,10 +65,10 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
-|Applicazioni moderne con ADAL, ad esempio Office 2016| Supportato|Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
+|Applicazioni moderne con ADAL, ad esempio Office 2016| Supportato|None|
 
 Per altre informazioni sull'uso di Azure Active Directory con AD FS, vedere la sezione [Configurazione della federazione con AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
@@ -84,7 +83,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
 | Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Per altre informazioni sui criteri di accesso client, vedere [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) (Limitazione dell'accesso ai servizi Office 365 in base alla posizione del client).|
 
@@ -99,9 +98,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno (per le versioni precedenti è richiesto l'aggiornamento alla versione 6.11)|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per ottenere le istruzioni di PingFederate relative alla configurazione di questo servizio token di sicurezza per offrire l'accesso Single Sign-On agli utenti di Active Directory, scaricare il file PDF da [qui](http://go.microsoft.com/fwlink/?LinkID=266321).
 
@@ -113,9 +112,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per ottenere le istruzioni di PingFederate relative alla configurazione di questo servizio token di sicurezza per offrire l'accesso Single Sign-On agli utenti di Active Directory, vedere [qui](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2).
 
@@ -127,9 +126,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per ottenere le istruzioni di PingFederate relative alla configurazione di questo servizio token di sicurezza per offrire l'accesso Single Sign-On agli utenti di Active Directory, vedere [qui](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction).
 
@@ -141,8 +140,8 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
 | Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Controllo di accesso client non supportato 
 
 Per altre informazioni su Centrify, vedere [qui](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp).|
@@ -154,9 +153,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su IBM Tivoli Federated Identity Manager, vedere [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517) (IBM Security Access Manager per applicazioni Microsoft).
 
@@ -167,9 +166,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su SecureAuth, vedere il sito di [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
@@ -182,7 +181,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Autenticazione integrata di Windows|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su CA SiteMinder, vedere il sito di [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html).
 
@@ -193,9 +192,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su RadiantOne CFS, vedere il sito di [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/).
 
@@ -210,7 +209,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Per Autenticazione integrata di Windows è richiesta la configurazione di altri server Web e dell'applicazione Okta.|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su Okta, vedere il sito di [Okta](https://www.okta.com/).
  
@@ -223,7 +222,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Autenticazione integrata di Windows|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su OneLogin, vedere il sito di [OneLogin](https://www.onelogin.com/).
 
@@ -236,7 +235,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |*Contratti Kerberos supportati|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |L'autenticazione integrata di Windows non è supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 *NetIQ supporta l'autenticazione Kerberos tramite la configurazione di un contratto Kerberos. Per assistenza per questa configurazione, contattare NetIQ o consultare la guida all'installazione. Per altre informazioni su NetIQ Access Manager, vedere la documentazione di [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html).
 
@@ -247,9 +246,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Non supportato |Non supportato|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su BIG-IP Access Policy Manager, vedere [BIG-IP Access Policy Manager](https://f5.com/products/modules/access-policy-manager).
 
@@ -264,7 +263,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |L'autenticazione integrata di Windows non è supportata|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |L'autenticazione integrata di Windows non è supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su VMware Workspace Portal versione 2.1, scaricare il file PDF da [qui](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf).
 
@@ -276,8 +275,8 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Contratti Kerberos supportati |
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 
 Sign&go 5.3 supporta l'autenticazione Kerberos tramite la configurazione di un contratto Kerberos. Per ottenere assistenza su questa configurazione, contattare Ilex o consultare la guida all'installazione disponibile [qui](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf).
@@ -292,7 +291,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |L'autenticazione integrata di Windows non è supportata|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |L'autenticazione integrata di Windows non è supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su IceWall Federation, vedere [qui](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) e [qui](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html).
 
@@ -306,7 +305,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |L'autenticazione integrata di Windows non è supportata|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |L'autenticazione integrata di Windows non è supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su CA Secure Cloud, vedere il sito di [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx).
 
@@ -317,9 +316,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Nessuno|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Nessuno|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su Dell One Identity Cloud Access Manager, vedere il sito di [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
 
@@ -334,9 +333,9 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --------- | --------- |--------- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |L'autenticazione integrata di Windows non è supportata|
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |L'autenticazione integrata di Windows non è supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuno|
+| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 
 Per altre informazioni, vedere [How can I Configure Single Sign On for Office 365?](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-) (Configurazione dell'accesso Single Sign-On per Office 365) nel sito di AuthAnvil.
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

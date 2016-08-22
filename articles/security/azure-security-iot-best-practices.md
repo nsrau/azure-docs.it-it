@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Procedure consigliate per la sicurezza di Internet delle cose
@@ -35,8 +35,8 @@ Questo articolo riepiloga le [procedure consigliate per la sicurezza di Internet
 
 Si invitano i produttori e gli integratori di hardware IoT a seguire le procedure consigliate riportate più avanti:
 
-- **Impostare l'hardware sui requisiti minimi**: la progettazione dell'hardware deve includere esclusivamente le funzionalità minime necessarie per il funzionamento. 
-- **Realizzare hardware a prova di manomissione**: meccanismi integrati per il rilevamento di manomissioni fisiche dell'hardware, ad esempio l'apertura del coperchio del dispositivo, la rimozione di una parte del dispositivo e così via. 
+- **Impostare l'hardware sui requisiti minimi**: la progettazione dell'hardware deve includere esclusivamente le funzionalità minime necessarie per il funzionamento.
+- **Realizzare hardware a prova di manomissione**: meccanismi integrati per il rilevamento di manomissioni fisiche dell'hardware, ad esempio l'apertura del coperchio del dispositivo, la rimozione di una parte del dispositivo e così via.
 - **Creare un hardware sicuro**: se il [costo del venduto](https://en.wikipedia.org/wiki/Cost_of_goods_sold) lo consente, creare funzionalità di sicurezza, ad esempio l'archiviazione protetta e crittografata e la funzionalità di avvio basata sul modulo TPM (Trusted Platform Module).
 - **Implementare aggiornamenti sicuri**: l'aggiornamento del firmware durante il ciclo di vita del dispositivo è inevitabile.
 
@@ -46,7 +46,7 @@ Si invitano gli sviluppatori di soluzioni IoT a seguire le procedure consigliate
 
 - **Applicare una metodologia di sviluppo software protetta**: lo sviluppo di software protetti richiede una riflessione totale riguardo alla sicurezza dall'inizio del progetto fino all'implementazione, al test e alla distribuzione.
 - **Scegliere software open source con attenzione**: il software open source consente di sviluppare soluzioni in modo rapido.
-- **Eseguire l'integrazione con attenzione**: molti dei problemi di sicurezza del software intervengono al confine tra librerie e API. 
+- **Eseguire l'integrazione con attenzione**: molti dei problemi di sicurezza del software intervengono al confine tra librerie e API.
 
 ## Distributore di soluzioni IoT
 
@@ -59,10 +59,10 @@ Si invitano i distributori di soluzioni IoT a seguire le procedure consigliate r
 
 Si invitano gli operatori di soluzioni IoT a seguire le procedure consigliate riportate più avanti:
 
-- **Aggiornare i sistemi regolarmente**: assicurarsi che tutti i sistemi operativi e i driver dei dispositivi vengano aggiornati alle versioni più recenti. 
-- **Proteggere i sistemi da attività dannose**: se il sistema operativo lo consente, aggiungere funzionalità antivirus e anti-malware recenti su ogni sistema operativo del dispositivo. 
+- **Aggiornare i sistemi regolarmente**: assicurarsi che tutti i sistemi operativi e i driver dei dispositivi vengano aggiornati alle versioni più recenti.
+- **Proteggere i sistemi da attività dannose**: se il sistema operativo lo consente, aggiungere funzionalità antivirus e anti-malware recenti su ogni sistema operativo del dispositivo.
 - **Effettuare controlli regolari**: controllare la presenza di problemi di sicurezza all'infrastruttura IoT è un fattore chiave durante la risposta agli incidenti di sicurezza.
 - **Proteggere fisicamente l'infrastruttura IoT**: gli attacchi più dannosi per la sicurezza dell'infrastruttura IoT vengono lanciati tramite l'accesso fisico ai dispositivi.
-- **Proteggere le credenziali del cloud**: le credenziali per l'autenticazione nel cloud usate per la configurazione e il funzionamento di una distribuzione IoT costituiscono probabilmente il modo più semplice per accedere e compromettere un sistema IoT. 
+- **Proteggere le credenziali del cloud**: le credenziali per l'autenticazione nel cloud usate per la configurazione e il funzionamento di una distribuzione IoT costituiscono probabilmente il modo più semplice per accedere e compromettere un sistema IoT.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

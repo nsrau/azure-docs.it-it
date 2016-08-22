@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Introduzione ad Azure | Microsoft Azure"
+	pageTitle="Introduzione a Microsoft Azure | Microsoft Azure"
 	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
-	editor=""/>
+	authors="rboucher"
+	manager=""
+	editor=""/>  
 
 <tags
 	ms.service="multiple"
@@ -18,7 +18,7 @@
 
 # Introduzione a Microsoft Azure
 
-Microsoft Azure è la piattaforma applicativa di Microsoft per il cloud pubblico. Lo scopo di questo articolo è offrire all'utente le basi per comprendere i dati fondamentali di Azure, anche se non si ha alcuna nozione del [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing/).
+Microsoft Azure è la piattaforma applicativa di Microsoft per il cloud pubblico. Lo scopo di questo articolo è offrire all'utente le basi per comprendere i dati fondamentali di Azure, anche se non si ha alcuna nozione del cloud computing.
 
 **Come leggere questo articolo**
 
@@ -55,7 +55,7 @@ Una delle attività di base svolte da una piattaforma cloud è l'esecuzione di a
 
 ![Macchine virtuali di Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
 
-La possibilità di creare una macchina virtuale su richiesta, sia da un'immagine standard che da una fornita dall'utente, può risultare estremamente utile. Questo approccio, comunemente noto come IaaS ([Infrastructure as a Service](https://azure.microsoft.com/overview/what-is-iaas/)), è quanto messo a disposizione da Macchine virtuali di Azure. La figura 2 mostra una combinazione di esecuzione della macchina virtuale (VM) e di creazione di una macchina virtuale da un VHD.
+La possibilità di creare una macchina virtuale su richiesta, sia da un'immagine standard che da una fornita dall'utente, può risultare estremamente utile. Questo approccio, comunemente noto come IaaS (Infrastructure as a Service), è quanto fornito da Macchine virtuali di Azure. La figura 2 mostra una combinazione di esecuzione della macchina virtuale (VM) e di creazione di una macchina virtuale da un VHD.
 
 Per creare una macchina virtuale, è necessario specificare il disco rigido virtuale (VHD) da usare e le dimensioni della macchina virtuale. Si paga quindi il servizio in base al tempo in cui la macchina virtuale è in esecuzione. Si paga a minuto e solo mentre è in esecuzione, nonostante sia presente un costo minimo di archiviazione per la disponibilità del VHD. Azure offre una galleria di VHD predefiniti ("immagini") che contengono un sistema operativo avviabile da cui iniziare. Includono opzioni Microsoft e dei partner, ad esempio Windows Server e Linux, SQL Server, Oracle e molte altre ancora. L'utente può creare liberamente VHD e immagini, per poi caricarle personalmente. Può persino caricare VHD che contengono solo dati e quindi accedere a tali VHD dalle macchine virtuali in esecuzione.
 
@@ -200,7 +200,7 @@ Oggi Azure viene eseguito in numerosi data center distribuiti in tutto il mondo.
 
 
 ### Rete virtuale
-![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
+![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)  
 
 *Figura: le reti virtuali forniscono una rete privata nel cloud in modo da consentire a servizi diversi di comunicare reciprocamente o in risorse locali se si imposta una connessione VPN tra più sedi locali.*
 
@@ -227,7 +227,7 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ### Gestione traffico
 
-![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
+![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)  
 
 *Figura: Gestione traffico di Azure consente di instradare il traffico globale al servizio dell'utente in base a regole intelligenti.*
 
@@ -361,7 +361,7 @@ Nonostante sia certamente possibile creare il back-end per un'app per dispositiv
 
 ### App per dispositivi mobili
 
-![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
+![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)  
 
 *Figura: App per dispositivi mobili fornisce funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
@@ -378,7 +378,7 @@ Poiché Azure supporta già un livello avanzato di scalabilità, è possibile ge
 
 ### Hub di notifica
 
-![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
+![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)  
 
 *Figura: Hub di notifica fornisce le funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
@@ -430,7 +430,7 @@ Indipendentemente dall'attività svolta, spesso il codice deve interagire con al
 
 L'accodamento si basa su un concetto semplice: un'applicazione colloca un messaggio in una coda e il messaggio viene quindi letto da un'altra applicazione. Se l'applicazione richiede solo questo semplice servizio, il servizio Code di Azure risulta la scelta ottimale.
 
-Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [Analogie e differenze tra le code di Azure e le code del bus di servizio](http://msdn.microsoft.com/library/azure/hh767287.aspx). In molti scenari saranno valide entrambe le soluzioni.
+Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Analogie e differenze tra le code di Azure e le code del bus di servizio"). In molti scenari saranno valide entrambe le soluzioni.
 
 **Scenari di coda**
 
@@ -606,4 +606,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
-ms.author="adegeo"/>
+ms.date="08/10/2016"
+ms.author="adegeo"/>  
 
 # Come aggiornare un servizio cloud
 
-## Panoramica
+## Overview
 In generale, l'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo guest, è un processo in tre passaggi. Prima devono essere caricati i file binari e di configurazione per la nuova versione del nuovo servizio cloud o del sistema operativo. Quindi Azure riserva le risorse di calcolo e di rete per il servizio cloud in base ai requisiti della nuova versione del servizio cloud. Infine Azure esegue un aggiornamento in sequenza per aggiornare in modo incrementale il tenant alla nuova versione o al nuovo sistema operativo guest, mantenendo nello stesso tempo la disponibilità. Questo articolo illustra i dettagli dell'ultimo passaggio, l'aggiornamento in sequenza.
 
 ## Aggiornare un servizio di Azure
@@ -132,7 +132,7 @@ Azure offre flessibilità nella gestione dei servizi durante un aggiornamento pe
 Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
 
 -   Le istanze del ruolo che non erano ancora state aggiornate alla nuova versione non vengono aggiornate, perché tali istanze stanno già eseguendo la versione di destinazione del servizio.
--   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (\*.cspkg) o al file di configurazione del service (\*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
+-   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (*.cspkg) o al file di configurazione del service (*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
 
 Questa funzionalità viene fornita dalle funzioni seguenti:
 
@@ -180,6 +180,6 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 > [AZURE.NOTE] Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.
 
 ## Passaggi successivi
-[Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-configure.md)<br>
+[Come gestire i servizi cloud](cloud-services-how-to-manage.md) [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md) [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

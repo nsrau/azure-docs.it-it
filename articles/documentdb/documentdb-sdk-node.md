@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="DocumentDB Node.js SDK | Microsoft Azure" 
-	description="Tutte le informazioni su Node.js SDK, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK." 
+	pageTitle="SDK e API di DocumentDB Node.js | Microsoft Azure" 
+	description="Tutte le informazioni sull'SDK e sull'API di Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -13,25 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>  
 
-# DocumentDB SDK
+# SDK e API di DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [SDK per Java](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Node.js SDK
+##SDK e API di DocumentDB Node.js
 
-<table>
-<tr><td>**Download**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**Contributi**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentazione**</td><td>[Documentazione di riferimento per Node.js SDK](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Esempi**</td><td>[Esempi di codice per Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Introduzione**</td><td>[Introduzione a Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<table>  
+<tr><td>**Scaricare l'SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Documentazione sull'API**</td><td>[Node.js API reference documentation (Documentazione di riferimento per l'API Node.js)](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Istruzioni per l'installazione dell'SDK**</td><td>[Installation instructions (Istruzioni di installazione)](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Esempi**</td><td>[Node.js code samples (Codici di esempio di Node.js)](documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Esercitazione introduttiva**</td><td>[Introduzione a Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Esercitazione sull'app Web**</td><td>[Compilare un'applicazione Web Node.js con DocumentDB](documentdb-nodejs-application.md)</td></tr>
 <tr><td>**Piattaforma attualmente supportata**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -79,7 +83,7 @@
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): rinomina della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
+- Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -145,32 +149,7 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 07 luglio 2016 |--- 
-| [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |--- 
-| [1\.5.6](#1.5.6) | 08 marzo 2016 |--- 
-| [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- 
-| [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 settembre 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 agosto 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 luglio 2015 |--- 
-| [1\.0.3](#1.0.3) | 04 giugno 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 maggio 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 maggio 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 aprile, 2015 |--- 
-| 0.9.4-versione non definitiva | 06 aprile, 2015 | 29 febbraio, 2016 
-| 0.9.3-versione non definitiva | 14 gennaio, 2015 | 29 febbraio, 2016 
-| 0.9.2-versione non definitiva | 18 dicembre, 2014 | 29 febbraio, 2016 
-| 0.9.1-versione non definitiva | 22 agosto, 2014 | 29 febbraio, 2016 
-| 0.9.0-versione non definitiva | 21 agosto, 2014 | 29 febbraio, 2016
+| [1\.9.0](#1.9.0) | 07 luglio 2016 |--- | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.0](#1.6.0) | 29 marzo 2016 |--- | [1\.5.6](#1.5.6) | 08 marzo 2016 |--- | [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- | [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- | [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- | [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- | [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- | [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- | [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- | [1\.2.2](#1.2.2) | 10 settembre 2015 |--- | [1\.2.1](#1.2.1) | 15 agosto 2015 |--- | [1\.2.0](#1.2.0) | 05 agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 luglio 2015 |--- | [1\.0.3](#1.0.3) | 04 giugno 2015 |--- | [1\.0.2](#1.0.2) | 23 maggio 2015 |--- | [1\.0.1](#1.0.1) | 15 maggio 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- | 0.9.4 - versione non definitiva | 06 aprile 2015 | 29 febbraio 2016 | 0.9.3 - versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 | 0.9.2 - versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016 | 0.9.1 - versione non definitiva | 22 agosto 2014 | 29 febbraio 2016 | 0.9.0 - versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
 
 
 ## Domande frequenti
@@ -180,4 +159,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

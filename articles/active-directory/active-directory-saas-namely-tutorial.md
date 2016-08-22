@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="jeedes"/>
+	ms.date="08/05/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Namely
@@ -23,7 +23,7 @@ Questa esercitazione descrive l'integrazione di Namely con Azure Active Director
 
 L'integrazione di Namely con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Namely 
+- È possibile controllare in Azure AD chi può accedere a Namely
 - È possibile abilitare gli utenti per l'accesso automatico a Namely (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -43,7 +43,7 @@ Per configurare l'integrazione di Azure AD con Namely, sono necessari gli elemen
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
@@ -51,7 +51,7 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di Namely dalla raccolta 
+1. Aggiunta di Namely dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Namely in Azure AD, è necessario aggiungere N
 
 **Per aggiungere Namely dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -122,7 +122,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_04.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Namely, (ad esempio **https://fabrikam.Namely.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Namely, ad esempio *https://fabrikam.Namely.com/*.
 
     b. Fare clic su **Avanti**.
  
@@ -133,7 +133,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 1. In un'altra finestra del browser accedere al sito aziendale di Namely come amministratore.
@@ -309,7 +309,7 @@ Quando si fa clic sul riquadro Namely nel pannello di accesso, si dovrebbe acced
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/active-directory-saas-namely-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-namely-tutorial/tutorial_general_02.png
@@ -327,4 +327,4 @@ Quando si fa clic sul riquadro Namely nel pannello di accesso, si dovrebbe acced
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Riferimento ai criteri di Gestione API di Azure" 
+	pageTitle="Informazioni di riferimento per i criteri di Gestione API di Azure" 
 	description="Informazioni sui criteri disponibili per configurare Gestione API." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="api-management" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
-# Riferimento ai criteri di Gestione API di Azure
+# Informazioni di riferimento per i criteri di Gestione API di Azure
 
 Questa sezione include un indice dei criteri disponibili in [Informazioni di riferimento per i criteri di Gestione API di Azure][]. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API][].
 
@@ -46,16 +46,16 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
 	-	[authentication-certificate][]\: consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
--	[Criteri di memorizzazione nella cache][] 
+-	[Criteri di memorizzazione nella cache][]
 	-	[Recupera dalla cache][]\: esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.
 	-	[cache-lookup][]\: memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.
 	-	[Recupera valore dalla cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupera un elemento memorizzato nella cache per chiave.
 	-	[Archivia valore nella cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): archivia un elemento nella cache per chiave.
--	[Criteri tra domini][] 
+-	[Criteri tra domini][]
 	-	[Permetti chiamate tra i domini][]\: rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 	-	[CORS][]\: aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 	-	[JSONP][]\: aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.
--	[Criteri di trasformazione][] 
+-	[Criteri di trasformazione][]
 	-	[json-to-xml][]\: converte il corpo della richiesta o della risposta da JSON a XML.
 	-	[xml-to-json][]\: converte il corpo della richiesta o della risposta da XML a JSON.
 	-	[find-and-replace][]\: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
@@ -119,4 +119,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

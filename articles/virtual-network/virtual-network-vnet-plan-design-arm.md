@@ -3,9 +3,9 @@
    description="Informazioni su come pianificare e progettare reti virtuali in Azure in base ai requisiti di isolamento, connettività e località."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/08/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Pianificare e progettare reti virtuali di Azure
 
@@ -28,9 +28,9 @@ Per ottenere buoni risultati, è fondamentale una conoscenza approfondita delle 
 Prima di rispondere alle domande di pianificazione seguenti, tenere in considerazione quanto segue:
 
 - Tutti gli oggetti creati in Azure sono composti da una o più risorse. Una macchina virtuale (VM) è una risorsa, la scheda di interfaccia di rete (NIC) usata da una VM è una risorsa, l'indirizzo IP pubblico usato da una scheda di interfaccia di rete è una risorsa, la rete virtuale a cui è collegata la scheda di interfaccia di rete è una risorsa.
-- Le risorse vengono create all'interno di un'[area](https://azure.microsoft.com/regions/#services) e una sottoscrizione di Azure. Le risorse possono essere connesse solo a una rete virtuale presente nella stessa area e nella stessa sottoscrizione delle risorse. 
+- Le risorse vengono create all'interno di un'[area](https://azure.microsoft.com/regions/#services) e una sottoscrizione di Azure. Le risorse possono essere connesse solo a una rete virtuale presente nella stessa area e nella stessa sottoscrizione delle risorse.
 - È possibile connettere le reti virtuali tra loro tramite un [gateway VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) di Azure. Questo metodo consente anche di collegare reti virtuali in diverse aree e sottoscrizioni.
-- È anche possibile collegare le reti virtuali alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibili in Azure. 
+- È anche possibile collegare le reti virtuali alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibili in Azure.
 - È possibile raggruppare risorse diverse in [gruppi di risorse](../resource-group-overview.md#resource-groups), rendendo più semplice la gestione delle risorse come unità. Un gruppo di risorse può contenere risorse provenienti da più aree, purché le risorse appartengano alla stessa sottoscrizione.
 
 ### Definire i requisiti
@@ -81,7 +81,7 @@ Per impostazione predefinita, la rete virtuale usa la [risoluzione dei nomi offe
 
 ### Limiti
 
-Verificare di visualizzare tutti i [limiti relativi ai servizi di rete in Azure](../azure-subscription-service-limits#networking-limits) prima di progettare la soluzione. Alcun limiti possono essere aumentati aprendo un ticket di supporto.
+Verificare di visualizzare tutti i [limiti relativi ai servizi di rete in Azure](../azure-subscription-service-limits.md#networking-limits) prima di progettare la soluzione. Alcun limiti possono essere aumentati aprendo un ticket di supporto.
 
 ### Controllo degli accessi in base al ruolo
 
@@ -100,8 +100,8 @@ Dopo avere risposto alle domande della sezione [Pianificazione](#Plan), esaminar
 È consigliabile creare più reti virtuali negli scenari seguenti:
 
 - **VM da collocare nelle diverse località di Azure**. Le reti virtuali in Azure fanno riferimento a un'area geografica e non possono estendersi a più località. Per questo motivo, è necessaria almeno una rete virtuale per ogni località di Azure in cui si vogliono ospitare VM.
-- **Carichi di lavoro che devono essere completamente isolati l'uno dall'altro**. È possibile creare reti virtuali separate, che usano anche gli stessi spazi degli indirizzi IP, per isolare carichi di lavoro diversi l'uno dall'altro. 
-- **Evitare limiti di piattaforma**. Come illustrato nella sezione [Limiti](#Limits), non è possibile avere più di 2048 VM in una singola rete virtuale. 
+- **Carichi di lavoro che devono essere completamente isolati l'uno dall'altro**. È possibile creare reti virtuali separate, che usano anche gli stessi spazi degli indirizzi IP, per isolare carichi di lavoro diversi l'uno dall'altro.
+- **Evitare limiti di piattaforma**. Come illustrato nella sezione [Limiti](#Limits), non è possibile avere più di 2048 VM in una singola rete virtuale.
 
 Tenere presente che i limiti sopra indicati si riferiscono a singole aree e sottoscrizioni. Questo significa che è possibile usare più sottoscrizioni per aumentare il limite di risorse gestibili in Azure. È possibile usare una VPN site-to-site o un circuito ExpressRoute per connettere reti virtuali in sottoscrizioni diverse.
 
@@ -121,7 +121,7 @@ La tabella seguente illustra alcuni modelli di progettazione comuni per l'uso di
 
 È consigliabile creare più subnet in una rete virtuale negli scenari seguenti:
 
-- **Numero insufficiente di indirizzi IP privati per tutte le schede di interfaccia di rete in una subnet**. Se lo spazio degli indirizzi della subnet non contiene indirizzi IP sufficienti per il numero di schede di interfaccia di rete nella subnet, è necessario creare più subnet. Tenere presente che Azure riserva 5 indirizzi IP privati da ogni subnet che non possono essere usati: il primo e l'ultimo indirizzo dello spazio degli indirizzi (per l'indirizzo subnet e multicast) e 3 indirizzi da usare internamente (a scopi DHCP e DNS). 
+- **Numero insufficiente di indirizzi IP privati per tutte le schede di interfaccia di rete in una subnet**. Se lo spazio degli indirizzi della subnet non contiene indirizzi IP sufficienti per il numero di schede di interfaccia di rete nella subnet, è necessario creare più subnet. Tenere presente che Azure riserva 5 indirizzi IP privati da ogni subnet che non possono essere usati: il primo e l'ultimo indirizzo dello spazio degli indirizzi (per l'indirizzo subnet e multicast) e 3 indirizzi da usare internamente (a scopi DHCP e DNS).
 - **Sicurezza**. È possibile usare subnet per separare gruppi di VM l'uno dall'altro per i carichi di lavoro con una struttura a più livelli e applicare diversi [gruppi di sicurezza di rete](virtual-networks-nsg.md#subnets) per queste subnet.
 - **Connettività ibrida**. È possibile usare gateway VPN e circuiti ExpressRoute per [collegare](../vpn-gateway/vpn-gateway-cross-premises-options.md) le reti virtuali tra loro e ai data center locali. I gateway VPN e i circuiti ExpressRoute richiedono una propria subnet da creare.
 - **Appliance virtuali**. È possibile usare un'appliance virtuale, ad esempio un firewall, un acceleratore WAN o un gateway VPN in una rete virtuale di Azure. In questo caso, è necessario [instradare il traffico](virtual-networks-udr-overview.md) a tali appliance e isolarle nella rispettiva subnet.
@@ -220,13 +220,13 @@ In base a tali requisiti, è necessaria una sottoscrizione per ogni business uni
 |**Sottoscrizione**|**Rete virtuale**|**Area di Azure**|**Spazio degli indirizzi**|
 |---|---|---|---|
 |BU1|ProdBU1US1|Stati Uniti occidentali|172\.16.0.0/16|
-|BU1|ProdBU1US2|Stati Uniti Orientali|172\.17.0.0/16|
+|BU1|ProdBU1US2|Stati Uniti orientali|172\.17.0.0/16|
 |BU1|ProdBU1EU1|Europa settentrionale|172\.18.0.0/16|
 |BU1|ProdBU1EU2|Europa occidentale|172\.19.0.0/16|
 |BU1|TestDevBU1|Stati Uniti occidentali|172\.20.0.0/16|
 |BU2|TestDevBU2|Stati Uniti occidentali|172\.21.0.0/16|
 |BU2|ProdBU2US1|Stati Uniti occidentali|172\.22.0.0/16|
-|BU2|ProdBU2US2|Stati Uniti Orientali|172\.23.0.0/16|
+|BU2|ProdBU2US2|Stati Uniti orientali|172\.23.0.0/16|
 |BU2|ProdBU2EU1|Europa settentrionale|172\.24.0.0/16|
 |BU2|ProdBU2EU2|Europa occidentale|172\.25.0.0/16|
 
@@ -263,6 +263,6 @@ In base a tali requisiti, è possibile aggiungere utenti del team responsabile d
 - [Distribuire una rete virtuale](virtual-networks-create-vnet-arm-template-click.md) in base a uno scenario.
 - Comprendere come [bilanciare il carico](../load-balancer/load-balancer-overview.md) delle VM IaaS e [gestire il routing in più aree di Azure](../traffic-manager/traffic-manager-overview.md).
 - Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
-- Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-cross-premises-options.md).  
+- Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-cross-premises-options.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

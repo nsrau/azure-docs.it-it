@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Domande frequenti su Gestione API di Azure
 
@@ -150,4 +150,4 @@ Sì. Eseguire questi passaggi:
 
 Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual Studio, potrebbe verificarsi un problema noto con la finestra di dialogo Credenziale Windows che limita la lunghezza della password a solo 127 caratteri e quindi tronca la password generata. Microsoft sta lavorando per abbreviare la password. Per ora usare GIT Bash per la clonazione.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

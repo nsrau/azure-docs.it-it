@@ -5,15 +5,15 @@ services="cloud-services"
 documentationCenter="" 
 authors="Thraka" 
 manager="timlt" 
-editor=""/>
+editor=""/>  
 <tags 
 ms.service="cloud-services" 
 ms.workload="tbd" 
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
-ms.author="adegeo"/>
+ms.date="08/10/2016" 
+ms.author="adegeo"/>  
 
 # Esporre le impostazioni di configurazione del ruolo come una variabile di ambiente con XPath
 
@@ -189,4 +189,4 @@ Creare un pacchetto [ServicePackage.cspkg](cloud-services-model-and-package.md#s
 
 Abilitare [Desktop remoto](cloud-services-role-enable-remote-desktop.md) per un ruolo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

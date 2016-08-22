@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+	ms.tgt_pltfrm="NA"/>  
 
 
 # Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure
@@ -23,14 +23,14 @@
 - [Portale di Azure](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per archiviare un database SQL di Azure in un file BACPAC nell'archivio BLOB di Azure.
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per archiviare un database SQL di Azure in un file BACPAC nell'archiviazione BLOB di Azure.
 
-Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file zip con estensione bacpac. Un file BACPAC in un secondo momento può essere archiviato nell'archivio BLOB di Azure o in un percorso locale e successivamente reimportato nel database SQL di Azure o in un'istallazione locale di SQL Server.
+Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file zip con estensione bacpac. Un file BACPAC in un secondo momento può essere archiviato nell'archiviazione BLOB di Azure o in un percorso locale e successivamente reimportato nel database SQL di Azure o in un'installazione locale di SQL Server.
 
 ***Considerazioni***
 
 - Perché un archivio sia coerente dal punto di vista transazionale, è necessario assicurarsi che non si verifichino attività di scrittura durante l'esportazione oppure è necessario eseguire l'esportazione da una [copia coerente dal punto di vista transazionale](sql-database-copy.md) del database SQL di Azure
-- La dimensione massima di un file BACPAC salvato nell'archivio BLOB di Azure è pari a 200 GB. Per archiviare un file BACPAC più grande in un percorso locale, usare l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Questa utilità è disponibile sia in Visual Studio che in SQL Server. È inoltre possibile [scaricare](https://msdn.microsoft.com/library/mt204009.aspx) la versione più recente di SQL Server Data Tools per ottenere questa utilità.
+- La dimensione massima di un file BACPAC salvato nell'archiviazione BLOB di Azure è pari a 200 GB. Per archiviare un file BACPAC più grande in un percorso locale, usare l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Questa utilità è disponibile sia in Visual Studio che in SQL Server. È inoltre possibile [scaricare](https://msdn.microsoft.com/library/mt204009.aspx) la versione più recente di SQL Server Data Tools per ottenere questa utilità.
 - L'archiviazione Premium di file BACPAC in Azure non è supportata.
 - Se l'operazione di esportazione dura oltre 20 ore, potrebbe essere annullata. Per migliorare le prestazioni durante l'esportazione è possibile:
  - Aumentare temporaneamente il livello di servizio.
@@ -92,11 +92,11 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-export/export.png
 [2]: ./media/sql-database-export/export-blade.png
 [3]: ./media/sql-database-export/export-notification.png
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

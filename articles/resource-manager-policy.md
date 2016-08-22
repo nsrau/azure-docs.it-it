@@ -90,6 +90,7 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 | Contiene | "contains" : "&lt;valore&gt;"|
 | In | "in" : [ "&lt;valore1&gt;","&lt;valore2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nomeChiave&gt;" |
+| Exists | "exists": "& lt; bool & gt;" |
 
 ### Fields
 
@@ -254,7 +255,7 @@ L'esempio seguente illustra un criterio che negherà tutte le richieste con posi
 
 ### Controllo dei servizi: selezione del catalogo dei servizi
 
-L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo le azioni sui servizi di tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Qualsiasi altra azione verrà negata.
+L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo le azioni sui servizi di tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/*. Qualsiasi altra azione verrà negata.
 
     {
       "if" : {
@@ -468,4 +469,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

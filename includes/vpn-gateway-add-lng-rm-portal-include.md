@@ -1,23 +1,19 @@
-1. Nel portale di Azure passare a **Nuovo** **>** **Rete** **>** **Gateway di rete locale**.
+1. Nel portale passare a **Nuovo** > **Rete** > **Gateway di rete locale**.
 
-	![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+	![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)  
 
 2. Nel pannello **Crea un gateway di rete locale** specificare un **Nome** per l'oggetto gateway di rete locale.
  
-3. Specificare un **Indirizzo IP** per il gateway. Questo è l'indirizzo IP del dispositivo VPN esterno a cui connettersi. Non può essere protetto da NAT e deve essere raggiungibile da Azure.
+3. Specificare un **Indirizzo IP** pubblico virtuale per il dispositivo VPN o il gateway di rete virtuale a cui ci si vuole connettere.<br>Se la rete locale rappresenta una posizione locale, questo è l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere. Non può essere protetto da NAT e deve essere raggiungibile da Azure.<br>Se questa rete locale rappresenta un'altra rete virtuale, sarà necessario specificare l'indirizzo IP pubblico assegnato al gateway di rete virtuale per tale rete virtuale.<br>
 
-4. **Spazio indirizzi** fa riferimento agli intervalli di indirizzi nella rete, solitamente locale. È possibile aggiungere più intervalli di spazi indirizzi. Gli intervalli immessi non possono sovrapporsi gli intervalli di spazi indirizzi usati per una delle reti virtuali che comunicano tramite il gateway. È necessario che siano coordinati con la configurazione locale e con gli spazi indirizzi della rete virtuale di Azure.
+4. Il valore di **Spazio di indirizzi** fa riferimento agli intervalli di indirizzi per la rete rappresentata da questa rete locale. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati non si sovrappongano con gli intervalli di altre reti a cui ci si vuole connettere.
  
 5. Per **Sottoscrizione** verificare che sia visualizzata la sottoscrizione corretta.
 
-6. Per **Gruppo di risorse** selezionare il gruppo di risorse che si vuole usare. È possibile creare un nuovo gruppo di risorse o selezionarne uno già creato. Per creare un nuovo gruppo di risorse, digitare il nome nella casella. Per selezionare un gruppo di risorse già creato, fare clic su **Gruppo di risorse** per aprire il pannello **Gruppo di risorse** e quindi selezionare il gruppo che si vuole usare.
+6. Per **Gruppo di risorse** selezionare il gruppo di risorse che si vuole usare. È possibile creare un nuovo gruppo di risorse o selezionarne uno già creato.
 
-7. Per **Località**, se si sta creando un nuovo gateway di rete locale, è possibile usare la stessa località del gateway di rete virtuale. Questo passaggio non è obbligatorio. Il gateway di rete locale può essere in una località diversa.
+7. Per **Località** selezionare la località in cui verrà creato questo oggetto. È possibile, ma non necessario, selezionare la stessa località in cui risiede la rete virtuale.
 
-8. Lasciare selezionata la casella "Aggiungi al dashboard" se si vuole trovare facilmente il gateway di rete locale dal dashboard.
+8. Fare clic su **Crea** per creare il gateway di rete locale.
 
-9. Fare clic su **Crea** per creare il gateway di rete locale. Nel dashboard verrà visualizzato un messaggio in cui è indicato che "è in corso la distribuzione del gateway di rete locale".
-
-10. Quando è stato creato il gateway di rete locale, verrà aperto nel portale per la visualizzazione.
-
-	
+<!---HONumber=AcomDC_0810_2016-->

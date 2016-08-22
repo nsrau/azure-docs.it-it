@@ -127,8 +127,8 @@ Altre informazioni sul [monitoraggio degli endpoint e sul failover automatico](t
 
 Altre informazioni sui [metodi di routing](traffic-manager-routing-methods.md) di Gestione traffico.
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="api-management" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 
@@ -24,13 +24,13 @@ Gestione API consente di configurare notifiche per eventi specifici nonché di c
 
 Per configurare le notifiche, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
-![Portale di pubblicazione][api-management-management-console]
+![Portale di pubblicazione][api-management-management-console]  
 
 >Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 Fare clic su **Notifiche** dal menu **Gestione API** a sinistra per visualizzare le notifiche disponibili.
 
-![Notifiche dell'editore][api-management-publisher-notifications]
+![Notifiche dell'editore][api-management-publisher-notifications]  
 
 L'elenco di eventi seguente può essere configurato per le notifiche.
 
@@ -46,7 +46,7 @@ Per ogni evento, è possibile specificare i destinatari di posta elettronica usa
 
 Per specificare gli indirizzi di posta elettronica a cui inviare le notifiche, immettere tali indirizzi nella casella di testo relativa all'indirizzo di posta elettronica. Se ci sono più indirizzi di posta elettronica, separarli usando delle virgole.
 
-![Destinatari delle notifiche][api-management-email-addresses]
+![Destinatari delle notifiche][api-management-email-addresses]  
 
 Per specificare gli utenti a cui inviare le notifiche, fare clic su **Aggiungi destinatario**, selezionare la casella di controllo corrispondente all'utente desiderato, quindi fare clic su **OK**.
 
@@ -75,11 +75,11 @@ Questi modelli possono essere modificati a piacimento.
 
 Per visualizzare e configurare i modelli di posta elettronica per la propria istanza di Gestione API, fare clic su **Notifiche** dal menu **Gestione API** a sinistra, quindi selezionare la scheda **Modelli di posta elettronica**.
 
-![Modelli di posta elettronica][api-management-email-templates]
+![Modelli di posta elettronica][api-management-email-templates]  
 
 Per visualizzare o modificare un modello specifico, selezionarlo dall'elenco a discesa **Modelli**.
 
-![Elenco modelli di posta elettronica][api-management-email-templates-list]
+![Elenco modelli di posta elettronica][api-management-email-templates-list]  
 
 Ogni modello di posta elettronica ha un oggetto in testo normale e una definizione di corpo in formato HTML. Ogni elemento può essere personalizzato a piacimento.
 
@@ -114,4 +114,4 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

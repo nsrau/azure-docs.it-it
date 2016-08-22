@@ -45,9 +45,9 @@ Per eseguire questa esercitazione, saranno necessari il nome e la chiave dell'ac
 1. Eseguire l'accesso al [portale di Azure][azure-portal].
 2. Fare clic sull'hub **SFOGLIA** a sinistra e selezionare **Account di archiviazione**.
 3. Nel pannello **Account di archiviazione** selezionare l'**account di archiviazione di Azure** da usare in questa esercitazione.
-4. Nel pannello **ARCHIVIAZIONE** fare clic sul riquadro **CHIAVI**.
-5. Nel pannello **Gestisci chiavi** fare clic sul pulsante **copia** (immagine) accanto alla casella di testo **NOME ACCOUNT DI ARCHIVIAZIONE** e salvarlo/incollarlo, ad esempio, in un file di testo.
-6. Ripetere il passaggio precedente per copiare o annotare la **CHIAVE DI ACCESSO PRIMARIA**.
+4. Selezionare **Chiavi di accesso** in **IMPOSTAZIONI**.
+5.  Fare clic sul pulsante **copia** (immagine) accanto alla casella di testo **Nome dell'account di archiviazione** e salvarlo/incollarlo, ad esempio, in un file di testo.
+6. Ripetere il passaggio precedente per copiare o annotare la chiave denominata **key1**.
 7. Fare clic su **X** per chiudere tutti i pannelli.
 
 ## Raccogliere i nomi del server, del database e dell'utente per il database SQL
@@ -78,7 +78,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)  
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -104,7 +104,7 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) in alto per eseguire l'esercitazione usando Visual Studio 2013.
 
 ## l'attività di copia
-Per informazioni dettagliate sull'attività di copia in Azure Data Factory, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
+Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'Attività di copia in Azure Data Factory.
 
 
 <!--Link references-->
@@ -116,4 +116,4 @@ Per informazioni dettagliate sull'attività di copia in Azure Data Factory, vede
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

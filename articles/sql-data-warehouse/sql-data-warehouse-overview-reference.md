@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Argomenti di riferimento per SQL Data Warehouse
@@ -30,7 +30,7 @@ Questi articoli contengono informazioni di riferimento per SQL Data Warehouse.
 ## Passaggi successivi
 Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
@@ -40,6 +40,6 @@ Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][]
 [Cmdlet PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
-<!--MSDN references-->
+<!--MSDN references-->  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Panoramica su Azure Government" 
-   description="In questo articolo viene fornita una panoramica delle funzionalità cloud di Azure Government, della sicurezza e del design attendibile per supportare i requisiti di conformità applicabili alle organizzazioni governative, statali e federali e ai relativi partner." 
+   pageTitle="Panoramica su Azure per enti pubblici | Microsoft Azure" 
+   description="In questo articolo viene fornita una panoramica delle funzionalità cloud di Azure Government, della sicurezza e del design attendibile per supportare i requisiti di conformità applicabili alle organizzazioni governative, statali e federali e ai relativi partner. " 
    services="Azure-Government" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="multiple"
@@ -63,7 +63,7 @@ Le organizzazioni governative statunitensi interessate ai servizi cloud possono 
 Servizi di Azure Government disponibili nelle agenzie governative statunitensi dell'Iowa e della Virginia:
 
 - Macchine virtuali
-- Microsoft Azure
+- Servizi cloud
 - Archiviazione
 - Active Directory
 - Utilità di pianificazione
@@ -107,14 +107,14 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 
 
 
-<!-- Images. -->
+<!-- Images. -->  
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
-<!--Link references-->
+<!--Link references-->  
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

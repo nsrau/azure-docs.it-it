@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
@@ -90,10 +90,10 @@ Usare la procedura seguente per aggiungere un dominio di primo livello aggiuntiv
 
 Usare la procedura seguente per rimuovere il trust di Microsoft Online e aggiornare il dominio originale.
 
-2.  Nel server federativo di AD FS aprire **Gestione AD FS**. 
+2.  Nel server federativo di AD FS aprire **Gestione AD FS**.
 2.  Sulla sinistra espandere **Relazioni di attendibilità** e **Attendibilità componente**
 3.  Sulla destra eliminare la voce **Piattaforma delle identità di Microsoft Office 365**. ![Rimozione di Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.
 2.  Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
 2.  In PowerShell immettere `Connect-MsolService -Credential $cred`.
 4.  In PowerShell immettere `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`. Questa impostazione è relativa al dominio originale. Usando i domini precedenti, si ottiene quindi: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
@@ -101,7 +101,7 @@ Usare la procedura seguente per rimuovere il trust di Microsoft Online e aggiorn
 
 Usare la procedura seguente per aggiungere il nuovo dominio di primo livello tramite PowerShell
 
-1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+1.  Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.
 2.  Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
 2.  In PowerShell immettere `Connect-MsolService -Credential $cred`.
 3.  In PowerShell immettere `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`.
@@ -153,4 +153,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 5.	Fare clic su Ok. Fare clic su Applica. Fare clic su Ok. Chiudere Gestione ADFS.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

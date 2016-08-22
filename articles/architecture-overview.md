@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Architettura delle applicazioni in Microsoft Azure" 
+	pageTitle="Architettura delle applicazioni in Microsoft Azure | Microsoft Azure" 
 	description="Informazioni generali sull'architettura che includono riferimenti ai modelli di progettazione più comuni." 
 	services="" 
 	documentationCenter="" 
 	authors="Rboucher" 
 	manager="jwhit" 
-	editor="mattshel"/>
+	editor="mattshel"/>  
 
 <tags 
 	ms.service="multiple" 
@@ -38,9 +38,9 @@ Microsoft pubblica un set di [progetti di architettura](http://aka.ms/azblueprin
 
 Ogni progetto include:
 
-- File flat 2D basato su **Visio** 2003 che è possibile scaricare e modificare 
+- File flat 2D basato su **Visio** 2003 che è possibile scaricare e modificare
 - File **PDF in prospettiva 3D** colorato per presentare il progetto a destinatari con minori competenze tecniche
-- **Video** che illustra la versione 3D. 
+- **Video** che illustra la versione 3D.
 
 I progetti usano il [set di simboli Cloud ed Enterprise](#symbol-and-icon-sets).
 
@@ -54,9 +54,9 @@ Le versioni 3D dei [Progetti di Microsoft Architecture](http://aka.ms/azblueprin
 
 Il modello è anche disponibile al di fuori del corso.
 
-- [Visualizzare prima il video di training](http://aka.ms/3dBlueprintTemplateVideo) in modo da sapere quali operazione eseguire   
+- [Visualizzare prima il video di training](http://aka.ms/3dBlueprintTemplateVideo) in modo da sapere quali operazione eseguire
 - Scaricare [Microsoft 3D Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-- Scaricare i [simboli di Cloud ed Enterprise](#drawing-symbol-and-icon-sets) da usare con il modello 3D. 
+- Scaricare i [simboli di Cloud ed Enterprise](#drawing-symbol-and-icon-sets) da usare con il modello 3D.
 
 Inviare un messaggio di posta elettronica all'indirizzo [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) per domande specifiche per le quali non si trova risposta nel materiale didattico o per inviare commenti e suggerimenti. L'usabilità è uno degli obiettivi principali per il modello, per cui è utile sapere quali sono i vantaggi e gli svantaggi.
 
@@ -83,6 +83,6 @@ Simboli aggiuntivi per Microsoft Office e tecnologie annesse sono disponibili ne
 
 Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [Creazione di app reali per il cloud](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Scalabilità delle applicazioni con Servizi cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/).
 
-![Infografiche relative all'architettura di Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
+![Infografiche relative all'architettura di Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

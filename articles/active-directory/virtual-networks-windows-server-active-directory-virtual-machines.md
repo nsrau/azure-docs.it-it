@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	tags="azure-classic-portal"/>
+	tags="azure-classic-portal"/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/13/2016"
-	ms.author="markusvi"/>
+	ms.author="markusvi"/>  
 
 
 # Windows Server Active Directory in macchine virtuali di Azure
@@ -34,7 +34,7 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 
 - [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md)
 - [Installare un controller di dominio Active Directory di replica nelle reti virtuali di Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
-- [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
+- [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
 ## Risorse aggiuntive
@@ -42,4 +42,4 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

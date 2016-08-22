@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nicking"/>
+	ms.date="08/10/2016"
+	ms.author="nicking"/>  
 # Usare PowerShell per eseguire il backup e il ripristino di app del servizio app
 
 > [AZURE.SELECTOR]
@@ -26,10 +26,24 @@ Informazioni su come usare Azure PowerShell per eseguire il backup e il ripristi
 ## Prerequisiti
 Per usare PowerShell per gestire i backup delle app, è necessario quanto segue:
 
-- Un **URL di firma di accesso condiviso** che consente l'accesso in lettura e scrittura a un contenitore di archiviazione di Azure. Per altre informazioni sugli URL di firma di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
+- Un **URL di firma di accesso condiviso** che consente l'accesso in lettura e scrittura a un contenitore di archiviazione di Azure. Per una spiegazione degli URL di firma di accesso condiviso, vedere [Conoscere il modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md). Vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md) per esempi sulla gestione di Archiviazione di Azure tramite PowerShell.
 - Una **stringa di connessione del database** se si vuole eseguire il backup di un database insieme all'app Web.
 
-##Installare Azure PowerShell 1.3.2 o versioni successive
+### Come generare un URL di firma di accesso condiviso da usare con i cmdlet di backup dell'app Web
+L'URL di firma di accesso condiviso può essere generato con PowerShell. Di seguito è riportato un esempio su come generare un URL da usare con i cmdlet descritti in questo articolo.
+
+		$storageAccountName = "<your storage account's name>"
+		$storageAccountRg = "<your storage account's resource group>"
+
+		# This returns an array of keys for your storage account. Be sure to select the appropriate key. Here we select the first key as a default.
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountRg -Name $storageAccountName
+		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
+
+		$blobContainerName = "<name of blob container for app backups>"
+		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
+		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+
+## Installare Azure PowerShell 1.3.2 o versioni successive
 
 Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-install-configure.md).
 
@@ -43,11 +57,11 @@ Usare il cmdlet New-AzureRmWebAppBackup per creare un backup di un'app Web.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl
 
-Verrà creato un backup con un nome generato automaticamente. Se si vuole specificare un nome per il backup, usare il parametro facoltativo BackupName.
+Viene creato un backup con un nome generato automaticamente. Se si vuole specificare un nome per il backup, usare il parametro facoltativo BackupName.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl -BackupName MyBackup
 
-Se si vuole includere un database come parte del backup, creare prima di tutto un'impostazione di backup del database usando il cmdlet New-AzureRmWebAppDatabaseBackupSetting, quindi fornire tale informazione nel parametro Databases del cmdlet New-AzureRmWebAppBackup. Il parametro Databases accetta una matrice di impostazioni del database, consentendo di eseguire il backup di più database.
+Per includere un database nel backup, creare prima di tutto un'impostazione di backup del database usando il cmdlet New-AzureRmWebAppDatabaseBackupSetting, quindi fornire tale informazione nel parametro Databases del cmdlet New-AzureRmWebAppBackup. Il parametro Databases accetta una matrice di impostazioni del database, consentendo di eseguire il backup di più database.
 
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
@@ -55,7 +69,7 @@ Se si vuole includere un database come parte del backup, creare prima di tutto u
 
 ## Ottenere i backup
 
-Il cmdlet Get-AzureRmWebAppBackupList restituirà una matrice di backup per un'app Web. È necessario specificare il nome dell'app Web e il rispettivo gruppo di risorse.
+Il cmdlet Get-AzureRmWebAppBackupList restituisce una matrice di backup per un'app Web. È necessario specificare il nome dell'app Web e il rispettivo gruppo di risorse.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -82,11 +96,11 @@ Per semplificare, è anche possibile inviare tramite pipe un oggetto app Web in 
 - **FrequencyInterval**: valore numerico relativo alla frequenza con cui devono essere eseguiti i backup. Deve essere un intero positivo.
 - **FrequencyUnit**: unità di tempo relativa alla frequenza con cui devono essere eseguiti i backup.. Le opzioni disponibili sono Hour e Day.
 - **RetentionPeriodInDays**: giorni per cui è necessario conservare i backup automatici prima dell'eliminazione automatica.
-- **StartTime**: facoltativo. Ora in cui devono iniziare i backup automatici. I backup inizieranno immediatamente se questo valore è Null. Deve essere un valore DateTime.
+- **StartTime**: facoltativo. Ora in cui devono iniziare i backup automatici. I backup iniziano immediatamente se questo valore è Null. Deve essere un valore DateTime.
 - **Databases**: facoltativo. Una matrice di DatabaseBackupSettings per i database da sottoporre a backup.
 - **KeepAtLeastOneBackup**: parametro facoltativo scambiato. Specificare questo valore se è necessario conservare sempre un backup nell'account di archiviazione, indipendentemente da quando è stato creato.
 
-Ecco un esempio di uso del cmdlet.
+Di seguito un esempio di uso del cmdlet.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -112,11 +126,11 @@ Per ottenere la pianificazione di backup corrente, usare il cmdlet Get-AzureRmWe
 
 Per ripristinare un'app Web da un backup, usare il cmdlet Restore-AzureRmWebAppBackup. Il modo più semplice per usare questo cmdlet consiste nell'inviare tramite pipe un oggetto backup recuperato dal cmdlet Get-AzureRmWebAppBackup o dal cmdlet Get-AzureRmWebAppBackupList.
 
-Dopo avere ottenuto un oggetto backup, è possibile inviarlo tramite pipe nel cmdlet Restore-AzureRmWebAppBackup. È necessario specificare il parametro opzionale Overwrite per indicare che si intende sovrascrivere i contenuti dell'app Web con i contenuti del backup. Se il backup contiene database, verranno ripristinati anche tali database.
+Dopo avere ottenuto un oggetto backup, è possibile inviarlo tramite pipe nel cmdlet Restore-AzureRmWebAppBackup. Specificare il parametro opzionale Overwrite per indicare che si intende sovrascrivere i contenuti dell'app Web con i contenuti del backup. Se il backup contiene database, vengono ripristinati anche tali database.
 
 		$backup | Restore-AzureRmWebAppBackup -Overwrite
 
-Ecco un esempio di uso del cmdlet Restore-AzureRmWebAppBackup con tutti i parametri specificati.
+Di seguito un esempio di uso del cmdlet Restore-AzureRmWebAppBackup con tutti i parametri specificati.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -128,7 +142,7 @@ Ecco un esempio di uso del cmdlet Restore-AzureRmWebAppBackup con tutti i parame
 
 ## Eliminazione di un backup
 
-Per eliminare un backup, usare il cmdlet Remove-AzureRmWebAppBackup. Il backup verrà rimosso dall'account di archiviazione. È necessario specificare il nome dell'app, il rispettivo gruppo di risorse e l'ID del backup da eliminare.
+Per eliminare un backup, usare il cmdlet Remove-AzureRmWebAppBackup. Il backup viene rimosso dall'account di archiviazione. Specificare il nome dell'app, il rispettivo gruppo di risorse e l'ID del backup da eliminare.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -139,4 +153,4 @@ Per eliminare un backup, usare il cmdlet Remove-AzureRmWebAppBackup. Il backup v
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

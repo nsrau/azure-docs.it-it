@@ -3,7 +3,7 @@
    description="Questa pagina fornisce istruzioni per la creazione e la configurazione di un gateway applicazione di Azure con le regole per il routing basato su URL"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>  
 
 
 # Creare un gateway applicazione con il routing basato su URL 
@@ -22,14 +22,14 @@ Il routing basato su percorso URL consente di associare le route in base al perc
 
 Il routing basato su URL introduce un nuovo tipo di regola per i gateway applicazione. Per il gateway applicazione sono disponibili due tipi di regole: basic e PathBasedRouting. Il tipo di regola basic fornisce un servizio di tipo round robin per i pool back-end, mentre la regola PathBasedRouting oltre alla distribuzione round robin tiene conto del modello di percorso dell'URL della richiesta per la scelta del pool back-end.
 
->[AZURE.IMPORTANT] PathPattern: elenco dei modelli di percorso usati per la corrispondenza. Ognuno di loro deve iniziare con una barra / e l’unica posizione in cui è consentito il simbolo * è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo simbolo ? o # e questi caratteri non sono consentiti.
+>[AZURE.IMPORTANT] PathPattern: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il simbolo * è alla fine*. Alcuni esempi validi: /xyz, /xyz* o /xyz/**. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo simbolo ? o # e questi caratteri non sono consentiti.
 
 ## Scenario
 Nell'esempio seguente il gateway applicazione gestisce il traffico per contoso.com con due pool di server back-end: pool di server video e pool di server immagini.
 
-Le richieste per http://contoso.com/image* verranno indirizzate al pool di server immagini (pool1) e quelle per http://contoso.com/video* al pool di server video (pool2). In caso di mancata corrispondenza dei percorsi, viene selezionato un pool di server predefinito (pool1).
+Le richieste per http://contoso.com/image* verranno instradate al pool di server immagini (pool1) e quelle per http://contoso.com/video* al pool di server video (pool2). In caso di mancata corrispondenza dei percorsi, viene selezionato un pool di server predefinito (pool1).
 
-![route dell'URL](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+![route dell'URL](./media/application-gateway-create-url-route-arm-ps/figure1.png)  
 
 ## Prima di iniziare
 
@@ -43,9 +43,9 @@ Le richieste per http://contoso.com/image* verranno indirizzate al pool di serve
 
 
 - **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+- **Listener**: ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
 - **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
 
 ## Creare un nuovo gateway applicazione
@@ -64,7 +64,7 @@ Per creare un gateway applicazione, seguire questa procedura:
 
 ## Creare un gruppo di risorse per Gestione risorse
 
-Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informazioni sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Passaggio 1
 Accedere all'account Login-AzureRmAccount di Azure
@@ -94,7 +94,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-RG" e la località "West US".
 
->[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere [Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md).
 
 ## Creare una rete virtuale e una subnet per il gateway applicazione
 
@@ -196,4 +196,4 @@ Creare un gateway applicazione con tutti gli oggetti di configurazione illustrat
 ## Ottenere il gateway applicazione
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

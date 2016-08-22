@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
-	editor="curtland"/>
+	editor="curtland"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Effettuare l’accesso tramite una chiamata al telefono cellulare o dell’ufficio con Azure Multi-Factor Authentication
 
@@ -29,11 +29,11 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 <li>Microsoft effettuerà una telefonata.</li>
 
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-signin-phone/call.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-phone/call.png)</center>
 
 <li>Rispondere al telefono e premere il tasto #.</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-signin-phone/phone.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-phone/phone.png)</center>
 
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
@@ -47,4 +47,4 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="api-management" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come creare API, operazioni e prodotti in Gestione API di Azure
 
@@ -62,4 +62,4 @@ In Gestione API un prodotto contiene una o più API, oltre a una quota di utiliz
 [Come importare la definizione di un'API con le operazioni]: api-management-howto-import-api.md
 [Come creare e configurare le impostazioni avanzate del prodotto]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

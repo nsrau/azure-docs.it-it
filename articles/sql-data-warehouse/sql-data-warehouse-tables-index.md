@@ -257,10 +257,10 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] \(Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
+La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] (Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
  
 ### Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
-Eseguire nuovamente la query che ha identificato la tabella con una qualità scadente dei segmenti e verificare che la qualità sia migliorata. Se la qualità dei segmenti non è migliorata, le righe della tabella potrebbero essere troppo larghe. È consigliabile usare una classe di risorse superiore o una DWU durante la ricompilazione degli indici. Se è necessaria una quantità di memoria maggiore,
+Eseguire nuovamente la query che ha identificato la tabella con una qualità scadente dei segmenti e verificare che la qualità sia migliorata. Se la qualità dei segmenti non è migliorata, le righe della tabella potrebbero essere troppo larghe. È consigliabile usare una classe di risorse superiore o una DWU durante la ricompilazione degli indici.
 
  
 ## Ricompilazione degli indici con CTAS e cambio della partizione
@@ -309,7 +309,7 @@ Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Table Overview][Overview] \(Panoramica sulle tabelle), [Table Data Types][Data Types] \(Tipi di dati per le tabelle), [Distributing a Table][Distribute] \(Distribuzione di tabelle ), [Partitioning a table][Partition] \(Partizionamento di una tabella), [Maintaining table statistics][Statistics] \(Gestione delle statistiche nelle tabelle) e [Temporary tables][Temporary] \(Tabelle temporanee). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Table Overview][Overview] (Panoramica sulle tabelle), [Table Data Types][Data Types] (Tipi di dati per le tabelle), [Distributing a Table][Distribute] (Distribuzione di tabelle ), [Partitioning a table][Partition] (Partizionamento di una tabella), [Maintaining table statistics][Statistics] (Gestione delle statistiche nelle tabelle) e [Temporary tables][Temporary] (Tabelle temporanee). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -341,4 +341,4 @@ Per altre informazioni, vedere gli articoli [Table Overview][Overview] \(Panoram
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

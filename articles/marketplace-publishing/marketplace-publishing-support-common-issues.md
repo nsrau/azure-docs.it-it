@@ -13,8 +13,8 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="05/03/2016"
-      ms.author="v-jeana; hascipio; v-dabosl"/>
+      ms.date="08/03/2016"
+      ms.author="v-jeana; hascipio; v-dabosl"/>  
 
 # Come risolvere i problemi comuni degli editori in Azure Marketplace
 Questo articolo spiega come risolvere o ottenere supporto per alcuni scenari comuni relativi al Marketplace.
@@ -72,9 +72,9 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 ![inprivate][4]
 
-**2. Accedere con account aziendale o dell'istituto di istruzione** (ovvero AzureStore@yourcompany.com).
+**2. Accedere con l'account aziendale o dell'istituto di istruzione, vale a dire** AzureStore@yourcompany.com.
 
-![signin][5]
+![signin][5]  
 
 **3. Completare la verifica per la protezione dell'account**.
 
@@ -120,4 +120,4 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

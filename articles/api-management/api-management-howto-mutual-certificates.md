@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="api-management" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
@@ -30,23 +30,23 @@ In questa guida viene illustrato come configurare un'istanza del servizio di Ges
 
 Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
-![Portale di pubblicazione delle API][api-management-management-console]
+![Portale di pubblicazione delle API][api-management-management-console]  
 
 >Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 Fare clic su **Sicurezza** dal menu **Gestione API** sulla sinistra, quindi scegliere **Certificati client**.
 
-![Certificati client][api-management-security-client-certificates]
+![Certificati client][api-management-security-client-certificates]  
 
 Per caricare un nuovo certificato, fare clic su **Carica certificato**.
 
-![Caricamento del certificato][api-management-upload-certificate]
+![Caricamento del certificato][api-management-upload-certificate]  
 
 Passare al certificato e immettere la relativa password.
 
 >Il certificato deve essere nel formato **.pfx**. Sono consentiti i certificati autofirmati.
 
-![Caricamento del certificato][api-management-upload-certificate-form]
+![Caricamento del certificato][api-management-upload-certificate-form]  
 
 Fare clic su **Carica** per caricare il certificato.
 
@@ -60,11 +60,11 @@ Una volta caricato il certificato, questo viene visualizzato nella scheda **Cert
 
 Per eliminare un certificato, fare clic su **Elimina** accanto al certificato desiderato.
 
-![Eliminazione di un certificato][api-management-certificate-delete]
+![Eliminazione di un certificato][api-management-certificate-delete]  
 
 Fare clic su **Sì, elimina** per confermare.
 
-![Conferma dell'eliminazione][api-management-confirm-delete]
+![Conferma dell'eliminazione][api-management-confirm-delete]  
 
 Se il certificato è in uso da parte di un'API, verrà visualizzata una schermata di avviso. Per eliminare il certificato è necessario prima rimuoverlo da tutte le API configurate per il suo uso.
 
@@ -74,25 +74,25 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 Fare clic su **API** dal menu **Gestione API** sulla sinistra, fare clic sul nome dell'API desiderata, quindi sulla scheda **Sicurezza**.
 
-![Sicurezza API][api-management-api-security]
+![Sicurezza API][api-management-api-security]  
 
 Selezionare **Certificati client** dall'elenco a discesa **Con credenziali**.
 
-![Certificati client][api-management-mutual-certificates]
+![Certificati client][api-management-mutual-certificates]  
 
 Selezionare il certificato desiderato dall'elenco a discesa **Certificato client**. Se esistono diversi certificati, fare riferimento all'oggetto o agli ultimi quattro caratteri dell'identificazione personale, come spiegato nella sezione precedente, per determinare il certificato corretto.
 
-![Selezione del certificato][api-management-select-certificate]
+![Selezione del certificato][api-management-select-certificate]  
 
 Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 >Questa modifica ha effetto immediato e le chiamate alle operazioni di quell'API useranno il certificato per autenticarsi sul server back-end.
 
-![Salvataggio delle modifiche API][api-management-save-api]
+![Salvataggio delle modifiche API][api-management-save-api]  
 
 >Quando un certificato è specificato per l'autenticazione gateway del servizio back-end di un'API, diventa parte dei criteri di quell'API e può essere visualizzato nell'editor dei criteri.
 
-![Criteri dei certificati][api-management-certificate-policy]
+![Criteri dei certificati][api-management-certificate-policy]  
 
 ## Passaggi successivi
 
@@ -129,7 +129,7 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
 [Entità certificato dell'API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -141,4 +141,4 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

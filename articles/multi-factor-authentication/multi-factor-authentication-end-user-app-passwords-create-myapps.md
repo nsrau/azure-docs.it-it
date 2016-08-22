@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
-	editor="curtland"/>
+	editor="curtland"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Creare password per le app nel portale myapps di Office 365 per Azure Multi-Factor Authentication
 
@@ -26,7 +26,7 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 --------------------------------------------------------------------------------
 <ol>
 <li>Accedere al sito [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>	
-<li>Nella parte superiore della schermata selezionare il profilo.</li>
+<li>Nella parte superiore selezionare il profilo.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
 
@@ -34,7 +34,7 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 <li>Nella parte superiore della pagina di verifica selezionare le password per le app.</li>
 <li>Fare clic su **Crea**.</li>
 
-![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png)
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png)  
 
 <li>Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.</li>
 <li>Copiare la password per l'app negli Appunti, quindi incollarla nell'app.</li>
@@ -42,4 +42,4 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

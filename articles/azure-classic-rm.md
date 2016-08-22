@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Modelli di distribuzione Gestione risorse e Gestione servizi (Classico) | Azure"
+   pageTitle="Modelli di distribuzione Gestione risorse e Gestione servizi (Classico) | Microsoft Azure"
    description="Comprendere le differenze tra i modelli di distribuzione Gestione risorse e Classico."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>  
 
 <tags
    ms.service="virtual-network"
@@ -23,7 +23,7 @@ La piattaforma Azure è in fase di transizione. Per gli utenti che non hanno fam
 
 Tutte le risorse di Azure supportano uno o entrambi i modelli di distribuzione seguenti:
 
-- **Gestione risorse**: si tratta del modello di distribuzione più recente per le risorse Azure. La maggior parte delle risorse più recenti supporta già questo modello di distribuzione, che in futuro sarà supportato da tutte le risorse.   
+- **Gestione risorse**: si tratta del modello di distribuzione più recente per le risorse Azure. La maggior parte delle risorse più recenti supporta già questo modello di distribuzione, che in futuro sarà supportato da tutte le risorse.
  
 - **Classico:** questo modello è attualmente supportato dalla maggior parte delle risorse di Azure esistenti. Le nuove risorse aggiunte in Azure non supportano questo modello.
 
@@ -33,10 +33,10 @@ La documentazione per ciascuna risorsa di Azure descrive nel dettaglio con quali
 
 È importante per i motivi seguenti:
 
-- Le funzionalità della piattaforma Azure in uso sono diverse tra questi due modelli. Ad esempio, le risorse create usando il modello di distribuzione Gestione risorse (o semplicemente Gestione risorse) possono essere create con i [modelli di Gestione risorse di Azure](resource-group-overview.md/#template-deployment), mentre non è possibile farlo con le risorse create con il modello di distribuzione Classico.
-- Le funzionalità o i comportamenti delle singole risorse di Azure possono differire tra i due modelli oppure esistere solo in un modello o nell'altro. Ad esempio, il bilanciamento del carico del traffico tra macchine virtuali create con il modello di distribuzione Classico è *implicito* perché le macchine virtuali sono membri di un servizio cloud di Azure e il carico viene bilanciato automaticamente tra macchine virtuali all'interno di un servizio cloud. Le macchine virtuali create usando Gestione risorse non sono membri di un servizio cloud ed è necessario creare *in modo esplicito* una risorsa separata del Servizio di bilanciamento del carico di Azure per bilanciare il carico tra più macchine virtuali.  
+- Le funzionalità della piattaforma Azure in uso sono diverse tra questi due modelli. Ad esempio, le risorse create usando il modello di distribuzione Gestione risorse (o semplicemente Gestione risorse) possono essere create con i [modelli di Gestione risorse di Azure](resource-group-overview.md#template-deployment), mentre non è possibile farlo con le risorse create con il modello di distribuzione Classico.
+- Le funzionalità o i comportamenti delle singole risorse di Azure possono differire tra i due modelli oppure esistere solo in un modello o nell'altro. Ad esempio, il bilanciamento del carico del traffico tra macchine virtuali create con il modello di distribuzione Classico è *implicito* perché le macchine virtuali sono membri di un servizio cloud di Azure e il carico viene bilanciato automaticamente tra macchine virtuali all'interno di un servizio cloud. Le macchine virtuali create usando Gestione risorse non sono membri di un servizio cloud ed è necessario creare *in modo esplicito* una risorsa separata del Servizio di bilanciamento del carico di Azure per bilanciare il carico tra più macchine virtuali.
 - Le modalità di creazione, configurazione e gestione delle risorse di Azure differiscono tra questi due modelli.
-- Le risorse create usando un modello di distribuzione non possono necessariamente interagire con le risorse create usando un modello di distribuzione differente. Ad esempio, le macchine virtuali di Azure create usando un unico modello di distribuzione possono essere connesse solo alle reti virtuali di Azure create usando lo stesso modello di distribuzione.    
+- Le risorse create usando un modello di distribuzione non possono necessariamente interagire con le risorse create usando un modello di distribuzione differente. Ad esempio, le macchine virtuali di Azure create usando un unico modello di distribuzione possono essere connesse solo alle reti virtuali di Azure create usando lo stesso modello di distribuzione.
 
 Alla base di ciascun modello di distribuzione è prevista un'API per ogni risorsa. Sono disponibili l'[API di Gestione risorse](https://msdn.microsoft.com/library/azure/dn948464.aspx) per il modello di distribuzione di Gestione risorse e l'[API di gestione del servizio](https://msdn.microsoft.com/library/azure/ee460799.aspx) per il modello di distribuzione Classico. Gli sviluppatori possono scrivere codice per l'interazione *diretta* con queste API.
 
@@ -47,8 +47,8 @@ Le sezioni seguenti illustrano come configurare le risorse di Azure usando i var
 ## Portali
 Azure offre due portali:
 
-- **[Portale di Azure](https://manage.windowsazure.com):** se si usa Azure da tempo si conosce già questo portale, che viene usato per creare e configurare le risorse più obsolete di Azure, che supportano il modello di distribuzione classico. Questo portale non permette invece di creare o configurare le risorse che supportano unicamente Gestione risorse. 
-- **[Portale di anteprima di Azure](https://azure.microsoft.com/overview/preview-portal/):** se si usa una risorsa di Azure più recente è probabile che questo portale sia già stato usato. Questo portale consente di creare e configurare alcune risorse di Azure. In futuro sarà possibile creare e configurare tutte le risorse di Azure in questo portale. Per alcune risorse che supportano entrambi i modelli di distribuzione, è possibile usare questo portale per creare e configurare una risorsa con uno dei due modelli di distribuzione. 
+- **[Portale di Azure](https://manage.windowsazure.com):** se si usa Azure da tempo si conosce già questo portale, che viene usato per creare e configurare le risorse più obsolete di Azure, che supportano il modello di distribuzione classico. Questo portale non permette invece di creare o configurare le risorse che supportano unicamente Gestione risorse.
+- **[Portale di anteprima di Azure](https://azure.microsoft.com/overview/preview-portal/):** se si usa una risorsa di Azure più recente è probabile che questo portale sia già stato usato. Questo portale consente di creare e configurare alcune risorse di Azure. In futuro sarà possibile creare e configurare tutte le risorse di Azure in questo portale. Per alcune risorse che supportano entrambi i modelli di distribuzione, è possibile usare questo portale per creare e configurare una risorsa con uno dei due modelli di distribuzione.
 
 Alcune risorse e funzionalità possono essere create e configurate solo in un portale o nell'altro. Non è ancora possibile creare o configurare alcune risorse o funzionalità in entrambi i portali, ma solo con PowerShell, l'interfaccia della riga di comando o entrambi. La documentazione per ciascuna risorsa di Azure descrive nel dettaglio con quale metodo può essere creata.
 
@@ -67,4 +67,4 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - Per altre informazioni, vedere [Gestione risorse](resource-group-overview.md).
 - Informazioni su come [progettare i modelli](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

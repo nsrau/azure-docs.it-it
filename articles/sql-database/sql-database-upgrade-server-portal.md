@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-Database SQL V12 è la versione più recente, pertanto, è consigliabile eseguire l'aggiornamento alla versione 12 del Database SQL. Il database SQL V12 presenta molti [vantaggi rispetto alla versione precedente](sql-database-v12-whats-new.md), tra cui:
+Database SQL V12 è la versione più recente, pertanto, è consigliabile eseguire l'aggiornamento dei server esistenti alla versione 12 del database SQL. Il database SQL V12 presenta molti [vantaggi rispetto alla versione precedente](sql-database-v12-whats-new.md), tra cui:
 
 - Miglioramento della compatibilità con SQL Server.
 - Maggiori prestazioni Premium e nuovi livelli di prestazioni.
@@ -53,10 +53,12 @@ Dopo l'aggiornamento alla V12, [le indicazioni per i livelli di servizio](sql-da
 
 ## Avviare l'aggiornamento
 
-1. Nel [portale di Azure](https://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **ESPLORA TUTTO** > **Server SQL** e selezionando il server desiderato.
-2. Selezionare **Ultimo aggiornamento del database SQL**, quindi selezionare **Upgrade this server**.
+1. Nel [portale di Azure](https://portal.azure.com/) individuare il server da aggiornare selezionando **Esplora** > **Server SQL** e selezionando il server con la versione 2.0 da aggiornare.
+2. Selezionare **Ultimo aggiornamento del database SQL** e quindi selezionare **Aggiorna questo server**.
 
-      ![aggiornamento del server][1]
+      ![aggiornamento del server][1]  
+
+3. L'aggiornamento di un server con l'ultimo aggiornamento del database SQL è definitivo e irreversibile. Per confermare l'aggiornamento, digitare il nome del server e fare clic su **OK**.
 
 ## Aggiornare tutti i database Web e Business
 
@@ -67,14 +69,14 @@ A questo scopo, il servizio database SQL consiglia un livello di servizio e un l
 3. Nel pannello **Upgrade this server** selezionare ogni database per esaminare e selezionare il piano tariffario consigliato per l'aggiornamento. È sempre possibile scorrere i piani tariffari disponibili e selezionare quello che si ritiene più adatto al proprio ambiente.
 
 
-     ![database][2]
+     ![database][2]  
 
 
 7. Dopo aver fatto clic sul livello consigliato, verrà visualizzato il pannello **Scegliere il piano tariffario**, in cui è possibile selezionare un livello e fare clic sul pulsante **Seleziona** per modificare tale livello. Selezionare un nuovo livello per ogni database Web o Business
 
     È importante tenere presente che i database SQL non sono bloccati in un livello di servizio o di prestazioni specifico e che pertanto è possibile passare facilmente a un altro dei vari livelli di servizio e di prestazioni disponibili quando cambiano i requisiti del database. I database SQL Basic, Standard e Premium vengono infatti fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi fino a quattro volte nell'arco di un periodo di 24 ore.
 
-    ![raccomandazioni di film][6]
+    ![raccomandazioni di film][6]  
 
 
 Quando tutti i database nel server sono idonei, si è pronti per iniziare l'aggiornamento
@@ -83,18 +85,18 @@ Quando tutti i database nel server sono idonei, si è pronti per iniziare l'aggi
 
 3. Quando tutti i database nel server sono idonei per l'aggiornamento, è necessario **DIGITARE IL NOME DEL SERVER** per verificare che si desidera eseguire l'aggiornamento, quindi fare clic su **OK**.
 
-    ![verifica dell'aggiornamento][3]
+    ![verifica dell'aggiornamento][3]  
 
 
 4. L'aggiornamento viene avviato e viene visualizzato nella notifica dell’avanzamento. Il processo di aggiornamento viene avviato. L'aggiornamento a V12 può richiedere del tempo, a seconda dei dettagli dei database specifici. Durante questo periodo, tutti i database nel server rimarranno online, ma le azioni di gestione del server e del database saranno limitate.
 
-    ![aggiornamento in corso][4]
+    ![aggiornamento in corso][4]  
 
     Al momento della transizione effettiva al nuovo livello di prestazioni, le connessioni al database possono interrompersi temporaneamente per un periodo molto breve (in genere, per alcuni secondi). Se un'applicazione ha una gestione degli errori temporanei (logica dei nuovi tentativi) per le interruzioni di connessione, è sufficiente impostare la protezione dalle connessioni interrotte alla fine dell'aggiornamento.
 
 5. Al termine dell'operazione di aggiornamento, nel pannello **Latest Update** verrà visualizzato **Abilitato**.
 
-    ![V12 abilitato][5]
+    ![V12 abilitato][5]  
 
 ## Spostare i database in un pool di database elastici
 
@@ -102,9 +104,9 @@ Nel [portale di Azure](https://portal.azure.com/) passare al server V12 e fare c
 
 -oppure-
 
-Se viene visualizzato il messaggio **Click here to view the recommended elastic database pools for this server**, fare clic su di esso per creare facilmente un pool ottimizzato per i database del server. Per ulteriori dettagli, vedere [Considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+Se viene visualizzato il messaggio **Click here to view the recommended elastic database pools for this server**, fare clic su di esso per creare facilmente un pool ottimizzato per i database del server. Per altri dettagli, vedere [Considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-![Aggiungere un pool a un server][7]
+![Aggiungere un pool a un server][7]  
 
 Seguire le istruzioni presenti nell’articolo [Creare un pool di database elastici](sql-database-elastic-pool.md) per completare la creazione del pool.
 
@@ -114,10 +116,10 @@ Seguire le istruzioni presenti nell’articolo [Creare un pool di database elast
 
 Dopo l’aggiornamento, monitorare il database in maniera attiva per garantire che le applicazioni offrano le prestazioni desiderate e per ottimizzare le impostazioni in base alle esigenze.
 
-Oltre al monitoraggio dei singoli database, è possibile monitorare i pool di database elastici come da sezione [Monitorare, gestire e dimensionare un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md) o con [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
+Oltre al monitoraggio dei singoli database, è possibile monitorare i pool di database elastici come da indicato in [Monitorare, gestire e dimensionare un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md) o con [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium i dati sul consumo delle risorse sono disponibili tramite il DMV [sys.dm\_ db\_resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
+**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium i dati sul consumo delle risorse sono disponibili tramite la vista DMV [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -158,7 +160,7 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 - [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-upgrade-server-portal/latest-sql-database-update.png
 [2]: ./media/sql-database-upgrade-server-portal/upgrade-server2.png
 [3]: ./media/sql-database-upgrade-server-portal/upgrade-server3.png
@@ -167,4 +169,4 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

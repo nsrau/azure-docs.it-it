@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Configurare una rete virtuale usando un file di configurazione di rete" 
-	description="Istruzioni per esportare e importare un file di configurazione di rete nel portale di gestione di Azure per creare o modificare reti virtuali." 
+	description="Istruzioni per esportare e importare un file di configurazione di rete nel portale di gestione di Azure per creare o modificare reti virtuali. " 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="telmosampaio" 
+	authors="jimdial" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
 	ms.date="03/15/2016"
-	ms.author="telmos"/>
+	ms.author="jdial"/>  
 
 # Configurare una rete virtuale usando un file di configurazione di rete
 
@@ -36,8 +36,8 @@ Azure considera una subnet con un elemento distribuito come **in uso**. Quando u
 Quando si esporta, tutte le impostazioni per le reti virtuali nella sottoscrizione verranno scritte in un file XML.
 
 1. Accedere al **portale di gestione**.
-2. Nel portale di gestione, nella parte inferiore della pagina **Reti** fare clic su **Esporta**. 
-3. Nella finestra **Esporta configurazione di rete**, verificare di aver selezionato la sottoscrizione per la quale si vogliono esportare le impostazioni di rete. Quindi, fare clic sul segno di spunta in basso a destra. 
+2. Nel portale di gestione, nella parte inferiore della pagina **Reti** fare clic su **Esporta**.
+3. Nella finestra **Esporta configurazione di rete**, verificare di aver selezionato la sottoscrizione per la quale si vogliono esportare le impostazioni di rete. Quindi, fare clic sul segno di spunta in basso a destra.
 4. Quando richiesto, salvare il file *NetworkConfig.xml*nel percorso desiderato.
 
 
@@ -46,6 +46,6 @@ Quando si esporta, tutte le impostazioni per le reti virtuali nella sottoscrizio
 1. Nel **Portale di gestione**, nel riquadro di spostamento in basso a sinistra, fare clic su **Nuovo**.
 2. Fare clic su **Servizi di rete** -> **Rete virtuale** -> **Importa configurazione**.
 3. Nella pagina **Importa file di configurazione della rete** passare al file di configurazione della rete, quindi fare clic su **Avanti**.
-4. Nella pagina** Compilazione della rete** verranno visualizzate le informazioni sulla schermata che mostra quali sezioni della configurazione di rete verranno modificate o create. Se le modifiche sembrano corrette, fare clic sul segno di spunta per continuare con l'aggiornamento o la creazione della rete virtuale. 
+4. Nella pagina** Compilazione della rete** verranno visualizzate le informazioni sulla schermata che mostra quali sezioni della configurazione di rete verranno modificate o create. Se le modifiche sembrano corrette, fare clic sul segno di spunta per continuare con l'aggiornamento o la creazione della rete virtuale.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

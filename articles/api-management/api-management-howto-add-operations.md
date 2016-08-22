@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Come aggiungere operazioni a un'API in Gestione API di Azure
@@ -67,7 +67,7 @@ La memorizzazione nella cache della risposta riduce la latenza percepita dai con
 
 Per abilitare la memorizzazione nella cache per l'operazione in modo facile e veloce, selezionare la scheda **Memorizzazione nella cache** e selezionare la casella di controllo **Abilita**.
 
-![Caching][api-management-caching-tab]
+![Memorizzazione nella cache][api-management-caching-tab]
 
 In **Durata** viene specificato il periodo di tempo durante il quale la risposta dell'operazione rimane nella cache. Il valore predefinito è 3.600 secondi o un'ora.
 
@@ -86,7 +86,7 @@ Per aggiungere un parametro di query, fare clic su **Aggiungi parametro di query
 -	**Descrizione**: breve descrizione del parametro (facoltativa).
 -	**Tipo**: tipo del parametro, selezionato nell'elenco a discesa.
 -	**Valori**: valori che possono essere assegnati al parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo).
--	**Obbligatorio**: selezionare questa casella di controllo per rendere il parametro obbligatorio. 
+-	**Obbligatorio**: selezionare questa casella di controllo per rendere il parametro obbligatorio.
 
 ![Parametri della richiesta][api-management-request-parameters]
 
@@ -168,4 +168,4 @@ Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà
 [Come creare e pubblicare un prodotto]: api-management-howto-add-products.md
 [Come memorizzare nella cache i risultati dell'operazione in Gestione API di Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

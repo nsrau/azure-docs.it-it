@@ -21,12 +21,9 @@
 
 In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Script personalizzato per le VM Windows tramite i cmdlet Azure Powershell con le API Gestione dei servizi.
 
-Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere 
-[estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
+Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere [estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
 
-Collegamento:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-extensions-customscript.md).
 
 ## Panoramica dell'estensione Script personalizzato
 
@@ -35,7 +32,7 @@ L'estensione Script personalizzato per Windows consente di eseguire gli script P
 ### Prerequisiti per l'esecuzione dell'estensione Script personalizzato
 
 1. Installare i cmdlet di Azure PowerShell versione 0.8.0 o versione successiva da <a href="http://azure.microsoft.com/downloads" target="_blank">qui</a>.
-2. Se gli script vengono eseguiti in una macchina virtuale esistente, assicurarsi che l'agente VM sia abilitato nella macchina virtuale; in caso contrario, fare riferimento a questo <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">articolo</a> per installarne uno. (Se si esegue il provisioning della macchina virtuale dalla raccolta di Azure, gli agenti della macchina virtuale sono abilitati per impostazione predefinita e non è necessario abilitarli)
+2. Se gli script vengono eseguiti in una VM esistente, assicurarsi che l'agente VM sia abilitato nella VM. Se non è stato installato, seguire la procedura descritta [qui](virtual-machines-windows-classic-agents-and-extensions.md) per installare l'agente VM. Se la VM viene creata dal portale, l'agente VM è installato per impostazione predefinita.
 3. Caricare gli script da eseguire sulla macchina virtuale in Archiviazione di Azure. Gli script possono provenire da uno o più contenitori di archiviazione.
 4. Lo script deve essere creato in modo tale che lo script di ingresso che viene avviato dall'estensione a turno avvii altri script.
 
@@ -90,7 +87,7 @@ L'estensione Script personalizzato può essere disinstallata dalla macchina virt
 
 Per ulteriori informazioni sull’utilizzo dell’estensione di script personalizzato con modelli di gestione risorse di Azure, vedere la documentazione [qui](virtual-machines-windows-extensions-customscript.md).
 
-<!--Image references-->
+<!--Image references-->  
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

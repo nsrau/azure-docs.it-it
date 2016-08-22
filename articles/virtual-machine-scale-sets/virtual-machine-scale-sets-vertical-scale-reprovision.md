@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="guybo"/>
+	ms.date="08/03/2016"
+	ms.author="guybo"/>  
 
 # Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali
 
@@ -37,21 +37,14 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 3. Aggiungere un webhook al runbook.
 4. Aggiungere un avviso per il set di scalabilità di macchine virtuali con una notifica di un webhook.
 
-> [AZURE.NOTE] Il ridimensionamento verticale può avvenire solo entro determinati intervalli di dimensioni delle VM. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
+> [AZURE.NOTE] Il ridimensionamento verticale può avvenire solo entro determinati intervalli di dimensioni delle VM. Confrontare le specifiche di ogni dimensione prima di decidere il tipo di ridimensionamento (un numero più alto non sempre indica dimensioni della VM più grandi). È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 
 >| coppie di ridimensionamento di dimensioni delle macchine virtuali | |
 |---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| Standard\_D1 | Standard\_D4 |
-| Standard\_D11 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_A0 | Standard\_A11 |
+| Standard\_D1 | Standard\_D14 |
+| Standard\_DS1 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D15v2 |
 | Standard\_G1 | Standard\_G5 |
 | Standard\_GS1 | Standard\_GS5 |
 
@@ -69,11 +62,11 @@ I runbook necessari per il ridimensionamento verticale del set di scalabilità d
 
 Scegliere l'opzione Esplora raccolta dal menu Runbook:
 
-![Runbook da importare][runbooks]
+![Runbook da importare][runbooks]  
 
 I runbook da importare sono visualizzati nell'immagine seguente: Selezionare il runbook in base al tipo di ridimensionamento con o senza un nuovo provisioning che si vuole usare:
 
-![Raccolta di runbook][gallery]
+![Raccolta di runbook][gallery]  
 
 ## Aggiungere un webhook al runbook
 
@@ -120,11 +113,11 @@ Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 * [Esempi di avvio rapido di PowerShell in Azure Insights](../azure-portal/insights-powershell-samples.md)
 * [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights](../azure-portal/insights-cli-samples.md)
 
-## Riepilogo
+## Summary
 
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

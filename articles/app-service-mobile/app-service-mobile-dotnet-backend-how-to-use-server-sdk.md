@@ -29,7 +29,7 @@ Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chi
 
 La documentazione di riferimento per l'SDK del server è disponibile qui: [Riferimento .NET di App per dispositivi mobili di Azure](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>Procedura: creare un backend .NET per l'applicazione per dispositivi mobili
+## <a name="create-app"></a>Procedura: Creare un back-end dell'app per dispositivi mobili .NET
 
 Se si inizia un nuovo progetto, è possibile creare un'applicazione del servizio app usando il [portale di Azure] o Visual Studio. Questa sezione illustra come usare uno dei due per creare il back-end per una nuova applicazione per dispositivi mobili che ospita l'API per un semplice elenco attività. È possibile eseguirlo localmente o pubblicare il progetto nell'app per dispositivi mobili del servizio app basata sul cloud.
 
@@ -37,9 +37,11 @@ Se si devono aggiungere funzionalità per dispositivi mobili a un progetto esist
 
 ### Creare un back-end .NET usando il portale di Azure
 
-È possibile creare una nuova applicazione per dispositivi mobili direttamente nel [portale di Azure]. È possibile seguire questi passaggi o creare un nuovo client e un nuovo server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md).
+È possibile creare un nuov beck-end dell'applicazione per dispositivi mobili direttamente nel [portale di Azure].
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+È possibile seguire questi passaggi o creare un nuovo client e un nuovo server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md). L'esercitazione contiene una versione semplificata di queste istruzioni e dimostra i progetti del concetto. Con l'esercitazione è possibile creare solo un back-end Node. js.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 Nel pannello _Attività iniziali_, in **Creare un'API di tabella** scegliere **C#** come **Linguaggio back-end**. Fare clic su **Download**, estrarre i file di progetto compressi nel computer locale e aprire la soluzione in Visual Studio.
 
@@ -132,7 +134,7 @@ I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionali
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Crea un controller che fornisce i dati ai Web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController**.
 
-- [Microsoft.Azure.Mobile.Server.Login] Offre il supporto per l'autenticazione personalizzata con il metodo AppServiceLoginHandler.CreateToken(). Si tratta di un metodo statico che non è necessario abilitare nella configurazione.
+- [Microsoft.Azure.Mobile.Server.Login] offre il supporto per l'autenticazione personalizzata con il metodo AppServiceLoginHandler.CreateToken(). Si tratta di un metodo statico che non è necessario abilitare nella configurazione.
 
 ## <a name="publish-server-project"></a>Procedura: Pubblicare il progetto server
 
@@ -144,19 +146,19 @@ Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Stud
 
 2. Se viene richiesto di selezionare una destinazione di pubblicazione, fare clic su **Servizio app di Microsoft Azure** > **Avanti** e quindi, se necessario, accedere con le credenziali di Azure. Visual Studio scaricherà e memorizzerà le impostazioni di pubblicazione direttamente da Azure.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)  
 
 3. Scegliere la **Sottoscrizione**, selezionare **Tipo di risorsa** da **Visualizza**, espandere **App per dispositivi mobili** e fare clic sul back-end di App per dispositivi mobili, quindi su **OK**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)  
 
 4. Verificare le informazioni sul profilo di pubblicazione e fare clic su **Pubblica**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)  
 
 	Quando il back-end dell'app per dispositivi mobili ha eseguito la pubblicazione, viene visualizzata una pagina di destinazione.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)  
 
 ##<a name="define-table-controller"></a> Procedura: Definire un controller tabelle
 
@@ -479,4 +481,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

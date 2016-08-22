@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/04/2016"
+	ms.author="billmath"/>  
 
 # Utilizzare il telefono cellulare come metodo di contatto con Azure Multi-Factor Authentication
 
@@ -24,15 +24,13 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 <ol>
 <li>Selezionare il Telefono per l'autenticazione dall'elenco a discesa</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
 
 
 <li>Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare.</li>
 <li>Selezionare la modalità preferita da utilizzare con il telefono cellulare - SMS o telefonata.</li>
 <li>Fare clic su Avanti.</li>
-<li>Fare clic sul pulsante Verifica ora. Verrà avviata una chiamata o un SMS al cellulare. Assicurarsi di averlo con sé. A seconda della modalità selezionata, SMS o telefonata, la risposta sarà diversa.
-		<ul><li>Se si seleziona la modalità SMS, sarà inviato tramite SMS un codice di 6 cifre. Immettere questo codice nella finestra visualizzata nel browser</li>
-		<li>se è stata selezionata la modalità di chiamata, si riceverà una telefonata. Rispondere alla chiamata utilizzando il simbolo # sul telefono.</li></ul>
+<li>Fare clic sul pulsante Verifica ora. Verrà avviata una chiamata o un SMS al cellulare. Assicurarsi di averlo con sé. A seconda della modalità selezionata, SMS o telefonata, la risposta sarà diversa. <ul><li>Se si seleziona la modalità SMS, sarà inviato tramite SMS un codice di 6 cifre. Immettere questo codice nella finestra visualizzata nel browser</li> <li>se è stata selezionata la modalità di chiamata, si riceverà una telefonata. Rispondere alla chiamata utilizzando il simbolo # sul telefono.</li></ul>
 <li>Fare clic su Avanti.</li>
 <li>A questo punto, è stato impostato il metodo di contatto e ora è arrivato il momento di impostare le password per le app non basate su browser come Outlook 2010 o versione precedente. Se non si utilizzano queste app, fare clic su **Done**. In caso contrario, continuare con il passaggio successivo.
 <li>Se si usano queste app, copiare la password fornita.</li>
@@ -42,9 +40,9 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 
 
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

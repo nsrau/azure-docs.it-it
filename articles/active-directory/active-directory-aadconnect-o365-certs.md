@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 
 # Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 
-##Panoramica
+##Overview
 
 Perché una federazione tra Azure Active Directory (Azure AD) e Active Directory Federation Services (AD FS) riesca, è necessario che i certificati usati da AD FS per la firma dei token di sicurezza in Azure AD corrispondano alle informazioni configurate in Azure AD. Eventuali informazioni non corrispondenti possono comportare l'interruzione del trust. Azure AD assicura che queste informazioni rimangano sincronizzate durante la distribuzione di AD FS e Proxy applicazione Web (per l'accesso Extranet).
 
@@ -58,7 +58,7 @@ Nel server AD FS aprire Powershell. Verificare che il valore AutoCertificateRoll
 
 	Get-Adfsproperties
 
-![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)  
 
 [AZURE.NOTE] Se si usa AD FS 2.0, eseguire prima Add-Pssnapin Microsoft.Adfs.Powershell.
 
@@ -84,9 +84,7 @@ Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la da
 
 | AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). |
-| Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
-| No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
+| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). | | Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). | | No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
 
 [-] Non è rilevante
 
@@ -163,4 +161,4 @@ Se la farm AD FS e il trust di Azure AD sono stati configurati con Azure AD Conn
 
 Per altre informazioni, vedere [Ripristino del trust](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
