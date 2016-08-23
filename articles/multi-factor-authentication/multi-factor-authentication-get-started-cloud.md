@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>  
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
@@ -29,7 +29,7 @@ Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario so
 
 
 
-- [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/): se non si ha già una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a usare il servizio MFA di Azure, è possibile usare una sottoscrizione di valutazione
+- [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/): se non si ha già una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a usare il servizio Azure MFA, è possibile usare una sottoscrizione di valutazione
 2. [Creare un provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) e assegnarlo alla directory o [assegnare licenze agli utenti](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [AZURE.NOTE]  Le licenze sono disponibili per gli utenti che hanno Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS). MFA è incluso in Azure AD Premium e in EMS. Se è disponibile un numero di licenze sufficiente, non è necessario creare un provider di autenticazione.
@@ -44,14 +44,14 @@ Per abilitare MFA per gli utenti, seguire questa procedura.
 --------------------------------------------------------------------------------
 1.  Accedere al **portale di Azure classico** come amministratore.
 2.  A sinistra fare clic su **Active Directory**.
-3.  In **Directory** fare clic sulla directory relativa all'utente che si vuole abilitare. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+3.  In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  Nella parte superiore fare clic su **Utenti**.
 5.  Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**. ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  Verrà aperta una nuova scheda del browser. Trovare l'utente che si desidera abilitare alla modalità Multi-Factor Authentication Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **Disattivato.** ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  **Selezionare** la casella accanto al nome.
-7.  A destra fare clic su **Attiva**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/user1.png)
+7.  A destra fare clic su **Abilita**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Fare clic su **Abilita Multi-Factor Auth**. ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-9.  Si noterà che lo stato dell'utente è passato da **Disattivato** ad **Attivato**. ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
+9.  Si noterà che lo stato dell'utente è cambiato da **Disattivato** in **Attivato**. ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
 10.  Dopo avere abilitato gli utenti, è consigliabile inviare una notifica tramite posta elettronica. È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
 
 
@@ -90,4 +90,4 @@ Per altre informazioni sugli stati utente, vedere [Stati utente in Azure Multi-F
 ## Passaggi successivi
 Dopo avere configurato l'autenticazione a più fattori nel cloud, è possibile configurare e impostare la distribuzione. Vedere [Configurazione di Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -42,7 +42,7 @@ Immettere le seguenti informazioni:
 - **Località**: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
 - **Chiave pubblica SSH**: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. L'aspetto della chiave dovrebbe essere simile al seguente: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Per indicazioni sulla creazione di chiavi SSH (Secure Shell), vedere gli articoli per [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
-Quando si è pronti a continuare, fare clic su **OK**.
+Quando si è pronti per continuare, fare clic su **OK**.
 
 ![Creare una distribuzione 3](media/acs-portal3.png) <br />
 
@@ -51,18 +51,18 @@ Selezionare un tipo di orchestrazione. Le opzioni sono:
 - **DC/OS**: distribuisce un cluster DC/OS.
 - **Swarm**: distribuisce un cluster Docker Swarm.
 
-Quando si è pronti a continuare, fare clic su **OK**.
+Quando si è pronti per continuare, fare clic su **OK**.
 
 ![Creare una distribuzione 4](media/acs-portal4.png) <br />
 
 Immettere le seguenti informazioni:
 
-- **Conteggio master**: numero di master nel cluster.
+- **Master count** (Conteggio master): numero di master nel cluster.
 - **Conteggio agenti**: per Docker Swarm sarà il numero iniziale di agenti nel set di scalabilità degli agenti. Per DC/OS sarà il numero iniziale di agenti in un set di scalabilità privato. Viene creato anche un set di scalabilità pubblico contenente un numero predeterminato di agenti. Il numero di agenti in questo set di scalabilità pubblico viene determinato in base al numero di master creati nel cluster, ovvero un agente pubblico per un master e due agenti pubblici per tre o cinque master.
-- **Dimensioni macchina virtuale dell'agente**: specifica le dimensioni delle macchine virtuali dell'agente.
+- **Agent virtual machine size** (Dimensioni macchina virtuale dell'agente): specifica le dimensioni delle macchine virtuali dell'agente.
 - **Prefisso DNS**: nome univoco globale che verrà usato come prefisso delle parti chiave dei nomi di dominio completo per il servizio.
 
-Quando si è pronti a continuare, fare clic su **OK**.
+Quando si è pronti per continuare, fare clic su **OK**.
 
 ![Creare una distribuzione 5](media/acs-portal5.png) <br />
 
@@ -82,14 +82,14 @@ Una volta completata la distribuzione, il cluster del servizio contenitore di Az
 
 ## Creare un servizio usando l'interfaccia della riga di comando di Azure
 
-Per creare un'istanza del servizio contenitore di Azure usando la riga di comando, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). L'interfaccia della riga di comando di Azure deve essere installata e configurata.
+Per creare un'istanza del servizio contenitore di Azure usando la riga di comando, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). L'interfaccia della riga di comando di Azure deve essere [installata](../xplat-cli-install.md) e [configurata](../xplat-cli-connect.md).
 
 Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli di GitHub seguenti. Si noti che i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
 
 * [Modello DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Modello Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Successivamente, assicurarsi che l'interfaccia della riga di comando di Azure sia collegata a una sottoscrizione di Azure. A questo scopo, è possibile eseguire questo comando:
+Assicurarsi quindi che l'interfaccia della riga di comando di Azure sia collegata a una sottoscrizione di Azure. A questo scopo, è possibile eseguire questo comando:
 
 ```bash
 azure account show
@@ -122,7 +122,7 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 
 ### Fornire i parametri del modello
 
-Questa versione del comando richiede all'utente di definire i parametri in modo interattivo. Per specificare i parametri, ad esempio una stringa in formato JSON, è possibile usare l'opzione `-p`. Ad esempio:
+Questa versione del comando richiede all'utente di definire i parametri in modo interattivo. Per specificare i parametri, ad esempio una stringa in formato JSON, è possibile usare l'opzione `-p`. ad esempio:
 
  ```bash
  # sample deployment
@@ -195,4 +195,4 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 - [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 - [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

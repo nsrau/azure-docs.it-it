@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/25/2016" 
-	ms.author="elizapo"/>
+	ms.date="08/15/2016" 
+	ms.author="elizapo"/>  
 
 # Domande frequenti su Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono altre? Visitare i [forum di RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) per formulare le proprie domande oppure inserire un commento di seguito.
 
 ## Le informazioni cercate non sono disponibili? Non è possibile trovare la risposta a una domanda?
@@ -33,7 +37,7 @@ Se non è possibile trovare le informazioni necessarie o per altri argomenti non
 - **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [portal.azure.com](http://portal.azure.com) e creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
 ## Dettagli della sottoscrizione Azure RemoteApp ##
 
-- **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
+- **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti del servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
 - **Quanti utenti sono necessari?** È necessario un numero minimo di 20 utenti. Il numero MINIMO è 20. Verrà emessa una fattura per 20.
 - **Quanto costa RemoteApp?** Consultare i [dettagli dei prezzi di Azure RemoteApp](https://azure.microsoft.com/pricing/details/remoteapp/).
 - **Un tipo di raccolta costa più di un altro?** Sì, è possibile, a seconda delle esigenze di raccolta. Una raccolta ibrida richiede una connessione da RemoteApp di Azure alla rete locale. Se si utilizza una Route di rete virtuale/Express esistente, non esiste alcun costo aggiuntivo. Se invece si usa una nuova rete virtuale di Azure e un gateway o Express Route, verrà addebitato un costo per il [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) o per [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Questo costo (vedere informazioni dettagliato sui collegamenti) è sopra il costo mensile della RemoteApp di Azure.
@@ -47,7 +51,7 @@ Se non è possibile trovare le informazioni necessarie o per altri argomenti non
 
 
 ## Immagini modello
-- **È possibile usare un cloud o una macchina virtuale esistente come modello per la propria raccolta RemoteApp?** Sì. È possibile creare un'immagine basata su una macchina virtuale di Azure, usare una delle immagini incluse nella sottoscrizione o creare un'immagine personalizzata. Verificare le [opzioni per le immagini di RemoteApp](remoteapp-imageoptions.md).
+- **È possibile usare un cloud o una macchina virtuale esistente come modello per la propria raccolta RemoteApp?** Sì. È possibile creare un'immagine basata su una VM di Azure, usare una delle immagini incluse nella sottoscrizione o creare un'immagine personalizzata. Verificare le [opzioni per le immagini di RemoteApp](remoteapp-imageoptions.md).
 
 
 ## Opzioni di rete
@@ -88,7 +92,7 @@ Se non è possibile trovare le informazioni necessarie o per altri argomenti non
 
 - **Quale versione di Windows Server è supportata per Host sessione Desktop remoto (RDSH)?** Windows Server 2012 R2.
 
-##Supporto, commenti e suggerimenti
+## Supporto, commenti e suggerimenti
 
 
 - **Qual è il piano di supporto per RemoteApp?** Il supporto per la fatturazione e la gestione delle sottoscrizioni viene fornito gratuitamente. Il supporto tecnico è disponibile tramite i [piani di servizio di Azure](https://azure.microsoft.com/support/plans/). È anche possibile ottenere supporto gratuito dalla community tramite il [forum di discussione di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp).
@@ -117,4 +121,4 @@ Se non è possibile trovare le informazioni necessarie o per altri argomenti non
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

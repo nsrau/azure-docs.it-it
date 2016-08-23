@@ -29,13 +29,15 @@
 
 In questa esercitazione si apprenderà come usare il portale di Azure per:
 
-- Creare un server logico di database SQL per ospitare i database SQL
+- Creare un server logico di database SQL per ospitare i database SQL.
 - Creare un database SQL senza dati, con dati di esempio o con dati da un backup del database SQL.
 - Creare una regola del firewall a livello di server per un singolo indirizzo IP o per un intervallo di indirizzi IP.
 
 Usare questi collegamenti per eseguire le stesse attività usando [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Creare un server logico del database SQL](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -50,15 +52,15 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Se si ha familiarità con Excel, vedere l'articolo che illustra come [connettersi al database SQL con Excel](sql-database-connect-excel.md).
 
-- Se si è pronti per iniziare la codifica, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
+- Se si è pronti per iniziare a scrivere codice, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
-- Per caricare alcuni dati in una nuova tabella da un file CSV usando BCP, vedere [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md) (Caricamento di dati nel database SQL da un file CSV usando BCP).
+- Per caricare alcuni dati in una nuova tabella da un file CSV usando BCP, vedere [Caricare dati da CSV in Azure SQL Data Warehouse (file flat)](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Risorse aggiuntive
 
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

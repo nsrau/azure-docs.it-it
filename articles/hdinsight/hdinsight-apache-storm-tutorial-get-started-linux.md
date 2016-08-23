@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
-   ms.author="larryfr"/>
+   ms.date="08/16/2016"
+   ms.author="larryfr"/>  
 
 
 # Esercitazione di Apache Storm: Introduzione all'analisi di Big Data mediante esempi di Storm Starter su HDInsight
@@ -42,11 +42,11 @@ Per completare correttamente questa esercitazione di Apache Storm, è necessario
 
 In questa sezione si crea un cluster HDInsight versione 3.2 (Storm versione 0.9.3) usando un modello di Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.
+1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Il modello di Azure Resource Manager è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    Il modello è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
 2. Nel pannello Parametri immettere le informazioni seguenti:
 
@@ -54,7 +54,7 @@ In questa sezione si crea un cluster HDInsight versione 3.2 (Storm versione 0.9.
     - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
     - **Nome utente e password SSH**.
     
-    Annotare questi valori. Sarà necessario usarli più avanti nell'esercitazione.
+    Annotare questi valori. Sarà necessario utilizzarli più avanti nell'esercitazione.
 
     > [AZURE.NOTE] Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH. Il nome utente SSH deve essere univoco, in quanto crea un account utente in tutti i nodi del cluster HDInsight. Di seguito sono riportati alcuni nomi di account riservati per l'uso da parte dei servizi nel cluster che non devono essere usati come nome utente SSH:
     >
@@ -93,9 +93,9 @@ Gli esempi di [storm-starter](https://github.com/apache/storm/tree/master/exampl
 
 2. Usare il comando seguente per avviare una topologia di esempio:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE] La parte `0.9.3.2.2.4.9-1` del nome di file può essere modificata quando HDinsight viene aggiornato con le versioni più recenti di Storm.
+	> [AZURE.NOTE] La parte `0.10.0.2.4.2.4-5` del nome del file può essere modificata quando HDInsight viene aggiornato con le versioni più recenti di Storm.
 
     Verrà avviata la topologia di esempio WordCount nel cluster usando 'wordcount' come nome descrittivo. Verranno generate in modo casuale le frasi e verranno conteggiate le occorrenze di ogni parola nelle frasi.
 
@@ -141,7 +141,7 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
 
 3. In questa pagina selezionare una voce nella sezione **Spouts** o **Bolts**. Verranno visualizzate informazioni relative al componente selezionato.
 
-	![Storm Dashboard con informazioni sui componenti selezionati.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
+	![Storm Dashboard con informazioni sui componenti selezionati.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)  
 
 	In questa pagina vengono visualizzate le informazioni seguenti:
 
@@ -192,4 +192,4 @@ Se si ha già familiarità con lo sviluppo di topologie basate su Java e si vuol
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

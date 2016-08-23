@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/18/2016" 
-	ms.author="elizapo"/>
+	ms.date="08/15/2016" 
+	ms.author="elizapo"/>  
 
 # Informazioni su Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp integra in Azure le funzionalità del programma Microsoft RemoteApp locale supportate da Servizi Desktop remoto. Azure RemoteApp consente di fornire un accesso remoto sicuro alle applicazioni da molti dispositivi utente diversi. Sostanzialmente Azure RemoteApp ospita nel cloud le sessioni di Terminal Server non permanenti per poterle usare e condividere con gli utenti.
 
@@ -78,6 +81,6 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
  
 
 ### Come contribuire al miglioramento 
-Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** o **Modifica** per apportare modifiche. Una volta esaminati e approvati, le modifiche e i miglioramenti suggeriti dagli utenti verranno applicati proprio qui.
+Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** o **Modifica** per apportare modifiche. Una volta esaminati e approvati, i miglioramenti e le modifiche suggeriti dagli utenti verranno applicati qui.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

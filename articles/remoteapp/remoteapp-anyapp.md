@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
-   ms.author="elizapo"/>
+   ms.date="08/15/2016"
+   ms.author="elizapo"/>  
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 È possibile eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo - semplicemente utilizzando Azure RemoteApp. Che si tratti di un'applicazione personalizzata scritta 10 anni fa o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
 
@@ -59,12 +62,12 @@ Se durante la creazione della raccolta ci si è spostati dal nodo di Azure Remot
 
 2. Fare clic sulla raccolta creata in precedenza per accedere ad altre opzioni e configurare la raccolta. ![Nuova raccolta nel cloud di RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. Nella scheda **Pubblicazione** fare clic su **Pubblica** nella parte inferiore della schermata e quindi fare clic su **Pubblica programmi del menu Start**. ![Pubblicare un programma di RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
-4. Selezionare dall'elenco le app da pubblicare. Per questa esercitazione si è scelto Access. Fare clic su **Operazione completata**. Attendere che venga completata la pubblicazione delle app. ![Pubblicazione di Access in RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
+4. Selezionare dall'elenco le app da pubblicare. Per questa esercitazione si è scelto Access. Fare clic su **Completa**. Attendere che venga completata la pubblicazione delle app. ![Pubblicazione di Access in RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
 1. Al termine della pubblicazione dell'app, passare alla scheda **Accesso utente** per aggiungere tutti gli utenti che richiedono l'accesso alle app. Immettere i nomi utente (indirizzo di posta elettronica) degli utenti e quindi fare clic su **Salva**.
 
-![Aggiungere utenti a RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
+![Aggiungere utenti a RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)  
 
 
 1. A questo punto, è necessario informare gli utenti che sono disponibili nuove app e indicare come accedervi. Per eseguire questa operazione, inviare agli utenti un messaggio di posta elettronica che punta all'URL di download del client Desktop remoto. ![URL di download del client per RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
@@ -104,7 +107,7 @@ Di seguito sono elencati i passaggi che dovrà eseguire l'utente. Innanzitutto c
 
 A questo punto è possibile usare Access su qualsiasi dispositivo, basta avere installato un client RemoteApp.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
 ## Passaggi successivi
 
 Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che usa Office 365](remoteapp-tutorial-o365anywhere.md). In alternativa è possibile creare una [raccolta ibrida](remoteapp-create-hybrid-deployment.md) in grado di accedere alla rete locale.
@@ -112,4 +115,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

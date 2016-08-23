@@ -12,8 +12,8 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
-    ms.author="brjohnst"/>
+    ms.date="08/15/2016"
+    ms.author="brjohnst"/>  
 
 # Eseguire query su un indice di Ricerca di Azure con .NET SDK
 > [AZURE.SELECTOR]
@@ -162,4 +162,4 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 Il codice di esempio precedente usa la console per restituire i risultati della ricerca. Analogamente, sarà necessario visualizzare i risultati della ricerca nella propria applicazione. Per un esempio di rendering dei risultati di ricerca in un'applicazione Web basata su ASP.NET MVC, vedere [questo esempio su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

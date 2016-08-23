@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
-   ms.author="piotrci"/>
+   ms.date="08/15/2016"
+   ms.author="piotrci"/>  
 
 # Pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp (anteprima)
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Questo articolo illustra come pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp. Si tratta di una nuova funzionalità di Azure RemoteApp, attualmente disponibile in "anteprima privata" e solo per alcuni utenti selezionati per finalità di valutazione.
 
@@ -57,7 +60,7 @@ Eseguire il cmdlet seguente:
 
 		Get-AzureRemoteAppCollection <collectionName>
 
-![Verificare la modalità raccolta](./media/remoteapp-perapp/araacllelvel.png)
+![Verificare la modalità raccolta](./media/remoteapp-perapp/araacllelvel.png)  
 
 La proprietà AclLevel può avere i valori seguenti:
 
@@ -80,7 +83,7 @@ Eseguire il cmdlet seguente:
 
 Vengono elencati tutti gli utenti che possono vedere l'applicazione.
 
-Nota: è possibile vedere gli alias dell'applicazione, definiti "app alias" nella sintassi precedente, eseguendo Get-AzureRemoteAppProgram -CollectionName <collectionName>.
+Nota: è possibile vedere gli alias dell'applicazione, definiti "app alias" nella sintassi precedente, eseguendo Get-AzureRemoteAppProgram -CollectionName <NomeRaccolta>.
 
 ## Come assegnare un'applicazione a un utente
 
@@ -102,4 +105,4 @@ Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità in antep
 ## Se non è stato possibile provare la funzionalità in anteprima
 Se non si è ancora autorizzati a provare l'anteprima, usare questo [sondaggio](http://www.instant.ly/s/AY83p) per richiedere l'accesso.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

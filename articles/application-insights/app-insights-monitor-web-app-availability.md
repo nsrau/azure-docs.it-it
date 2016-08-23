@@ -49,10 +49,10 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
+- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.
 - **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti nell'ambito del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test.
 - **Abilita nuovi tentativi**: quando il test ha esito negativo, viene eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
-- **Frequenza test**: impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza di 5 minuti e cinque località di test, il sito verrà testato in media ogni minuto.
+- **Frequenza test**: impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.
 - **Località di test**: sono le posizioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
 
 - **Criteri di successo**:
@@ -196,9 +196,9 @@ I plug-in del test Web consentono di impostare questi parametri.
 
 1. Aggiungere un plug-in del test Web per ciascun valore di parametro desiderato. Nella barra degli strumenti del test Web scegliere **Aggiungi plug-in test Web**.
 
-    ![Scegliere Aggiungi plug-in test Web e selezionare un tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
+    ![Scegliere Aggiungi plug-in test Web e selezionare un tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)  
 
-    In questo esempio, verranno usate due istanze di Plug-in data e ora, una per "15 minuti fa" e l'altra per "ora".
+    In questo esempio vengono usate due istanze di Plug-in data e ora, una per "15 minuti fa" e l'altra per "ora".
 
 2. Aprire le proprietà di ciascun plug-in. Assegnare un nome al plug-in e impostarlo in modo che usi l'ora corrente. Per uno di essi, impostare Aggiungi minuti = -15.
 
@@ -214,12 +214,36 @@ Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che ver
 
 Se gli utenti accedono all'app, è possibile simulare l'accesso in vari modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
 
-In tutti i casi è necessario creare un account solo a scopo di test. Se possibile, limitarne le autorizzazioni in modo che sia un account di sola lettura.
+In tutti i casi è consigliabile creare un account nell'applicazione solo a scopo di test. Se possibile, limitare le autorizzazioni dell'account di test in modo che i test Web non possano influire in alcun modo sugli utenti reali.
 
-* Nome utente e password semplici: registrare un test Web nel modo consueto. Eliminare prima di tutto i cookie.
-* Autenticazione SAML: usare il plug-in SAML disponibile per i test Web.
-* Segreto client: se l'applicazione ha un percorso di accesso che prevede un segreto client, usare tale percorso. Azure Active Directory offre l'accesso con segreto client.
-* Autenticazione aperta: ad esempio, l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client, si consiglia quindi di cercare prima di tutto il segreto client. Se il test deve eseguire l'accesso tramite OAuth, procedere come indicato di seguito:
+### Nome utente e password semplici
+
+Registrare un test Web nel modo consueto. Eliminare prima di tutto i cookie.
+
+### SAML Authentication
+
+usare il plug-in SAML disponibile per i test Web.
+
+### Segreto client
+
+Se l'app ha un percorso di accesso che prevede un segreto client, usare tale percorso. Un servizio che offre l'accesso con segreto client è ad esempio Azure Active Directory (AAD). In AAD, il segreto client è la chiave dell'app.
+
+Ecco un test Web di esempio di un'app Web di Azure che usa una chiave dell'app:
+
+![Esempio di segreto client](./media/app-insights-monitor-web-app-availability/110.png)  
+
+1. Ottenere il token da AAD usando il segreto client (AppKey).
+2. Estrarre il token di connessione dalla risposta.
+3. Chiamare l'API usando il token di connessione nell'intestazione dell'autorizzazione.
+
+Verificare che il test Web sia effettivamente un client, ovvero che abbia una propria app in AAD, e usare i relativi valori ClientId e AppKey. Anche il servizio sottoposto a test ha una propria app in AAD, il cui URI ID app è riportato nel campo "resource" del test Web.
+
+### Autenticazione aperta
+
+Un esempio di autenticazione aperta è l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client ed è quindi consigliabile ricercare prima di tutto tale possibilità.
+
+Se il test deve eseguire l'accesso con OAuth, procedere come indicato di seguito:
+
  * Usare uno strumento come Fiddler per esaminare il traffico tra il Web browser, il sito di autenticazione e l'app.
  * Eseguire due o più accessi usando computer o browser diversi oppure a distanza di tempo, per lasciar scadere i token.
  * Mettendo a confronto le diverse sessioni, identificare il token restituito dal sito di autenticazione e poi passato al server applicazioni dopo l'accesso.
@@ -253,7 +277,7 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 * *È possibile chiamare codice da un test Web?*
 
-    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono numerosi plug-in che potrebbero risultare utili.
+    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
 
 * *HTTPS è supportato?*
 
@@ -309,4 +333,4 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

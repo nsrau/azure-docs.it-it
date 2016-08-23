@@ -4,7 +4,7 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="douge"/>  
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -54,7 +54,7 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 ## <a name="sdk"></a> Installare l’SDK nell'applicazione
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Uso
@@ -224,4 +224,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

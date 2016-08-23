@@ -1,12 +1,13 @@
 <properties
 	pageTitle="Introduzione all'analisi di flusso di Azure per elaborare dati dai dispositivi IoT | Analisi di flusso"
 	description="Tag dei sensori IoT e flussi di dati con l'elaborazione dei dati in tempo reale e l'analisi di flusso"
+    keywords="soluzione IoT, introduzione a IoT"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"
-/>  
+/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"
 />  
 
@@ -25,7 +26,7 @@ In questa esercitazione si apprenderà a creare la logica di elaborazione del fl
 ## Prerequisiti
 
 -   [Sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
--   File di dati e query di esempio scaricabili da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
+-   File di dati e query di esempio scaricabili da [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Scenario
 
@@ -75,7 +76,7 @@ Il modo più semplice di eseguire query è avviare un pass-through che archivier
 
 ![Query sul processo di archiviazione](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)  
 
-Scaricare il file di dati di esempio da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) in un percorso nel computer locale. Copiare e incollare la query dal file **PassThrough.txt**. Fare clic sul pulsante Test seguente e selezionare il file di dati denominato **HelloWorldASA InputStream.json** nel percorso di download.
+Scaricare il file di dati di esempio da [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) in un percorso nel computer locale. Copiare e incollare la query dal file **PassThrough.txt**. Fare clic sul pulsante Test seguente e selezionare il file di dati denominato **HelloWorldASA InputStream.json** nel percorso di download.
 
 ![Pulsante Test in Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)  
 
@@ -119,4 +120,4 @@ Qui viene usato un **LEFT OUTER JOIN** sullo stesso flusso di dati (self-join). 
 
 Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel linguaggio di query di Analisi di flusso e visualizzare i risultati nel browser. Si tratta, tuttavia, di informazioni di base, in quanto con analisi di flusso è possibile eseguire molte altre attività. Analisi di flusso supporta un'ampia gamma di input e output e può anche sfruttare le funzioni di Azure Machine Learning, ciò che lo rende uno strumento efficace per l'analisi dei flussi di dati. Per iniziare a esplorare Analisi di flusso, è possibile usare la [mappa di apprendimento](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/), mentre per altre informazioni sulla scrittura di query, vedere l'articolo sui [modelli di query comuni](./stream-analytics-stream-analytics-query-patterns.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

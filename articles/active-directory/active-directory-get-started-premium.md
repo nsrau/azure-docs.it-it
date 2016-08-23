@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Introduzione ad Azure Active Directory Premium"
-	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web Volume Licensing."
+	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web dei contratti multilicenza."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila" 
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>  
 
 # Introduzione ad Azure Active Directory Premium
@@ -107,7 +107,7 @@ In questo caso, l'accesso ad Azure è limitato ad Azure Active Directory.
 
 ![Funzionalità di Azure][7]  
 
-Se invece si riesce ad accedere ad Azure grazie a un'iscrizione precedente, è possibile eseguire l'aggiornamento dell'accesso di Azure Active Directory all'accesso di Azure completo attivando sottoscrizioni Azure aggiuntive. In questi casi il portale di Azure classico offre maggiori funzionalità.
+Se invece si ha già accesso ad Azure grazie a un utilizzo precedente, è possibile eseguire l'aggiornamento dell'accesso di Azure Active Directory all'accesso di Azure completo attivando sottoscrizioni di Azure aggiuntive. In questi casi il portale di Azure classico offre maggiori funzionalità.
 
 ![Funzionalità di Azure][8]  
 
@@ -160,4 +160,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

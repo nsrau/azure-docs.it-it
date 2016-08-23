@@ -52,7 +52,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 
     ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    La procedura guidata richiede di specificare **Nome** e **Area**. Se si amministra più di una sottoscrizione, viene visualizzata una finestra di dialogo per la scelta della sottoscrizione.
+    La procedura guidata richiede di specificare **Nome** e **Area**. Se si amministrano più sottoscrizioni, viene visualizzata una finestra di dialogo per la scelta della sottoscrizione.
 
 4. Nel campo **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure.
 
@@ -60,7 +60,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 
     Se si non è certi dell'area in cui si trova la VM, chiudere la procedura guidata e fare clic su **Macchine virtuali** nell'elenco di servizi di Azure. La colonna Località indica il nome dell'area. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali per il backup in ogni area.
 
-6. Se nella procedura guidata non è presente una finestra di dialogo **Sottoscrizione**, andare al passaggio successivo. Se si utilizzano più sottoscrizioni, selezionarne una da associare al nuovo insieme di credenziali per il backup.
+6. Se la procedura guidata non include una finestra di dialogo **Sottoscrizione**, andare al passaggio successivo. Se si usano più sottoscrizioni, selezionarne una da associare al nuovo insieme di credenziali per il backup.
 
     ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
@@ -87,7 +87,7 @@ Un insieme di credenziali di backup è un'entità che archivia tutti i backup e 
 Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, trovare e registrare le macchine virtuali di Azure.
 
 ## Passaggio 2: Trovare e registrare le macchine virtuali di Azure
-Prima di registrare la VM con un insieme di credenziali, eseguire il processo di individuazione per identificare eventuali VM nuove. Restituirà un elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
+Prima di registrare la VM con un insieme di credenziali, eseguire il processo di individuazione per identificare eventuali VM nuove. Verrà restituito un elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/).
 
@@ -137,7 +137,7 @@ Prima di registrare la VM con un insieme di credenziali, eseguire il processo di
 
 ## Passaggio 3: Installare l'agente di macchine virtuali nella macchina virtuale
 
-Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la VM è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. È possibile passare alla [protezione delle VM](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la VM è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. È possibile passare alla [protezione delle VM](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Se la migrazione della VM è stata eseguita da un data center locale, l'agente di macchine virtuali non è probabilmente installato nella VM. Prima di procedere alla protezione della VM, è necessario installare l'agente di macchine virtuali. Per informazioni dettagliate sull'installazione dell'agente di macchine virtuali, vedere la [sezione Agente di macchine virtuali dell'articolo sul backup di macchine virtuali](backup-azure-vms-prepare.md#vm-agent).
 
@@ -213,4 +213,4 @@ Ora che è stato eseguito il backup di una macchina virtuale, sono disponibili d
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 #Scegliere la soluzione di sicurezza Multi-Factor più adatta
 
 Poiché esistono diverse versioni di Azure Multi-Factor Authentication, è necessario stabilire un paio di aspetti per scoprire quale versione sia quella corretta da utilizzare. Aspetti da considerare:
 
--	[Cosa si sta tentando di proteggere?](#cosa-si-sta-tentando-di-proteggere)
--	[Dove si trovano gli utenti?](#dove-si-trovano-gli-utenti)
+-	[Cosa si sta tentando di proteggere?](#what-am-i-trying-to-secure)
+-	[Dove si trovano gli utenti?](#where-are-the-users-located)
 
 Nelle sezioni seguenti verranno fornite istruzioni su come determinare ciascun aspetto.
 
@@ -81,4 +81,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

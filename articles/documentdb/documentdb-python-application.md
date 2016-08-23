@@ -6,7 +6,7 @@
     documentationCenter="python"
     authors="AndrewHoh"
     manager="jhubbard"
-    editor="cgronlun"/>  
+    editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
+    ms.date="08/11/2016"
     ms.author="anhoh"/>
 
 # Sviluppo di applicazioni Web Python Flask con DocumentDB
@@ -419,7 +419,7 @@ Se si riceve un errore nella pagina di voto e il progetto ha un nome diverso da 
 
 Congratulazioni. Si è creata la prima applicazione web Python usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
-Aggiorniamo e miglioriamo spesso questo argomento in base al feedback degli utenti. Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
+Questo argomento viene aggiornato e migliorato spesso in base al feedback degli utenti. Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
 
 Per aggiungere altre funzionalità all'applicazione web, esaminare le API disponibili nell'[SDK per Python di DocumentDB](documentdb-sdk-python.md).
 
@@ -433,4 +433,4 @@ Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

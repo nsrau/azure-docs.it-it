@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Procedura dettagliata della soluzione preconfigurata di manutenzione predittiva
 
 ## Introduzione
 
-La soluzione preconfigurata di manutenzione predittiva di IoT Suite è una soluzione end-to-end per uno scenario aziendale che consente di stimare il punto in cui è probabile che si verifichino errori. È possibile sfruttare questa soluzione preconfigurata in modo proattivo per attività quale l'ottimizzazione della manutenzione. La soluzione combina servizi chiave di Azure IoT Suite , tra cui un'area di lavoro completa di [Azure Machine Learning][lnk_machine_learning] con esperimenti per stimare la vita utile rimanente di un motore di aereo in base a un set di dati di esempio pubblico. La soluzione fornisce un'implementazione completa dello scenario aziendale come punto di partenza per poter pianificare e implementare questo tipo di soluzione IoT per soddisfare i propri requisiti aziendali.
+La soluzione preconfigurata di manutenzione predittiva di IoT Suite è una soluzione end-to-end per uno scenario aziendale che consente di stimare il punto in cui è probabile che si verifichino errori. È possibile usare questa soluzione preconfigurata in modo proattivo per attività come l'ottimizzazione della manutenzione. La soluzione combina i servizi chiave di Azure IoT Suite, inclusa un'area di lavoro di [Azure Machine Learning][lnk_machine_learning]. L'area di lavoro contiene esperimenti, basati su un set di dati di esempio pubblico, per stimare la vita utile rimanente del motore di un velivolo. La soluzione implementa completamente lo scenario aziendale IoT come punto di partenza per poter pianificare e implementare una soluzione che soddisfi i propri requisiti aziendali.
 
 ## Architettura logica
 
@@ -33,17 +33,17 @@ Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning n
 
 Alcune risorse non sono disponibili nelle aree in cui si effettua il provisioning della soluzione preconfigurata. Gli elementi arancioni nel diagramma rappresentano i servizi di Azure con provisioning nell'area più vicina disponibile (Stati Uniti centro-meridionali, Europa occidentale o Asia sudorientale), data l'area selezionata.
 
-L'elemento verde è un dispositivo simulato che rappresenta un motore di aereo. Altre informazioni su questi dispositivi simulati sono disponibili di seguito.
+L'elemento verde è un dispositivo simulato che rappresenta un motore di aereo. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione seguente.
 
 Gli elementi grigi rappresentano i componenti che implementano le funzionalità di *amministrazione del dispositivo*. La versione corrente della soluzione preconfigurata di manutenzione predittiva non effettua il provisioning di queste risorse. Per altre informazioni sull'amministrazione del dispositivo, vedere la [soluzione preconfigurata per il monitoraggio remoto][lnk-remote-monitoring].
 
 ## Dispositivi simulati
 
-Nella soluzione preconfigurata un dispositivo simulato rappresenta un motore di aereo. La soluzione prende in esame due motori di 2 associati a un singolo aereo. Ogni motore genera 4 tipi di dati di telemetria: sensore 9, sensore 11, sensore 14 e sensore 15 che forniscono i dati necessari per il modello di Machine Learning che calcola la vita utile rimanente per il motore. Ogni dispositivo simulato invia i messaggi di telemetria seguenti all'hub IoT:
+Nella soluzione preconfigurata un dispositivo simulato rappresenta un motore di aereo. Il provisioning della soluzione viene effettuato con due motori associati a un singolo aereo. Ogni motore genera quattro tipi di dati di telemetria: il sensore 9, il sensore 11, il sensore 14 e il sensore 15 forniscono i dati necessari per il modello di Machine Learning che calcola la vita utile rimanente per il motore. Ogni dispositivo simulato invia i messaggi di telemetria seguenti all'hub IoT:
 
-*Conteggio dei cicli*. Un ciclo rappresenta un volo completato di lunghezza variabile compresa tra 2-10 ore in cui i dati di telemetria vengono acquisiti ogni mezz'ora per la durata del volo.
+*Conteggio dei cicli*. Un ciclo rappresenta un volo completato di lunghezza variabile compresa tra 2 e 10 ore, in cui i dati di telemetria vengono acquisiti ogni mezz'ora durante il volo.
 
-*Telemetria* Sono presenti 4 sensori che rappresentano gli attributi del motore. I sensori sono indicati genericamente con l'etichetta Sensore 9, Sensore 11, Sensore 14 e Sensore 15. Questi 4 sensori rappresentano i dati di telemetria sufficienti per ottenere risultati utili dal modello di Machine Learning per la vita utile rimanente. Questo modello viene creato da un set di dati pubblico che include i dati reali dei sensori del motore. Per altre informazioni sulla modalità di creazione del modello dal set di dati originale, vedere il [modello di manutenzione predittiva in Cortana Intelligence Gallery][lnk-cortana-analytics].
+*Telemetria* Sono presenti quattro sensori che rappresentano gli attributi del motore. I sensori sono indicati genericamente con l'etichetta Sensore 9, Sensore 11, Sensore 14 e Sensore 15. Questi 4 sensori rappresentano i dati di telemetria sufficienti per ottenere risultati utili dal modello di Machine Learning per la vita utile rimanente. Questo modello viene creato da un set di dati pubblico che include i dati reali dei sensori del motore. Per altre informazioni sulla modalità di creazione del modello dal set di dati originale, vedere il [modello di manutenzione predittiva in Cortana Intelligence Gallery][lnk-cortana-analytics].
 
 I dispositivi simulati possono gestire i comandi seguenti inviati da un hub IoT:
 
@@ -60,7 +60,7 @@ L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 
 ## Processore di eventi
 
-Il **processore di eventi** accetta i valori medi dei sensori per un ciclo completo e li passa a un'API che espone il modello con training di Machine Learning per calcolare la vita utile rimanente per un motore.
+Il **processore di eventi** considera i valori medi dei sensori per un ciclo completato e li passa a un'API che espone il modello con training di Machine Learning per calcolare la vita utile rimanente di un motore.
 
 ## Azure Machine Learning
 
@@ -79,25 +79,25 @@ Questa pagina dell'applicazione Web usa i controlli JavaScript di Power BI (vede
 
 ### Osservare il comportamento della soluzione cloud
 
-È possibile visualizzare le risorse con provisioning visitando il portale di Azure e passando al gruppo di risorse con il nome della soluzione scelto.
+Nel portale di Azure passare al gruppo di risorse con il nome della soluzione scelto per visualizzare le risorse di cui è stato effettuato il provisioning.
 
-![][img-resource-group]
+![][img-resource-group]  
 
 Quando si esegue il provisioning della soluzione preconfigurata, viene visualizzato un messaggio di posta elettronica con un collegamento all'area di lavoro di Machine Learning. È anche possibile passare all'area di lavoro di Machine Learning dalla pagina [azureiotsuite.com][lnk-azureiotsuite] per la soluzione fornita quando il relativo stato è **Pronto**.
 
-![][img-machine-learning]
+![][img-machine-learning]  
 
-Nel portale della soluzione si noterà che l'esempio include quattro dispositivi simulati per rappresentare 2 aerei con 2 motori per aereo e 4 sensori per ogni motore. Quando si accede per la prima volta al portale della soluzione, la simulazione viene arrestata.
+Nel portale della soluzione si noterà che l'esempio include quattro dispositivi simulati per rappresentare due aerei con due motori per aereo, ciascuno con quattro sensori. Quando si accede per la prima volta al portale della soluzione, la simulazione viene arrestata.
 
-![][img-simulation-stopped]
+![][img-simulation-stopped]  
 
-Fare clic su **Start simulation** per iniziare la simulazione in cui si potrà osservare che la cronologia dei sensori, la vita utile rimanente, i cicli e la cronologia della vita utile rimanente sono riportati nel dashboard.
+Fare clic su **Avvia simulazione** per iniziare la simulazione in cui si può osservare che la cronologia dei sensori, la vita utile rimanente, i cicli e la cronologia della vita utile rimanente sono riportati nel dashboard.
 
-![][img-simulation-running]
+![][img-simulation-running]  
 
-Quando la vita utile rimanente è inferiore a 160, una soglia arbitraria scelta a scopo dimostrativo, il portale della soluzione mostra un simbolo di avviso accanto alla visualizzazione della vita utile rimanente e colora in giallo il motore dell'aereo nell'immagine. Si noterà che i valori della vita utile rimanente hanno complessivamente una tendenza generale al ribasso, ma tendono a oscillare in alto o in basso. Ciò è dovuto alle diverse lunghezze dei cicli e all'accuratezza del modello.
+Quando la vita utile rimanente è inferiore a 160, una soglia arbitraria scelta a scopo dimostrativo, il portale della soluzione mostra un simbolo di avviso accanto alla visualizzazione della vita utile rimanente ed evidenzia in giallo il motore dell'aereo. Si noti come i valori della vita utile rimanente abbiano complessivamente una tendenza generale al ribasso, ma tendano a oscillare in alto o in basso. Questo comportamento dovuto alle diverse lunghezze dei cicli e all'accuratezza del modello.
 
-![][img-simulation-warning]
+![][img-simulation-warning]  
 
 La simulazione completa richiede circa 35 minuti per completare 148 cicli. La soglia di 160 per la vita utile rimanente viene raggiunta per la prima volta dopo circa 5 minuti ed entrambi i motori la raggiungono a circa 8 minuti.
 
@@ -133,4 +133,4 @@ Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in Io
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Creare un'app Web Node.js nel servizio app di Azure
 
@@ -42,7 +42,7 @@ Per esercitazioni ed esempi di codice con applicazioni Node.js più complesse o 
 > [AZURE.NOTE]
 Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
 >
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un'app Web di Azure e abilitare la pubblicazione Git
 
@@ -62,7 +62,7 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 
 	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 
-5. Selezionare una **sottoscrizione**.
+5. Selezionare una **Sottoscrizione**.
 
 6. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
@@ -207,7 +207,7 @@ Dal pannello **App Web** è possibile fare clic su **Impostazioni > Distribuzion
 
 È stata distribuita un'applicazione Node.js in un'app Web nel servizio app di Azure. Per altre informazioni su come le app Web del servizio app eseguono le applicazioni Node.js, vedere [App Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Specifica di una versione Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
 
-Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni su come usare le app Web con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
+Node.js fornisce un ecosistema completo di moduli che è possibile utilizzare nelle applicazioni. Per informazioni su come usare le app Web con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
 
 Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](web-sites-nodejs-debug.md) per informazioni su come diagnosticare l'errore.
 
@@ -225,4 +225,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

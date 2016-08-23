@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>  
 
 # Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -50,7 +50,7 @@ Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding d
 
 1. Eseguire **Windows PowerShell** come amministratore. Dal **menu Start** o nella **schermata Start** cercare **Windows PowerShell**.
 
-2. [Eseguire la connessione di PowerShell] alla sottoscrizione.
+2. [Connettere PowerShell] alla sottoscrizione.
 
 3. Immettere il seguente cmdlet di PowerShell per creare il progetto:
 
@@ -87,19 +87,19 @@ L'app Node.js è definita nel file **server.js**, contenuto nella directory per 
 
 Questo codice è essenzialmente lo stesso dell'esempio "Hello World" nel sito Web [nodejs.org], si differenzia solo perché usa il numero di porta assegnato dall'ambiente cloud.
 
-## Distribuire l'applicazione in Azure
+## Distribuzione dell'applicazione in Azure
 
 	[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ### Scaricare le impostazioni di pubblicazione di Azure
 
-Per distribuire l'applicazione in Azure, è necessario innanzitutto scaricare le impostazioni di pubblicazione per la sottoscrizione Azure.
+Per distribuire l'applicazione in Azure, è necessario prima di tutto scaricare le impostazioni di pubblicazione per la sottoscrizione di Azure.
 
 1.  Eseguire questo cmdlet di Azure PowerShell:
 
         Get-AzurePublishSettingsFile
 
-	Il browser verrà così usato per passare alla pagina di download delle impostazioni di pubblicazione. È possibile che venga richiesto di effettuare l'accesso con un account Microsoft. In tal caso, utilizzare l'account associato alla sottoscrizione Azure.
+	Il browser verrà così utilizzato per passare alla pagina di download delle impostazioni di pubblicazione. È possibile che venga richiesto di effettuare l'accesso con un account Microsoft. In tal caso, usare l'account associato alla sottoscrizione di Azure.
 
 	Salvare il profilo scaricato in un percorso di file facilmente accessibile.
 
@@ -167,9 +167,9 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 
 	L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
-	![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
+	![Stato del comando Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per ulteriori informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione Azure].
+	> [AZURE.NOTE] L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per altre informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione di Azure].
 
 ## Passaggi successivi
 
@@ -181,13 +181,13 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [uso di un'App Web leggera]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
 [Azure Powershell]: ../powershell-install-configure.md
 [Azure SDK per .NET 2.7]: http://www.microsoft.com/it-IT/download/details.aspx?id=48178
-[Eseguire la connessione di PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
+[Connettere PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Come eliminare un account di archiviazione da una sottoscrizione Azure]: ../storage/how-to-manage-a-storage-account.md
+[Come eliminare un account di archiviazione da una sottoscrizione di Azure]: ../storage/how-to-manage-a-storage-account.md
 [Creazione di un servizio ospitato per Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro per sviluppatori di Node.js]: https://azure.microsoft.com/develop/nodejs/
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
@@ -198,4 +198,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

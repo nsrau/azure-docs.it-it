@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
-   ms.author="shkurhek"/>
+   ms.date="08/16/2016"
+   ms.author="shkurhek"/>  
 
 # Informazioni sul database SQL Introduzione al Database SQL
 
@@ -59,4 +59,4 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 - Creare la prima app in C#, Java, Node.js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 - Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio database SQL di Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Creare un'app WordPress nel servizio app di Azure
 
@@ -55,13 +55,13 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 	
 5. Dopo aver letto la descrizione dell'app WordPress, fare clic su **Crea**.
 
-	![Creazione](./media/web-sites-php-web-site-gallery/create.png)
+	![Create](./media/web-sites-php-web-site-gallery/create.png)
 
 4. Immettere un nome per l'app Web nella casella **App Web**.
 
 	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 
-8. Se sono disponibili più sottoscrizioni, scegliere quella da usare.
+8. Se sono disponibili più sottoscrizioni, scegliere quella che si vuole usare.
 
 5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
@@ -128,4 +128,4 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

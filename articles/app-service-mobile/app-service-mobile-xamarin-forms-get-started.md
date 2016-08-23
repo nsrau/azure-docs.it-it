@@ -5,7 +5,7 @@
 	documentationCenter="xamarin"
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>  
 
 #Creare un'app Xamarin.Forms
@@ -166,7 +166,7 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Next Steps]: #next-steps
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
 [8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
 [9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
@@ -180,4 +180,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

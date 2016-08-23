@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Questa esercitazione usa Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse. Nello specifico, verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
 
@@ -71,7 +71,7 @@ Una volta terminato con successo l’esperimento, per visualizzare i dati import
 
 
 ## 2\. Pulire i dati
-Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, effettuare l'operazione seguente:
+Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, seguire questa procedura:
 
 1. Trascinare il modulo **Project Columns** nell'area di disegno.
 2. Fare clic su **Launch column selector** nel riquadro Properties per specificare le colonne da eliminare.![Selezione delle colonne][4]
@@ -129,10 +129,10 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 [12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
-<!--Article references-->
+<!--Article references-->  
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[caricare manualmente i dati di esempio]: sql-data-warehouse-get-started-load-sample-databases.md
+[caricare manualmente i dati di esempio]: sql-data-warehouse-load-sample-databases.md
 [Creare un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->
