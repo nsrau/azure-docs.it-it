@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come creare e pubblicare un prodotto in Gestione API di Azure
 
@@ -60,7 +60,7 @@ Per configurare un prodotto, fare clic sul nome del prodotto nella scheda **Prod
 
 La pagina **Prodotti** contiene quattro collegamenti per la configurazione: **Riepilogo**, **Impostazioni**, **Visibilità** e **Sottoscrittori**. La scheda **Riepilogo** consente di aggiungere le API e di pubblicare o annullare la pubblicazione di un prodotto.
 
-![Riepilogo][api-management-new-product-summary]
+![Summary][api-management-new-product-summary]
 
 Prima di pubblicare il prodotto, è necessario aggiungere una o più API. A tale scopo, fare clic su **Aggiungi API al prodotto**.
 
@@ -102,7 +102,7 @@ Per abilitare o disabilitare la visibilità di un prodotto per gli sviluppatori 
 
 Nella scheda **Sottoscrittori** sono elencati gli sviluppatori che hanno sottoscritto il prodotto. Per visualizzare i dettagli e le impostazioni per ogni sviluppatore, fare clic sul nome dello sviluppatore. In questo esempio nessuno sviluppatore ha ancora sottoscritto il prodotto.
 
-![Sviluppatori][api-management-developer-list]
+![Sviluppatori:][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -148,4 +148,4 @@ Per altre informazioni sull'uso dei prodotti, vedere il video seguente.
 [Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure]: api-management-howto-create-groups.md
 [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

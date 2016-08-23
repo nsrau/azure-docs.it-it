@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
-   ms.author="alkohli" />
+   ms.date="08/10/2016"
+   ms.author="alkohli" />  
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 
@@ -33,6 +33,16 @@ Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisic
 
 In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*. Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione.
 
+In genere, dopo un ripristino di emergenza, il backup più recente viene usato per ripristinare i dati nel dispositivo di destinazione. Tuttavia, se sono presenti più criteri di backup per lo stesso volume, viene scelto il criterio di backup con il maggior numero di volumi e per il ripristino dei dati nel dispositivo di destinazione viene usato il backup più recente per tale criterio.
+
+Ad esempio, si supponga che esistano due criteri di backup (uno predefinito e uno personalizzato) *criterioPredefinito*, *criterioPersonalizzato* con i dettagli seguenti:
+
+- *criterioPredefinito*: un solo volume, *vol1*, con esecuzione giornaliera a partire dalle 22.30.
+- *criterioPersonalizzato*: quattro volumi, *vol1*, *vol2*, *vol3*, *vol4*, con esecuzione giornaliera a partire dalle 22.00.
+
+In questo caso verrà usato *criterioPersonalizzato* perché include più volumi e viene data priorità alla coerenza per arresto anomalo del sistema. Per il ripristino dei dati viene usato il backup più recente per questo criterio.
+
+
 ## Considerazioni per il failover del dispositivo
 
 In caso di emergenza, è possibile eseguire il failover del dispositivo StorSimple:
@@ -47,9 +57,6 @@ Per qualsiasi tipo di failover del dispositivo, tenere presente quanto segue:
 - I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi con spazio sufficiente ad accogliere i contenitori di volumi selezionati.
 - I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non saranno disponibili come dispositivi di destinazione.
 - Dopo un ripristino di emergenza, per un intervallo di tempo limitato, le prestazioni di accesso ai dati possono essere influenzate in modo significativo, dal momento che il dispositivo dovrà accedere ai dati dal cloud e memorizzarli in locale.
-- Quando si esegue un failover tra dispositivi dopo un ripristino di emergenza, gli snapshot utilizzati per recuperare i dati vengono selezionati come indicato di seguito:
-	1.  	Identificare i criteri di backup con il maggior numero di volumi.
-	2.  	Selezionare l'ultimo snapshot cloud valido per tale criterio di backup e utilizzarlo per ripristinare i dati sul dispositivo oggetto del ripristino.
 
 #### Failover del dispositivo in tutte le versioni del software
 
@@ -90,12 +97,9 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 1. Nella pagina **Dispositivi**, fare clic su **Failover**.
 
-1. Nella procedura guidata visualizzata, sotto **Scegli contenitore di volumi per il failover**:
+1. Nella procedura guidata visualizzata, in **Scegliere i contenitori dei volumi per il failover**:
 
-	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
-	
-
-		>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.** <br></br>
+	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
 	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
 
@@ -149,9 +153,9 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 													
 	a. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-	>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
+	**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. **Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.**
 	
 
 1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
@@ -180,4 +184,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

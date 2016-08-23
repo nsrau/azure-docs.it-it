@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Esercitazione su Node.js NoSQL: applicazione console Node.js di DocumentDB  
@@ -56,7 +56,7 @@ Creare un account DocumentDB. Se è già disponibile un account da usare, è pos
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Passaggio 2: Configurare un'applicazione Node.js
+## <a id="SetupNode"></a>Passaggio 2: Configurare un'applicazione Node.js
 
 1. Aprire il terminale preferito.
 2. Individuare la cartella o la directory in cui si vuole salvare l'applicazione Node.js.
@@ -67,12 +67,12 @@ Creare un account DocumentDB. Se è già disponibile un account da usare, è pos
   - Linux/OS X:
       * ```touch app.js```
         * ```touch config.js```
-4. Installare il modulo documentdb tramite npm. Usare il seguente comando:
+4. Installare il modulo documentdb tramite npm. Usare il comando seguente:
     * ```npm install documentdb --save```
 
 L'installazione è riuscita. Dopo avere completato l'installazione, è possibile iniziare a scrivere il codice.
 
-##<a id="Config"></a> Passaggio 3: Impostare le configurazioni dell'app
+## <a id="Config"></a>Passaggio 3: Impostare le configurazioni dell'app
 
 Aprire il file ```config.js``` in un editor di testo.
 
@@ -598,13 +598,13 @@ Verrà visualizzato l'output dell'app introduttiva. L'output dovrebbe essere ana
 
 Congratulazioni. È stata completata l'esercitazione su Node.js ed stata creata la prima applicazione console DocumentDB.
 
-##<a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione su Node.js
+## <a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su Node.js
 Per creare la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
 
 -   [Account DocumentDB][documentdb-create-account].
 -   La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) disponibile su GitHub.
 
-Installare il modulo **documentdb** tramite npm. Usare il seguente comando:
+Installare il modulo **documentdb** tramite npm. Usare il comando seguente:
 * ```npm install documentdb --save```
 
 Nel file ```config.js``` aggiornare quindi i valori config.endpoint e config.authKey, come illustrato nel [Passaggio 3: Impostare le configurazioni dell'app](#Config).
@@ -621,4 +621,4 @@ Nel file ```config.js``` aggiornare quindi i valori config.endpoint e config.aut
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

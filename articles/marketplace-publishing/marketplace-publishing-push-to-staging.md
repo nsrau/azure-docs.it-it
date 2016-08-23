@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="hascipio"/>
+   ms.date="08/08/2016"
+   ms.author="hascipio"/>  
 
 # Completare la creazione dell’offerta con contenuti di marketing
 In questo passaggio del processo di pubblicazione, sarà necessario fornire alcuni contenuti di marketing e informazioni dettagliate sull'offerta e/o sugli SKU in Azure Marketplace. Ad esempio, si fornirà una descrizione del prodotto, i logo aziendali, piani di prezzo, dettagli dei piani e altre informazioni necessarie per portare l'offerta e/o SKU in gestione temporanea. Queste informazioni vengono utilizzate come contenuto di marketing nel portale di Azure. Si inizierà il processo nel [portale di pubblicazione][link-pubportal].
@@ -123,28 +123,27 @@ Per le offerte per macchina virtuale, una volta che l'offerta o lo SKU è elenca
 |---|---|---|---|
 | Immagine di macchina virtuale | No | Sì | No|
 | Servizio per gli sviluppatori | Sì | Sì | Sì |
-| Servizio dati | Sì | No | No |
 
 ### 2\.1. Impostare i prezzi della VM
-Attualmente per le macchine virtuali sono disponibili i **3 tipi di modelli di fatturazione** seguenti:
+Attualmente per le macchine virtuali sono disponibili i **tre tipi di modelli di fatturazione** seguenti:
 
-- **Oraria:** i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli autori in base alla dimensione della macchina virtuale. In caso di **fatturazione oraria** dello SKU, il prezzo totale sarà la somma del costo del software addebitato dall'autore e del costo di infrastruttura addebitato da Microsoft. Questo costo totale sarà visualizzato al cliente come prezzo orario e mensile quando prende in considerazione l'acquisto (vedere la schermata riportata di seguito). **L'autore riceve l'80% del costo del software addebitato.** Di conseguenza è necessario assicurarsi di eseguire il calcolo relativo prima di impostare i prezzi per gli SKU.
+- **Oraria:** i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli editori in base alle dimensioni della macchina virtuale. In caso di **fatturazione oraria** degli SKU, il prezzo totale sarà la somma del costo del software addebitato dall'editore più il costo dell'infrastruttura addebitato da Microsoft. Questo costo totale sarà visualizzato al cliente come prezzo orario e mensile quando prende in considerazione l'acquisto (vedere la schermata riportata di seguito). **L'autore riceve l'80% del costo del software addebitato.** Di conseguenza è necessario assicurarsi di eseguire il calcolo relativo prima di impostare i prezzi per gli SKU.
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1-01.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1-01.png)  
 
 - **Versione di valutazione gratuita:** si tratta di un'altra versione del modello orario. In questo caso al cliente non viene addebitato il costo del software per i primi 30 giorni (gratuiti) dopo la distribuzione della VM. Dopo 30 giorni i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli autori nel modello orario.
-- **Bring Your Own License (BYOL):** gli autori gestiscono le licenze del software eseguito sulla VM.
+- **Bring Your Own License (BYOL):** gli autori gestiscono le licenze del software eseguito sulla macchina virtuale.
 
-**Importante:** una volta che l'offerta o lo SKU è elencato in Azure Marketplace, non è possibile modificare i campi indicati di seguito.
+**Importante:** se l'offerta o lo SKU è elencato in Azure Marketplace, non è possibile modificare i campi indicati di seguito.
 
 - **Modifica dei prezzi degli SKU elencati**
 - **Modifica del modello di fatturazione degli SKU elencati**
 - **Rimozione delle aree di fatturazione degli SKU elencati**
 - **Modifica del numero di dischi dati degli SKU elencati**
-- **Identificatore offerta:** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> Immagini VM -> Identificatore offerta]
-- **Identificatore SKU:** [Portale di pubblicazione -> Macchine virtuali -> selezionare l'offerta -> scheda SKU -> Aggiungi uno SKU]
-- **Spazio dei nomi del server di pubblicazione:** [Portale di pubblicazione -> Macchine virtuali -> scheda Procedura dettagliata -> Informazioni sull'azienda (disponibile in "Passaggio 2 Registrazione") Spazio dei nomi del server di pubblicazione -> Spazio dei nomi]
-- **Porte:** [Portale di pubblicazione -> Macchine virtuali -> offerta -> scheda Immagini VM -> Porte aperte]
+- **Offer Identifier (Identificatore di offerte):** [Portale di pubblicazione -> Virtual Machines (Macchine virtuali) -> selezionare l'offerta -> VM Images (Immagini VM) -> Offer Identifier (Identificatore di offerte)]
+- **SKU Identifier (Identificatore SKU):** [Portale di pubblicazione -> Virtual Machines (Macchine virtuali) -> selezionare l'offerta -> scheda SKU -> Add a SKU (Aggiungi uno SKU)]
+- **Publisher Namespace (Spazio dei nomi dell'editore):** [Portale di pubblicazione -> Virtual Machines (Macchine virtuali) -> scheda Walkthrough (Procedura dettagliata) -> Tell Us About Your Company (Informazioni sull'azienda), disponibile nel passaggio 2 di registrazione, Publisher Namespace (Spazio dei nomi dell'editore) -> Namespace (Spazio dei nomi)]
+- **Ports (Porte):** [Portale di pubblicazione -> Virtual Machines (Macchine virtuali) -> offerta -> scheda VM Images (Immagini VM) -> Open Ports (Porte aperte)]
 
 ### Paesi in cui vendere lo SKU
 I paesi in cui rendere disponibile lo SKU vanno considerati con attenzione. Alcuni paesi sono classificati come "a rimessa Microsoft" e altri come "a rimessa ISV".
@@ -160,32 +159,32 @@ Per configurare il modello di prezzi orario per uno SKU, seguire i passaggi ripo
 1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com).
 2.	Passare alla scheda **MACCHINE VIRTUALI** e selezionare l'offerta.
 3.	Dal menu sul lato sinistro fare clic sulla scheda **SKU**.
-4.	Assicurarsi che lo SKU sia contrassegnato come "Modello di fatturazione oraria". In caso contrario fare clic sul pulsante **MODIFICA** per cambiare il modello di fatturazione. Verrà visualizzata una finestra. Deselezionare la casella di controllo "Billing and licensing is done externally from Azure (aka Bring Your Own License)" ("La fatturazione e le licenze sono gestite all'esterno di Azure (Bring Your Own License)") e salvare le modifiche.
+4.	Assicurarsi che lo SKU sia contrassegnato come "Modello di fatturazione oraria". In caso contrario fare clic sul pulsante di **modifica** per cambiare il modello di fatturazione. Verrà visualizzata una finestra. Deselezionare la casella di controllo "Billing and licensing is done externally from Azure (aka Bring Your Own License)" ("La fatturazione e le licenze sono gestite all'esterno di Azure (Bring Your Own License)") e salvare le modifiche.
 5.	Se si desidera abilitare la versione di valutazione gratuita per 30 giorni prima della distribuzione dello SKU, selezionare l'opzione "Un mese" per la domanda "È disponibile una versione di valutazione gratuita?" In caso contrario, selezionare l'opzione "Versione di valutazione non disponibile". Ora eseguire i passaggi indicati di seguito.
-6.	Dal menu sul lato sinistro fare clic sulla scheda **PREZZI**.
+6.	Dal menu sul lato sinistro fare clic sulla scheda **PRICING** (PREZZI).
 7.	Selezionare l'area di base.
 
     ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
 
 8. Impostare i prezzi per tutte le memorie centrali. **È necessario fornire il prezzo per tutte le memorie centrali di uno SKU anche se lo SKU non lo supporta.**
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)  
 
-9.	Impostare i prezzi per le altre aree manualmente o usare la procedura guidata di impostazione automatica dei prezzi per impostare i prezzi delle altre aree con riferimento all'area di base. Per usare la procedura guidata di impostazione automatica dei prezzi fare clic sul pulsante **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATE** (IMPOSTA AUTOMATICAMENTE I PREZZI PER GLI ALTRI MERCATI IN BASE A QUELLI DEGLI STATI UNITI). **Nota:** l'etichetta del pulsante può essere diversa a seconda dell'area selezionata. Poiché sono stati selezionati gli Stati Uniti in fase di creazione del documento, nella schermata riportata di seguito l'etichetta del pulsante è "Auto price other markets based on prices in United States" ("Imposta automaticamente i prezzi per gli altri mercati in base a quelli degli Stati Uniti").
+9.	Impostare i prezzi per le altre aree manualmente o usare la procedura guidata di impostazione automatica dei prezzi per impostare i prezzi delle altre aree con riferimento all'area di base. Per usare la procedura guidata di impostazione automatica dei prezzi fare clic sul pulsante **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES** (IMPOSTA AUTOMATICAMENTE I PREZZI PER GLI ALTRI MERCATI IN BASE A QUELLI DEGLI STATI UNITI). **Nota:** l'etichetta del pulsante può essere diversa a seconda dell'area selezionata. Poiché sono stati selezionati gli Stati Uniti in fase di creazione del documento, nella schermata riportata di seguito l'etichetta del pulsante è "Auto price other markets based on prices in United States" ("Imposta automaticamente i prezzi per gli altri mercati in base a quelli degli Stati Uniti").
 
     ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 
 10.	Verrà aperta la procedura guidata di impostazione automatica dei prezzi. La prima pagina consente di selezionare il mercato di base. Eseguire la selezione e passare alla pagina successiva facendo clic sul pulsante "->".
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)  
 
-11.	La pagina 2 mostra le opzioni per la selezione delle memorie centrali e dei piani. Selezionare i piani desiderati e fare clic sul pulsante “->”. Fare clic sul pulsante **Attiva/Disattiva tutto** per selezionare tutti i **piani di servizio** e **contatori** o selezionare manualmente le caselle di controllo. **È necessario fornire il prezzo per tutte le memorie centrali di uno SKU anche se lo SKU non lo supporta.** Assicurarsi pertanto che siano selezionate tutte le dimensioni di memoria centrale.
+11.	La pagina 2 mostra le opzioni per la selezione delle memorie centrali e dei piani. Selezionare i piani desiderati e fare clic sul pulsante “->”. Fare clic sul pulsante **Toggle All** (Attiva/Disattiva tutto) per selezionare tutti i **piani di servizio** e i **contatori** oppure selezionare manualmente le caselle di controllo. **È necessario fornire il prezzo per tutte le memorie centrali di uno SKU anche se lo SKU non lo supporta.** Assicurarsi pertanto che siano selezionate tutte le dimensioni di memoria centrale.
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)  
 
-12.	La pagina 3 mostra i mercati/aree. Fare clic sul pulsante **Attiva/Disattiva tutto** per selezionare tutte le aree o selezionare manualmente le caselle per l'area. Fare clic sul pulsante "->" per passare alla pagina successiva. **Nota:** i paesi in cui Microsoft riscuote e versa le imposte sono contrassegnati da un simbolo che raffigura una casa. Per altre informazioni, consultare il sezione "Paesi in cui vendere lo SKU" di questa pagina.
+12.	La pagina 3 mostra i mercati/aree. Fare clic sul pulsante **Toggle All** (Attiva/Disattiva tutto) per selezionare tutte le aree oppure selezionare manualmente le caselle per l'area. Fare clic sul pulsante "->" per passare alla pagina successiva. **Nota:** i paesi in cui Microsoft riscuote e versa le imposte sono contrassegnati da un simbolo che raffigura una casa. Per altre informazioni, consultare il sezione "Paesi in cui vendere lo SKU" di questa pagina.
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)  
 
 13.	La pagina 4 mostra i tassi di cambio. Fare clic sul pulsante Fine per completare i passaggi.
 
@@ -193,18 +192,18 @@ Per configurare il modello di prezzi orario per uno SKU, seguire i passaggi ripo
 Per configurare il modello di prezzi BYOL per uno SKU, seguire i passaggi riportati di seguito:
 
 1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com).
-2.	Passare alla scheda **MACCHINE VIRTUALI** e selezionare l'offerta.
+2.	Passare alla scheda **VIRTUAL MACHINES** (MACCHINE VIRTUALI) e selezionare l'offerta.
 3.	Dal menu sul lato sinistro fare clic sulla scheda **SKU**.
 4.	Assicurarsi che lo SKU sia contrassegnato come "Bring Your Own License". In caso contrario fare clic sul pulsante MODIFICA per cambiare il modello di fatturazione. Verrà visualizzata una finestra. Selezionare la casella di controllo "Billing and licensing is done externally from Azure (aka Bring Your Own License)" ("La fatturazione e le licenze sono gestite all'esterno di Azure (ovvero Bring Your Own License)") e salvare le modifiche.
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)  
 
-5.	Dal menu sul lato sinistro fare clic sulla scheda **PREZZI**.
+5.	Dal menu sul lato sinistro fare clic sulla scheda **PRICING** (PREZZI).
 6.	Selezionare l'area di base e rendere disponibile lo SKU nell'area selezionando la casella di controllo dello SKU nella sezione EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY (DISPONIBILITÀ DELLO SKU CON LICENZA ESTERNA (BYOL)) (vedere la schermata riportata di seguito).
 
-    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
+    ![disegno](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)  
 
-7.	Rendere lo SKU disponibile nelle altre aree manualmente o usare la procedura guidata di impostazione automatica dei prezzi per questo scopo. Fare riferimento ai punti da 9 a 13 (che spiegano come usare la procedura guidata) nella sezione **"2.1.1 Come configurare il modello di prezzi orario per uno SKU"** di questa pagina.
+7.	Rendere lo SKU disponibile nelle altre aree manualmente o usare la procedura guidata di impostazione automatica dei prezzi per questo scopo. Vedere i punti da 9 a 13 che spiegano come usare la procedura guidata nella sezione **"2.1.1 Come configurare il modello di prezzi orario per uno SKU"** di questa pagina.
 
 ### 2\.2. Impostare i prezzi del servizio di sviluppatore
 I piani possono essere qualsiasi combinazione di Base + Consumo, dove base è il prezzo mensile e l'eccedenza è il prezzo da pagare in base all’utilizzo. (Vedere di seguito per ulteriori dettagli).
@@ -236,9 +235,9 @@ La scheda **Categorie** fornisce una matrice delle selezioni. L'offerta può ess
 Di seguito è riportata una visualizzazione dettagliata di come vengono usate le informazioni di marketing dell'offerta nel [sito Web di Azure Marketplace](https://azure.microsoft.com/marketplace/) e nel [portale di Azure](https://portal.azure.com).
 
 ### Sito Web di Azure Marketplace
-![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
+![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)  
 
-![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
+![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)  
 
 *Elenco di offerte sul sito Web del marketplace di Azure*
 
@@ -246,7 +245,7 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono usate le
 
 *Dettagli di descrizione dell’offerta nel sito Web del marketplace di Azure*
 
-![disegno](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
+![disegno](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)  
 
 *Descrizione dei dettagli dei prezzi dell’offerta nel sito Web del marketplace di Azure*
 
@@ -255,7 +254,7 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono usate le
 
 *Elenco di offerte nel portale di Azure*
 
-![disegno](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
+![disegno](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)  
 
 *Descrizione dei dettagli dell'offerta nel portale di Azure*
 
@@ -278,4 +277,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

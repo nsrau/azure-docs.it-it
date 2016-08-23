@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
-	ms.author="robinsh"/>
+	ms.date="08/03/2016"
+	ms.author="robinsh"/>  
 
 # Analisi archiviazione
 
@@ -83,11 +83,11 @@ Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 | Attributo | Descrizione |
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | <service-name> | Nome del servizio di archiviazione. Ad esempio: BLOB, tabella o coda |
-| AAAA | Quattro cifre dell'anno del log. Ad esempio: 2011 |
-| MM | Due cifre del mese del log. Ad esempio: 07 |
-| GG | Due cifre del mese del log. Ad esempio: 07 |
-| hh | Due cifre dell'ora che indica l'ora di inizio dei log, nel formato UTC 24 ore. Ad esempio: 18 |
-| mm | Numero di due cifre che indica il minuto di inizio per i log. Questo valore non è supportato nella versione corrente di Analisi archiviazione, e il relativo valore sarà sempre 00. |
+| AAAA | Anno a quattro cifre per il log. Ad esempio: 2011 |
+| MM | Mese a due cifre per il log. Ad esempio: 07 |
+| GG | Mese a due cifre per il log. Ad esempio: 07 |
+| hh | Ora a due cifre che indica l'ora di inizio per i log, nel formato UTC 24 ore. Ad esempio: 18 |
+| mm | Numero a due cifre che indica il minuto di inizio per i log. Questo valore non è supportato nella versione corrente di Analisi archiviazione, e il relativo valore sarà sempre 00. |
 | <counter> | Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Questo contatore parte da 000000. Ad esempio: 000001 |
 
 Di seguito viene riportato un nome di log di esempio completo che combina gli esempi precedenti:
@@ -105,7 +105,7 @@ Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utiliz
 
 | Attributo | Descrizione |
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType | Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura Esempio 2: lettura, scrittura Esempio 3: lettura, scrittura, eliminazione |
+| LogType | Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura; Esempio 2: lettura, scrittura; Esempio 3: lettura, scrittura, eliminazione. |
 | StartTime | L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:21:46Z |
 | EndTime | L'ora in cui è stata registrata l'ultima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:22:09Z |
 | LogVersion | Versione del formato del log. Al momento, l'unico valore supportato è: 1,0 |
@@ -180,7 +180,7 @@ Analisi archiviazione viene abilitata dal proprietario di un account di archivia
 
 Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
-- Richieste di creazione di BLOB per la registrazione 
+- Richieste di creazione di BLOB per la registrazione
 
 - Richieste di creazione di entità di tabella per le metriche
 
@@ -206,6 +206,6 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 ### Metriche di Analisi archiviazione
 - [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
-- [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
+- [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

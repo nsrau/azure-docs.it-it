@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
 
@@ -41,7 +41,7 @@ Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Fa
 ### Per scaricare l'SDK di Azure Multi-Factor Authentication dal portale di Azure
 
 
-1. Accedere al portale di Azure come amministratore.
+1. Accedre al portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore della pagina Active Directory, selezionare **Provider Multi-Factor Authentication**
 4. Nella parte inferiore fare clic su **Gestisci**
@@ -55,7 +55,7 @@ Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Fa
 ### Per scaricare l'SDK di Azure Multi-Factor Authentication con le impostazioni del servizio
 
 
-1. Accedere al portale di Azure come amministratore.
+1. Accedre al portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
 3. Fare doppio clic sull'istanza di Azure AD.
 4. Nella parte superiore fare clic su **Configura**
@@ -195,4 +195,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Stati utente in Azure Multi-Factor Authentication
@@ -63,4 +63,4 @@ Lo stato utente cambia a seconda di due fattori: la configurazione per la MFA e 
 8.  Verrà richiesta conferma. Fare clic su **Sì**. ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  A questo punto l'operazione dovrebbe essere completa. Fare clic su **Chiudi.** ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

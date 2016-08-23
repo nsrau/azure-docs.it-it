@@ -333,7 +333,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename' * Qui usare il nome del servizio cloud appropriato*
+    4.  ServiceName = 'mycloudservicename' *Qui usare il nome del servizio cloud appropriato*
 
     5.  Environment = 'Staging'
 

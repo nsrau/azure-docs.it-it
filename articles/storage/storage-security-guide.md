@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="robinsh"/>
+	ms.date="08/03/2016"
+	ms.author="robinsh"/>  
 
 #Guida alla sicurezza di Archiviazione di Azure
 
-##Panoramica
+##Overview
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure (SSE)](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -496,7 +496,7 @@ Si noterà che è possibile usare i registri per rilevare qualsiasi tipo di chia
 
 ####Scopo di tutti questi campi
 
-Nelle risorse elencate di seguito è presente un articolo elencato che fornisce l'elenco dei molti campi disponibili nei log e lo scopo per cui vengono usati. Ecco l'elenco dei campi in ordine:
+Le risorse indicate di seguito includono un articolo che fornisce l'elenco dei molti campi disponibili nei log e lo scopo per cui vengono usati. Ecco l'elenco dei campi in ordine:
 
 ![Snapshot dei campi in un file di log](./media/storage-security-guide/image3.png)
 
@@ -634,4 +634,4 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 	Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

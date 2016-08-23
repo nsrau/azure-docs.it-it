@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
-	ms.author="raynew"/>
+	ms.date="08/04/2016" 
+	ms.author="raynew"/>  
 
 
 # Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery 
@@ -26,7 +26,7 @@ Il servizio Azure Site Recovery favorisce l'attuazione della strategia di contin
 
 
 
-## Panoramica
+## Overview
 
 Molti carichi di lavoro usano SQL Server come base. Applicazioni come SharePoint, Dynamics e SAP usano SQL Server per implementare i servizi di dati. Le applicazioni distribuiscono SQL Server in diversi modi:
 
@@ -105,24 +105,23 @@ Le istruzioni riportate in questo documento presuppongono che un controller di d
 
 ## Integrare la protezione con SQL Server AlwaysOn (in locale in Azure)
 
-### Protezione delle VM Hyper-V in cloud VMM
 
 Site Recovery supporta in modo nativo SQL AlwaysOn. Se è stato creato un gruppo di disponibilità SQL con una macchina virtuale di Azure impostata come 'secondaria', è possibile usare Site Recovery per gestire il failover dei gruppi di disponibilità.
 
->[AZURE.NOTE] Questa funzionalità è attualmente in anteprima ed è disponibile quando i server host Hyper-V nel data center principale sono gestiti in cloud VMM.
+>[AZURE.NOTE] Questa funzionalità è attualmente in anteprima ed è disponibile quando i server host Hyper-V nel data center principale sono gestiti in cloud VMM e quando la configurazione di VMware è gestita da un [server di configurazione](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Attualmente questa funzionalità non è disponibile nel nuovo portale di Azure.
 
 #### Prerequisiti
 
-Elementi necessari per integrare SQL AlwaysOn con Site Recovery quando si esegue la replica da VMM:
+Elementi necessari per integrare SQL AlwaysOn con Site Recovery:
 
 - Un'istanza di SQL Server locale (server autonomo o cluster di failover).
 - Una o più macchine virtuali di Azure con SQL Server installato.
 - Un gruppo di disponibilità di SQL configurato tra un'istanza di SQL Server locale e SQL Server in esecuzione in Azure
-- La comunicazione remota di PowerShell deve essere abilitata nel computer SQL Server locale. Il server VMM deve essere in grado di effettuare chiamate remote di PowerShell a SQL Server.
+- La comunicazione remota di PowerShell deve essere abilitata nel computer SQL Server locale. Il server VMM o il server di configurazione deve essere in grado di effettuare chiamate remote di PowerShell al server SQL.
 - Nell'istanza di SQL Server locale è necessario aggiungere un account utente ai gruppi di utenti SQL con almeno le autorizzazioni seguenti:
 	- ALTER AVAILABILITY GROUP: [qui](https://msdn.microsoft.com/library/hh231018.aspx) e [qui](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
 	- ALTER DATABASE: [qui](https://msdn.microsoft.com/library/ff877956.aspx#Security)
-- È necessario creare un account RunAs nel server VMM per l'account nel passaggio precedente
+- È necessario creare un account RunAs nel server VMM oppure un account nel server di configurazione usando CSPSConfigtool.exe per l'utente indicato nel passaggio precedente.
 - Il modulo SQL PS deve essere installato in istanze di SQL Server in esecuzione in locale e nelle macchine virtuali di Azure
 - L'agente VM deve essere installato nelle macchine virtuali in esecuzione in Azure
 - NTAUTHORITY\\System deve disporre delle autorizzazioni seguenti in SQL Server in esecuzione su macchine virtuali in Azure:
@@ -132,32 +131,32 @@ Elementi necessari per integrare SQL AlwaysOn con Site Recovery quando si esegue
 ####  Passaggio 1: Aggiungere un'istanza di SQL Server
 
 
-1. Fare clic su **Aggiungi applicazione SQL** per aggiungere una nuova istanza di SQL Server.
+1. Fare clic su **Aggiungi applicazione SQL** per aggiungere una nuova istanza del server SQL.
 
-	![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)
+	![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)  
 
-2. In **Configura impostazioni SQL** > **Nome** specificare un nome descrittivo che faccia riferimento a SQL Server.
-3. **In SQL Server (nome di dominio completo)** specificare il nome di dominio completo (FQDN) dell'istanza di SQL Server di origine da aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster.
+2. In **Configura impostazioni SQL** > **Nome** specificare un nome descrittivo che faccia riferimento al server SQL.
+3. **In SQL Server (nome di dominio completo)** specificare il nome di dominio completo (FQDN) dell'istanza del server SQL di origine da aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster.
 4. In **Istanza di SQL Server** scegliere l'istanza predefinita o specificare il nome dell'istanza personalizzata.
-5. In **Server VMM** selezionare un server VMM registrato nell'insieme di credenziali di Site Recovery. Site Recovery usa questo server VMM per comunicare con SQL Server.
-6. In **Account RunAs** specificare il nome di un account RunAs creato nel server VMM specificato. Questo account viene usato per accedere a SQL Server e deve avere autorizzazioni di lettura e failover nei gruppi di disponibilità nel computer SQL Server.
+5. In **Server di gestione** selezionare un server VMM o un server di configurazione registrato nell'insieme di credenziali di Site Recovery. Site Recovery usa questo server di gestione per comunicare con il server SQL.
+6. In **Account RunAs** specificare il nome di un account RunAs creato nel server VMM specificato oppure l'account creato nel server di configurazione. Questo account viene usato per accedere a SQL Server e deve avere autorizzazioni di lettura e failover nei gruppi di disponibilità nel computer SQL Server.
 
-	![Finestra di dialogo Aggiungi SQL](./media/site-recovery-sql/add-sql-dialog.png)
+	![Finestra di dialogo Aggiungi SQL](./media/site-recovery-sql/add-sql-dialog.png)  
 
-Dopo aver aggiunto SQL Server, l'istanza verrà visualizzata nella scheda **SQL Server**.
+Dopo aver aggiunto il server SQL, l'istanza verrà visualizzata nella scheda **SQL Server**.
 
-![Elenco di server SQL](./media/site-recovery-sql/sql-server-list.png)
+![Elenco di server SQL](./media/site-recovery-sql/sql-server-list.png)  
 
 
 #### Passaggio 2: Aggiungere un gruppo di disponibilità SQL
 
 1. Dopo aver aggiunto il computer SQL Server, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità a Site Recovery. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL.
 
-	![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)
+	![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)  
 
 2. Il gruppo di disponibilità SQL si può replicare in una o più macchine virtuali in Azure. Quando si aggiunge il gruppo di disponibilità SQL, è necessario specificare il nome e la sottoscrizione della macchina virtuale di Azure in cui si vuole che venga eseguito il failover da Site Recovery.
 
-	![Finestra di dialogo Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag-dialog.png)
+	![Finestra di dialogo Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag-dialog.png)  
 
 3. Nell'esempio precedente Gruppo di disponibilità DB1-AG diventa Primario nella macchina virtuale SQLAGVM2 in esecuzione all'interno della sottoscrizione DevTesting2 in un failover.
 
@@ -165,17 +164,17 @@ Dopo aver aggiunto SQL Server, l'istanza verrà visualizzata nella scheda **SQL 
 
 #### Passaggio 3: Creare un piano di ripristino
 
-Il passaggio successivo consiste nel creare un piano di ripristino utilizzando macchine virtuali e gruppi di disponibilità. Selezionare lo stesso server VMM utilizzato nel passaggio 1 come origine e Microsoft Azure come destinazione.
+Il passaggio successivo consiste nel creare un piano di ripristino utilizzando macchine virtuali e gruppi di disponibilità. Selezionare lo stesso server VMM o di configurazione usato nel passaggio 1 come origine e Microsoft Azure come destinazione.
 
-![Create Recovery Plan](./media/site-recovery-sql/create-rp1.png)
+![Create Recovery Plan](./media/site-recovery-sql/create-rp1.png)  
 
-![Create Recovery Plan](./media/site-recovery-sql/create-rp2.png)
+![Create Recovery Plan](./media/site-recovery-sql/create-rp2.png)  
 
 Nell'esempio l'applicazione di Sharepoint è costituita da 3 macchine virtuali che utilizzano un gruppo di disponibilità SQL come backend. In questo piano di ripristino potremmo selezionare sia il gruppo di disponibilità che la macchina virtuale che costituiscono l'applicazione.
 
 È possibile personalizzare ulteriormente il piano di ripristino tramite lo spostamento di macchine virtuali in gruppi di failover diversi per la sequenza dell'ordine di failover. Il failover del gruppo di disponibilità viene sempre eseguito prima, poiché sarebbe essere utilizzato come backend di qualsiasi applicazione.
 
-![Personalizzare il piano di ripristino](./media/site-recovery-sql/customize-rp.png)
+![Personalizzare il piano di ripristino](./media/site-recovery-sql/customize-rp.png)  
 
 ### Passaggio 4: Eseguire il failover
 
@@ -193,7 +192,7 @@ Prendere in considerazione queste opzioni di failover.
 Opzione | Dettagli
 --- | ---
 **Opzione 1** | 1\. Eseguire un failover di test dei livelli applicazione e front-end.<br/><br/>2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
-**Opzione 2** | 1\. Creare una copia dell'istanza della macchina virtuale di SQL Server di replica (usando il clone VMM per il backup da sito a sito o Backup di Azure) e aprirla in una rete di test<br/><br/> 2. Eseguire il failover di test usando il piano di ripristino.
+**Opzione 2** | 1\. Creare una copia dell'istanza della macchina virtuale del server SQL di replica (usando il clone VMM per il backup da sito a sito o Backup di Azure) e aprirla in una rete di test<br/><br/> 2. Eseguire il failover di test usando il piano di ripristino.
 
 Passaggio 5: Eseguire il failback
 
@@ -203,9 +202,9 @@ Se si vuole rendere nuovamente primario il gruppo di disponibilità nell'istanza
 
 
 
-### Proteggere i computer senza VMM
+### Proteggere i computer senza un server VMM o un server di configurazione
 
-Per gli ambienti non gestiti da un server VMM, è possibile utilizzare i runbook di automazione di Azure per configurare un failover tramite script dei gruppi di disponibilità SQL. Di seguito sono riportati i passaggi di configurazione per:
+Per gli ambienti non gestiti da un server VMM o da un server di configurazione, è possibile usare i runbook di automazione di Azure per configurare un failover tramite script dei gruppi di disponibilità SQL. Di seguito sono riportati i passaggi di configurazione per:
 
 1.	Creare un file locale per fare in modo che lo script esegua il failover di un gruppo di disponibilità. Questo script di esempio consente di specificare un percorso per il gruppo di disponibilità nella replica di Azure e di eseguire il failover in tale istanza di replica. Questo script viene eseguito nella macchina virtuale di replica di SQL Server con l'estensione di script personalizzato.
 
@@ -332,7 +331,7 @@ Site Recovery non fornisce il supporto di cluster guest durante la replica in Az
 
 Nell'immagine seguente viene illustrata questa configurazione.
 
-![Cluster standard](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
+![Cluster standard](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)  
 
 
 ### Considerazioni sul failback
@@ -353,4 +352,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

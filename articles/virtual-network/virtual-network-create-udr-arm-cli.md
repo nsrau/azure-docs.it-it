@@ -3,11 +3,11 @@
    description="Informazioni su come controllare il routing e usare dispositivi virtuali di rete mediante l'interfaccia della riga di comando di Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 #Creare route definite dall'utente nell'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È possibile anche [creare route definite dall'utente nel modello di distribuzione classica](virtual-network-create-udr-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Questo articolo illustra il modello di distribuzione Gestione risorse. È possibile anche [creare route definite dall'utente nel modello di distribuzione classica](virtual-network-create-udr-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -52,7 +52,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	Parametri:
+	Parametri
 	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creato il gruppo di sicurezza di rete. Per questo scenario, *TestRG*.
 	- **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
 	- **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
@@ -76,7 +76,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	Parametri:
+	Parametri
 	- **-r (o --route-table-name)**. Nome della tabella di route in cui verrà aggiunta la route. Per questo scenario, *UDR-FrontEnd*.
 	- **-a (o --address-prefix)**. Prefisso di indirizzo della subnet alla quale sono destinati i pacchetti. Per questo scenario, *192.168.2.0/24*.
 	- **-y (o --next-hop-type)**. Tipo di oggetto al quale verrà inviato il traffico. I valori possibili sono *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
@@ -110,7 +110,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		data:    
 		info:    network vnet subnet set command OK
 
-	Parametri:
+	Parametri
 	- **-e (o --vnet-name)**. Nome della rete virtuale in cui si trova la subnet. Per questo scenario, *TestVNet*.
  
 ## Creare la route definita dall'utente per la subnet back-end
@@ -195,8 +195,8 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 		data:    
 		info:    network nic set command OK
 
-	Parametri:
+	Parametri
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

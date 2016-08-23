@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
-   ms.author="yurid"/>
+   ms.date="08/09/2016"
+   ms.author="yurid"/>  
 
 # Classificazione dei dati per Azure
 
@@ -26,9 +26,9 @@ Per ottimizzare la classificazione dei dati in un'organizzazione, è necessario 
  
 Gli stati di base dei dati sono tre:
 
-- Inattivi 
-- In corso 
-- In transito 
+- Inattivi
+- In corso
+- In transito
  
 Tutti e tre gli stati richiedono soluzioni tecniche univoche per la classificazione dei dati, ma i principi di classificazione dei dati applicati devono essere sempre gli stessi. I dati classificati come riservati devono rimanere tali quando sono inattivi, in fase di elaborazione e in transito.
  
@@ -50,7 +50,7 @@ L'autenticazione in genere è costituita da almeno due parti: un nome utente o u
 
 > [AZURE.TIP] [Azure Active Directory](../active-directory/active-directory-whatis.md) fornisce servizi di gestione delle identità basati sul cloud che consentono di autenticare e autorizzare gli utenti.
 
-### Autorizzazione
+### Authorization
  
 L'autorizzazione è il processo che offre a un utente autenticato la possibilità di accedere a un'applicazione, a un set di dati, a un file di dati o a un altro oggetto. Quando si assegnano agli utenti autenticati i diritti per usare, modificare o eliminare elementi a cui possono accedere, è necessario prestare attenzione alla classificazione dei dati.
 
@@ -70,7 +70,7 @@ Anche se ciascuno è responsabile della classificazione dei propri dati, i provi
 
 - I **provider IaaS** devono solo assicurarsi che l'ambiente virtuale consenta le funzionalità di classificazione dei dati e risponda ai requisiti di conformità del cliente. I provider IaaS hanno un ruolo meno importante nella classificazione dei dati perché devono solo assicurarsi che i dati del cliente rispondano ai requisiti di conformità. I provider devono tuttavia assicurarsi che i propri ambienti virtuali rispondano ai requisiti di classificazione dei dati oltre a proteggere i propri data center.
 - Le responsabilità dei **provider PaaS** possono essere miste, perché la piattaforma può essere usata in un approccio a livelli per garantire la sicurezza per uno strumento di classificazione. I provider PaaS possono essere responsabili dell'autenticazione ed eventualmente di alcune regole di autorizzazione e devono fornire funzionalità di sicurezza e classificazione dei dati al livello dell'applicazione. Similmente ai provider IaaS, i provider PaaS devono assicurarsi che la piattaforma sia conforme ai requisiti pertinenti di classificazione dei dati.
-- I **provider SaaS** verranno spesso considerati parte di una catena di autorizzazione e dovranno assicurarsi che i dati archiviati nell'applicazione SaaS possano essere controllati dal tipo di classificazione. Le applicazioni SaaS possono essere usate per le applicazioni LOB e in base alla loro natura devono fornire i mezzi per autenticare e autorizzare i dati usati e archiviati. 
+- I **provider SaaS** verranno spesso considerati parte di una catena di autorizzazione e dovranno assicurarsi che i dati archiviati nell'applicazione SaaS possano essere controllati dal tipo di classificazione. Le applicazioni SaaS possono essere usate per le applicazioni LOB e in base alla loro natura devono fornire i mezzi per autenticare e autorizzare i dati usati e archiviati.
 
 ## Processo di classificazione 
 
@@ -78,10 +78,10 @@ Diverse organizzazioni che comprendono la necessità della classificazione dei d
 
 Un modo semplice ed efficace per implementare la classificazione dei dati consiste nell'usare il modello PLAN (pianificazione), DO (esecuzione), CHECK (verifica), ACT (azione) di [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). La figura seguente illustra le attività necessarie per implementare correttamente la classificazione dei dati in questo modello.
 
-1. **PLAN**. Identificare gli asset di dati e un responsabile dei dati per distribuire il programma di classificazione e sviluppare i profili di protezione. 
-2. **DO**. Dopo avere stabilito i criteri di classificazione dei dati, distribuire il programma e implementare le tecnologie di applicazione necessarie per i dati riservati.  
-3. **CHECK**. Controllare e convalidare i report per assicurarsi che gli strumenti e i metodi in uso rispondano in modo efficace ai criteri di classificazione. 
-4. **ACT**. Rivedere lo stato dell'accesso ai dati e rivedere i file e i dati che richiedono una revisione usando una metodologia di riclassificazione e revisione per adottare le modifiche necessarie e per affrontare i nuovi rischi.  
+1. **PLAN**. Identificare gli asset di dati e un responsabile dei dati per distribuire il programma di classificazione e sviluppare i profili di protezione.
+2. **DO**. Dopo avere stabilito i criteri di classificazione dei dati, distribuire il programma e implementare le tecnologie di applicazione necessarie per i dati riservati.
+3. **CHECK**. Controllare e convalidare i report per assicurarsi che gli strumenti e i metodi in uso rispondano in modo efficace ai criteri di classificazione.
+4. **ACT**. Rivedere lo stato dell'accesso ai dati e rivedere i file e i dati che richiedono una revisione usando una metodologia di riclassificazione e revisione per adottare le modifiche necessarie e per affrontare i nuovi rischi.
 
 ![Plan, Do, Check, Act](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
  
@@ -96,18 +96,18 @@ Questo articolo presenta due modelli di terminologia generalizzati basati su mod
 | **Riservatezza** | **Modello di terminologia 1** | **Modello di terminologia 2** |
 |--------------------|---------------------------|-------------------------|
 | Alto | Riservate | Con restrizioni |
-| Medio | Solo per uso interno | Sensibili |
+| Media | Solo per uso interno | Sensibili |
 | Basso | Pubblico | Senza restrizioni |
 
 #### Riservate (con restrizioni) 
 
 Le informazioni classificate come riservate o con restrizioni includono dati che possono causare gravi problemi a una o più persone e/o organizzazioni, se vengono compromessi o persi. Tali informazioni vengono spesso fornite solo quando necessario e possono includere:
 
-- Dati personali, incluse le informazioni personali, ad esempio codici fiscali o numeri di carta di identità, numeri di passaporto, numeri di carta di credito, numeri di patente, cartelle cliniche e numeri ID polizza assicurativa sanitaria.  
-- Record finanziari, inclusi i numeri di conto finanziario, ad esempio numeri di conto corrente o di investimento. 
-- Materiale aziendale, ad esempio documenti o dati che costituiscono una proprietà intellettuale univoca o specifica.  
-- Dati legali, incluso il potenziale materiale coperto da segreto professionale. 
-- Dati di autenticazione, incluse le chiavi di crittografia private, le coppie nome utente e password o altre sequenze di identificazione, ad esempio file di chiave biometrica privata. 
+- Dati personali, incluse le informazioni personali, ad esempio codici fiscali o numeri di carta di identità, numeri di passaporto, numeri di carta di credito, numeri di patente, cartelle cliniche e numeri ID polizza assicurativa sanitaria.
+- Record finanziari, inclusi i numeri di conto finanziario, ad esempio numeri di conto corrente o di investimento.
+- Materiale aziendale, ad esempio documenti o dati che costituiscono una proprietà intellettuale univoca o specifica.
+- Dati legali, incluso il potenziale materiale coperto da segreto professionale.
+- Dati di autenticazione, incluse le chiavi di crittografia private, le coppie nome utente e password o altre sequenze di identificazione, ad esempio file di chiave biometrica privata.
 
 I dati classificati come riservati hanno spesso requisiti normativi e di conformità per la gestione dei dati.
 
@@ -115,7 +115,7 @@ I dati classificati come riservati hanno spesso requisiti normativi e di conform
  
 Le informazioni classificate con sensibilità media includono file e dati che non hanno gravi conseguenze per una persona e/o un'organizzazione, se vengono persi o eliminati definitivamente. Tali informazioni possono includere:
 
-- Messaggi di posta elettronica, molti dei quali possono essere eliminati o distribuiti senza causare una crisi (escluse le cassette postali o i messaggi da persone identificate nella classificazione riservata).  
+- Messaggi di posta elettronica, molti dei quali possono essere eliminati o distribuiti senza causare una crisi (escluse le cassette postali o i messaggi da persone identificate nella classificazione riservata).
 - Documenti e file che non includono dati riservati.
  
 In genere, questa classificazione include tutto ciò che non è riservato. Questa classificazione può includere la maggior parte dei dati aziendali, perché la maggior parte dei file gestiti o usati quotidianamente possono essere classificati come sensibili. Fatta eccezione per i dati resi pubblici o che sono riservati, tutti i dati in un'organizzazione aziendale possono essere classificati come sensibili per impostazione predefinita.
@@ -138,18 +138,18 @@ Le informazioni classificate come pubbliche includono dati e file non critici pe
 
 > [AZURE.NOTE] Questa tabella è solo un esempio rappresentativo e non include un elenco completo di ruoli e diritti.
 
-Il **proprietario degli asset di dati** è il creatore originale dei dati e può delegare la proprietà e assegnare un responsabile. Quando viene creato un file, il proprietario deve poter assegnare una classificazione e ha quindi la responsabilità di sapere che cosa deve essere classificato come riservato in base ai criteri dell'organizzazione. Tutti i dati del proprietario di un asset di dati possono essere classificati automaticamente come solo per uso interno (sensibili) a meno che non sia responsabile della proprietà o della creazione di tipi di dati riservati (con restrizioni). Il ruolo del proprietario verrà frequentemente modificato dopo la classificazione dei dati. Il proprietario, ad esempio, può creare un database di informazioni classificate e cederne i diritti al responsabile dei dati.
+Il **proprietario degli asset di dati** è l'autore originale dei dati, che può delegare la proprietà e assegnare un responsabile. Quando viene creato un file, il proprietario deve poter assegnare una classificazione e ha quindi la responsabilità di sapere che cosa deve essere classificato come riservato in base ai criteri dell'organizzazione. Tutti i dati del proprietario di un asset di dati possono essere classificati automaticamente come solo per uso interno (sensibili) a meno che non sia responsabile della proprietà o della creazione di tipi di dati riservati (con restrizioni). Il ruolo del proprietario verrà frequentemente modificato dopo la classificazione dei dati. Il proprietario, ad esempio, può creare un database di informazioni classificate e cederne i diritti al responsabile dei dati.
 
 > [AZURE.NOTE] I proprietari di asset di dati usano spesso una combinazione di servizi, dispositivi e supporti, alcuni personali e altri appartenenti all'organizzazione. Criteri organizzativi chiari consentono di assicurarsi che l'utilizzo di dispositivi, ad esempio portatili e Smart Device, segua le linee guida relative alla classificazione dei dati.
 
-Il **responsabile dell'asset di dati** viene incaricato dal proprietario dell'asset (o dal delegato) di gestire l'asset in base ai contratti con il proprietario dell'asset o ai requisiti dei criteri applicabili. Idealmente, il ruolo di responsabile può essere implementato in un sistema automatizzato. Il responsabile di un asset si assicura che vengano forniti i controlli di accesso necessari ed è incaricato della gestione e della protezione degli asset a lui delegati. Le responsabilità del responsabile dell'asset possono includere:
+Il **responsabile dell'asset di dati** viene incaricato dal proprietario dell'asset (o dal delegato) di gestire l'asset in base agli accordi con il proprietario dell'asset o ai requisiti dei criteri applicabili. Idealmente, il ruolo di responsabile può essere implementato in un sistema automatizzato. Il responsabile di un asset si assicura che vengano forniti i controlli di accesso necessari ed è incaricato della gestione e della protezione degli asset a lui delegati. Le responsabilità del responsabile dell'asset possono includere:
 
-- Protezione dell'asset in base alle istruzioni del proprietario dell'asset o al contratto con il proprietario dell'asset 
-- Verifica della conformità con i criteri di classificazione 
-- Notifica ai proprietari degli asset delle modifiche ai controlli e/o alle procedure di protezione concordate prima che tali modifiche vengano applicate 
-- Segnalazione al proprietario dell'asset delle modifiche o della rimozione delle responsabilità del responsabile dell'asset 
-- Un **amministratore** rappresenta un utente che deve assicurarsi che venga mantenuta l'integrità, ma che non è l'utente, il responsabile o il proprietario di un asset di dati. Diversi ruoli di amministratore forniscono infatti servizi di gestione dei contenitori di dati senza avere accesso ai dati. Il ruolo di amministratore include il backup e il ripristino dei dati, la gestione dei record degli asset e la scelta, l'acquisizione e il funzionamento dei dispositivi e della risorsa di archiviazione che ospitano gli asset. 
-- L'utente dell'asset include chiunque abbia accesso ai dati o a un file. L'assegnazione dell'accesso viene spesso delegata dal proprietario al responsabile dell'asset.  
+- Protezione dell'asset in base alle istruzioni del proprietario dell'asset o al contratto con il proprietario dell'asset
+- Verifica della conformità con i criteri di classificazione
+- Notifica ai proprietari degli asset delle modifiche ai controlli e/o alle procedure di protezione concordate prima che tali modifiche vengano applicate
+- Segnalazione al proprietario dell'asset delle modifiche o della rimozione delle responsabilità del responsabile dell'asset
+- Un **amministratore** rappresenta un utente che deve assicurarsi che venga mantenuta l'integrità, ma che non è l'utente, il responsabile o il proprietario di un asset di dati. Diversi ruoli di amministratore forniscono infatti servizi di gestione dei contenitori di dati senza avere accesso ai dati. Il ruolo di amministratore include il backup e il ripristino dei dati, la gestione dei record degli asset e la scelta, l'acquisizione e il funzionamento dei dispositivi e della risorsa di archiviazione che ospitano gli asset.
+- L'utente dell'asset include chiunque abbia accesso ai dati o a un file. L'assegnazione dell'accesso viene spesso delegata dal proprietario al responsabile dell'asset.
 
 ### Implementazione
   
@@ -167,8 +167,8 @@ Idealmente, questa attività assicura che i dettagli di una modifica vengano acq
  
 La riclassificazione automatica dei dati usa la stessa regola generale della classificazione manuale, fatta eccezione per il fatto che le soluzioni automatizzate possono assicurare che le regole vengano seguite e applicate in base alle esigenze. La classificazione dei dati può essere eseguita nell'ambito di un criterio di applicazione della classificazione dei dati, che può essere applicato quando i dati sono archiviati, sono in uso e in transito usando la tecnologia di autorizzazione.
 
-- In base all'applicazione. Per impostazione predefinita, l'uso di determinate applicazioni imposta un livello di classificazione. Ad esempio, i dati del software CRM (Customer Relationship Management), delle risorse umane e degli strumenti di gestione dei record sanitari sono riservati per impostazione predefinita. 
-- In base alla posizione. La posizione dei dati consente di identificare la riservatezza dei dati. Ad esempio, è più probabile che i dati archiviati da un reparto risorse umane o finanziario siano riservati per natura.  
+- In base all'applicazione. Per impostazione predefinita, l'uso di determinate applicazioni imposta un livello di classificazione. Ad esempio, i dati del software CRM (Customer Relationship Management), delle risorse umane e degli strumenti di gestione dei record sanitari sono riservati per impostazione predefinita.
+- In base alla posizione. La posizione dei dati consente di identificare la riservatezza dei dati. Ad esempio, è più probabile che i dati archiviati da un reparto risorse umane o finanziario siano riservati per natura.
  
 ### Conservazione, ripristino ed eliminazione dei dati 
 
@@ -190,7 +190,7 @@ Questa sezione fornisce informazioni di base su alcune tecnologie che possono au
  
 Come illustra la figura seguente, queste tecnologie possono essere distribuite come soluzioni locali o basate sul cloud oppure in modalità ibrida, con alcune tecnologie distribuite in locale e altre nel cloud. Alcune tecnologie, ad esempio la crittografia e Rights Management, si estendono anche ai dispositivi utente.
 
-![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
+![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)  
 
 ### Software di Rights Management  
 
@@ -200,11 +200,11 @@ Una soluzione per evitare la perdita di dati è il software di Rights Management
 
 Alcuni vantaggi del software di Rights Management includono:
 
-- Informazioni sensibili protette. Gli utenti possono proteggere i dati direttamente usando le applicazioni abilitate per Rights Management. Non sono necessari passaggi aggiuntivi: la creazione di documenti, l'invio di posta elettronica e la pubblicazione di dati offrono un'esperienza di protezione dei dati personali coerente. 
-- Dati sempre protetti. I clienti hanno sempre il controllo su chi accede ai dati, sia nel cloud che nell'infrastruttura IT esistente o nel desktop dell'utente. Le organizzazioni possono scegliere di crittografare i dati e di limitare l'accesso in base ai requisiti aziendali. 
-- Criteri di protezione delle informazioni predefiniti. Gli amministratori e gli utenti possono usare criteri standard per diversi scenari aziendali comuni, ad esempio "Informazioni aziendali riservate - Sola lettura" e "Non inoltrare". È supportata un'ampia gamma di diritti di utilizzo, ad esempio lettura, copia, stampa, salvataggio, modifica e inoltro, per garantire flessibilità nella definizione dei diritti di utilizzo. 
+- Informazioni sensibili protette. Gli utenti possono proteggere i dati direttamente usando le applicazioni abilitate per Rights Management. Non sono necessari passaggi aggiuntivi: la creazione di documenti, l'invio di posta elettronica e la pubblicazione di dati offrono un'esperienza di protezione dei dati personali coerente.
+- Dati sempre protetti. I clienti hanno sempre il controllo su chi accede ai dati, sia nel cloud che nell'infrastruttura IT esistente o nel desktop dell'utente. Le organizzazioni possono scegliere di crittografare i dati e di limitare l'accesso in base ai requisiti aziendali.
+- Criteri di protezione delle informazioni predefiniti. Gli amministratori e gli utenti possono usare criteri standard per diversi scenari aziendali comuni, ad esempio "Informazioni aziendali riservate - Sola lettura" e "Non inoltrare". È supportata un'ampia gamma di diritti di utilizzo, ad esempio lettura, copia, stampa, salvataggio, modifica e inoltro, per garantire flessibilità nella definizione dei diritti di utilizzo.
 
-> [AZURE.TIP] È possibile proteggere i dati in Archiviazione di Azure usando [Crittografia del servizio di archiviazione di Azure](../storage/storage-service-encryption.md) per i dati inattivi. È anche possibile usare [Crittografia dischi di Azure](azure-security-disk-encryption.md) per proteggere i dati contenuti nei dischi virtuali usati per Macchine virtuali di Azure.
+> [AZURE.TIP] È possibile proteggere i dati in Archiviazione di Azure usando [Crittografia del servizio di archiviazione di Azure](../storage/storage-service-encryption.md) per i dati inattivi. È anche possibile usare [Crittografia dischi di Azure](azure-security-disk-encryption.md) per proteggere i dati disponibili nei dischi virtuali usati per Macchine virtuali di Azure.
 
 ### Gateway di crittografia
 
@@ -223,14 +223,14 @@ Le tecnologie di prevenzione della perdita dei dati (DLP) consentono di assicura
  
 Le tecnologie DLP possono eseguire un'analisi approfondita del contenuto tramite corrispondenze delle parole chiave, corrispondenze del dizionario, valutazione di espressioni regolari ed esame di altri contenuti per rilevare quelli che violano i criteri DLP organizzativi. La tecnologia DLP, ad esempio, consente di prevenire la perdita dei tipi seguenti di dati:
 
-- Codici fiscali o numeri di carta di identità 
-- Informazioni bancarie 
-- Numeri di carta di credito  
-- Indirizzi IP 
+- Codici fiscali o numeri di carta di identità
+- Informazioni bancarie
+- Numeri di carta di credito
+- Indirizzi IP
 
 Alcune tecnologie DLP offrono anche la possibilità di eseguire l'override della configurazione DLP, ad esempio se un'organizzazione deve trasmettere informazioni sui codici fiscali a un processore di retribuzioni. È anche possibile configurare DLP in modo che gli utenti ricevano una notifica ancora prima che tentino di inviare informazioni sensibili che non devono essere trasmesse.
 
-> [AZURE.TIP] È possibile usare le funzionalità DLP di Office 365 per proteggere i documenti. Per altre informazioni, vedere la pagina relativa ai [controlli di conformità di Office 365: prevenzione della perdita dei dati](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/).
+> [AZURE.TIP] È possibile usare le funzionalità DLP di Office 365 per proteggere i documenti. Per altre informazioni, vedere il blog [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) (Controlli di conformità di Office 365: prevenzione della perdita dei dati).
 
 ## Vedere anche
 
@@ -239,4 +239,4 @@ Alcune tecnologie DLP offrono anche la possibilità di eseguire l'override della
 - [Blog del team di sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

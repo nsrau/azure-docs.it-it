@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Panoramica di Hub eventi di Azure
@@ -21,17 +21,17 @@ Molte soluzioni moderne intendono fornire esperienze del cliente adattive o migl
 
 ![Hub eventi](./media/event-hubs-overview/IC759856.png)
 
-Hub eventi di Azure è un servizio di elaborazione eventi che fornisce un punto di ingresso di eventi e telemetria nel cloud su grandissima scala, con bassa latenza e affidabilità elevata. Questo servizio, usato insieme ad altri servizi a valle, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o esperienza utente e Internet delle cose (IoT). Hub eventi fornisce funzionalità di gestione del flusso di messaggi e anche se un Hub eventi è un'entità simile a code e argomenti, presenta caratteristiche molto diverse dai servizi di messaggistica aziendale tradizionale. Scenari di messaggistica aziendale richiedono in genere un numero di funzionalità sofisticate come sequenziazione, coda dei messaggi non recapitabili, supporto delle transazioni e garanzie di consegna sicura, mentre la preoccupazione principale per l’acquisizione di eventi è la velocità effettiva elevata e la flessibilità di elaborazione per i flussi di eventi. Per questo motivo, le funzionalità di Hub eventi differiscono dagli argomenti del bus di servizio, in quanto sono fortemente orientati agli scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, gli Hub eventi non implementano alcune delle funzionalità di messaggistica disponibili per gli argomenti. Se tali funzionalità sono necessarie, gli argomenti rimangano la scelta ottimale.
+Hub eventi di Azure è un servizio di elaborazione eventi che fornisce un punto di ingresso di eventi e telemetria nel cloud su grandissima scala, con bassa latenza e affidabilità elevata. Questo servizio, usato insieme ad altri servizi a valle, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o esperienza utente e Internet delle cose (IoT). Hub eventi fornisce funzionalità di gestione del flusso di messaggi e anche se un Hub eventi è un'entità simile a code e argomenti, presenta caratteristiche molto diverse dai servizi di messaggistica aziendale tradizionale. Scenari di messaggistica aziendale richiedono in genere funzionalità sofisticate come sequenza, coda dei messaggi non recapitabili, supporto delle transazioni e garanzie di recapito sicuro, mentre la preoccupazione principale per l'acquisizione di eventi è la velocità effettiva elevata e la flessibilità di elaborazione per i flussi di eventi. Le funzionalità di Hub eventi differiscono quindi dagli argomenti del bus di servizio perché sono fortemente orientate agli scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, gli Hub eventi non implementano alcune delle funzionalità di messaggistica disponibili per gli argomenti. Se tali funzionalità sono necessarie, gli argomenti rimangono la scelta ottimale.
 
-Un Hub eventi viene creato a livello di spazio dei nomi in Bus di servizio, analogamente a code e argomenti. Hub eventi utilizza AMQP e HTTP come le interfacce API primarie. Il grafico seguente mostra la relazione tra Hub eventi e Bus di servizio.
+Un Hub eventi viene creato a livello di spazio dei nomi di Hub eventi, analogamente a code e argomenti del bus di servizio. Hub eventi utilizza AMQP e HTTP come le interfacce API primarie. Il grafico seguente mostra la relazione tra Hub eventi e Bus di servizio.
 
 ![Hub eventi](./media/event-hubs-overview/IC741188.png)
 
 ## Informazioni generali
 
-Hub eventi fornisce i flussi di messaggi tramite un modello consumer partizionato. Le code e gli argomenti utilizzano un modello del [consumer concorrente](https://msdn.microsoft.com/library/dn568101.aspx) in cui ogni consumer tenta di leggere dalla stessa coda o risorsa. La concorrenza per le risorse determina complessità e limiti di scalabilità per le applicazioni di elaborazione del flusso. Hub eventi utilizza un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti.
+Hub eventi fornisce i flussi di messaggi tramite un modello consumer partizionato. Le code e gli argomenti usano un modello del [consumer concorrente](https://msdn.microsoft.com/library/dn568101.aspx) in cui ogni consumer cerca di leggere dalla stessa coda o risorsa. La concorrenza per le risorse determina complessità e limiti di scalabilità per le applicazioni di elaborazione del flusso. Hub eventi utilizza un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti.
 
-### Partizioni
+### Partitions
 
 Una partizione è una sequenza ordinata di eventi contenuta in un Hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
 
@@ -43,7 +43,7 @@ Le partizioni conservano i dati per un periodo di conservazione configurato che 
 
 Il numero di partizioni è specificato in fase di creazione dell'Hub eventi e deve essere compreso tra 2 e 32 (il valore predefinito è 4). Le partizioni sono un meccanismo di organizzazione dei dati e sono più strettamente correlate al grado di parallelismo a valle necessario nell'utilizzo di applicazioni rispetto alla velocità effettiva degli Hub eventi. In questo modo la scelta del numero di partizioni in un Hub eventi è direttamente correlato al numero di lettori simultanei previsti. Dopo la creazione di Hub eventi, il numero di partizioni non può essere modificato. Tale numero deve essere considerato in termini di scalabilità prevista a lungo termine. È possibile aumentare il limite di 32 partizioni contattando il team del bus di servizio.
 
-Anche se le partizioni sono identificabili e possono costituire destinazioni dirette, in genere è preferibile evitare l'invio di dati a partizioni specifiche. Al contrario, è possibile utilizzare costrutti di livello superiori introdotti nelle sezioni [Autore di eventi](#event-publisher) e [Criteri di autore](#capacity-and-security).
+Anche se le partizioni sono identificabili e possono costituire destinazioni dirette, è preferibile evitare l'invio di dati a partizioni specifiche. Al contrario, è possibile utilizzare costrutti di livello superiori introdotti nelle sezioni [Autore di eventi](#event-publisher) e [Criteri di autore](#capacity-and-security).
 
 Nel contesto di Hub eventi, i messaggi vengono definiti come *dati dell'evento*. I dati dell'evento contengono il corpo dell'evento, un contenitore di proprietà definito dall’utente e diversi metadati sull'evento, ad esempio l'offset nella partizione e il relativo numero nella sequenza di flusso. Le partizioni vengono riempite con una sequenza di dati dell'evento.
 
@@ -118,27 +118,27 @@ Dopo l'apertura di una sessione AMQP 1.0 e del collegamento per una partizione s
 
 ![Hub eventi](./media/event-hubs-overview/IC759862.png)
 
-È responsabilità dell'utente per gestire questo offset nel modo che meglio consente di gestire l’avanzamento durante l'elaborazione del flusso.
+È responsabilità dell'utente gestire questo offset nel modo che meglio consente di gestire l'avanzamento durante l'elaborazione del flusso.
 
 ## Capacità e sicurezza
 
-Hub eventi è un'architettura altamente scalabile parallela di ingresso del flusso. Di conseguenza, esistono diversi aspetti chiavi da considerare per le dimensioni e la scalabilità di una soluzione basata su Hub eventi. Il primo di questi controlli di capacità è rappresentato dalle *unità elaborate*, descritte nella sezione seguente.
+Hub eventi è un'architettura altamente scalabile parallela di ingresso del flusso. Di conseguenza, esistono diversi aspetti chiavi da considerare per le dimensioni e la scalabilità di una soluzione basata su Hub eventi. Il primo di questi controlli di capacità è chiamato *unità elaborate*, descritte nella sezione seguente.
 
 ### Unità elaborate
 
 La capacità di velocità effettiva di Hub eventi è controllata dalle unità elaborate. Le unità elaborate sono unità di capacità pre-acquistate. Una singola unità elaborata include:
 
-- In ingresso: fino a 1 MB al secondo o 1000 eventi al secondo.
+- Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo.
 
-- In uscita: fino a 2 MB al secondo.
+- Dati in uscita: fino a 2 MB al secondo.
 
 L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate, è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel [portale di Azure classico][]. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
 
-Mentre le partizioni sono un concetto di organizzazione di dati, le unità elaborate sono semplicemente un concetto di capacità. Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. Fino a 20 velocità elaborate possono essere acquistate per uno spazio dei nomi del Bus di servizio ed è previsto un limite di account Azure di 20 unità elaborate. Tali unità elaborate sono condivise tra tutti gli Hub eventi in un determinato spazio dei nomi.
+Mentre le partizioni sono un concetto di organizzazione di dati, le unità elaborate sono semplicemente un concetto di capacità. Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. Per uno spazio dei nomi di Hub eventi possono essere acquistate fino a 20 unità elaborate ed è previsto un limite di account Azure di 20 unità elaborate. Tali unità elaborate sono condivise tra tutti gli Hub eventi in un determinato spazio dei nomi.
 
-Le unità elaborate vengono fornite con un criterio del massimo sforzo e l’acquisto immediato potrebbe non essere sempre disponibile. Se è necessaria una capacità specifica, è consigliabile acquistare le unità elaborate in anticipo. Se sono richieste più di 20 unità elaborate, contattare il supporto del bus di servizio per acquistare ulteriori unità elaborate su base impegno in blocchi di 20, fino alle prime 100 unità elaborate. Inoltre, è possibile acquistare blocchi di 100 unità elaborate.
+Le unità elaborate vengono fornite con un criterio del massimo sforzo e l’acquisto immediato potrebbe non essere sempre disponibile. Se è necessaria una capacità specifica, è consigliabile acquistare le unità elaborate in anticipo. Se sono richieste più di 20 unità elaborate, contattare il supporto di Azure per acquistare altre unità elaborate sulla base di un impegno in blocchi di 20, fino alle prime 100 unità elaborate. Inoltre, è possibile acquistare blocchi di 100 unità elaborate.
 
-È consigliabile bilanciare attentamente unità elaborate e partizioni per ottenere una scalabilità ottimale con gli Hub eventi. Una singola partizione ha una scala massima di una unità elaborata. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un Hub eventi.
+È consigliabile bilanciare attentamente unità elaborate e partizioni per ottenere una scalabilità ottimale con Hub eventi. Una singola partizione ha una scala massima di una unità elaborata. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un Hub eventi.
 
 Per dettagliate informazioni sui prezzi, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -168,4 +168,4 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

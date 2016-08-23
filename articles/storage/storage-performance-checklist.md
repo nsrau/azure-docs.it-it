@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
-	ms.author="robinsh"/>
+	ms.date="08/03/2016"
+	ms.author="robinsh"/>  
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 
@@ -27,9 +27,9 @@ Ogni sviluppatore di applicazioni che usa l'archiviazione di Azure dovrebbe legg
 Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure comprovate applicabili a:
 
 -	Tutti i servizi di archiviazione di Azure (BLOB, tabelle, code e file)
--	BLOB
+-	Blobs
 -	Tabelle
--	Code  
+-	Queues
 
 |Operazione completata|	Area|	Categoria|	Domanda
 |----|------|-----------|-----------
@@ -49,37 +49,37 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 ||Tutti i servizi|	Strumenti|	[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#subheading13)
 ||Tutti i servizi|	Tentativi|	[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#subheading14)
 ||Tutti i servizi|	Tentativi|	[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#subheading15)
-||BLOB|	Obiettivi di scalabilità|	[È presente un numero elevato di client che accedono contemporaneamente a un singolo oggetto?](#subheading46)
+||Blobs|	Obiettivi di scalabilità|	[È presente un numero elevato di client che accedono contemporaneamente a un singolo oggetto?](#subheading46)
 ||Blobs|	Obiettivi di scalabilità|	[L'applicazione sta restando all'interno della larghezza di banda o dell'obiettivo di scalabilità delle operazioni per un singolo BLOB?](#subheading16)
-||BLOB|	Copia dei BLOB|	[La copia dei BLOB sta avvenendo in modo efficace?](#subheading17)
-||BLOB|	Copia dei BLOB|	[Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18)
-||BLOB|	Copia dei BLOB|	[Si sta usando Importazione/Esportazione di Azure per trasferire volumi di dati molto grandi?](#subheading19)
-||BLOB|	Usare i metadati|	[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20)
-||BLOB|	Caricamento rapido|	[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21)
-||BLOB|	Caricamento rapido|	[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22)
+||Blobs|	Copia dei BLOB|	[La copia dei BLOB sta avvenendo in modo efficace?](#subheading17)
+||Blobs|	Copia dei BLOB|	[Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18)
+||Blobs|	Copia dei BLOB|	[Si sta usando Importazione/Esportazione di Azure per trasferire volumi di dati molto grandi?](#subheading19)
+||Blobs|	Usare i metadati|	[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20)
+||Blobs|	Caricamento rapido|	[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21)
+||Blobs|	Caricamento rapido|	[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22)
 ||BLOB|	Tipo di BLOB corretto|	[Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#subheading23)
-||Tables|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#subheading24)
-||Tables|	Configurazione|	[Si sta usando JSON per le richieste della tabella?](#subheading25)
-||Tables|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading26)
-||Tables|	Tabelle e partizioni|	[I dati sono stati partizionati correttamente?](#subheading27)
-||Tables|	Partizioni critiche|	[Si stanno evitando i modelli Solo accodamenti e Solo anteposizioni?](#subheading28)
-||Tables|	Partizioni critiche|	[Gli inserimenti/aggiornamenti sono distribuiti in più partizioni?](#subheading29)  
-||Tables|	Ambito delle query|	[Lo schema è stato progettato per consentire l'uso delle query di tipo punto nella maggior parte dei casi e delle query sulle tabelle solo in casi limitati?](#subheading30)
-||Tables|	Densità delle query|	[Le query in genere analizzano e restituiscono solo le righe usate dall'applicazione?](#subheading31)
-||Tables|	Limitazione dei dati restituiti|	[Vengono usati dei filtri per evitare che vengano restituite entità non necessarie?](#subheading32)
-||Tables|	Limitazione dei dati restituiti|	[Viene usata la proiezione per evitare che vengano restituite proprietà non necessarie?](#subheading33)
-||Tables|	Denormalizzazione|	[I dati sono stati denormalizzati in modo da evitare query non efficaci o più richieste di lettura quando si tenta di ottenere i dati?](#subheading34)
-||Tables|	Inserimento/aggiornamento/eliminazione|	[Si stanno creando dei batch per le richieste che devono essere transazionali o che possono essere eseguite simultaneamente per ridurre i round-trip?](#subheading35)
-||Tables|	Inserimento/aggiornamento/eliminazione|	[Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36)
-||Tables|	Inserimento/aggiornamento/eliminazione|	[È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37)
-||Tables|	Inserimento/aggiornamento/eliminazione|	[Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38)
-||Code|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39)
-||Code|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40)
-||Code|	Dimensioni del messaggio|	[I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41)
-||Code|	Recupero bulk|	[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42)
-||Code|	Frequenza di polling|	[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43)
-||Code|	Aggiornamento del messaggio|	[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44)
-||Code|	Architettura|	[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45)
+||Tabelle|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#subheading24)
+||Tabelle|	Configurazione|	[Si sta usando JSON per le richieste della tabella?](#subheading25)
+||Tabelle|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading26)
+||Tabelle|	Tabelle e partizioni|	[I dati sono stati partizionati correttamente?](#subheading27)
+||Tabelle|	Partizioni critiche|	[Si stanno evitando i modelli Solo accodamenti e Solo anteposizioni?](#subheading28)
+||Tabelle|	Partizioni critiche|	[Gli inserimenti/aggiornamenti sono distribuiti in più partizioni?](#subheading29)  
+||Tabelle|	Ambito delle query|	[Lo schema è stato progettato per consentire l'uso delle query di tipo punto nella maggior parte dei casi e delle query sulle tabelle solo in casi limitati?](#subheading30)
+||Tabelle|	Densità delle query|	[Le query in genere analizzano e restituiscono solo le righe usate dall'applicazione?](#subheading31)
+||Tabelle|	Limitazione dei dati restituiti|	[Vengono usati dei filtri per evitare che vengano restituite entità non necessarie?](#subheading32)
+||Tabelle|	Limitazione dei dati restituiti|	[Viene usata la proiezione per evitare che vengano restituite proprietà non necessarie?](#subheading33)
+||Tabelle|	Denormalizzazione|	[I dati sono stati denormalizzati in modo da evitare query non efficaci o più richieste di lettura quando si tenta di ottenere i dati?](#subheading34)
+||Tabelle|	Inserimento/aggiornamento/eliminazione|	[Si stanno creando dei batch per le richieste che devono essere transazionali o che possono essere eseguite simultaneamente per ridurre i round-trip?](#subheading35)
+||Tabelle|	Inserimento/aggiornamento/eliminazione|	[Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36)
+||Tabelle|	Inserimento/aggiornamento/eliminazione|	[È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37)
+||Tabelle|	Inserimento/aggiornamento/eliminazione|	[Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38)
+||Queues|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39)
+||Queues|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40)
+||Queues|	Dimensioni del messaggio|	[I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41)
+||Queues|	Recupero bulk|	[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42)
+||Queues|	Frequenza di polling|	[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43)
+||Queues|	Aggiornamento del messaggio|	[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44)
+||Queues|	Architettura|	[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45)
 
 
 ##<a name="allservices"></a>Tutti i servizi
@@ -90,7 +90,7 @@ Tutti i servizi di archiviazione di Azure hanno degli obiettivi di scalabilità 
 
 -	[Larghezza di banda BLOB e richieste al secondo](#subheading16)
 -	[Entità di tabella al secondo](#subheading24)
--	[Messaggi della coda al secondo](#subheading39)  
+-	[Messaggi della coda al secondo](#subheading39)
 
 ####<a name="sub1bandwidth"></a>Obiettivo di scalabilità della larghezza di banda per tutti i servizi
 Al momento della redazione di questo documento, gli obiettivi di larghezza di banda negli Stati Uniti per un account di archiviazione con ridondanza geografica (GRS) sono di 10 gigabit al secondo (Gbps) in ingresso (dati inviati all'account di archiviazione) e di 20 Gbps in uscita (dati inviati dall'account di archiviazione). Per un account di archiviazione con ridondanza locale (LRS), i limiti sono più alti: 20 Gbps in ingresso e 30 Gbps in uscita. I limiti di larghezza di banda internazionali possono essere inferiori e possono essere visualizzati nella [pagina degli obiettivi di scalabilità](http://msdn.microsoft.com/library/azure/dn249410.aspx). Per altre informazioni sulle opzioni di ridondanza dell'archiviazione, vedere i collegamenti nella sezione seguente [Risorse utili](#sub1useful).
@@ -101,21 +101,21 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 -	Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
 -	Se un'applicazione deve superare uno degli obiettivi di scalabilità, è necessario creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Al momento della redazione di questo documento, ogni sottoscrizione di Azure può supportare fino a 100 account di archiviazione. Gli account di archiviazione, inoltre, non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
 -	Se l'applicazione raggiunge gli obiettivi di larghezza di banda, valutare la compressione dei dati nel client per ridurre la larghezza di banda necessaria a inviare i dati al servizio di archiviazione. Questa operazione, che consente di risparmiare la larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi. Valutare gli effetti sulle prestazioni dovuti ai requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati nel client. Inoltre, l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati archiviati mediante gli strumenti standard.
--	Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)). È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei metodi descritti), tuttavia questo comporta che l'applicazione non riprende a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
+-	Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)). È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei metodi descritti), tuttavia questo comporta che l'applicazione non riprende a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.
 
 ####Risorse utili
 I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità:
 -	Per informazioni sugli obiettivi di scalabilità, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 -	Per informazioni sulle opzioni di ridondanza di archiviazione, vedere [Replica di Archiviazione di Azure](storage-redundancy.md) e il post di blog relativo alle [opzioni di ridondanza di Archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx).
--	Per informazioni aggiornate sui prezzi dei servizi Azure, vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/overview/).  
+-	Per informazioni aggiornate sui prezzi dei servizi Azure, vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###<a name="subheading47"></a>Convenzione di denominazione delle partizioni
-Archiviazione di Azure usa uno schema di partizionamento basato sugli intervalli per la scalatura e il bilanciamento del carico del sistema. La chiave di partizione è usata per suddividere i dati in intervalli; tali intervalli vengono bilanciati a livello di carico nell'intero sistema. Ciò significa che le convenzioni di denominazione quali l'ordinamento lessicale (ad esempio msftpayroll, msftperformance, msftemployees e così via) o l'uso di timestamp (log20160101, log20160102, log20160102 e così via) determinano la possibilità che le partizioni vengano condivise nello stesso server di partizioni, finché un'operazione di bilanciamento del carico non le suddivide in intervalli più piccoli. Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un'ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con carico ridotto i cui nomi sono disposti in ordine lessicale può essere servito da un unico server, fino a quando il carico di uno o di tutti gli account non ne richiede la suddivisione su più server di partizioni. Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del sistema di gestire un improvviso picco di traffico destinato a una partizione è limitata dalla scalabilità di un singolo server di partizioni, fino a quando non viene attivata l'operazione di bilanciamento del carico che torna a bilanciare l'intervallo di chiavi di partizione.
+Archiviazione di Azure usa uno schema di partizionamento basato sugli intervalli per la scalabilità e il bilanciamento del carico del sistema. La chiave di partizione è usata per suddividere i dati in intervalli; tali intervalli vengono bilanciati a livello di carico nell'intero sistema. Ciò significa che le convenzioni di denominazione quali l'ordinamento lessicale (ad esempio msftpayroll, msftperformance, msftemployees e così via) o l'uso di timestamp (log20160101, log20160102, log20160102 e così via) determinano la possibilità che le partizioni vengano condivise nello stesso server di partizioni, finché un'operazione di bilanciamento del carico non le suddivide in intervalli più piccoli. Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con carico ridotto i cui nomi sono disposti in ordine lessicale può essere servito da un unico server, fino a quando il carico di uno o di tutti gli account non ne richiede la suddivisione su più server di partizioni. Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del sistema di gestire un improvviso picco di traffico destinato a una partizione è limitata dalla scalabilità di un singolo server di partizioni, fino a quando non viene attivata l'operazione di bilanciamento del carico che torna a bilanciare l'intervallo di chiavi di partizione.
 
 Alcune procedure consigliate consentono di ridurre la frequenza di queste operazioni.
 
--	Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Considerare l'aggiunta di un prefisso ai nomi di account con un hash di 3 cifre, mediante la funzione di hashing più adatta alle esigenze.  
--	Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Ad esempio, se sono presenti operazioni giornaliere che usano un oggetto BLOB con un timestamp quale aaaammgg, tutto il traffico dell'operazione giornaliera viene indirizzato a un singolo oggetto, gestito da un unico server di partizioni. Verificare se i limiti per blob e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio nomi della chiave. Se l'uso di timestamp o ID numerici è imprescindibile, apporre come prefisso un hash di 3 cifre. Nel caso dei timestamp, aggiungere come prefisso i secondi nella stringa di data/ora, ad esempio ssaaaammgg. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.  
+-	Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Considerare l'aggiunta di un prefisso ai nomi di account con un hash di 3 cifre, mediante la funzione di hashing più adatta alle esigenze.
+-	Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Ad esempio, se sono presenti operazioni giornaliere che usano un oggetto BLOB con un timestamp quale aaaammgg, tutto il traffico dell'operazione giornaliera viene indirizzato a un singolo oggetto, gestito da un unico server di partizioni. Verificare se i limiti per BLOB e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio dei nomi della chiave. Se l'uso di timestamp o ID numerici è imprescindibile, aggiungere un hash di 3 cifre come prefisso dell'ID. Nel caso dei timestamp, aggiungere come prefisso i secondi nella stringa di data/ora, ad esempio ssaaaammgg. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.
 -	Per altre informazioni sullo schema di partizionamento usato in Archiviazione di Azure, leggere il documento SOSP [qui](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ###Rete
@@ -210,7 +210,7 @@ Le librerie client distinguono gli errori reversibili da quelli irreversibili. T
 ####Risorse utili
 Per altre informazioni sui codici di errore di archiviazione, vedere [Codici ed errori di stato](http://msdn.microsoft.com/library/azure/dd179382.aspx) nel sito Web di Microsoft Azure.
 
-##BLOB
+##Blobs
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio BLOB.
 
 ###Obiettivi di scalabilità specifici per BLOB
@@ -239,7 +239,7 @@ Le copie nello stesso account di archiviazione vengono generalmente completate r
 Per altre informazioni, vedere [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usare AzCopy
-Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni sullo strumento e per scaricarlo, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
+Il team di archiviazione di Azure ha rilasciato lo strumento da riga di comando "AzCopy" progettato per supportare il trasferimento in blocco di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni sullo strumento e per scaricarlo, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Servizio di importazione/esportazione di Azure
 Per volumi di dati molto grandi (più di 1 TB), l'archiviazione di Azure offre il servizio di importazione/esportazione che consente di caricare e scaricare dall'archiviazione BLOB tramite l'invio di dischi rigidi. È possibile inserire i dati in un disco rigido e inviarlo a Microsoft per il caricamento oppure inviare un disco rigido vuoto a Microsoft per scaricare i dati. Per altre informazioni, vedere [Usare il servizio di Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](storage-import-export-service.md). Questo metodo può risultare più efficace rispetto al caricamento/download di elevati volumi di dati tramite rete.
@@ -268,7 +268,7 @@ Archiviazione di Azure supporta due tipi di BLOB: BLOB di *pagine* e BLOB in *bl
 
 Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
-##Tables
+##Tabelle
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio tabelle.
 
 ###<a name="subheading24"></a>Obiettivi di scalabilità specifici per tabelle
@@ -298,18 +298,18 @@ La modalità con cui vengono rappresentati i dati e vengono eseguite query su di
 
 -	Progettazione della tabella
 -	Query efficaci
--	Aggiornamenti dei dati efficaci  
+-	Aggiornamenti dei dati efficaci
 
 ####<a name="subheading27"></a>Tabelle e partizioni
 Le tabella sono divise in partizioni. Ogni entità archiviata in una partizione condivide la stessa chiave di partizione e dispone di una chiave di riga univoca che la identifica all'interno della partizione. Le partizioni offrono dei vantaggi ma introducono anche dei limiti di scalabilità.
 
 -	Benefici: È possibile aggiornare le entità nella stessa partizione in un'unica transazione batch atomica che contiene fino a 100 operazioni di archiviazione distinte (limite di 4 MB di dimensioni totali). Presupponendo lo stesso numero di entità da recuperare, è anche possibile eseguire query sui dati all'interno di una singola partizione in modo più efficiente rispetto ai dati distribuiti in più partizioni (tuttavia, leggere più avanti per ulteriori consigli sulle query sui dati nelle tabelle).
--	Limite di scalabilità: L'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.  
+-	Limite di scalabilità: L'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.
 
 Tenendo conto delle caratteristiche descritte di tabelle e partizioni, adottare i seguenti principi di progettazione:
 
 -	I dati aggiornati o su cui vengono eseguite query più di frequente da parte dell'applicazione client nella stessa unità logica di lavoro devono trovarsi nella stessa partizione. Questo perché l'applicazione sta aggregando le scritture oppure perché l'utente vuole usare le operazioni batch atomiche. Inoltre, le query sui dati in una singola partizione possono essere eseguite in modo più efficace con un'unica query rispetto a quelle sui dati in più partizioni.
--	I dati che l'applicazione client non inserisce/aggiorna o di cui non esegue query nella stessa unità logica di lavoro (query singola o aggiornamento batch) devono essere posizionati in partizioni separate. È importante notare che non esiste un limite al numero di chiavi di partizione in una singola tabella, quindi l'esistenza di milioni di chiavi di partizione non rappresenta un problema e non influisce sulle prestazioni. Ad esempio, se l'applicazione è un sito Web diffuso con accesso utente, l'uso dell'ID utente come chiave di partizione potrebbe rappresentare una buona scelta.  
+-	I dati che l'applicazione client non inserisce/aggiorna o di cui non esegue query nella stessa unità logica di lavoro (query singola o aggiornamento batch) devono essere posizionati in partizioni separate. È importante notare che non esiste un limite al numero di chiavi di partizione in una singola tabella, quindi l'esistenza di milioni di chiavi di partizione non rappresenta un problema e non influisce sulle prestazioni. Ad esempio, se l'applicazione è un sito Web diffuso con accesso utente, l'uso dell'ID utente come chiave di partizione potrebbe rappresentare una buona scelta.
 
 ####Partizioni critiche
 Una partizione critica riceve una percentuale sproporzionata del traffico di un account e non è possibile sottoporla a bilanciamento del carico perché è una partizione singola. In generale, le partizioni critiche vengono create in uno di questi due modi:
@@ -399,9 +399,9 @@ Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenut
 Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:
 
 -	Le code possono essere usate per creare backlog di lavoro per l'elaborazione e il contenimento dei carichi di lavoro nell'applicazione. Ad esempio, è possibile accodare le richieste degli utenti per eseguire un lavoro che prevede un utilizzo intensivo del processore, ad esempio il ridimensionamento delle immagini caricate.
--	È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Ad esempio, un front-end Web può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.  
+-	È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Ad esempio, un front-end Web può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.
 
-##Conclusioni
+##Conclusione
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

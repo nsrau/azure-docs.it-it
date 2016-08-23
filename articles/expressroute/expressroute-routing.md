@@ -5,7 +5,7 @@
    services="expressroute"
    authors="ganesr"
    manager="rossort"
-   editor=""/>  
+   editor=""/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/10/2016"
-   ms.author="ganesr"/>  
+   ms.author="ganesr"/>
 
 
 # Requisiti per il routing di ExpressRoute  
@@ -124,8 +124,8 @@ Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il
 | | Stati Uniti orientali | 12076:51004 |
 | | Stati Uniti orientali 2 | 12076:51005 |
 | | Stati Uniti occidentali | 12076:51006 |
-| | Stati Uniti occidentali 2 | 12076:51022 |
-| | Stati Uniti centro-occidentali | 12076:51023 |
+| | Stati Uniti occidentali 2 | 12076:51026 |
+| | Stati Uniti centro-occidentali | 12076:51027 |
 | | Stati Uniti centro-settentrionali | 12076:51007 |
 | | Stati Uniti centro-meridionali | 12076:51008 |
 | | Stati Uniti centrali | 12076:51009 |
@@ -175,4 +175,4 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

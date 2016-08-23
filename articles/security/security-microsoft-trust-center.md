@@ -4,8 +4,8 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
-   editor="TomSh"/>
+   manager="MBaldwin"
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
-   ms.author="terrylan"/>
+   ms.date="08/09/2016"
+   ms.author="terrylan"/>  
 
 # Centro protezione di Microsoft
 
-Lo scopo del sito di informazioni sulla sicurezza di Azure su Azure.com è offrire le informazioni necessarie per pianificare, progettare, distribuire, configurare e gestire soluzioni cloud in modo sicuro, mentre il Centro protezione di Microsoft contiene le informazioni necessarie a garantire la sicurezza della piattaforma Azure su cui vengono eseguiti i servizi.
+Il sito sulle informazioni di sicurezza di Azure su Azure.com fornisce le informazioni necessarie per pianificare, progettare, distribuire, configurare e gestire in modo sicuro le soluzioni cloud. Microsoft Trust Center fornisce anche le informazioni necessarie per assicurarsi che la piattaforma Azure in cui vengono eseguiti i servizi sia sicura.
 
 Quando si affidano le proprie applicazioni e i propri dati ad Azure, è normale avere domande. Dove sono? Chi può accedervi? Cosa fa Microsoft per assicurarne la protezione? Come è possibile verificare che Microsoft faccia tutto ciò che afferma di fare?
 
-Ecco le risposte. L'utente è il proprietario dei dati, pertanto decide chi vi ha accesso e collabora con Microsoft per deciderne la posizione. Per proteggere i dati, viene usata una tecnologia all'avanguardia e una crittografia di prim'ordine. La conformità da parte di Microsoft viene verificata in modo indipendente e la trasparenza è assicurata a vari livelli, dalla modalità di gestione delle richieste legali relative ai dati dei clienti alla sicurezza del codice.
+Ecco le risposte. L'utente è il proprietario dei dati, pertanto decide chi vi ha accesso e collabora con Microsoft per deciderne la posizione. Per proteggere i dati, vengono usate tecnologie all'avanguardia e una crittografia di prim'ordine. La conformità da parte di Microsoft viene verificata in modo indipendente e la trasparenza è assicurata a vari livelli, dalla modalità di gestione delle richieste legali relative ai dati dei clienti alla sicurezza del codice.
 
-Nel Centro protezione di Microsoft sono disponibili aree relative a:
+In Microsoft Trust Center sono disponibili informazioni su questi temi:
 
 - [Sicurezza](https://aka.ms/tcsecurity): informazioni sul modo in cui vengono protetti tutti i servizi Microsoft Cloud.
 - [Privacy](https://aka.ms/tcprivacy): informazioni sul modo in cui Microsoft garantisce la privacy dei dati nel cloud.
@@ -37,4 +37,4 @@ Nel Centro protezione di Microsoft sono disponibili aree relative a:
 
 Il [Centro protezione di Microsoft](https://www.microsoft.com/trustcenter) contiene tutte le informazioni necessarie per comprendere come viene garantita la sicurezza di Microsoft Cloud.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

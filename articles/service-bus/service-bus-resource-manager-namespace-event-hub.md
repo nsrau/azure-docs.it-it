@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager | Microsoft Azure"
-    description="Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager"
+    pageTitle="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager | Microsoft Azure"
+    description="Creare uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>
+    editor=""/>  
 
 <tags
     ms.service="service-bus"
@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="07/11/2016"
-    ms.author="sethm;shvija"/>
+    ms.author="sethm;shvija"/>  
 
-# Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
+# Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
 
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
 
@@ -35,7 +35,7 @@ Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consum
 
 ## Distribuzione
 
-Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer.
+Questo modello consente di distribuire uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer.
 
 [Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità.
 
@@ -49,32 +49,32 @@ Gestione risorse di Azure permette di definire i parametri per i valori da speci
 
 Il modello definisce i parametri seguenti.
 
-### serviceBusNamespaceName
+### eventHubNamespaceName
 
-Nome dello spazio dei nomi del bus di servizio da creare.
+Nome dello spazio dei nomi dell'hub eventi da creare.
 
 ```
-"serviceBusNamespaceName": {
+"eventHubNamespaceName": {
 "type": "string"
 }
 ```
 
-### serviceBusEventHubName
+### eventHubName
 
-Nome dell'hub eventi creato nello spazio dei nomi del bus di servizio.
+Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 
 ```
-"serviceBusEventHubName": {
+"eventHubName": {
 "type": "string"
 }
 ```
 
-### serviceBusConsumerGroupName
+### eventHubConsumerGroupName
 
 Nome del gruppo di consumer creato per l'hub eventi nello spazio dei nomi del bus di servizio.
 
 ```
-"serviceBusConsumerGroupName": {
+"eventHubConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -97,8 +97,8 @@ Crea uno spazio dei nomi del bus di servizio di tipo **Hub eventi** con Hub even
 "resources": [
         {
             "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
+            "name": "[parameters('eventHubNamespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
             "kind": "EventHub",
             "sku": {
@@ -108,21 +108,21 @@ Crea uno spazio dei nomi del bus di servizio di tipo **Hub eventi** con Hub even
             "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('serviceBusEventHubName')]",
+                    "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
                     ],
                     "properties": {
-                        "path": "[parameters('serviceBusEventHubName')]"
+                        "path": "[parameters('eventHubName')]"
                     },
                     "resources": [
                         {
                             "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('serviceBusConsumerGroupName')]",
+                            "name": "[parameters('eventHubConsumerGroupName')]",
                             "type": "ConsumerGroups",
                             "dependsOn": [
-                                "[parameters('serviceBusEventHubName')]"
+                                "[parameters('eventHubName')]"
                             ],
                             "properties": {
                             }
@@ -166,4 +166,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello di Hub eventi e del gruppo di consumer del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

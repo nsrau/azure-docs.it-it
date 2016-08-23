@@ -3,11 +3,11 @@
    description="Informazioni sugli IP privati (DIP) e istruzioni per gestirli in modalità ARM tramite il portale di Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
-/>
+/>  
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Come impostare un indirizzo IP statico privato nel portale di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile [gestire un indirizzo IP statico privato nel modello di distribuzione classico](virtual-networks-static-private-ip-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile [gestire un indirizzo IP statico privato nel modello di distribuzione classico](virtual-networks-static-private-ip-classic-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -55,10 +55,10 @@ Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominat
 6. Nel pannello **Impostazioni**, assicurarsi che siano impostate le seguenti proprietà con i valori riportati di seguito, quindi fare clic su **OK**.
 
 	-**Account di archiviazione**: *vnetstorage*
-	- **Network**: *TestVNet*
+	- **Rete**: *TestVNet*
 	- **Subnet**: *FrontEnd*
 
-	![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
+	![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)  
 
 7. Nel pannello **Riepilogo**, fare clic su **OK**. Si noti il riquadro visualizzato di seguito nel dashboard.
 
@@ -68,13 +68,13 @@ Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominat
 
 Per visualizzare le informazioni dell’indirizzo IP privato statico per la macchina virtuale creata con la procedura descritta sopra, eseguire la procedura seguente.
 
-1. Dal portale di Azure, fare clic su **ESPLORA TUTTO** > **Macchine virtuali** > **DNS01** > **Tutte le impostazioni** > **Interfacce di rete** e quindi fare clic sull'unica interfaccia di rete elencata.
+1. Dal portale di Azure fare clic su **Esplora tutto** > **Macchine virtuali** > **DNS01** > **Tutte le impostazioni** > **Interfacce di rete** e quindi fare clic sull'unica interfaccia di rete elencata.
 
-	![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
+	![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure07.png)  
 
 2. Nel pannello **Interfaccia di rete**, fare clic su **Tutte le impostazioni** > **Indirizzi IP** e notare i valori di **Assegnazione** e **Indirizzo IP**.
 
-	![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure08.png)
+	![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure08.png)  
 
 ## Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
 Per aggiungere un indirizzo IP statico privato per la VM creata in precedenza, attenersi alla procedura seguente:
@@ -93,8 +93,8 @@ Per rimuovere l'indirizzo IP statico privato dalla VM creata in precedenza, atte
 
 ## Passaggi successivi
 
-- Informazioni su [indirizzi IP pubblici riservati](../virtual-networks-reserved-public-ip).
-- Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md).
+- Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

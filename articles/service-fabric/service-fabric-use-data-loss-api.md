@@ -48,7 +48,7 @@ Per avviare un comando, chiamare l'API Start con gli argomenti previsti. Tutte l
 
 Dopo l'esito positivo della chiamata dell'API Start, deve essere chiamata l'API GetProgress in un ciclo fino a quando la proprietà State dell'oggetto di avanzamento è Completed. È necessario tentare di nuovo tutti i [FabricTransientException][fte] e OperationCanceledException. Quando il comando ha raggiunto uno stato finale (Completed, Faulted o Cancelled), la proprietà Result dell'oggetto di avanzamento restituito conterrà informazioni aggiuntive. Se lo stato è Completed, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato. Result.Exception sarà null. Se lo stato è Faulted, Result.Exception conterrà la ragione per cui il servizio di fault injection e analisi ha generato un errore nel comando. Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato. In alcuni casi il comando potrebbe non essere stato eseguito per un tempo sufficiente per la scelta di una partizione. In tal caso PartitionId sarà 0. Se lo stato è Cancelled, Result.Exception sarà null. Come nel caso di Faulted, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato, ma se il comando non è stato eseguito per un tempo sufficiente per la scelta di una partizione, sarà 0. Vedere anche l'esempio seguente.
 
-Il codice di esempio riportato di seguito mostra come avviare e poi controllare l'avanzamento di un comando per riavviare una determinata partizione.
+Il codice di esempio riportato di seguito mostra come avviare e poi controllare l'avanzamento di un comando per causare perdite di dati in una determinata partizione.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@ L'esempio seguente illustra come usare PartitionSelector per scegliere una parti
 
 Dopo che un comando ha raggiunto uno stato finale, i suoi metadati rimarranno nel servizio di fault injection e analisi per un certo periodo di tempo prima di essere rimossi per liberare spazio. Se si chiama “GetProgress” usando l'operationId di un comando dopo che è stato rimosso, restituirà una FabricException con l'ErrorCode KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/it-IT/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/it-IT/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/it-IT/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/it-IT/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/it-IT/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/it-IT/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/it-IT/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/it-IT/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/it-IT/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

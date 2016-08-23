@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
+	ms.date="08/03/2016"
+	ms.author="asteen"/>  
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
 
@@ -851,7 +851,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                   <li class="unordered">
 												Se impostato su Sì, ogni volta che un utente o un amministratore reimposta la propria password, riceve una notifica che indica che la sua password è stata reimpostata.<br><br></li>
                   <li class="unordered">
-												Questa notifica viene inviata tramite un messaggio di posta elettronica all’indirizzo di posta elettronica principale e alternativo (o di autenticazione) dell'utente che ha reimpostato la propria password.<br><br></li>
+												Questa notifica viene inviata all'utente tramite un messaggio di posta elettronica al nome dell'entità utente principale e all'indirizzo di posta elettronica alternativo (o di autenticazione) dell'utente che ha reimpostato la propria password.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -875,4 +875,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

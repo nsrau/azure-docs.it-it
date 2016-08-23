@@ -37,9 +37,11 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 In questo esempio si userà il trigger **Quando viene creato un file**. Con questo trigger viene chiamata l'azione **Ottieni contenuto file in base al percorso** di Dropbox.
 
-1. Immettere *dropbox* nella casella di ricerca della finestra di progettazione di app per la logica, quindi selezionare il trigger **Dropbox - Quando viene creato un file**. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
+1. Immettere *dropbox* nella casella di ricerca della finestra di progettazione di app per la logica, quindi selezionare il trigger **Dropbox - Quando viene creato un file**.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. Selezionare la cartella in cui tenere traccia della creazione di file. Selezionare... (identificato nella casella rossa) e passare alla cartella che si vuole selezionare per l'input del trigger. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+2. Selezionare la cartella in cui tenere traccia della creazione di file. Selezionare... (identificato nella casella rossa) e passare alla cartella che si vuole selezionare per l'input del trigger.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
 ## Usare un'azione Dropbox
 
@@ -47,15 +49,21 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'azione che ottiene il contenuto del nuovo file.
 
-1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione da eseguire quando viene creato un nuovo file. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione da eseguire quando viene creato un nuovo file.  
+ 
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-2. Selezionare **Aggiungi un'azione**. Verrà aperta la casella di ricerca per cercare l'azione da eseguire. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+2. Selezionare **Aggiungi un'azione**. Verrà aperta la casella di ricerca per cercare l'azione da eseguire.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. Immettere *dropbox* per cercare le azioni correlate a Dropbox.
 
-4. Selezionare **Dropbox - Ottieni contenuto file in base al percorso** come azione da eseguire quando viene creato un nuovo file nella cartella di Dropbox selezionata. Si aprirà il blocco di controllo azione. Verrà richiesto di autorizzare l'app per la logica ad accedere all'account di Dropbox, se non è stato fatto in precedenza. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
+4. Selezionare **Dropbox - Ottieni contenuto file in base al percorso** come azione da eseguire quando viene creato un nuovo file nella cartella di Dropbox selezionata. Si aprirà il blocco di controllo azione. Verrà richiesto di autorizzare l'app per la logica ad accedere all'account di Dropbox, se non è stato fatto in precedenza.  
 
-5. Selezionare... sul lato destro del controllo **Percorso file** e passare al percorso file da usare. In alternativa, usare il token **file path** per rendere più rapida la creazione di app per la logica. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+5. Selezionare... sul lato destro del controllo **Percorso file** e passare al percorso file da usare. In alternativa, usare il token **file path** per rendere più rapida la creazione di app per la logica.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
 6. Salvare il lavoro e creare un nuovo file in Dropbox per attivare il flusso di lavoro.
 

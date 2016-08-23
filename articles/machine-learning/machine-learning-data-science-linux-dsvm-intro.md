@@ -13,34 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="08/10/2016"
+	ms.author="gokuma;bradsev" />  
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati 
-
 
 La macchina virtuale Linux per l'analisi scientifica dei dati è un'immagine di macchina virtuale (VM) di Azure pre-installata e configurata con una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. Ecco i componenti software principali:
 
 - Microsoft R Open
 - Distribuzione di Anaconda Python, versioni 2.7 e 3.5, incluse le più comuni librerie di analisi dei dati
 - Jupyter Notebook (R, Python)
-- Esplora archivi Azure
+- Azure Storage Explorer
 - Riga di comando di Azure per la gestione delle risorse di Azure
 - Database PostgresSQL
 - Strumenti di Machine Learning
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): software di formazione avanzato sviluppato da Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata
-    - [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende molto semplice la fase introduttiva all'analisi dei dati e all'apprendimento automatico in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R. 
+    - [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende molto semplice la fase introduttiva all'analisi dei dati e all'apprendimento automatico in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
 - Azure SDK in Java, Python, Node.js, Ruby, PHP
 - Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
 - Editor e strumenti di sviluppo, ad esempio Eclipse, Emacs, gedit, vi
 
 L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequenza di attività quali:
 
-- Ricerca, caricamento e pre-elaborazione dei dati. 
-- Compilazione e test di modelli. 
-- Distribuzione dei modelli per l'utilizzo in applicazioni intelligenti. 
+- Ricerca, caricamento e pre-elaborazione dei dati.
+- Compilazione e test di modelli.
+- Distribuzione dei modelli per l'utilizzo in applicazioni intelligenti.
 
 Non è raro che i data scientist usino un'ampia gamma di strumenti per completare queste attività. Trovare le versioni del software appropriate e quindi scaricarle, compilarle e installarle può essere un'operazione molto dispersiva in termini di tempo.
 
@@ -65,12 +64,13 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux pe
 2.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Le sezioni seguenti forniscono gli **input** per ognuno dei **5 passaggi** (elencati in ordine numerico nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
+
   **a. Informazioni di base**:
 
    - **Name**: nome del server di analisi scientifica dei dati che si sta creando.
    - **Nome utente**: primo ID di accesso dell'account
    - **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   - **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui verrà creata e fatturata la macchina virtuale. NOTA: è necessario avere privilegi di creazione delle risorse in questa sottoscrizione. 
+   - **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui verrà creata e fatturata la macchina virtuale. NOTA: è necessario avere privilegi di creazione delle risorse in questa sottoscrizione.
    - **Resource Group**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
    - **Location**: selezionare la posizione del data center più appropriata. In genere è il data center che include la maggior parte dei dati o è più vicino alla località fisica per l'accesso più veloce alla rete.
 
@@ -90,7 +90,7 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux pe
 
   **e. Acquisto**:
 
-   - Fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size**. 
+   - Fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size**.
 
 
 Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
@@ -106,38 +106,23 @@ Dopo aver creato la VM, è possibile accedere tramite SSH con le credenziali del
 
 Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario eseguire le operazioni seguenti sul client.
 
-1. Scaricare e installare il client X2Go per la piattaforma client [qui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Eseguire il client X2Go e selezionare "*New Session*" (Nuova sessione). Verrà visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti: 
+1. Scaricare e installare il client X2Go per la piattaforma client [qui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+2. Eseguire il client X2Go e selezionare "*New Session*" (Nuova sessione). Verrà visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
     * **Scheda Session** (Sessione):
         - **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
         - **Login** (Accesso): nome utente di accesso della VM Linux.
         - **SSH Port** (Porta SSH): lasciare il valore predefinito 22.
         - **Session Type** (Tipo sessione): modificare il valore in XFCE. NOTA: la VM Linux attualmente supporta solo l'ambiente desktop XFCE.
-    * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli. 
-    * **Shared folders** (Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM. 
+    * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
+    * **Shared folders** (Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
 Una volta eseguito l'accesso alla VM con il client SSH O il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 
-## Come creare una password complessa nel server notebook di Jupyter 
-
-Eseguire questo comando dal prompt dei comandi nella macchina virtuale per l'analisi scientifica dei dati per creare la password complessa per il server notebook di Jupyter installato nel computer.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-Immettere una password complessa quando viene richiesta.
-
-Verrà visualizzato l'hash della password nel formato "sha1:xxxxxx" nell'output. Copiare l'hash della password e sostituire quello presente nel file di configurazione del notebook disponibile nel percorso **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** con il nome di parametro ***c.NotebookApp.password***. Questo file deve essere modificato come **utente ROOT**.
-
-È necessario sostituire solo il valore dell’hash esistente all'interno delle virgolette. Le virgolette e il prefisso ***sha1:*** per il valore del parametro devono essere conservati.
-
-Infine, è necessario arrestare e riavviare il servizio Jupyter installato nella cartella /etc/init.d/jupyter.
-
->[AZURE.NOTE] Se la nuova password non viene accettata dopo il riavvio di Jupyter o nel caso di problemi durante l'arresto di Jupyter, provare a riavviare la macchina virtuale.
 
 ## Strumenti installati nella macchina virtuale LInux per l'analisi scientifica dei dati
 
 ### Microsoft R Open 
-R è uno dei linguaggi più diffusi per l'analisi dei dati e l'apprendimento automatico. Se si vuole usare R per l'esecuzione di analisi, è necessario che nella VM sia installato Microsoft R Open (MRO) con Math Kernel Library (MKL). La libreria MKL ottimizza le operazioni matematiche comuni negli algoritmi di analisi. MRO è totalmente compatibile con CRAN-R e tutte le librerie R pubblicate in CRAN possono essere installate in MRO. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio vi, Emacs o gedit. Si possono anche scaricare e usare altri IDE, ad esempio [RStudio](http://www.rstudio.com). Per praticità, nella directory **/dsvm/tools** viene fornito un semplice script (installRStudio.sh) che consente di installare RStudio. Se si usa l'editor Emacs, si noti che il relativo pacchetto ESS (Emacs Speaks Statistics), che semplifica l'utilizzo dei file R all'interno dell'editor Emacs, è preinstallato.
+R è uno dei linguaggi più diffusi per l'analisi dei dati e l'apprendimento automatico. Se si vuole usare R per l'esecuzione di analisi, è necessario che nella VM sia installato Microsoft R Open (MRO) con Math Kernel Library (MKL). La libreria MKL ottimizza le operazioni matematiche comuni negli algoritmi di analisi. MRO è totalmente compatibile con CRAN-R e tutte le librerie R pubblicate in CRAN possono essere installate in MRO. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio vi, Emacs o gedit. Si possono anche scaricare e usare altri IDE, ad esempio [RStudio](http://www.rstudio.com). Per praticità, nella directory **/dsvm/tools** viene fornito un semplice script (installRStudio.sh) che installa RStudio. Se si usa l'editor Emacs, si noti che il relativo pacchetto ESS (Emacs Speaks Statistics), che semplifica l'utilizzo dei file R all'interno dell'editor Emacs, è preinstallato.
 
 Per avviare R è sufficiente digitare ***R*** nella shell. Verrà visualizzato un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o vi oppure gedit e quindi si eseguono gli script all'interno di R. Se si installa RStudio, si avrà un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
 
@@ -159,16 +144,23 @@ Per attivare Python 3.5, eseguire il comando seguente dalla shell:
 	source /anaconda/bin/activate py35
 
 
-Python 3.5 viene installato in */anaconda/envs/py35/bin*
+Python 3.5 viene installato in */anaconda/envs/py35/bin*.
 
-A questo punto, per richiamare la sessione interattiva di Python è sufficiente digitare ***python*** nella shell. Se si usa un'interfaccia grafica o è installato X11 Forwarding, è possibile digitare il comando ***spyder*** per avviare l'IDE di Python.
+A questo punto, per richiamare la sessione interattiva di Python, è sufficiente digitare ***python*** nella shell. Se si usa un'interfaccia grafica o è installato X11 Forwarding, è possibile digitare il comando ***spyder*** per avviare l'IDE di Python.
 
-### Notebook Jupyter
-La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Un server notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM tramite SSH o il client X2go, è anche possibile visitare [https://localhost:9999/](https://localhost:9999/) per accedere al server notebook di Jupyter.
+### Notebook Jupyter 
+
+La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Jupyter Notebook è accessibile tramite JupyterHub. Per eseguire l'accesso, usare il nome utente e la password locali di Linux.
+
+Il server Jupyter Notebook è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM tramite SSH o il client X2go, è anche possibile visitare [https://localhost:8000/](https://localhost:8000/) per accedere al server Jupyter Notebook.
 
 >[AZURE.NOTE] Se vengono visualizzati avvisi relativi al certificato, scegliere di continuare.
 
-È possibile accedere al server Jupyter Notebook da qualsiasi host, digitando semplicemente "https://<Nome DNS o indirizzo IP della VM>:9999/". Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e uno in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo l'autenticazione a Jupyter Notebook con la password creata in precedenza. È possibile creare un nuovo notebook selezionando "New" e quindi il kernel del linguaggio. Se il pulsante "New" non è visualizzato, fare clic sull'icona di Jupyter in alto a sinistra per passare alla home page del server Notebook di Jupyter.
+È possibile accedere al server Jupyter Notebook da qualsiasi host, digitando semplicemente "https://<Nome DNS o indirizzo IP della VM>:8000/".
+
+>[AZURE.NOTE] La porta 8000 è aperta nel firewall per impostazione predefinita quando viene effettuato il provisioning della VM.
+
+Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e uno in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo l'autenticazione a Jupyter Notebook con il nome utente e la password locali di Linux. È possibile creare un nuovo notebook selezionando "New" e quindi il kernel del linguaggio. Se il pulsante "New" non è visualizzato, fare clic sull'icona di Jupyter in alto a sinistra per passare alla home page del server Notebook di Jupyter.
 
 
 ### IDE ed editor 
@@ -177,7 +169,7 @@ La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condiv
 
 **VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](http://ess.r-project.org/).
 
-**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit per Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni sul toolkit di Azure per Eclipse sono disponibili nella pagina [Toolkit di Azure per Eclipse](../azure-toolkit-for-eclipse.md).
+**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit for Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit for Eclipse sono disponibili nella pagina [Azure Toolkit for Eclipse ](../azure-toolkit-for-eclipse.md).
 
 **LaTex** viene installato tramite il pacchetto texlive insieme a un pacchetto di componenti aggiuntivi di Emacs, [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html), che semplifica la creazione di documenti LaTex in Emacs.
 
@@ -203,11 +195,11 @@ Anche nel pacchetto driver ODBC per Microsoft SQL Server sono disponibili due st
 
 **bcp**: questa utilità crea copie bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. L'utilità bcp può essere usata per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati dalle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file di formato creato per la tabella o conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
-Altre informazioni sono disponibili nell'articolo relativo alla [connessione con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+Altre informazioni sono disponibili in [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
 **sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
 
-Altre informazioni sono disponibili nell'articolo relativo alla [connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+Altre informazioni sono disponibili in [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
 >[AZURE.NOTE] Esistono alcune differenze in questa utilità tra le piattaforme Linux e Windows. Per informazioni dettagliare, vedere la pagina di documentazione precedente.
 
@@ -216,27 +208,24 @@ Altre informazioni sono disponibili nell'articolo relativo alla [connessione con
 
 In Python e R sono disponibili librerie per accedere ai database.
 
-- In R il pacchetto **RODBC** o **dplyr** consente di eseguire query o istruzioni SQL sul server di database. 
-- In Python la libreria **pyodbc** fornisce l'accesso al database con ODBC come livello sottostante.  
+- In R il pacchetto **RODBC** o **dplyr** consente di eseguire query o istruzioni SQL sul server di database.
+- In Python la libreria **pyodbc** fornisce l'accesso al database con ODBC come livello sottostante.
 
 Per accedere a **Postgres**:
 
-- Da Python usare la libreria **psycopg2**. 
+- Da Python usare la libreria **psycopg2**.
 - Da R usare il pacchetto **RPostgreSQL**.
 
 
 ### Strumenti di Azure 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la pagina di documentazione sull'[interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md).
-- **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Storage Explorer dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando ***StorageExplorer***. È necessario essere connessi da un client X2go o avere installato X11 Forwarding. 
-- **Librerie di Azure**: di seguito sono riportate alcune delle librerie installate e disponibili.
-
+- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md).
+- **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Storage Explorer dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando ***StorageExplorer***. È necessario essere connessi da un client X2go o avere installato X11 Forwarding.
+- **Librerie di Azure**: di seguito sono riportate alcune delle librerie installate e disponibili:
 - **Python**: le librerie installate correlate ad Azure in Python sono ***azure***, ***azureml***, ***pydocumentdb***, ***pyodbc***. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure DocumentDB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a Microsoft SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere ***pip list*** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
-
 - **R**: le librerie installate correlate ad Azure in R sono ***AzureML*** e ***RODBC***.
-
-- **Java**: l'elenco delle librerie Java per Azure Java è disponibile nella directory ***/dsvm/sdk/AzureSDKJava*** della VM. Le librerie principali sono l'archiviazione di Azure e le API di gestione, DocumentDB e i driver JDBC per SQL Server.
+- **Java**: l'elenco delle librerie Java per Azure è disponibile nella directory ***/dsvm/sdk/AzureSDKJava*** della VM. Le librerie principali sono l'archiviazione di Azure e le API di gestione, DocumentDB e i driver JDBC per SQL Server.
 
 È possibile accedere al [portale di Azure](https://portal.azure.com) dal browser Firefox pre-installato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
 
@@ -244,12 +233,12 @@ Nella VM sono installati gli strumenti di Azure seguenti:
 
 Azure Machine Learning (Azure ML) è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. Si possono creare esperimenti e modelli da Azure Machine Learning Studio, a cui è possibile accedere da un Web browser nella macchina virtuale di analisi scientifica dei dati, visitando il sito [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Una volta eseguito l'accesso ad Azure Machine Learning Studio, si potrà accedere a un'area di sperimentazione che consente di compilare un flusso logico per gli algoritmi di apprendimento automatico. È anche possibile accedere a Jupyter Notebook ospitato in Azure ML e utilizzare direttamente gli esperimenti in Studio. Azure ML consente di rendere operativi i modelli di Machine Learning creati, eseguendone il wrapping in un'interfaccia del servizio Web. Questo consente ai client scritti in qualsiasi linguaggio di richiamare le stime dai modelli di ML. Altre informazioni su Azure ML sono disponibili nella [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Una volta eseguito l'accesso ad Azure Machine Learning Studio, si potrà accedere a un'area di sperimentazione che consente di compilare un flusso logico per gli algoritmi di apprendimento automatico. È anche possibile accedere a Jupyter Notebook ospitato in Azure ML e utilizzare direttamente gli esperimenti in Studio. Azure ML consente di rendere operativi i modelli di Machine Learning creati, eseguendone il wrapping in un'interfaccia del servizio Web. Questo consente ai client scritti in qualsiasi linguaggio di richiamare le stime dai modelli di ML. Altre informazioni su Azure ML sono disponibili in [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 È anche possibile creare modelli personalizzati in R o Python nella VM e quindi distribuirli nell'ambiente di produzione in Azure ML. Per abilitare questa funzionalità sono state installate librerie in R e Python.
 
-- La libreria in R è denominata ***AzureML***. 
-- In Python è denominata ***azureml***. 
+- La libreria in R è denominata ***AzureML***.
+- In Python è denominata ***azureml***.
 
 Per informazioni su come distribuire i modelli in R e Python in Azure ML, vedere la sezione *Compilare modelli usando R o Python e renderli operativi con Azure Machine Learning* dell'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](machine-learning-data-science-vm-do-ten-things.md).
  
@@ -257,13 +246,13 @@ Per informazioni su come distribuire i modelli in R e Python in Azure ML, vedere
 
 ### Strumenti di Machine Learning
 
-La VM viene fornita con alcuni strumenti e algoritmi di ML precompilati e pre-installati localmente. Sono state illustrate le seguenti operazioni:
+La VM viene fornita con alcuni strumenti e algoritmi di ML precompilati e pre-installati localmente. inclusi i seguenti:
 
 * **CNTK** (Computational Network Toolkit di Microsoft Research): toolkit di apprendimento avanzato.
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
 * **Python**: Anaconda Python integra algoritmi ML con librerie come Scikit-learn. È possibile installare altre librerie eseguendo pip install.
-* **R**: libreria completa di funzioni ML disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo: 
+* **R**: libreria completa di funzioni ML disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo:
 
 		install.packages(<lib name>)
 
@@ -279,7 +268,7 @@ Per un esempio di base, eseguire i comandi seguenti nella shell:
 	cd cntkdemo/Data
 	cntk configFile=../Config/Simple.cntk
 
-L'output del modello sarà disponibile in *~/cntkdemo/Output/Models*
+L'output del modello sarà disponibile in *~/cntkdemo/Output/Models*.
 
 Altre informazioni su CNTK sono disponibili nella pagina [github.com/Microsoft/CNTK](https://github.com/Microsoft/CNTK) e nel [wiki su CNTK](https://github.com/Microsoft/CNTK/wiki).
 
@@ -340,8 +329,8 @@ Verrà aperta un'interfaccia grafica con un set di schede. Qui è disponibile un
 2. Verrà visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Fare clic su Yes per caricare l'esempio.
 3. Fare clic sulla scheda Model.
 4. Fare clic su Execute per compilare un albero delle decisioni.
-5. Fare clic su Draw per visualizzare l'albero delle decisioni. 
-6. Fare clic sul pulsante di opzione Forest e quindi su Execute per creare una foresta casuale. 
+5. Fare clic su Draw per visualizzare l'albero delle decisioni.
+6. Fare clic sul pulsante di opzione Forest e quindi su Execute per creare una foresta casuale.
 7. Fare clic sulla scheda Evaluate.
 8. Fare clic sul pulsante di opzione Risk e quindi su Execute per visualizzare due tracciati delle prestazioni per Risk (Cummulative).
 9. Fare clic sulla scheda Log per visualizzare il codice R generato per le operazioni precedenti. Nota: esiste un bug nella versione corrente di rattle. Occorre inserire '#' davanti a "Export this log" nel testo del log.
@@ -353,8 +342,8 @@ Verrà aperta un'interfaccia grafica con un set di schede. Qui è disponibile un
 ## Passaggi successivi
 Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 
-* Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite. 
+* Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

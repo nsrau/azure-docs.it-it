@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"   
+	ms.date="08/11/2016"   
 	ms.author="robmcm"/>
 
 #Come usare Servizi multimediali con Java
@@ -22,7 +22,7 @@
 
 ##Configurare un account Azure per Servizi multimediali
 
-Per configurare l'account Servizi multimediali, usare il portale di Azure classico. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md). Dopo avere creato l'account nel portale di Azure classico, è possibile configurare il computer per lo sviluppo in Servizi multimediali.
+Per configurare l'account Servizi multimediali, usare il portale di Azure classico. Vedere l'argomento [Come creare un account Servizi multimediali](media-services-create-account.md). Dopo avere creato l'account nel portale di Azure classico, è possibile configurare il computer per lo sviluppo in Servizi multimediali.
 
 ##Configurazioni per lo sviluppo con Servizi multimediali
 
@@ -30,7 +30,7 @@ In questa sezione vengono illustrati i prerequisiti generali per lo sviluppo di 
 
 ###Prerequisiti
 
--   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
+-   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account Servizi multimediali](media-services-create-account.md).
 -   Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][].
 
 ##Procedura: come usare Servizi multimediali con Java
@@ -276,4 +276,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

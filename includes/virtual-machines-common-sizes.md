@@ -127,7 +127,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_D12\_v2 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
 |Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
 |Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| estremamente alta |
-|Standard\_D15\_v2 |20|140 GB|10|Temporaneo (SSD) = 1 TB |40|40x500| estremamente alta |
+|Standard\_D15\_v2 |20|140 GB|8|Temporaneo (SSD) = 1 TB |40|40x500| estremamente alta |
 
 
 ## Serie DS*
@@ -159,7 +159,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_DS12\_v2 |4|28|4|Disco SSD locale = 56 GB |8|144| 12\.800 192 MB al secondo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD locale = 112 GB |16|288| 25\.600 384 MB al secondo | alto |
 |Standard\_DS14\_v2 |16|112|8|Disco SSD locale = 224 GB |32|576| 51\.200 768 MB al secondo | estremamente alta |
-|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD locale = 280 GB |40| 720|64\.000 960 MB al secondo | estremamente alta |
+|Standard\_DS15\_v2 |20|140 GB|8|Disco SSD locale = 280 GB |40| 720|64\.000 960 MB al secondo | estremamente alta |
 
 
 *Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
@@ -219,7 +219,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 |Standard\_GS4|16|224|8|Disco SSD locale = 448 GB |32|2112| 40\.000 1.000 MB al secondo | estremamente alta |
 |Standard\_GS5|32|448|8|Disco SSD locale = 896 GB |64|4224| 80\.000 2.000 MB al secondo | estremamente alta |
 
-## Serie N
+## Serie N (anteprima)
 
 Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni a elevato utilizzo di calcolo e reti, nonché algoritmi, tra cui applicazioni e simulazioni basate su CUDA e OpenCL.
 
@@ -230,9 +230,9 @@ Le istanze NV sono basate su GPU NVIDIA Tesla M60 e NVIDIA GRID per applicazioni
 
 | Dimensione | Core | GPU | Memoria | Disco |
 |------|-------|----------------|--------|-------------|
-| NV6 | 6 | 1 x NVIDIA M60 | 56 GB | SSD da 380 GB |
-| NV12 | 12 | 2 x NVIDIA M60 | 112 GB | SSD da 680 GB |
-| NV24 | 24 | 4 x NVIDIA M60 | 224 GB | SSD da 1.440 GB | 
+| Standard\_NV6 | 6 | 1 x NVIDIA M60 | 56 GB | SSD da 380 GB |
+| Standard\_NV12 | 12 | 2 x NVIDIA M60 | 112 GB | SSD da 680 GB |
+| Standard\_NV24 | 24 | 4 x NVIDIA M60 | 224 GB | SSD da 1.440 GB | 
 
 
 
@@ -243,9 +243,9 @@ Le istanze NC sono basate su GPU NVIDIA Tesla K80. Gli utenti possono ora elabor
 
 | Dimensione | Core | GPU | Memoria | Disco |
 |------|-------|----------------|--------|-------------|
-| NC6 | 6 | 1 x NVIDIA K80 | 56 GB | SSD da 380 GB |
-| NC12 | 12 | 2 x NVIDIA K80 | 112 GB | SSD da 680 GB |
-| NC24 | 24 | 4 x NVIDIA K80 | 224 GB | SSD da 1.440 GB |
+| Standard\_NC6 | 6 | 1 x NVIDIA K80 | 56 GB | SSD da 380 GB |
+| Standard\_NC12 | 12 | 2 x NVIDIA K80 | 112 GB | SSD da 680 GB |
+| Standard\_NC24 | 24 | 4 x NVIDIA K80 | 224 GB | SSD da 1.440 GB |
 
 ## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell 
 
@@ -264,4 +264,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

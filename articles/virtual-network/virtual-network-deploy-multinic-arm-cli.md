@@ -3,7 +3,7 @@
    description="Informazioni su come distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure in Gestione risorse"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 #Distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure
 
@@ -330,4 +330,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

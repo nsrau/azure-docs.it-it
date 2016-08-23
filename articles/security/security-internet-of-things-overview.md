@@ -1,11 +1,11 @@
 <properties
    pageTitle="Informazioni generali sulla sicurezza di Internet delle cose | Microsoft Azure"
-   description="I servizi di Azure IoT (Internet delle cose) offrono una vasta gamma di funzionalità. Questo articolo illustra come proteggere le soluzioni IoT in Azure."
+   description=" I servizi di Azure IoT (Internet delle cose) offrono una vasta gamma di funzionalità. Questo articolo illustra come proteggere le soluzioni IoT in Azure. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
-   editor="TomSh"/>
+   manager="MBaldwin"
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
-   ms.author="terrylan"/>
+   ms.date="08/09/2016"
+   ms.author="terrylan"/>  
 
 # Informazioni generali sulla sicurezza di Internet delle cose
 
@@ -68,4 +68,4 @@ L'articolo tratta gli argomenti seguenti:
 - [Distributore di soluzioni IoT](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
 - [Operatore di soluzioni IoT](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

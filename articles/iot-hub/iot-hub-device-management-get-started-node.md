@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/11/2016"
  ms.author="juanpere"/>
 
 # Introduzione a Gestione dei dispositivi dell'hub IoT di Azure con node.js (anteprima)
@@ -23,7 +23,7 @@
 ## Introduzione
 Per iniziare a usare Gestione dei dispositivi dell'hub IoT di Azure, è necessario creare un hub IoT di Azure, effettuare il provisioning di dispositivi nell'hub IoT, avviare più dispositivi simulati e visualizzare questi dispositivi nell'interfaccia utente di esempio di Gestione dei dispositivi. Questa esercitazione descrive tali operazioni.
 
-> [AZURE.NOTE]  Anche se è disponibile un hub IoT esistente, è necessario creare un nuovo hub IoT per abilitare le funzionalità di gestione dei dispositivi. Gli hub IoT esistenti non hanno ancora funzionalità di gestione dei dispositivi. Quando la gestione dei dispositivi sarà disponibile a livello generale, tutti gli hub IoT esistenti verranno aggiornati con funzionalità di gestione dei dispositivi.
+> [AZURE.NOTE]  Anche se è disponibile un hub IoT esistente, è necessario creare un nuovo hub IoT per abilitare le funzionalità di gestione dei dispositivi. Gli hub IoT esistenti non hanno ancora queste funzionalità. Quando la gestione dei dispositivi sarà disponibile a livello generale, tutti gli hub IoT esistenti verranno aggiornati con funzionalità di gestione dei dispositivi.
 
 ## Prerequisiti
 
@@ -31,7 +31,7 @@ Questa esercitazione presuppone che si usi un computer di sviluppo Ubuntu Linux.
 
 Per seguire la procedura qui descritta è necessario che sia installato il software seguente:
 
-- Git.
+- Git
 
 - gcc (versione 4.9 o successiva). È possibile verificare la versione corrente installata nell'ambiente usando il comando `gcc --version`. Per informazioni su come aggiornare la versione di gcc su Ubuntu 14.04, vedere <http://askubuntu.com/questions/466651/how-do-i-use-the-latest-gcc-4-9-on-ubuntu-14-04>.
 
@@ -57,16 +57,14 @@ Per seguire la procedura qui descritta è necessario che sia installato il softw
   -   Nella casella **Nome** immettere un nome per l'hub IoT. Se il **Nome** è valido e disponibile, appare un segno di spunta verde nella casella **Nome**.
   -   Selezionare un **piano tariffario e un livello di scalabilità**. Per questa esercitazione non è necessario un livello specifico.
   -   **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni, vedere [Uso di Gruppi di risorse per gestire le risorse di Azure].
-  -   Selezionare la casella **Abilita Gestione dei dispositivi**.
+  -   Selezionare la casella **Abilita Gestione dei dispositivi**. Se non è selezionata la casella **Abilita Gestione dei dispositivi** gli esempi non funzionano. Selezionando **Abilita Gestione dei dispositivi**, si crea un hub IoT di anteprima supportato solo negli Stati Uniti orientali, nell'Europa settentrionale e nell'Asia orientale e non destinato a scenari di produzione. Non è possibile eseguire la migrazione dei dispositivi all'interno e all'esterno degli hub abilitati per la gestione dei dispositivi.
   -   In **Percorso** selezionare il percorso per ospitare l'hub IoT. Durante l'anteprima pubblica Gestione dei dispositivi dell'hub IoT è disponibile solo negli Stati Uniti orientali, in Europa settentrionale e in Asia orientale. In futuro sarà disponibile in tutte le aree.
-
-  > [AZURE.NOTE]  Se non è selezionata la casella **Abilita Gestione dei dispositivi** gli esempi non funzioneranno.
 
 4.  Dopo aver scelto le opzioni di configurazione dell'hub IoT, fare clic su **Crea**. La creazione dell'hub IoT da parte di Azure può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella **Schermata iniziale** o nel pannello **Notifiche**.
 
 	![][img-monitor]
 
-5.  Al termine della creazione dell'hub IoT, aprire il pannello del nuovo hub IoT, prendere nota del **Nome host** e fare clic sull'icona **Chiavi**.
+5.  Al termine della creazione dell'hub IoT, aprire il pannello del nuovo hub IoT, prendere nota del **Nome host** e fare clic su **Criteri di accesso condiviso**.
 
 	![][img-keys]
 
@@ -107,7 +105,7 @@ Per compilare gli esempi ed effettuare il provisioning dei dispositivi nell'hub 
 
 Lo script esegue queste operazioni:
 
-1.  Esegue **cmake** per creare i file make necessari per compilare il dispositivo simulato. L'eseguibile si trova in **azure-iot-sdks/node/service/samples/cmake/iotdm\_client/samples/iotdm\_simple\_sample**. Si noti che i file di origine sono nella cartella **azure-iot-sdks/c/iotdm\_client/samples/iotdm\_simple\_sample**.
+1.  Esegue **cmake** per creare i file make necessari per compilare il dispositivo simulato. L'eseguibile si trova in **azure-iot-sdks/node/service/samples/cmake/iotdm\_client/samples/iotdm\_simple\_sample**. Si noti che i file di origine si trovano nella cartella **azure-iot-sdks/c/iotdm\_client/samples/iotdm\_simple\_sample**.
 
 2.  Compila l'eseguibile del dispositivo simulato **iotdm\_simple\_sample**.
 
@@ -119,7 +117,7 @@ Lo script esegue queste operazioni:
 
 Ora che i dispositivi sono stati aggiunti al registro dei dispositivi, è possibile avviare i dispositivi simulati gestiti. È necessario avviare un dispositivo simulato per ogni identità del dispositivo di cui viene effettuato il provisioning nell'hub IoT di Azure.
 
-Usando una shell, passare alla directory **azure-iot-sdks/node/service/samples** ed eseguire il comando seguente:
+Usando una shell, passare alla directory **azure-iot-sdks/node/service/samples** ed eseguire:
 
   ```
   ./simulate.sh
@@ -129,9 +127,9 @@ Questo script genera i comandi che è necessario eseguire per avviare **iotdm\_s
 
 L'applicazione **iotdm\_simple\_sample** viene compilata con la libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C, che consente di creare dispositivi IoT gestibili dall'hub IoT di Azure. I produttori di dispositivi possono usare questa libreria per creare report sulle proprietà dei dispositivi e implementare le azioni di esecuzione richieste dai processi dei dispositivi. La libreria è un componente fornito insieme agli SDK open source per hub IoT di Azure.
 
-Quando si esegue **simulate.sh**, viene visualizzato un flusso di dati nella finestra di output. L'output mostra il traffico in ingresso e in uscita, nonché istruzioni **printf** nelle funzioni di callback specifiche dell'applicazione. In questo modo è possibile visualizzare il traffico in ingresso e in uscita nonché la gestione dei pacchetti decodificati da parte dell'applicazione di esempio. Quando il dispositivo si connette all'hub IoT, il servizio viene avviato automaticamente per osservare le risorse nel dispositivo. La libreria client di Gestione dei dispositivi dell'hub IoT richiama quindi i callback del dispositivo per recuperare i valori più recenti da quest'ultimo.
+Quando si esegue **simulate.sh**, viene visualizzato un flusso di dati nella finestra di output. L'output mostra il traffico in ingresso e in uscita e le istruzioni **printf** nelle funzioni di callback specifiche dell'applicazione. Questo output consente di visualizzare il traffico in ingresso e in uscita nonché la gestione dei pacchetti decodificati da parte dell'applicazione di esempio. Quando il dispositivo si connette all'hub IoT, il servizio viene avviato automaticamente per osservare le risorse nel dispositivo. La libreria client di Gestione dei dispositivi dell'hub IoT richiama quindi i callback del dispositivo per recuperare i valori più recenti da quest'ultimo.
 
-Di seguito è riportato l'output dell'applicazione di esempio **iotdm\_simple\_sample**. Nella parte superiore viene visualizzato il messaggio **REGISTERED**, che mostra il dispositivo con ID **Device11-7ce4a850** che si connette all'hub IoT.
+Il seguente è l'output dell'applicazione di esempio **iotdm\_simple\_sample**. Nella parte superiore viene visualizzato il messaggio **REGISTERED**, che mostra il dispositivo con ID **Device11-7ce4a850** che si connette all'hub IoT.
 
 > [AZURE.NOTE]  Per avere un output meno dettagliato, compilare ed eseguire la configurazione finale.
 
@@ -141,7 +139,7 @@ Assicurarsi di lasciare tutti i dispositivi simulati in esecuzione durante il co
 
 ## Eseguire l'interfaccia utente di esempio di Gestione dei dispositivi
 
-Dopo avere effettuato il provisioning di un hub IoT e quando sono disponibili alcuni dispositivi simulati in esecuzione e registrati per la gestione, è possibile distribuire l'interfaccia utente di esempio di Gestione dei dispositivi. L'interfaccia utente di esempio di Gestione dei dispositivi fornisce un esempio funzionante relativo a come usare le API di Gestione dei dispositivi per offrire un'esperienza di interfaccia utente interattiva. Per altre informazioni sull'interfaccia utente di esempio di Gestione dei dispositivi, inclusi i [problemi noti](https://github.com/Azure/azure-iot-device-management#knownissues), vedere il repository [Azure IoT device management UI][lnk-dm-github] (Interfaccia utente di Gestione dei dispositivi di Azure IoT ) di GitHub.
+Dopo avere effettuato il provisioning di un hub IoT e quando sono disponibili alcuni dispositivi simulati in esecuzione e registrati per la gestione, è possibile distribuire l'interfaccia utente di esempio di Gestione dei dispositivi. L'interfaccia utente di esempio di Gestione dei dispositivi fornisce un esempio funzionante relativo a come usare le API di Gestione dei dispositivi per offrire un'esperienza di interfaccia utente interattiva. Per altre informazioni sull'interfaccia utente di esempio di Gestione dei dispositivi, inclusi i [problemi noti](https://github.com/Azure/azure-iot-device-management#knownissues), vedere il repository [Azure IoT device management UI][lnk-dm-github] (Interfaccia utente di Gestione dei dispositivi di Azure IoT) di GitHub.
 
 Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestione dei dispositivi, seguire questa procedura:
 
@@ -204,4 +202,4 @@ Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub 
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

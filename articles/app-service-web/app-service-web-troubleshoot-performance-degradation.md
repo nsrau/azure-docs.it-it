@@ -1,4 +1,13 @@
-<properties pageTitle="Rallentamento delle prestazioni dell'app Web nel Servizio app | Microsoft Azure" description="Questo articolo fornisce informazioni utili per la risoluzione dei problemi nell'app Web del servizio app di Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="prestazioni app Web, app rallentate, rallentamento dell'app"/>
+<properties
+	pageTitle="Rallentamento delle prestazioni dell'app Web nel servizio app | Microsoft Azure"
+	description="Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel Servizio app di Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="prestazioni dell'applicazione Web, app lenta, rallentamento app"/>  
 
 <tags
 	ms.service="app-service-web"
@@ -7,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/06/2016"
-	ms.author="cephalin"/>
+	ms.author="cephalin"/>  
 
 # Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
 
@@ -51,12 +60,12 @@ Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pan
 Le metriche più comunemente monitorate per le app Web sono
 
 -	Working set della memoria medio
--	Tempo medio di risposta
+-	Tempo di risposta medio
 -	Tempo CPU
 -	Working set della memoria
--	Richieste
+-	Requests
 
-![monitoraggio delle prestazioni dell'app Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitoraggio delle prestazioni dell'app Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)  
 
 Per altre informazioni, vedere:
 
@@ -87,7 +96,7 @@ Per usare Application Insights, vedere [Monitorare le prestazioni di applicazion
 
 Per usare New Relic, vedere [Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
-<a name="collect" />
+<a name="collect" />  
 ### 2\. Raccogliere i dati
 
 ####	Abilitare la registrazione diagnostica per l'app Web
@@ -151,7 +160,7 @@ Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possib
 
 Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti di Azure Websites Team Services che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate" />  
 ### 3\. Attenuare il problema
 
 ####	Ridimensionare l'app Web
@@ -174,8 +183,8 @@ Per altre informazioni, vedere il post di blog relativo alla [correzione automat
 
 Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/) sono disponibili le opzioni per arrestare o riavviare l'app.
 
- ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)  
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

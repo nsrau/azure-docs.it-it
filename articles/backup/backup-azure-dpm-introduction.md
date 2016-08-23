@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark;markgal"/>
+	ms.date="08/08/2016"
+	ms.author="trinadhk;giridham;jimpark;markgal;adigan"/>  
 
 # Preparazione del backup dei carichi di lavoro in Azure con DPM
 
@@ -39,55 +39,53 @@ DPM di System Center esegue il backup di file e dati delle applicazioni. I dati 
 - **DPM distribuito come server fisico o come macchina virtuale locale**: se DPM è distribuito come server fisico o come macchina virtuale Hyper-V locale, è possibile eseguire il backup dei dati in un insieme di credenziali dei servizi di ripristino oltre al backup su disco e su nastro.
 - **DPM distribuito come macchina virtuale di Azure**: a partire dalla versione di System Center 2012 R2 con aggiornamento 3, DPM può essere distribuito come macchina virtuale di Azure. Se DPM è distribuito come macchina virtuale di Azure, è possibile eseguire il backup dei dati sui dischi di Azure allegati alla macchina virtuale Azure di DPM oppure è possibile eseguire l'offload dell'archiviazione dei dati eseguendo il backup su un insieme di credenziali dei servizi di ripristino.
 
-## Motivi per eseguire il backup dei server DPM
+## Perché eseguire il backup da DPM in Azure
 
 Di seguito sono elencati i vantaggi aziendali derivanti dall'uso del servizio Backup di Azure per eseguire il backup dei server DPM:
 
 - Per la distribuzione DPM locale è possibile usare Azure come alternativa alla distribuzione a lungo termine su nastro.
 - Per le distribuzioni DPM in Azure, Backup di Azure consente di eseguire l'offload dell'archiviazione dal disco di Azure e aumentare le prestazioni archiviando i dati meno recenti in un insieme di credenziali dei servizi di ripristino e i dati nuovi sul disco.
 
-## Funzionamento del backup del server DPM
-Per offrire protezione dei dati su disco, il server DPM crea e conserva una replica o una copia dei dati che si trovano sui server protetti. Le repliche sono archiviate nel pool di archiviazione che consiste di un set di dischi nel server DPM o in un volume personalizzato. Se si vuole proteggere i dati del file o dati dell'applicazione, la protezione inizia con la creazione della replica dell'origine dati. La replica è sincronizzata o aggiornata, a intervalli regolari in base alle impostazioni configurate. Quando si usa una protezione a breve termine sui dischi e a lungo termine nel cloud, DPM può eseguire il backup dei dati dal volume di replica all'insieme di credenziali dei servizi di ripristino in modo che non venga causato alcun impatto sul computer protetto.
-
 ## Prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
 
-1. **Creare un insieme di credenziali dei servizi di ripristino**: creare un insieme di credenziali nel portale di Azure.
-2. **Scaricare le credenziali dell'insieme di credenziali**: scaricare le credenziali usate per registrare il server DPM all'insieme di credenziali dei servizi di ripristino.
-3. **Installare l'agente di Backup di Azure e registrare il server**: da Backup di Azure installare l'agente su ogni server DPM e registrare il server DPM all'insieme di credenziali dei servizi di ripristino.
+1. **Creare un insieme di credenziali di Servizi di ripristino**: creare un insieme di credenziali nel portale di Azure.
+2. **Scaricare le credenziali dell'insieme di credenziali**: scaricare le credenziali usate per registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
+3. **Installare l'agente di Backup di Azure**: da Backup di Azure, installare l'agente in ogni server DPM.
+4. **Registrare il server** registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
 
 ### 1\. Creare un insieme di credenziali dei servizi di ripristino
 Per creare un insieme di credenziali dei servizi di ripristino:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Scegliere **Sfoglia** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insieme di credenziali dei servizi di ripristino**.
+2. Scegliere **Esplora** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insieme di credenziali dei servizi di ripristino**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)  
 
     Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 
 3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)  
 
-    Si apre il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+    Verrà aperto il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)  
 
-4. Nel campo **Nome** digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
 5. Fare clic su **Sottoscrizione** per visualizzare l'elenco di sottoscrizioni disponibili. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
-6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
+6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali.
 
-8. Fare clic su **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. Una volta creato, l'insieme di credenziali viene aperto nel portale.
+8. Fare clic su **Crea**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. Una volta creato, l'insieme di credenziali viene aperto nel portale.
 
 ### Impostare la replica di archiviazione
 
-L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la [panoramica Replica di archiviazione di Azure](../storage/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si tratta del backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e con [ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere la panoramica in [Replica di archiviazione di Azure](../storage/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -95,7 +93,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 2. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione backup** per aprire il pannello **Configurazione backup**. Nel pannello **Configurazione backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
-    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)  
 
     Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
@@ -114,11 +112,11 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 
 3. Per impostazione predefinita si apre il pannello Impostazioni. Se non si apre, fare clic su **Impostazioni** nel dashboard dell'insieme di credenziali per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
 
-	![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+	![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)  
 
 4. Nella pagina delle proprietà fare clic su **Scarica** in **Credenziali di backup**. Il portale genera il file delle credenziali di insieme, che diventa disponibile per il download.
 
-    ![Scaricare](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Scaricare](./media/backup-azure-dpm-introduction/vault-credentials.png)  
 
 Il portale genererà una credenziale di insieme usando una combinazione del nome dell'insieme di credenziali e della data attuale. Fare clic su **Salva** per scaricare le credenziali di insieme nella cartella di download dell'account locale o selezionare Salva con nome dal menu Salva per specificare un percorso per le credenziali. La generazione del file potrebbe impiegare fino a un minuto.
 
@@ -135,7 +133,7 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
 1. Aprire l'insieme di credenziali dei servizi di ripristino a cui si vuole registrare la macchina DPM.
 
-2. Per impostazione predefinita si apre il pannello Impostazioni. Se non si apre, fare clic su **Impostazioni** per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
+2. Per impostazione predefinita si apre il pannello Impostazioni. Se non viene visualizzato, fare clic su **Impostazioni** per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
 
 	![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
@@ -149,13 +147,19 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
 5.	Per completare l'installazione, l'agente Backup di Azure installerà .NET Framework 4.5 e Windows PowerShell (se non è già disponibile).
 
-6.	Dopo aver installato l'agente, fare clic sul pulsante **Procedi alla registrazione** per continuare con il flusso di lavoro.
+6.	Dopo aver installato l'agente, scegliere **Chiudi** per chiudere la finestra.
 
-    ![Opzione Register](../../includes/media/backup-install-agent/register.png)
+    ![Chiudi](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)  
 
-7. Nella schermata relativa alle credenziali di insieme individuare e selezionare il file delle credenziali di insieme scaricato in precedenza.
+7. Per **registrare il server DPM** nell'insieme di credenziali, fare clic su **Online** nella scheda **Gestione**. Selezionare quindi **Registra**. Verrà visualizzata la Registrazione guidata server.
 
-    ![Credenziali di insieme](../../includes/media/backup-install-agent/vc.png)
+8. Se si usa un server proxy per connettersi a Internet, nella schermata **Configurazione proxy** immettere i dettagli del server proxy. Se si usa un proxy autenticato, immettere il nome utente e la password in questa schermata.
+
+	![Configurazione proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)  
+
+9. Nella schermata relativa alle credenziali di insieme individuare e selezionare il file delle credenziali di insieme scaricato in precedenza.
+
+    ![Credenziali di insieme](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)  
 
     Il file delle credenziali di insieme è valido solo per 48 ore dopo che è stato scaricato dal portale. Se si verifica un errore in questa schermata, ad esempio "Il file delle credenziali di insieme fornito è scaduto", accedere al portale di Azure e scaricare nuovamente il file delle credenziali di insieme.
 
@@ -163,21 +167,23 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
     Se si verifica un errore di credenziali dell'insieme di credenziali non valide, ad esempio "Le credenziali dell'insieme di credenziali specificate non sono valide", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino. Ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale. Questo errore in genere si verifica se l'utente fa clic sull'opzione **Scarica credenziali di insieme** nel portale di Azure in rapida successione. In questo caso è valido solo il secondo file delle credenziali di insieme.
 
-8. Nella schermata **impostazione crittografia**, è possibile generare una passphrase o fornire una passphrase (almeno 16 caratteri). Ricordarsi di salvare la passphrase in un luogo sicuro.
+10. Per controllare l'utilizzo della larghezza di banda di rete durante le ore lavorative e non lavorative, nella schermata **Impostazione di limitazione** è possibile impostare i limiti di utilizzo della larghezza di banda e definire le ore lavorative e non lavorative.
 
-    ![Crittografia](../../includes/media/backup-install-agent/encryption.png)
+    ![Impostazione di limitazione](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)  
+
+11. Nella schermata **Impostazioni cartella di ripristino** cercare la cartella in cui verranno inseriti temporaneamente i file scaricati da Azure.
+
+    ![Impostazioni cartella di ripristino](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)  
+
+12. Nella schermata **impostazione crittografia**, è possibile generare una passphrase o fornire una passphrase (almeno 16 caratteri). Ricordarsi di salvare la passphrase in un luogo sicuro.
+
+    ![Crittografia](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)  
 
     > [AZURE.WARNING] Se la passphrase viene persa o dimenticata, Microsoft non potrà fornire assistenza per il recupero dei dati di backup. L'utente finale possiede la passphrase di crittografia, che non è visibile a Microsoft. Salvare il file in un luogo sicuro, in quanto potrebbe essere necessario durante un'operazione di ripristino.
 
-9. Dopo aver selezionato il pulsante **Fine**, il computer sarà registrato nell'insieme di credenziali e sarà possibile avviare il backup in Microsoft Azure.
+13. Dopo aver fatto clic sul pulsante **Registra**, il computer sarà registrato nell'insieme di credenziali e si potrà avviare il backup in Microsoft Azure.
 
-10. È possibile modificare le impostazioni specificate durante la registrazione del flusso di lavoro facendo clic sull'opzione **Modifica proprietà** nello snap-in di MMC di Backup di Microsoft Azure.
-
-    ![Modifica proprietà](../../includes/media/backup-install-agent/change.png)
-
-    In alternativa, quando si utilizza Data Protection Manager, è possibile modificare le impostazioni specificate durante il flusso di lavoro di registrazione facendo clic sull’opzione **Configura** selezionando **Online** sotto la scheda **Management**.
-
-    ![Configurare il Backup di Azure](../../includes/media/backup-install-agent/configure.png)
+14. Quando si usa Data Protection Manager, è possibile modificare le impostazioni specificate durante il flusso di lavoro di registrazione facendo clic sull'opzione **Configura** selezionando **Online** nella scheda **Gestione**.
 
 ## Requisiti e limitazioni
 
@@ -209,4 +215,4 @@ Questi tipi di file non sono supportati:
 
 >[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

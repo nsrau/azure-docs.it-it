@@ -3,10 +3,10 @@
 	description="Eseguire il backup di server o client Windows in Azure creando un insieme di credenziali di backup, scaricando le credenziali, installando l'agente di backup e completando un backup iniziale dei file e delle cartelle."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
-	keywords="insieme di credenziali di backup; backup di un server Windows; backup di Windows;"/>
+	keywords="insieme di credenziali di backup; backup di un server Windows; backup di Windows;"/>  
 
 <tags
 	ms.service="backup"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="jimpark; trinadhk; markgal"/>
+	ms.date="08/10/2016"
+	ms.author="jimpark; trinadhk; markgal"/>  
 
-# Eseguire il backup di Windows Server o client in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager
+# Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](backup-configure-vault.md)
@@ -25,9 +25,10 @@
 
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
 
-![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
+
+![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)  
+
 
 ## Prima di iniziare
 Per eseguire il backup di un server o un client in Azure, è necessario un account Azure. Se non si ha un account, è possibile crearne uno[gratuito](https://azure.microsoft.com/free/) in pochi minuti.
@@ -225,4 +226,4 @@ Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro
 - Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 - Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

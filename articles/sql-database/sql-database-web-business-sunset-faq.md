@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein" />
 
 # Domande frequenti sul ritiro dell'edizione Web e Business
@@ -55,7 +55,7 @@ Microsoft sta inoltre modificando l'esperienza di copia del database con i datab
 
 ## In quale modo verrà migliorata l'esperienza di fatturazione con i livelli Basic, Standard e Premium?
 
-I database SQL di Azure Basic, Standard e Premium vengono fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi fino a quattro volte nell'arco di un periodo di 24 ore. La fatturazione è basata su una tariffa fissa associata ai livelli di servizio e di prestazioni più alti scelti per ogni ora. Inoltre, i livelli di prestazioni (ad esempio: Basic, S1 e P2) sono suddivisi nella fattura per poter individuare più facilmente il numero di giorni/ore di database addebitati in un mese per ogni livello di prestazioni. I database Web e Business continueranno a essere fatturati tramite unità database in base alle dimensioni del database. Visitare la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) per altre informazioni sui prezzi e le differenze tra i nuovi livelli di servizio.
+I database SQL di Azure Basic, Standard e Premium vengono fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi. La fatturazione è basata su una tariffa fissa associata ai livelli di servizio e di prestazioni più alti scelti per ogni ora. Inoltre, i livelli di prestazioni (ad esempio: Basic, S1 e P2) sono suddivisi nella fattura per poter individuare più facilmente il numero di giorni/ore di database addebitati in un mese per ogni livello di prestazioni. I database Web e Business continueranno a essere fatturati tramite unità database in base alle dimensioni del database. Visitare la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) per altre informazioni sui prezzi e le differenze tra i nuovi livelli di servizio.
 
 
 ## Vedere anche
@@ -68,4 +68,4 @@ I database SQL di Azure Basic, Standard e Premium vengono fatturati su base orar
 
 [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

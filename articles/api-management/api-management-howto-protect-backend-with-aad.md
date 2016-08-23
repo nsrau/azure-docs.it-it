@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
-	ms.author="sdanie"/>
+	ms.date="08/09/2016"
+	ms.author="sdanie"/>  
 
 # Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
 
@@ -244,7 +244,7 @@ Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/sig
 
 Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati **https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
 
-![Nuova applicazione][api-management-aad-new-application-devportal-2]
+![Nuova applicazione][api-management-aad-new-application-devportal-2]  
 
 ## Configurare un server autorizzazione OAuth 2.0 in Gestione API
 
@@ -416,4 +416,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 [Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

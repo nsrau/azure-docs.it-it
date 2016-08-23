@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 
 
@@ -134,13 +134,13 @@ Nella pagina successiva viene richiesto di inserire le credenziali per Azure AD.
 
 Nella pagina **Accesso utente** selezionare **Sincronizzazione password**. La directory verrà modificata da federata a gestita.
 
-![Connettersi ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
+![Connessione ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
->[AZURE.NOTE] Se si passa solo temporaneamente alla sincronizzazione delle password, selezionare l'opzione **Non convertire gli account utente**. Se l'opzione non viene selezionata, ogni utente verrà convertito in federato.
+>[AZURE.NOTE] Se si passa solo temporaneamente alla sincronizzazione delle password, selezionare l'opzione **Non convertire gli account utente**. Se l'opzione non viene selezionata, ogni utente verrà convertito in federato, operazione che potrà richiedere diverse ore.
   
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 Per altre informazioni, vedere [Azure AD Connect: Concetti relativi alla progettazione](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

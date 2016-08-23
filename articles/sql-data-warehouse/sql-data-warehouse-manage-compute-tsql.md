@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="08/08/2016"
+   ms.author="barbkess;sonyama"/>  
 
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (T-SQL)
 
@@ -45,7 +45,7 @@ Per visualizzare le impostazioni DWU correnti per i database:
 
 1. Aprire Esplora oggetti di SQL Server in Visual Studio 2015.
 2. Connettersi al database master associato al server di database SQL logico.
-2. Effettuare una selezione nella vista a gestione dinamica sys.database\_service\_objectives. Di seguito è fornito un esempio: 
+2. Effettuare una selezione nella vista a gestione dinamica sys.database\_service\_objectives. Di seguito è fornito un esempio:
 
 ```
 SELECT
@@ -67,7 +67,7 @@ Per modificare le DWU:
 
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione TSQL [ALTER DATABASE][]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
+2. Usare l'istruzione TSQL [ALTER DATABASE][]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -81,7 +81,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 Per altre attività di gestione, vedere [Panoramica della gestione][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
@@ -93,8 +93,8 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

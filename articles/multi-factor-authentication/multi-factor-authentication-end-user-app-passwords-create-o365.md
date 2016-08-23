@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
-	editor="curtland"/>
+	editor="curtland"/>  
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Creare o eliminare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication
 
 Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed eliminare password per le app tramite il portale di Office 365.
 
-## Per creare password per le app nel portale di Office 365
+## Per creare password dell'app nel portale di Office 365
 --------------------------------------------------------------------------------
 
 <ol>
@@ -31,7 +31,7 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
 
 <li>A destra selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**.</li>
-<li>Nella parte superiore della pagina di verifica selezionare le password per le app.</li>
+<li>Nella parte superiore della pagina di verifica selezionare le password dell'app.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -41,7 +41,7 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)</center>
 
 <li>Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.</li>
-<li>Copiare la password per l'app negli Appunti, quindi incollarla nell'app.</li>
+<li>Copiare la password dell'app negli Appunti, quindi incollarla nell'app.</li>
 
 
 
@@ -53,10 +53,10 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 <li>Nell’angolo superiore destro selezionare il widget e scegliere le impostazioni di Office 365</li>
 <li>Nella parte inferiore, fare clic su Verifica aggiuntiva di sicurezza e selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**.3</li>
 
-![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)  
 
 <li>A destra selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**.</li>
-<li>Nella parte superiore della pagina di verifica selezionare le password per le app.</li>
+<li>Nella parte superiore della pagina di verifica selezionare le password dell'app.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -73,4 +73,4 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

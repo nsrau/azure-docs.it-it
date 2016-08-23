@@ -1,19 +1,19 @@
-<properties
-pageTitle="Asset di variabili in Automazione di Azure | Microsoft Azure"
-  description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra i dettagli delle variabili e come usarle nella creazione sia testuale che grafica.
+<properties 
+   pageTitle="Asset di tipo variabile in Automazione di Azure | Microsoft Azure"
+   description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra nel dettaglio le variabili e spiega come usarle nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-    manager="jwhit"
-   editor="tysonn" />
-<tags  
+   manager="jwhit"
+   editor="tysonn" />  
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/24/2016"
-   ms.author="magoedte;bwren" />
+   ms.author="magoedte;bwren" />  
 
 # Asset di tipo variabile in Automazione di Azure
 
@@ -41,7 +41,7 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md), disponibile per l'uso nei runbook di Automazione e nella configurazione DSC.
 
-|Cmdlet|Descrizione|
+|Cmdlets|Descrizione|
 |:---|:---|
 |[Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx)|Recupera il valore di una variabile esistente.|
 |[New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)|Crea una nuova variabile e ne imposta il valore.|
@@ -180,12 +180,12 @@ La figura seguente illustra attività di esempio che recuperano e usano una vari
 
 La figura seguente illustra come filtrare gli oggetti archiviati in una variabile in un runbook grafico. Al collegamento dell'esempio precedente viene aggiunta una [condizione](automation-graphical-authoring-intro.md#links-and-workflow) per filtrare esclusivamente le macchine virtuali arrestate al momento dell'impostazione della variabile.
 
-![Ottenere una variabile complessa filtrata](media/automation-variables/get-complex-variable-filter.png)
+![Ottenere una variabile complessa filtrata](media/automation-variables/get-complex-variable-filter.png)  
 
 
 ## Passaggi successivi
 
-- Per altre informazioni su come collegare attività insieme nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
-- Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md) 
+- Per altre informazioni su come collegare attività nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
+- Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

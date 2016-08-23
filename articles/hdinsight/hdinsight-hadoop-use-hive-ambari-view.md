@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
-   ms.author="larryfr"/>
+   ms.date="08/09/2016"
+   ms.author="larryfr"/>  
 
 #Usare la visualizzazione Hive con Hadoop in HDInsight
 
@@ -65,7 +65,7 @@ Usare i passaggi seguenti nella vista Hive per eseguire una query Hive sui dati 
 		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-	Le istruzioni eseguono queste azioni:
+	Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
 	- **DROP TABLE**: elimina la tabella e il file di dati, qualora la tabella esista già.
 	- **CREATE EXTERNAL TABLE**: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
@@ -95,7 +95,7 @@ Usare i passaggi seguenti nella vista Hive per eseguire una query Hive sui dati 
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-	Le istruzioni eseguono queste azioni:
+	Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
 	- **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive. A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
 	- **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
@@ -199,4 +199,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

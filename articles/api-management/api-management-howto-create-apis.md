@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come creare API in Gestione API di Azure
 
@@ -48,7 +48,7 @@ Per configurare la nuova API, vengono usati i campi seguenti.
 
 Dopo avere configurato i valori desiderati, fare clic su **Salva**. Una volta creata la nuova API, la pagina di riepilogo dell'API viene visualizzata nel portale di pubblicazione.
 
-![API summary][api-management-api-summary]
+![Riepilogo dell'API][api-management-api-summary]
 
 ## <a name="configure-api-settings"> </a>Configurare le impostazioni API
 
@@ -97,4 +97,4 @@ Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi con
 [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure]: api-management-howto-mutual-certificates.md
 [Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

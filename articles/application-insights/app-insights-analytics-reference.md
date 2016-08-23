@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
-	ms.author="awills"/>
+	ms.date="08/09/2016" 
+	ms.author="awills"/>  
 
 # Informazioni di riferimento sull'analisi
 
@@ -862,7 +862,7 @@ Indica al livello di presentazione la modalità di visualizzazione della tabella
 
 ### Clausola restrict 
 
-Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. ad esempio:
+Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. Ad esempio:
 
     let e1 = requests | project name, client_City;
     let e2 =  requests | project name, success;
@@ -1405,7 +1405,7 @@ Utilizzare le funzioni di percentile ponderato in quei casi in cui i dati sono s
 
 Ad esempio, se l'applicazione esegue molte migliaia di operazioni al secondo e si desidera conoscerne la latenza. La soluzione più semplice sarebbe generare una richiesta di Application Insights o un evento personalizzato per ogni operazione. Verrebbe a crearsi molto traffico, anche se verrebbe applicato il campionamento adattivo per ridurlo. Una soluzione ancora migliore consisterebbe invece nello scrivere codice nell'app per aggregare i dati prima di inviarli ad Application Insights. Verrà inviato il riepilogo aggregato a intervalli regolari, riducendo la frequenza di dati anche a pochi punti al minuto.
 
-Il codice registra il flusso delle misurazioni di latenza in millisecondi, ad esempio:
+Il codice registra il flusso delle misurazioni di latenza in millisecondi, Ad esempio:
     
      { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
 
@@ -2085,7 +2085,7 @@ Alias `timespan()`.
 Il risultato è un numero intero che rappresenta il numero della settimana in base allo standard ISO 8601. Il primo giorno della settimana è domenica e la prima settimana dell'anno è la settimana che contiene il primo giovedì dell'anno. Gli ultimi giorni di un anno possono quindi contenere alcuni giorni della settimana 1 dell'anno successivo oppure i primi giorni possono contenere parte della settimana 52 o 53 dell'anno precedente.
 
 
-## Stringa
+## String
 
 [countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
@@ -2124,19 +2124,21 @@ Operatore|Descrizione|Distinzione maiuscole/minuscole|Esempio true
 `!~`|Non uguale a |No| `"aBc" !~ "xyz"`
 `has`|RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side)|No| `"North America" has "america"`
 `!has`|RHS non è un termine completo in LHS|No|`"North America" !has "amer"` 
-`hasprefix`|RHS è un prefisso di termine in LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS non è un prefisso di termine in LHS|No|`"North America" !hasprefix "mer"`
-`contains` | RHS si verifica come sottosequenza di LHS|No| `"FabriKam" contains "BRik"`
-`!contains`| RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS si verifica come sottosequenza di LHS|Sì| `"FabriKam" contains "Kam"`
-`!containscs`| RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS è una sottosequenza iniziale di LHS.|No|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS non è una sottosequenza iniziale di LHS.|No|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS è una sottosequenza terminale di LHS.|No|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS non è una sottosequenza terminale di LHS.|No|`"Fabrikam" !endswith "ka"`
-`matches regex`|LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`
-`in`|Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`
-`!in`|Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`
+`hasprefix`  |RHS è un prefisso di un termine in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`  |RHS non è un prefisso di un termine in LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS è un suffisso di un termine in LHS|No|`"North America" hassuffix "rth"`  
+`!hassuffix`  |RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`  
+`contains` | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`  
+`!contains`  | RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
+`containscs`   | RHS si verifica come sottostringa di LHS|Sì| `"FabriKam" contains "Kam"`  
+`!containscs`  | RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`  
+`startswith`|RHS è una sottostringa iniziale di LHS|No|`"Fabrikam" startswith "fab"`  
+`!startswith`  |RHS non è una sottostringa iniziale di LHS|No|`"Fabrikam" !startswith "abr"`
+`endswith`  |RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`  
+`!endswith`|RHS non è una sottostringa terminale di LHS|No|`"Fabrikam" !endswith "ka"`  
+`matches regex`  |LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`  
+`in`  |Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`  
+`!in`  |Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`  
 
 Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` viene eseguito più rapidamente di `contains`, `startswith` o `endswith`. La prima delle query seguenti viene eseguita più rapidamente:
 
@@ -2162,7 +2164,7 @@ Conta le occorrenze di una sottostringa in una stringa. Le corrispondenze di str
 
 * *text:* stringa.
 * *search:* stringa di testo normale o espressione regolare da ricercare in *text*.
-* *kind:* `"normal"|"regex"` valore predefinito `normal`.
+* *kind:* `"normal"|"regex"` Valore predefinito: `normal`.
 
 **Restituisce**
 
@@ -2172,11 +2174,11 @@ Il numero di volte in cui la stringa di ricerca può essere trovata nel contenit
 
 |||
 |---|---
-|`countof("aaa", "a")`| 3 
-|`countof("aaaa", "aa")`| 3 (non 2!)
-|`countof("ababa", "ab", "normal")`| 2
+|`countof("aaa", "a")`  | 3 
+|`countof("aaaa", "aa")`  | 3 (non 2!)
+|`countof("ababa", "ab", "normal")`  | 2
 |`countof("ababa", "aba")`| 2
-|`countof("ababa", "aba", "regex")`| 1
+|`countof("ababa", "aba", "regex")`  | 1
 |`countof("abcabc", "a.c", "regex")`| 2
     
 
@@ -2195,19 +2197,19 @@ Recupera una corrispondenza di un'[espressione regolare](#regular-expressions) d
 **Argomenti**
 
 * *regex:* [espressione regolare](#regular-expressions).
-* *captureGroup:* costante `int` positiva che indica il gruppo di acquisizione da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
-* *text:* valore `string` da ricercare.
+* *captureGroup:* costante `int` positiva che indica il gruppo Capture da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
+* *text:* valore `string` da cercare.
 * *typeLiteral:* valore letterale di tipo facoltativo, ad esempio `typeof(long)`. Se specificato, la sottostringa estratta viene convertita nel tipo.
 
 **Restituisce**
 
-Se *regex* trova una corrispondenza in *text*: la sottostringa corrispondente nel gruppo di acquisizione indicato *captureGroup*, facoltativamente convertita in *typeLiteral*.
+Se *regex* trova una corrispondenza in *text*: sottostringa corrispondente nel gruppo Capture indicato *captureGroup*, facoltativamente convertita in *typeLiteral*.
 
 Se non esiste alcuna corrispondenza o la conversione del tipo non riesce: `null`.
 
 **esempi**
 
-Nella stringa di esempio `Trace` viene ricercata una definizione per `Duration`. La corrispondenza viene convertita in `real`, quindi moltiplicata per una costante di tempo (`1s`) in modo che `Duration` sia di tipo `timespan`. In questo esempio è uguale a 123,45 secondi:
+Nella stringa di esempio `Trace` viene cercata una definizione per `Duration`. La corrispondenza viene convertita in `real` e quindi moltiplicata per una costante di tempo (`1s`) in modo che `Duration` sia di tipo `timespan`. In questo esempio è uguale a 123,45 secondi:
 
 ```AIQL
 ...
@@ -2270,8 +2272,8 @@ Sostituire tutte le corrispondenze di regex con un'altra stringa.
 
 **Argomenti**
 
-* *regex:* [espressione regolare](https://github.com/google/re2/wiki/Syntax) per ricercare *text*. Può contenere gruppi di acquisizione tra '('parentesi')'.
-* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo di acquisizione, `\2` e così via per i gruppi di acquisizione successivi.
+* *regex:* [espressione regolare](https://github.com/google/re2/wiki/Syntax) per cercare *text*. Può contenere gruppi di acquisizione tra '('parentesi')'.
+* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo Capture, `\2` e così via per i gruppi Capture successivi.
 * *text:* stringa.
 
 **Restituisce**
@@ -2395,14 +2397,14 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici, oggetti e dynamic
 
-[valori letterali](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
 
-![](./media/app-insights-analytics-reference/310.png)
+![](./media/app-insights-analytics-reference/310.png)  
 
-**Indicizzazione:** indicizzare matrici e oggetti come in JavaScript:
+**Indicizzazione:** indicizzare matrici e oggetti come in JavaScript.
 
     exceptions | take 1
     | extend 
@@ -2421,12 +2423,12 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast:
+**Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast.
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
 
-**mvexpand:** per suddividere le proprietà di un oggetto in righe separate, usare mvexpand:
+**mvexpand:** per suddividere le proprietà di un oggetto in righe separate, usare mvexpand.
 
     exceptions | take 1 
     | mvexpand details[0].parsedStack[0]
@@ -2442,7 +2444,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand path
 
 
-![](./media/app-insights-analytics-reference/420.png)
+![](./media/app-insights-analytics-reference/420.png)  
 
 **buildschema:** per trovare lo schema minimo che ammette tutti i valori dell'espressione nella tabella:
 
@@ -2480,11 +2482,11 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) con un argomento di stringa JSON:
 
 * `parsejson('[43, 21, 65]')`: una matrice di numeri
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`  
 * `parsejson('21')`: un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')`: un singolo valore di tipo dinamico che contiene una stringa
 
-Si noti che, a differenza di JavaScript, JSON impone l'uso delle virgolette doppie (`"`) per racchiudere le stringhe. Per questa ragione, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando le virgolette singole (`'`).
+Si noti che, a differenza di JavaScript, JSON impone l'uso delle virgolette doppie (`"`) per racchiudere le stringhe. Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
 
 Questo esempio crea un valore dinamico e quindi usa i campi:
 
@@ -2500,8 +2502,8 @@ T
 
 |||
 |---|---|
-| *valore* `in` *array*| True se è presente un elemento di *array* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *valore* `!in` *array*| True se non è presente un elemento di *array* che è == *valore*
+| *valore* `in` *matrice*| True se è presente un elemento di *matrice* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *valore* `!in` *matrice*| True se non è presente un elemento di *matrice* che è == *valore*
 |[`arraylength(`array`)`](#arraylength)| Null se non è una matrice
 |[`extractjson(`path,object`)`](#extractjson)|Usa path per navigare nell'oggetto.
 |[`parsejson(`source`)`](#parsejson)| Converte una stringa JSON in un oggetto dinamico.
@@ -2588,7 +2590,7 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 **Suggerimenti per incrementare le prestazioni**
 
 * Applicare le clausole where prima di usare `extractjson()`
-* Si consiglia di usare una corrispondenza di espressione regolare con [extract](#extract). L'esecuzione risulta molto più rapida ed è efficace se JSON è prodotto in base a un modello.
+* È consigliabile usare una corrispondenza di espressione regolare con [extract](#extract). L'esecuzione risulta molto più rapida ed è efficace se JSON è prodotto in base a un modello.
 * Usare `parsejson()` se è necessario estrarre più di un valore da JSON.
 * Considerare la possibilità di analizzare JSON al momento dell'inserimento dichiarando il tipo della colonna come dinamico.
 
@@ -2596,9 +2598,9 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 
 |||
 |---|---|
-|`$`|Oggetto radice|
-|`@`|Oggetto corrente|
-|`[0]`|Indice inferiore di matrice|
+|`$`  |Oggetto radice|
+|`@`  |Oggetto corrente|
+|`[0]`  |Indice inferiore di matrice|
 |`.` oppure `[0]` | Figlio|
 
 *(Attualmente non vengono implementati caratteri jolly, ricorsione, unione o sezioni).*
@@ -2624,7 +2626,7 @@ Un oggetto di tipo `dynamic` specificato da *json*.
 
 **Esempio**
 
-Nell'esempio seguente quando `context_custom_metrics` è un valore `string` simile al seguente:
+Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` simile al seguente:
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
@@ -2701,7 +2703,7 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 
 I nomi possono contenere fino a 1024 caratteri. Fanno distinzione tra maiuscole e minuscole e possono contenere lettere, cifre e caratteri di sottolineatura (`_`).
 
-Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri caratteri o usare una parola chiave come nome. ad esempio:
+Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri caratteri o usare una parola chiave come nome. Ad esempio:
 
 ```AIQL
 
@@ -2722,4 +2724,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

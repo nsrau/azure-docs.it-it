@@ -14,11 +14,11 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+	ms.author="deonhe"/>  
 
 # Informazioni sulle mappe ed Enterprise Integration Pack
 
-## Panoramica
+## Overview
 Enterprise Integration usa le mappe per trasformare i dati XML da un formato all'altro.
 
 ## Che cos'è una mappa?
@@ -27,10 +27,13 @@ Una mappa è un documento XML che definisce il modo in cui i dati di un document
 ## Perché usare le mappe?
 Si supponga di ricevere regolarmente fatture o ordini B2B da un partner che usa il formato AAAMMGG per le date. In azienda però le date vengono archiviare nel formato MMGGAAA. È possibile usare una mappa per *trasformare* il formato di data AAAMMGG in MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
+## Come si crea una mappa?
+L'[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") per Visual Studio 2015 consente di creare progetti di integrazione di Biztalk. La creazione di un file di mappa di integrazione consente di mappare visivamente gli elementi tra due file di schema XML. Dopo aver compilato il progetto, viene prodotto un documento XSLT.
+
 ## Come caricare una mappa?
 Nel portale di Azure:
 1. Selezionare **Esplora** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Integration Accounts** (Account di integrazione) dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Account di integrazione** dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Selezionare l'**account di integrazione** a cui aggiungere la mappa ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Selezionare il riquadro **Mappe** ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
 5. Selezionare il pulsante **Aggiungi** nel pannello Mappe che si apre ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
@@ -58,4 +61,4 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, seguire questi
 - [Altre informazioni sui contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
 - [Altre informazioni sulle trasformazioni](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

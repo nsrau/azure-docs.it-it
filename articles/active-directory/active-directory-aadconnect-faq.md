@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Domande frequenti su Azure AD Connect
 
@@ -24,6 +24,10 @@
 **D: Esiste un modo per eseguire l'installazione automatica di Azure AD Connect?** È supportata solo l'installazione di Azure AD Connect tramite l'installazione guidata. L'installazione automatica e invisibile all'utente non è supportata.
 
 **D: Ho una foresta in cui un dominio non può essere contattato. Come installare Azure AD Connect?** Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
+
+**D: L'agente di integrità di AD DS funziona su Server Core?** Sì. Dopo aver installato l'agente, è possibile completare il processo di registrazione con il commandlet di PowerShell seguente:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred`  
 
 ## Rete
 **D: Ho un firewall, un dispositivo di rete o qualcos’altro che limita il tempo massimo in cui le connessioni possono rimanere aperte sulla mia rete. Quanto deve durare la soglia di timeout lato client quando si utilizza Connetti AD Azure?** Tutti i software di rete, i dispositivi fisici o qualsiasi altra cosa che limiti il tempo massimo delle connessioni possono rimanere aperti qualora si utilizzi una soglia di almeno 5 minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect e la Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione Microsoft Identity rilasciati in precedenza.
@@ -68,4 +72,4 @@
 
 - Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

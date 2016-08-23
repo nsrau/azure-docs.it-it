@@ -19,7 +19,7 @@
 # Panoramica di Enterprise Integration Pack
 
 ## Informazioni su Enterprise Integration Pack
-Enterprise Integration Pack è la soluzione Microsoft basata su cloud per comunicazioni business-to-business (B2B) semplificate. Il pacchetto si serve di protocolli standard del settore tra cui [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) ed EDIFACT (presto disponibile) per scambiare messaggi tra partner commerciali. Facoltativamente è possibile proteggere i messaggi tramite firme digitali e crittografia.
+Enterprise Integration Pack è la soluzione Microsoft basata su cloud per comunicazioni business-to-business (B2B) semplificate. Il pacchetto si serve di protocolli standard del settore tra cui [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) ed [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) per scambiare messaggi tra partner commerciali. Facoltativamente è possibile proteggere i messaggi tramite firme digitali e crittografia.
 
 Il pacchetto consente alle organizzazioni che usano diversi protocolli e formati di scambiarsi messaggi elettronicamente trasformando i diversi formati in un formato che i sistemi di entrambe le organizzazioni possono interpretare e usare.
 
@@ -61,4 +61,4 @@ Enterprise Integration supporta gli standard del settore seguenti:
 - [Convalida dei messaggi XML](./app-service-logic-enterprise-integration-xml.md "Informazioni su come convalidare i messaggi XML con le app per la logica")
 - [XML transform](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle mappe di Enterprise Integration")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

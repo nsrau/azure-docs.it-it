@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
-   ms.author="sonyama;barbkess;jrj"/>
+   ms.date="08/04/2016"
+   ms.author="sonyama;barbkess;jrj"/>  
 
 # Panoramica delle tabelle in SQL Data Warehouse
 
@@ -67,7 +67,7 @@ Mentre SQL Data Warehouse contiene molte delle stesse funzionalità delle tabell
 
 | Funzionalità non supportate |
 | --- |
-|[Proprietà Identity][] \(vedere [Soluzione alternativa per l'assegnazione di chiavi sostitutive][])|
+|[Proprietà Identity][] (vedere [Soluzione alternativa per l'assegnazione di chiavi sostitutive][])|
 |[Vincoli di tabella][] Primary key, Foreign key, Unique e Check|
 |[Indici univoci][]|
 |[Colonne calcolate][]|
@@ -103,6 +103,7 @@ SELECT
 , nt.[name]                                                            AS  [node_table_name]
 , ROW_NUMBER() OVER(PARTITION BY nt.[name] ORDER BY (SELECT NULL))     AS  [node_table_name_seq]
 , tp.[distribution_policy_desc]                                        AS  [distribution_policy_name]
+, c.[name]                                                             AS  [distribution_column]
 , nt.[distribution_id]                                                 AS  [distribution_id]
 , i.[type]                                                             AS  [index_type]
 , i.[type_desc]                                                        AS  [index_type_desc]
@@ -122,18 +123,32 @@ SELECT
  - ([in_row_data_page_count] 
          + [row_overflow_used_page_count]+[lob_used_page_count])       AS  [index_space_page_count]
 , nps.[row_count]                                                      AS  [row_count]
-from sys.schemas s
-join sys.tables t                                         ON s.[schema_id] = t.[schema_id]
-join sys.indexes i                                        ON  t.[object_id]  = i.[object_id]
-                                                          AND i.[index_id]   <= 1
-join sys.pdw_table_distribution_properties tp             ON t.[object_id]   = tp.[object_id]
-join sys.pdw_table_mappings tm                            ON t.[object_id]   = tm.[object_id]
-join sys.pdw_nodes_tables nt                              ON tm.[physical_name]  = nt.[name]
-join sys.dm_pdw_nodes pn                                  ON  nt.[pdw_node_id]  = pn.[pdw_node_id]
-join sys.pdw_distributions di                             ON  nt.[distribution_id]  = di.[distribution_id]
-join sys.dm_pdw_nodes_db_partition_stats nps              ON nt.[object_id]   = nps.[object_id]
-                                                          AND nt.[pdw_node_id]  = nps.[pdw_node_id]
-                                                          AND nt.[distribution_id] = nps.[distribution_id]
+from 
+    sys.schemas s
+INNER JOIN sys.tables t
+    ON s.[schema_id] = t.[schema_id]
+INNER JOIN sys.indexes i
+    ON  t.[object_id] = i.[object_id]
+    AND i.[index_id] <= 1
+INNER JOIN sys.pdw_table_distribution_properties tp
+    ON t.[object_id] = tp.[object_id]
+INNER JOIN sys.pdw_table_mappings tm
+    ON t.[object_id] = tm.[object_id]
+INNER JOIN sys.pdw_nodes_tables nt
+    ON tm.[physical_name] = nt.[name]
+INNER JOIN sys.dm_pdw_nodes pn
+    ON  nt.[pdw_node_id] = pn.[pdw_node_id]
+INNER JOIN sys.pdw_distributions di
+    ON  nt.[distribution_id] = di.[distribution_id]
+INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
+    ON nt.[object_id] = nps.[object_id]
+    AND nt.[pdw_node_id] = nps.[pdw_node_id]
+    AND nt.[distribution_id] = nps.[distribution_id]
+LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
+    ON t.[object_id] = cdp.[object_id]
+LEFT OUTER JOIN sys.columns c
+    ON cdp.[object_id] = c.[object_id]
+    AND cdp.[column_id] = c.[column_id]
 )
 , size
 AS
@@ -147,6 +162,7 @@ SELECT
 ,  [node_table_name]
 ,  [node_table_name_seq]
 ,  [distribution_policy_name]
+,  [distribution_column]
 ,  [distribution_id]
 ,  [index_type]
 ,  [index_type_desc]
@@ -184,35 +200,35 @@ FROM size
 ;
 ```
 
-Dopo aver creato `dbo.vTableSizes`, questa vista può essere usata per molte altre utili query.
-
-### Riepilogo dello spazio del database
-
-```sql
-SELECT
-	database_name
-,	SUM(row_count)				as total_row_count
-,	SUM(reserved_space_MB)		as total_reserved_space_MB
-,	SUM(data_space_MB)			as total_data_space_MB
-,	SUM(index_space_MB)			as total_index_space_MB
-,	SUM(unused_space_MB)		as total_unused_space_MB
-FROM dbo.vTableSizes
-GROUP BY database_name
-;
-```
-
 ### Riepilogo dello spazio della tabella
+
+Questa query restituisce le righe e lo spazio per singola tabella. È una query molto utile per verificare quali sono le tabelle più grandi e se sono con distribuzione hash o round robin. Per le tabelle con distribuzione hash viene mostrata anche la colonna di distribuzione. Nella maggior parte dei casi le tabelle più grandi devono essere con distribuzione hash e avere un indice columnstore cluster.
 
 ```sql
 SELECT 
-     two_part_name
-,    SUM(row_count)                as table_row_count
-,    SUM(reserved_space_GB)        as table_reserved_space_GB
-,    SUM(data_space_GB)            as table_data_space_GB
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+,    COUNT(distinct partition_nmbr) as nbr_partitions
+,    SUM(row_count)                 as table_row_count
+,    SUM(reserved_space_GB)         as table_reserved_space_GB
+,    SUM(data_space_GB)             as table_data_space_GB
 ,    SUM(index_space_GB)            as table_index_space_GB
-,    SUM(unused_space_GB)        as table_unused_space_GB
-FROM dbo.vTableSizes
-GROUP BY two_part_name
+,    SUM(unused_space_GB)           as table_unused_space_GB
+FROM 
+    dbo.vTableSizes
+GROUP BY 
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+ORDER BY
+    table_reserved_space_GB desc
 ;
 ```
 
@@ -224,8 +240,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY distribution_policy_name
 ;
@@ -239,8 +255,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY index_type_desc
 ;
@@ -254,8 +270,8 @@ SELECT
 ,    SUM(row_count)                as total_node_distribution_row_count
 ,    SUM(reserved_space_MB)        as total_node_distribution_reserved_space_MB
 ,    SUM(data_space_MB)            as total_node_distribution_data_space_MB
-,    SUM(index_space_MB)            as total_node_distribution_index_space_MB
-,    SUM(unused_space_MB)        as total_node_distribution_unused_space_MB
+,    SUM(index_space_MB)           as total_node_distribution_index_space_MB
+,    SUM(unused_space_MB)          as total_node_distribution_unused_space_MB
 FROM dbo.vTableSizes
 GROUP BY     distribution_id
 ORDER BY    distribution_id
@@ -264,7 +280,7 @@ ORDER BY    distribution_id
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, vedere gli articoli su [tipi di dati delle tabelle][Data Types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition], [conservazione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary]. Per ulteriori informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli su [tipi di dati delle tabelle][Data Types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition], [conservazione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary]. Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -299,6 +315,6 @@ Per ulteriori informazioni, vedere gli articoli su [tipi di dati delle tabelle][
 [Sinonimi]: https://msdn.microsoft.com/library/ms177544.aspx
 [Indici univoci]: https://msdn.microsoft.com/library/ms188783.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

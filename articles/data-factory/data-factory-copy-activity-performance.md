@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
-	ms.author="spelluru"/>
+	ms.date="08/09/2016"
+	ms.author="spelluru"/>  
 
 
 # Guida alle prestazioni delle attività di copia e all'ottimizzazione
@@ -169,22 +169,22 @@ Fare riferimento ai [casi d'uso di esempio](#case-study---parallel-copy) descrit
 È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Di conseguenza, se un processo di copia impiegava un'ora con 1 unità cloud e ora richiede 15 minuti con 4 unità cloud, la fattura complessiva sarà pressoché identica. Ecco un altro scenario. Supporre che si usino 4 unità cloud e che la prima impieghi 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti durante l'esecuzione di un'attività di copia. Verrà addebitato il tempo totale necessario per la copia,ossia per lo spostamento dei dati, ovvero 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sui costi.
 
 ## Copia di staging
-Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile usare un archivio BLOB di Azure come archivio di staging provvisorio. Questa funzionalità di staging è particolarmente utile nei casi seguenti:
+Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile usare un'archiviazione BLOB di Azure come archivio di staging provvisorio. Questa funzionalità di staging è particolarmente utile nei casi seguenti:
 
-1.	**A volte occorre tempo per eseguire lo spostamento di dati ibrido, ad esempio dall'archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta.** Per migliorare le prestazioni dello spostamento dei dati, è possibile comprimere i dati in locale, in modo da ridurre il tempo per spostare i dati tramite la rete all'archivio dati di staging nel cloud, e quindi decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
+1.	**A volte occorre tempo per eseguire lo spostamento di dati ibrido, ad esempio dall'archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta.** Per migliorare le prestazioni dello spostamento dei dati, è possibile comprimere i dati in locale, in modo da ridurre il tempo per spostare i dati con la rete all'archivio dati di staging nel cloud, e quindi decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
 2.	**Si vogliono aprire solo le porte 80 e 443 nel firewall a causa dei criteri IT.** Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario abilitare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In questo scenario è possibile utilizzare Gateway di gestione dati per copiare inizialmente i dati in un archivio BLOB di Azure di staging, che avviene tramite HTTP(s) ovvero sulla porta 443, e quindi caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433.
 3.	**Inserire dati da diversi archivi dati in Azure SQL Data Warehouse tramite PolyBase.** Azure SQL Data Warehouse fornisce PolyBase come meccanismo a velocità effettiva elevata per caricare grandi quantità di dati in SQL Data Warehouse. Richiede tuttavia che i dati di origine si trovino nell'archivio BLOB di Azure e soddisfi alcuni criteri aggiuntivi. Quando si caricano dati da un archivio dati diverso dall'archivio BLOB di Azure, è possibile abilitare la copia dei dati tramite un archivio BLOB di Azure di staging provvisorio. In questo caso Azure Data Factory eseguirà le trasformazioni richieste sui dati per assicurare che soddisfino i requisiti di PolyBase e quindi userà PolyBase per caricare i dati in SQL Data Warehouse. Per altri dettagli ed esempi, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 
 ### Come funziona la copia di staging
 Quando si abilita la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine all'archivio dati di staging (Bring Your Own) e quindi copiati dall'archivio dati di staging all'archivio dati sink. Data Factory di Azure gestirà automaticamente il flusso della fase 2 e pulirà anche i dati temporanei dall'archivio di staging dopo aver completato lo spostamento dei dati.
 
-Nello **scenario di copia cloud** in cui gli archivi dati di origine e sink sono nel cloud e non utilizzano Gateway di gestione dati, le operazioni di copia vengono eseguite da **servizio Data Factory di Azure**.
+Nello **scenario di copia cloud** in cui gli archivi dati di origine e sink sono nel cloud e non utilizzano Gateway di gestione dati, le operazioni di copia vengono eseguite da **servizio Azure Data Factory**.
 
-![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)  
 
 Invece, nello **scenario di copia ibrido ** in cui l'origine è locale e il sink è nel cloud, lo spostamento dei dati dall'archivio dati di origine all'archivio dati di staging viene eseguito da **Gateway di gestione dati** e lo spostamento dei dati dall'archivio dati di staging all'archivio dati sink viene eseguito dal **servizio Data Factory di Azure**. La copia di dati da un archivio dati cloud in un archivio dati locale tramite la gestione temporanea è supportata con flusso invertito.
 
-![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)  
 
 Quando si abilita lo spostamento dei dati usando l'archivio di staging, è possibile specificare se i dati devono essere compressi prima dello spostamento dall'archivio dati di origine all'archivio dati di staging/provvisorio e decompressi prima dello spostamento dall'archivio dati di staging/provvisorio all'archivio dati sink.
 
@@ -252,7 +252,7 @@ Se i dati vengono copiati da **Archivio BLOB di Azure** in **Azure SQL Data Ware
 ### Archivi dati relazionali
 *(Include Database SQL di Azure, Azure SQL Data Warehouse, Database SQL Server, Oracle Database, Database MySQL, Database DB2, Database Teradata, Database Sybase, Database PostgreSQL)*
 
-- **Modello di dati**: lo schema tabella influisce sulla velocità effettiva di copia. Per copiare la stessa quantità di dati, le dimensioni di riga grandi offriranno prestazioni migliori delle dimensioni di riga piccole perché il database può recuperare in modo più efficiente meno batch di dati contenenti un numero minore di righe.
+- **Modello di dati**: lo schema tabella influisce sulla velocità effettiva di copia. Per copiare la stessa quantità di dati, le dimensioni di riga grandi offriranno prestazioni migliori delle dimensioni di riga piccole perché il database può recuperare in modo più efficiente meno batch di dati contenenti meno righe.
 - **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia, per poter recuperare i dati in modo più efficiente.
 - Per i **database relazionali locali**, ad esempio SQL Server e Oracle, in cui è necessario usare il **Gateway di gestione dati**, vedere anche la sezione [Considerazioni sul gateway](#considerations-on-data-management-gateway).
 
@@ -327,7 +327,7 @@ Per suggerimenti sulla configurazione del gateway, vedere [Considerazioni per l'
 
 **Ambiente del computer gateway:** è consigliabile usare un computer dedicato per ospitare il Gateway di gestione dati. Usare strumenti come PerfMon per esaminare la CPU, la memoria e l'utilizzo della larghezza di banda durante un'operazione di copia nel computer gateway. Se la CPU, la memoria o la larghezza di banda di rete diventa un collo di bottiglia, passare a un computer più potente.
 
-**Esecuzioni simultanee dell'attività di copia:** una sola istanza del Gateway di gestione dati può gestire più esecuzioni dell'attività di copia nello stesso momento. Un gateway, ad esempio, può eseguire simultaneamente diversi processi di copia. Il numero di processi simultanei viene calcolato in base alla configurazione hardware del computer gateway. I processi di copia aggiuntivi vengono accodati finché non vengono selezionati dal gateway o non si verifica il timeout del processo. Per evitare la contesa per le risorse nel gateway, è possibile inserire temporaneamente la pianificazione delle attività per ridurre la quantità di processi di copia accodati allo stesso tempo oppure valutare la divisione del carico in più gateway.
+**Esecuzioni simultanee dell'attività di copia:** una sola istanza del Gateway di gestione dati può gestire più esecuzioni dell'attività di copia nello stesso momento. Un gateway, ad esempio, può eseguire simultaneamente diversi processi di copia. Il numero di processi simultanei viene calcolato in base alla configurazione hardware del computer gateway. I processi di copia aggiuntivi vengono accodati finché non vengono selezionati dal gateway o non si verifica il timeout del processo. Per evitare la contesa per le risorse nel gateway, è possibile inserire temporaneamente la pianificazione delle attività per ridurre il numero di processi di copia accodati allo stesso tempo oppure valutare la divisione del carico in più gateway.
 
 
 ## Altre considerazioni
@@ -392,4 +392,4 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

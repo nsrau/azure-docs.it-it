@@ -3,11 +3,11 @@
    description="Informazioni su come gestire NSG tramite PowerShell in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Gestire NSG usando PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -31,7 +31,7 @@
 
 ## Recuperare le informazioni
 
-È possibile visualizzare gli NSG esistenti, recuperare le regole relative a un NSG esistente e individuare le risorse a cui un NSG è associato.
+È possibile visualizzare i gruppi di sicurezza di rete (NSG, Network Security Group) esistenti, recuperare le regole relative a un NSG esistente e trovare le risorse a cui un NSG è associato.
 
 ### Visualizzare NSG esistenti
 Per visualizzare tutti gli NSG esistenti in una sottoscrizione, eseguire il cmdlet `Get-AzureRmNetworkSecurityGroup` come illustrato di seguito.
@@ -324,7 +324,7 @@ Per modificare la regola creata in precedenza per consentire traffico in ingress
 
 ## Gestire le associazioni
 
-È possibile associare un NSG a subnet e NIC. È anche possibile annullare l'associazione tra un NSG e una qualsiasi risorsa a cui è associato.
+È possibile associare un NSG a subnet e schede di interfaccia di rete. È anche possibile annullare l'associazione tra un NSG e qualsiasi risorsa a cui è associato.
 
 ### Associare un NSG a una NIC
 
@@ -469,10 +469,10 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd** attenersi 
 
 ## Eliminare un gruppo di sicurezza di rete
 
-È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, attenersi alla procedura seguente.
+È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, seguire questa procedura.
 
 1. Per controllare le risorse associate a un NSG, eseguire `azure network nsg show` come illustrato in [Visualizzare le associazioni di NSG](#View-NSGs-associations).
-2. Se l'NSG è associato a una o più NIC, eseguire `azure network nic set` come illustrato in [Annullare l'associazione tra un NSG e una NIC](#Dissociate-an-NSG-from-a-NIC) per ognuna delle NIC. 
+2. Se l'NSG è associato a una o più NIC, eseguire `azure network nic set` come illustrato in [Annullare l'associazione tra un NSG e una NIC](#Dissociate-an-NSG-from-a-NIC) per ognuna delle NIC.
 3. Se l'NSG è associato a una o più subnet, eseguire `azure network vnet subnet set` come illustrato in [Annullare l'associazione tra un NSG e una subnet](#Dissociate-an-NSG-from-a-subnet) per ognuna delle subnet.
 4. Per eliminare l'NSG, eseguire il cmdlet `Remove-AzureRmNetworkSecurityGroup` come illustrato di seguito.
 
@@ -484,4 +484,4 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd** attenersi 
 
 - [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

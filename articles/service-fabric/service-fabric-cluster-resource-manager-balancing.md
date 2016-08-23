@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="05/20/2016"
-   ms.author="masnider"/>
+   ms.author="masnider"/>  
 
 # Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric consente di segnalare il carico dinamico, di reagire alle modifiche nel cluster e di generare piani per il bilanciamento. Ma quando esegue queste operazioni? Che cosa determina il ribilanciamento nel cluster se i servizi vengono inseriti in base ai loro valori di carico predefiniti al momento della creazione? Sono previsti diversi controlli per questa situazione.
@@ -68,7 +68,7 @@ Nell'esempio in basso, il carico massimo su un nodo è 10, mentre il carico mini
 Si noti che rimanere sotto la soglia di bilanciamento del carico non è un obiettivo esplicito: le soglie di bilanciamento del carico sono semplicemente il *trigger* che indica a Cluster Resource Manager di Service Fabric di esaminare il cluster per determinare quali miglioramenti può apportare.
 
 ## Soglie di attività
-A volte, sebbene i nodi siano relativamente sbilanciati, la quantità totale di carico nel cluster è bassa. Ciò può essere legato all'ora del giorno oppure dipendere dal fatto che il cluster è nuovo e non ancora avviato automaticamente. In entrambi i casi, potrebbe essere superfluo dedicare del tempo al bilanciamento del carico poiché il guadagno sarebbe contenuto visto che si tratterebbe di usare risorse di rete e di calcolo per spostare oggetti da una parte all'altra. In Resource Manager esiste un altro controllo definito soglia di attività, che consente di specificare un limite inferiore assoluto di attività. Se in nessun nodo è presente almeno questa quantità di attività minima, il bilanciamento del carico non verrà attivato anche se la soglia di bilanciamento viene raggiunta. Come esempio, si supponga di avere dei rapporti con i seguenti totali di consumo su questi nodi. Supponiamo inoltre di mantenere la nostra soglia di bilanciamento del carico a 3, ma aggiungendo una soglia di attività di 1536. Nel primo caso, mentre il cluster è sbilanciato in base alla soglia di bilanciamento, nessun nodo raggiunge la soglia minima di attività, pertanto il cluster non viene toccato. Nell'esempio in basso, Node1 è ben oltre la soglia di attività, pertanto, il bilanciamento del carico verrà eseguito.
+A volte, sebbene i nodi siano relativamente sbilanciati, la quantità totale di carico nel cluster è bassa. Ciò può essere legato all'ora del giorno oppure dipendere dal fatto che il cluster è nuovo e non ancora avviato automaticamente. In entrambi i casi, potrebbe essere superfluo dedicare del tempo al bilanciamento del carico poiché il guadagno sarebbe contenuto visto che si tratterebbe di usare risorse di rete e di calcolo per spostare oggetti da una parte all'altra. In Resource Manager esiste un altro controllo, definito soglia di attività, che consente di specificare un limite inferiore assoluto di attività. Se in nessun nodo è presente una quantità di attività superiore a questa, il bilanciamento non verrà attivato anche se la soglia di bilanciamento viene raggiunta. Come esempio, si supponga di avere dei rapporti con i seguenti totali di consumo su questi nodi. Supponiamo inoltre di mantenere la nostra soglia di bilanciamento del carico a 3, ma aggiungendo una soglia di attività di 1536. Nel primo caso, mentre il cluster è sbilanciato in base alla soglia di bilanciamento, nessun nodo raggiunge la soglia minima di attività, pertanto il cluster non viene toccato. Nell'esempio in basso, Node1 è ben oltre la soglia di attività, pertanto, il bilanciamento del carico verrà eseguito.
 
 ![Esempio di soglia di attività][Image3]
 
@@ -82,6 +82,8 @@ ClusterManifest.xml
     </Section>
 ```
 
+Si noti che le soglie di bilanciamento e attività sono entrambe legate alla metrica: il bilanciamento sarà attivato solo se vengono superate entrambe le soglie di bilanciamento e attività per la stessa metrica. Pertanto, se si supera la soglia di bilanciamento per la memoria e la soglia di attività per la CPU, il bilanciamento non sarà attivato fino a quando le soglie rimanenti (soglia di bilanciamento per la CPU e soglia di attività per la memoria) non saranno superate.
+
 ## Bilanciamento composto dei servizi
 Un elemento che è interessante notare è che la decisione in merito allo sbilanciamento o meno del cluster riguarda l'intero cluster, ma il modo per correggere la situazione consiste nello spostare singole repliche e istanze in posizioni diverse. Questo approccio ha senso, giusto? Se la memoria in un nodo è satura, la presenza di più repliche o istanze potrebbe contribuire alla situazione e sarebbe pertanto necessario spostare tutte le repliche e le istanze che usano la metrica sbilanciata interessata.
 
@@ -89,16 +91,16 @@ In alcuni casi, tuttavia, accade che un cliente chiami o invii un ticket per lam
 
 Si considerino quattro servizi: S1, S2, S3 e S4. S1 segnala i risultati delle metriche M1 e M2, S2 i risultati di M2 e M3, S3 i risultati di M3 e M4 e S4 i risultati della metrica M99. Sicuramente è già possibile intravedere una spiegazione. C'è una catena. Dal punto di vista di Resource Manager non ci sono quattro servizi indipendenti, bensì una serie di servizi correlati tra loro (S1, S2 e S3) e uno autonomo.
 
-![Bilanciamento composto dei servizi][Image4]
+![Bilanciamento composto dei servizi][Image4]  
 
 Per questo motivo, è possibile che uno squilibrio in Metric1 provochi lo spostamento di repliche o istanze appartenenti a Service3. In genere, questi movimenti sono piuttosto limitati, ma possono essere di maggiore portata a seconda di quanto è sbilanciata Metric1 e di quali modifiche sono state necessarie per correggere l'errore. È anche possibile affermare con certezza che uno squilibrio nelle metriche 1, 2 o 3 non comporterà mai spostamenti in Service4. Non avrebbe alcuna utilità in quanto lo spostamento di repliche o istanze appartenenti a Service4 non ha alcun impatto sul bilanciamento delle metriche 1, 2 o 3.
 
 Resource Manager determina automaticamente a ogni esecuzione quali servizi sono correlati tra loro, perché i servizi potrebbero essere stati aggiunti, rimossi o modificati in termini di configurazione delle metriche. Ad esempio, tra due esecuzioni di bilanciamento del carico, Metric2 potrebbe essere stata rimossa da Service2. Questa operazione interrompe la catena tra Service1 e Service2. Ora, invece di due gruppi di servizi ce ne sono tre:
 
-![Bilanciamento composto dei servizi][Image5]
+![Bilanciamento composto dei servizi][Image5]  
 
 ## Passaggi successivi
-- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
+- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
 - Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
 - Cluster Resource Manager dispone di diverse limitazioni da configurare per rallentare la varianza del cluster. Queste limitazioni non sono in genere necessarie, ma sono eventualmente disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
@@ -109,4 +111,4 @@ Resource Manager determina automaticamente a ogni esecuzione quali servizi sono 
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

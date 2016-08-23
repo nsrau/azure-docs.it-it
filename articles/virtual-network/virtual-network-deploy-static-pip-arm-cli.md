@@ -3,11 +3,11 @@
    description="Scoprire come distribuire le VM con un IP pubblico statico tramite l'interfaccia della riga di comando di Azure in Gestione risorse"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Distribuire una VM con un IP pubblico statico tramite l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -118,7 +118,7 @@ Prima di creare una VM, è necessario disporre di un gruppo di risorse, una rete
 
 Ora che tutte le risorse necessarie sono presenti, è possibile creare una nuova VM.
 
-1. Creare la macchina virtuale.
+1. Creare la macchina virtuale
 
 		azure vm create --resource-group $rgName \
 		    --name $vmName \
@@ -136,7 +136,7 @@ Ora che tutte le risorse necessarie sono presenti, è possibile creare una nuova
 
 2. Salvare il file di script.
 
-## Passaggio 4 - Eseguire lo script.
+## Passaggio 4 - eseguire lo script.
 
 Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamento dello script illustrato sopra, eseguire lo script.
 
@@ -227,4 +227,4 @@ Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamen
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

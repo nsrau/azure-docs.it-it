@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Panoramica di Diagnostica di Azure"
+	pageTitle="Panoramica del servizio Diagnostica di Microsoft Azure | Microsoft Azure"
 	description="Usare Diagnostica di Azure per debug, valutazione delle prestazioni, monitoraggio e analisi del traffico dei servizi cloud, delle macchine virtuali e di Service Fabric."
 	services="multiple"
 	documentationCenter=".net"
 	authors="rboucher"
 	manager="jwhit"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="multiple"
@@ -81,4 +81,4 @@ Per un'introduzione, vedere [Monitorare un'applicazione di Service Fabric](./ser
 - Informazioni su come [Configurare Diagnostica di Azure per inviare dati ad Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Se si riscontrano problemi di avvio della diagnostica o individuazione dei dati nelle tabelle di archiviazione di Azure, vedere [Risoluzione dei problemi di Diagnostica di Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

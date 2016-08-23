@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 #Come funziona Azure Multi-Factor Authentication
@@ -26,7 +26,7 @@ La sicurezza dell'autenticazione a più fattori si fonda sull'approccio basato s
 
 Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice. Offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata tramite una gamma di opzioni di verifica semplice:
 
-- Chiamata telefonica 
+- Chiamata telefonica
 - SMS
 - Notifica dell'app per dispositivi mobili, che consente agli utenti di scegliere il metodo preferito
 - Codice di verifica dell'app per dispositivi mobili
@@ -66,17 +66,17 @@ App per dispositivi mobili come secondo fattore|* | * | *
 Chiamata telefonica come secondo fattore|* | * | *
 SMS come secondo fattore|* | * | *
 Password di app per i client che non supportano MFA|* | * | *
-Controllo amministrazione sui metodi di autenticazione| *| *| * 
-Modalità PIN| | | * 
-Avviso di illecito| | | * 
-Report MFA| | | * 
-Bypass monouso| | | * 
-Messaggi di saluto personalizzati per le telefonate| | | * 
-Personalizzazione dell'ID chiamante per le telefonate| | | * 
-Conferma evento| | | * 
-Indirizzi IP attendibili| | | * 
-Sospensione MFA per dispositivi memorizzati (anteprima pubblica)| | | * 
-SDK MFA| | | * 
+Controllo amministrazione sui metodi di autenticazione| *| *| *
+Modalità PIN| | | *
+Avviso di illecito| | | *
+Report MFA| | | *
+Bypass monouso| | | *
+Messaggi di saluto personalizzati per le telefonate| | | *
+Personalizzazione dell'ID chiamante per le telefonate| | | *
+Conferma evento| | | *
+IP attendibili| | | *
+Sospendere MFA per dispositivi memorizzati (anteprima pubblica)| | | *
+SDK MFA| | | *
 MFA per applicazioni locali che utilizzano il server MFA| | | *
 
 
@@ -102,4 +102,4 @@ Scegliere il modello per postazione o basato sul consumo più adatto per l'organ
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

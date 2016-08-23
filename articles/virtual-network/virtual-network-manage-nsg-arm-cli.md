@@ -3,11 +3,11 @@
    description="Informazioni su come gestire gruppi di sicurezza di rete con l'interfaccia della riga di comando di Azure in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Gestire gruppi di sicurezza di rete tramite l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -322,7 +322,7 @@ Output previsto:
 È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, seguire questa procedura.
 
 1. Per controllare le risorse associate a un NSG, eseguire `azure network nsg show` come illustrato in [Visualizzare le associazioni di NSG](#View-NSGs-associations).
-2. Se l'NSG è associato a una o più schede di interfacce di rete, eseguire `azure network nic set` come illustrato in [Annullare l'associazione tra un NSG e una scheda di interfaccia di rete](#Dissociate-an-NSG-from-a-NIC) per ogni scheda di interfaccia di rete. 
+2. Se l'NSG è associato a una o più schede di interfacce di rete, eseguire `azure network nic set` come illustrato in [Annullare l'associazione tra un NSG e una scheda di interfaccia di rete](#Dissociate-an-NSG-from-a-NIC) per ogni scheda di interfaccia di rete.
 3. Se l'NSG è associato a una o più subnet, eseguire `azure network vnet subnet set` come illustrato in [Annullare l'associazione tra un NSG e una subnet](#Dissociate-an-NSG-from-a-subnet) per ogni subnet.
 4. Per eliminare l'NSG, eseguire il comando `azure network nsg delete` come illustrato di seguito.
 
@@ -339,4 +339,4 @@ Output previsto:
 
 - [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per i gruppi di sicurezza di rete.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 
 # Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
@@ -25,7 +25,7 @@ Gestione API di Azure offre diverse funzionalità di personalizzazione per conse
 
 I modelli del portale per sviluppatori vengono gestiti nel portale dagli amministratori dell'istanza del servizio Gestione API. Per gestire i modelli di sviluppo, passare all'istanza del servizio Gestione API nel portale di Azure classico e fare clic su **Sfoglia**.
 
-![Developer portal][api-management-browse]
+![Portale per sviluppatori][api-management-browse]
 
 Se si è già nel portale di pubblicazione, è possibile accedere al **portale per sviluppatori** facendo clic sul relativo collegamento.
 
@@ -207,4 +207,4 @@ Il video seguente illustra come aggiungere classificazioni e un'area discussioni
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

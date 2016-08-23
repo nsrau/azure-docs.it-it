@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="antonba"/>
+	ms.date="08/09/2016" 
+	ms.author="antonba"/>  
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
@@ -36,7 +36,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 
 ![Pagina Delega][api-management-delegation-signin-up]
 
-* Stabilire l'URL dell'endpoint di delega speciale e immetterlo nel campo **URL dell'endpoint delega**. 
+* Stabilire l'URL dell'endpoint di delega speciale e immetterlo nel campo **URL dell'endpoint delega**.
 
 * Nel campo **Chiave di autenticazione delega** immettere una chiave privata da usare per calcolare una firma fornita per verifica in modo da garantire che la richiesta provenga effettivamente da Gestione API di Azure. È quindi possibile fare clic sul pulsante **genera** in modo che Gestione API generi una chiave in modo casuale.
 
@@ -111,7 +111,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 		- "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto
 		- "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta
 	- **productId**: ID del prodotto a cui effettuare la sottoscrizione
-	- **userId**: ID dell'utente per il quale viene effettuata la richiesta
+	- **userId**: ID dell'utente per il quale viene eseguita la richiesta
 	- **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
 	- **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
@@ -178,4 +178,4 @@ Per altre informazioni sulla delega, vedere il video seguente.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

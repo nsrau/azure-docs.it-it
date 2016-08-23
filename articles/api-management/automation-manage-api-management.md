@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="csand-msft"
 	manager="eamono"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="api-management"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
-	ms.author="csand"/>
+	ms.date="08/09/2016"
+	ms.author="csand"/>  
 
 
 
@@ -44,4 +44,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 
 * Vedere l'[esercitazione iniziale](../automation/automation-first-runbook-graphical.md) di Automazione di Azure.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

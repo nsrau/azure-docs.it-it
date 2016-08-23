@@ -3,9 +3,9 @@
    description="Informazioni su come distribuire appliance virtuali e route definite dall'utente per creare un ambiente di applicazioni multilivello in Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
-   manager="christb"
-   editor="tysonn" />
+   authors="jimdial"
+   manager="carmonm"
+   editor="tysonn" />  
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/05/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Scenario dell'appliance virtuale
 
@@ -39,7 +39,7 @@ La soluzione seguente usa appliance virtuali firewall per implementare uno scena
 È possibile distribuire l'ambiente illustrato in precedenza in Azure usando diverse funzionalità attualmente disponibili come indicato di seguito.
 
 - **Rete virtuale**. Una rete virtuale di Azure funziona in modo analogo a una rete locale e può essere segmentata in una o più subnet per l'isolamento del traffico e la separazione dei compiti.
-- **Appliance virtuale**. Numerosi partner offrono appliance virtuali in Azure Marketplace che possono essere usate per i tre firewall descritti in precedenza. 
+- **Appliance virtuale**. Numerosi partner offrono appliance virtuali in Azure Marketplace che possono essere usate per i tre firewall descritti in precedenza.
 - **Route definite dall'utente**. Le tabelle di route possono contenere route definite dall'utente usate dalla rete di Azure per controllare il flusso dei pacchetti all'interno di una rete virtuale. Queste tabelle di route possono essere applicate alle subnet. Una delle funzionalità più recenti di Azure è la possibilità di applicare una tabella di route alla subnet del gateway, al fine di inoltrare tutto il traffico in ingresso sulla rete virtuale di Azure da una connessione ibrida verso un'appliance virtuale.
 - **Inoltro IP**. Per impostazione predefinita, il motore di rete Azure inoltra i pacchetti alle schede di interfaccia di rete (NIC) virtuale solo se l'indirizzo IP di destinazione dei pacchetti corrisponde all'indirizzo IP della scheda di interfaccia di rete. Se quindi una route definita dall'utente indica che un pacchetto dovrà essere inviato a una specifica appliance virtuale, il motore di rete di Azure rilascerà il pacchetto. Per far sì che il pacchetto venga inviato a una macchina virtuale, in questo caso un'appliance virtuale, che non è la destinazione effettiva del pacchetto è necessario abilitare l'inoltro IP per l'appliance virtuale.
 - **Gruppi di sicurezza di rete**. Nell'esempio seguente non vengono usati gruppi di sicurezza di rete, che possono essere tuttavia applicati alle subnet e/o alle schede di interfaccia di rete di questa soluzione per filtrare ulteriormente il traffico in ingresso e in uscita da tali subnet e schede di interfaccia di rete.
@@ -49,9 +49,9 @@ La soluzione seguente usa appliance virtuali firewall per implementare uno scena
 
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- 2 gruppi di risorse non indicati nel diagramma. 
+- 2 gruppi di risorse non indicati nel diagramma.
 	- **ONPREMRG**. Contiene tutte le risorse necessarie per simulare una rete locale.
-	- **AZURERG**. Contiene tutte le risorse necessarie per l'ambiente di rete virtuale di Azure. 
+	- **AZURERG**. Contiene tutte le risorse necessarie per l'ambiente di rete virtuale di Azure.
 - Una rete virtuale denominata **onpremvnet** usata per simulare un data center locale segmentato come indicato di seguito.
 	- **onpremsn1**. Subnet contenente una macchina virtuale che esegue Ubuntu per simulare un server locale.
 	- **onpremsn2**. Subnet contenente una macchina virtuale che esegue Ubuntu per simulare un computer locale usato da un amministratore.
@@ -61,8 +61,8 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 	- **azsn2**. Subnet front-end che ospita una macchina virtuale in esecuzione come server Web accessibile da Internet.
 	- **azsn3**. Subnet back-end che ospita una macchina virtuale che esegue un server applicazioni back-end accessibile dal server Web front-end.
 	- **azsn4**. Subnet di gestione usata esclusivamente per consentire l'accesso di gestione a tutte le appliance virtuali firewall. Questa subnet contiene solo una scheda di interfaccia di rete per ogni appliance virtuale firewall usata nella soluzione.
-	- **GatewaySubnet**. Subnet di connessione ibrida di Azure necessaria per consentire a ExpressRoute e al gateway VPN di offrire la connessione tra le reti virtuali di Azure e altre reti. 
-- Sono disponibili 3 appliance virtuali firewall nella rete **azurevnet**. 
+	- **GatewaySubnet**. Subnet di connessione ibrida di Azure necessaria per consentire a ExpressRoute e al gateway VPN di offrire la connessione tra le reti virtuali di Azure e altre reti.
+- Sono disponibili 3 appliance virtuali firewall nella rete **azurevnet**.
 	- **AZF1**. Firewall esterno esposto a Internet pubblico con una risorsa di indirizzo IP pubblico in Azure. È necessario ottenere un modello dal Marketplace o direttamente dal fornitore dell'appliance per il provisioning di un'appliance virtuale con 3 schede di interfaccia di rete.
 	- **AZF2**. Firewall interno usato per gestire il traffico tra **azsn2** e **azsn3**. Anche questa è un'appliance virtuale con 3 schede di interfaccia di rete.
 	- **AZF3**. Firewall di gestione accessibile agli amministratori dal centro dati locale e connesso a una subnet usata per la gestione di tutte le appliance firewall. I modelli per appliance virtuali con 2 schede di interfaccia di rete sono disponibili nel Marketplace oppure possono essere richiesti direttamente al fornitore dell'appliance.
@@ -109,13 +109,13 @@ In questo scenario, il solo traffico da locale ad Azure verrà usato per gestire
 |10\.0.3.0/24|192\.168.2.4|Consente il traffico verso la subnet back-end in Azure tramite **OPFW**|
 |192\.168.1.0/24|192\.168.2.4|Consente il traffico verso **onpremsn1** tramite **OPFW**|
 
-## IP Forwarding 
+## Inoltro IP 
 
 Le route definite dall'utente e l'inoltro IP sono funzionalità che è possibile usare in combinazione per consentire l'uso delle appliance virtuali per gestire il flusso del traffico in una rete virtuale di Azure. Un dispositivo virtuale non è altro che una macchina virtuale che esegue un'applicazione utilizzata per gestire il traffico di rete in qualche modo, ad esempio un firewall o un dispositivo NAT.
 
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire a una macchina virtuale di ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP per la macchina virtuale. Si tratta di un'impostazione di Azure e non del sistema operativo guest. L'appliance virtuale deve comunque eseguire qualche tipo di applicazione per gestire il traffico in ingresso e indirizzarlo correttamente.
 
-Per altre informazioni sull'inoltro IP, vedere [Informazioni sulle route definite dall'utente e sull'inoltro IP](./virtual-networks-udr-overview/#ip-forwarding).
+Per altre informazioni sull'inoltro IP, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Si supponga ad esempio che una rete virtuale di Azure sia configurata come segue:
 
@@ -178,4 +178,4 @@ Per distribuire lo scenario seguire questi passaggi generali.
 4.	Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
 5.	Dopo aver effettuato il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping di 10.0.3.101 per verificare la connessione tra **onpremsn2** e **azsn3**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

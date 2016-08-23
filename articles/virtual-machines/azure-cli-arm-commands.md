@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="danlep"/>
+	ms.date="08/05/2016"
+	ms.author="danlep"/>  
 
 # Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 
-In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando (CLI) di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
+In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando (CLI) di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) usando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
-I parametri facoltativi sono indicati tra parentesi quadre (ad esempio `[parameter]`). Tutti gli altri parametri sono obbligatori.
+I parametri facoltativi sono indicati tra parentesi quadre, ad esempio `[parameter]`. Tutti gli altri parametri sono obbligatori.
 
-Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Usando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
+Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce l'output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. L'opzione `--json` consente di visualizzare il risultato in formato JSON non elaborato.
 
 ## Impostazione della modalità di gestione risorse
 
@@ -36,12 +36,6 @@ Utilizzare il comando seguente per abilitare i comandi di gestione risorse dell'
 	azure config mode arm
 
 >[AZURE.NOTE] La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
-
-## Approccio imperativo e dichiarativo
-
-Come avviene con la [modalità Gestione servizi di Azure](../virtual-machines-command-line-tools.md), la modalità Gestione risorse dell'interfaccia della riga di comando di Azure offre comandi che consentono di creare risorse in modo imperativo nella riga di comando. Ad esempio, se si digita `azure group create <groupname> <location>`, si chiede ad Azure di creare un gruppo di risorse, mentre con `azure group deployment create <resourcegroup> <deploymentname>` si indica ad Azure di creare una distribuzione di un numero qualsiasi di elementi e di inserirli in un gruppo. Poiché per ogni tipo di risorsa sono previsti comandi imperativi, è possibile concatenarli per creare distribuzioni piuttosto complesse.
-
-L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un approccio dichiarativo molto più potente che consente di automatizzare distribuzioni complesse indipendentemente dal numero di risorse e quasi per qualunque scopo. Quando si usano modelli, l'unico comando imperativo è per distribuire uno di essi. Per informazioni generali su modelli, risorse e gruppi di risorse, vedere l'articolo relativo alla [panoramica dei gruppi di risorse di Azure](../resource-group-overview.md).
 
 
 ## azure account - Gestione delle informazioni relative all'account
@@ -326,7 +320,7 @@ Opzioni dei parametri:
 **Comandi per gestire le reti virtuali**
 
 	network vnet create [options] <resource-group> <name> <location>
-Consente di creare una nuova rete virtuale. Nell'esempio seguente viene creata una rete virtuale denominata newvnet per il gruppo di risorse myresourcegroup nell'area westus.
+Crea una nuova rete virtuale. Nell'esempio seguente viene creata una rete virtuale denominata newvnet per il gruppo di risorse myresourcegroup nell'area westus.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -366,7 +360,7 @@ Opzioni dei parametri:
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
 	 -s, --subscription <subscription>          the subscription identifier
-<BR>
+<BR>  
 
 	network vnet set [options] <resource-group> <name>
 
@@ -414,7 +408,7 @@ Opzioni dei parametri:
 
 	   --no-tags                                  remove all existing tags
 	   -s, --subscription <subscription>          the subscription identifier
-<BR>
+<BR>  
 
 	network vnet list [options] <resource-group>
 
@@ -442,7 +436,7 @@ Opzioni dei parametri:
       -g, --resource-group <resource-group>  the name of the resource group
       -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<BR>  
 
 	network vnet show [options] <resource-group> <name>
 Il comando visualizza le proprietà della rete virtuale in un gruppo di risorse.
@@ -463,7 +457,7 @@ Il comando visualizza le proprietà della rete virtuale in un gruppo di risorse.
 	data:    Subnets:
 	data:
 	info:    network vnet show command OK
-<BR>
+<BR>  
 
 	network vnet delete [options] <resource-group> <name>
 Il comando rimuove una rete virtuale.
@@ -519,7 +513,7 @@ Opzioni dei parametri:
      -o, --network-security-group-name <network-security-group-name>  the network security group name
      -s, --subscription <subscription>                                the subscription identifier
 
-<BR>
+<BR>  
 
 	network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
@@ -538,7 +532,7 @@ Imposta una subnet specifica della rete virtuale all'interno di un gruppo di ris
 	data:    Provisioning state:        Succeeded
 	data:    Address prefix:            10.0.1.0/24
 	info:    network vnet subnet set command OK
-<BR>
+<BR>  
 
 	network vnet subnet list [options] <resource-group> <vnet-name>
 
@@ -556,7 +550,7 @@ Elenca tutte le subnet per una rete virtuale specifica all'interno di un gruppo 
 	data:    Provisioning state:        Succeeded
 	data:    Address prefix:            10.0.1.0/24
 	info:    network vnet subnet set command OK
-<BR>
+<BR>  
 
 	network vnet subnet show [options] <resource-group> <vnet-name> <name>
 Visualizza le proprietà della subnet della rete virtuale
@@ -582,7 +576,7 @@ Opzioni dei parametri:
 	-e, --vnet-name <vnet-name>            the name of the virtual network
 	-n, --name <name>                      the name of the subnet
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
 Rimuove una subnet da una rete virtuale esistente.
@@ -636,7 +630,7 @@ Opzioni dei parametri:
      Can be multiple. In the format of "name=value".
      Name is required and value is optional. For example, -t tag1=value1;tag2
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb list [options] <resource-group>
 Elenca le risorse di bilanciamento del carico all'interno di un gruppo di risorse.
@@ -657,7 +651,7 @@ Opzioni dei parametri:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb show [options] <resource-group> <name>
 
@@ -683,7 +677,7 @@ Opzioni dei parametri:
 	-n, --name <name>                      the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<BR>  
 
 	network lb delete [options] <resource-group> <name>
 
@@ -763,7 +757,7 @@ Opzioni dei parametri:
 	-i, --interval <interval>              the new value for probe interval in seconds
 	-c, --count <count>                    the new value for number of probes
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb probe list [options] <resource-group> <lb-name>
 
@@ -826,7 +820,7 @@ Crea una configurazione IP front-end per un set di bilanciamento del carico esis
 	data:
 	info:    network lb frontend-ip create command OK
 
-<BR>
+<BR>  
 
 	network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
@@ -876,7 +870,7 @@ Opzioni dei parametri:
 	Please use subnet-id if that is not the case.
 	-s, --subscription <subscription>                                  the subscription identifier
 
-<BR>
+<BR>  
 
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
@@ -899,7 +893,7 @@ Opzioni dei parametri:
 	-g, --resource-group <resource-group>  the name of the resource group
 	-l, --lb-name <lb-name>                the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
 Elimina l'oggetto IP front-end associato al servizio/dispositivo di bilanciamento del carico
@@ -952,7 +946,7 @@ Opzioni dei parametri:
 	-n, --name <name>                      the name of the backend address pool
 	-s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<BR>  
 
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
 
@@ -1032,7 +1026,7 @@ Opzioni dei parametri:
 	e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
 	-a, --nic-name <nic-name>              the name of the network interface
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb address-pool list [options] <resource-group> <lb-name>
 
@@ -1110,7 +1104,7 @@ L'esempio seguente illustra come creare una regola di bilanciamento del carico, 
 	data:
 	info:    network lb rule create command OK
 
-<BR>
+<BR>  
 
 	network lb rule set [options] <resource-group> <lb-name> <name>
 
@@ -1289,7 +1283,7 @@ Opzioni dei parametri:
 	This virtual machine must exist in the same resource group as the lb.
 	Please use vm-id if that is not the case
 	-s, --subscription <subscription>              the subscription identifier
-<BR>
+<BR>  
 
 	network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
@@ -1314,7 +1308,7 @@ Opzioni dei parametri:
 	-g, --resource-group <resource-group>  the name of the resource group
 	-l, --lb-name <lb-name>                the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+<BR>  
 
 	network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
@@ -1379,7 +1373,7 @@ Opzioni dei parametri:
 	Name is required and value is optional.
 	For example, -t tag1=value1;tag2
 	-s, --subscription <subscription>            the subscription identifier
-<br>
+<br>  
 
 	network public-ip set [options] <resource-group> <name>
 Aggiorna le proprietà di una risorsa IP pubblico esistente. Nell'esempio seguente l'impostazione dell'indirizzo IP pubblico è stata modificata da Dynamic a Static.
@@ -1440,7 +1434,7 @@ Opzioni dei parametri:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [opzioni] <resource-group> <name> Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
+<BR> network public-ip show [options] <resource-group> <name> Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1590,7 +1584,7 @@ Opzioni dei parametri:
 
 ## azure provider - Comandi per gestire le registrazioni dei provider di risorse
 
-**Elencare i provider attualmente registrati in Gestione risorse di Azure**
+**Elencare i provider attualmente registrati in Resource Manager**
 
 	provider list [options]
 
@@ -1872,4 +1866,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

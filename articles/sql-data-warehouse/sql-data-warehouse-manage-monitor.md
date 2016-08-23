@@ -122,7 +122,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## Monitorare le query in attesa
 
-Se si rileva il mancato avanzamento di una query perché in attesa di una risorsa, ecco una query che mostra tutte le risorse per le quali una query è in attesa. Repe
+Se si rileva il mancato avanzamento di una query perché in attesa di una risorsa, ecco una query che mostra tutte le risorse per le quali una query è in attesa.
 
 ```sql
 -- Find queries 
@@ -149,7 +149,7 @@ Se la query è attivamente in attesa di risorse da un'altra query, lo stato sar�
 ## Passaggi successivi
 Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di sistema][]. Per suggerimenti sulla gestione di SQL Data Warehouse, vedere [Gestire i database in Azure SQL Data Warehouse][]. Per informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Gestire i database in Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-manage.md
@@ -167,4 +167,4 @@ Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di s
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

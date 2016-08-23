@@ -240,7 +240,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -557,4 +557,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 - Per informazioni sulle funzionalità di notifica, vedere [Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
 - Vedere il modello di [scalabilità automatica di un set di scalabilità di macchine virtuali che esegue un'app Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) che consente di impostare uno stack LAMP per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->
