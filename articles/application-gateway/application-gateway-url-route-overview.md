@@ -3,17 +3,17 @@
    description="Questa pagina fornisce una panoramica del routing dei contenuti basato su URL del gateway applicazione, della configurazione UrlPathMap e della regola PathBasedRouting."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>
+   editor="tysonn"/>  
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="04/05/2016"
+   ms.author="gwallace"/>  
 
 # Panoramica del routing basato su percorso URL
 
@@ -86,4 +86,4 @@ RequestRoutingRule di tipo PathBasedRouting consente di associare un listener a 
 
 Dopo aver acquisito familiarità con il routing dei contenuti basato su URL, passare a [Creare un gateway applicazione usando il routing basato su URL](application-gateway-create-url-route-arm-ps.md) per la creazione di un gateway applicazione con regole di routing basate su URL.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

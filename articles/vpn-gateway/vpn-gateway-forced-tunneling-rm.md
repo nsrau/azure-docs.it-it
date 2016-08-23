@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
-   ms.author="cherylmc" />
+   ms.date="08/10/2016"
+   ms.author="cherylmc" />  
 
 # Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell - Gestione servizi](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Classico](vpn-gateway-about-forced-tunneling.md)
 - [PowerShell - Gestione risorse](vpn-gateway-forced-tunneling-rm.md)
 
 Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo. Si tratta di un requisito di sicurezza critico per la maggior parte dei criteri IT aziendali.
 
 Senza il tunneling forzato, il traffico associato a Internet dalle macchine virtuali in Azure raggiungerà direttamente Internet attraversando sempre l'infrastruttura di rete di Azure, senza l'opzione che consente di ispezionare o controllare il traffico. L'accesso a Internet non autorizzato potrebbe provocare la divulgazione di informazioni o altri tipi di violazioni della sicurezza
 
-Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione Resource Manager.
+Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione di Gestione risorse.
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -34,7 +34,7 @@ Questo articolo illustra la configurazione del tunneling forzato per le reti vir
 
 **Strumenti e modelli di distribuzione per il tunneling forzato**
 
-È possibile configurare una connessione di tunneling forzato in entrambi i modelli di distribuzione e tramite strumenti diversi. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
+Una connessione di tunneling forzata può essere configurata sia per il modello di distribuzione classico che per il modello di distribuzione di Gestione risorse. Per ulteriori informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 
 [AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
@@ -48,13 +48,13 @@ Nel diagramma seguente viene illustrato il funzionamento del tunneling forzato.
 
 Nell'esempio riportato in precedenza, il tunneling della subnet front-end non viene forzato. I carichi di lavoro nella subnet front-end possono continuare ad accettare e a rispondere alle richieste dei clienti direttamente da Internet. Il tunneling delle subnet di livello intermedio e back-end viene forzato. Tutte le connessioni in uscita da queste due subnet a Internet verranno forzate o reindirizzate verso un sito locale tramite uno dei tunnel VPN S2S.
 
-Ciò consente di limitare e ispezionare l'accesso a Internet dalle macchine virtuali o dai servizi cloud in Azure, pur continuando ad abilitare l'architettura dei servizi multilivello richiesta. È inoltre possibile applicare il tunneling forzato a tutte le reti virtuali se non sono presenti carichi di lavoro con connessione Internet nelle reti virtuali.
+Ciò consente di limitare e ispezionare l'accesso a Internet dalle macchine virtuali o dai servizi cloud in Azure, pur continuando ad abilitare l'architettura dei servizi multilivello richiesta. È anche possibile applicare il tunneling forzato a tutte le reti virtuali se non sono presenti carichi di lavoro con connessione Internet nelle reti virtuali.
 
 ## Problemi e considerazioni
 
 Il tunneling forzato in Azure viene configurato tramite route di rete virtuale definite dall'utente. Il reindirizzamento del traffico a un sito locale viene espresso come route predefinita al gateway VPN di Azure. Per altre informazioni sulle route definite dall'utente e sulle reti virtuali, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
-- Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i 3 gruppi di route seguenti:
+- Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
 
 	- **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale
 	
@@ -66,7 +66,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 - Il tunneling forzato deve essere associato a una rete virtuale con un gateway VPN basato su route. È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
 
-- Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato dai clienti annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+- Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## Panoramica della configurazione
 
@@ -77,7 +77,7 @@ La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione p
 	
 ## Prima di iniziare
 
-Prima di iniziare la configurazione, verificare di essere in possesso dei requisiti seguenti.
+Prima di iniziare la configurazione, verificare di essere in possesso degli elementi seguenti.
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -132,14 +132,14 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-8. Creare il gateway con un sito predefinito. Questa procedura può richiedere 20 minuti o più, perché include le operazioni di creazione e configurazione del gateway. Anche se nella console sembrano solo pochi cmdlet, in background vengono eseguite numerose operazioni. Si noti che il parametro GatewayDefaultSite è quello che consente alla configurazione di routing forzato di funzionare. È quindi consigliabile non ignorare questo passaggio. Disponibile solo in PowerShell 1.0 o versioni successive.
+8. Creare il gateway con un sito predefinito. Questa procedura può richiedere 45 minuti o più, perché include le operazioni di creazione e configurazione del gateway.<br> `-GatewayDefaultSite` è il parametro di cmdlet che consente alla configurazione del routing forzata di funzionare. Prestare quindi attenzione a configurare questa impostazione in modo corretto. Questo parametro è disponibile solo in PowerShell 1.0 o versioni successive.
 
 		$pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
 		$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
 		New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewayDefaultSite $lng1 -EnableBgp $false
 
-9. Stabilire connessioni VPN da sito a sito
+9. Stabilire le connessioni VPN da sito a sito.
 
 		$gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
 		$lng1 = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" 
@@ -155,4 +155,4 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

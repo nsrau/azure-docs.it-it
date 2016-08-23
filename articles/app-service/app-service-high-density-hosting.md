@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="byvinyal"/>
+	ms.date="08/07/2016" 
+	ms.author="byvinyal"/>  
 
-#Hosting ad alta densità nel servizio app di Azure#
+# Hosting ad alta densità nel servizio app di Azure#
 
-##Informazioni sul ridimensionamento delle app##
+## Informazioni sul ridimensionamento delle app##
 
 Quando si usa il servizio app, l'applicazione viene distinta dalla capacità ad essa allocata in base a due concetti:
  
@@ -32,14 +32,14 @@ Ciò significa che la piattaforma è abbastanza flessibile da mantenere isolata 
 
 Se più app condividono un unico **piano del servizio app**, tuttavia, in ogni istanza di tale **piano del servizio app** sarà in esecuzione un'istanza dell'app.
 
-##Ridimensionamento per app##
+## Ridimensionamento per app##
 Il **ridimensionamento per app** è una funzionalità che è possibile abilitare a livello di **piano del servizio app** e quindi sfruttare per ogni applicazione.
 
 Il **ridimensionamento per app** consente di ridimensionare un'app indipendentemente dal **piano del servizio app** usato per ospitarla. In questo modo, un **piano del servizio app** può essere configurato per fornire 10 istanze, ma un'app può essere impostata per il ridimensionamento solo a 5 di esse.
 
 Il modello di Azure Resource Manager riportato di seguito crea un **piano del servizio app** con un numero di istanze aumentato fino a 10 e un'app configurata per l'uso del **ridimensionamento per app** e con ridimensionamento solo fino a cinque istanze.
 
-A tale scopo, il piano del servizio app imposta la proprietà di ridimensionamento per sito scalabilità su true ( `"perSiteScaling": true`) e l'app imposta il numero di ruoli di lavoro da usare su 1 `"properties": { "numberOfWorkers": "1" }`
+A tale scopo, il piano del servizio app imposta la proprietà di **ridimensionamento per sito** su true ( `"perSiteScaling": true`) e l'app imposta il **numero di ruoli di lavoro** da usare su 1 `"properties": { "numberOfWorkers": "1" }`
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -87,7 +87,7 @@ A tale scopo, il piano del servizio app imposta la proprietà di ridimensionamen
     }
 
 
-##Configurazione consigliata per l'hosting ad alta densità##
+## Configurazione consigliata per l'hosting ad alta densità
 
 Il **ridimensionamento per app** è una funzionalità abilitata sia nelle aree di Azure pubbliche che negli ambienti del servizio app. La strategia consigliata, tuttavia, consiste nell'usare gli ambienti del servizio app per sfruttare le funzionalità avanzate e i pool di capacità di dimensioni maggiori.
 
@@ -103,4 +103,4 @@ Seguire i passaggi elencati di seguito come linee guida su come configurare l'**
 
 1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni sito, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un sito a uso elevato è possibile impostare *numberOfWorkers* su *3* per avere maggiore capacità di elaborazione per l'app corrispondente, mentre per siti di uso inferiore è possibile impostare *numberOfWorkers* su *1*.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,12 +14,12 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="deonhe"/>
+	ms.author="deonhe"/>  
 
 
 # Informazioni sui contratti ed Enterprise Integration Pack
 
-## Panoramica
+## Overview
 I contratti sono il fulcro delle comunicazioni Business to Business (B2B) e consentono alle entità aziendali di comunicare in modo ottimale mediante i protocolli standard di settore.
 
 ## Cos'è un contratto?
@@ -30,7 +30,7 @@ Enterprise Integration supporta tre standard di protocollo/trasporto:
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (presto disponibile)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Perché usare i contratti
 Alcuni vantaggi comuni dell'uso dei contratti sono:
@@ -65,4 +65,4 @@ Dopo aver creato un contratto, è possibile usarlo mediante il portale di Azure 
 ## Passaggi successivi
 - [Creare un contratto AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

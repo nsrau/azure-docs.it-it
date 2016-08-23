@@ -13,17 +13,17 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="identity"
-ms.date="07/14/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.date="08/10/2016"
+ms.author="bryanla;mbaldwin"/>  
 
 # Oggetti applicazione e oggetti entità servizio in Azure Active Directory
-Quando si legge di una "applicazione" di Azure Active Directory (AD), non è sempre esattamente chiaro a cosa si riferisca l'autore. L'obiettivo di questo articolo è offrire un chiarimento definendo gli aspetti sia concettuali che concreti dell'integrazione di applicazioni di Azure AD, seguito da un esempio di registrazione e consenso per un'[applicazione multi-tenant](active-directory-dev-glossary.md#multi-tenant-application).
+Quando si legge di una "applicazione" di Azure Active Directory (AD), non è sempre esattamente chiaro a cosa si riferisca l'autore. L'obiettivo di questo articolo è offrire un chiarimento definendo gli aspetti concettuali e concreti dell'integrazione di applicazioni di Azure AD, con un esempio di registrazione e consenso per un'[applicazione multi-tenant](active-directory-dev-glossary.md#multi-tenant-application).
 
-## Panoramica
+## Overview
 Un'applicazione di Azure AD non è semplicemente un componente software. È un termine concettuale che fa riferimento non solo al software dell'applicazione ma anche alla relativa registrazione (detta anche configurazione di identità) in Azure AD, che ne consente la partecipazione a "conversazioni" di autenticazione e autorizzazione in fase di esecuzione. Per definizione, un'applicazione può funzionare in un ruolo [client](active-directory-dev-glossary.md#client-application) (che utilizza una risorsa), in un ruolo [server di risorse](active-directory-dev-glossary.md#resource-server) (che espone le API ai client) o anche in entrambi i ruoli. Il protocollo di conversazione è definito da un [flusso di concessione di autorizzazione OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), con l'obiettivo di consentire al client e alla risorsa di accedere e proteggere, rispettivamente, i dati di una risorsa. Verrà ora approfondito come il modello applicativo di Azure AD rappresenta internamente un'applicazione.
 
 ## Registrazione dell'applicazione
-Quando si registra un'applicazione nel [portale di Azure classico](https://manage.windowsazure.com), nel tenant di Azure AD vengono creati due oggetti: un oggetto applicazione e un oggetto entità servizio.
+Quando si registra un'applicazione nel [portale di Azure classico][AZURE-Classic-Portal], nel tenant di Azure AD vengono creati due oggetti: un oggetto applicazione e un oggetto entità servizio.
 
 #### Oggetto applicazione
 Un'applicazione di Azure AD è *definita* da un solo oggetto applicazione che risiede nel tenant di Azure AD in cui l'applicazione è stata registrata, detto tenant "home" dell'applicazione. L'oggetto applicazione fornisce le informazioni relative all'identità dell'applicazione ed è il modello da cui *derivano* gli oggetti entità servizio corrispondenti usati in fase di esecuzione.
@@ -33,9 +33,9 @@ Si può considerare l'applicazione come la rappresentazione *globale* dell'appli
 #### Oggetto entità servizio
 L'oggetto entità servizio definisce i criteri e le autorizzazioni per un'applicazione e costituisce la base per un'entità di sicurezza in cui verrà rappresentata l'applicazione al momento dell'accesso alle risorse in fase di esecuzione. L'[entità ServicePrincipal][AAD-Graph-Sp-Entity] di Azure AD Graph definisce lo schema di un oggetto entità servizio.
 
-È necessario un oggetto entità servizio in ogni tenant per cui deve essere rappresentato l'utilizzo di un'istanza dell'applicazione, per consentire un accesso sicuro alle risorse di proprietà di account utente del tenant. Un'applicazione a tenant singolo avrà una sola entità servizio (nel tenant home), mentre un'[applicazione Web](active-directory-dev-glossary.md#web-client) multi-tenant avrà oltre a questa un'entità servizio in ogni tenant in cui un amministratore o un utente del tenant ha dato all'applicazione il consenso per l'accesso alle risorse. Dopo il consenso, l'oggetto entità servizio verrà consultato per le future richieste di autorizzazione.
+È necessario un oggetto entità servizio in ogni tenant per cui deve essere rappresentato l'utilizzo di un'istanza dell'applicazione, per consentire un accesso sicuro alle risorse di proprietà di account utente del tenant. Un'applicazione con tenant singolo disporrà solo di un'entità servizio (nel relativo tenant home). Un'[applicazione Web](active-directory-dev-glossary.md#web-client) multi-tenant avrà un'entità servizio in ogni tenant autorizzato ad accedere alle risorse dal relativo amministratore o utente. Dopo il consenso, l'oggetto entità servizio verrà consultato per le future richieste di autorizzazione.
 
-> [AZURE.NOTE] Qualsiasi modifica apportata all'oggetto applicazione verrà riflessa solo nell'oggetto entità servizio nel tenant home dell'applicazione, ovvero nel tenant in cui è stata registrata. Se l'applicazione è configurata per l'accesso multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando il tenant consumer non rimuove e concede nuovamente l'accesso.
+> [AZURE.NOTE] Qualsiasi modifica apportata all'oggetto applicazione verrà riflessa solo nell'oggetto entità servizio nel tenant home dell'applicazione, ovvero nel tenant in cui è stata registrata. Per le applicazioni multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando il tenant consumer non rimuove e concede nuovamente l'accesso.
 
 ## Esempio
 Il diagramma seguente illustra la relazione tra l'oggetto applicazione e i corrispondenti oggetti entità servizio di un'applicazione, nel contesto di un'applicazione multi-tenant di esempio denominata **app HR**. In questo scenario sono presenti tre tenant di Azure AD:
@@ -44,26 +44,26 @@ Il diagramma seguente illustra la relazione tra l'oggetto applicazione e i corri
 - **Contoso**, il tenant usato dall'organizzazione Contoso, che utilizza l'**app HR**
 - **Fabrikam**, il tenant usato dall'organizzazione Fabrikam, che utilizza anch'essa l'**app HR**
 
-![Relazione tra un oggetto applicazione e un oggetto entità servizio](./media/active-directory-application-objects/application-objects-relationship.png)
+![Relazione tra un oggetto applicazione e un oggetto entità servizio](./media/active-directory-application-objects/application-objects-relationship.png)  
 
-Nel diagramma precedente, il passaggio 1 è il processo di creazione degli oggetti applicazione ed entità servizio nel tenant home dell'applicazione.
+Nel diagramma qui sopra, il passaggio 1 è il processo di creazione degli oggetti applicazione ed entità servizio nel tenant home dell'applicazione.
 
-Nel passaggio 2, quando gli amministratori di Contoso e Fabrikam completano il consenso e concedono l'accesso all'applicazione, nel tenant di Azure AD della rispettiva società viene creato un oggetto entità servizio a cui vengono assegnate le autorizzazioni concesse dall'amministratore della società. Si noti anche che l'app HR potrebbe essere configurata/progettata per permettere il consenso da parte di utenti per l'uso individuale.
+Nel passaggio 2, quando gli amministratori di Contoso e Fabrikam completano il consenso, nel tenant di Azure AD della rispettiva società viene creato un oggetto entità servizio a cui vengono assegnate le autorizzazioni concesse dall'amministratore. Si noti anche che l'app HR potrebbe essere configurata/progettata per permettere il consenso da parte di utenti per l'uso individuale.
 
-Nel passaggio 3, i tenant consumer dell'applicazione HR (Contoso e Fabrikam) hanno ognuno un proprio oggetto entità servizio che rappresenta l'uso di un'istanza dell'applicazione in fase di esecuzione, controllato dalle autorizzazioni per cui l'amministratore ha dato il consenso.
+Nel Passaggio 3, ogni tenant consumer dell'applicazione HR (Contoso e Fabrikam) dispone del proprio oggetto di entità servizio. Ognuno rappresenta l'uso di un'istanza dell'applicazione in fase di runtime, gestito tramite le autorizzazioni concesse dall'amministratore.
 
 ## Passaggi successivi
-L'oggetto applicazione di un'applicazione è accessibile tramite l'API Graph di Azure AD, nella rappresentazione dell'[entità Application](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ApplicationEntity) di OData
+L'oggetto applicazione di un'applicazione è accessibile tramite l'API Graph di Azure AD, nella rappresentazione dell'[entità Application][AAD-Graph-App-Entity] di OData
 
-L'oggetto entità servizio di un'applicazione è accessibile tramite l'API Graph di Azure AD, nella rappresentazione dell'[entità ServicePrincipal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ServicePrincipalEntity) di OData
+L'oggetto entità servizio di un'applicazione è accessibile tramite l'API Graph di Azure AD, nella rappresentazione dell'[entità ServicePrincipal][AAD-Graph-Sp-Entity] di OData
 
 
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AZURE-Classic-Portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

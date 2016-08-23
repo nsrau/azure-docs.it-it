@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Guida introduttiva a Storage Explorer (anteprima) | Microsoft Azure"
 	description="Gestire le risorsa di archiviazione di Azure con Storage Explorer (anteprima)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/30/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Guida introduttiva a Storage Explorer (anteprima)
 
-## Panoramica 
+## Overview 
 
-Microsoft Azure Storage Explorer (anteprima), è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OSX e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
+Microsoft Azure Storage Explorer (anteprima), è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OS X e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
 
 ![Microsoft Azure Storage Explorer (anteprima)][15]
 
@@ -38,7 +38,7 @@ Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di
 - [Collegare l'account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
 - [Collegare il servizio usando la firma di accesso condiviso](#attach-service-using-sas): gestire un servizio di archiviazione specifico (contenitore BLOB, coda o tabella) appartenente a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
 
-## Connettersi a una sottoscrizione di Azure.
+## Connettersi a una sottoscrizione di Azure
 
 > [AZURE.NOTE] Se non si ha un account Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -50,7 +50,7 @@ Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di
 
 	![Aggiungi un account][1]
 
-1. Dopo avere effettuato l'acceso con un account Microsoft, il riquadro sinistro verrà popolato con le sottoscrizioni di Azure associate all'account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando o deselezionando **Tutte le sottoscrizioni**, viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
+1. Dopo avere effettuato l'acceso con un account Microsoft, il riquadro sinistro verrà popolato con le sottoscrizioni di Azure associate a quell'account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando **Tutte le sottoscrizioni**, viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
 
 	![Selezionare le sottoscrizioni di Azure][3]
 
@@ -132,7 +132,7 @@ Per connettersi a un account di archiviazione esterno, sono necessari la chiave 
 
 Una [Firma di accesso condiviso](storage/storage-dotnet-shared-access-signature-part-1.md) consente all'amministratore di una sottoscrizione di Azure di concedere temporaneamente l'accesso a un account di archiviazione senza dover fornire le credenziali della sottoscrizione di Azure.
 
-Per illustrare questo concetto, si supponga che l'utente A sia un amministratore di una sottoscrizione di Azure e che l'utente A voglia consentire all'utente B di accedere a un account di archiviazione per un periodo limitato con determinate autorizzazioni:
+Per illustrare questo concetto, si supponga che l'utente A sia l'amministratore di una sottoscrizione di Azure e che l'utente A voglia consentire all'utente B di accedere a un account di archiviazione per un periodo limitato con determinate autorizzazioni:
 
 1. L'utente A genera una firma di accesso condiviso (costituita dalla stringa di connessione per l'account di archiviazione) per un periodo di tempo specifico e con le autorizzazioni desiderate.
 1. L'utente A condivide la firma di accesso condiviso con la persona che vuole accedere all'account di archiviazione, nel nostro esempio l'utente B.
@@ -168,7 +168,7 @@ Per illustrare questo concetto, si supponga che l'utente A sia un amministratore
 
 ## Collegare il servizio usando la firma di accesso condiviso
 
-La sezione [Collegare l'account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas) illustra come l'amministratore di una sottoscrizione di Azure può concedere l'accesso temporaneo a un account di archiviazione generando (e condividendo) una firma di accesso condiviso per l'account di archiviazione. Analogamente, una firma di accesso condiviso può essere generata per un servizio specifico (contenitore BLOB, coda o tabella) in un account di archiviazione.
+La sezione [Collegare l'account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas) illustra come l'amministratore di una sottoscrizione di Azure possa concedere l'accesso temporaneo a un account di archiviazione generando (e condividendo) una firma di accesso condiviso per l'account di archiviazione. Analogamente, una firma di accesso condiviso può essere generata per un servizio specifico (contenitore BLOB, coda o tabella) in un account di archiviazione.
 
 ### Generare una firma di accesso condiviso per il servizio che si vuole condividere
 
@@ -229,4 +229,4 @@ Per cancellare i criteri di ricerca, selezionare **x** nella casella di ricerca.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

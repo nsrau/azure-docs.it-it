@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="darrelmiller"
 	manager=""
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="api-management"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 # Memorizzazione nella cache personalizzata in Gestione API di Azure
 Il servizio Gestione API di Azure prevede il supporto incorporato per la [memorizzazione nella cache delle risposte HTTP](api-management-howto-cache.md) usando l'URL della risorsa come chiave. La chiave può essere modificata dalle intestazioni della richiesta usando le proprietà `vary-by`. Questo risulta utile per la memorizzazione nella cache di intere risposte HTTP (note anche come rappresentazioni), ma talvolta è utile memorizzare nella cache anche solo una parte di una rappresentazione. I nuovi criteri [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) e [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) consentono di archiviare e recuperare singoli dati arbitrari all'interno di definizioni dei criteri. Questa possibilità migliora anche il criterio [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) introdotto in precedenza, dal momento che ora è possibile memorizzare nella cache le risposte provenienti da servizi esterni.
@@ -239,10 +239,10 @@ Nelle distribuzioni multi-tenant di grandi dimensioni alcune aziende creano grup
 
 Invece di restituire una versione preferita dell'API per ogni chiave della sottoscrizione, viene restituito un identificatore che mette in relazione un tenant con il gruppo di componenti hardware assegnato. L'identificatore può essere usato per creare l'URL del back-end appropriato.
 
-## Riepilogo
+## Summary
 La libertà di usare la cache di Gestione API di Azure per archiviare qualsiasi tipo di dati consente di accedere facilmente ai dati di configurazione che possono influenzare la modalità di elaborazione di una richiesta in ingresso. La cache può anche essere usata per memorizzare frammenti di dati che possono integrare le risposte restituite da un'API back-end.
 
 ## Passaggi successivi
 Se questi criteri hanno permesso di abilitare altri scenari o se si vuole realizzare scenari non ancora disponibili, è possibile lasciare i propri commenti e suggerimenti nel thread Disqus di questo argomento.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

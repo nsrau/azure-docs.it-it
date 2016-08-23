@@ -3,10 +3,10 @@
 	description="Trovare esempi Node.js NoSQL su GitHub per attività comuni in DocumentDB, incluse operazioni CRUD per documenti JSON in database NoSQL." 
 	keywords="esempi di node.js"
 	services="documentdb" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter="nodejs"/>
+	documentationCenter="nodejs"/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>  
 
 
 # Esempi di Node.js in DocumentDB
@@ -120,4 +120,4 @@ Attività | Informazioni di riferimento sulle API
 
 Per altre informazioni sul partizionamento dei dati in DocumentDB, vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

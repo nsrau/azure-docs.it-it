@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="tamram"/>
+	ms.date="08/03/2016"
+	ms.author="tamram"/>  
 
 
 # Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB
 
-## Panoramica
+## Overview
 
-È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
+È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è `<storage-account-name>.blob.core.windows.net`. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
+
+>[AZURE.IMPORTANT] Archiviazione di Azure non supporta ancora HTTPS con domini personalizzati. Siamo consapevoli del fatto che i nostri clienti sono interessati a questa funzionalità, che verrà resa disponibile in una versione futura.
 
 Esistono due modi per puntare il dominio personalizzato all'endpoint BLOB per l'account di archiviazione. Il modo più semplice consiste nel creare un record CNAME per eseguire il mapping del dominio personalizzato e del sottodominio all'endpoint BLOB. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine è rappresentato dal dominio personalizzato e dal relativo sottodominio. Si noti che il sottodominio è sempre obbligatorio. Il dominio di destinazione è l'endpoint del servizio BLOB.
 
@@ -49,7 +51,7 @@ Ogni registrar prevede un metodo simile ma leggermente diverso per specificare u
 
 2.  Nella scheda **Storage** fare clic sul nome dell'account di archiviazione di cui eseguire il mapping al dominio personalizzato.
 
-3.  Fare clic sulla scheda **Configura**.
+3.  Fare clic sulla scheda **Configure**.
 
 4.  Nella parte inferiore dello schermo fare clic su **Manage Domain** per visualizzare la finestra di dialogo **Manage Custom Domain**. Nella parte superiore della finestra di dialogo verranno visualizzate informazioni su come creare il record CNAME. Per questa procedura ignorare il testo che fa riferimento al sottodominio **asverify**.
 
@@ -75,7 +77,7 @@ Il sottodominio asverify è un sottodominio speciale riconosciuto da Azure. Ante
 
 2.  Nella scheda **Storage** fare clic sul nome dell'account di archiviazione di cui eseguire il mapping al dominio personalizzato.
 
-3.  Fare clic sulla scheda **Configura**.
+3.  Fare clic sulla scheda **Configure**.
 
 4.  Nella parte inferiore dello schermo fare clic su **Manage Domain** per visualizzare la finestra di dialogo **Manage Custom Domain**. Nella parte superiore della finestra di dialogo verranno visualizzate informazioni su come creare il record CNAME utilizzando il sottodominio **asverify**.
 
@@ -113,7 +115,7 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 Per annullare la registrazione di un dominio personalizzato, seguire questa procedura:
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com). 
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
 2. Nel riquadro di spostamento fare clic su **Archiviazione**.
 
@@ -128,4 +130,4 @@ Per annullare la registrazione di un dominio personalizzato, seguire questa proc
 
 -   [Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

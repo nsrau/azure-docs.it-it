@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="robinsh"/>
+	ms.date="08/03/2016"
+	ms.author="robinsh"/>  
 
 
 # Cosa fare se si verifica un'interruzione di Archiviazione di Azure
@@ -71,7 +71,7 @@ Quando un'emergenza locale colpisce l'area primaria, per prima cosa si cercherà
 
 ##Procedure consigliate per la protezione dei dati
 
-Esistono alcuni approcci consigliati per il backup periodico dei dati archiviazione.
+Esistono alcuni approcci consigliati per il backup periodico dei dati di archiviazione.
 
 -   Disk di VM: usare il [servizio Backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi delle VM usati dalle macchine virtuali di Azure.
 
@@ -81,4 +81,4 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati archiviazi
 
 -   File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

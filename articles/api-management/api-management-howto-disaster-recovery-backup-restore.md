@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -131,8 +131,8 @@ Il backup è un'operazione a lunga esecuzione che potrebbe richiedere diversi mi
 **Nota**:
 
 - Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
-* Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi**, ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via. 
-* Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione. 
+* Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi**, ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via.
+* Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione.
 * I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][] per recuperare periodicamente i report analitici e custodirli al sicuro.
 * La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
 * Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
@@ -169,7 +169,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 ## Passaggi successivi
 Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del processo di backup e ripristino.
 
--	[Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+-	[Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 	-	Grazie a Gisela per il contributo fornito per questo articolo.
 -	[Gestione API di Azure: Backup e ripristino della configurazione](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	L'approccio descritto da Stuart corrisponde alle linee guida ufficiali, ma è molto interessante.
@@ -191,4 +191,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

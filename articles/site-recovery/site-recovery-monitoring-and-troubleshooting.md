@@ -158,7 +158,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 -   <span style="color:green;">NUOVO</span> [Processi con esito negativo con l’errore "un'operazione è in corso". Error 505, 514, 532](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
 -   <span style="color:green;">NUOVO</span> [Processi con esito negativo con l’errore "il server non è connesso a Internet". Error 25018](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
 
-### Impostazione
+### Configurazione
 -   [Impossibile registrare il server VMM a causa di un errore interno. Fare riferimento alla visualizzazione processi nel portale di Ripristino sito per ulteriori informazioni sull'errore. Eseguire nuovamente l'installazione per registrare il server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 -   [Impossibile stabilire una connessione all'insieme di credenziali per la gestione del ripristino Hyper-V. Verificare le impostazioni del proxy o riprovare più tardi.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
@@ -192,7 +192,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 -   [Si è verificata un'operazione fuori banda in una macchina virtuale e il failover del commit non è riuscito](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Failover di test
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
--   <span style="color:green;">NUOVO</span> Timeout del failover con un messaggio "PreFailoverWorkflow task WaitForScriptExecutionTask timed out" a causa di impostazioni di configurazione nel gruppo di sicurezza di rete associato alla macchina virtuale o alla subnet a cui appartiene la macchina virtuale. Per informazioni dettagliate, vedere ["PreFailoverWorkflow task WaitForScriptExecutionTask timed out"](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) (Timeout di WaitForScriptExecutionTask dell'attività PreFailoverWorkflow).
+-   <span style="color:green;">NUOVO</span> Timeout del failover con un messaggio "PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout" a causa di impostazioni di configurazione nel gruppo di sicurezza di rete associato alla macchina virtuale o alla subnet a cui appartiene la macchina virtuale. Per informazioni dettagliate, vedere ["PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout"](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) (WaitForScriptExecutionTaskTimeout dell'attività PreFailoverWorkflow).
 
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
@@ -202,4 +202,4 @@ Server di configurazione, server di elaborazione, server master di destinazione
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

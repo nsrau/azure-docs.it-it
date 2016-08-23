@@ -281,4 +281,4 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0803_2016-->

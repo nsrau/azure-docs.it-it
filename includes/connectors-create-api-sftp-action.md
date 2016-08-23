@@ -10,14 +10,21 @@ Per configurare questa azione, è necessario fornire le informazioni indicate di
 
 Iniziamo aggiungendo l'azione per estrarre i file se la condizione definita in precedenza restituisce il valore *True*.
 
-1. Selezionare **Aggiungi un'azione**. ![Immagine di condizione dell'azione SFTP 6](./media/connectors-create-api-sftp/condition-6.png)
-- Selezionare l'azione **SFTP - Estrai cartella** ![Immagine di condizione dell'azione SFTP 7](./media/connectors-create-api-sftp/condition-7.png)
-- Selezionare **Percorso file di archiviazione di origine** ![Immagine di condizione dell'azione SFTP 9](./media/connectors-create-api-sftp/condition-9.png)
-- Selezionare il token **Percorso file**. Ciò indica che si utilizzerà il percorso del file che il trigger ha rilevato come percorso file di archiviazione di origine. ![Immagine di condizione dell'azione SFTP 10](./media/connectors-create-api-sftp/condition-10.png)
-- Selezionare **Percorso cartella di destinazione** ![Immagine di condizione dell'azione SFTP 11](./media/connectors-create-api-sftp/condition-11.png)
+1. Selezionare **Aggiungi un'azione**.  
+![Immagine di condizione dell'azione SFTP 6](./media/connectors-create-api-sftp/condition-6.png)  
+- Selezionare l'azione **SFTP - Estrai cartella**  
+![Immagine di condizione dell'azione SFTP 7](./media/connectors-create-api-sftp/condition-7.png)  
+- Selezionare **Percorso file di archiviazione di origine**  
+![Immagine di condizione dell'azione SFTP 9](./media/connectors-create-api-sftp/condition-9.png)  
+- Selezionare il token **Percorso file**. Ciò indica che si utilizzerà il percorso del file che il trigger ha rilevato come percorso file di archiviazione di origine.  
+![Immagine di condizione dell'azione SFTP 10](./media/connectors-create-api-sftp/condition-10.png)  
+- Selezionare **Percorso cartella di destinazione**  
+![Immagine di condizione dell'azione SFTP 11](./media/connectors-create-api-sftp/condition-11.png)  
 - Selezionare il token **Percorso file**. Ciò indica che si utilizza il percorso del file che il trigger ha rilevato come percorso di destinazione dei file estratti.
-- Immettere *\\ExtractedFile* nel controllo **Percorso cartella di destinazione**. Eseguire questa operazione dopo il token del percorso file nel controllo Percorso cartella di destinazione. ![Immagine di condizione dell'azione SFTP 12](./media/connectors-create-api-sftp/condition-12.png)
-- Immettere *True* nel controllo **Sovrascrivere?* per indicare che i file esistenti devono essere sovrascritti se hanno lo stesso nome dei file estratti. ![Immagine di condizione dell'azione SFTP 13](./media/connectors-create-api-sftp/condition-13.png)
+- Immettere *\\ExtractedFile* nel controllo **Percorso cartella di destinazione**. Eseguire questa operazione dopo il token del percorso file nel controllo Percorso cartella di destinazione.  
+![Immagine di condizione dell'azione SFTP 12](./media/connectors-create-api-sftp/condition-12.png)  
+- Immettere *True* nel controllo **Sovrascrivere?* per indicare che i file esistenti devono essere sovrascritti se hanno lo stesso nome dei file estratti.  
+![Immagine di condizione dell'azione SFTP 13](./media/connectors-create-api-sftp/condition-13.png)  
 - Salvare le modifiche al flusso di lavoro
 
 <!---HONumber=AcomDC_0727_2016-->

@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Tenere traccia dell'integrità del servizio usando Azure Insights | Microsoft Azure"
 	description="Scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio. "
-	authors="stepsic-microsoft-com"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>  
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>  
 
 # Tenere traccia dell’integrità del servizio
 
@@ -24,9 +24,9 @@ Azure viene pubblicizzato ogni volta che si verifica un’interruzione del servi
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. In **Home** dovrebbe essere visualizzato un riquadro denominato **Integrità del servizio** ![Home](./media/insights-service-health/Insights_Home.png)
+2. In **Home** dovrebbe essere visualizzato un riquadro denominato **Integrità del servizio** ![Home page](./media/insights-service-health/Insights_Home.png)
 
-3. Selezionando questo riquadro viene visualizzato un elenco di tutte le aree di Azure. È possibile fare clic su un’area per visualizzare la cronologia di integrità del servizio per tale area. ![Home](./media/insights-service-health/Insights_Regions.png)
+3. Selezionando questo riquadro viene visualizzato un elenco di tutte le aree di Azure. È possibile fare clic su un’area per visualizzare la cronologia di integrità del servizio per tale area. ![Home page](./media/insights-service-health/Insights_Regions.png)
 
 4. È inoltre possibile visualizzare i dettagli di un singolo evento imprevisto selezionandolo nella tabella.
 
@@ -52,4 +52,4 @@ Azure viene pubblicizzato ogni volta che si verifica un’interruzione del servi
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

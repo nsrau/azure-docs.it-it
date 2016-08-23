@@ -42,8 +42,10 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 Questo esempio illustrerà come usare il trigger **Quando viene pubblicato un nuovo tweet** per cercare #Seattle e, se viene individuato, aggiornare un file in Dropbox con il testo del tweet. In un esempio riguardante un'organizzazione si potrebbe cercare il nome dell'azienda e aggiornare un database SQL con il testo del tweet.
 
-1. Immettere *twitter* nella casella di ricerca nella finestra di progettazione delle app per la logica e selezionare il trigger **Twitter - When a new tweet is posted** (Twitter - Quando viene inserito un nuovo tweet)![Immagine di trigger Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)
-- Immettere *#Seattle* nel controllo **Testo di ricerca**![Immagine di trigger Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)
+1. Immettere *twitter* nella casella di ricerca nella finestra di progettazione delle app per la logica e selezionare il trigger **Twitter - When a new tweet is posted** (Twitter - Quando viene inserito un nuovo tweet)  
+![Immagine di trigger Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
+- Immettere *#Seattle* nel controllo **Testo di ricerca**  
+![Immagine di trigger Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)  
 
 A questo punto, l’app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro.
 
@@ -52,14 +54,24 @@ A questo punto, l’app per la logica è stata configurata con un trigger che av
 ## Aggiungere una condizione
 Poiché si è interessati esclusivamente ai tweet degli utenti con più di 50 follower, è necessario prima di tutto aggiungere all'app per la logica una condizione che conferma il numero di follower.
 
-1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione che si vuole venga eseguita quando viene individuato #Seattle in un nuovo tweet ![Immagine di azione Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)
-- Selezionare il collegamento **Aggiungi una condizione**. ![Immagine di condizione Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png) Si apre il controllo **Condizione** in cui è possibile controllare condizioni come *è uguale a*, *è minore di*, *è maggiore di*, *contiene* e altre. ![Immagine di condizione Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)
-- Selezionare il controllo **Scegli un valore**. In questo controllo è possibile selezionare una o più proprietà di azioni o trigger precedenti come valori la cui condizione restituirà true o false. ![Immagine di condizione Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)
-- Selezionare **...** per espandere l'elenco delle proprietà in modo da vedere tutte le proprietà disponibili. ![Immagine di condizione Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)
-- Selezionare la proprietà **Followers count**. ![Immagine di condizione Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)
-- Si noti che la proprietà Followers count si trova ora nel controllo del valore. ![Immagine di condizione Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)
-- Selezionare **è maggiore di** nell'elenco degli operatori. ![Immagine di condizione Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)
-- Immettere 50 come operando per l'operatore *è maggiore di*. La condizione viene aggiunta. Salvare il lavoro mediante il collegamento **Salva** nel menu sopra. ![Immagine di condizione Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)
+1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione che si vuole venga eseguita quando viene individuato #Seattle in un nuovo tweet  
+![Immagine di azione Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Selezionare il collegamento **Aggiungi una condizione**.  
+![Immagine di condizione Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+Si apre il controllo **Condizione** in cui è possibile controllare condizioni come *è uguale a*, *è minore di*, *è maggiore di*, *contiene* e altre.  
+![Immagine di condizione Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- Selezionare il controllo **Scegli un valore**. In questo controllo è possibile selezionare una o più proprietà di azioni o trigger precedenti come valori la cui condizione restituirà true o false.  
+![Immagine di condizione Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- Selezionare **...** per espandere l'elenco delle proprietà in modo da vedere tutte le proprietà disponibili.  
+![Immagine di condizione Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- Selezionare la proprietà **Followers count**.  
+![Immagine di condizione Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- Si noti che la proprietà Followers count si trova ora nel controllo del valore.  
+![Immagine di condizione Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- Selezionare **è maggiore di** nell'elenco degli operatori.  
+![Immagine di condizione Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- Immettere 50 come operando per l'operatore *è maggiore di*. La condizione viene aggiunta. Salvare il lavoro mediante il collegamento **Salva** nel menu sopra.  
+![Immagine di condizione Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
 ## Usare un'azione di Twitter
 
@@ -69,12 +81,16 @@ Dopo aver aggiunto un trigger, seguire questi passaggi per aggiungere un'azione 
 
 Nel passaggio successivo si aggiungerà un'azione di Twitter che pubblicherà un tweet usando alcune delle proprietà di ciascun tweet che è stato pubblicato da un utente che ha più di 50 follower.
 
-1. Selezionare **Aggiungi un'azione**. Sia apre il controllo di ricerca in cui è possibile cercare altre azioni e trigger. ![Immagine di condizione Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)
-- Immettere *twitter* nella casella di ricerca e selezionare l'azione **Twitter - Post a tweet** (Twitter - Pubblica un tweet). Si apre il controllo **Post a tweet** (Pubblica un tweet) in cui si inseriranno tutti i dettagli del tweet da pubblicare. ![Immagine di azione Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)
-- Selezionare il controllo **Tweet text** (Testo del tweet). Ora sono visibili tutti gli output di azioni e trigger precedenti nell'app per la logica. È possibile selezionarli e usarli come parte del testo del nuovo tweet. ![Immagine di azione Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)
+1. Selezionare **Aggiungi un'azione**. Sia apre il controllo di ricerca in cui è possibile cercare altre azioni e trigger.  
+![Immagine di condizione Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- Immettere *twitter* nella casella di ricerca e selezionare l'azione **Twitter - Post a tweet** (Twitter - Pubblica un tweet). Si apre il controllo **Post a tweet** (Pubblica un tweet) in cui si inseriranno tutti i dettagli del tweet da pubblicare.  
+![Immagine di azione Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- Selezionare il controllo **Tweet text** (Testo del tweet). Ora sono visibili tutti gli output di azioni e trigger precedenti nell'app per la logica. È possibile selezionarli e usarli come parte del testo del nuovo tweet.  
+![Immagine di azione Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)  
 - Selezionare **Nome utente**
 - Immettere *dice:* nel controllo di testo del tweet. Eseguire questa operazione subito dopo il nome utente.
-- Selezionare *Tweet text* (Testo del tweet). ![Immagine di azione Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)
+- Selezionare *Tweet text* (Testo del tweet).  
+![Immagine di azione Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)  
 - Salvare il lavoro e inviare un tweet con l'hashtag #Seattle per attivare il flusso di lavoro.
 
 ## Dettagli tecnici

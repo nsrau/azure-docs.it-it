@@ -7,7 +7,7 @@
     manager="erikre"
     editor=""
     tags=""
-    keywords="cordova,javascript,dispositivi mobili,client" />  
+    keywords="cordova,javascript,dispositivi mobili,client" />
 
 <tags
     ms.service="app-service-mobile"
@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
-    ms.author="glenga"/>  
+    ms.date="08/11/2016"
+    ms.author="glenga"/>
 
 #Creare un'app Apache Cordova
 
@@ -33,7 +33,7 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un PC con installato [Visual Studio Community 2015] o versione successiva.
-* [Strumenti di Visual Studio per Apache Cordova].
+* [Visual Studio Tools per Apache Cordova].
 * Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
 È anche possibile ignorare Visual Studio e usare direttamente la riga di comando di Apache Cordova. Questo è utile quando viene completata l'esercitazione in un computer Mac. La compilazione di applicazioni client di Apache Cordova dalla riga di comando non è trattata in questa esercitazione.
@@ -70,12 +70,12 @@ Informazioni su come usare gli SDK.
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
-<!-- Images. -->  
+<!-- Images. -->
 
-<!-- URLs -->  
+<!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
+[Visual Studio Tools per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
 [Aggiungere l'autenticazione all'app Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [Aggiungere notifiche push all'app Apache Cordova]: app-service-mobile-cordova-get-started-push.md
 [Autenticazione]: app-service-mobile-auth.md
@@ -84,4 +84,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
 1. Nel progetto ASP.NET aggiungere un riferimento alla libreria di classi contenente l'interfaccia `ICounter`.
 
-2. Aggiungere il pacchetto Microsoft.ServiceFabric.Services al progetto ASP.NET, come è stato fatto prima per il progetto della libreria di classi. Si otterrà così la classe `ServiceProxy`.
+2. Scegliere **Gestione configurazione** dal menu **Compila**. Verrà visualizzata una schermata analoga alla seguente:
 
-3. Nella cartella **Controller** aprire la classe `ValuesController`. Si noti che il metodo `Get` restituisce attualmente solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto visto in precedenza nel browser. Sostituire l'implementazione con il codice seguente:
+    ![Gestione configurazione che mostra la libreria di classi per AnyCPU][vs-configuration-manager]  
+
+    Si noti che il progetto di libreria di classi, **MyStatefulService.Interface**, è configurato in modo da poter essere compilato per qualsiasi CPU. Per il corretto funzionamento di Service Fabric, deve essere esplicitamente destinato alle piattaforme a 64 bit (x64). Fare clic sul menu a discesa Piattaforma, scegliere **Nuovo** e quindi creare la configurazione della piattaforma a 64 bit (x64).
+
+    ![Creazione della nuova piattaforma per la libreria di classi][vs-create-platform]  
+
+3. Aggiungere il pacchetto Microsoft.ServiceFabric.Services al progetto ASP.NET, come è stato fatto prima per il progetto della libreria di classi. Si otterrà così la classe `ServiceProxy`.
+
+4. Nella cartella **Controller** aprire la classe `ValuesController`. Si noti che il metodo `Get` restituisce attualmente solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto visto in precedenza nel browser. Sostituire l'implementazione con il codice seguente:
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -198,9 +206,9 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
     Una volta che il proxy è disponibile, è sufficiente richiamare il metodo `GetCountAsync` e restituirne il risultato.
 
-4. Premere di nuovo F5 per eseguire l'applicazione modificata. Come prima, Visual Studio avvierà automaticamente il browser nella radice del progetto Web. Aggiungere il percorso "api/values" per visualizzare il valore del contatore attualmente restituito.
+5. Premere di nuovo F5 per eseguire l'applicazione modificata. Come prima, Visual Studio avvierà automaticamente il browser nella radice del progetto Web. Aggiungere il percorso "api/values" per visualizzare il valore del contatore attualmente restituito.
 
-    ![Valore del contatore con stato visualizzato nel browser][browser-aspnet-counter-value]
+    ![Valore del contatore con stato visualizzato nel browser][browser-aspnet-counter-value]  
 
     Aggiornare regolarmente il browser per visualizzare l'aggiornamento del valore del contatore.
 
@@ -212,13 +220,13 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
 Questa esercitazione ha illustrato la procedura per aggiungere un front-end Web in grado di comunicare con un servizio con stato. Per comunicare con gli attori è possibile seguire un modello molto simile. Infatti è un po' più semplice.
 
-Quando si crea un progetto attore, Visual Studio genera automaticamente un progetto interfaccia. È possibile usare tale interfaccia per generare un proxy attore nel progetto Web per comunicare con l'attore. Poiché il canale di comunicazione viene fornito automaticamente, non è necessario eseguire operazioni quali stabilire un oggetto `ServiceRemotingListener`, come per il servizio con stato.
+Quando si crea un progetto attore, Visual Studio genera automaticamente un progetto interfaccia. È possibile usare tale interfaccia per generare un proxy attore nel progetto Web per comunicare con l'attore. Poiché il canale di comunicazione viene fornito automaticamente, non è necessario eseguire operazioni, ad esempio stabilire un oggetto `ServiceRemotingListener`, come per il servizio con stato.
 
 ## Funzionamento dei servizi Web in un cluster locale
 
 In generale, è possibile distribuire esattamente la stessa applicazione di Service Fabric anche in un cluster con più computer distribuito nel cluster locale, avendo la certezza che funzionerà come previsto, perché il cluster locale è semplicemente una configurazione a cinque nodi compressa in un solo computer.
 
-Quando si tratta di servizi Web, tuttavia, c'è una sola possibilità. Quando il cluster si trova dietro un servizio di bilanciamento del carico, come in Azure, è necessario assicurarsi che i servizi Web vengano distribuiti in ogni computer perché il servizio di bilanciamento del carico si limiterà a eseguire il round robin del traffico tra i computer. A tale scopo è possibile impostare `InstanceCount` per il servizio sul valore speciale "-1".
+Quando si tratta di servizi Web, tuttavia, c'è una sola possibilità. Quando il cluster si trova dietro un servizio di bilanciamento del carico, come in Azure, è necessario assicurarsi che i servizi Web vengano distribuiti in ogni computer perché il servizio di bilanciamento del carico si limiterà a eseguire il round robin del traffico tra i computer. A tale scopo, è possibile impostare `InstanceCount` per il servizio sul valore speciale "-1".
 
 Quando invece si esegue il servizio Web in locale, è necessario assicurarsi che solo un'istanza del servizio sia in esecuzione. In caso contrario, si verificheranno dei conflitti tra più processi in ascolto sullo stesso percorso e sulla stessa porta. Per le distribuzioni locali, quindi, è opportuno impostare il numero delle istanze del servizio Web su 1.
 
@@ -240,9 +248,12 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
+
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/it-IT/services/api-management/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

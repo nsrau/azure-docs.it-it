@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Ottenere la stessa esperienza di Office 365 su qualsiasi dispositivo con Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Questo articolo illustra come distribuire Office 365 in qualsiasi dispositivo della società. Gli utenti possono ottenere le stesse funzionalità e la stessa esperienza dell'interfaccia utente su Android, Apple e Windows.
 
@@ -57,10 +60,10 @@ Dopo avere accettato l'invito verranno visualizzate tutte le app di Office nel c
 
 ![Elenco di app](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
-Quando si fa clic su una di esse, l'applicazione verrà avviata nella macchina virtuale di Azure, pronta per essere usata.
+Quando si fa clic su una di esse, l'applicazione verrà avviata nella macchina virtuale di Azure, Buon lavoro.
 
 ![Avvio](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

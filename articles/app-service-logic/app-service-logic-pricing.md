@@ -71,7 +71,7 @@ $appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" 
 $logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
 
 $sku = @{
-    "name" = $appservicePlan.Name;
+    "name" = $appservicePlan.Sku.tier;
     "plan" = @{
       "id" = $appserviceplan.ResourceId;
       "type" = "Microsoft.Web/ServerFarms";
@@ -103,4 +103,4 @@ Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.
 [whatis]: app-service-logic-what-are-logic-apps.md
 [create]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

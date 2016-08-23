@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Come creare un account DocumentDB usando il portale di Azure
@@ -25,8 +25,8 @@
 
 Per compilare un database con Microsoft Azure DocumentDB, è necessario:
 
-- Avere un account Azure. È possibile ottenere un [account Azure gratuito](https://azure.microsoft.com/free) se non se ne ha già uno. 
-- Creare un account DocumentDB.  
+- Avere un account Azure. È possibile ottenere un [account Azure gratuito](https://azure.microsoft.com/free) se non se ne ha già uno.
+- Creare un account DocumentDB.
 
 È possibile creare un account DocumentDB usando il portale di Azure, i modelli di Azure Resource Manager o l'interfaccia della riga di comando di Azure. Questo articolo illustra come creare un account database usando il portale di Azure. Per creare un account con Gestione risorse di Azure o l'interfaccia della riga di comando di Azure, vedere [Automatizzare la creazione di un account database DocumentDB](documentdb-automation-resource-manager-cli.md).
 
@@ -53,4 +53,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 -	[Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

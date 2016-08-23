@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -218,7 +218,7 @@ Servizi BizTalk offre una vera architettura di piattaforma distribuita come serv
 
 BizTalk Server su Macchine virtuali di Azure offre un'architettura di infrastruttura distribuita come servizio (IaaS). L'utente crea le macchine virtuali e le configura esattamente come l'ambiente locale, semplificando l'esecuzione delle applicazioni esistenti nel cloud senza apportare modifiche al codice. Con IaaS, l'utente è comunque responsabile della configurazione delle macchine virtuali, della loro gestione (ad esempio con l'installazione di software e patch per il sistema operativo) e della progettazione dell'applicazione per la disponibilità elevata.
 
-Se si desidera creare nuove soluzioni di integrazione che riducano al minimo le operazioni di gestione dell'infrastruttura, usare Servizi BizTalk. Se si desidera eseguire la migrazione rapida delle soluzioni BizTalk esistenti o si cerca un ambiente su richiesta per sviluppare e testare applicazioni BizTalk Server, usare BizTalk Server su una macchina virtuale Azure.
+Se si desidera creare nuove soluzioni di integrazione che riducano al minimo le operazioni di gestione dell'infrastruttura, usare Servizi BizTalk. Se si desidera eseguire la migrazione rapida delle soluzioni BizTalk esistenti o si cerca un ambiente su richiesta per sviluppare e testare applicazioni BizTalk Server, utilizzare BizTalk Server su una macchina virtuale Azure.
 
 #### Qual è la differenza tra BizTalk Adapter Service e le connessioni ibride?
 BizTalk Adapter Service viene usato da un Servizio BizTalk di Azure. BizTalk Adapter Service usa BizTalk Adapter Pack per la connessione a un sistema line-of-business locale. Una connessione ibrida consente di connettere applicazioni Azure, come la funzionalità app Web nel servizio app di Azure e in Servizi mobili di Azure, alle risorse locali in modo facile e intuitivo.
@@ -259,4 +259,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTal
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

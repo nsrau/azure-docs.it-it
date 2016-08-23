@@ -71,7 +71,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 		Login-AzureRmAccount
 
-	Selezionare la sottoscrizione che si desidera per creare il circuito ExpressRoute
+	Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -149,7 +149,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente. Nell'esempio seguente il valore dell'ID VLAN del circuito viene aggiornato da 100 a 500.
 
-	Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+	Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -191,7 +191,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 		Login-AzureRmAccount
 
-	Selezionare la sottoscrizione che si desidera per creare il circuito ExpressRoute
+	Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -308,7 +308,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 		Login-AzureRmAccount
 
-	Selezionare la sottoscrizione che si desidera per creare il circuito ExpressRoute
+	Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -403,4 +403,4 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

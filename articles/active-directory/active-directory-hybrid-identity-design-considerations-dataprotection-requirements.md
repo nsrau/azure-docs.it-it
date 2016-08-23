@@ -3,7 +3,7 @@
 	description="Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario identificare i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare adeguatamente tali requisiti."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #Pianificare il potenziamento della sicurezza dei dati attraverso soluzioni di gestione delle identità avanzate
 
@@ -69,7 +69,7 @@ I dati in transito tra il dispositivo e il data center o tra il dispositivo e il
 Le regole, le norme e i requisiti di conformità alle normative variano in base al settore di appartenenza dell'azienda. Le aziende che operano in settori altamente regolamentati devono tener conto di aspetti di gestione delle identità correlati a problemi di conformità. Normative quali Sarbanes-Oxley (SOX), Health Insurance Portability and Accountability Act (HIPAA), Gramm-Leach-Bliley Act (GLBA) e Payment Card Industry Data Security Standard (PCI DSS), infatti, sono molto rigorose in merito alle procedure di identità e accesso. Le caratteristiche di base della soluzione ibrida di gestione delle identità adottata dall'azienda dovranno quindi soddisfare i requisiti previsti da una o più di queste normative. Assicurarsi che venga fornita una risposta alle domande seguenti:
 
 - La soluzione ibrida di gestione delle identità è conforme ai requisiti normativi a cui deve attenersi l'azienda?
-- La soluzione ibrida di gestione delle identità offre le funzionalità necessarie per consentire all'azienda di adeguarsi ai requisiti normativi? 
+- La soluzione ibrida di gestione delle identità offre le funzionalità necessarie per consentire all'azienda di adeguarsi ai requisiti normativi?
  
 >[AZURE.NOTE]
 Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
@@ -81,4 +81,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

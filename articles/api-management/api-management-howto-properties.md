@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 
 # Come usare le proprietà nei criteri di Gestione API di Azure
@@ -26,8 +26,8 @@ Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di 
 
 | Attributo | Tipo | Descrizione |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Nome | string | Nome della proprietà. Può contenere solo lettere, cifre, punti, trattini e caratteri di sottolineatura. |
-| Valore | string | Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
+| Name | stringa | Nome della proprietà. Può contenere solo lettere, cifre, punti, trattini e caratteri di sottolineatura. |
+| Valore | stringa | Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
 | Segreto | boolean | Determina se il valore è un segreto e se deve essere crittografato. |
 | Tag | matrice di valori string | Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
 
@@ -37,7 +37,7 @@ Le proprietà vengono configurate nel portale di pubblicazione nella scheda **Pr
 
 I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Nella tabella seguente sono mostrate le tre proprietà di esempio precedenti e i relativi attributi. Il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
 
-| Nome | Valore | Segreto | Tag |
+| Name | Valore | Segreto | Tag |
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader | TrackingId | False | Contoso |
 | ContosoHeaderValue | •••••••••••••••••••••• | True | Contoso |
@@ -65,7 +65,7 @@ Quando questo criterio viene valutato, `{{ExpressionProperty}}` viene sostituito
 
 È possibile eseguire un test nel portale per sviluppatori chiamando un'operazione il cui ambito contiene un criterio con proprietà. Nell'esempio seguente viene chiamata un'operazione che contiene i due criteri di esempio precedenti `set-header` con proprietà. Si noti che la risposta contiene due intestazioni personalizzate configurate tramite criteri con proprietà.
 
-![Developer portal][api-management-send-results]
+![Portale per sviluppatori][api-management-send-results]
 
 Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.md) relativa a una chiamata che include i due criteri con proprietà degli esempi precedenti, è possibile vedere i due criteri `set-header` con i valori delle proprietà inseriti, nonché la valutazione delle espressioni dei criteri per la proprietà che contiene l'espressione.
 
@@ -149,4 +149,4 @@ Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno 
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

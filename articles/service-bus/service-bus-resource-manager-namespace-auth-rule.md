@@ -26,7 +26,7 @@ Per il modello completo, vedere il [modello di regola di autorizzazione del bus 
 
 >[AZURE.NOTE] Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
 >
->-    [Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 >-    [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 >-    [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
@@ -177,4 +177,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello di regola di autorizzazione del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

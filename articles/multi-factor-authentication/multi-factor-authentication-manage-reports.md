@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="billmath"/>
+	ms.date="08/04/2016" 
+	ms.author="billmath"/>  
 
 # Report in Azure Multi-Factor Authentication
 
@@ -22,9 +22,9 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 
 È possibile accedere ai report tramite il portale di gestione di Azure.
 
-Nome| Descrizione
+Name| Descrizione
 :------------- | :------------- | 
-Utilizzo | I report di utilizzo consentono di visualizzare informazioni sull'uso generale, un riepilogo e dettagli sull'utente.
+Uso | I report di utilizzo consentono di visualizzare informazioni sull'uso generale, un riepilogo e dettagli sull'utente.
 Stato server|Questo report consente di visualizzare lo stato dei server di Multi-Factor Authentication associati all'account.
 Cronologia utenti bloccati|Questi report mostrano la cronologia delle richieste per bloccare o sbloccare gli utenti.
 Cronologia utenti bypass|Consente di visualizzare la cronologia delle richieste per disabilitare Multi-Factor Authentication per il numero di telefono dell'utente.
@@ -49,4 +49,4 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

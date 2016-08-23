@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/05/2016"
-   ms.author="sstein"/>
+   ms.date="08/09/2016"
+   ms.author="sstein"/>  
 
 # Query Performance Insight del database SQL di Azure
 
@@ -28,7 +28,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 ## Prerequisiti
 
 - Query Performance Insight è disponibile solo con il database SQL di Azure V12.
-- Per Query Performance Insight è necessario che l'[archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia in esecuzione nel database. Nel portale verrà richiesto di attivare l'archivio query, se non è già in esecuzione.
+- Per Query Performance Insight è necessario che l'[archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia in esecuzione nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
  
 ## Autorizzazioni
@@ -51,7 +51,7 @@ Query Performance Insight è facile da usare:
 
     ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
 
-> [AZURE.NOTE] Per consentire al database SQL di fornire approfondimenti sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
+> [AZURE.NOTE] Per consentire al database SQL di fornire approfondimenti sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici sono vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
 
 
 
@@ -59,15 +59,15 @@ Query Performance Insight è facile da usare:
 
 Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
-1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Prestazioni** > **Query**.
+1. Passare a un database SQL e fare clic su **Impostazioni** > **Prestazioni** > **Query**.
 
-    ![Query Performance Insight][1]
+    ![Query Performance Insight][1]  
 
     Verrà aperta la visualizzazione relativa alle query principali e verrà mostrato l'elenco delle query principali a livello di utilizzo di CPU.
 
-1. Per informazioni dettagliate, fare clic nei vari punti del grafico.<br>La prima riga visualizza la percentuale di uso di DTU complessiva per il database, mentre le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta 1 giorno).
+1. Per informazioni dettagliate, fare clic sul grafico.<br>La prima riga mostra la percentuale di utilizzo di DTU complessiva per il database. Le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta un giorno).
 
-    ![query principali][2]
+    ![query principali][2]  
 
     La griglia inferiore rappresenta informazioni aggregate per le query visibili.
 
@@ -110,7 +110,7 @@ Durante l'uso di Informazioni dettagliate prestazioni query, possono essere visu
 - "L'archivio query è in modalità di sola lettura per questo database e non può raccogliere dati dettagliati sulle prestazioni."
 - "I parametri dell'archivio query non sono impostati in modo ottimale per Informazioni dettagliate prestazioni query."
 
-Questi messaggi in genere vengono visualizzati quando l'archivio query non è in grado di raccogliere nuovi dati. Per risolvere questo problema sono disponibili alcune opzioni:
+Questi messaggi in genere vengono visualizzati quando l'archivio query non è in grado di raccogliere nuovi dati. Per risolvere questi problemi sono disponibili un paio di opzioni:
 
 -	Modificare i criteri di conservazione e acquisizione dell'archivio query
 -	Aumentare le dimensioni dell'archivio query
@@ -120,12 +120,12 @@ Questi messaggi in genere vengono visualizzati quando l'archivio query non è in
 
 Esistono due tipi di criteri di conservazione:
 
-- Basati sulle dimensioni: se impostati su AUTOMATICO i dati verranno automaticamente cancellati al raggiungimento delle dimensioni massime.
-- Basati sul tempo: per impostazione predefinita verranno impostati su 30 giorni in modo tale che, se verrà esaurito lo spazio, l'archivio query eliminerà le informazioni di query antecedenti a 30 giorni.
+- Basati sulle dimensioni: se impostati su AUTOMATICO i dati vengono automaticamente cancellati quando si stanno per raggiungere le dimensioni massime.
+- Basati sul tempo: se lo spazio nell'archivio query si esaurisce, vengono eliminate le informazioni relative alle query precedenti all'impostazione predefinita di 30 giorni.
 
 I criteri di acquisizione possono essere impostati su:
 
-- **Tutte**: acquisisce tutte le query. Questa è l'opzione predefinita.
+- **Tutte**: acquisisce tutte le query. **Tutte** è l'opzione predefinita.
 - **Automatico**: le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente.
 - **Nessuna**: l'archivio query interrompe l'acquisizione di nuove query.
 	
@@ -140,12 +140,12 @@ I criteri di acquisizione possono essere impostati su:
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Aumentare le dimensioni dell'archivio query. È possibile eseguire questa operazione connettendosi a un database ed eseguendo la query seguente:
+Per aumentare le dimensioni dell'archivio query, connettersi a un database ed eseguire la query seguente:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Cancellare l'archivio query. Tenere presente che in questo modo verranno eliminate tutte le informazioni correnti nell'archivio query:
+Cancellare l'archivio query. Eliminare tutte le informazioni correnti nell'archivio query:
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
@@ -159,14 +159,14 @@ Query Performance Insight semplifica la comprensione dell'impatto del carico di 
 
 ## Passaggi successivi
 
-Per raccomandazioni aggiuntive sul miglioramento delle prestazioni del database SQL, fare clic su [Advisor per database SQL](sql-database-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
+Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database SQL, fare clic su [Database Advisor](sql-database-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
 
-![Performance Advisor](./media/sql-database-query-performance/ia.png)
+![Performance Advisor](./media/sql-database-query-performance/ia.png)  
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

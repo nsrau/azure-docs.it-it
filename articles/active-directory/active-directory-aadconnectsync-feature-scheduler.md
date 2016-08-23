@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
-   ms.author="andkjell"/>
+   ms.date="08/04/2016"
+   ms.author="andkjell"/>  
 
 # Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
 Questo argomento illustra l'utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect, definito anche motore di sincronizzazione.
 
 Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel mese di febbraio 2016.
 
-## Panoramica
+## Overview
 Il servizio di sincronizzazione Azure AD Connect sincronizzerà le modifiche rilevate nella directory locale usando un'utilità di pianificazione. Sono disponibili due processi dell'utilità di pianificazione, uno per la sincronizzazione delle password e uno per la sincronizzazione di oggetti/attributi e per le attività di manutenzione, illustrato in questo argomento.
 
 Nelle versioni precedenti l'utilità di pianificazione per oggetti e attributi è esterna al motore di sincronizzazione e per attivare il processo di sincronizzazione viene usata l'Utilità di pianificazione di Windows o un servizio separato di Windows. L'utilità di pianificazione è disponibile nelle versioni di tipo 1.1 incluse nel motore di sincronizzazione e consente una personalizzazione parziale. La nuova frequenza di sincronizzazione predefinita è pari a 30 minuti.
@@ -36,7 +36,7 @@ L'utilità di pianificazione stessa è sempre in esecuzione, ma può essere conf
 ## Configurazione dell'utilità di pianificazione
 Per visualizzare le impostazioni attuali della configurazione, passare a PowerShell ed eseguire il comando `Get-ADSyncScheduler`. Si otterrà un risultato simile al seguente:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)  
 
 Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è disponibile il comando o il cmdlet di sincronizzazione**, il modulo PowerShell non viene caricato. Questo problema può verificarsi se si esegue Azure AD Connect in un controller di dominio o in un server con livelli di restrizione di PowerShell più elevati rispetto alle impostazioni predefinite. Se si visualizza questo errore, eseguire `Import-Module ADSync` per rendere disponibile il cmdlet.
 
@@ -59,6 +59,13 @@ Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler
 - MaintenanceEnabled
 
 La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. Se si dispone di un server di gestione temporanea, qualsiasi modifica apportata nel server primario avrà effetto anche nel server di gestione temporanea (fatta eccezione per IsStagingModeEnabled).
+
+### CustomizedSyncCycleInterval
+Sintassi: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d - giorni, HH - ore, mm - minuti, ss - secondi
+
+Esempio: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` modificherà l'utilità di pianificazione in modo che venga eseguita ogni 3 ore.
+
+Esempio: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` modificherà l'utilità di pianificazione in modo che venga eseguita ogni giorno.
 
 ## Avviare l'utilità di pianificazione
 Per impostazione predefinita, l'utilità di pianificazione verrà eseguita ogni 30 minuti. In alcuni casi è possibile che si voglia eseguire un ciclo di sincronizzazione tra i cicli pianificati o che sia necessario eseguirne un tipo diverso.
@@ -88,7 +95,7 @@ Per avviare un ciclo di sincronizzazione completa, eseguire `Start-ADSyncSyncCyc
 ## Arrestare l'utilità di pianificazione
 Se l'utilità di pianificazione sta eseguendo un ciclo di sincronizzazione, potrebbe essere necessario interromperlo. Ad esempio, se si avvia l'installazione guidata e viene visualizzato questo errore:
 
-![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
+![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)  
 
 Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificare la configurazione. Si può attendere il completamento del processo da parte dell'utilità di pianificazione oppure è possibile interromperlo, per potere apportare immediatamente le modifiche. L'interruzione del ciclo corrente non è dannosa ed eventuali modifiche non ancora elaborate verranno elaborate all'esecuzione successiva.
 
@@ -144,4 +151,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

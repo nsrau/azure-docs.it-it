@@ -50,7 +50,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare una sottoscrizione. ![Pannello Criteri di sicurezza nel Centro sicurezza di Azure][4]
 
-3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. È possibile rifiutare esplicitamente la raccolta dati impostando **Raccolta dati** su No, ma in questo modo il Centro sicurezza non potrà fornire avvisi e raccomandazioni sulla sicurezza.
+3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. È possibile rifiutare esplicitamente la raccolta dati impostando **Raccolta dati** su **No**, ma in questo modo il Centro sicurezza non potrà fornire avvisi e raccomandazioni sulla sicurezza.
 4. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
 
      > [AZURE.NOTE] È consigliabile abilitare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
@@ -58,7 +58,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 5. Attivare le **Raccomandazioni** che si desidera visualizzare come parte dei criteri di sicurezza. Esempi:
 
  - L'attivazione di **Aggiornamenti del sistema** consente di analizzare tutte le macchine virtuali supportate per rilevare gli aggiornamenti del sistema operativo mancanti.
- - L'attivazione di **OS vulnerabilities** (Vulnerabilità sistema operativo) consente di analizzare le macchine virtuali supportate per identificare le configurazioni del sistema operativo che possono esporre la macchina virtuale ad attacchi.
+ - L'attivazione di **Vulnerabilità del sistema operativo** consente di analizzare le macchine virtuali supportate per identificare le configurazioni del sistema operativo che possono esporre la macchina virtuale ad attacchi.
 
 **Raccomandazioni** indirizzo:
 
@@ -70,8 +70,8 @@ Visualizzare lo stato di integrità e di sicurezza delle risorse tramite **Integ
 1.	Tornare al pannello **Centro sicurezza PC**.
 2.	Il riquadro **Integrità sicurezza delle risorse** contiene indicatori dello stato di sicurezza per **Macchine virtuali**, **Rete**, **SQL** e **Applicazioni**.
 3.	Selezionare **Macchine virtuali** per visualizzare ulteriori informazioni.
-4.	Il pannello **Macchine virtuali** visualizza un riepilogo dello stato, che mostra lo stato di programmi antimalware, aggiornamenti del sistema, riavvii e regole della baseline delle macchine virtuali.
-5.	Selezionare un elemento in **RACCOMANDAZIONI SULLE MACCHINE VIRTUALI** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
+4.	Il pannello **Macchine virtuali** visualizza un riepilogo dello stato, che mostra lo stato di programmi antimalware, aggiornamenti del sistema, riavvii e regole di base delle macchine virtuali.
+5.	Selezionare un elemento in **VIRTUAL MACHINE RECOMMENDATIONS** (RACCOMANDAZIONI SULLE MACCHINE VIRTUALI) per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
 6.	Eseguire il drill-down per visualizzare informazioni aggiuntive per specifiche macchine virtuali. ![Riquadro Integrità delle risorse nel Centro sicurezza di Azure][6]
 
 Gestire gli **Avvisi di sicurezza**:
@@ -80,10 +80,10 @@ Gestire gli **Avvisi di sicurezza**:
 
 2.	Selezionare un avviso per visualizzare informazioni aggiuntive. ![Dettagli degli avvisi di sicurezza nel Centro sicurezza di Azure][8]
 
-Visualizzare l'integrità delle **Soluzioni partner**:
+Visualizzare l'integrità delle **soluzioni partner**:
 
-1. Tornare al pannello **Centro sicurezza PC**. Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
-2. Selezionare il riquadro **Soluzioni partner**. Viene visualizzato un pannello contenente un elenco di soluzioni dei partner connesse al Centro sicurezza. ![Soluzioni partner][9]
+1. Tornare al pannello **Centro sicurezza PC**. Il riquadro **Partner solutions** (Soluzioni partner) consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
+2. Selezionare il riquadro **Partner solutions** (Soluzioni partner). Viene visualizzato un pannello contenente un elenco di soluzioni dei partner connesse al Centro sicurezza. ![Soluzioni partner][9]
 
 3. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **F5-WAF2**. Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione. ![Dettagli della soluzione di un partner][10]
 
@@ -91,14 +91,14 @@ Visualizzare l'integrità delle **Soluzioni partner**:
 In questo documento sono stati presentati i componenti del monitoraggio della sicurezza e della gestione dei criteri nel Centro sicurezza. Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni contribuiscono alla protezione delle risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e come rispondervi.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/security-center-get-started/security-tile.png
 [2]: ./media/security-center-get-started/pin-blade.png
 [3]: ./media/security-center-get-started/security-center.png
@@ -110,4 +110,4 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

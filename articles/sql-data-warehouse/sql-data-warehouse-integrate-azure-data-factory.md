@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="08/08/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>  
 
 # Usare Data factory di Azure con SQL Data Warehouse
 
@@ -37,7 +37,7 @@ Per informazioni su come impostare un'attività di copia, vedere [Copiare i dati
 ## Passaggi successivi
 Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 
@@ -50,4 +50,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 <!--Other Web references-->
 [Documentazione di Data factory]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

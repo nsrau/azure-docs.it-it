@@ -13,15 +13,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Determinare i requisiti di sincronizzazione delle directory
 La sincronizzazione consiste nel fornire agli utenti un'identità nel cloud basata sulla rispettiva identità locale. Gli utenti, infatti, devono necessariamente disporre di un'identità nel cloud, indipendentemente dal fatto che per autenticarsi si avvalgano di un account sincronizzato o di un'autenticazione federata. L'identità dovrà inoltre essere gestita e aggiornata periodicamente. Gli aggiornamenti possono assumere molte forme, tra cui modifiche al titolo o alla password.
 
 È necessario valutare in primo luogo i requisiti degli utenti e della soluzione di identità locale dell'azienda. Questa valutazione è importante per definire i requisiti tecnici cui attenersi per creare e mantenere le identità utente nel cloud. Nella maggior parte delle aziende, Active Directory si trova in locale e costituisce la directory locale con la quale vengono sincronizzati gli utenti. In alcuni casi, tuttavia, la situazione può essere diversa.
 
-Accertarsi che venga fornita una risposta alle domande seguenti:
+Rispondere alle domande seguenti:
 
 
 - Sono presenti una o più foreste di Active Directory?
@@ -34,7 +34,7 @@ Accertarsi che venga fornita una risposta alle domande seguenti:
   - In caso affermativo, gli utenti dispongono di una directory virtuale/integrazione delle identità?
 - Sono presenti altre directory locali che si desidera sincronizzare (ad esempio, la directory LDAP, il database delle risorse umane e così via)?
   - Si intende eseguire sincronizzazioni con GALSync?
-  - Qual è lo stato corrente dei nomi di entità utente (UPN) presenti in azienda? 
+  - Qual è lo stato corrente dei nomi di entità utente (UPN) presenti in azienda?
   - È presente una directory diversa per l'autenticazione degli utenti?
   - Si usa Microsoft Exchange in azienda?
     - Si prevede di eseguire una distribuzione ibrida di Exchange?
@@ -48,7 +48,7 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
 - Sarà necessario riscrivere le applicazioni per poter usufruire dei vantaggi offerti dall'autenticazione nel cloud?
 - Le applicazioni continueranno a risiedere in locale anche se gli utenti vi accederanno tramite l'identità cloud?
 
-È inoltre necessario definire la sincronizzazione delle directory relative ai requisiti di sicurezza e alle limitazioni. Questa valutazione è importante per ottenere un elenco dei requisiti a cui attenersi per creare e gestire le identità utente nel cloud. Accertarsi che venga fornita una risposta alle domande seguenti:
+È inoltre necessario definire la sincronizzazione delle directory relative ai requisiti di sicurezza e alle limitazioni. Questa valutazione è importante per ottenere un elenco dei requisiti a cui attenersi per creare e gestire le identità utente nel cloud. Rispondere alle domande seguenti:
 
 - Dove verrà installato il server di sincronizzazione?
 - Verrà aggiunto al dominio?
@@ -68,4 +68,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

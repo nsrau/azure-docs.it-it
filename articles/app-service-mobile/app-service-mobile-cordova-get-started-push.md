@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Panoramica
+## Overview
 
 In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio rapido di Apache Cordova ] per attivare l'invio di una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di Apache Cordova ], che deve essere completata per prima. Se si ha un back-end ASP.NET e non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure].
 
@@ -43,6 +43,8 @@ Anche se le notifiche push sono supportate su emulatori Android, questi sono ris
 ##<a name="create-hub"></a>Creare un hub di notifica
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
+[Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
 
 ##Aggiornare il progetto server per l'invio di notifiche push
 
@@ -124,7 +126,7 @@ Verrà inizialmente incluso un codice minimo per Android. Verranno successivamen
 		      ios: { alert: 'true', badge: 'true', sound: 'true' },
 		      wns: {}
 		  });
-		
+
 		// Handle the registration event.
 		pushRegistration.on('registration', function (data) {
 		  // Get the native platform of the device.
@@ -151,11 +153,11 @@ Verrà inizialmente incluso un codice minimo per Android. Verranno successivamen
 		      });
 		  }
 		});
-		
+
 		pushRegistration.on('notification', function (data, d2) {
 		  alert('Push Received: ' + data.message);
 		});
-		
+
 		pushRegistration.on('error', handleError);
 		}
 
@@ -170,6 +172,8 @@ Completare questa sezione per abilitare le notifiche push per Android.
 Poiché la destinazione iniziale è la piattaforma di Google Android, è necessario abilitare Google Cloud Messaging. Analogamente, se fossero specificati dispositivi Microsoft Windows come destinazione sarebbe necessario abilitare il supporto di WNS.
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+
+[Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
 
 ####<a name="configure-backend"></a>Configurare il back-end dell'app per dispositivi mobili per l'invio di richieste push con GCM
 
@@ -195,9 +199,9 @@ Aprire index.js e aggiornare il codice per usare l'ID progetto numerico.
 
 Prima di poter distribuire l'applicazione al dispositivo Android, è necessario abilitare il debug USB. Sul telefono Android seguire questa procedura:
 
-1. Passare a **Impostazioni** > **Info sul dispositivo** e toccare **Versione build ** circa 7 volte finché non sarà abilitata la modalità sviluppatore.
+1. Passare a **Impostazioni** > **Info sul dispositivo** e toccare **Numero build** circa 7 volte finché non sarà abilitata la modalità sviluppatore.
 
-2. Tornare in **Impostazioni** > **Opzioni sviluppatore**, abilitare **Debug USB**, quindi connettere il telefono Android al PC di sviluppo con un cavo USB.
+2. Tornare in **Impostazioni** > **Opzioni per gli sviluppatori**, abilitare **Debug USB**, quindi connettere il telefono Android al PC di sviluppo con un cavo USB.
 
 Per questo test è stato usato un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow). Tuttavia, le tecniche sono comuni a qualsiasi versione moderna di Android.
 
@@ -205,7 +209,7 @@ Per questo test è stato usato un dispositivo Google Nexus 5X con Android 6.0 (M
 
 Il plug-in di push si basa su servizi Google Play Android per notifiche push.
 
-1.  In **Visual Studio** fare clic su **Strumenti** > **Android** > **Android SDK Manager**, espandere la cartella **Funzionalità aggiuntive** e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.
+1.  In **Visual Studio** fare clic su **Strumenti** > **Android** > **Android SDK Manager** (Gestore SDK Android), espandere la cartella **Extras** (Funzionalità aggiuntive) e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.
     * Android Support Repository versione 20 o successiva
     * Google Play Services versione 27 o successiva
     * Google Repository versione 22 o successiva
@@ -224,13 +228,13 @@ A questo punto è possibile testare le notifiche push. Eseguire l'applicazione e
 
 	Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google API impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android (AVD).
 
-	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
+	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)  
 
 	Se si vuole usare un emulatore x86 più veloce, [installare il driver HAXM](https://taco.visualstudio.com/it-IT/docs/run-app-apache/#HAXM) e configurare l'emulatore per usarlo.
 
 	Aggiungere un account Google nel dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiungi account**, quindi seguire le istruzioni per aggiungere un account Google esistente nel dispositivo. È consigliabile usare un account esistente piuttosto che crearne uno nuovo.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)  
 
 	Eseguire l'app todolist come fatto in precedenza e inserire un nuovo elemento todo. Questa volta, viene visualizzata un'icona di notifica nell'area di notifica. È possibile aprire la cassetta della notifica per visualizzare il testo completo della notifica.
 
@@ -260,9 +264,11 @@ Questo identificatore verrà usato in un secondo momento, durante la creazione d
 
 [AZURE.INCLUDE [notification-hubs-xamarin-enable-apple-push-notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
+[Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
+
 ####Configurare Azure per l'invio di notifiche push
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
+1. Accedere al [Portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
 
 	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -303,6 +309,8 @@ Questa sezione descrive l'esecuzione del progetto di un'app Apache Cordova nei d
 Per usare le opzioni di Store in Visual Studio, selezionare una destinazione Windows dall'elenco Piattaforme soluzione, ad esempio **Windows-x64** o **Windows-x86**. Evitare **Windows-AnyCPU** per le notifiche push.
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
+
+[Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push)
 
 ####Configurare l'hub di notifica per WNS
 
@@ -359,7 +367,7 @@ Informazioni su come usare gli SDK.
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
-<!-- URLs -->
+<!-- URLs -->  
 [aggiungendo l'autenticazione]: app-service-mobile-cordova-get-started-users.md
 [avvio rapido di Apache Cordova]: app-service-mobile-cordova-get-started.md
 [avvio rapido di Apache Cordova ]: app-service-mobile-cordova-get-started.md
@@ -376,4 +384,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

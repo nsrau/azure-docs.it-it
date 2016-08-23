@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/26/2016"
-	ms.author="markvi"/>
+	ms.date="08/08/2016"
+	ms.author="markvi"/>  
 
 
 # Accesso condizionale di Azure Active Directory   
@@ -61,7 +61,7 @@ Il controllo di accesso condizionale consente ad Azure Active Directory di contr
 
 - **Blocco**: il blocco dell'accesso può essere applicato in base a condizioni quali la posizione dell'utente. È ad esempio possibile bloccare l'accesso quando un utente non si trova in una rete attendibile.
 
-- **Dispositivi registrati/conformi**: a livello di dispositivo è possibile configurare criteri per concedere l'accesso ai soli dispositivi registrati e conformi a Gestione di dispositivi mobili. Per verificare che il dispositivo sia registrato e conforme viene utilizzato Microsoft Intune. L'accesso condizionale a livello di dispositivo assicura quindi che solo i dispositivi conformi ai criteri di Gestione di dispositivi mobili siano autorizzati ad accedere.
+- **Dispositivi conformi**: a livello di dispositivo, è possibile impostare criteri per far sì che l'accesso sia consentito solo ai computer aggiunti a un dominio o i dispositivi mobili conformi e registrati in Gestione dispositivi mobili (MDM). Per controllare la conformità dei dispositivi e segnalarla ad Azure Active Directory affinché ne tenga conto durante l'accesso delle applicazioni, viene usato Microsoft Intune.
  
 
 ## Applicazioni
@@ -69,20 +69,49 @@ Il controllo di accesso condizionale consente ad Azure Active Directory di contr
 - Il livello di accesso configurabile mediante questi criteri può essere applicato ad applicazioni e servizi sul cloud o locali. I criteri vengono applicati direttamente al sito Web o al servizio. I criteri vengono quindi applicati per l'accesso al browser, oltre che alle applicazioni che accedono al servizio. L'elenco di criteri del servizio applicabili è disponibile qui.
 
 
+## Accesso condizionale basato su dispositivo
+
+È inoltre possibile limitare l'accesso alle applicazioni di dispositivi registrati con Azure AD conformi a determinate condizioni. Ciò risulta utile per proteggere le risorse aziendali dal rischio che utenti autorizzati accedano a queste risorse da:
+
+- Dispositivi sconosciuti/non gestiti
+- Dispositivi che non soddisfano i criteri di sicurezza definiti dall'organizzazione.
+
+I criteri possono essere impostati in base ai requisiti seguenti:
+
+- **Dispositivi aggiunti a un dominio**: è possibile impostare criteri per limitare l'accesso ai soli dispositivi aggiunti a un dominio di Active Directory locale e registrati con Azure AD. Questo criterio si applica ai computer desktop, portatili o tablet aziendali Windows che appartengono a un dominio di Active Directory locale registrati con Azure AD. Per ulteriori informazioni su come configurare la registrazione automatica dei dispositivi aggiunti a un dominio con Azure AD, vedere l'articolo su [come configurare la registrazione automatica dei dispositivi Windows aggiunti a un dominio con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+- **Dispositivi conformi**: è possibile impostare criteri per limitare l'accesso ai dispositivi contrassegnati come **conformi** nella directory tramite il sistema di gestione. Con questo criterio, l'accesso viene limitato ai soli dispositivi conformi ai criteri di sicurezza, ad esempio l'applicazione della crittografia dei file. Questo criterio può essere utilizzato per limitare l'accesso dai dispositivi seguenti:
+
+    - **Dispositivi aggiunti a un dominio di Windows** gestiti tramite System Center Configuration Manager 2016 in una configurazione ibrida.
+
+    - **Dispositivi Windows 10 mobili o personali** gestiti tramite Microsoft Intune o un sistema di Gestione dei dispositivi mobili (MDM) di terze parti supportato.
+
+    - **Dispositivi iOS e Android** gestiti tramite Microsoft Intune.
+
+
+Gli utenti che intendono accedere ad applicazioni protette da criteri CA in base al dispositivo devono farlo da dispositivi conformi a questo criterio. Se si tenta di accedere da un dispositivo che non soddisfa i criteri richiesti, l'accesso viene negato.
+
+Per informazioni su come configurare i criteri CA in base al dispositivo in Azure AD, vedere l'articolo su [come configurare i criteri di accesso condizionale basato sul dispositivo per il controllo di accesso delle applicazioni connesse ad Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+
+## Indice notizie per l'accesso condizionale di Azure Active Directory
   
-## Accesso condizionale - Mappa dei contenuti  
 La mappa dei contenuti seguente elenca i documenti a cui è necessario fare riferimento per ottenere altre informazioni sull'abilitazione dell'accesso condizionale nella distribuzione corrente.
 
 
 ### MFA e criteri relativi alla posizione
 
-- [Guida introduttiva all'accesso condizionale ad Azure AD](active-directory-conditional-access-azuread-connected-apps.md) per app connesse in base a gruppo, posizione e criteri MFA
+- [Guida introduttiva all'accesso condizionale ad Azure AD per app connesse in base a gruppo, posizione e criteri MFA](active-directory-conditional-access-azuread-connected-apps.md)
+
 - [Tipi di applicazione supportati](active-directory-conditional-access-supported-apps.md)
 
 
 ### Criteri relativi ai dispositivi
 
-[Contribuire alla protezione dei dati richiedendo Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+- [Come impostare criteri di accesso condizionale in base al dispositivo per controllare gli accessi delle applicazioni connesse ad Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
+
+- [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Contribuire alla protezione dei dati richiedendo Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 
 ### Protezione delle risorse in base ai rischi di accesso
@@ -94,4 +123,4 @@ La mappa dei contenuti seguente elenca i documenti a cui è necessario fare rife
 - [Domande frequenti sull'accesso condizionale](active-directory-conditional-faqs.md)
 - [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

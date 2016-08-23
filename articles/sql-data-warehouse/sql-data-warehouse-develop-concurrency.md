@@ -291,7 +291,7 @@ Removed as these two are not confirmed / supported under SQLDW
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **Aumentare la classe di risorse:** per aggiungere un utente a un ruolo di gestione per l'aumento del carico di lavoro, usare la query seguente.
+4. **Aumentare la classe di risorse:** per aggiungere un utente a un ruolo di gestione del carico di lavoro più elevato, usare la query seguente.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
@@ -415,7 +415,7 @@ FROM	sys.dm_pdw_wait_stats w;
 
 ## Passaggi successivi
 
-Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] \(Ricompilazione degli indici per migliorare la qualità del segmento).
+Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per altre informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Rebuilding indexes to improve segment quality] (Ricompilazione degli indici per migliorare la qualità del segmento).
 
 <!--Image references-->
 
@@ -428,4 +428,4 @@ Per altre informazioni sulla gestione degli utenti e della sicurezza del databas
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

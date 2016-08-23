@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="tamram"/>
+	ms.date="08/03/2016"
+	ms.author="tamram"/>  
 
 # Replica di Archiviazione di Azure
 
@@ -69,7 +69,7 @@ Per un account di archiviazione con l'archiviazione con ridondanza geografica ab
  
 L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie:
 
-| Primaria | Secondario |
+| Primario | Secondario |
 |---------------------|---------------------|
 | Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
 | Stati Uniti centro-meridionali | Stati Uniti centro-settentrionali |
@@ -117,4 +117,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Opzioni di ridondanza di Archiviazione di Microsoft Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

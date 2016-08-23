@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 # Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 
@@ -78,7 +78,7 @@ Per associare gruppi a sviluppatori, fare clic su **Utenti** dal menu **Gestione
 
 Dopo aver selezionato gli sviluppatori desiderati, fare clic sul gruppo desiderato nel menu a discesa **Aggiungi gruppo**. È possibile rimuovere sviluppatori dai gruppi usando l'elenco a discesa **Rimuovi da gruppo**.
 
-![Sviluppatori][api-management-add-group-to-developer-saved]
+![Sviluppatori:][api-management-add-group-to-developer-saved]
 
 Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visualizzarla nella scheda **Utenti**.
 
@@ -111,4 +111,4 @@ Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visual
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [sfruttare i gruppi esterni nei tenant di Azure Active Directory associati]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

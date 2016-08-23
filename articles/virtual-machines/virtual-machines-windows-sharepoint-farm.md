@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="josephd"/>
+	ms.date="08/08/2016"
+	ms.author="josephd"/>  
 
 # Creare farm di SharePoint Server
 
@@ -38,13 +38,13 @@ Per creare la farm di SharePoint (tre server) di base:
 1. Fare clic [qui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)
 2. Fare clic su **Distribuisci**.
 3. Nel riquadro **SharePoint 2013 non-HA Farm**, fare clic su **Crea**.
-4. Specificare le impostazioni nei sette passaggi del riquadro di creazione di **SharePoint 2013 non-HA Farm** e quindi fare clic su **Crea**.
+4. Specificare le impostazioni nei passaggi del riquadro **Creare una SharePoint 2013 non-HA Farm** e quindi fare clic su **Crea**.
 
 La farm di SharePoint a disponibilità elevata è costituita da nove macchine virtuali in questa configurazione.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-È possibile usare questa configurazione di farm per testare carichi client più elevati, la disponibilità elevata del sito di SharePoint esterno e i gruppi di disponibilità AlwaysOn per una farm di SharePoint. È anche possibile usare questa configurazione per lo sviluppo di app SharePoint in un ambiente a disponibilità elevata.
+È possibile usare questa configurazione di farm per testare carichi client più elevati, la disponibilità elevata del sito di SharePoint esterno e i gruppi di disponibilità AlwaysOn di SQL Server per una farm di SharePoint. È anche possibile usare questa configurazione per lo sviluppo di app SharePoint in un ambiente a disponibilità elevata.
 
 Per creare la farm di SharePoint a disponibilità elevata (nove server):
 
@@ -59,18 +59,18 @@ Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud co
 
 ## Farm SharePoint 2016
 
-Vedere [questo argomento](https://technet.microsoft.com/library/mt723354.aspx) per istruzioni su come creare la seguente farm di SharePoint 2016 a server singolo.
+Vedere [questo articolo](https://technet.microsoft.com/library/mt723354.aspx) per istruzioni per la creazione della seguente farm di SharePoint 2016 a server singolo.
 
-![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)  
 
 ## Gestire le farm di SharePoint
 
 È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per ulteriori informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
-Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
+Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## Passaggi successivi
 
-- Altre configurazioni di [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi dell'infrastruttura di Azure.
+- Altre [configurazioni di SharePoint](https://technet.microsoft.com/library/dn635309.aspx) nei servizi dell'infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Determinare i requisiti dell'autenticazione a più fattori per la soluzione di identità ibrida
 
@@ -25,7 +25,7 @@ Se non si ha familiarità con l'autenticazione a più fattori, è consigliabile 
 
 Accertarsi che venga fornita una risposta alle domande seguenti:
 
-- L'azienda desidera proteggere anche app Microsoft? 
+- L'azienda desidera proteggere anche app Microsoft?
 - Come sono state pubblicate queste app?
 - L'azienda consente ai dipendenti di accedere alle app locali anche in remoto?
 
@@ -35,15 +35,15 @@ In caso affermativo, che tipo di accesso remoto offre? È necessario stabilire, 
 - Potrebbero trovarsi ovunque?
 - L'azienda desidera imporre delle limitazioni in base alla posizione degli utenti?
 
-Dopo aver identificato questi requisiti, è importante valutare anche i requisiti degli utenti relativamente all'autenticazione a più fattori. Questa valutazione è importante poiché consente di definire i requisiti da soddisfare per implementare l'autenticazione a più fattori. Accertarsi che venga fornita una risposta alle domande seguenti:
+Dopo aver identificato questi requisiti, è importante valutare anche i requisiti degli utenti relativamente all'autenticazione a più fattori. Questa valutazione è importante poiché consente di definire i requisiti da soddisfare per implementare l'autenticazione a più fattori. Rispondere alle domande seguenti:
 
 - Gli utenti hanno già familiarità con l'autenticazione a più fattori?
-- Per alcuni utilizzi verrà prevista una procedura di autenticazione aggiuntiva?  
+- Per alcuni utilizzi verrà prevista una procedura di autenticazione aggiuntiva?
  - In caso affermativo, verrà prevista in tutti i casi, solo se provenienti da reti esterne, se accedono ad applicazioni specifiche o in quali altre condizioni?
 - Sarà necessario prevedere sessioni di formazione degli utenti sulle modalità per impostare e implementare l'autenticazione a più fattori?
 - Quali sono gli scenari principali in cui l'azienda desidera abilitare l'autenticazione a più fattori per gli utenti?
 
-Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione a più fattori è già stata implementata in locale. Questa valutazione è importante per definire i requisiti tecnici a cui attenersi per configurare e abilitare gli utenti aziendali per l'autenticazione a più fattori. Accertarsi che venga fornita una risposta alle domande seguenti:
+Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione a più fattori è già stata implementata in locale. Questa valutazione è importante per definire i requisiti tecnici a cui attenersi per configurare e abilitare gli utenti aziendali per l'autenticazione a più fattori. Rispondere alle domande seguenti:
 
 - L'azienda desidera proteggere account privilegiati con l'autenticazione a più fattori?
 - L'azienda intende abilitare l'autenticazione a più fattori in alcune applicazioni per motivi di conformità?
@@ -58,4 +58,4 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

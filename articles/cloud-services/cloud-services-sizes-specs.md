@@ -12,8 +12,8 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="05/25/2016"
- ms.author="adegeo"/>
+ ms.date="08/10/2016"
+ ms.author="adegeo"/>  
 
 # Dimensioni dei servizi cloud
 
@@ -27,7 +27,7 @@ I servizi cloud sono uno dei diversi tipi di risorse di calcolo offerti da Azure
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 * Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
@@ -58,8 +58,8 @@ Per siti Web, database di piccole e medie dimensioni e altre applicazioni normal
 | Molto piccola | 1 | 0,75 GB | Bassa | 19 GB |
 | Small | 1 | 1,75 GB | Moderata | 224 GB |
 | Media | 2 | 3,5 GB | Moderata | 489 GB |
-| Large | 4 | 7 GB | Elevata | 999 GB |
-| Molto grande | 8 | 14 GB | Elevata | 2\.039 GB |
+| Large | 4 | 7 GB | Alto | 999 GB |
+| Molto grande | 8 | 14 GB | Alto | 2\.039 GB |
 
 >[AZURE.NOTE] Da **Molto piccola** a **Molto grande** possono anche essere denominate rispettivamente **A0 A4**.
 
@@ -70,8 +70,8 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 | Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
 | --------------- | :-------: | ------: | :-----------: | ------:  |
 | A5 | 2 | 14 GB | Moderata | 489 GB |
-| A6 | 4 | 28 GB | Elevata | 999 GB |
-| A7 | 8 | 56 GB | Elevata | 2\.039 GB |
+| A6 | 4 | 28 GB | Alto | 999 GB |
+| A7 | 8 | 56 GB | Alto | 2\.039 GB |
 
 ## Soluzione ottimizzata con supporto InfiniBand
 
@@ -79,7 +79,7 @@ Disponibile in data center selezionati. Le macchine virtuali A8 e A9 sono dotate
 
 | Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A8 | 8 | 56 GB | Elevata | 382 GB |
+| A8 | 8 | 56 GB | Alto | 382 GB |
 | A9 | 16 | 112 GB | Molto elevata | 382 GB |
 
 ## A elevato utilizzo di calcolo
@@ -88,7 +88,7 @@ Disponibile in data center selezionati. Le macchine virtuali A10 e A11 sono dota
 
 | Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A10 | 8 | 56 GB | Elevata | 382 GB |
+| A10 | 8 | 56 GB | Alto | 382 GB |
 | A11 | 16 | 112 GB | Molto elevata | 382 GB |
 
 ## Serie D: calcolo ottimizzato
@@ -103,8 +103,8 @@ Per siti Web, database di piccole e medie dimensioni e altre applicazioni normal
 | --------------- | :-------: | ------: | :-----------: | ------: |
 | Standard\_D1 | 1 | 3,5 GB | Moderata | 50 GB |
 | Standard\_D2 | 2 | 7 GB | Elevata | 100 GB |
-| Standard\_D3 | 4 | 14 GB | Elevata | 200 GB |
-| Standard\_D4 | 8 | 28 GB | Elevata | 400 GB |
+| Standard\_D3 | 4 | 14 GB | Alto | 200 GB |
+| Standard\_D4 | 8 | 28 GB | Alto | 400 GB |
 
 ## A elevato utilizzo di memoria (D)
 
@@ -112,9 +112,9 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 
 | Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard\_D11 | 2 | 14 GB | Elevata | 100 GB |
-| Standard\_D12 | 4 | 28 GB | Elevata | 200 GB |
-| Standard\_D13 | 8 | 56 GB | Elevata | 400 GB |
+| Standard\_D11 | 2 | 14 GB | Alto | 100 GB |
+| Standard\_D12 | 4 | 28 GB | Alto | 200 GB |
+| Standard\_D13 | 8 | 56 GB | Alto | 400 GB |
 | Standard\_D14 | 16 | 112 GB | Molto elevata | 800 GB |
 
 ## Serie Dv2: calcolo ottimizzato
@@ -129,8 +129,8 @@ Per siti Web, database di piccole e medie dimensioni e altre applicazioni normal
 | --------------- | :-------: | ------: | :-----------: | ------: |
 | Standard\_D1\_v2 | 1 | 3,5 GB | Moderata | 50 GB |
 | Standard\_D2\_v2 | 2 | 7 GB | Elevata | 100 GB |
-| Standard\_D3\_v2 | 4 | 14 GB | Elevata | 200 GB |
-| Standard\_D4\_v2 | 8 | 28 GB | Elevata | 400 GB |
+| Standard\_D3\_v2 | 4 | 14 GB | Alto | 200 GB |
+| Standard\_D4\_v2 | 8 | 28 GB | Alto | 400 GB |
 | Standard\_D5\_v2 | 16 | 56 GB | Molto elevata | 800 GB |
 
 ## A elevato utilizzo di memoria (Dv2)
@@ -139,9 +139,9 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 
 | Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard\_D11\_v2 | 2 | 14 GB | Elevata | 100 GB |
-| Standard\_D12\_v2 | 4 | 28 GB | Elevata | 200 GB |
-| Standard\_D13\_v2 | 8 | 56 GB | Elevata | 400 GB |
+| Standard\_D11\_v2 | 2 | 14 GB | Alto | 100 GB |
+| Standard\_D12\_v2 | 4 | 28 GB | Alto | 200 GB |
+| Standard\_D13\_v2 | 8 | 56 GB | Alto | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | Molto elevata | 800 GB |
 
 ## Configurare le dimensioni per i servizi Cloud
@@ -156,4 +156,4 @@ Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standar
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

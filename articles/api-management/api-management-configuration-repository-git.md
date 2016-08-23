@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>  
 
 
 # Come salvare e configurare la configurazione del servizio Gestione API tramite Git
@@ -144,7 +144,7 @@ Per eseguire il push di tutti i commit nel server, eseguire il comando seguente.
 
 Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
 
-![Distribuire][api-management-configuration-deploy]
+![Distribuisci][api-management-configuration-deploy]
 
 Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
 
@@ -297,4 +297,4 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 
 # Uso di servizi esterni dal servizio Gestione API di Azure
@@ -54,7 +54,7 @@ L'esempio seguente illustra come inviare un messaggio a una chat di Slack, se il
 
 In Slack sono disponibili gli hook Web in ingresso. Quando si configura un hook Web in ingresso, Slack genera un URL specifico che consente di eseguire una semplice richiesta POST e di passare un messaggio nel canale di Slack. Il corpo JSON creato è basato su un formato definito da Slack.
 
-![Hook Web di Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
+![Hook Web di Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)  
 
 ### Lo stile di richiesta fire-and-forget è sufficientemente efficace?
 Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presenti alcuni svantaggi. Se per qualche motivo la richiesta ha esito negativo, l'errore non viene segnalato. In questo caso, la complessità di disporre di un sistema secondario di segnalazione dell'errore e il costo aggiuntivo delle prestazioni per l'attesa della risposta non sono garantiti. Per gli scenari in cui è fondamentale verificare la risposta, i criteri [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) rappresentano un'opzione migliore.
@@ -155,12 +155,12 @@ A volte può essere utile saper esporre le informazioni presenti in più sistemi
 ### Simulazione della risorsa
 Il primo passaggio per la creazione della risorsa dashboard consiste nella configurazione di una nuova operazione nel portale di pubblicazione di Gestione API. Si tratta di un'operazione di segnaposto usata per configurare i criteri di composizione per creare la risorsa dinamica.
 
-![Operazione dashboard](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
+![Operazione dashboard](./media/api-management-sample-send-request/api-management-dashboard-operation.png)  
 
 ### Invio delle richieste
 Dopo aver creato l'operazione `dashboard`, è possibile configurare criteri specifici per tale operazione.
 
-![Operazione dashboard](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Operazione dashboard](./media/api-management-sample-send-request/api-management-dashboard-policy.png)  
 
 Il primo passaggio consiste nell'estrarre eventuali parametri di query dalla richiesta in ingresso, in modo da poterli inoltrare al back-end. In questo esempio il dashboard visualizza informazioni basate su un periodo di tempo e dispone quindi dei parametri `fromDate` e `toDate`. È possibile usare i criteri `set-variable` per estrarre le informazioni dall'URL della richiesta.
 
@@ -261,7 +261,7 @@ I criteri completi saranno simili ai seguenti:
 
 Nella configurazione dell'operazione segnaposto è possibile impostare la risorsa dashboard in modo che venga memorizzata nella cache per almeno un'ora, perché la natura dei dati implica che anche se scaduta, è comunque sufficientemente efficace per fornire informazioni utili agli utenti.
 
-## Riepilogo
+## Summary
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 
 ## Video contenente una panoramica di questi criteri
@@ -269,4 +269,4 @@ Per altre informazioni sui criteri [send-one-way-request](https://msdn.microsoft
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

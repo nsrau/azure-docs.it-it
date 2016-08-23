@@ -13,7 +13,7 @@
 	ms.devlang="NA"
 	ms.tgt_pltfrm="NA"
 	ms.topic="article"
-	ms.date="05/20/2016"
+	ms.date="08/08/2016"
 	ms.author="alainl"/>
 
 
@@ -476,7 +476,7 @@ A livello generale, se è già disponibile un set di database in esecuzione al l
 - Riguardo alla stima di cardinalità, come per la modifica del livello di compatibilità, prima di procedere nell'ambiente di produzione è consigliabile testare il carico di lavoro di produzione con le nuove condizioni, per determinare se l'applicazione trae vantaggio dai miglioramenti alla stima di cardinalità.
 
 
-## Conclusioni
+## Conclusione
 
 
 L'uso del database SQL di Azure per sfruttare i vantaggi dei miglioramenti di SQL Server 2016 può migliorare notevolmente l'esecuzione delle query. È un dato di fatto. Naturalmente, come per qualsiasi nuova funzionalità è necessaria un'attenta valutazione per determinare le condizioni esatte in cui il carico di lavoro del database funziona al meglio. L'esperienza dimostra che, al livello di compatibilità 130, la maggior parte dei carichi di lavoro viene eseguita almeno in modo trasparente, sfruttando le nuove funzioni di elaborazione delle query e la nuova stima di cardinalità. Ciò detto, esistono sempre alcune eccezioni ed è importante eseguire le opportune verifiche per quantificare il vantaggio effettivo di tali miglioramenti. Anche in questo caso Archivio query può rivelarsi una risorsa molto utile.
@@ -526,4 +526,4 @@ sql-database-compatibility-level-query-performance-130.md
 genemi = MightyPen , 2016-05-20  Friday  17:00pm
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

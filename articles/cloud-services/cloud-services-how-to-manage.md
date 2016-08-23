@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
-	ms.author="adegeo"/>
+	ms.date="08/10/2016"
+	ms.author="adegeo"/>  
 
 
 
@@ -83,7 +83,7 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 Per visualizzare le dipendenze del servizio cloud da altre risorse, è possibile collegare un'istanza di database SQL di Azure o un account di archiviazione al servizio cloud. È possibile collegare o scollegare le risorse nella pagina **Risorse collegato** e monitorare quindi il relativo uso nel dashboard del servizio cloud. Se in un account di archiviazione collegato è attivato il monitoraggio, è possibile monitorare il totale delle richieste nel dashboard del servizio cloud.
 
-Utilizzare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo usa nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'uso). Per altre informazioni, vedere [Come scalare un servizio cloud e le risorse collegate](cloud-services-how-to-scale.md).
+Utilizzare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo usa nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'utilizzo). Per altre informazioni, vedere [Come scalare un servizio cloud e le risorse collegate](cloud-services-how-to-scale.md).
 
 È inoltre possibile monitorare, gestire e scalare il database nel nodo **Database** del portale di Azure classico.
 
@@ -164,4 +164,4 @@ Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di m
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

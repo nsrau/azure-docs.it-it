@@ -1,20 +1,20 @@
 <properties
- pageTitle="Informazioni sulle istanze A8 - A11 con Windows | Microsoft Azure"
+ pageTitle="Informazioni sulle dimensioni di VM A8, A9, A10, A11 e Windows | Microsoft Azure"
  description="Informazioni generali e considerazioni sull'uso delle misure a elevato utilizzo di calcolo A8, A9, A10 e A11 di Azure per VM e servizi cloud Windows."
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management"/>  
 <tags
 ms.service="virtual-machines-windows"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/26/2016"
- ms.author="danlep"/>
+ ms.date="08/04/2016"
+ ms.author="danlep"/>  
 
 # Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo
 
@@ -28,7 +28,7 @@ Informazioni generali e considerazioni sull'uso delle istanze A8, A9, A10 e A11 
 
 All'interno di un singolo servizio cloud, set di disponibilità o pool di Azure Batch le istanze A8 e A9 possono accedere alla rete RDMA in Azure per eseguire applicazioni MPI Windows che usano l'interfaccia Microsoft Network Direct per la comunicazione tra istanze.
 
-Vedere la tabella seguente per i prerequisiti delle applicazioni MPI per l'accesso alla rete RDMA in macchine virtuali Windows, servizi cloud e pool di Azure Batch delle istanze A8 o A9. Per scenari di distribuzione tipici, vedere [Configurare un cluster RDMA Windows con HPC Pack e istanze di dimensioni A8 e A9 per l'esecuzione di applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) e [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
+L'elenco seguente include i prerequisiti delle applicazioni MPI per l'accesso alla rete RDMA in macchine virtuali di Windows, servizi cloud e pool di Azure Batch delle istanze A8 o A9. Per scenari di distribuzione tipici, vedere [Configurare un cluster RDMA Windows con HPC Pack e istanze di dimensioni A8 e A9 per l'esecuzione di applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) e [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
 
 
 Prerequisito | Macchine virtuali | Servizi cloud o pool di Batch 
@@ -58,4 +58,4 @@ Per ulteriori informazioni ed elenchi di controllo per utilizzare le istanze con
 
 * Per informazioni sull'uso delle istanze A8 e A9 per eseguire applicazioni MPI con Azure Batch, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
 
-## Panoramica
+## Overview
 
 Una stringa di connessione include le informazioni necessarie per accedere ai dati in un account di archiviazione di Azure dall'applicazione in fase di esecuzione. Le stringhe di connessione possono essere configurate per:
 
@@ -163,4 +163,4 @@ Ad esempio, la stringa di connessione avrà un aspetto simile al seguente:
 - [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 - [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

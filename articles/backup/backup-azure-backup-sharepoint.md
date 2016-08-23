@@ -133,7 +133,7 @@ Dopo aver configurato DPM e la farm di SharePoint come descritto in precedenza, 
     ![Riepilogo](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## Ripristinare un elemento di SharePoint dal disco tramite DPM
-Nell'esempio seguente, l'*elemento di SharePoint da ripristinare * è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
+Nell'esempio seguente, l'*elemento di SharePoint da ripristinare* è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
 1. Aprire la **Console amministrazione DPM**. Tutte le farm di SharePoint protette da DPM vengono visualizzate nella scheda **Protezione**.
 

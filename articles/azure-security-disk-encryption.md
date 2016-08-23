@@ -91,7 +91,7 @@ Quando si abilita e si distribuisce la crittografia del disco di Azure per le VM
 
 La soluzione Azure Disk Encryption per le VM IaaS per Windows e Linux include l'estensione di crittografia del disco per Windows, l'estensione di crittografia del disco per Linux, i cmdlet di crittografia del disco di PowerShell, i cmdlet di crittografia del disco per l'interfaccia della riga di comando e i modelli di crittografia del disco di Gestione risorse di Azure. La soluzione Azure Disk Encryption è supportata nelle VM IaaS che eseguono il sistema operativo Windows o Linux. Per altri dettagli sui sistemi operativi supportati, vedere la sezione relativa ai prerequisiti più avanti.
 
-**Nota:** non è previsto alcun addebito per la crittografia dei dischi delle macchine virtuali con Crittografia dischi di Azure.
+**Nota: ** non è previsto alcun addebito per la crittografia dei dischi delle macchine virtuali con Crittografia dischi di Azure.
 
 ### Proposta di valore
 
@@ -385,7 +385,7 @@ Usare la tabella della terminologia come riferimento per comprendere alcuni dei 
 | Terminologia | Definizione |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure AD | Azure AD è l'abbreviazione di [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). L'account Azure AD è un prerequisito per le operazioni di autenticazione, archiviazione e recupero dei segreti dall'insieme di credenziali delle chiavi. |
-| Insieme di credenziali delle chiavi di Azure | L'insieme di credenziali delle chiavi di Azure è un servizio di gestione delle chiavi crittografiche basato su moduli di protezione hardware convalidati in base a FIPS per proteggere le chiavi crittografiche e i segreti sensibili in modo sicuro. Per altri dettagli, vedere la documentazione dell'[Insieme di credenziali delle chiavi](https://azure.microsoft.com/services/key-vault/). |
+| Insieme di credenziali delle chiavi di Azure | L'insieme di credenziali delle chiavi di Azure è un servizio di gestione delle chiavi crittografiche basato su moduli di protezione hardware convalidati in base a FIPS per proteggere le chiavi crittografiche e i segreti sensibili in modo sicuro. Per altri dettagli, vedere la documentazione sull'[Insieme di credenziali delle chiavi](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Gestione risorse di Azure |
 | BitLocker | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia del disco nelle VM IaaS Windows. |
 | BEK | Le chiavi di crittografia BitLocker vengono usate per crittografare il volume di avvio del sistema operativo e i volumi dati. Le chiavi BitLocker sono protette nell'insieme di credenziali delle chiavi di Azure del cliente come segreti. |
@@ -845,4 +845,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

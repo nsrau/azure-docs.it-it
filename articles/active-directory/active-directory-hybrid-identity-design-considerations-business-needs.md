@@ -5,7 +5,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="stevenpo"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/02/2016"
-	ms.author="billmath"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>  
 
 # Determinare i requisiti per la soluzione ibrida di gestione delle identità
 Il primo passaggio della progettazione di una soluzione ibrida di gestione delle identità consiste nel determinare i requisiti per l'organizzazione che userà la soluzione. La gestione ibrida delle identità nasce come un ruolo di supporto (supporta tutte le altre soluzioni cloud fornendo l'autenticazione) che può in seguito offrire funzionalità nuove e interessanti per i carichi di lavoro degli utenti. I carichi di lavoro o i servizi che verranno adottati per gli utenti determinano i requisiti per la progettazione della soluzione ibrida di gestione delle identità. Questi servizi e carichi di lavoro dovranno usare la soluzione ibrida di gestione delle identità sia in locale che nel cloud.
@@ -40,7 +40,7 @@ Per identificare le esigenze aziendali, rispondere alle domande seguenti:
 ## Analizzare l'infrastruttura di gestione delle identità locale
 Ora che ci si è fatti un'idea sui requisiti aziendali, è necessario valutare l'infrastruttura di gestione delle identità locale. Questa valutazione è importante per definire i requisiti tecnici per integrare la soluzione di gestione delle identità corrente nel sistema di gestione delle identità cloud. Rispondere alle domande seguenti:
 
-- Qual è la soluzione di autenticazione e autorizzazione locale usata dall'azienda? 
+- Qual è la soluzione di autenticazione e autorizzazione locale usata dall'azienda?
 - Al momento l'azienda usa servizi di sincronizzazione locali?
 - L'azienda usa provider di identità di terze parti (IdP)?
 
@@ -72,7 +72,7 @@ A questo punto, è necessario valutare i requisiti di integrazione della soluzio
 - L'organizzazione ha un dominio personalizzato?
     1. Questo dominio è pubblico e facile da verificare tramite DNS?
     1. In caso contrario, è disponibile un dominio pubblico che si può usare per registrare un nome dell'entità utente alternativo in Active Directory?
-- Gli ID utente sono coerenti per la rappresentazione nel cloud? 
+- Gli ID utente sono coerenti per la rappresentazione nel cloud?
 - L'organizzazione dispone di app che richiedono l'integrazione con servizi cloud?
 - Se l'organizzazione ha più domini, useranno tutti l'autenticazione federata o standard?
 
@@ -101,4 +101,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

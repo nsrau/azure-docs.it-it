@@ -115,7 +115,7 @@ Quando i dati memorizzati nella cache scadono, vengono rimossi dalla cache e l'a
 
 È inoltre possibile che la cache si riempia se ai dati è consentita una permanenza prolungata. In tal caso, qualsiasi richiesta di aggiungere nuovi elementi alla cache potrebbe comportare la rimozione forzata di alcuni elementi in un processo noto come rimozione. I servizi cache tipicamente rimuovono i dati usati meno di recente, ma è solitamente possibile eseguire l'override di questo criterio e impedire la rimozione di elementi. Tuttavia, se si adotta questo approccio, si rischia di superare la memoria disponibile nella cache. Un'applicazione che tenta di aggiungere un elemento alla cache non completerà l'operazione, generando un'eccezione.
 
-Alcune implementazioni di memorizzazione nella cache possono specificare altri criteri di rimozione. Esistono diversi tipi di criteri di rimozione. Sono state illustrate le seguenti operazioni:
+Alcune implementazioni di memorizzazione nella cache possono specificare altri criteri di rimozione. Esistono diversi tipi di criteri di rimozione. inclusi i seguenti:
 - Criteri basati sull'uso più recente (in previsione del fatto che i dati non saranno più necessari).
 - Criteri First-In-First-Out (i dati meno recenti vengono rimossi per primi).
 - Criteri di rimozione esplicita in base all'attivazione di un evento (ad esempio la modifica dei dati).
@@ -151,7 +151,8 @@ Prendere in considerazione la possibilità di implementare una cache locale priv
 
 Questo approccio richiede una configurazione attenta per evitare che la cache locale diventi obsoleta rispetto alla cache condivisa. Tuttavia, la cache locale funge da buffer se la cache condivisa non è raggiungibile. Nella Figura 3 viene illustrata questa struttura.
 
-![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) _Figura 3: uso di una cache locale, privata con una cache condivisa_
+![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) 
+_Figura 3: uso di una cache locale, privata con una cache condivisa_
 
 Per supportare la cache di grandi dimensioni che contengono dati di durata relativamente lunga, alcuni servizi cache forniscono un'opzione di disponibilità elevata che implementa il failover automatico, se la cache non è più disponibile. Questo approccio implica in genere la replica in un server di cache secondario dei dati memorizzati nella cache archiviati in un server di cache primario, implicando anche il passaggio al server secondario se il server primario non funziona o se la connessione viene persa.
 
@@ -274,7 +275,7 @@ Tramite il portale di gestione di Azure è possibile anche configurare il criter
 
 La maggior parte delle attività amministrative vengono eseguite tramite il portale di gestione di Azure e per questo motivo, molti dei comandi amministrativi disponibili nella versione standard di Redis non sono disponibili, inclusa la possibilità di modificare la configurazione a livello di codice, di arrestare il server Redis, di configurare ulteriori server secondari o forzatamente salvare i dati su disco.
 
-Il portale di gestione di Azure include una visualizzazione grafica pratica che consente di monitorare le prestazioni della cache. Ad esempio, è possibile visualizzare il numero di connessioni stabilite, il numero di richieste eseguite, il volume di letture e scritture e il numero di riscontri nella cache rispetto ai mancati riscontri nella cache. Queste informazioni consentono di determinare l'efficacia della cache e se necessario passare a una configurazione diversa o modificare il criterio di rimozione. Inoltre, è possibile creare avvisi che inviano messaggi di posta elettronica a un amministratore se uno o più metriche scende al di sotto di un intervallo previsto. Ad esempio, se il numero di mancati riscontri nella cache supera il valore specificato durante l'ultima ora, un amministratore potrebbe ricevere un avviso quando la cache dovesse risultare troppo piccola o i dati dovessero essere rimossi troppo rapidamente.
+Il portale di gestione di Azure include una visualizzazione grafica pratica che consente di monitorare le prestazioni della cache. Ad esempio, è possibile visualizzare il numero di connessioni stabilite, il numero di richieste eseguite, il volume di letture e scritture e il numero di riscontri nella cache rispetto ai mancati riscontri nella cache. Queste informazioni consentono di determinare l'efficacia della cache e, se necessario, di passare a una configurazione diversa o di modificare i criteri di rimozione. Inoltre, è possibile creare avvisi che inviano messaggi di posta elettronica a un amministratore se uno o più metriche scende al di sotto di un intervallo previsto. Ad esempio, se il numero di mancati riscontri nella cache supera il valore specificato durante l'ultima ora, un amministratore potrebbe ricevere un avviso quando la cache dovesse risultare troppo piccola o i dati dovessero essere rimossi troppo rapidamente.
 
 È inoltre possibile monitorare la CPU, la memoria e l'uso della rete per la cache.
 
@@ -897,11 +898,12 @@ Esistono diversi punti, che è necessario comprendere sul meccanismo di pubblica
 - Più sottoscrittori possono sottoscrivere lo stesso canale e tutti riceveranno i messaggi pubblicati su questo canale.
 - I sottoscrittori ricevono solo i messaggi che sono stati pubblicati dopo che hanno effettuato la sottoscrizione. I canali non vengono memorizzati nel buffer. Dopo che un messaggio è stato pubblicato, l'infrastruttura Redis lo invia a ciascun sottoscrittore e quindi lo rimuove.
 - Per impostazione predefinita, i messaggi vengono ricevuti dai sottoscrittori nell'ordine in cui vengono inviati. In un sistema molto attivo con un numero elevato di messaggi e molte sottoscrittori e server di pubblicazione, recapito messaggi garantito sequenza può rallentare le prestazioni del sistema. Se ogni messaggio è indipendente e l'ordine è irrilevante, è possibile abilitare per il sistema Redis l'elaborazione simultanea, che può contribuire a migliorare la velocità di risposta. Per ottenere questo risultato in un client StackExchange, impostare la proprietà PreserveAsyncOrder della connessione usata dal sottoscrittore su false:
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  redisHostConnection.PreserveAsyncOrder = false;
-  ISubscriber subscriber = redisHostConnection.GetSubscriber();
-  ```
+
+```csharp
+ConnectionMultiplexer redisHostConnection = ...;
+redisHostConnection.PreserveAsyncOrder = false;
+ISubscriber subscriber = redisHostConnection.GetSubscriber();
+```
 
 ## Modelli correlati e informazioni aggiuntive
 
@@ -934,4 +936,4 @@ Anche il modello seguente potrebbe essere importante per lo scenario quando si i
 - Pagina sulle [transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nel repository di StackExchange.Redis
 - Pagina di [guida al partizionamento dei dati](http://msdn.microsoft.com/library/dn589795.aspx) nel sito Web Microsoft
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

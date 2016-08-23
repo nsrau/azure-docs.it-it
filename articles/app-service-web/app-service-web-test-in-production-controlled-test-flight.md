@@ -85,7 +85,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
-7.	Al termine dello script, tornare all'indirizzo del front-end (http://ToDoApp*&lt;your_suffix>*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
+7.	Al termine dello script, tornare all'indirizzo del front-end (http://ToDoApp *&lt;your_suffix>* master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
 5.	Accedere al [Portale di Azure](https://portal.azure.com/) per vedere gli elementi creati.
 
 	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come sono configurate nel modello.

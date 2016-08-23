@@ -45,4 +45,4 @@ Per istruzioni su come modificare il metodo di pagamento in Azure, vedere [come 
 
 > [AZURE.NOTE] Se la sottoscrizione di Azure viene disabilitata, seguire la procedura disponibile nell'articolo [Cosa fare in caso di annullamento della sottoscrizione di Azure](billing-subscription-become-disable.md) per riattivarla.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

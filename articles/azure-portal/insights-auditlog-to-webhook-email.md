@@ -4,17 +4,17 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/30/2016"
-	ms.author="ashwink"/>
+	ms.author="ashwink"/>  
 
 # Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights
 
@@ -119,4 +119,4 @@ Quando diventa disponibile un nuovo evento, l'avviso relativo agli eventi del lo
 |status|Stringa che descrive lo stato dell'operazione. I valori comuni sono: Started, In Progress, Succeeded, Failed, Active, Resolved|
 |subStatus|	In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (HTTP stato codice: 503), Gateway Timeout (codice di stato HTTP: 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

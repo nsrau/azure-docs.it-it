@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -124,7 +124,7 @@ A seconda dello stato del servizio BizTalk, alcune operazioni potrebbero non ess
 Come parte del provisioning del servizio BizTalk, un certificato autofirmato viene creato e associato alla sottoscrizione del servizio BizTalk. È necessario scaricare questo certificato e installarlo nei computer da cui si distribuiscono applicazioni del servizio BizTalk o si inviano messaggi all'endpoint del servizio BizTalk.
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Fare clic su **SERVIZI BIZTALK** nel pannello di navigazione sinistro e quindi selezionare la sottoscrizione del servizio BizTalk.
+2. Fare clic su **SERVIZI BIZTALK** nel riquadro di spostamento sinistro e quindi selezionare la sottoscrizione del servizio BizTalk.
 3. Selezionare la scheda **Dashboard**.
 4. Selezionare **Scarica certificato SSL**. ![Modificare un certificato SSL][QuickGlance]
 5. Fare doppio clic sul certificato ed eseguire la procedura guidata per installarlo. Assicurarsi di installare il certificato nell'archivio **Autorità di certificazione radice attendibili**.
@@ -145,13 +145,13 @@ Il certificato autofirmato creato automaticamente durante la creazione dei Servi
 
 Quando si distribuisce un progetto di servizio BizTalk da Visual Studio, si inserisce questo spazio dei nomi. Lo spazio dei nomi del servizio di controllo di accesso viene creato automaticamente per il servizio BizTalk.
 
-I valori di ACS possono essere usati con qualsiasi applicazione. Dopo la creazione di Servizi BizTalk di Azure, lo spazio del nomi ACS controlla l'autenticazione con la distribuzione del servizio BizTalk. Se si desidera modificare la sottoscrizione o gestire lo spazio dei nomi, selezionare **ACTIVE DIRECTORY** nel pannello di navigazione sinistro e quindi selezionare lo spazio dei nomi. Le opzioni sono elencate nella bassa delle applicazioni.
+I valori di ACS possono essere usati con qualsiasi applicazione. Dopo la creazione di Servizi BizTalk di Azure, lo spazio del nomi ACS controlla l'autenticazione con la distribuzione del servizio BizTalk. Se si vuole modificare la sottoscrizione o gestire lo spazio dei nomi, selezionare **ACTIVE DIRECTORY** nel riquadro di spostamento sinistro e quindi selezionare lo spazio dei nomi. Le opzioni sono elencate nella bassa delle applicazioni.
 
 Facendo clic su **Manage** è possibile aprire il portale di gestione del servizio di controllo di accesso. Nel portale di gestione del servizio di controllo di accesso il servizio BizTalk usa le **identità del servizio**: ![Identità del servizio di controllo di accesso nel portale di gestione del servizio][ACSServiceIdentities]
 
 Le identità del servizio di controllo di accesso sono set di credenziali che consentono ad applicazioni o client di eseguire l'autenticazione direttamente con il servizio di controllo di accesso e di ricevere un token.
 
-> [AZURE.IMPORTANT] Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi l'errore seguente.<br/><br/>*Impossibile connettersi all'account di gestione del servizio di controllo di accesso con le credenziali specificate*
+> [AZURE.IMPORTANT] Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi un errore simile al seguente.<br/><br/>*Non è stato possibile connettersi all'account di gestione del servizio di controllo di accesso con le credenziali specificate*
 
 In [Gestione dello spazio dei nomi del servizio di controllo di accesso](https://msdn.microsoft.com/library/azure/hh674478.aspx) sono fornite alcune linee guida e consigli utili.
 
@@ -167,7 +167,7 @@ Questi requisiti non si applicano all'edizione gratuita.
 <td>Sottoscrizione di Azure</td>
 <td>La sottoscrizione determina chi può accedere al portale di Azure. Il titolare dell'account crea la sottoscrizione nella pagina <a HREF="https://account.windowsazure.com/Subscriptions">Sottoscrizioni di Azure</a>.
 <br/><br/>
-L'account Azure può avere più sottoscrizioni e può essere gestito da qualsiasi utente autorizzato. Il titolare di un account Azure crea, ad esempio, una sottoscrizione denominata <em>SottoscrizioneServizioBizTalk</em> e concede agli amministratori di BizTalk della società (ad esempio, ContosoAdminSBT@live.com) l'accesso alla sottoscrizione. In questo scenario gli amministratori di BizTalk accedono al portale di Azure e dispongono dei diritti di amministratore completi per tutti i servizi ospitati nella sottoscrizione, inclusi i Servizi BizTalk di Azure. Gli amministratori di BizTalk non sono titolari dell'account Azure e pertanto non possono accedere alle informazioni di fatturazione.
+L'account Azure può avere più sottoscrizioni e può essere gestito da qualsiasi utente autorizzato. Il titolare di un account Azure crea, ad esempio, una sottoscrizione denominata <em>SottoscrizioneServizioBizTalk</em> e concede agli amministratori di BizTalk della società (ad esempio, ContosoAdminSBT@live.com) l'accesso alla sottoscrizione. In questo scenario gli amministratori di BizTalk accedono al portale di Azure e hanno i diritti di amministratore completi per tutti i servizi ospitati nella sottoscrizione, inclusi i Servizi BizTalk di Azure. Gli amministratori di BizTalk non sono titolari dell'account Azure e pertanto non possono accedere alle informazioni di fatturazione.
 <br/><br/>
 Nell'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Gestire le sottoscrizioni e gli account di archiviazione nel portale di Azure</a> sono disponibili altre informazioni.
 </td>
@@ -222,7 +222,7 @@ Quando si crea un servizio BizTalk di Azure, viene creato anche un URL HTTPS che
 <ul>
 <li>La data di scadenza del certificato deve essere inferiore ai 5 anni.</li>
 <li>Tutti i certificati privati richiedono una password. Non dimenticare la password e, come procedura consigliata, condividerla con gli amministratori.</li>
-<li>I certificati autofirmati possono essere utilizzati in ambienti di sviluppo/test. Quando si usano certificati autofirmati, è necessario importare il certificato nell'archivio dei certificati personale e nell'archivio dei certificati delle autorità di certificazione radice disponibili nell'elenco locale.</li>
+<li>I certificati autofirmati possono essere utilizzati in ambienti di sviluppo/test. Quando si utilizzano certificati autofirmati, è necessario importare il certificato nell'archivio dei certificati personale e nell'archivio dei certificati delle autorità di certificazione radice disponibili nell'elenco locale.</li>
 </ul>
 <br/>Quando si invia la richiesta del certificato di produzione all'autorità di certificazione, specificare le proprietà del certificato seguenti:
 <br/>
@@ -271,4 +271,4 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

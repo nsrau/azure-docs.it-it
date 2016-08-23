@@ -3,11 +3,11 @@
    description="Informazioni su come distribuire più macchine virtuali con funzionalità Multi-NIC con PowerShell nel modello di distribuzione classica"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 #Distribuire macchine virtuali con funzionalità Multi-NIC (classiche) tramite PowerShell
 
@@ -43,7 +43,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 - **Account di archiviazione per dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
 - **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione.
 
-### Passaggio 1 - Avviare lo script
+### Passaggio 1 - avviare lo script
 
 È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
@@ -171,4 +171,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

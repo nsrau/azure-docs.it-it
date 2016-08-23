@@ -90,6 +90,7 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 | Contiene | "contains" : "&lt;valore&gt;"|
 | In | "in" : [ "&lt;valore1&gt;","&lt;valore2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nomeChiave&gt;" |
+| Exists | "exists": "& lt; bool & gt;" |
 
 ### Fields
 
@@ -468,4 +469,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

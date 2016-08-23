@@ -12,8 +12,8 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/12/2016"
-ms.author="eugenesh" />
+ms.date="08/08/2016"
+ms.author="eugenesh" />  
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 
@@ -21,23 +21,41 @@ Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (
 
 > [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
+## Formati di documento supportati
+
+L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
+
+- PDF
+- Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica di Outlook)
+- HTML
+- XML
+- ZIP
+- EML
+- File di testo normale
+- JSON (per informazioni dettagliate, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
+- CSV (per informazioni dettagliate, vedere [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md))
+
 ## Configurazione dell'indicizzazione BLOB
 
 Per impostare e configurare un indicizzatore di Archiviazione BLOB di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati**, come descritto in [questo articolo](https://msdn.microsoft.com/library/azure/dn946891.aspx). In futuro, il supporto per l'indicizzazione BLOB verrà aggiunto ad Azure Search .NET SDK e al portale di Azure.
 
-Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate). Un'origine dati è definita come risorsa indipendente perché possa essere usata da più indicizzatori.
+Per configurare un indicizzatore, eseguire questi tre passaggi: creare un'origine dati, creare un indice, configurare l'indicizzatore.
 
-Un indicizzatore è una risorsa che connette le origini dati agli indici di ricerca di destinazione.
+### Passaggio 1: Creare un'origine dati
 
-Per impostare l'indicizzazione BLOB, eseguire le operazioni seguenti:
+Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati, come righe nuove, modificate o eliminate. Un'origine dati può essere usata da più indicizzatori nella stessa sottoscrizione.
 
-1. Creare un'origine dati di tipo `azureblob` che faccia riferimento a un contenitore (e, facoltativamente, a una cartella in tale contenitore) in un account di archiviazione di Azure.
-	- Passare una stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`. È possibile ottenere la stringa di connessione dal portale di Azure: accedere al pannello dell'account di archiviazione desiderato/ Chiavi e usare il valore "Stringa di connessione primaria" o "Stringa di connessione secondaria".
-	- Specificare un nome del contenitore. È facoltativamente possibile includere anche una cartella usando il parametro `query`.
-2. Creare un indice di ricerca con un campo `content` disponibile per la ricerca.
-3. Creare l'indicizzatore connettendo l'origine dati all'indice di destinazione.
+Per l'indicizzazione BLOB, l'origine dati deve avere le proprietà obbligatorie seguenti:
 
-### Creare un'origine dati
+- **name** è il nome univoco dell'origine dati all'interno del servizio di ricerca.
+
+- **type** deve essere `azureblob`.
+
+- **credentials** fornisce la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`. Per ottenere la stringa di connessione dal portale di Azure, accedere al pannello dell'account di archiviazione scelto > **Impostazioni** > **Chiavi** e usare il valore "Stringa di connessione primaria" o "Stringa di connessione secondaria". Dato che la stringa di connessione è associata a un account di archiviazione, specificando la stringa di connessione si identifica in modo implicito l'account di archiviazione che fornisce i dati.
+
+- **container** specifica un contenitore nell'account di archiviazione. Per impostazione predefinita, tutti i BLOB all'interno del contenitore sono recuperabili. Per indicizzare soltanto i BLOB in una determinata directory virtuale, è possibile specificare la directory usando il parametro facoltativo **query**.
+
+L'esempio seguente illustra una definizione di origine dati:
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -47,12 +65,16 @@ Per impostare l'indicizzazione BLOB, eseguire le operazioni seguenti:
 	    "name" : "blob-datasource",
 	    "type" : "azureblob",
 	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 	}   
 
-Per altre informazioni sull'API Create Datasource (Creare un'origine dati) di creazione dell'origine dati, vedere [Creare un' origine dati](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Creare un indice 
+### Passaggio 2: Creare un indice 
+
+L'indice consente di specificare i campi in un documento, gli attributi e altri costrutti che danno forma all'esperienza della ricerca.
+
+Per l'indicizzazione BLOB, assicurarsi che l'indice abbia un campo `content` ricercabile per l'archiviazione del BLOB.
 
 	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
 	Content-Type: application/json
@@ -66,11 +88,11 @@ Per altre informazioni sull'API Create Datasource (Creare un'origine dati) di cr
   		]
 	}
 
-Per altre informazioni sull'API Create Index (Creare un indice), vedere [Creare un indice](https://msdn.microsoft.com/library/dn798941.aspx)
+Per altre informazioni sull'API di creazione di un indice, vedere [Creare l'indice](https://msdn.microsoft.com/library/dn798941.aspx).
 
-### Creare un indicizzatore 
+### Passaggio 3: Creare un indicizzatore 
 
-Infine creare un indicizzatore che fa riferimento all'origine dati e a un indice di destinazione. ad esempio:
+Un indicizzatore connette le origini dati agli indici di ricerca di destinazione e fornisce informazioni sulla pianificazione che permettono di automatizzare l'aggiornamento dei dati. Dopo la creazione dell'indice e dell'origine dati, è relativamente semplice creare un indicizzatore che fa riferimento all'origine dati e un indice di destinazione. Ad esempio:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -88,19 +110,6 @@ Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazion
 Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
-## Formati di documento supportati
-
-L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
-
-- PDF
-- Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica di Outlook)
-- HTML
-- XML
-- ZIP
-- EML
-- File di testo normale
-- JSON (per informazioni dettagliate, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
-
 ## Processo di estrazione dei documenti
 
 Ricerca di Azure indicizza ogni documento (BLOB) come segue:
@@ -117,7 +126,7 @@ Ricerca di Azure indicizza ogni documento (BLOB) come segue:
 
 	- **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-	- **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
+	- **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. ad esempio: `application/octet-stream`.
 
 	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): timestamp dell'ultima modifica per il BLOB. Ricerca di Azure usa questo timestamp per identificare i BLOB modificati, per evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
 
@@ -217,7 +226,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Estrazione del testo, inclusi gli allegati
 ZIP (application/zip) | `metadata_content_type` | Estrazione del testo da tutti i documenti nell'archivio
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Rimozione del markup XML ed estrazione del testo
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Estrazione del testo<br/>NOTA: per estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) per i dettagli.
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Estrazione del testo<br/>NOTA: per estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) per i dettagli
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Estrazione del testo, inclusi gli allegati
 Testo normale (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -294,4 +303,4 @@ Se è necessario estrarre tutti i metadati ignorando tuttavia l'estrazione del c
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/15/2016"
+	ms.date="08/09/2016"
 	ms.author="sstein"/>
 
 
@@ -31,37 +31,38 @@
 
 Il database SQL di Microsoft Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL di Azure per consentire l'accesso al database in modo selettivo.
 
-> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). È necessario aprire alcune porte TCP aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). Se si apportano le connessioni all'interno del cloud di Azure, è necessario aprire alcune porte TCP aggiuntive. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 ## Gestione delle regole del firewall a livello di server tramite l'API REST
-1. La gestione delle regole del firewall tramite l'API REST deve essere autenticata. Per informazioni, vedere Autenticazione di richieste di gestione del servizio.
+1. La gestione delle regole del firewall tramite l'API REST deve essere autenticata. Per informazioni, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](../resource-manager-api-authentication.md).
 2. È possibile creare, aggiornare o eliminare regole a livello di server tramite l'API REST
 
-	Per creare o aggiornare una regola del firewall a livello di server, eseguire il metodo POST con le seguenti operazioni:
+	Per creare o aggiornare una regola del firewall a livello di server, eseguire il metodo PUT con le seguenti operazioni:
  
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 	
-	Request Body
+	Corpo della richiesta
 
-		<ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
-		  <Name>ContosoFirewallRule</Name>
-		  <StartIPAddress>192.168.1.4</StartIPAddress>
-		  <EndIPAddress>192.168.1.10</EndIPAddress>
-		</ServiceResource>
+		{
+         "properties": { 
+            "startIpAddress": "{start-ip-address}", 
+            "endIpAddress": "{end-ip-address}
+            }
+        } 
  
 
 	Per rimuovere una regola del firewall a livello di server esistente, eseguire il metodo DELETE con le seguenti operazioni:
 	 
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## Gestione delle regole del firewall tramite l'API REST di gestione del servizio
+## Gestione delle regole del firewall tramite l'API REST
 
-* [Creare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505712.aspx)
-* [Eliminare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505706.aspx)
-* [Recuperare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505698.aspx)
-* [Elencare le regole del firewall](https://msdn.microsoft.com/library/azure/dn505715.aspx)
+* [Creare o aggiornare la regola del firewall](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [Eliminare la regola del firewall](https://msdn.microsoft.com/library/azure/mt445502.aspx)
+* [Recuperare la regola del firewall](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [Elencare tutte le regole del firewall](https://msdn.microsoft.com/library/azure/mt604478.aspx)
  
 ## Passaggi successivi
 
@@ -80,11 +81,11 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 - [Protezione del database](sql-database-security.md)
 - [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

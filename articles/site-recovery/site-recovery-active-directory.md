@@ -58,9 +58,9 @@ Abilitare la protezione della macchina virtuale controller di dominio/DNS in Sit
 
 ###Configurare le impostazioni di rete della macchina virtuale
 
-Per la macchina virtuale controller di dominio/DNS, configurare le impostazioni di rete in Site Recovery in modo che la VM venga collegata alla rete corretta dopo il failover. Ad esempio, se si replicano VM Hyper-V in Azure, è possibile selezionare la VM nel cloud VMM o nel gruppo di protezione per configurare le impostazioni di rete, come illustrato di seguito.
+Per la macchina virtuale controller di dominio/DNS, configurare le impostazioni di rete in Site Recovery in modo che la VM venga collegata alla rete corretta dopo il failover. Ad esempio, se si replicano VM Hyper-V in Azure, è possibile selezionare la VM nel cloud VMM o nel gruppo di protezione per configurare le impostazioni di rete, come illustrato di seguito
 
-![Impostazioni di rete della VM](./media/site-recovery-active-directory/VM-Network-Settings.png)
+![Impostazioni di rete della VM](./media/site-recovery-active-directory/VM-Network-Settings.png)  
 
 ## Proteggere Active Directory con la replica di Active Directory
 
@@ -105,9 +105,9 @@ Se DNS non è presente nella stessa macchina virtuale del controller di dominio,
 	- La zona deve essere abilitata per aggiornamenti protetti e non protetti.
 	- Il sistema di risoluzione della macchina virtuale controller di dominio deve puntare all'indirizzo IP della macchina virtuale DNS.
 
-2. Eseguire il comando seguente nella directory della macchina virtuale controller di dominio:
+2. Eseguire il comando seguente nella macchina virtuale controller di dominio:
 
-	`nltest /dsregdns`
+	`nltest /dsregdns`  
 
 3. Aggiungere una zona nel server DNS, consentire aggiornamenti non protetti e aggiungere una voce al DNS:
 
@@ -121,4 +121,4 @@ Se DNS non è presente nella stessa macchina virtuale del controller di dominio,
 
 Per altre informazioni sulla protezione dei carichi di lavoro aziendali con Azure Site Recovery, leggere [Quali carichi di lavoro è possibile proteggere?](../site-recovery/site-recovery-workload.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

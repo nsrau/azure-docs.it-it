@@ -3,11 +3,11 @@
    description="Informazioni su come distribuire più macchine virtuali della scheda di interfaccia di rete tramite un modello di Gestione risorse"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />  
 
 # Distribuire più macchine virtuali della scheda di interfaccia di rete tramite un modello
 
@@ -292,4 +292,4 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->
