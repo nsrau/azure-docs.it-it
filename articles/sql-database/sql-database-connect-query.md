@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -64,7 +64,7 @@ Per installare Visual Studio, è possibile:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/), http://portal.azure.com/.
 
-2. Fare clic su **ESPLORA* TUTTO** > **database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
+2. Fare clic su *ESPLORA* TUTTO** > **Database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
 
 3. Nella casella di testo del filtro in alto digitare il nome del database **AdventureWorksLT**.
 
@@ -82,7 +82,7 @@ Per installare Visual Studio, è possibile:
 
 9. Al termine dell'installazione di Visual Studio, nel pannello **Apri in Visual Studio** fare clic sul pulsante **Apri in Visual Studio**. Verrà aperto Visual Studio.
 
-10. Per poter usare il riquadro **Esplora oggetti di SQL Server**, in Visual Studio verrà visualizzata una finestra di dialogo in cui è necessario compilare i campi relativi alla stringa di connessione.
+10. Visual Studio richiederà la compilazione dei campi relativi alla stringa di connessione in una finestra di dialogo.
  - Scegliere **Autenticazione di SQL Server**, non **Autenticazione di Windows**.
  - Ricordare di specificare il database **AdventureWorksLT** in **Opzioni** > **Proprietà connessione** nella finestra di dialogo.
 
@@ -121,4 +121,4 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

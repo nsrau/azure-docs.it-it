@@ -19,7 +19,9 @@
 
 # Creare una VM Linux in Azure tramite l'interfaccia della riga di comando
 
-Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando il comando `azure vm quick-create` dell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una macchina virtuale con un'infrastruttura di base che è possibile usare per creare un prototipo o testare un concetto molto rapidamente. Può essere considerato il modo più rapido per raggiungere una shell bash. L'articolo richiede un account Azure ([fare clic qui per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) connessa (`azure login`) e in modalità Resource Manager (`azure config mode arm`). È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
+> [AZURE.NOTE] Gli utenti sono invitati a fornire il proprio contributo per il miglioramento della documentazione sulle macchine virtuali Linux di Azure eseguendo questo [rapido sondaggio ](https://aka.ms/linuxdocsurvey) sulle proprie esperienze. Ogni risposta è utile per aiutare gli utenti a svolgere al meglio la propria attività.
+
+Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando il comando `azure vm quick-create` dell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una macchina virtuale con un'infrastruttura di base circostante che è possibile usare per creare un prototipo o testare un concetto molto rapidamente. Può essere considerato il modo più rapido per ottenere una shell bash Linux. L'articolo richiede un account Azure ([fare clic qui per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) connessa (`azure login`) e in modalità Resource Manager (`azure config mode arm`). È anche possibile distribuire rapidamente una macchina virtuale Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Breve riepilogo del comando
 
@@ -35,7 +37,7 @@ Usando lo stesso comando riportato sopra, di seguito viene mostrato ogni prompt 
 
 ## Usare un alias ImageURN
 
-Il comando `quick-create` dell'interfaccia della riga di comando di Azure ha alias con mapping alle distribuzioni di sistema operativo più comuni. La tabella seguente elenca gli alias di distribuzione, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Tutte le distribuzioni che usano `quick-create` includono per impostazione predefinita VM basate su risorse di archiviazione SSD, in modo da offrire prestazioni elevate.
+Il comando `quick-create` dell'interfaccia della riga di comando di Azure include alias con mapping alle distribuzioni di sistema operativo più comuni. La tabella seguente elenca gli alias di distribuzione, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Tutte le distribuzioni che usano `quick-create` includono per impostazione predefinita macchine virtuali basate su risorse di archiviazione SSD per offrire prestazioni elevate.
 
 | Alias | Autore | Offerta | SKU | Versione |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -49,7 +51,7 @@ Il comando `quick-create` dell'interfaccia della riga di comando di Azure ha ali
 
 
 
-Per l'opzione **ImageURN** (`-Q`) verrà usato `RHEL` per distribuire una VM RedHat Enterprise Linux 7.2. Questi 7 alias rappresentano una piccola parte dei sistemi operativi disponibili in Azure. Per trovare altre immagini nel Marketplace, [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) o [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
+Per l'opzione **ImageURN** (`-Q`) verrà usato `RHEL` per distribuire una macchina virtuale RedHat Enterprise Linux 7.2. Questi 7 alias rappresentano una piccola parte dei sistemi operativi disponibili in Azure. Per trovare altre immagini nel Marketplace, [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) o [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
 
 Nell'analisi dettagliata del comando seguente sostituire i prompt con i valori dell'ambiente in uso, perché qui vengono usati valori di esempio.
 
@@ -163,7 +165,7 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Passaggi successivi
 
-Il comando `azure vm quick-create` consente di distribuire rapidamente una VM per poter accedere a una shell bash e iniziare a lavorare. L'uso di `vm quick-create` non offre i vantaggi aggiuntivi di un ambiente complesso. Per distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere gli articoli seguenti.
+Il comando `azure vm quick-create` consente di distribuire rapidamente una macchina virtuale per poter accedere a una shell bash e iniziare a lavorare. L'uso di `vm quick-create` non offre i vantaggi aggiuntivi di un ambiente complesso. Per distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere gli articoli seguenti.
 
 - [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md)
 - [Creare un ambiente personalizzato per una VM Linux usando direttamente i comandi dell'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md).
@@ -171,4 +173,4 @@ Il comando `azure vm quick-create` consente di distribuire rapidamente una VM pe
 
 Questi articoli illustrano come iniziare a compilare un'infrastruttura di Azure oltre a un numero qualsiasi di strumenti di orchestrazione, configurazione e distribuzione delle infrastrutture proprietarie e open source.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

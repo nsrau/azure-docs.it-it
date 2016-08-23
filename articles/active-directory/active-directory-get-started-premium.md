@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Introduzione ad Azure Active Directory Premium"
-	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web Volume Licensing."
+	description="Questo argomento descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web dei contratti multilicenza."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila" 
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
-	ms.author="markvi"/>  
+	ms.date="08/16/2016"
+	ms.author="markvi"/>
 
 # Introduzione ad Azure Active Directory Premium
 
@@ -56,7 +56,7 @@ Per ogni acquisto successivo relativo a questa directory, le licenze vengono att
 
 1. Per avviare l'attivazione, fare clic su **Accedi** o **Iscriviti**.
 
-    ![Accesso][1]  
+    ![Accesso][1]
 
 
 
@@ -64,11 +64,11 @@ Per ogni acquisto successivo relativo a questa directory, le licenze vengono att
 
     - Se si vuole creare un nuovo tenant di Azure Active Directory da usare con il piano di licenze, fare clic su **Iscriviti** per aprire la finestra di dialogo **Creazione del profilo dell'account**.
 
-        ![Creare un profilo di account][2]  
+        ![Creare un profilo di account][2]
 
 Al termine, viene visualizzata la finestra di dialogo seguente a conferma dell'attivazione del piano di licenze per il tenant.
 
-![Conferma][3]  
+![Conferma][3]
 
 ## Passaggio 3: Attivare l'accesso ad Azure Active Directory
 
@@ -78,7 +78,7 @@ Quando viene effettuato il provisioning delle licenze nella directory, viene inv
 
 Se si prova ad attivare l'accesso ad Azure Active Directory prima di ricevere il messaggio di posta elettronica di benvenuto, viene visualizzato il messaggio di errore seguente.
 
-![L'accesso non è disponibile][9]  
+![L'accesso non è disponibile][9]
 
 Dopo la ricezione del messaggio di posta elettronica, attendere alcuni minuti prima di ripetere il tentativo.
 
@@ -93,23 +93,23 @@ Anche i nuovi amministratori inclusi nella sottoscrizione possono attivare l'acc
 
 1. Nel **messaggio di posta elettronica di benvenuto** fare clic su **Accedi**.
     
-    ![Messaggio di posta elettronica di benvenuto][4]  
+    ![Messaggio di posta elettronica di benvenuto][4]
 
 2. Dopo aver eseguito l'accesso, è necessario completare un'autenticazione a due fattori mediante una verifica per dispositivi mobili:
 
-    ![Verifica per dispositivi mobili][5]  
+    ![Verifica per dispositivi mobili][5]
 
 L'attivazione potrebbe richiedere alcuni minuti. Quando l'accesso viene attivato, la barra marrone scompare ed è possibile fare clic su **Portale**.
 
-![Attendere. Configurazione in corso][6]  
+![Attendere. Configurazione in corso][6]
 
 In questo caso, l'accesso ad Azure è limitato ad Azure Active Directory.
 
-![Funzionalità di Azure][7]  
+![Funzionalità di Azure][7]
 
-Se invece si riesce ad accedere ad Azure grazie a un'iscrizione precedente, è possibile eseguire l'aggiornamento dell'accesso di Azure Active Directory all'accesso di Azure completo attivando sottoscrizioni Azure aggiuntive. In questi casi il portale di Azure classico offre maggiori funzionalità.
+Se invece si ha già accesso ad Azure grazie a un utilizzo precedente, è possibile eseguire l'aggiornamento dell'accesso di Azure Active Directory all'accesso di Azure completo attivando sottoscrizioni di Azure aggiuntive. In questi casi il portale di Azure classico offre maggiori funzionalità.
 
-![Funzionalità di Azure][8]  
+![Funzionalità di Azure][8]
 
 
 
@@ -123,11 +123,11 @@ Prima di iniziare a usare il piano acquistato, è necessario assegnare manualmen
 2. Fare clic su **Active Directory**, quindi selezionare la directory in cui si desidera assegnare le licenze.
 3. Fare clic sulla scheda **Licenze**, selezionare **Active Directory Premium** o **Enterprise Mobility Suite** e quindi fare clic su **Assegna**.
 
-    ![Piani di licenze][10]  
+    ![Piani di licenze][10]
 
 4. Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.
 
-    ![Assegnare licenze][11]  
+    ![Assegnare licenze][11]
 
 ### Limitazioni relative alle licenze
 
@@ -137,7 +137,7 @@ Alcuni piani di licenze fanno parte di altri piani di licenze o includono a loro
 
 Quando si assegna una licenza a un utente, è possibile specificare una località di utilizzo primaria nelle proprietà dell'account. Se non viene specificata una località di utilizzo, all'utente verrà assegnata automaticamente la località del tenant.
 
-![Posizione degli utenti][12]  
+![Posizione degli utenti][12]
 
 La disponibilità di servizi e funzionalità per un servizio cloud Microsoft varia in base al paese o all'area geografica. È possibile che un servizio, ad esempio VoIP (Voice over Internet Protocol), sia disponibile solo in alcuni paesi o aree geografiche. È inoltre possibile che alcune funzionalità di un servizio siano limitate per motivi legali in determinati paesi o aree geografiche. Per verificare se un servizio o una funzionalità è disponibile con o senza limitazioni, cercare il proprio paese o area geografica nel sito dedicato alle limitazioni relative alle licenze del servizio.
 
@@ -160,4 +160,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

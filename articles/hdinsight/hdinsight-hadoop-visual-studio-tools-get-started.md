@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
@@ -64,7 +64,7 @@ HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, e
 2.	Scegliere **Esplora server** dal menu **Visualizza** per aprire la finestra Esplora server.
 3.	Espandere **Azure** e quindi espandere **HDInsight**.
 
-	>[AZURE.NOTE]Si noti che la finestra **Elenco attività HDInsight** è aperta. Se tale finestra non è visualizzata, selezionare **Altre finestre** dal menu **Visualizza** e fare clic su **Finestra elenco attività HDInsight**.  
+	>[AZURE.NOTE]Si noti che la finestra **Elenco attività HDInsight** è aperta. Se tale finestra non è visualizzata, selezionare **Altre finestre** dal menu **Visualizza** e fare clic su **Finestra elenco attività HDInsight**.
 4.	Immettere le credenziali della sottoscrizione di Azure e fare clic su **Accedi**. Questa operazione è necessaria solo se non si è mai eseguita la connessione alla sottoscrizione di Azure da Visual Studio sulla workstation.
 5.	In Esplora server verrà visualizzato un elenco di cluster HDInsight esistenti. Se non si dispone di cluster, è possibile eseguire il provisioning di un cluster usando il portale di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
@@ -86,6 +86,11 @@ Dopo la connessione alla sottoscrizione di Azure, sarà possibile eseguire le op
 Da Esplora server è possibile visualizzare l'account di archiviazione predefinito e qualsiasi account di archiviazione collegato. Se si espande l'account di archiviazione predefinito, è possibile visualizzare i contenitori presenti. L'account di archiviazione predefinito e il contenitore predefinito sono contrassegnati. Per visualizzare i contenuti, è possibile anche fare clic su uno dei contenitori con il pulsante destro del mouse.
 
 ![Elenco di cluster in Esplora Server di HDInsight Tools per Visual Studio][2]
+
+Dopo l'apertura di un contenitore, è possibile usare i pulsanti seguenti per caricare, eliminare e scaricare i BLOB:
+
+![Operazioni BLOB di Esplora Server di HDInsight Tools per Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Eseguire una query Hive
 [Apache Hive][apache.hive] è un'infrastruttura di data warehouse basata su Hadoop che consente di fornire funzionalità di riepilogo, query e analisi di dati. HDInsight Tools per Visual Studio supporta l'esecuzione di query Hive da Visual Studio. Per altre informazioni su Hive, vedere [Utilizzo di Hive con HDInsight][hdinsight.hive].
@@ -232,7 +237,7 @@ Gli strumenti HDInsight per Visual Studio supportano la creazione di script Pig 
 
 - Lo script HQL creato da Visual Studio viene codificato a seconda dell'impostazione dell'area locale dell'utente. È possibile che lo script non venga eseguito correttamente se l'utente lo carica nel cluster come binario.
 
-Per eventuali commenti o suggerimenti oppure se si verificano problemi durante l'uso di questo strumento, inviare un messaggio di posta elettronica all'indirizzo hdivstool@microsoft.com.
+Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi durante l'utilizzo di questo strumento, inviare un messaggio di posta elettronica all'indirizzo hdivstool@microsoft.com.
 
 ## Passaggi successivi
 In questo articolo è stato mostrato come connettersi a cluster HDInsight da Visual Studio, usando il pacchetto Hadoop Tools, e come eseguire una query Hive. Per altre informazioni, vedere:
@@ -277,4 +282,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

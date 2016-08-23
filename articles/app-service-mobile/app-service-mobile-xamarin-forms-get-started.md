@@ -5,7 +5,7 @@
 	documentationCenter="xamarin"
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="glenga"/>  
+	ms.date="08/11/2016"
+	ms.author="glenga"/>
 
 #Creare un'app Xamarin.Forms
 
@@ -66,9 +66,9 @@ Procedura:
 
  3. Estrarre il progetto scaricato e aprirlo in Xamarin Studio o in Visual Studio.
 
-	![][9]  
+	![][9]
 
-	![][8]  
+	![][8]
 
 
 ##(Facoltativo) Eseguire il progetto iOS
@@ -90,7 +90,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
 
 Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_, e quindi fare clic sul pulsante **+**.
 
-![][10]  
+![][10]
 
 Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
 
@@ -117,7 +117,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_, e quindi fare clic sul pulsante **+**.
 
-![][11]  
+![][11]
 
 Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
 
@@ -144,7 +144,7 @@ Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_, e quindi f
 
 Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
 
-![][12]  
+![][12]
 
 > [AZURE.NOTE]
 Il codice che accede al back-end dell'app per dispositivi mobili è disponibile nel file TodoItemManager.cs C# del progetto di libreria di classi portabile della soluzione.
@@ -160,13 +160,13 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 * [Come usare il client gestito per le app per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come usare l'SDK del client gestito nell'app Xamarin.
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
 [Create a new mobile app backend]: #create-new-service
 [Next Steps]: #next-steps
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
 [8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
 [9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
@@ -175,9 +175,9 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Panoramica
+##Overview
 
 Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'app della piattaforma UWP (Universal Windows Platform).
 
@@ -98,11 +98,11 @@ Per inviare notifiche push ad app UWP è necessario associare l'app a Windows St
  	> [AZURE.WARNING]
 	Il segreto applicazione e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
 
-##Configurare l'hub di notifica
+##Configurazione dell'hub di notifica
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p>Selezionare l'opzione <b>Servizi di notifica</b> e l'opzione <b>Windows (WNS)</b>. Immettere quindi la password di <b>Segreti applicazione</b> nel campo <b>Chiave di sicurezza</b>. Immettere il valore di <b>SID pacchetto</b> ottenuto da WNS nella sezione precedente e quindi fare clic su <b>Salva</b>.</p>
 </li>
 </ol>
@@ -200,7 +200,7 @@ Per inviare notifiche tramite un'applicazione console .NET seguire questa proced
 
    	![][13]
 
-	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
+	Alla soluzione viene aggiunta una nuova applicazione console in Visual C#: Questa operazione può essere eseguita anche in una soluzione separata.
 
 2. In Visual Studio fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Console di Gestione pacchetti**.
 
@@ -274,4 +274,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

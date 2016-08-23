@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>  
+	manager="femila" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+	ms.date="08/15/2016" 
+	ms.author="billmath"/>
 
 
 
@@ -26,7 +26,7 @@ La sezione autenticazione RADIUS consente di abilitare e configurare l'autentica
 Il server MFA supporta solo i protocolli RADIUS PAP (Password Authentication Protocol) e MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) quando agisce da server RADIUS. Quando il server MFA agisce come proxy RADIUS per un altro server RADIUS che supporta tale protocollo, ad esempio Microsoft NPS, è possibile usare altri protocolli, ad esempio EAP (Extensible Authentication Protocol). </br> Quando si usano altri protocolli in questa configurazione, i token OATH e SMS unidirezionali non funzioneranno perché il server MFA non è in grado di avviare una risposta RADIUS Challenge corretta tramite tale protocollo.
 
 
-![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)  
+![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## Configurazione dell'autenticazione RADIUS
 
@@ -60,4 +60,4 @@ Per configurare il client RADIUS, utilizzare le linee guida:
 - Utilizzare lo stesso segreto condiviso configurato in precedenza.
 - Impostare il timeout di RADIUS su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente, eseguire l'autenticazione a più fattori, ricevere la risposta e quindi rispondere alla richiesta di accesso RADIUS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

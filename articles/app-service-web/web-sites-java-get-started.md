@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Creazione di un'app Web Java nel servizio app di Azure
@@ -24,7 +24,7 @@ Questa esercitazione illustra come creare un'[app Web Java nel servizio app di A
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio] oppure [iscriversi per ottenere una versione di valutazione gratuita].
 >
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Opzioni dell'applicazione Java
 
@@ -40,11 +40,11 @@ Si possono usare diversi modi per configurare un'applicazione Java in un'app Web
   
 3. Creare un'app e quindi copiare e modificare manualmente i file di configurazione
 
-	È possibile ospitare un'applicazione Java personalizzata che non viene distribuita in uno dei contenitori Web forniti dal servizio App. Ad esempio:
+	È possibile ospitare un'applicazione Java personalizzata che non viene distribuita in uno dei contenitori Web forniti dal servizio App. ad esempio:
 	
 	* L'applicazione Java richiede una versione di Tomcat o Jetty che non è direttamente supportata dal servizio app o fornita nella raccolta.
 	* L'applicazione Java accetta richieste HTTP e non viene distribuita come file WAR in un contenitore Web preesistente.
-	* Si vuole configurare manualmente da zero il contenitore Web. 
+	* Si vuole configurare manualmente da zero il contenitore Web.
 	* Si vuole usare una versione di Java non supportata nel servizio app e caricarla manualmente.
 
 	Per casi come questi è possibile creare un'app tramite il portale di Azure e quindi mettere a disposizione manualmente i file di runtime appropriati. In questo caso, i file verranno conteggiati a fronte delle quote di spazio di archiviazione per il piano di servizio app. Per altre informazioni, vedere [Caricare un'app Web Java personalizzata in Azure].
@@ -71,7 +71,7 @@ Questa sezione illustra come creare un'app Web e configurarla per l'uso del pann
 
 	Per altre informazioni sui piani di servizio app, vedere [Panoramica dei piani di servizio app di Azure].
 
-7. Fare clic su **Create**.
+7. Fare clic su **Crea**.
 
 	![Crea app Web][newwebapp2]
  
@@ -172,7 +172,7 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [portale di Azure]: https://portal.azure.com/
 [attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
+[provare il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 [app Web Java nel servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
 [Uso del portale di Azure per gestire le risorse di Azure]: ../azure-portal/resource-group-portal.md
@@ -192,4 +192,4 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

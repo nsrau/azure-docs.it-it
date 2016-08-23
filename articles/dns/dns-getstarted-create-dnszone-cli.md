@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creare una zona DNS di Azure con l'interfaccia della riga di comando
@@ -58,7 +58,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali. Tenere
 
 ### 4\. Selezionare la sottoscrizione
 
-Scegliere le sottoscrizioni ad Azure da utilizzare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
     Azure account set "subscription name"
 
@@ -71,9 +71,9 @@ Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio
     Azure group create -n myresourcegroup --location "West US"
 
 
-### 6\. Opzione Register
+### 6\. Registra
 
-Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. La sottoscrizione di Azure deve essere registrata per usare questo provider di risorse prima di poter usare DNS di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
+Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. La sottoscrizione di Azure deve essere registrata per usare questo provider di risorse prima di poter usare DNS di Azure. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
 
 	Azure provider register --namespace Microsoft.Network
 
@@ -109,7 +109,7 @@ La creazione di una zona DNS comporta anche la creazione dei record DNS seguenti
 
 - I record del server del nomi autorevole (NS), che mostrano quali server dei nomi ospitano la zona. DNS di Azure usa un pool di server dei nomi e dunque diversi server dei nomi potrebbero essere assegnati ad aree diverse nel servizio DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
-Per visualizzare questi record, usare `azure network dns-record-set show`.<BR> *Utilizzo: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
+Per visualizzare questi record, usare `azure network dns-record-set show`.<BR> *Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
 
 
 Nell'esempio seguente l'esecuzione del comando con il gruppo di risorse *myresourcegroup*, il nome del set di record *"@"* (per un record radice) e il tipo *SOA* produrrà l'output seguente:
@@ -157,7 +157,7 @@ Nell'esempio seguente l'esecuzione del comando con il gruppo di risorse *myresou
 
 Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario indirizzare la query DNS direttamente a uno dei server dei nomi per la zona. I server dei nomi per la zona sono specificati nei record NS, ottenuti tramite il comando "azure network dns-record-set show" precedente. Assicurarsi di sostituire i valori corretti per la propria zona nel comando seguente.
 
-L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando i server dei nomi assegnati per la zona DNS. La query deve puntare a un server dei nomi per cui si è usato *@<name server for the zone>* e al nome della zona tramite DIG.
+L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando i server dei nomi assegnati per la zona DNS. La query deve puntare a un server dei nomi per cui si è usato *@<nome server per la zona>* e al nome della zona tramite DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
@@ -185,4 +185,4 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 Dopo aver creato una zona DNS, creare [set di record e record](dns-getstarted-create-recordset-cli.md) per avviare la risoluzione dei nomi per il dominio Internet.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

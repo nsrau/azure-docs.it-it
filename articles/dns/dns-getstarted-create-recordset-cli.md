@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creare set di record e record DNS con l'interfaccia della riga di comando
@@ -38,7 +38,7 @@ Per creare un set di record nell'apice della zona, in questo caso "contoso.com",
 
 Per creare un set di record usare `azure network dns record-set create`. Specificare il gruppo di risorse, il nome della zona, il nome relativo del set di record, il tipo di record e il TTL. Se il parametro `--ttl` non è definito, verrà impostato il valore predefinito di quattro secondi. Con il completamento di questo passaggio si avrà un set di record vuoto "www".
 
-*Utilizzo: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
@@ -50,7 +50,7 @@ I parametri per l'aggiunta di record a un set di record variano a seconda del ti
 
 È possibile aggiungere record IPv4 *A* al set di record "www" con il comando seguente:
 
-*Utilizzo: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
@@ -64,6 +64,6 @@ Gli esempi seguenti illustrano come creare un set di record di ogni tipo di reco
 
 Per gestire i set di record e i record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando](dns-operations-recordsets-portal.md).
 
-Per altre informazioni sul servizio DNS di Azure, vedere la [panoramica del servizio DNS di Azure](dns-overview.md).
+Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

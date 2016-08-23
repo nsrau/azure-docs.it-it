@@ -21,7 +21,7 @@ Creare un hub IoT a cui si connette il dispositivo simulato. La procedura seguen
 
     ![Stato del nuovo hub IoT][3]
 
-5. Dopo avere creato l'hub IoT, fare clic sul nuovo riquadro per l'hub IoT nel portale per aprire il pannello del nuovo hub IoT. Prendere nota del **nome host** e quindi fare clic sull'icona delle **chiavi**.
+5. Dopo avere creato l'hub IoT, fare clic sul nuovo riquadro per l'hub IoT nel portale per aprire il pannello del nuovo hub IoT. Prendere nota del **Nome host** e quindi fare clic su **Criteri di accesso condiviso**.
 
     ![Pannello del nuovo hub IoT][4]
 
@@ -43,4 +43,4 @@ Creare un hub IoT a cui si connette il dispositivo simulato. La procedura seguen
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

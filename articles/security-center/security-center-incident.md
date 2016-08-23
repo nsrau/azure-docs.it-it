@@ -24,7 +24,7 @@ Questo documento illustra come usare le funzionalità degli avvisi del Centro si
 
 ## Che cos'è un evento imprevisto della sicurezza?
 
-Nel Centro sicurezza, un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Gli eventi imprevisti vengono visualizzati nel riquadro e nel pannello [Avvisi di sicurezza](security-center-managing-and-responding-alerts.md). Un evento imprevisto riporta un elenco degli avvisi correlati, che consente di ottenere altre informazioni su ogni occorrenza.
+Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Gli eventi imprevisti vengono visualizzati nel riquadro e nel pannello [Avvisi di sicurezza](security-center-managing-and-responding-alerts.md). Un evento imprevisto riporta un elenco degli avvisi correlati, che consente di ottenere altre informazioni su ogni occorrenza.
 
 ## Gestione degli eventi imprevisti della sicurezza
 
@@ -34,15 +34,15 @@ Nel Centro sicurezza, un evento imprevisto della sicurezza è un'aggregazione di
 
     ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Fare clic sul riquadro per espanderlo. In caso di rilevamento di un evento imprevisto della sicurezza, verrà visualizzato nel grafico degli avvisi di sicurezza come illustrato in questa immagine.
+2.  Fare clic sul riquadro per espanderlo. In caso di rilevamento di un evento imprevisto della sicurezza, verrà visualizzato nel grafico degli avvisi di sicurezza come illustrato nell'immagine seguente:
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)  
+    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)
 
 3.	Si noti che la descrizione dell'evento imprevisto della sicurezza ha un'icona diversa rispetto agli altri avvisi. Fare clic su di essa per visualizzare altri dettagli sull'evento imprevisto.
 
-	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)  
+	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	Nel pannello **Security incident detected** (Rilevato evento imprevisto sicurezza) verranno visualizzati altri dettagli sull'evento imprevisto della sicurezza, che includono la descrizione completa dell'evento imprevisto, la gravità (che in questo caso è alta), lo stato corrente dell'evento imprevisto (che in questo caso è ancora *attivo*), la risorsa che ha subito attacchi (in questo caso *VM1*), la procedura di correzione e in basso gli avvisi inclusi nell'evento imprevisto. Per ottenere altre informazioni su ogni avviso, è sufficiente fare clic su di esso. Verrà aperto un altro pannello, come illustrato di seguito.
+4. 	Nel pannello **Evento imprevisto** saranno visualizzati altri dettagli sull'evento imprevisto della sicurezza, inclusa la descrizione completa, la gravità (che in questo caso è alta), lo stato corrente (che in questo caso è ancora *attivo* e implica che l'utente non ha provveduto a *ignorarlo*, operazione eseguibile facendo clic con il pulsante destro del mouse sull'evento imprevisto nel pannello **Avvisi di sicurezza**), la risorsa che ha subito attacchi (in questo caso *VM1*), la procedura di correzione e gli avvisi inclusi nell'evento imprevisto nel riquadro inferiore. Per ottenere altre informazioni su ogni avviso, basta selezionarlo. Verrà aperto un altro pannello, come illustrato di seguito:
 
 	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig4.png)
 
@@ -63,4 +63,4 @@ In questo documento è stato descritto come usare le funzionalità relative agli
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

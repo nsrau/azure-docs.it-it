@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB
@@ -57,7 +57,7 @@ Creare un account DocumentDB. Se si ha già un account, è possibile ignorare qu
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Passaggio 2: Configurare la soluzione di Visual Studio
+## <a id="SetupVS"></a>Passaggio 2: Configurare la soluzione di Visual Studio
 
 1. Aprire **Visual Studio 2015** nel computer.
 2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.
@@ -69,7 +69,7 @@ Creare un account DocumentDB. Se si ha già un account, è possibile ignorare qu
 
 L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziamo a scrivere il codice. Un progetto di codice completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Passaggio 3: Connettersi a un account DocumentDB
+## <a id="Connect"></a>Passaggio 3: Connettersi a un account DocumentDB
 
 In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, nel file Program.cs:
 
@@ -96,9 +96,9 @@ Aggiungere ora queste due costanti e la variabile *client* sotto la classe pubbl
 
 Passare quindi al [portale di Azure](https://portal.azure.com) per recuperare l'URI e la chiave primaria. L'URI e la chiave primaria di DocumentDB sono necessari all'applicazione per conoscere la destinazione della connessione e a DocumentDB per considerare attendibile la connessione dell'applicazione.
 
-Nel portale di Azure passare all'account DocumentDB dal passaggio 1.
+Nel portale di Azure passare all'account DocumentDB dal passaggio 1 e quindi fare clic su **Chiavi**.
 
-Fare clic sull'icona delle **chiavi** sulla barra **Informazioni di base**. Copiare l'URI e sostituire *<URI endpoint>* con l'URI copiato nel programma. Copiare la chiave primaria e sostituire *<chiave>* con la chiave copiata nel programma.
+Copiare l'URI e sostituire *<your endpoint URI>* con l'URI copiato nel programma. Copiare la chiave primaria e sostituire *<your key>* con la chiave copiata nel programma.
 
 ![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
@@ -200,7 +200,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni. La creazione di un database di DocumentDB è stata completata.
 
-##<a id="CreateColl"></a>Passaggio 5: Creare una raccolta  
+## <a id="CreateColl"></a>Passaggio 5: Creare una raccolta  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -255,7 +255,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni. La raccolta di documenti di DocumentDB è stata completata.
 
-##<a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
+## <a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
 È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](documentdb-import-data.md) di DocumentDB.
 
 È necessario creare prima una classe **Family** che rappresenterà gli oggetti archiviati in DocumentDB in questo esempio. Si creeranno anche le sottoclassi **Parent**, **Child**, **Pet** e **Address** da usare all'interno di **Family**. Si noti che i documenti devono avere una proprietà **Id** serializzata come **id** in JSON. Creare queste classi aggiungendo le classi secondarie interne seguenti dopo il metodo **GetStartedDemo**.
@@ -443,7 +443,7 @@ Copiare e incollare il metodo **ExecuteSimpleQuery** sotto il metodo **CreateFam
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -591,7 +591,7 @@ Verrà visualizzato l'output dell'app introduttiva. L'output visualizzerà i ris
 
 Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console C# funzionante.
 
-##<a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione su NoSQL
+##<a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su NoSQL
 Per creare la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
 
 - Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
@@ -603,7 +603,7 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 ## Passaggi successivi
 
 - Si preferisce un'esercitazione su NoSQL MVC ASP.NET più complessa? Vedere [Creare un'applicazione Web con MVC ASP.NET usando DocumentDB](documentdb-dotnet-application.md).
-- Si vuole eseguire il test della scalabilità e delle prestazioni con DocumentDB? Vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md)
+- Si vuole eseguire il test della scalabilità e delle prestazioni con DocumentDB? Vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
 -	Informazioni su come [monitorare un account DocumentDB](documentdb-monitor-accounts.md).
 -	Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
 -	Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
@@ -612,4 +612,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->
