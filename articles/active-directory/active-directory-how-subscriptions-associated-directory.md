@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/15/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Associare le sottoscrizioni di Azure ad Azure Active Directory
 
@@ -134,7 +134,7 @@ Per completare questa procedura, è necessario eseguire l'accesso con un account
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG

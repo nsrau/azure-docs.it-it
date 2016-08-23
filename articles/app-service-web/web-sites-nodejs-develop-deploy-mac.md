@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creare un'app Web Node.js nel servizio app di Azure
 

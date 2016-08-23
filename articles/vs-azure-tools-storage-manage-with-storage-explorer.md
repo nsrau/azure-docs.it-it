@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="08/17/2016"
-	ms.author="tarcher" />  
+	ms.author="tarcher" />
 
 # Guida introduttiva a Storage Explorer (anteprima)
 

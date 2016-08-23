@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/15/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 
 # Correzione a disposizione dell'utente per accedere ad applicazioni protette con accesso condizionale basato su dispositivo di Azure AD
@@ -43,7 +43,7 @@ In caso di dispositivo Windows 10, Windows 8.1, Windows 8.0, Windows 7, Windows 
 
 Se il dispositivo non è registrato in Azure Active Directory e l'applicazione è protetta con criteri basati sul dispositivo, potrebbe essere visualizzata una pagina con il contenuto seguente:
 
-![Scenario](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")  
+![Scenario](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
  
 

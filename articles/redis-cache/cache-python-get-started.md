@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="08/16/2016"
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure con Python
 
@@ -64,7 +64,7 @@ Alcuni client Redis non supportano SSL e per impostazione predefinita la [porta 
 Sostituire `<name>` con il nome della cache e `key` con la chiave di accesso.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 

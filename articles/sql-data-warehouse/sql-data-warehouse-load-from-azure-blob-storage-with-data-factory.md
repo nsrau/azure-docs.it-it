@@ -214,7 +214,7 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 - [Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure][]. In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [documentazione di AZCopy]: ../storage/storage-use-azcopy.md
@@ -233,7 +233,7 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 
 <!--MSDN references-->
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Percorso di apprendimento per Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [portale di Azure]: https://portal.azure.com
 [Scaricare i dati di esempio]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv

@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.date="08/17/2016"
-   ms.author="magoedte"/>  
+   ms.author="magoedte"/>
 
 # Autenticare runbook con Amazon Web Services
 I runbook di automazione di Azure consentono di automatizzare le attività comuni relative alle risorse in Amazon Web Services (AWS). Esattamente come avviene per le risorse in Azure, con i runbook di Automazione è possibile automatizzare numerose attività in AWS. A questo scopo, sono necessari due elementi:

@@ -32,19 +32,19 @@ Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di 
 
 1. Nel dashboard del Centro sicurezza è disponibile il riquadro **Avvisi di sicurezza**.
 
-    ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-incident/security-center-incident-fig1.png)  
+    ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-incident/security-center-incident-fig1.png)
 
 2.  Fare clic sul riquadro per espanderlo. In caso di rilevamento di un evento imprevisto della sicurezza, verrà visualizzato nel grafico degli avvisi di sicurezza come illustrato nell'immagine seguente:
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)  
+    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)
 
 3.	Si noti che la descrizione dell'evento imprevisto della sicurezza ha un'icona diversa rispetto agli altri avvisi. Fare clic su di essa per visualizzare altri dettagli sull'evento imprevisto.
 
-	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)  
+	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. 	Nel pannello **Evento imprevisto** saranno visualizzati altri dettagli sull'evento imprevisto della sicurezza, inclusa la descrizione completa, la gravità (che in questo caso è alta), lo stato corrente (che in questo caso è ancora *attivo* e implica che l'utente non ha provveduto a *ignorarlo*, operazione eseguibile facendo clic con il pulsante destro del mouse sull'evento imprevisto nel pannello **Avvisi di sicurezza**), la risorsa che ha subito attacchi (in questo caso *VM1*), la procedura di correzione e gli avvisi inclusi nell'evento imprevisto nel riquadro inferiore. Per ottenere altre informazioni su ogni avviso, basta selezionarlo. Verrà aperto un altro pannello, come illustrato di seguito:
 
-	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig4.png)  
+	![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig4.png)
 
 Le informazioni visualizzate in questo pannello variano in base all'avviso. Per altre informazioni su come gestire questi avvisi, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md). Alcune considerazioni importanti in merito a questa funzionalità:
 

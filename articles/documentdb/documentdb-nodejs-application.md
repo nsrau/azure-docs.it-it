@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="08/15/2016" 
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="08/12/2016"
-	ms.author="marsma"/>  
+	ms.author="marsma"/>
 
 # Panoramica delle funzionalità di Batch per sviluppatori
 
@@ -181,7 +181,7 @@ Quando si crea un'attività, è possibile specificare:
 
 	È importante notare che la riga di comando non viene effettivamente eseguita in una shell. Non può quindi usare in modo nativo i vantaggi delle funzionalità della shell, ad esempio l'espansione delle [variabili di ambiente](#environment-settings-for-tasks), incluso `PATH`. Per usare queste funzionalità, è necessario richiamare la shell nella riga di comando, ad esempio avviando `cmd.exe` nei nodi Windows o `/bin/sh` in Linux:
 
-	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`  
+	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
 	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
@@ -276,12 +276,12 @@ Le variabili di ambiente seguenti vengono impostate dal servizio Batch e sono ac
 
 | Nome di variabile di ambiente | Descrizione |
 |---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME`   | Nome dell'account a cui appartiene l'attività. |
+| `AZ_BATCH_ACCOUNT_NAME` | Nome dell'account a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_ID` | ID del processo a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_PREP_DIR` | Percorso completo della directory di attività di preparazione sul nodo. |
 | `AZ_BATCH_JOB_PREP_WORKING_DIR` | Percorso completo della directory di lavoro di attività di preparazione sul nodo. |
 | `AZ_BATCH_NODE_ID` | ID del nodo in cui è in esecuzione l'attività. |
-| `AZ_BATCH_NODE_ROOT_DIR`   | Percorso completo della directory radice nel nodo. |
+| `AZ_BATCH_NODE_ROOT_DIR` | Percorso completo della directory radice nel nodo. |
 | `AZ_BATCH_NODE_SHARED_DIR` | Percorso completo della directory condivisa nel nodo. |
 | `AZ_BATCH_NODE_STARTUP_DIR` | Percorso completo della directory delle attività di avvio del nodo di calcolo nel nodo. |
 | `AZ_BATCH_POOL_ID` | ID del pool in cui è in esecuzione l'attività. |

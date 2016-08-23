@@ -14,14 +14,14 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/15/2016" 
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
 Questo articolo illustra come iniziare a usare Azure multi-Factor Authentication nel cloud.
 
 > [AZURE.NOTE]  La documentazione seguente fornisce informazioni su come abilitare gli utenti tramite il **portale di Azure classico**. Se occorrono informazioni su come configurare Azure multi-Factor Authentication per gli utenti di Office 365, vedere [Configurare l'autenticazione a più fattori per Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=it-IT&rs=it-IT&ad=US)
 
-![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)  
+![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
 ## Prerequisiti
 Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario soddisfare i prerequisiti seguenti.

@@ -15,7 +15,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/16/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Esercitazione: Introduzione alle soluzioni preconfigurate
 
@@ -63,7 +63,7 @@ L'elenco dei dispositivi mostra tutti i dispositivi registrati nella soluzione. 
 
 3.  Fare clic su un dispositivo nell'elenco dei dispositivi per visualizzarne i dettagli.
 
-    ![Dettagli del dispositivo nel dashboard][img-devicedetails]  
+    ![Dettagli del dispositivo nel dashboard][img-devicedetails]
 
 Il pannello **Dettagli dispositivo** contiene tre sezioni:
 
@@ -99,7 +99,7 @@ La procedura seguente illustra come aggiungere un dispositivo simulato alla solu
 
 2.  Fare clic su **+ Aggiungi dispositivo** nell'angolo in basso a sinistra per aggiungere un dispositivo.
 
-    ![Aggiungere un dispositivo alla soluzione preconfigurata][img-adddevice]  
+    ![Aggiungere un dispositivo alla soluzione preconfigurata][img-adddevice]
 
 3.  Fare clic su **Aggiungi nuovo** nel riquadro **Dispositivo simulato**.
 
@@ -111,7 +111,7 @@ La procedura seguente illustra come aggiungere un dispositivo simulato alla solu
 
 5.  Fare clic su **Crea**.
 
-    ![Salvare un nuovo dispositivo][img-definedevice]  
+    ![Salvare un nuovo dispositivo][img-definedevice]
 
 6. Nel passaggio 3 della procedura **Aggiungi un dispositivo simulato** fare clic su **Operazione completata** per tornare all'elenco dei dispositivi.
 
@@ -165,7 +165,7 @@ Non sono presenti regole per il nuovo dispositivo appena aggiunto. In questa sez
 
 7.  Tornare al dashboard della soluzione. Poco dopo verrà visualizzata una nuova voce nel riquadro **Cronologia avvisi** quando la temperatura segnalata dal nuovo dispositivo supera la soglia di 47 gradi:
 
-    ![Aggiungere una regola per il dispositivo][img-adddevicerule4]  
+    ![Aggiungere una regola per il dispositivo][img-adddevicerule4]
 
 8. È possibile rivedere e modificare tutte le regole nella pagina **Regole** del dashboard:
 
@@ -191,7 +191,7 @@ Tramite il portale della soluzione è possibile cercare i dispositivi con caratt
 
 Quando si distribuisce una soluzione preconfigurata, il processo di distribuzione crea più risorse nella sottoscrizione di Azure selezionata. È possibile visualizzare queste risorse nel [portale][lnk-portal] di Azure. Il processo di distribuzione crea un **gruppo di risorse** con un nome basato sul nome scelto per la soluzione preconfigurata:
 
-![Soluzione preconfigurata nel portale di Azure][img-portal]  
+![Soluzione preconfigurata nel portale di Azure][img-portal]
 
 È possibile visualizzare le impostazioni di ogni risorsa selezionandola nell'elenco di risorse nel gruppo di risorse.
 

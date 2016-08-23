@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/15/2016"
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 
@@ -243,7 +243,7 @@ Quando si crea un servizio BizTalk di Azure, viene creato anche un URL HTTPS che
 
 Quando si crea un servizio BizTalk di Azure, è disponibile la scheda relativa alle **connessioni ibride**:
 
-![scheda per le connessioni ibride][HybridConnectionTab]  
+![scheda per le connessioni ibride][HybridConnectionTab]
 
 Le connessioni ibride consentono la connessione di un sito Web o di un servizio mobile di Azure, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Le connessioni ibride e BizTalk Adapter Service presentano differenze. BizTalk Adapter Service viene usato per la connessione di Servizi BizTalk di a un sistema line-of-business locale.
 

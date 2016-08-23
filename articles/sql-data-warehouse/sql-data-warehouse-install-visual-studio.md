@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 # Installare Visual Studio 2015 e SSDT per SQL Data Warehouse
 
@@ -44,7 +44,7 @@ Se non viene trovato un aggiornamento, significa che la versione più recente è
 
 Dopo aver installato la versione più recente di SSDT, fare clic su [Connetti][] per connettersi a SQL Data Warehouse.
 
-<!--Anchors-->  
+<!--Anchors-->
 
 <!--Image references-->
 

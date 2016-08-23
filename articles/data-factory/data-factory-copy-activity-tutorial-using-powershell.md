@@ -176,7 +176,7 @@ Ignorare questo passaggio se è stata eseguita l'esercitazione [Copiare dati da 
 				
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)  
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 

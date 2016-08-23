@@ -46,7 +46,7 @@ Per compilare il progetto di esempio è necessario **Visual Studio 2015**. Le ve
 
 L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di codice disponibili nel repository [azure-batch-samples][github_samples] in GitHub. È possibile scaricare l'esempio facendo clic sul pulsante **Download ZIP** nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo l'estrazione dei contenuti del file ZIP, la soluzione sarà disponibile nella cartella seguente:
 
-`\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`  
+`\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### Azure Batch Explorer (facoltativo)
 

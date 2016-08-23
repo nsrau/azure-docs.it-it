@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/11/2016"
- ms.author="juanpere"/>  
+ ms.author="juanpere"/>
 
 # Introduzione a Gestione dei dispositivi dell'hub IoT di Azure con node.js (anteprima)
 
@@ -62,11 +62,11 @@ Per seguire la procedura qui descritta è necessario che sia installato il softw
 
 4.  Dopo aver scelto le opzioni di configurazione dell'hub IoT, fare clic su **Crea**. La creazione dell'hub IoT da parte di Azure può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella **Schermata iniziale** o nel pannello **Notifiche**.
 
-	![][img-monitor]  
+	![][img-monitor]
 
 5.  Al termine della creazione dell'hub IoT, aprire il pannello del nuovo hub IoT, prendere nota del **Nome host** e fare clic su **Criteri di accesso condiviso**.
 
-	![][img-keys]  
+	![][img-keys]
 
 6.  Fare clic sui criteri **iothubowner**, quindi copiare e prendere nota della stringa di connessione nel pannello **iothubowner**. Copiarla in una posizione accessibile in un secondo momento, perché sarà necessaria per portare a termine l'esercitazione.
 
@@ -133,7 +133,7 @@ Il seguente è l'output dell'applicazione di esempio **iotdm\_simple\_sample**. 
 
 > [AZURE.NOTE]  Per avere un output meno dettagliato, compilare ed eseguire la configurazione finale.
 
-![][img-output]  
+![][img-output]
 
 Assicurarsi di lasciare tutti i dispositivi simulati in esecuzione durante il completamento delle sezioni seguenti.
 
@@ -175,7 +175,7 @@ Per recuperare, compilare ed eseguire l'interfaccia utente di esempio di Gestion
 
 8. Quando il prompt dei comandi segnala che i servizi sono stati avviati, aprire un Web browser e passare all'app di gestione dei dispositivi disponibile nell'URL seguente per visualizzare i dispositivi simulati: <http://127.0.0.1:3003>.
 
-	![][img-dm-ui]  
+	![][img-dm-ui]
 
 Lasciare in esecuzione i dispositivi simulati e l'app di gestione dei dispositivi durante l'esercitazione successiva sulla gestione dei dispositivi.
 

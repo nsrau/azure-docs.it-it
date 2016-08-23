@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/17/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST
 > [AZURE.SELECTOR]
@@ -374,7 +374,7 @@ Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il databas
 				
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)  
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 

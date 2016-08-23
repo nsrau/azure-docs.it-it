@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="get-started-article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creazione di un'app Web Java nel servizio app di Azure
 
@@ -165,7 +165,7 @@ A questo punto è disponibile un server applicazioni Java in esecuzione nell'app
 
 Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la pagina [Java Developer Center].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Aggiungere un'applicazione o una pagina Web a un'app Web Java]: ./web-sites-java-add-app.md
 [Panoramica dei piani di servizio app di Azure]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
@@ -178,7 +178,7 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [Uso del portale di Azure per gestire le risorse di Azure]: ../azure-portal/resource-group-portal.md
 [Caricare un'app Web Java personalizzata in Azure]: ./web-sites-java-custom-upload.md
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png

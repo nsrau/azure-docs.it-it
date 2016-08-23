@@ -15,7 +15,7 @@
   ms.devlang="node"
   ms.topic="hero-article"
   ms.date="08/11/2016"
-  ms.author="anhoh"/>  
+  ms.author="anhoh"/>
 
 # Esercitazione su Node.js NoSQL: applicazione console Node.js di DocumentDB  
 

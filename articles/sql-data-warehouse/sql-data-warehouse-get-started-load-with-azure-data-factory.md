@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>  
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati con Azure Data Factory 
 
@@ -214,7 +214,7 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 - [Esercitazione: Creare la prima data factory][]\: questa è l'esercitazione di base per l'elaborazione dei dati con Azure Data Factory. In questa esercitazione si apprenderà come creare la prima pipeline che usa HDInsight per trasformare e analizzare i blog ogni mese. Si noti che questa esercitazione non prevede attività di copia.
 - [Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure][]. In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [documentazione di AZCopy]: ../storage/storage-use-azcopy.md
@@ -233,7 +233,7 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 
 <!--MSDN references-->
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Percorso di apprendimento per Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [portale di Azure]: https://portal.azure.com
 [Scaricare i dati di esempio]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv

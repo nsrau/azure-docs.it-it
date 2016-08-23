@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="08/15/2016"
-   ms.author="elizapo"/>  
+   ms.author="elizapo"/>
 
 # OneDrive for Business e Azure RemoteApp
 

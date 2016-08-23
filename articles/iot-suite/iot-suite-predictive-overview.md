@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/17/2016"
- ms.author="araguila"/>  
+ ms.author="araguila"/>
 
 # Panoramica della soluzione preconfigurata di manutenzione predittiva
 

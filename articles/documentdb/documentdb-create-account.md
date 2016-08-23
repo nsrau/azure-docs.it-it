@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/11/2016"
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Come creare un account DocumentDB usando il portale di Azure
 

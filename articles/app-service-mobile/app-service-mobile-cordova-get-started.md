@@ -16,7 +16,7 @@
     ms.devlang="javascript"
     ms.topic="hero-article"
     ms.date="08/11/2016"
-    ms.author="glenga"/>  
+    ms.author="glenga"/>
 
 #Creare un'app Apache Cordova
 
@@ -70,9 +70,9 @@ Informazioni su come usare gli SDK.
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
-<!-- Images. -->  
+<!-- Images. -->
 
-<!-- URLs -->  
+<!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx

@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="hero-article"
 	ms.date="08/10/2016"
-	ms.author="piyushjo;ricksal" />  
+	ms.author="piyushjo;ricksal" />
 
 # Introduzione a Azure Mobile Engagement per app Android
 
@@ -54,15 +54,15 @@ La documentazione relativa all'integrazione completa è disponibile in [Integraz
 
 	>[AZURE.NOTE] Mobile Engagement richiede almeno un livello API 10 (Android 2.3.3).
 
-    ![][3]  
+    ![][3]
 
 4. Selezionare **Blank Activity** (Attività vuota), che sarà l'unica schermata disponibile per l'app, e fare clic su **Next** (Avanti).
 
-    ![][4]  
+    ![][4]
 
 5. Lasciare quindi invariati i valori predefiniti e fare clic su **Finish**.
 
-    ![][5]  
+    ![][5]
 
 Android Studio crea l'app dimostrativa in cui viene integrato Mobile Engagement.
 
@@ -76,7 +76,7 @@ Android Studio crea l'app dimostrativa in cui viene integrato Mobile Engagement.
 
 4. Passare alla sezione **Project** (1) e incollare il file con estensione jar nella cartella delle librerie (2).
 
-	  ![][7]  
+	  ![][7]
 
 5. Per caricare la libreria, sincronizzare il progetto.
 
@@ -97,7 +97,7 @@ Android Studio crea l'app dimostrativa in cui viene integrato Mobile Engagement.
 
 3. Tornare al portale di Azure classico, nella pagina **Informazioni di connessione** dell'app, e copiare la **stringa di connessione**.
 
-	  ![][9]  
+	  ![][9]
 
 4. Incollarla nel parametro `setConnectionString`, sostituendo l'intera stringa visualizzata nel codice seguente:
 
@@ -157,7 +157,7 @@ Durante una campagna, Mobile Engagement consente di interagire con gli utenti e 
 
 2. Tornare ad Android Studio, selezionare la directory **main** dei file del progetto e incollarla per aggiungere le risorse al progetto.
 
-	![][11]  
+	![][11]
 
 [AZURE.INCLUDE [Abilitare Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 

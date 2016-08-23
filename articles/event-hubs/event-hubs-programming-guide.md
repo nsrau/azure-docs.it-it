@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
     ms.date="08/16/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Guida alla programmazione di Hub eventi
 

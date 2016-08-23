@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/10/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
 Azure Service Fabric SDK include un ambiente di sviluppo locale completo che può essere usato per iniziare rapidamente a distribuire e gestire applicazioni in un cluster locale. Questo articolo descrive come creare un cluster locale, distribuire un'applicazione esistente nel cluster e quindi aggiornare l'applicazione a una nuova versione usando Windows PowerShell.
@@ -41,7 +41,7 @@ L'SDK fornisce due modi per configurare un cluster locale: uno script di Windows
 
     La configurazione del cluster richiede alcuni istanti. Al termine, l'output visualizzato sarà simile al seguente:
 
-    ![Output installazione del cluster][cluster-setup-success]  
+    ![Output installazione del cluster][cluster-setup-success]
 
     A questo punto, è possibile provare a distribuire un'applicazione nel cluster.
 
@@ -86,7 +86,7 @@ In questa esercitazione si userà un'applicazione di esempio esistente, denomina
 
 7. Per visualizzare l'applicazione in funzione, avviare il browser e passare a [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Dovrebbe essere visualizzato:
 
-    ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]  
+    ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]
 
     L'applicazione WordCount è molto semplice. Include il codice JavaScript lato client per generare "parole" casuali di cinque caratteri, che vengono quindi inoltrate all'applicazione tramite l'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, che vengono partizionate in base al primo carattere della parola. È possibile trovare il codice sorgente per l'app WordCount negli [esempi introduttivi](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
@@ -103,7 +103,7 @@ Una volta distribuita l'applicazione, si osserveranno alcuni dettagli dell'app i
 
     Partendo dal presupposto che è stata distribuita solo l'app WordCount, verrà visualizzato un output simile al seguente:
 
-    ![Query per individuare tutte le applicazioni distribuite in PowerShell][ps-getsfapp]  
+    ![Query per individuare tutte le applicazioni distribuite in PowerShell][ps-getsfapp]
 
 2. Passare al livello successivo eseguendo una query per trovare il set di servizi inclusi nell'applicazione WordCount.
 
@@ -111,7 +111,7 @@ Una volta distribuita l'applicazione, si osserveranno alcuni dettagli dell'app i
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
     ```
 
-    ![Elenco dei servizi per l'applicazione in PowerShell][ps-getsfsvc]  
+    ![Elenco dei servizi per l'applicazione in PowerShell][ps-getsfsvc]
 
     Si noti che l'applicazione è costituita da due servizi: il front-end Web e il servizio con stato che gestisce le parole.
 
@@ -121,7 +121,7 @@ Una volta distribuita l'applicazione, si osserveranno alcuni dettagli dell'app i
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
     ```
 
-    ![Visualizzazione delle partizioni del servizio in PowerShell][ps-getsfpartitions]  
+    ![Visualizzazione delle partizioni del servizio in PowerShell][ps-getsfpartitions]
 
     Il set di comandi usati, come tutti i comandi di PowerShell per Service Fabric, è disponibile per tutti i cluster a cui ci si connette, locali o remoti.
 
@@ -146,7 +146,7 @@ La nuova versione dell'applicazione ora conta solo le parole che iniziano con un
 
     Quando inizia l'aggiornamento, in PowerShell verrà visualizzato un output simile al seguente.
 
-    ![Stato dell'aggiornamento in PowerShell][ps-appupgradeprogress]  
+    ![Stato dell'aggiornamento in PowerShell][ps-appupgradeprogress]
 
 3. Sarà più facile monitorare lo stato dell'aggiornamento da Service Fabric Explorer. Avviare una finestra del browser e passare all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Espandere **Applicazioni** nell'albero a sinistra, quindi scegliere **WordCount** e infine **fabric:/WordCount**. Nella scheda Informazioni di base verrà visualizzato lo stato dell'operazione di aggiornamento nei domini di aggiornamento del cluster.
 
@@ -180,7 +180,7 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'e
 
     In alternativa, eliminare l'applicazione dal menu **AZIONI** in Service Fabric Explorer o dal menu di scelta rapida nella vista elenco dell'applicazione del riquadro a sinistra.
 
-    ![Eliminare un'applicazione in Service Fabric Explorer][sfe-delete-application]  
+    ![Eliminare un'applicazione in Service Fabric Explorer][sfe-delete-application]
 
 2. Dopo avere eliminato l'applicazione dal cluster, è possibile annullare la registrazione delle versioni 1.0.0 e 2.0.0 del tipo di applicazione WordCount. L'operazione di eliminazione rimuove i pacchetti dell'applicazione, inclusi il codice e la configurazione, dall'archivio immagini del cluster.
 
@@ -200,7 +200,7 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'e
 - Tutte le azioni eseguite nel cluster locale descritte in questo articolo possono essere eseguite anche in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
 - L'aggiornamento eseguito in questo articolo è semplice. Per altre informazioni sulle potenzialità e sulla flessibilità degli aggiornamenti di Service Fabric, vedere la [documentazione relativa all'aggiornamento](service-fabric-application-upgrade.md).
 
-<!-- Images -->  
+<!-- Images -->
 
 [cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
 [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png

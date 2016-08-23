@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/12/2016"
-	ms.author="piyushjo;ricksal" />  
+	ms.author="piyushjo;ricksal" />
 
 # Introduzione a Azure Mobile Engagement per app di Windows universali
 
@@ -45,7 +45,7 @@ I passaggi seguenti presuppongono l'utilizzo di Visual Studio 2015 anche se i pa
 
 2. Nel popup selezionare **Windows** -> **Universale** -> **App vuota (Windows universale)**. Inserire **Nome** e **Nome soluzione** dell’applicazione, quindi fare clic su **OK**.
 
-    ![][1]  
+    ![][1]
 
 A questo punto è stata creata un'app universale di Windows in cui si integra quindi Azure Mobile Engagement SDK.
 
@@ -57,11 +57,11 @@ A questo punto è stata creata un'app universale di Windows in cui si integra qu
 
 		Internet (Client)
 
-	![][2]  
+	![][2]
 
 3. Copiare la stringa di connessione copiata in precedenza per l'app Mobile Engagement e incollarla nel file `Resources\EngagementConfiguration.xml`, tra i tag `<connectionString>` e `</connectionString>`:
 
-	![][3]  
+	![][3]
 
 	>[AZURE.TIP] Se l'app è destinata a entrambe le piattaforme Windows e Windows Phone, è comunque preferibile creare due applicazioni Mobile Engagement, una per ogni piattaforma supportata. Avere due app garantisce di poter definire la segmentazione corretta dei destinatari e di poter inviare notifiche opportunamente mirate per ogni piattaforma.
 
@@ -132,7 +132,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 1. Nel file `Package.appxmanifest` scegliere la scheda **Applicazione** e impostare **Popup supportati** su **Sì** in **Notifiche**.
 
-	![][5]  
+	![][5]
 
 ###Inizializzare REACH SDK
 
@@ -155,11 +155,11 @@ Ora è possibile inviare un avviso popup. Viene quindi verificato che l'integraz
 
 2. Creare l'app riservandone il nome.
 
-	![][10]  
+	![][10]
 
 3. Dopo la creazione dell'app, passare a **Servizi -> Notifiche push** dal menu a sinistra.
 
-	![][11]  
+	![][11]
 
 4. Nella sezione Notifiche push fare clic sul collegamento del **sito dei servizi Live**.
 
@@ -167,7 +167,7 @@ Ora è possibile inviare un avviso popup. Viene quindi verificato che l'integraz
 
 5. Viene visualizzata la sezione relativa alle credenziali push. Assicurarsi di trovarsi nella sezione **Impostazioni app** e quindi copiare i valori di **SID pacchetto** e **Segreto client**.
 
-	![][13]  
+	![][13]
 
 6. Passare a **Impostazioni** del portale Mobile Engagement e fare clic sulla sezione **Push nativo** a sinistra. Fare quindi clic sul pulsante **Modifica** per immettere l'**ID di sicurezza (SID) del pacchetto** e la **Chiave privata**, come illustrato:
 
@@ -181,7 +181,7 @@ Ora è possibile inviare un avviso popup. Viene quindi verificato che l'integraz
 
 Se l'app è in esecuzione, viene visualizzata una notifica in-app. In caso contrario, se l'app è chiusa, viene visualizzata una notifica di tipo avviso popup. Se viene visualizzata una notifica in-app, ma non una notifica di tipo avviso popup e si esegue l'app in modalità debug in Visual Studio, provare a selezionare **Eventi ciclo di vita -> Sospendi** sulla barra degli strumenti per assicurarsi che l'app venga sospesa. Se è stato fatto clic sul pulsante Home durante il debug dell'applicazione in Visual Studio, non sempre viene sospesa e, anche se la notifica viene visualizzata come in-app, non compare come notifica di tipo avviso popup.
 
-![][8]  
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
@@ -189,7 +189,7 @@ Se l'app è in esecuzione, viene visualizzata una notifica in-app. In caso contr
 [Dev Center per Windows Store]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png

@@ -81,23 +81,23 @@ Questa pagina dell'applicazione Web usa i controlli JavaScript di Power BI (vede
 
 Nel portale di Azure passare al gruppo di risorse con il nome della soluzione scelto per visualizzare le risorse di cui è stato effettuato il provisioning.
 
-![][img-resource-group]  
+![][img-resource-group]
 
 Quando si esegue il provisioning della soluzione preconfigurata, viene visualizzato un messaggio di posta elettronica con un collegamento all'area di lavoro di Machine Learning. È anche possibile passare all'area di lavoro di Machine Learning dalla pagina [azureiotsuite.com][lnk-azureiotsuite] per la soluzione fornita quando il relativo stato è **Pronto**.
 
-![][img-machine-learning]  
+![][img-machine-learning]
 
 Nel portale della soluzione si noterà che l'esempio include quattro dispositivi simulati per rappresentare due aerei con due motori per aereo, ciascuno con quattro sensori. Quando si accede per la prima volta al portale della soluzione, la simulazione viene arrestata.
 
-![][img-simulation-stopped]  
+![][img-simulation-stopped]
 
 Fare clic su **Avvia simulazione** per iniziare la simulazione in cui si può osservare che la cronologia dei sensori, la vita utile rimanente, i cicli e la cronologia della vita utile rimanente sono riportati nel dashboard.
 
-![][img-simulation-running]  
+![][img-simulation-running]
 
 Quando la vita utile rimanente è inferiore a 160, una soglia arbitraria scelta a scopo dimostrativo, il portale della soluzione mostra un simbolo di avviso accanto alla visualizzazione della vita utile rimanente ed evidenzia in giallo il motore dell'aereo. Si noti come i valori della vita utile rimanente abbiano complessivamente una tendenza generale al ribasso, ma tendano a oscillare in alto o in basso. Questo comportamento dovuto alle diverse lunghezze dei cicli e all'accuratezza del modello.
 
-![][img-simulation-warning]  
+![][img-simulation-warning]
 
 La simulazione completa richiede circa 35 minuti per completare 148 cicli. La soglia di 160 per la vita utile rimanente viene raggiunta per la prima volta dopo circa 5 minuti ed entrambi i motori la raggiungono a circa 8 minuti.
 

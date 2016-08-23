@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
 
@@ -23,7 +23,7 @@
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) è un servizio di analisi estendibile che semplifica la comprensione delle prestazioni e dell'utilizzo dell'applicazione live. È possibile usarlo per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e per [scrivere il codice][api]per rilevare l'interazione degli utenti con l'app.
 
-![dati di esempio](./media/app-insights-java-get-started/5-results.png)  
+![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
 Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows.
 
@@ -40,10 +40,10 @@ Sono necessari:
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 2. Creare una risorsa di Application Insights. Impostare il tipo di applicazione nell'applicazione Web Java.
 
-    ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-get-started/02-create.png)  
+    ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-get-started/02-create.png)
 4. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
 
-    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)  
+    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
 ## 2\. Aggiungere SDK per Java di Application Insights al progetto
 
@@ -236,7 +236,7 @@ Nel pannello di panoramica vengono visualizzati i dati delle richieste HTTP. Se 
 
 Fare clic su qualsiasi grafico per visualizzare metriche aggregate più dettagliate.
 
-![](./media/app-insights-java-get-started/6-barchart.png)  
+![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia `VERB controller/action`. Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` vengono raggruppati in `GET Home/Product`. Questo raggruppamento consente aggregazioni significative delle richieste, come il numero di richieste e il tempo medio di esecuzione per le richieste.
 
@@ -256,7 +256,7 @@ Quando si visualizzano le proprietà di una richiesta, è possibile visualizzare
 
 Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analisi]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
-![Esempio di Analytics](./media/app-insights-java-get-started/025.png)  
+![Esempio di Analytics](./media/app-insights-java-get-started/025.png)
 
 
 ## 7\. Installare l'applicazione nel server
@@ -279,7 +279,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 Vengono raccolte automaticamente le eccezioni non gestite:
 
-![Aprire Impostazioni e quindi Errori](./media/app-insights-java-get-started/21-exceptions.png)  
+![Aprire Impostazioni e quindi Errori](./media/app-insights-java-get-started/21-exceptions.png)
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
@@ -378,7 +378,7 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
 Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire la configurazione][availability], fare clic su Test Web.
 
-![Fare clic su Test Web e quindi su Aggiungi test Web](./media/app-insights-java-get-started/31-config-web-test.png)  
+![Fare clic su Test Web e quindi su Aggiungi test Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché notifiche di posta elettronica.
 

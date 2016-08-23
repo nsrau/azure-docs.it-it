@@ -13,7 +13,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="08/15/2016"
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
 
 # Uso di Microsoft Outlook in Azure RemoteApp
 

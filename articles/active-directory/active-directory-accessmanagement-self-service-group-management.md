@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Configurazione di Azure Active Directory per la gestione self-service dei gruppi
 

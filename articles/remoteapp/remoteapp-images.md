@@ -13,7 +13,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/15/2016"
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
 
 # Cosa è incluso nelle immagini modello di Azure RemoteApp
 

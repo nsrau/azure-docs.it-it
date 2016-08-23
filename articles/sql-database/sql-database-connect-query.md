@@ -96,7 +96,7 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 1. In **Esplora oggetti** passare a un database nel server per cui si ha l'autorizzazione, come il database di esempio **AdventureWorks**.
 2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova query**.
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)  
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
 3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
 
@@ -110,14 +110,14 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 
 4. Fare clic sul pulsante **Esegui**. Nella schermata seguente viene illustrata una query con esito positivo.
 
-	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)  
+	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Passaggi successivi
 
 [Connettersi al database SQL tramite .NET (C#)](sql-database-develop-dotnet-simple.md)
 
 
-<!-- Image references. -->  
+<!-- Image references. -->
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 

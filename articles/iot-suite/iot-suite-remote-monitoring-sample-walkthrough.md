@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/17/2016"
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/10/2016"
-   ms.author="ganesr"/>  
+   ms.author="ganesr"/>
 
 
 # Requisiti per il routing di ExpressRoute  

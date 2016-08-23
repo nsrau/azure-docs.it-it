@@ -247,10 +247,10 @@ Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-
 2.	Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**. ![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	In **Vista diagramma** saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
 	
-	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)  
+	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
 8. In Vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Viene visualizzata la sezione in fase di elaborazione.
 
-	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)  
+	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)

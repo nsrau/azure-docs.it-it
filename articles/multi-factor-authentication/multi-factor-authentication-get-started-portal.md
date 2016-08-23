@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/15/2016" 
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Distribuzione del portale utenti per il server Azure Multi-Factor Authentication
 
@@ -117,7 +117,7 @@ Abilitazione della registrazione|Abilita la registrazione nel portale utenti. I 
 
 La maggior parte di queste impostazioni è visibile all'utente dopo che è stato abilitato e ha eseguito l'accesso al portale utenti.
 
-![Impostazioni del portale utenti](./media/multi-factor-authentication-get-started-portal/portalsettings.png)  
+![Impostazioni del portale utenti](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 
 
@@ -136,7 +136,7 @@ La maggior parte di queste impostazioni è visibile all'utente dopo che è stato
 ## Scheda Amministratori
 Questa scheda consente semplicemente di aggiungere gli utenti che hanno privilegi amministrativi. Quando si aggiunge un amministratore, è possibile ottimizzare le autorizzazioni che riceve. In questo modo, è possibile concedere all'amministratore solo le autorizzazioni necessarie. Fare semplicemente clic sul pulsante Aggiungi, selezionare un utente e le relative autorizzazioni e quindi fare clic su Aggiungi.
 
-![Amministratori del portale utenti](./media/multi-factor-authentication-get-started-portal/admin.png)  
+![Amministratori del portale utenti](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 
 ## Domande di sicurezza
@@ -150,12 +150,12 @@ Questa scheda consente di specificare le domande di sicurezza a cui gli utenti d
 ## SAML
 Consente di configurare il portale utenti perché accetti attestazioni da un provider di identità usando SAML. Si possono specificare la sessione di timeout, il certificato di verifica e l'URL di reindirizzamento per la disconnessione.
 
-![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)  
+![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Indirizzi IP attendibili
 Questa scheda consente di specificare singoli indirizzi IP o intervalli di indirizzi IP che possono essere aggiunti in modo che, se un utente accede con uno di questi indirizzi IP, Multi-Factor Authentication venga ignorato.
 
-![Indirizzi IP attendibili del portale utenti](./media/multi-factor-authentication-get-started-portal/trusted.png)  
+![Indirizzi IP attendibili del portale utenti](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
 ## Registrazione utente in modalità self-service
 Se si vuole che gli utenti accedano e si registrino, è necessario selezionare le opzioni Consenti agli utenti di accedere e Consenti registrazione utente. Tenere presente che le impostazioni selezionate influiranno sull'esperienza di accesso degli utenti.
@@ -170,7 +170,7 @@ Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede
 
 Se l'utente seleziona il metodo di autenticazione tramite SMS o è stato preconfigurato per l'uso di questo metodo, la pagina richiederà il numero di telefono cellulare. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiederà anche di immettere un PIN. Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante Invia SMS per autenticare utente corrente. Azure Multi-Factor Authentication esegue l'autenticazione tramite SMS al cellulare dell'utente. L'utente deve ricevere l'SMS che include un passcode monouso e rispondere al messaggio con il passcode e il PIN (se applicabile) per proseguire con il passaggio successivo del processo di autoregistrazione.
 
-![SMS del portale utenti](./media/multi-factor-authentication-get-started-portal/text.png)  
+![SMS del portale utenti](./media/multi-factor-authentication-get-started-portal/text.png)
 
 Se l'utente seleziona il metodo di autenticazione tramite app per dispositivi mobili o è stato preconfigurato per l'uso di questo metodo, la pagina richiederà di installare l'app Azure Multi-Factor Authentication nel dispositivo e generare un codice di attivazione. Dopo aver installato l'app Azure Multi-Factor Authentication, l'utente fa clic sul pulsante Genera codice di attivazione.
 

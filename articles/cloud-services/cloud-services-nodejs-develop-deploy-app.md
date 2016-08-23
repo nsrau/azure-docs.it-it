@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -187,7 +187,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [Creazione di un servizio ospitato per Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro per sviluppatori di Node.js]: https://azure.microsoft.com/develop/nodejs/
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png

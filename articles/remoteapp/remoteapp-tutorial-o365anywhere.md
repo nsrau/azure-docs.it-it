@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="08/15/2016"
-   ms.author="guscatal;elizapo"/>  
+   ms.author="guscatal;elizapo"/>
 
 
 # Ottenere la stessa esperienza di Office 365 su qualsiasi dispositivo con Azure RemoteApp
@@ -38,7 +38,7 @@ Dopo aver completato il form, verrà avviato il processo di creazione della racc
 
 Al termine del processo, la schermata sarà simile alla seguente. Se si fa clic su **Pubblicazione**, si noterà che la maggior parte delle applicazioni di Office è già stata pubblicata. ![Raccolta creata](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
-![App pubblicate](./media/remoteapp-tutorial-o365anywhere/5-publish.png)  
+![App pubblicate](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
 A questo punto è anche possibile aggiungere altri utenti che potranno accedere a questa raccolta facendo clic su **Accesso utente**. ![Configurare l'accesso utente](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
@@ -50,11 +50,11 @@ Accedere a [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windo
 
 Dopo l'avvio dell'applicazione verrà chiesto di accedere con il proprio account Microsoft (in precedenza denominato Live ID) . Per ora, usare lo stesso account usato per accedere ad Azure. Dopo avere eseguito l'accesso dovrebbe essere visualizzata una notifica relativa a nuovi inviti. Fare clic sulla notifica per visualizzare un elenco come il seguente. Accettare l'invito corrispondente all'indirizzo di posta elettronica del proprietario dell'account Azure.
 
-![Nuovo invito](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)  
+![Nuovo invito](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)
 
 Ecco come appare la schermata quando sono presenti nuovi inviti.
 
-![Accettare un'applicazione](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)  
+![Accettare un'applicazione](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
 Dopo avere accettato l'invito verranno visualizzate tutte le app di Office nel client Azure RemoteApp.
 
@@ -64,6 +64,6 @@ Quando si fa clic su una di esse, l'applicazione verrà avviata nella macchina v
 
 ![Avvio](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
-![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)  
+![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
 <!---HONumber=AcomDC_0817_2016-->

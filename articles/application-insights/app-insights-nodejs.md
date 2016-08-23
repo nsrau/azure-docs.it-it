@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/25/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 
 # Aggiungere Application Insights SDK per monitorare un'app Node.js
@@ -26,7 +26,7 @@
 
 L'SDK offre la raccolta automatica delle risposte e delle frequenze delle richieste HTTP in ingresso, dei contatori delle prestazioni (CPU, memoria, RPS) e delle eccezioni non gestite. È anche possibile aggiungere chiamate personalizzate per rilevare le dipendenze, le metriche o altri eventi.
 
-![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-asp-net-manual/10-perf.png)  
+![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-asp-net-manual/10-perf.png)
 
 
 #### Prima di iniziare
@@ -40,7 +40,7 @@ Sono necessari:
 
 Accedere al [portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
 
-![Fare clic su Nuovo, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)  
+![Fare clic su Nuovo, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
 
 Scegliere Altro come tipo di applicazione. La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
 
@@ -48,7 +48,7 @@ Scegliere Altro come tipo di applicazione. La scelta del tipo di applicazione im
 
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
-![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-asp-net-manual/02-props-asp.png)  
+![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-asp-net-manual/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Installare l’SDK nell'applicazione
@@ -84,7 +84,7 @@ Tornare al [portale di Azure](https://portal.azure.com) e passare alla risorsa A
 
 Cercare i dati nella pagina di panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
 
-![Fare clic per visualizzare altri dati.](./media/app-insights-asp-net-manual/12-first-perf.png)  
+![Fare clic per visualizzare altri dati.](./media/app-insights-asp-net-manual/12-first-perf.png)
 
 Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
@@ -104,8 +104,8 @@ Ora distribuire l'applicazione a ISS o ad Azure e osservare l'accumulo dei dati.
 
 Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 
-+ `dc.services.visualstudio.com:443`  
-+ `f5.services.visualstudio.com:443`  
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
 
 
 #### Problemi del server di compilazione
@@ -215,7 +215,7 @@ server.on("listening", () => {
 
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md

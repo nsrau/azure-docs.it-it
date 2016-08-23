@@ -50,11 +50,11 @@ Per eseguire lo script di esempio *python\_tutorial\_client.py* nella workstatio
 
 È anche necessario installare i pacchetti Python per **Azure Batch** e **Archiviazione di Azure**. A tale scopo, usare **pip** e il file *requirements.txt* disponibile qui:
 
-`/azure-batch-samples/Python/Batch/requirements.txt`  
+`/azure-batch-samples/Python/Batch/requirements.txt`
 
 Per installare i pacchetti per Batch e Archiviazione, eseguire il comando **pip** seguente:
 
-`pip install -r requirements.txt`  
+`pip install -r requirements.txt`
 
 In alternativa, è possibile installare i pacchetti Python [azure-batch][pypi_batch] e [azure-storage][pypi_storage] manualmente:
 

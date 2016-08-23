@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="08/15/2016"
-   ms.author="piotrci"/>  
+   ms.author="piotrci"/>
 
 # Pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp (anteprima)
 
@@ -60,7 +60,7 @@ Eseguire il cmdlet seguente:
 
 		Get-AzureRemoteAppCollection <collectionName>
 
-![Verificare la modalità raccolta](./media/remoteapp-perapp/araacllelvel.png)  
+![Verificare la modalità raccolta](./media/remoteapp-perapp/araacllelvel.png)
 
 La proprietà AclLevel può avere i valori seguenti:
 

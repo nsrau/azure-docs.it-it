@@ -85,11 +85,11 @@ Dopo la connessione alla sottoscrizione di Azure, sarà possibile eseguire le op
 
 Da Esplora server è possibile visualizzare l'account di archiviazione predefinito e qualsiasi account di archiviazione collegato. Se si espande l'account di archiviazione predefinito, è possibile visualizzare i contenitori presenti. L'account di archiviazione predefinito e il contenitore predefinito sono contrassegnati. Per visualizzare i contenuti, è possibile anche fare clic su uno dei contenitori con il pulsante destro del mouse.
 
-![Elenco di cluster in Esplora Server di HDInsight Tools per Visual Studio][2]  
+![Elenco di cluster in Esplora Server di HDInsight Tools per Visual Studio][2]
 
 Dopo l'apertura di un contenitore, è possibile usare i pulsanti seguenti per caricare, eliminare e scaricare i BLOB:
 
-![Operazioni BLOB di Esplora Server di HDInsight Tools per Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)  
+![Operazioni BLOB di Esplora Server di HDInsight Tools per Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
 
 
 ## Eseguire una query Hive
@@ -113,7 +113,7 @@ I cluster HDInsight includono una tabella Hive di esempio denominata *hivesample
 
 	È possibile personalizzare il numero delle righe.
 
-	![Hadoop Tools: query dello schema di Visual Studio Hive di HDinsight][6]  
+	![Hadoop Tools: query dello schema di Visual Studio Hive di HDinsight][6]
 
 ### Creare tabelle Hive
 
@@ -125,7 +125,7 @@ Per creare una tabella Hive è possibile usare l'interfaccia utente grafica o qu
 2. Configurare la tabella.
 3. Fare clic su **Crea tabella** per inviare il processo per creare la nuova tabella Hive.
 
-	![Hadoop Tools: HDInsight Tools per Visual Studio crea la tabella Hive][7]  
+	![Hadoop Tools: HDInsight Tools per Visual Studio crea la tabella Hive][7]
 
 ### <a name="run.queries"></a>Convalidare ed eseguire query Hive
 Esistono due modi per creare ed eseguire query Hive:
@@ -139,22 +139,22 @@ Esistono due modi per creare ed eseguire query Hive:
 2. Fare clic con il pulsante destro del mouse sul cluster in cui si desidera eseguire la query, quindi scegliere **Scrivi una query Hive**.
 3. Immettere le query Hive. Si noti che l'editor Hive supporta IntelliSense. HDInsight Tools per Visual Studio supporta il caricamento di metadati remoti durante la modifica dello script Hive. Ad esempio, quando si digita "SELECT * FROM", IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, i nomi delle colonne sono elencati da IntelliSense. Lo strumento supporta quasi tutte le funzioni definite dall'utente predefinite, le sottoquery e le istruzioni DML Hive.
 
-	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][13]  
+	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][13]
 
 	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][14]
 
 	> [AZURE.NOTE] Verranno elencati solo i metadati dei cluster selezionati nella barra degli strumenti HDInsight.
 4. Facoltativo: fare clic su **Convalida script** per verificare la presenza di eventuali errori di sintassi nello script.
 
-	![Hadoop Tools: convalida locale di HDInsight Tools per Visual Studio.][10]  
+	![Hadoop Tools: convalida locale di HDInsight Tools per Visual Studio.][10]
 
 4. Fare clic su **Invia** o **Invia (Avanzato)**. L'opzione di invio avanzato consente di configurare i dati relativi a **Nome processo**, **Argomenti**, **Configurazioni aggiuntive** e **Directory stato** per lo script:
 
-	![Query Hive di Hadoop di HDInsight][9]  
+	![Query Hive di Hadoop di HDInsight][9]
 
 	Dopo l'invio, è possibile visualizzare una finestra di **riepilogo del processo Hive**.
 
-	![Riepilogo di una query Hive di Hadoop di HDInsight][8]  
+	![Riepilogo di una query Hive di Hadoop di HDInsight][8]
 5. Usare il pulsante **Aggiorna** per aggiornare lo stato del processo finché non risulta **Completato**.
 6. Fare clic sui collegamenti presenti nella parte inferiore per visualizzare quanto segue: **Query processo**, **Output processo**, **Log processo** o il **log Yarn**.
 
@@ -165,7 +165,7 @@ Esistono due modi per creare ed eseguire query Hive:
 1. Scegliere **Nuovo** dal menu **FILE**, quindi fare clic su **Progetto**.
 2. Selezionare **HDInsight** nel riquadro sinistro, selezionare **Applicazione Hive** nel riquadro centrale, immettere le proprietà e fare clic su **OK**.
 
-	![Hadoop Tools: nuovo progetto Hive di HDInsight Tools per Visual Studio][11]  
+	![Hadoop Tools: nuovo progetto Hive di HDInsight Tools per Visual Studio][11]
 3. In **Esplora soluzioni** fare doppio clic su **Script.hql** per aprirlo.
 4. Per convalidare lo script Hive, è possibile fare clic sul pulsante **Convalida script** oppure fare clic con il pulsante destro del mouse sullo script nell'editor di Hive e quindi fare clic su **Convalida script** nel menu di scelta rapida.
 
@@ -191,11 +191,11 @@ In passato, gli strumenti HDInsight inviavano processi Hive tramite [WebHCat](ht
 
 Per i cluster HDInsight versione 3.2 o successive, è disponibile un pulsante **Execute via HiveServer2**:
 
-![Esecuzione di Strumenti di Visual Studio per HDInsight tramite HiveServer2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)  
+![Esecuzione di Strumenti di Visual Studio per HDInsight tramite HiveServer2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
 Ed è possibile visualizzare i log in streaming in tempo reale e i grafici del processo, se si esegue la query Hive in Tex.
 
-![Esecuzione di processi Hive più veloce di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)  
+![Esecuzione di processi Hive più veloce di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
 **Differenza tra l'esecuzione di query tramite HiveServer2 e l'invio di query tramite WebHCat**
 
@@ -223,7 +223,7 @@ Per comprendere meglio la query Hive, è stata aggiunta la funzionalità Visuali
 
 È possibile usare la visualizzazione dell'esecuzione dell'attività per i processi Hive in Tez per ottenere informazioni strutturate e visive per i processi Hive e per visualizzare informazioni dettagliate sul processo. Quando si verificano problemi di prestazioni, questa visualizzazione consente di ottenere altri dettagli, ad esempio il funzionamento di ogni attività e le relative informazioni dettagliate (lettura-scrittura dei dati, ora di inizio/fine della pianificazione e così via), per poter regolare le configurazioni del processo o l'architettura del sistema in base alle informazioni visualizzate.
 
-![Visualizzazione dell'esecuzione dell'attività di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)  
+![Visualizzazione dell'esecuzione dell'attività di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Eseguire script Pig
 
@@ -270,7 +270,7 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
 
 
-<!--Link references-->  
+<!--Link references-->
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight.introduction]: hdinsight-hadoop-introduction.md
 [hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md

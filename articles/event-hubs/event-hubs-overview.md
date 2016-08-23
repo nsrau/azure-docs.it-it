@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="08/16/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Panoramica di Hub eventi di Azure
 
@@ -35,7 +35,7 @@ Hub eventi fornisce i flussi di messaggi tramite un modello consumer partizionat
 
 Una partizione è una sequenza ordinata di eventi contenuta in un Hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
 
-![Hub eventi](./media/event-hubs-overview/IC759857.png)  
+![Hub eventi](./media/event-hubs-overview/IC759857.png)
 
 Le partizioni conservano i dati per un periodo di conservazione configurato che viene impostato a livello di Hub eventi. Questa impostazione viene applicata a tutte le partizioni nell'Hub eventi. Gli eventi scadono su base temporale; non è possibile eliminarli in modo esplicito. Un Hub eventi contiene più partizioni. Ogni partizione è indipendente e contiene la propria sequenza di dati. Di conseguenza, le partizioni spesso crescono a velocità diverse.
 

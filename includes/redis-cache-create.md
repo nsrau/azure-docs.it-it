@@ -2,7 +2,7 @@ Per creare una cache, accedere prima al [portale di Azure](https://portal.azure.
 
 >[AZURE.NOTE] Se non si ha un account Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in pochi minuti.
 
-![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)  
+![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
 >[AZURE.NOTE] Oltre a creare cache nel portale di Azure, è possibile crearle usando modelli di Resource Manager, PowerShell o l'interfaccia della riga di comando di Azure.
 >
@@ -25,6 +25,6 @@ Nel pannello **Nuova cache Redis** specificare la configurazione desiderata per 
 
 Dopo aver configurato le opzioni della nuova cache, fare clic su **Crea**. La creazione della cache può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale. Lo stato della cache dopo la creazione sarà **In esecuzione** e sarà possibile usarla subito con le [impostazioni predefinite](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-![Cache created](media/redis-cache-create/redis-cache-cache-created.png)  
+![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 
 <!---HONumber=AcomDC_0817_2016-->

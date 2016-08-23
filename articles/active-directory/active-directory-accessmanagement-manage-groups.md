@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Gestione dei gruppi in Azure Active Directory

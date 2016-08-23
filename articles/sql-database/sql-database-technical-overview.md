@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/16/2016"
-   ms.author="shkurhek"/>  
+   ms.author="shkurhek"/>
 
 # Informazioni sul database SQL Introduzione al Database SQL
 

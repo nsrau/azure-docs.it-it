@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.date="08/15/2016"
-    ms.author="brjohnst"/>  
+    ms.author="brjohnst"/>
 
 # Eseguire query su un indice di Ricerca di Azure con .NET SDK
 > [AZURE.SELECTOR]
