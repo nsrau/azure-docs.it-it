@@ -144,38 +144,39 @@ Una volta che lo sviluppatore ha creato i vocabolari necessari, il business anal
 	4.	Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
-Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:
-1. 	And: operatore condizionale
-2. 	Or: operatore condizionale
-3. 	does\_not\_exist
-4. 	exists
-5. 	false
-6. 	is\_equal\_to
-7. 	is\_greater\_than
-8. 	is\_greater\_than\_equal\_to
-9. 	is\_in
-10. is\_less\_than
-11. is\_less\_than\_equal\_to
-12. is\_not\_in
-13. is\_not\_equal\_to
-14. mod
-15. true
+Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). 
+La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:  
+1. 	And: operatore condizionale  
+2. 	Or: operatore condizionale  
+3. 	does\_not\_exist  
+4. 	exists  
+5. 	false  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
+14. mod  
+15. true  
 
-La casella Azione (THEN) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono elencate le parole chiave supportate:
-1.	equals
-2.	false
-3.	true
-4.	halt
-5.	mod
-6.	Null
-7.	update
+La casella Azione (THEN) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono elencate le parole chiave supportate:  
+1.	equals  
+2.	false  
+3.	true  
+4.	halt  
+5.	mod  
+6.	Null  
+7.	update  
 
 Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:
-   1.	update <definizione vocabolario>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella condizione.
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
+   1.	update <definizione vocabolario>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella condizione.  
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
 ##Abilitazione\\disabilitazione di regole
