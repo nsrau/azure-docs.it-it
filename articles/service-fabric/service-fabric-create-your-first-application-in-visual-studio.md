@@ -124,7 +124,7 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 - Provare a creare un servizio con il modello di programmazione [Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Informazioni su come è possibile esporre i servizi a Internet con un [front-end di servizio Web](service-fabric-add-a-web-frontend.md).
 
-<!-- Image References -->  
+<!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png
 [2]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png
