@@ -24,7 +24,8 @@
 
 Azure dispone attualmente di due modelli di gestione: classico e Gestione risorse. Se si utilizza Azure da qualche tempo, si dispone probabilmente di macchine virtuali e ruoli di istanza di Azure in esecuzione su una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Gestione risorse. Questo articolo descrive come connettere le reti virtuali classiche alle reti virtuali di Gestione risorse per consentire alle risorse presenti nei modelli di distribuzione separati di comunicare tra di loro tramite una connessione gateway.
 
-È possibile creare una connessione tra reti virtuali in diverse sottoscrizioni, in aree diverse e in diversi modelli di distribuzione. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui è stato configurato sia dinamico o basato su route. Per ulteriori informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione di reti virtuali](#faq) alla fine di questo articolo. [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+È possibile creare una connessione tra reti virtuali in diverse sottoscrizioni, in aree diverse e in diversi modelli di distribuzione. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui è stato configurato sia dinamico o basato su route. Per ulteriori informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione di reti virtuali](#faq) alla fine di questo articolo. 
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Prima di iniziare
 
