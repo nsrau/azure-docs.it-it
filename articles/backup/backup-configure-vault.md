@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jimpark; trinadhk; markgal"/>  
+	ms.author="jimpark; trinadhk; markgal"/>
 
 # Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 
@@ -27,7 +27,7 @@ Questo articolo illustra come eseguire il backup di file e cartelle di Windows S
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
-![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)  
+![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)
 
 
 ## Prima di iniziare
@@ -156,7 +156,7 @@ Per verificare che l'agente sia stato installato e registrato correttamente, è 
 
 4. Fare clic su **Infrastruttura di backup > Server di produzione**.
 
-    ![Server di produzione](./media/backup-configure-vault/production-server-verification.png)  
+    ![Server di produzione](./media/backup-configure-vault/production-server-verification.png)
 
 Se i server sono visualizzati nell'elenco, significa che l'agente è stato installato e registrato correttamente.
 

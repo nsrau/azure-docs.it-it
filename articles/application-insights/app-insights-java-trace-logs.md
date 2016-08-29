@@ -144,7 +144,7 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
 [Ricerca diagnostica][diagnostic]
 
-<!--Link references-->  
+<!--Link references-->
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md

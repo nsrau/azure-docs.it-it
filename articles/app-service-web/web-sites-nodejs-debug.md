@@ -15,7 +15,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
 

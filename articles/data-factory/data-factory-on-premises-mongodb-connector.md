@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Spostare i dati da MongoDB con Azure Data Factory
 

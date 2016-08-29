@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="genemi"/>  
+	ms.author="genemi"/>
 
 
 # Novità della versione 12 del database SQL

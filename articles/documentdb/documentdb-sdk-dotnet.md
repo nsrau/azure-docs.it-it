@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="rnagpal"/>  
+	ms.author="rnagpal"/>
 
 # SDK e API di DocumentDB 
 
@@ -28,7 +28,7 @@
 
 ## SDK e API di DocumentDB .NET
 
-<table>  
+<table>
 <tr><td>**Download dell'SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentazione sull'API**</td><td>[.NET API Reference Documentation (Documentazione di riferimento sull'API .NET)](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Esempi**</td><td>[.NET code samples (Esempi di .NET in DocumentDB)](documentdb-dotnet-samples.md)</td></tr>
@@ -159,11 +159,33 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 > [AZURE.WARNING]
 Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
  
-<br/>  
+<br/>
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.9.3](#1.9.3) | 15 agosto 2016 |--- | [1\.9.2](#1.9.2) | 23 luglio 2016 |--- | 1.9.1 | Deprecato |--- | 1.9.0 | Deprecato |--- | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.1](#1.7.1) | 06 maggio 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.3](#1.6.3) | 08 aprile 2016 |--- | [1\.6.2](#1.6.2) | 29 marzo 2016 |--- | [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 25 agosto 2015 |--- | [1\.4.0](#1.4.0) | 13 agosto 2015 |--- | [1\.3.0](#1.3.0) | 05 agosto 2015 |--- | [1\.2.0](#1.2.0) | 06 luglio 2015 |--- | [1\.1.0](#1.1.0) | 30 aprile 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- | [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 | [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 | [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 | [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
+| [1\.9.3](#1.9.3) | 15 agosto 2016 |--- 
+| [1\.9.2](#1.9.2) | 23 luglio 2016 |--- 
+| 1.9.1 | Deprecato |--- 
+| 1.9.0 | Deprecato |--- 
+| [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
+| [1\.7.1](#1.7.1) | 06 maggio 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
+| [1\.6.3](#1.6.3) | 08 aprile 2016 |--- 
+| [1\.6.2](#1.6.2) | 29 marzo 2016 |--- 
+| [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
+| [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- 
+| [1\.4.1](#1.4.1) | 25 agosto 2015 |--- 
+| [1\.4.0](#1.4.0) | 13 agosto 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 agosto 2015 |--- 
+| [1\.2.0](#1.2.0) | 06 luglio 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 aprile 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
+| [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 
+| [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 
+| [0.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 
+| [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

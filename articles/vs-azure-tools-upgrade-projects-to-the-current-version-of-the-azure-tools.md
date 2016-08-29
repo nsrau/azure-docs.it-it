@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/15/2016"
-   ms.author="tarcher" />  
+   ms.author="tarcher" />
 
 # Come aggiornare i progetti alla versione attuale degli strumenti di Microsoft Azure per Visual Studio
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
    ms.date="08/11/2016"
-   ms.author="femila"/>  
+   ms.author="femila"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: integrazione cloud dei partner semplice e sicura
 

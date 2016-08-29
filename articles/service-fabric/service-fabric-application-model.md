@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/10/2016"   
-   ms.author="seanmck"/>  
+   ms.author="seanmck"/>
 
 # Modellare un'applicazione in Service Fabric
 

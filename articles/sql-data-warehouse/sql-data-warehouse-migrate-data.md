@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>  
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Eseguire la migrazione dei dati
 È possibile spostare dati da differenti origini a SQL Data Warehouse con diversi strumenti, ad esempio usando ADF Copy, SSIS e bcp. Tuttavia, con l'aumento della quantità di dati, prendere in considerazione la possibilità di suddividere il processo di migrazione in passaggi. Ciò consente di ottimizzare ogni passaggio sia per le prestazioni che per la resilienza in modo da garantire una migrazione uniforme dei dati.
@@ -169,7 +169,7 @@ Per altre informazioni sul caricamento dei dati con PolyBase, vedere l'articolo 
 ## Passaggi successivi
 Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migrazione di una soluzione in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
@@ -184,7 +184,7 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 
 <!--MSDN references-->
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentazione relativa a ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/

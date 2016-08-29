@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 # Aggiornare il servizio mobile Node.js di Azure esistente al servizio app
 
@@ -157,7 +157,7 @@ Se l'applicazione usa le notifiche push, prendere nota delle specifiche istruzio
 
 Quando la nuova versione del client è pronta, provarla con il progetto server aggiornato. Dopo averne verificato il funzionamento, è possibile rilasciare una nuova versione dell'applicazione per i clienti. Infine, quando i clienti avranno ricevuto gli aggiornamenti, sarà possibile eliminare la versione di Servizi mobili dell'app. A questo punto, sono stati aggiornati completamente a un'App per dispositivi mobili del servizio app utilizzando l’SDK più recente del server di App per dispositivi mobili.
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
@@ -172,7 +172,7 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
+[prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [concetti dell'autenticazione]: ../app-service/app-service-authentication-overview.md
 [guida introduttiva all'autenticazione]: app-service-mobile-auth.md

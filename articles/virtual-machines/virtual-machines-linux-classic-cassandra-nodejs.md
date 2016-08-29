@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="hanuk;robmcm"/>  
+	ms.author="hanuk;robmcm"/>
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 

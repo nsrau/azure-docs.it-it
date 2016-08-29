@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/15/2016"
-   ms.author="tarcher" />  
+   ms.author="tarcher" />
 
 # Gestione dei ruoli nei progetti di Servizi cloud di Azure con Visual Studio
 

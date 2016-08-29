@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="08/12/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 
 #Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox. Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce. Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox.
+Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce.
+Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

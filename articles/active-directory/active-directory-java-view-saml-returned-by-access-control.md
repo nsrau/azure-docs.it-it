@@ -14,7 +14,7 @@
     ms.devlang="Java"
     ms.topic="article"
     ms.date="08/11/2016" 
-    ms.author="robmcm" />  
+    ms.author="robmcm" />
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
 

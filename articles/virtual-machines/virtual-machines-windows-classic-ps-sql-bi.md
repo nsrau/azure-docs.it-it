@@ -337,7 +337,7 @@ I passaggi descritti in questa sezione **riepilogano** l'installazione della mod
 
 1. Fare clic su **Avanti** nella pagina degli aggiornamenti del prodotto.
 
-1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server ** e fare clic su **Avanti**.
+1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server** e fare clic su **Avanti**.
 
 1. Nella pagina **Impostazione ruolo** fare clic su **Installazione funzionalità SQL Server**.
 
@@ -406,7 +406,7 @@ Per altre informazioni sulla creazione di endpoint, vedere:
 
 Il diagramma seguente illustra le porte da aprire nel firewall della macchina virtuale per consentire l'accesso remoto alle funzionalità e i componenti nella macchina virtuale.
 
-![porte da aprire per applicazioni di Business Intelligence in macchine virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)  
+![porte da aprire per applicazioni di Business Intelligence in macchine virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## Risorse
 

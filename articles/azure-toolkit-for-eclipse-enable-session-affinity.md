@@ -57,7 +57,7 @@ Per un esempio di come gestire i dati della sessione quando viene abilitata l'af
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -66,7 +66,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Come mantenere i dati della sessione con l’Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 

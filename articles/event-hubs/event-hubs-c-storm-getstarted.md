@@ -61,10 +61,10 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 - [Analisi dei dati dei sensori con Storm e HDInsight][] è un'esercitazione relativa a uno scenario completo che usa Hub eventi, Storm e HBase per inserire dati dei sensori in un cluster Hadoop.
 - [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
 
-<!-- Images. -->  
+<!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
-<!-- Links -->  
+<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Configurare il proxy web per il dispositivo StorSimple
 

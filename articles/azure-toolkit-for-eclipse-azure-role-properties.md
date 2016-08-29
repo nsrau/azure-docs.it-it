@@ -396,7 +396,7 @@ In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
@@ -414,7 +414,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699548
 [Offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic789599]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic789599.png
 [ic719499]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719499.png

@@ -38,7 +38,7 @@ Eseguire le operazioni seguenti per creare il progetto servizio cloud che ospite
 
 1. Nel **menu Start** o nella **schermata Start** cercare **Windows PowerShell**. Fare infine clic con il pulsante destro del mouse su **Windows PowerShell** e scegliere **Esegui come amministratore**.
 
-	![Icona di Azure PowerShell][powershell-menu]  
+	![Icona di Azure PowerShell][powershell-menu]
 
 2. Creare una directory denominata **C:\\node**.
  

@@ -229,7 +229,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 ## Contattare il team
 
-![Team](./media/documentdb-community/documentdb-team.png)  
+![Team](./media/documentdb-community/documentdb-team.png)
 
 È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile [pianificare una chat 1:1 direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/). È anche possibile inviare un messaggio di [posta elettronica](mailto:askdocdb@microsoft.com) o un tweet a [@DocumentDB](https://twitter.com/DocumentDB).
 

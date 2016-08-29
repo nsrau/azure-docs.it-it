@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Configurazione delle app Web in Servizio app di Azure #
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/>
 
 # Installare Endpoint Protection nel Centro sicurezza di Azure
 
@@ -52,7 +52,7 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
 [2]: ./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="billing"
    ms.date="08/16/2016"
-   ms.author="mobandyo;bryanla"/>  
+   ms.author="mobandyo;bryanla"/>
 
 # L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti
 
@@ -82,7 +82,7 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Engine-Overview.png
 [3]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Analysis-Pie-Chart.png

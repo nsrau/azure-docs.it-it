@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Uso di un gruppo per gestire l'accesso ad applicazioni SaaS

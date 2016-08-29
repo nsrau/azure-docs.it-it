@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 

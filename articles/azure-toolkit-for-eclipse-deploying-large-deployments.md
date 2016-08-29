@@ -43,7 +43,7 @@ Altre informazioni sulla creazione di una risorsa di archiviazione locale sono r
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -51,7 +51,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Proprietà dell’archiviazione locale]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 

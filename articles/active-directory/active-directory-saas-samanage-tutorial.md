@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="08/15/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 # Esercitazione: Integrazione di Azure Active Directory con Samanage
   
@@ -63,23 +63,23 @@ Per configurare l'integrazione di Samanage in Azure AD, è necessario aggiungerl
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Aggiungere un'applicazione dalla raccolta")  
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Aggiungere un'applicazione dalla raccolta")
 
 6.  Nella **casella di ricerca** digitare **Samanage**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "Raccolta di applicazioni")  
+    ![Raccolta di applicazioni](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "Raccolta di applicazioni")
 
 7.  Nel riquadro dei risultati selezionare **Samanage**, quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-    ![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")  
+    ![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Samanage in base a un utente test di nome "Britta Simon".
@@ -104,15 +104,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1.  Nella pagina di integrazione dell'applicazione **Samanage** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configura accesso Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Samanage** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
-    ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Single Sign-On di Microsoft Azure AD")  
+    ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Single Sign-On di Microsoft Azure AD")
 
 3.  Nella pagina Configurare le impostazioni dell'app seguire questa procedura:
 
-    ![Configura URL app](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configura URL app")  
+    ![Configura URL app](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configura URL app")
 
     a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente: `https://<Company Name>.samanage.com/saml_login/<Company Name>`.
 	
@@ -128,15 +128,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6.  Fare clic su **Dashboard** e selezionare **Impostazione** nel riquadro di spostamento a sinistra.
 
-    ![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")  
+    ![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")
 
 7.  Fare clic su **Single Sign-On**.
 
-    ![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")  
+    ![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
 
 8.  Nella sezione **Login using SAML** (Accesso tramite SAML) seguire questa procedura:
     
-    ![Accesso tramite SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Accesso tramite SAML")  
+    ![Accesso tramite SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Accesso tramite SAML")
 
     a. Fare clic su **Enable Single Sign-On with SAML** (Abilita Single Sign-On con SAML).
 
@@ -156,34 +156,34 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9.  Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Configura accesso Single Sign-On")
 
 10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Configura accesso Single Sign-On")  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Configura accesso Single Sign-On")
 
 
 ### Creazione di un utente test di Azure AD
 
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)  
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -197,7 +197,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -211,11 +211,11 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -231,11 +231,11 @@ Per consentire agli utenti di Azure AD di accedere a Samanage, è necessario ese
 
 2.  Fare clic su **Dashboard** e selezionare **Setup** (Configurazione) nel riquadro di spostamento a sinistra.
 
-    ![Configurazione](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Configurazione")  
+    ![Configurazione](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Configurazione")
 
 3.  Fare clic sulla scheda **Users**.
 
-    ![Utenti](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Utenti")  
+    ![Utenti](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Utenti")
 
 4.  Fare clic su **Nuovo utente**.
 
@@ -252,7 +252,7 @@ Per consentire agli utenti di Azure AD di accedere a Samanage, è necessario ese
   
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Samanage.
 	
-![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Assegna utenti")  
+![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Assegna utenti")
 
 **Per assegnare Britta Simon a Samanage, seguire questa procedura:**
 
@@ -266,13 +266,13 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 3. Scegliere **Utenti** dal menu in alto.
     
-	![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Assegna utenti")  
+	![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Assegna utenti")
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
 5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-	![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Assegna utenti")  
+	![Assegna utenti](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Assegna utenti")
 
 
 ### Test dell'accesso Single Sign-On

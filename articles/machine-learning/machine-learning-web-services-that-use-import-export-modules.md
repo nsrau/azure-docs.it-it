@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="v-donglo"/>  
+	ms.author="v-donglo"/>
 
 
 
@@ -30,7 +30,7 @@ Questo argomento usa l'esempio "Sample 5: Train, Test, Evaluate for Binary Class
  
 Quando si apre l'esempio "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset", si usa il set di dati Adult Census Income Binary Classification di esempio. L'esperimento nell'area di disegno sarà simile all'immagine seguente.
 
-![Configurazione iniziale dell'esperimento.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)  
+![Configurazione iniziale dell'esperimento.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
   
 
 Per leggere i dati dalla tabella SQL di Azure:
@@ -88,7 +88,7 @@ Per configurare i parametri del servizio Web per la query di importazione e la t
 
 Al termine l'esperimento dovrebbe essere simile all'immagine seguente.
  
-![Risultato finale dell'esperimento.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)  
+![Risultato finale dell'esperimento.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
 Ora è possibile distribuire l'esperimento come servizio Web.
 

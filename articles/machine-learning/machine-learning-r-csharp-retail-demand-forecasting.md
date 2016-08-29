@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016" 
-	ms.author="yijichen"/>  
+	ms.author="yijichen"/>
 
 #Previsioni - ETS + STL  
 

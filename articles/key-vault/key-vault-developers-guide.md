@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/16/2016"
-   ms.author="bruceper" />  
+   ms.author="bruceper" />
 
 # Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 Con l'insieme di credenziali delle chiavi è possibile accedere in modo sicuro ai dati sensibili all'interno delle applicazioni in modo che:

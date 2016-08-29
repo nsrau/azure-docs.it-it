@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Gestire record e set di record DNS con PowerShell
 

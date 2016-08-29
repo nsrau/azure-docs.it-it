@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creare un'app Web Hello World per Azure in Eclipse
 
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 * Java Developer Kit (JDK) versione 1.7 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 
 ## Per creare un'applicazione Hello World
@@ -203,13 +203,13 @@ Per ulteriori informazioni, vedere i collegamenti seguenti:
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Installazione di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [01]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/01-Web-Page.png
 [02]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/02-Dynamic-Web-Project.png

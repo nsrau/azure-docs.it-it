@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/12/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 
 # Supporto dell'accesso condizionale per le applicazioni

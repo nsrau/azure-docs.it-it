@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite FTP

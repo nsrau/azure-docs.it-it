@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Installazione del Toolkit di Azure per IntelliJ
 
@@ -101,7 +101,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md
@@ -114,7 +114,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [01a]: ./media/azure-toolkit-for-intellij-installation/01-intellij-file-settings.png
 [01b]: ./media/azure-toolkit-for-intellij-installation/01-intellij-configure-dropdown.png

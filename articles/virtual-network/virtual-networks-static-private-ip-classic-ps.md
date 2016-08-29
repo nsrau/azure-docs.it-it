@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 # Come impostare un indirizzo IP statico privato (classico) in PowerShell
 

@@ -119,7 +119,7 @@ Se la destinazione è il livello 23 dell'API Android, le autorizzazioni di runti
 Nel contesto della segnalazione della posizione in Mobile Engagement, le autorizzazioni che richiedono l'approvazione in fase di esecuzione sono:
 
 - `ACCESS_COARSE_LOCATION`
-- `ACCESS_FINE_LOCATION`  
+- `ACCESS_FINE_LOCATION`
 
 Richiedere le autorizzazioni all'utente con una finestra di dialogo di sistema standard. Se l'utente approva, specificare ``EngagementAgent`` per applicare la modifica in tempo reale. In caso contrario la modifica verrà elaborata al successivo avvio dell'applicazione da parte dell'utente.
 

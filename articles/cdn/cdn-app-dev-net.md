@@ -40,7 +40,7 @@ Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto** per aprire 
 
 Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget. Ora si aggiungeranno al progetto.
 
-1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet ** e poi su **Console di Gestione pacchetti**.
+1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet** e poi su **Console di Gestione pacchetti**.
 
 	![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 
@@ -321,11 +321,11 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 È ora possibile compilare ed eseguire il programma facendo clic sul pulsante **Avvia** in Visual Studio.
 
-![Il programma in esecuzione](./media/cdn-app-dev-net/cdn-program-running-1.png)  
+![Il programma in esecuzione](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
 Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare al gruppo di risorse nel portale di Azure e verificare che il profilo sia stato creato.
 
-![Completamento della procedura](./media/cdn-app-dev-net/cdn-success.png)  
+![Completamento della procedura](./media/cdn-app-dev-net/cdn-success.png)
 
 È quindi possibile confermare le richieste per eseguire il resto del programma.
 

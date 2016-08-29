@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/15/2016"
-   ms.author="tarcher" />  
+   ms.author="tarcher" />
 
 # Compilazione da riga di comando per Azure
 

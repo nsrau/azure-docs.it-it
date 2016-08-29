@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/11/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Configurare un gateway VPN per il modello di distribuzione classica
 
@@ -62,7 +62,7 @@ Se si ha già di un gateway VPN e si vuole modificare il tipo di routing VPN, ve
 
 1. Nella pagina **Dashboard** si noti che la rete virtuale non ha ancora un gateway configurato. Questo stato verrà visualizzato durante l'esecuzione dei passaggi per configurare il gateway.
 
-![Gateway non creato](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)  
+![Gateway non creato](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
 Fare quindi clic su **Crea gateway** nella parte inferiore della pagina. È possibile selezionare *Routing statico* o *Routing dinamico*. Il tipo di routing VPN da selezionare dipende da diversi fattori, ad esempio dalle funzionalità che il dispositivo VPN deve supportare e dall'eventuale necessità di supportare connessioni Point-to-Site. Per determinare il tipo di routing VPN necessario, fare riferimento a [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](vpn-gateway-about-vpn-devices.md). Una volta creato il gateway, non è possibile passare da un tipo di routing VPN del gateway a un altro senza eliminare e ricreare il gateway. Quando viene richiesto di confermare che si desidera procedere con la creazione del gateway, fare clic su **Sì**.
@@ -75,7 +75,7 @@ Durante la creazione del gateway la relativa rappresentazione grafica nella pagi
 
 Quando per il gateway viene visualizzato *Connessione*, è possibile raccogliere le informazioni che saranno necessarie per il dispositivo VPN.
 
-![Connessione del gateway](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)  
+![Connessione del gateway](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)
 
 ## Raccogliere informazioni per la configurazione del dispositivo VPN
 
@@ -85,7 +85,7 @@ Dopo avere creato il gateway, raccogliere le informazioni per la configurazione 
 
 1. **Chiave condivisa**: fare clic su **Gestisci chiave** nella parte inferiore della schermata. Fare clic sull'icona accanto alla chiave per copiarla negli Appunti, quindi incollare e salvare la chiave. Questo pulsante funziona solo quando è presente un solo tunnel VPN Site-to-Site. Se si dispone di più tunnel VPN Site-to-Site, usare l'API *Ottieni chiave condivisa per il gateway della rete virtuale* o il cmdlet di PowerShell.
 
-![Gestisci chiave](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)  
+![Gestisci chiave](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 
 ## Configurare il dispositivo VPN

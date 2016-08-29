@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="markusvi"/>  
+	ms.author="markusvi"/>
 
 
 
@@ -42,9 +42,9 @@ Questo è un attributo multivalore usato per archiviare gli attributi in conflit
 ### Abilitazione della resilienza degli attributi duplicati
 La funzione può essere abilitata scaricando ed eseguendo la versione più recente del modulo Azure Active Directory PowerShell:
 
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`  
+`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
 
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`  
+`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
 
 Attualmente, la resilienza degli attributi UPN e ProxyAddress può essere abilitata e disabilitata singolarmente. Questo comportamento verrà modificato in futuro ed entrambi gli attributi verranno abilitati per tutte le directory di Azure AD e non potranno essere disabilitati.
 
@@ -77,7 +77,7 @@ Usare quindi i cmdlet e gli operatori seguenti per visualizzare gli errori in mo
 #### Visualizzare tutto
 Una volta connessi, per visualizzare un elenco generale di errori di provisioning degli attributi nel tenant, eseguire:
 
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`  
+`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
 Viene generato un risultato simile al seguente: ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
 
@@ -85,7 +85,7 @@ Viene generato un risultato simile al seguente: ![Get-MsolDirSyncProvisioningErr
 #### Per tipo di proprietà
 Per visualizzare gli errori per tipo di proprietà, aggiungere il flag **-PropertyName** con l'argomento **UserPrincipalName** o **ProxyAddresses**:
 
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`  
+`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`
 
 Oppure
 
@@ -94,7 +94,7 @@ Oppure
 #### Per valore in conflitto
 Per visualizzare gli errori relativi a una proprietà specifica, aggiungere il flag **-PropertyValue**. Quando si aggiunge questo flag, è necessario usare anche **-PropertyName**:
 
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`  
+`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
 
 #### Tramite una stringa di ricerca
@@ -116,7 +116,7 @@ Per eseguire una ricerca di stringhe estesa, usare il flag **-SearchString**. Pu
 
 2. **All** può essere usato per garantire il recupero di tutti i risultati nel caso sia presente un numero di errori elevato.
 
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`  
+`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
 ## Portale di amministrazione di Office 365
 

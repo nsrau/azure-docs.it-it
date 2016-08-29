@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2015"
-	ms.author="naziml"/>  
+	ms.author="naziml"/>
 
 # Sicurezza del servizio app di Azure
 

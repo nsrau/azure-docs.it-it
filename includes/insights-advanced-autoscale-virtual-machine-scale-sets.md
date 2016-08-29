@@ -40,11 +40,11 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
 5. Verificare che Esplora risorse sia in modalità **Lettura/Scrittura**.
 
-	![Autoscalewad, impostazione di ridimensionamento automatico predefinita](./media/insights-advanced-autoscale-vmss/autoscalewad.png)  
+	![Autoscalewad, impostazione di ridimensionamento automatico predefinita](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
 
 6. Fare clic su Edit. **Sostituire** l'elemento "profiles" nell'impostazione di ridimensionamento automatico con il codice seguente:
 
-	![Profili](./media/insights-advanced-autoscale-vmss/profiles.png)  
+	![Profili](./media/insights-advanced-autoscale-vmss/profiles.png)
 
 	```
 	{

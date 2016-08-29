@@ -15,11 +15,11 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # App Web Node.js con il servizio tabelle di Azure
 
-## Overview
+## Panoramica
 
 In questa esercitazione viene illustrato come usare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [node] ospitata nelle app Web del [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git].
 
@@ -496,7 +496,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->  
+	<!-- ![The download page][download-publishing-settings] -->
 
 	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
@@ -549,7 +549,7 @@ Sostituire **<storage account name>** con il nome dell'account di archiviazione 
 
 In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com/):
 
-1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web ** > nome app Web.
+1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome app Web.
 
 1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** > **Impostazioni dell'applicazione**.
 
@@ -622,7 +622,7 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
-<!-- Image References -->  
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png

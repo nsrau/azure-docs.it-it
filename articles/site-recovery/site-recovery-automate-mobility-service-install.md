@@ -204,7 +204,7 @@ Accedere all'account di automazione, passare a Risorse>Moduli e fare clic su Sfo
 
 Qui è possibile cercare il modulo e importarlo nel proprio account.
 
-![importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)  
+![importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 Al termine passare al computer in cui sono installati i moduli di Azure RM e continuare a importare la configurazione DSC appena creata.
 
@@ -240,7 +240,7 @@ Questa operazione può richiedere alcuni minuti poiché stiamo distribuendo la c
 
 Al termine è possibile recuperare le informazioni sul processo tramite PowerShell (Get-AzureRmAutomationDscCompilationJob) o usare portal.azure.com
 
-![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)  
+![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
 Abbiamo ora pubblicato e caricato correttamente la configurazione DSC in OMS Automation DSC.
 
@@ -251,7 +251,7 @@ Si creerà ora una metaconfig per DSC che applicheremo ai nodi. Per un risultato
 
 Questi valori si trovano in "Chiavi" nel pannello "Tutte le impostazioni" dell'account di automazione.
 
-![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)  
+![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 Nell'ambiente è presente un server fisico Windows Server 2012 R2 che intendo proteggere con OMS Site Recovery.
 
@@ -315,7 +315,7 @@ Al termine di queste operazioni il nodo dovrebbe iniziare la registrazione ad Au
 
 Se si torna a portal.azure.com, noteremo che il nodo appena registrato è ora presente nel portale.
 
-![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)  
+![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
 Per verificare che la registrazione sia stata eseguita correttamente, è possibile eseguire il cmdlet PowerShell seguente sul server:
 
@@ -331,13 +331,13 @@ Get-DscConfigurationStatus
 
 L'output mostra che il server ha eseguito correttamente il pull della configurazione:
 
-![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)  
+![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 Inoltre, la configurazione del servizio Mobility dispone di un proprio log in "<UnitàSistema>\\ProgramData\\ASRSetupLogs".
 
 La procedura è terminata: il servizio Mobility è stato distribuito e registrato correttamente sul computer da proteggere con Site Recovery ed è possibile fare affidamento su DSC per fare in modo che i servizi necessari siano sempre in esecuzione.
 
-![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)  
+![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
 Una volta che queste operazioni sono state rilevate dal server di gestione, procedere per configurare la protezione e abilitare la replica nel computer con Site Recovery.
 
@@ -367,7 +367,7 @@ Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 
 Anche per WMF 4.0, verificare che l'aggiornamento seguente venga installato sui computer:
 
-https://www.microsoft.com/download/details.aspx?id=40749  
+https://www.microsoft.com/download/details.aspx?id=40749
 
 È possibile eseguire il push della configurazione seguente verso i computer Windows con la soluzione WMF 5.0 e 4.0
 
@@ -495,7 +495,7 @@ Tutti i passaggi precedenti verranno eseguiti nell'ordine corretto in modo che s
 
 Il modello con le istruzioni per la distribuzione si trova in:
 
-https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC  
+https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
 
 Distribuire tramite PowerShell:
 

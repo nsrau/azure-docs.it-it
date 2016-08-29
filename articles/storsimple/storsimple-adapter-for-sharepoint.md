@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="07/11/2016"
-   ms.author="v-sharos" />  
+   ms.author="v-sharos" />
 
 # Installare e configurare l’adattatore StorSimple per SharePoint
 
@@ -300,7 +300,7 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 
 [Ulteriori informazioni su StorSimple](storsimple-overview.md).
 
-<!--Reference links-->  
+<!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
 [2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx

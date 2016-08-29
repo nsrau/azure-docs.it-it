@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Configurare Multipath I/O per il dispositivo StorSimple
 
@@ -48,12 +48,12 @@ Per installare questa funzionalità nell'host Windows Server, completare la proc
 3. Nella procedura guidata **Aggiungi ruoli e funzionalità**, effettuare le seguenti operazioni:
 
 	- Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
-	- Nella pagina **Seleziona tipo di installazione**, accettare l’impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**.![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+	- Nella pagina **Seleziona tipo di installazione**, accettare l’impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
 	- Nella pagina **Selezione server di destinazione**, scegliere **Selezionare un server dal pool di server**. Il server host deve essere rilevato automaticamente. Fare clic su **Avanti**.
 	- Nella pagina **Selezione ruoli server**, fare clic su **Avanti**.
-	- Nella pagina **Selezione funzionalità**, selezionare **Multipath I/O** e fare clic su **Avanti**.![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-	- Nella pagina **Conferma selezioni per l’installazione**, confermare la selezione, quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come mostrato di seguito. Fare clic su **Installa**.![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-	- Al termine dell'installazione si riceverà una notifica. Fare clic su **Chiudi** per chiudere la procedura guidata.![Aggiunta guidata ruoli e funzionalità 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+	- Nella pagina **Selezione funzionalità**, selezionare **Multipath I/O** e fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+	- Nella pagina **Conferma selezioni per l’installazione**, confermare la selezione, quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come mostrato di seguito. Fare clic su **Installa**. ![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+	- Al termine dell'installazione si riceverà una notifica. Fare clic su **Chiudi** per chiudere la procedura guidata. ![Aggiunta guidata ruoli e funzionalità 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
 ## Passaggio 2: Configurare MPIO per volumi StorSimple
 

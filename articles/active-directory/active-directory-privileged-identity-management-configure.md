@@ -98,7 +98,7 @@ Qualsiasi tipo di amministratore può usare Privileged Identity Management per a
 
 L'attivazione del ruolo è personalizzabile. Nelle impostazioni di PIM è possibile impostare la durata dell'attivazione e le informazioni che l'amministratore deve specificare per attivare il ruolo.
 
-![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5]  
+![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5]
 
 ## Cronologia di attivazione dei ruoli
 

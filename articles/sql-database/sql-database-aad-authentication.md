@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/17/2016"
-   ms.author="rick.byham@microsoft.com"/>  
+   ms.author="rick.byham@microsoft.com"/>
 
 # Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory
 
@@ -50,7 +50,7 @@ Il diagramma generale seguente riepiloga l'architettura della soluzione relativa
 
 Il diagramma seguente indica le relazioni federative, di trust e di hosting che consentono a un client di connettersi a un database inviando un token, che viene autenticato da Azure Active Directory e considerato attendibile dal database. Il cliente 1 può rappresentare un'istanza di Azure Active Directory con utenti nativi o con utenti federati. Il cliente 2 rappresenta una possibile soluzione che include utenti importati. In questo esempio provengono da un'istanza federata di Azure Active Directory con AD FS sincronizzato con Azure Active Directory. È importante comprendere che l'accesso a un database con l'autenticazione di Azure AD richiede che la sottoscrizione di hosting sia associata ad Azure Active Directory. La stessa sottoscrizione deve essere utilizzata per creare il Server SQL che ospita l'Azure SQL Data Warehouse o il database SQL di Azure.
 
-![relazione di sottoscrizione][2]  
+![relazione di sottoscrizione][2]
 
 ## Struttura dell'account amministratore
 
@@ -122,13 +122,13 @@ Le procedure seguenti forniscono istruzioni dettagliate sulla modifica della dir
 	![selezionare la sottoscrizione][4]
 4. Nell'area**impostazioni** fare clic sulla sottoscrizione e quindi su **MODIFICA DIRECTORY** in basso nella pagina.
 
-	![ad-settings-portal][5]  
+	![ad-settings-portal][5]
 5. Nella casella **MODIFICA DIRECTORY** selezionare l'istanza di Azure Active Directory associata al server SQL o SQL Data Warehouse, quindi fare clic sulla freccia per continuare.
 
 	![edit-directory-select][6]
 6. Nella finestra di dialogo **CONFERMA MAPPING DIRECTORY** confermare l'avviso "**Tutti i coamministratori verranno rimossi**".
 
-	![edit-directory-confirm][7]  
+	![edit-directory-confirm][7]
 7. Fare clic sul segno di spunta per ricaricare il portale.
 
 > [AZURE.NOTE] Quando si modifica la directory, l'accesso per tutti i coamministratori, gli utenti e i gruppi di Azure AD e gli utenti delle risorse supportate dalla directory saranno rimossi e l'accesso a questa sottoscrizione o alle relative risorse non sarà più possibile. Solo l'amministratore del servizio potrà configurare l'accesso per le entità in base alla nuova directory. La propagazione di questa modifica a tutte le risorse potrebbe richiedere molto tempo. La modifica della directory modifica anche l'amministratore di Azure AD per il database SQL e per SQL Data Warehouse e disabilita l'accesso al database per tutti gli utenti di Azure AD esistenti. L'amministratore di Azure AD deve essere reimpostato, come descritto di seguito, e dovranno essere creati nuovi utenti di Azure AD.
@@ -145,7 +145,7 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 
 1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio elenca l'associazione della sottoscrizione di Active Directory con il server SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per il server SQL. Il server SQL di Azure può ospitare il database SQL di Azure o Azure SQL Data Warehouse.
 
-	![choose-ad][8]  
+	![choose-ad][8]
 2. Nel banner a sinistra selezionare **SQL Server**, selezionare l'istanza di **SQL Server** in uso e quindi nel pannello **SQL Server** in alto fare clic su **Impostazioni**.
 
 	![impostazioni di AD][9]
@@ -247,7 +247,7 @@ Usare questo metodo se si è connessi a Windows con le credenziali di Azure Acti
 
 1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è necessaria e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
 
-2. Fare clic sul pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.![Selezionare il nome del database][13]
+2. Fare clic sul pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**. ![Selezionare il nome del database][13]
 
 
 #### Connettersi usando l'autenticazione della password di Active Directory
@@ -356,7 +356,7 @@ Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.mic
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png

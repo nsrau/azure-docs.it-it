@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/15/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Usare i certificati autofirmati per le connessioni Point-to-Site
 

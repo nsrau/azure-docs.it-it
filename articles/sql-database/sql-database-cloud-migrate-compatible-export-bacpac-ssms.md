@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="08/16/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Esportare un database SQL Server in un file BACPAC mediante SQL Server Management Studio
 

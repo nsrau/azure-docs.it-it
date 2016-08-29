@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Livelli di coerenza in DocumentDB
 

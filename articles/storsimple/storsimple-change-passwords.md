@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
    ms.date="08/17/2016"
-   ms.author="alkohli"/>  
+   ms.author="alkohli"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
 

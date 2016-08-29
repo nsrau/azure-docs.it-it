@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="yurid"/>  
+   ms.author="yurid"/>
 
 # Classificazione dei dati per Azure
 
@@ -190,7 +190,7 @@ Questa sezione fornisce informazioni di base su alcune tecnologie che possono au
  
 Come illustra la figura seguente, queste tecnologie possono essere distribuite come soluzioni locali o basate sul cloud oppure in modalità ibrida, con alcune tecnologie distribuite in locale e altre nel cloud. Alcune tecnologie, ad esempio la crittografia e Rights Management, si estendono anche ai dispositivi utente.
 
-![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)  
+![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### Software di Rights Management  
 

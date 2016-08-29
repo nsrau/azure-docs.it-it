@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="08/16/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 
 #Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
@@ -60,21 +60,21 @@ Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggi
 
 1.  Nel portale di Azure classico fare clic su **Active Directory** nel pannello di spostamento sinistro.
 
-	![Configurazione dell'accesso Single Sign-On][1]  
+	![Configurazione dell'accesso Single Sign-On][1]
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Configurazione dell'accesso Single Sign-On][2]  
+    ![Configurazione dell'accesso Single Sign-On][2]
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Applicazioni][3]  
+    ![Applicazioni][3]
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Configurazione dell'accesso Single Sign-On][4]  
+    ![Configurazione dell'accesso Single Sign-On][4]
 
 6.  Nella **casella di ricerca**, digitare **SuccessFactors**.
 
@@ -82,7 +82,7 @@ Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggi
 
 7.  Nel riquadro dei risultati selezionare **SuccessFactors**, quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-    ![Configurazione dell'accesso Single Sign-On][6]  
+    ![Configurazione dell'accesso Single Sign-On][6]
 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -108,15 +108,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1.  Nella pagina di integrazione dell'applicazione **SuccessFactors** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configurazione dell'accesso Single Sign-On][7]  
+    ![Configurazione dell'accesso Single Sign-On][7]
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a SuccessFactors** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
-    ![Configurazione dell'accesso Single Sign-On][8]  
+    ![Configurazione dell'accesso Single Sign-On][8]
 
 3.  Nella pagina **Configura URL app** seguire questa procedura e quindi fare clic su **Avanti**.
 
-    ![Configurazione dell'accesso Single Sign-On][9]  
+    ![Configurazione dell'accesso Single Sign-On][9]
 
     a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente:
 
@@ -125,7 +125,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 	| `https://<company name>.successfactors.com/<company name>` |
 	| `https://<company name>.sapsf.com/<company name>` |
 	| `https://<company name>.successfactors.eu/<company name>` |
-	| `https://<company name>.sapsf.eu`   |
+	| `https://<company name>.sapsf.eu` |
 
 	b. Nella casella di testo **URL di risposta** digitare un URL corrispondente al modello seguente:
 	
@@ -135,7 +135,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 	| `https://<company name>.sapsf.com/<company name>` |
 	| `https://<company name>.successfactors.eu/<company name>` |
 	| `https://<company name>.sapsf.eu` |
-	| `https://<company name>.sapsf.eu/<company name>`   |
+	| `https://<company name>.sapsf.eu/<company name>` |
 
 	c. Fare clic su **Avanti**.
 
@@ -159,7 +159,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Nella schermata sottostante eseguire le azioni seguenti.
 
-	![Configurazione dell'accesso Single Sign-On sul lato app][12]  
+	![Configurazione dell'accesso Single Sign-On sul lato app][12]
 
 	a. Selezionare il pulsante di opzione **SAML v2 SSO** (SSO SAML v2)
     
@@ -184,7 +184,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. Passare a SAML V2 e seguire questa procedura:
 
-	![Configurazione dell'accesso Single Sign-On sul lato app][13]  
+	![Configurazione dell'accesso Single Sign-On sul lato app][13]
 
 	a. Selezionare **Sì** come **Support SP-initiated Global Logout** (Supporto disconnessione globale avviata da SP).
 
@@ -206,41 +206,41 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 	c.Fare clic su **Save** (Salva).
 	
-	![Configura accesso Single Sign-On][29]  
+	![Configura accesso Single Sign-On][29]
 
 
 	> [AZURE.NOTE] Se si prova ad abilitare questa opzione, il sistema controlla se verrà creato un nome di account di accesso SAML duplicato. Ad esempio, se il cliente ha nomi utente Utente1 e utente1. L'annullamento della distinzione maiuscole/minuscole crea questi duplicati. Il sistema visualizza un messaggio di errore e non abilita la funzionalità. Il cliente dovrà modificare uno dei nomi utente in modo che sia effettivamente scritto diversamente.
 
 11.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Applicazioni][14]  
+    ![Applicazioni][14]
 
 12. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Applicazioni][15]  
+	![Applicazioni][15]
 
 
 
 ### Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][16]  
+![Creare un utente di Azure AD][16]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD][17]  
+    ![Creazione di un utente test di Azure AD][17]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-	![Creazione di un utente test di Azure AD][18]  
+	![Creazione di un utente test di Azure AD][18]
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creazione di un utente test di Azure AD][19]  
+    ![Creazione di un utente test di Azure AD][19]
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -254,7 +254,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD][21]  
+	![Creazione di un utente test di Azure AD][21]
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -268,11 +268,11 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-	![Creazione di un utente test di Azure AD][22]  
+	![Creazione di un utente test di Azure AD][22]
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD][23]  
+	![Creazione di un utente test di Azure AD][23]
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -292,7 +292,7 @@ Per creare utenti in SuccessFactors, è necessario contattare il [team di suppor
 
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SuccessFactors.
 	
-![Assegna utente][24]  
+![Assegna utente][24]
 
 **Per assegnare Britta Simon a SuccessFactors, seguire questa procedura:**
 
@@ -302,17 +302,17 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 2. Nell'elenco di applicazioni, selezionare **SuccessFactors**.
     
-	![Configura accesso Single Sign-On][26]  
+	![Configura accesso Single Sign-On][26]
 
 3. Scegliere **Utenti** dal menu in alto.
     
-	![Assegna utente][27]  
+	![Assegna utente][27]
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
 5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-	![Assegna utente][28]  
+	![Assegna utente][28]
 
 
 

@@ -126,7 +126,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Blog]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blog del team CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse

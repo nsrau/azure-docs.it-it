@@ -56,7 +56,7 @@ Scegliere gli elementi da visualizzare nella panoramica. In Personalizza è poss
 Il primo oggetto visualizzato dopo l'accesso al [portale di Microsoft Azure](https://portal.azure.com) è un dashboard, in cui è possibile raggruppare i grafici più importanti di tutte le risorse di Azure, inclusi i dati di telemetria di [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![Un dashboard personalizzato.](./media/app-insights-dashboards/31.png)  
+![Un dashboard personalizzato.](./media/app-insights-dashboards/31.png)
 
 
 1. Modificare, creare e condividere dashboard usando la barra degli strumenti del dashboard.
@@ -85,7 +85,7 @@ Si noti che i grafici sono raggruppati in riquadri e che un riquadro può conten
 
 Dopo aver aggiunto un riquadro al dashboard, è possibile modificarlo.
 
-![Passare il puntatore del mouse su un grafico per modificarlo.](./media/app-insights-dashboards/36.png)  
+![Passare il puntatore del mouse su un grafico per modificarlo.](./media/app-insights-dashboards/36.png)
 
 1. Aggiungere un grafico al riquadro.
 2. Impostare la metrica, la dimensione group-by e lo stile (tabella, grafico) di un grafico.
@@ -101,21 +101,21 @@ Il riquadro originale aggiunto non è interessato dalle modifiche.
 
 È possibile salvare più dashboard e passare da un dashboard all'altro. Quando si aggiunge un grafico o un pannello, l'aggiunta viene eseguita nel dashboard corrente.
 
-![Per passare da un dashboard all'altro, fare clic su Dashboard e selezionare un dashboard salvato. Per creare e salvare un nuovo dashboard, fare clic su Nuovo. Per modificare la disposizione, fare clic su Modifica.](./media/app-insights-dashboards/32.png)  
+![Per passare da un dashboard all'altro, fare clic su Dashboard e selezionare un dashboard salvato. Per creare e salvare un nuovo dashboard, fare clic su Nuovo. Per modificare la disposizione, fare clic su Modifica.](./media/app-insights-dashboards/32.png)
 
 È possibile ad esempio usare un dashboard per la visualizzazione a schermo intero nell'area del team e un altro dashboard per lo sviluppo generale.
 
 
 Nel dashboard i pannelli vengono visualizzati sotto forma di riquadri: fare clic sul riquadro desiderato per passare al pannello. I grafici sono una replica dei grafici che si trovano nel percorso originale.
 
-![Fare clic su un riquadro per aprire il pannello che rappresenta](./media/app-insights-dashboards/35.png)  
+![Fare clic su un riquadro per aprire il pannello che rappresenta](./media/app-insights-dashboards/35.png)
 
 
 ## Condividere i dashboard con il team
 
 Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
-![Fare clic su Condividi nell'intestazione del dashboard](./media/app-insights-dashboards/41.png)  
+![Fare clic su Condividi nell'intestazione del dashboard](./media/app-insights-dashboards/41.png)
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
 
@@ -151,8 +151,8 @@ Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configu
 
 ||
 |---|---
-|[Esplora metriche](app-insights-metrics-explorer.md)<br/>Consente di filtrare e segmentare le metriche|![Esempio di ricerca](./media/app-insights-dashboards/64.png)  
+|[Esplora metriche](app-insights-metrics-explorer.md)<br/>Consente di filtrare e segmentare le metriche|![Esempio di ricerca](./media/app-insights-dashboards/64.png)
 |[Ricerca diagnostica](app-insights-diagnostic-search.md)<br/>Consente di cercare e analizzare eventi ed eventi correlati e di creare bug |![Esempio di ricerca](./media/app-insights-dashboards/61.png)
-|[Analisi](app-insights-analytics.md)<br/>Linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)  
+|[Analisi](app-insights-analytics.md)<br/>Linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)
 
 <!---HONumber=AcomDC_0817_2016-->

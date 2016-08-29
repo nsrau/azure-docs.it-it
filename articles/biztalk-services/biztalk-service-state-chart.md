@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 
@@ -133,7 +133,7 @@ ResumeFailed</b></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-RestoreFailed<br/></b>  </td>
+RestoreFailed<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>

@@ -15,7 +15,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
@@ -88,7 +88,7 @@ Per creare uno spazio dei nomi del servizio:
 1.  Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2.  Nel riquadro di spostamento in basso a sinistra nel portale di Azure classico fare clic su **Bus di servizio, controllo di accesso e caching**.
 3.  Nel riquadro in alto a sinistra nel portale di Azure classico fare clic sul nodo **Bus di servizio** e quindi sul pulsante **Nuovo**. ![Schermata nodo bus di servizio][svc_bus_node]
-4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.![Schermata Create a New Namespace][create_namespace]
+4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**. ![Schermata Create a New Namespace][create_namespace]
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace**.
 
     Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure classico e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.

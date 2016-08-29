@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016"
-	ms.author="annemill"/>  
+	ms.author="annemill"/>
 
 
 # Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12

@@ -51,14 +51,14 @@ Nella finestra di dialogo **Endpoint del servizio**, eseguire una delle seguenti
 
 Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/07/2016"
-	ms.author="byvinyal"/>  
+	ms.author="byvinyal"/>
 
 # Panoramica approfondita dei piani di servizio app di Azure#
 
@@ -57,7 +57,7 @@ Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo**, su **We
 
 È quindi possibile selezionare o creare il piano di servizio app per la nuova app.
 
- ![Creare un piano di servizio app.][createASP]  
+ ![Creare un piano di servizio app.][createASP]
 
 Per creare un nuovo piano di servizio app, fare clic su **[+] Crea nuovo**, digitare il nome in **Piano di servizio app** e selezionare una **Località** appropriata. Fare clic su **Piano tariffario** e quindi selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona**.
 
@@ -69,14 +69,14 @@ Per spostare un'app in un altro piano, passare all'app che si vuole spostare. Ne
 
 Verrà aperto il pannello di selezione **Piano di servizio app**. A questo punto, è possibile scegliere un piano esistente o crearne uno nuovo. Vengono visualizzati solo i piani validi, nello stesso gruppo di risorse e nella stessa località geografica.
 
-![Pannello di selezione Piano di servizio app.][change]  
+![Pannello di selezione Piano di servizio app.][change]
 
 Si noti che è previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello gratuito al livello Standard, l'app può usare tutte le funzionalità e le risorse del livello Standard.
 
 ## Clonare un'app in un piano di servizio app diverso
 Se si vuole spostare l'app in un'area diversa, in alternativa consiste nel clonarla. Con la clonazione si crea una copia dell'app in un piano di servizio app nuovo o esistente o nell'ambiente del servizio app di qualsiasi area.
 
- ![Clonare un'app.][appclone]  
+ ![Clonare un'app.][appclone]
 
 È possibile trovare **Clona app** nel menu **Strumenti**.
 
@@ -92,7 +92,7 @@ Sono disponibili tre modi per ridimensionare un piano:
 
 È possibile modificare il piano tariffario e le dimensioni delle istanze facendo clic sulla voce **Aumenta prestazioni** nelle impostazioni dell'app o del piano di servizio app. Le modifiche verranno applicate al piano di servizio app e interesseranno tutte le app ospitate.
 
- ![Impostare i valori per aumentare le prestazioni di un'app.][pricingtier]  
+ ![Impostare i valori per aumentare le prestazioni di un'app.][pricingtier]
 
 ## Riepilogo
 

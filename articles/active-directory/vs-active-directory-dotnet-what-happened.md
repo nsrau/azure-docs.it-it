@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/15/2016"
-   ms.author="tarcher" />  
+   ms.author="tarcher" />
 
 # Accesso alle macchine virtuali di Azure da Esplora server
 

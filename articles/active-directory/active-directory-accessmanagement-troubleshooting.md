@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Risoluzione dei problemi di appartenenza dinamica per i gruppi

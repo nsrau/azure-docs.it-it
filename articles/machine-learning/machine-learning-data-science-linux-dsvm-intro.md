@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />  
+	ms.author="gokuma;bradsev" />
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati 
 
@@ -61,7 +61,7 @@ Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, 
 Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux per l'analisi scientifica dei dati:
 
 1.	Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 Fare clic sul pulsante **Crea** in basso per aprire la procedura guidata.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+2.	 Fare clic sul pulsante **Crea** in basso per aprire la procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Le sezioni seguenti forniscono gli **input** per ognuno dei **5 passaggi** (elencati in ordine numerico nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
 

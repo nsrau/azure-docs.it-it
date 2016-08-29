@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm;cephalin"/>  
+	ms.author="robmcm;cephalin"/>
 
 # Creare e connettersi a un database MySQL in Azure
 

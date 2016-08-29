@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Come eseguire la replica del database globale di DocumentDB con il portale di Azure
 
@@ -35,7 +35,7 @@ DocumentDB è disponibile nella maggior parte delle [aree di Azure][azureregions
 
 5. Nel pannello **Aggiungi/Rimuovi aree** selezionare le aree da aggiungere o rimuovere e quindi fare clic su **OK**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/) o l'articolo [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md).
 
-    ![Fare clic sulle aree nella mappa per aggiungerle o rimuoverle][2]  
+    ![Fare clic sulle aree nella mappa per aggiungerle o rimuoverle][2]
 
 ### Selezionare aree di database globali
 
@@ -57,7 +57,7 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
--->  
+-->
 
 ## <a id="next"></a>Passaggi successivi
 
@@ -71,10 +71,10 @@ Per informazioni sul funzionamento della replica di database globale in Document
 [3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
 [4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->  
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/it-IT/regions/#services
-[offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

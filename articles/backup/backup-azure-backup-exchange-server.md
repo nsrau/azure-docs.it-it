@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>  
+	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
 # Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM

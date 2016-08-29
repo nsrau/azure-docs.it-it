@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="08/16/2016"
-   ms.author="sashan;carlrab"/>  
+   ms.author="sashan;carlrab"/>
 
 # Domande frequenti sul database SQL
 

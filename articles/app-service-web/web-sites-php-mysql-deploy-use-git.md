@@ -282,7 +282,7 @@ Per impostazione predefinita, il processo di distribuzione git nel servizio app 
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -293,7 +293,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png

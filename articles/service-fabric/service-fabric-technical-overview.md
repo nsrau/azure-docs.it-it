@@ -82,7 +82,7 @@ Sono disponibili modelli di programmazione di .NET Framework per creare servizi 
 
 Per altre informazioni, vedere [Scegliere un modello di programmazione per un servizio](service-fabric-choose-framework.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 Per altre informazioni su Service Fabric, vedere:
 

@@ -77,7 +77,7 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 [add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
 [server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png

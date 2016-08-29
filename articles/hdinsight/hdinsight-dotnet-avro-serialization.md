@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 
 # Serializzare i dati con la libreria Microsoft Avro

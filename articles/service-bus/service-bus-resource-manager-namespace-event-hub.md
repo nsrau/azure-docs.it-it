@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="07/11/2016"
-    ms.author="sethm;shvija"/>  
+    ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
 

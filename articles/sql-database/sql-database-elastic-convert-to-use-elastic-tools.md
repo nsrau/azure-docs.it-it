@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="ddove"/>  
+   ms.author="ddove"/>
 
 # Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 
@@ -181,7 +181,7 @@ Per informazioni sugli schemi di architettura dati comuni delle applicazioni di 
 
 Per domande è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png

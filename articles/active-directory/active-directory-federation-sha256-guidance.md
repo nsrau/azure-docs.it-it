@@ -35,7 +35,7 @@ Dopo avere impostato l'algoritmo di firma con uno dei due processi seguenti, AD 
 4. Nella scheda **Avanzate** selezionare SHA256 come algoritmo hash sicuro.
 5. Fare clic su **OK**.
 
-![Algoritmo di firma SHA256 - MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)  
+![Algoritmo di firma SHA256 - MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
 
 ### Cmdlet di AD FS PowerShell
 

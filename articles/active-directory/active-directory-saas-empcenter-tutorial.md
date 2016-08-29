@@ -45,11 +45,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per EmpC
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -70,22 +70,22 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **EmpCenter** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configura accesso Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a EmpCenter** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configura accesso Single Sign-On")
 
 3.  Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
-    ![Configurare le impostazioni dell'app](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurare le impostazioni dell'app")  
+    ![Configurare le impostazioni dell'app](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurare le impostazioni dell'app")
 
     1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione EmpCenter, ad esempio: *https://partner-authenticati.empcenter.com/workforce/SSO.do*.
     2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in EmpCenter** fare clic su **Download metadati** e quindi salvare il file di metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Configura accesso Single Sign-On")
 
 5.  Inviare il file di metadati scaricato al team di supporto di EmpCenter.
 
@@ -93,7 +93,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a EmpCenter, è necessario eseguirne il provisioning in EmpCenter. Nel caso di EmpCenter, gli account utente devono essere creati dal team di supporto di EmpCenter.
@@ -108,9 +108,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **EmpCenter ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **EmpCenter** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Assegna utenti")  
+    ![Assegna utenti](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Assegna utenti")
 
 3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 

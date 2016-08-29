@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/02/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Application Insights per le applicazioni web Java che sono già live
 

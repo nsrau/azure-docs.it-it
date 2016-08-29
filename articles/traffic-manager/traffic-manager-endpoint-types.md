@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />  
+   ms.author="jtuliani" />
 
 # Endpoint di Gestione traffico
 

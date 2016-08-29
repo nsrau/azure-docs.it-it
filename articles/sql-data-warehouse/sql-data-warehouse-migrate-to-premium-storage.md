@@ -140,7 +140,7 @@ Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database n
 1.	È necessario eseguire Data Warehouse con almeno 1.000 DWU (vedere [Ridimensionare la potenza di calcolo][]).
 2.	L'utente che esegue lo script deve essere nel [ruolo mediumrc][] o superiore.
 	1.	Per aggiungere un utente a questo ruolo, eseguire questo codice:
-		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````  
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -163,7 +163,7 @@ drop table sql\_statements; go ````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [pianificazione della migrazione automatica]: #automatic-migration-schedule
@@ -181,7 +181,7 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 
 
 <!--Other Web references-->
-[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0817_2016-->

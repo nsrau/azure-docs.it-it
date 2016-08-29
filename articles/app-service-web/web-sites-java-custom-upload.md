@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Caricamento di un sito Web Java personalizzato in Azure
 
@@ -254,7 +254,7 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
-<!-- External Links -->  
+<!-- External Links -->
 [servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -71,7 +71,9 @@ Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizz
 2. Nel pannello di navigazione sinistro selezionare **Bus di servizio**.
 3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **Default Issuer** (nome dell'autorità emittente) e **Default Key** (chiave dell'autorità emittente). Questi valori possono essere copiati.
 
-Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chiave autorità emittente = Chiave predefinita
+Per riepilogare: 
+Nome autorità emittente = Autorità emittente predefinita 
+Chiave autorità emittente = Chiave predefinita
 
 ## Avanti
 Altri argomenti relativi a Servizi BizTalk di Azure:

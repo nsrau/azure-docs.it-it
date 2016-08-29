@@ -30,7 +30,7 @@ L'immagine seguente mostra le due diverse opzioni della raccolta per l'uso di un
 
 ### Raccolta nel cloud di Azure RemoteApp con la rete virtuale
 
- ![Azure RemoteApp - Raccolta nel cloud con una rete virtuale](./media/remoteapp-planvpn/ra-cloudvpn.png)  
+ ![Azure RemoteApp - Raccolta nel cloud con una rete virtuale](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
 L'immagine rappresenta una raccolta Azure RemoteApp dove tutte le risorse a cui gli host sessione di RemoteApp devono accedere sono distribuire in Azure. Possono trovarsi nella stessa rete virtuale, ad esempio la rete virtuale di RemoteApp, o in una rete virtuale di Azure diversa.
 

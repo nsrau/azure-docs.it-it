@@ -239,7 +239,7 @@ Per fare in modo che i token delle credenziali vengano sempre restituiti all'app
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
-`msauth://packagename/Base64UrlencodedSignature`  
+`msauth://packagename/Base64UrlencodedSignature`
 
 Ad esempio: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 

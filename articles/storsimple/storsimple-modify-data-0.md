@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
 
@@ -39,7 +39,7 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 
 2. Al prompt dei comandi digitare:
 
-	`Invoke-HcsSetupWizard`  
+	`Invoke-HcsSetupWizard`
 
 3. Verrà visualizzata una procedura guidata per configurare l'interfaccia DATI 0 del dispositivo. Fornire nuovi valori per l'indirizzo IP, il gateway e la netmask.
 

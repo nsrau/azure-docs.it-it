@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 [AZURE.INCLUDE [insights-advanced-autoscale-virtual-machine-scale-sets](../../includes/insights-advanced-autoscale-virtual-machine-scale-sets.md)]
 

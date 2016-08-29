@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="yurid"/>  
+   ms.author="yurid"/>
 
 # Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 

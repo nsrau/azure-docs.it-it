@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="asmalser-msft"/>  
+	ms.author="asmalser-msft"/>
 
 #Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 

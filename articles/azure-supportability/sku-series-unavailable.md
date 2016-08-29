@@ -14,7 +14,7 @@
 	 ms.devlang="na"
 	 ms.topic="article"
 	 ms.date="08/12/2016"
-	 ms.author="gangan"/>  
+	 ms.author="gangan"/>
 
 # Serie di SKU non disponibile
 
@@ -30,11 +30,11 @@ Per richiedere l'accesso a uno SKU che è stato escluso dalla sottoscrizione, cr
 
 - Nella pagina Problema selezionare "Other General questions" (Altre domande generiche) come tipo di problema e immettere l'area esatta e lo SKU che non vengono visualizzati. Questo permette di velocizzare il processo di supporto.
 
-![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)  
+![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
 - Nella pagina Informazioni sul contatto immettere i dati richiesti e fare clic su "Crea".
 
-![Informazioni di contatto](./media/SKU-series-unavailable/ContactInformation.png)  
+![Informazioni di contatto](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## Commenti e suggerimenti
 Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È anche possibile comunicare tramite [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).

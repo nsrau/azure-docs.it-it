@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.date="08/16/2016"
-   ms.author="brjohnst"/>  
+   ms.author="brjohnst"/>
 
 # Versioni API in Ricerca di Azure
 

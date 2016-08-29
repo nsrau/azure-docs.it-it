@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="casoper"/>  
+	ms.author="casoper"/>
 
 
 # Gestire la rete CDN di Azure con PowerShell

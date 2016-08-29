@@ -101,7 +101,7 @@ Impostando **external** su **true** si comunica al servizio Data Factory che il 
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Set di dati di output del BLOB di Azure**
 
@@ -179,7 +179,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Proprietà del servizio collegato Salesforce
 
@@ -204,7 +204,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 > [AZURE.IMPORTANT]  La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Proprietà del tipo RelationalSource
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo relativo alla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e diversi criteri.

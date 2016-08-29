@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
    ms.date="08/09/2016"
-   ms.author="sstein"/>  
+   ms.author="sstein"/>
 
 # Query Performance Insight del database SQL di Azure
 
@@ -57,7 +57,7 @@ Query Performance Insight è facile da usare:
 - Aprire [SQL Azure Database Advisor](sql-database-advisor.md) e verificare se sono disponibili raccomandazioni.
 - Utilizzare i dispositivi di scorrimento o le icone dello zoom per modificare l'intervallo osservato.
 
-    ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)  
+    ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] Per consentire al database SQL di fornire informazioni dettagliate sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
 
@@ -75,7 +75,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
 1. Per informazioni dettagliate, fare clic nei vari punti del grafico.<br>La prima riga visualizza la percentuale di uso di DTU complessiva per il database, mentre le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta un giorno).
 
-    ![query principali][2]  
+    ![query principali][2]
 
     La griglia inferiore rappresenta informazioni aggregate per le query visibili.
 
@@ -103,7 +103,7 @@ Per visualizzare i dettagli relativi alle query:
 
 1. Fare clic su qualsiasi query nell'elenco delle query principali.
 
-    ![informazioni dettagliate](./media/sql-database-query-performance/details.png)  
+    ![informazioni dettagliate](./media/sql-database-query-performance/details.png)
 
 1. Verrà aperta la visualizzazione dettagliata e i valori relativi a utilizzo CPU/durata/conteggio delle esecuzioni delle query verranno suddiviso nel tempo.
 1. Fare clic su intorno al grafico per i dettagli.
@@ -111,7 +111,7 @@ Per visualizzare i dettagli relativi alle query:
   - Nel secondo grafico viene mostrata la durata totale della query selezionata.
   - Nel grafico in fondo viene mostrato il numero totale delle esecuzioni effettuate dalla query selezionata.
     
-    ![dettagli sulle query][3]  
+    ![dettagli sulle query][3]
 
 1. Facoltativamente, utilizzare i dispositivi di scorrimento, i pulsanti dello zoom oppure fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati della query o per mostrare un periodo di tempo diverso.
 
@@ -131,7 +131,7 @@ Per identificare le query di lunga esecuzione :
   - **Max** individua le query con il tempo di esecuzione massimo durante l'intero intervallo di osservazione.
   - **Media** rileva il tempo medio di esecuzione di tutte le query e mostra i valori medi più alti tra quelli rilevati.
 
-    ![durata query][4]  
+    ![durata query][4]
 
 ## Esaminare le query principali in base al conteggio delle esecuzioni
 
@@ -155,11 +155,11 @@ Durante l'esplorazione del carico di lavoro in Informazioni dettagliate sulle pr
 
 Queste icone sono annotazioni sulle prestazioni che influiscono sulle azioni eseguite da [SQL Azure Database Advisor](sql-database-advisor.md). Passando il cursore del mouse su un'annotazione, si ottengono le informazioni di base relative a tale azione:
 
-![annotazione query][6]  
+![annotazione query][6]
 
 Per saperne di più o per applicare il consiglio di SQL Azure Database Advisor, fare clic sull'icona, in modo da visualizzare i dettagli relativi all'azione. Se si tratta di un consiglio attivo è possibile applicarlo direttamente tramite il comando.
 
-![dettagli annotazione query][7]  
+![dettagli annotazione query][7]
 
 ### Annotazioni multiple. ###
 
@@ -177,11 +177,11 @@ Questi messaggi in genere vengono visualizzati quando l'archivio query non è in
 
 Il primo caso si verifica quando l'archivio query è in stato di sola lettura e i parametri sono impostati in modo ottimale. È possibile risolvere il problema aumentando le dimensioni dell'archivio query o svuotandolo del tutto.
 
-![pulsante qds][8]  
+![pulsante qds][8]
 
 Il secondo caso si verifica quando l'archivio query è disattivato o se i parametri non sono impostati in modo ottimale. <br>È possibile modificare i criteri di conservazione e acquisizione e abilitare l'archivio query direttamente dal portale oppure eseguendo i comandi indicati sotto:
 
-![pulsante qds][9]  
+![pulsante qds][9]
 
 ### Criteri di conservazione e acquisizione consigliati
 
@@ -230,10 +230,10 @@ Query Performance Insight semplifica la comprensione dell'impatto del carico di 
 
 Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database SQL, fare clic su [Consigli](sql-database-advisor.md) nel pannello **Informazioni dettagliate sulle prestazioni delle query**.
 
-![Performance Advisor](./media/sql-database-query-performance/ia.png)  
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png

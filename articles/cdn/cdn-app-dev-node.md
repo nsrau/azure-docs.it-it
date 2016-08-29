@@ -40,7 +40,7 @@ Creare una cartella in cui archiviare l'applicazione. Da una console con gli str
 	
 Verrà quindi visualizzata una serie di domande per inizializzare il progetto. Come **punto di ingresso** questa esercitazione usa *app.js*. È possibile visualizzare le altre scelte nell'esempio seguente.
 
-![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)  
+![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)
 
 A questo punto il progetto viene inizializzato con un file *packages.json*. Il progetto userà alcune librerie di Azure contenute in pacchetti NPM. Verranno usati il runtime del client di Azure per Node.js (ms-rest-azure) e la libreria client della rete CDN di Azure per Node.js (azure-arm-cd). Aggiungere tali elementi al progetto come dipendenze.
  

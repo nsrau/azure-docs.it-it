@@ -16,7 +16,7 @@
 	ms.topic="article"
 	ms.date="08/07/2016"
 	ms.author="byvinyal"
-/>  
+/>
 
 # Ridimensionamento automatico e ambiente del servizio app
 
@@ -30,7 +30,7 @@ Il ridimensionamento automatico consente di ottimizzare l'utilizzo delle risorse
 
 È possibile accedere alla funzionalità di ridimensionamento automatico dalla scheda **Impostazioni** del pool di lavoro.
 
-![Scheda Impostazioni del pool di lavoro.][settings-scale]  
+![Scheda Impostazioni del pool di lavoro.][settings-scale]
 
 L'interfaccia utente risulterà familiare, perché si tratta della stessa esperienza visualizzata quando si ridimensiona un piano di servizio app. Sarà possibile immettere manualmente un valore per il piano.
 
@@ -38,7 +38,7 @@ L'interfaccia utente risulterà familiare, perché si tratta della stessa esperi
 
 È anche possibile configurare un profilo di ridimensionamento automatico.
 
-![Impostazioni di ridimensionamento automatico.][scale-profile]  
+![Impostazioni di ridimensionamento automatico.][scale-profile]
 
 I profili di ridimensionamento automatico consentono di impostare i limiti per il piano. Ciò consente di ottenere prestazioni coerenti impostando un valore del piano con un limite minimo (1) e un tetto di spesa prevedibile impostando un limite massimo (2).
 
@@ -73,7 +73,7 @@ I piani di servizio app usati per il controllo di qualità e lo sviluppo sono co
 
 Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di carico sono comprese tra le 9:00 e le 18:00, perché si tratta di un'applicazione di line-of-business (LOB) che i dipendenti usano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
 
-![Impostazioni specifiche per l'app LOB.][asp-scale]  
+![Impostazioni specifiche per l'app LOB.][asp-scale]
 
 |	**Profilo di ridimensionamento automatico - Giorni feriali - Piano di servizio app** |	**Profilo di ridimensionamento automatico - Fine settimana - Piano di servizio app** |
 |	----------------------------------------------------	|	----------------------------------------------------	|
@@ -112,21 +112,21 @@ I piani di servizio app configurati per il ridimensionamento automatico verranno
 
 Il tasso di inflazione del piano di servizio app viene calcolato come segue:
 
-![Calcolo del tasso di inflazione del piano di servizio app.][ASP-Inflation]  
+![Calcolo del tasso di inflazione del piano di servizio app.][ASP-Inflation]
 
 In base alla regola Ridimensionamento automatico - Aumento per il profilo Giorno feriale del piano di servizio app di produzione la formula sarà simile alla seguente:
 
-![Tasso di inflazione del piano di servizio app per i giorni feriali basato su Ridimensionamento automatico - Regola di aumento.][Equation1]  
+![Tasso di inflazione del piano di servizio app per i giorni feriali basato su Ridimensionamento automatico - Regola di aumento.][Equation1]
 
 Nel caso della regola Ridimensionamento automatico - Aumento per il profilo Fine settimana del piano di servizio app di produzione la formula sarà la seguente:
 
-![Tasso di inflazione del piano di servizio app per i fine settimana basato su Ridimensionamento automatico - Regola di aumento.][Equation2]  
+![Tasso di inflazione del piano di servizio app per i fine settimana basato su Ridimensionamento automatico - Regola di aumento.][Equation2]
 
 Questo valore può anche essere calcolato per le operazioni di riduzione.
 
 In base alla regola Ridimensionamento automatico - Riduzione per il profilo Giorno feriale del piano di servizio app di produzione la formula sarà simile alla seguente:
 
-![Tasso di inflazione del piano di servizio app per i giorni feriali basato su Ridimensionamento automatico - Regola di riduzione.][Equation3]  
+![Tasso di inflazione del piano di servizio app per i giorni feriali basato su Ridimensionamento automatico - Regola di riduzione.][Equation3]
 
 Nel caso della regola Ridimensionamento automatico - Riduzione per il profilo Fine settimana del piano di servizio app di produzione la formula sarà la seguente:
 
@@ -136,7 +136,7 @@ Questo significa che il piano di servizio app può aumentare al tasso massimo di
 
 Se in un pool di lavoro sono ospitati più piani di servizio app, è necessario calcolare il *tasso di inflazione totale* come somma dei tassi di inflazione per tutti i piani di servizio app ospitati in quel pool di lavoro.
 
-![Calcolo del tasso di inflazione totale per più piani di servizio app ospitati in un pool di lavoro.][ASP-Total-Inflation]  
+![Calcolo del tasso di inflazione totale per più piani di servizio app ospitati in un pool di lavoro.][ASP-Total-Inflation]
 
 ### Usare il tasso di inflazione del piano di servizio app per definire le regole di ridimensionamento automatico del pool di lavoro
 
@@ -146,7 +146,7 @@ Poiché l'applicazione delle operazioni di ridimensionamento dell'ambiente del s
 
 Con queste informazioni Diego può definire le regole e il profilo di ridimensionamento automatico seguenti:
 
-![Regole del profilo di ridimensionamento automatico per l'esempio LOB.][Worker-Pool-Scale]  
+![Regole del profilo di ridimensionamento automatico per l'esempio LOB.][Worker-Pool-Scale]
 
 |	**Profilo di ridimensionamento automatico - Giorni feriali** |	**Profilo di ridimensionamento automatico - Fine settimana** |
 |	----------------------------------------------------	|	--------------------------------------------	|
@@ -191,7 +191,7 @@ Le regole per il ridimensionamento automatico front-end sono più semplici rispe
 
 Per questo scenario Diego sa che il tasso di errore aumenta dopo che i front-end hanno raggiunto l'80% di utilizzo della CPU. Per evitare questo problema, imposta la regola di ridimensionamento automatico per aumentare le istanze nel modo seguente:
 
-![Impostazioni di ridimensionamento automatico per il pool front-end.][Front-End-Scale]  
+![Impostazioni di ridimensionamento automatico per il pool front-end.][Front-End-Scale]
 
 |	**Profilo di ridimensionamento automatico - Front-end** |
 |	--------------------------------------------	|
@@ -222,7 +222,7 @@ Per questo scenario Diego sa che il tasso di errore aumenta dopo che i front-end
 |	**Azione:** riduci numero di 3 |
 |	**Disattiva regole dopo (minuti):** 120 |
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
 [settings-scale]: ./media/app-service-environment-auto-scale/settings-scale.png
 [scale-manual]: ./media/app-service-environment-auto-scale/scale-manual.png

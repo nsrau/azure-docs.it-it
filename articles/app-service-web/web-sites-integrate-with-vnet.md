@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="ccompy"/>  
+	ms.author="ccompy"/>
 
 # Integrare un'app in una rete virtuale di Azure #
 
@@ -72,7 +72,7 @@ Per abilitare Integrazione rete virtuale, aprire le impostazioni dell'app e sele
 Se l'app non è inclusa nel piano tariffario corretto, l'interfaccia utente permette di scegliere un piano tariffario superiore.
 
 
-![][1]  
+![][1]
  
 ###Abilitazione della funzionalità Integrazione rete virtuale con una rete virtuale preesistente###
 L'interfaccia utente di Integrazione rete virtuale consente di selezionare da un elenco di reti virtuali. Le reti virtuali classiche sono quelle indicate dalla parola "classica" tra parentesi accanto al nome della rete virtuale. L'elenco è ordinato in modo che le reti virtuali di Resource Manager siano riportate per prime. L'immagine seguente mostra che è possibile selezionare solo una rete virtuale. Una rete virtuale può risultare disattivata per diversi motivi, ad esempio:
@@ -82,7 +82,7 @@ L'interfaccia utente di Integrazione rete virtuale consente di selezionare da un
 - la rete virtuale non ha un gateway di routing dinamico
 
 
-![][2]  
+![][2]
 
 Per abilitare l'integrazione è sufficiente fare clic sulla rete virtuale con cui eseguire l'integrazione. Dopo aver selezionato la rete virtuale, l'app verrà riavviata automaticamente per rendere effettive le modifiche.
 
@@ -111,7 +111,7 @@ Se si vuole che la rete virtuale si connetta alle altre reti è consigliabile ev
 
 >[AZURE.NOTE] Per creare una rete virtuale di Resource Manager con un gateway sono necessari circa 30 minuti e attualmente la rete virtuale non viene integrata con l'app. Dopo la creazione della rete virtuale con il gateway è necessario tornare all'interfaccia utente di Integrazione rete virtuale dell'app e selezionare la nuova rete virtuale.
 
-![][3]  
+![][3]
 
 Le reti virtuali di Azure in genere vengono create all'interno di indirizzi di rete privati. Per impostazione predefinita, la funzionalità Integrazione rete virtuale instrada nella rete virtuale il traffico destinato a tali intervalli di indirizzi IP. Gli intervalli di indirizzi IP privati sono:
 
@@ -128,7 +128,7 @@ Quando si crea una rete virtuale classica usando l'interfaccia utente dell'integ
 ## Funzionamento del sistema ##
 Questa funzionalità sfrutta la tecnologia VPN da punto a sito per connettere l'app alla rete virtuale. Le app nel servizio app di Azure presentano un'architettura del sistema multi-tenant che preclude il provisioning di un'app direttamente in una rete virtuale come si fa con le macchine virtuali. Grazie al ricorso alla tecnologia da punto a sito, è possibile consentire l'accesso alla rete solo alla macchina virtuale che ospita l'app. L'accesso alla rete è ulteriormente limitato su questi host di app, per consentire alle app di accedere solo alle reti appositamente configurate a questo scopo.
 
-![][4]  
+![][4]
  
 Se non è stato configurato un server DNS con la propria rete virtuale, è necessario usare gli indirizzi IP. Quando si usano gli indirizzi IP, il vantaggio principale di questa funzionalità consiste nella possibilità di usare gli indirizzi privati all'interno della rete privata. Se si imposta l'app per l'uso di indirizzi IP pubblici per una delle proprie macchine virtuali, la funzionalità Integrazione rete virtuale non viene usata e le comunicazioni avvengono via Internet.
 
@@ -137,7 +137,7 @@ Se non è stato configurato un server DNS con la propria rete virtuale, è neces
 
 La possibilità di connettersi e disconnettersi da una rete virtuale è a livello di app. Le operazioni che possono influenzare l'integrazione di reti virtuali tra più app sono a livello di ASP. Dall'interfaccia utente visualizzata a livello di app è possibile ottenere dettagli sulla rete virtuale. La maggior parte di queste informazioni viene visualizzata anche a livello di ASP.
 
-![][5]  
+![][5]
 
 Dalla pagina Stato funzionalità di rete è possibile vedere se l'app è connessa alla rete virtuale. Se il gateway della rete virtuale è inattivo per qualsiasi motivo, la rete viene visualizzata come non connessa.
 
@@ -157,7 +157,7 @@ L'unica operazione possibile nella vista app di Integrazione rete virtuale è la
 
 La visualizzazione del piano di servizio app consente alcune operazioni aggiuntive ed è anche accessibile diversamente, oltre che dall'app. Per raggiungere l'interfaccia utente della rete ASP, è sufficiente aprire l'interfaccia utente ASP e scorrere verso il basso fino a raggiungere l'elemento denominato Stato funzionalità di rete. L'elemento fornisce alcuni dettagli secondari sull'integrazione di reti virtuali. Facendo clic su questo elemento, viene visualizzata l'interfaccia utente di Stato funzionalità di rete. Selezionando "Fare clic qui per gestire", viene visualizzato un elenco delle integrazioni di reti virtuali nell'ASP.
 
-![][6]  
+![][6]
 
 È utile ricordare la località dell'ASP quando si esaminano le località delle reti virtuali di cui si esegue l'integrazione. Quando la rete virtuale è in un'altra località, è molto più probabile che ci siano problemi di latenza.
 
@@ -167,7 +167,7 @@ Per visualizzare altri dettagli su ogni rete virtuale, fare clic sulla rete virt
 
 Sono disponibili due azioni principali. La prima è la possibilità di aggiungere route indirizzando il traffico dall'app alla propria rete virtuale. La seconda è la possibilità di sincronizzare i certificati e le informazioni di rete.
 
-![][7]  
+![][7]
 
 **Routing**: come indicato in precedenza le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. L'invio di traffico aggiuntivo in uscita da un'app alla rete virtuale è possibile, ma la gestione del traffico da quel punto in poi dipende dalla configurazione della rete virtuale del cliente.
 
@@ -279,7 +279,7 @@ Oltre ai casi d'uso è opportuno tenere conto di alcuni aspetti relativi alla se
 Oltre a differenze funzionali, vanno considerate le differenze di prezzo. La funzionalità Ambiente del servizio app è un'offerta di servizio Premium che garantisce il massimo delle possibilità di configurazione di rete e altre funzionalità. La funzionalità Integrazione rete virtuale può essere usata con ASP Standard o Premium ed è ideale per l'utilizzo sicuro delle risorse in una rete virtuale dal servizio App multi-tenant. La funzionalità Connessioni ibride dipende attualmente da un account BizTalk che prevede diversi piani tariffari, da quello gratuito a quello meno economico, a seconda della quantità richiesta. Per l'uso su più reti, tuttavia, la scelta ideale è la funzionalità Connessioni ibride, che permette di accedere a risorse in oltre 100 reti separate.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
 [2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png
 [3]: ./media/web-sites-integrate-with-vnet/vnetint-createvnet.png

@@ -15,7 +15,7 @@
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="08/10/2016"
-  ms.author="araguila"/>  
+  ms.author="araguila"/>
   
 # Autorizzazioni per il sito azureiotsuite.com
 

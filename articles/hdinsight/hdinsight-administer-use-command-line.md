@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite la CLI di Azure
 

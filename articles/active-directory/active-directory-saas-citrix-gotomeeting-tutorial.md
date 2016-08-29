@@ -50,11 +50,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Citr
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 

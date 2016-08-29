@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="08/15/2016" 
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
 
 # Protezione dell'accesso ad Azure RemoteApp e oltre
 
@@ -25,7 +25,7 @@ In questo articolo verrà illustrato come un amministratore può configurare un 
 
 Le 3 aree principali che l'amministratore deve esaminare sono le seguenti:
 
-![Considerazioni sull'accesso condizionale di Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)  
+![Considerazioni sull'accesso condizionale di Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)
 
 Per informazioni e per le risposte a queste domande, continuare a leggere l'articolo.
 
@@ -66,7 +66,7 @@ Verrà ora illustrato uno scenario di esempio: l'amministratore di Azure RemoteA
 
 5.	Testare la configurazione avviando il client Azure RemoteApp da un indirizzo IP non compreso nell'intervallo specificato. Dopo avere eseguito l'accesso con le credenziali di Azure AD, verrà visualizzato un messaggio simile a questo:
 
-![Accesso negato ad Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)  
+![Accesso negato ad Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### Funzionalità di accesso condizionale future 

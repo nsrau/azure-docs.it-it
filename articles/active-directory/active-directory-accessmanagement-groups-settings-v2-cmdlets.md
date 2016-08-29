@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
 

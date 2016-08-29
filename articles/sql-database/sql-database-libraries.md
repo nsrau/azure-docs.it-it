@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="pehteh"/>  
+	ms.author="pehteh"/>
 
 # Raccolte di connessioni per database SQL e Server SQL
 

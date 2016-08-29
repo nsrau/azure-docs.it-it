@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con DocuSign
@@ -56,7 +56,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Docu
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Configurazione dell'accesso Single Sign-On][2]  
+	![Configurazione dell'accesso Single Sign-On][2]
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
@@ -93,7 +93,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
-	![Configurazione dell'accesso Single Sign-On][61]  
+	![Configurazione dell'accesso Single Sign-On][61]
 
 	a. Nella casella di testo **URL di accesso** digitare `https://account.docusign.com/*`.
 
@@ -107,7 +107,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 4. Nella pagina **Configura accesso Single Sign-On in DocuSign** fare clic su **Scarica certificato** e quindi salvare il certificato localmente nel computer.
 
-	![Configurazione dell'accesso Single Sign-On][10]  
+	![Configurazione dell'accesso Single Sign-On][10]
 
 
 5. In un'altra finestra del Web browser accedere al **portale di amministrazione di DocuSign** come amministratore.
@@ -115,11 +115,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6. Nel menu di navigazione a sinistra fare clic su **Domains** (Domini).
 
-	![Configurazione dell'accesso Single Sign-On][51]  
+	![Configurazione dell'accesso Single Sign-On][51]
 
 7. Nel riquadro di destra fare clic su Claim Domain (Richiedi dominio).
 
-	![Configurazione dell'accesso Single Sign-On][52]  
+	![Configurazione dell'accesso Single Sign-On][52]
 
 8. Nella finestra di dialogo **Claim a domain** (Richiedi un dominio) digitare il dominio aziendale nella casella di testo **Domain Name** (Nome di dominio) e quindi fare clic su **Claim** (Richiedi). Verificare il dominio e che lo stato sia attivo.
 
@@ -127,7 +127,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 9. Nel riquadro di spostamento a sinistra fare clic su **Identity Providers** (Provider di identità).
 
-	![Configurazione dell'accesso Single Sign-On][54]  
+	![Configurazione dell'accesso Single Sign-On][54]
 
 10. Nel riquadro destro fare clic sul pulsante **Add Identity Provider** (Aggiungi provider di identità).
 	
@@ -157,11 +157,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 	> [AZURE.NOTE] Usare l'**Identificatore utente** appropriato per associare l'utente da Azure AD al mapping degli utenti di Docusign. Selezionare il campo corretto e immettere il valore appropriato in base alle impostazioni dell'organizzazione.
 
-	![Configurazione dell'accesso Single Sign-On][57]  
+	![Configurazione dell'accesso Single Sign-On][57]
 
 13. Nella sezione **Identity Provider Certificate** (Certificato provider di identità) fare clic su **Add Certificate** (Aggiungi certificato) e quindi caricare il certificato scaricato dal portale di Azure classico.
 
-	![Configurazione dell'accesso Single Sign-On][58]  
+	![Configurazione dell'accesso Single Sign-On][58]
 
 14. Fare clic su **Save**.
 
@@ -175,7 +175,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 16. Nella sezione **View SAML 2.0 Endpoints** (Visualizza endpoint SAML 2.0) del **portale di amministrazione di DocuSign** seguire questa procedura:
 
-	![Configurazione dell'accesso Single Sign-On][60]  
+	![Configurazione dell'accesso Single Sign-On][60]
 
 	a. Copiare il valore di **Service Provider Issuer URL** (URL autorità di certificazione provider di servizi) e quindi incollarlo nella casella di testo **Identificatore** nel portale di Azure classico.
 
@@ -193,7 +193,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Applicazioni][15]  
+	![Applicazioni][15]
  
 
 ## Configurazione del provisioning degli account
@@ -204,7 +204,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 1. Nella pagina di integrazione dell'applicazione **DocuSign** del **portale di Azure classico** fare clic su **Configura provisioning account** per aprire la finestra di dialogo Configura provisioning utenti.
 
-	![Configurazione del provisioning degli account][30]  
+	![Configurazione del provisioning degli account][30]
 
 2. Nella pagina **Impostazioni e credenziali amministratore** specificare le credenziali di un account DocuSign con diritti sufficienti per abilitare il provisioning utenti automatico e quindi fare clic su **Avanti**.
 
@@ -229,12 +229,12 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 2. Nella pagina di integrazione dell'applicazione **DocuSign** fare clic su **Assegna utenti**.
 
-	![Assegnazione degli utenti][40]  
+	![Assegnazione degli utenti][40]
  
 
 3. Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
-	![Assegnazione degli utenti][41]  
+	![Assegnazione degli utenti][41]
 
 
 È ora necessario attendere 10 minuti e verificare che l'account sia stato sincronizzato con DocuSign.
@@ -245,7 +245,7 @@ Come primo passaggio di verifica, è possibile controllare lo stato del provisio
 
 Un ciclo di provisioning utenti completato correttamente è indicato da uno stato correlato:
 
-![Assegnazione degli utenti][43]  
+![Assegnazione degli utenti][43]
 
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso.

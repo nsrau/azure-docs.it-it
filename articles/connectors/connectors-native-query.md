@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/20/2016"
-   ms.author="jehollan"/>  
+   ms.author="jehollan"/>
 
 # Introduzione all'azione di query
 
@@ -38,12 +38,12 @@ Ecco come è possibile aggiungerla in un'app per la logica:
 2. Scegliere **Aggiungi un'azione**.
 3. Nella casella di ricerca azione digitare **Filtro** per elencare l'azione **Filtra matrice**.
 
-	![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)  
+	![Selezionare l'azione di query](./media/connectors-native-query/using-action-1.png)
 
 4. Selezionare una matrice da filtrare. Lo screenshot seguente illustra la matrice di risultati ottenuta da una ricerca in Twitter.
 5. Creare una condizione da valutare per ogni elemento. Lo screenshot seguente filtra i tweet degli utenti con più di 100 follower.
 
-	![Completare l'azione di query](./media/connectors-native-query/using-action-2.png)  
+	![Completare l'azione di query](./media/connectors-native-query/using-action-2.png)
 
 	L'azione genera una nuova matrice che contiene solo i risultati che soddisfano i requisiti del filtro.
 6. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
@@ -67,7 +67,7 @@ Di seguito sono riportati campi di input per l'azione, che esegue una richiesta 
 |---|---|---|
 |Da*|from|La matrice da filtrare|
 |Condizione*|dove|La condizione da valutare per ogni elemento|
-<br>  
+<br>
 
 ### Dettagli dell'output
 

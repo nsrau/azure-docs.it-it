@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/15/2016"
-   ms.author="rick.byham@microsoft.com"/>  
+   ms.author="rick.byham@microsoft.com"/>
 
 # Supporto di SQL Server Management Studio (SSMS) per l'autenticazione MFA di Azure AD con database SQL e SQL Data Warehouse
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="sqldb-performance"
    ms.workload="data-management"
    ms.date="08/16/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Uso dell'archivio query nel database SQL di Azure 
 

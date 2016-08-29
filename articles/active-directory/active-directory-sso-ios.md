@@ -286,7 +286,7 @@ Per assicurarsi che i token delle credenziali vengano sempre restituiti all'appl
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
-`<app-scheme>://<your.bundle.id>`  
+`<app-scheme>://<your.bundle.id>`
 
 Ad esempio:*x-msauth-mytestiosapp://com.myapp.mytestapp*
 
@@ -297,7 +297,7 @@ L'URI di reindirizzamento deve essere specificato nella registrazione dell'app t
 
 Per supportare l'autenticazione basata su certificati, è necessario registrare un secondo "msauth" nell'applicazione e nel [portale di Azure classico](https://manage.windowsazure.com/) per gestire l'autenticazione del certificato, se si vuole aggiungere tale supporto nell'applicazione.
 
-`msauth://code/<broker-redirect-uri-in-url-encoded-form>`  
+`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
 Ad esempio: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 

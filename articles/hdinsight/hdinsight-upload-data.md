@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 
 
@@ -58,7 +58,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 > [AZURE.NOTE] Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
-###<a id="xplatcli">Interfaccia della riga di comando di Azure</a>
+###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
@@ -196,7 +196,7 @@ Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'acc
 
     Immettere il nome e la chiave dell'account di archiviazione utilizzato dal cluster HDinsight e quindi selezionare __Salva e apri__.
 
-	![HDI.AzureStorageExplorer][image-azure-storage-explorer]  
+	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
 5. Nell'elenco dei contenitori a sinistra dell'interfaccia, fare clic sul nome del contenitore associato al cluster HDInsight. Per impostazione predefinita, questo è il nome del cluster HDInsight, ma potrebbe essere diverso se è stato immesso un nome specifico durante la creazione del cluster.
 
@@ -206,7 +206,7 @@ Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'acc
 
 7. Specificare un file da caricare e quindi fare clic su **Open**. Quando richiesto, selezionare __Carica__ per caricare il file nella directory principale del contenitore di archiviazione. Se si desidera caricare il file in un percorso specifico, immettere il percorso nel campo __Destinazione__, quindi selezionare __Carica__.
 
-    ![Finestra di dialogo di caricamento file](./media/hdinsight-upload-data/fileupload.png)  
+    ![Finestra di dialogo di caricamento file](./media/hdinsight-upload-data/fileupload.png)
     
     Dopo che il file ha terminato il caricamento, è possibile utilizzarlo dai processi nel cluster HDInsight.
 

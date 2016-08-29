@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.date="08/15/2016"
-   ms.author="brjohnst"/>  
+   ms.author="brjohnst"/>
 
 # Aggiornamento ad Azure Search .NET SDK versione 2.0-preview
 

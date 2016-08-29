@@ -175,7 +175,7 @@ Le informazioni sui tag possono essere recuperate tramite l'[API di utilizzo del
 
 Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fatturazione, i tag vengono visualizzati nella colonna **Tag**. Per ulteriori informazioni, vedere [Informazioni sulla fattura di Microsoft Azure](billing-understand-your-bill.md).
 
-![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)  
+![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)
 
 ## Passaggi successivi
 

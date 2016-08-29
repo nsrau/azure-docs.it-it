@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/15/2016"
-ms.author="mandia"/>  
+ms.author="mandia"/>
 
 # Introduzione al connettore Dynamics CRM Online
 Connettersi a Dynamics CRM Online per creare un nuovo record, aggiornare un elemento e così via. Con CRM Online è possibile:
@@ -48,7 +48,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 2. Selezionare **Dynamics CRM Online - Quando un record viene creato**. Se esiste già una connessione, selezionare un'organizzazione e un'entità dall'elenco a discesa.
 
-	![](./media/connectors-create-api-crmonline/select-organization.png)  
+	![](./media/connectors-create-api-crmonline/select-organization.png)
 
 	Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-crmonline.md#create-the-connection) di questo argomento elenca i passaggi necessari.
 
@@ -56,7 +56,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 3. Selezionare il pulsante **Modifica** e impostare i valori **Frequenza** e **Intervallo**. Ad esempio, se si vuole che il trigger esegua il poll ogni 15 minuti, impostare **Frequenza** su **Minuto** e **Intervallo** su **15**.
 
-	![](./media/connectors-create-api-crmonline/edit-properties.png)  
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
 
 4. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 
@@ -67,13 +67,13 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
 
-	![](./media/connectors-create-api-crmonline/add-action.png)  
+	![](./media/connectors-create-api-crmonline/add-action.png)
 
 2. Scegliere **Aggiungi un'azione**.
 
 3. Nella casella di testo digitare "dynamics" per ottenere l'elenco di tutte le azioni disponibili.
 
-	![](./media/connectors-create-api-crmonline/dynamics-actions.png)  
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
 
 4. In questo esempio scegliere **Dynamics CRM Online - Aggiorna un record**. Se esiste già una connessione, scegliere i valori per **Nome organizzazione**, **Nome entità** e le altre proprietà:
 

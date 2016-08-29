@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/15/2016"
-   ms.author="kipandya"/>  
+   ms.author="kipandya"/>
    
    
 # Distribuire i dati a livello globale con DocumentDB
@@ -28,7 +28,7 @@ Azure DocumentDB è progettato per soddisfare le esigenze delle applicazioni IoT
 
 La configurazione dell'account DocumentDB per la scalabilità in tutto il mondo richiede meno di un minuto con il [portale di Azure](documentdb-portal-global-replication.md). È sufficiente selezionare il livello di coerenza giusto tra i diversi livelli di coerenza ben definiti supportati e associare tutte le aree di Azure desiderate al proprio account di database. I livelli di coerenza di DocumentDB forniscono compromessi espliciti tra le prestazioni e la garanzia di coerenza specifiche.
 
-![DocumentDB offre numerosi modelli di coerenza, ampi e ben definiti, tra cui scegliere][1]  
+![DocumentDB offre numerosi modelli di coerenza, ampi e ben definiti, tra cui scegliere][1]
 
 DocumentDB offre numerosi modelli di coerenza, ampi e ben definiti, tra cui scegliere.
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 [throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/it-IT/regions/#services
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="08/11/2016"
-   ms.author="jehollan"/>  
+   ms.author="jehollan"/>
 
 # Esempi e scenari comuni di app per la logica
 

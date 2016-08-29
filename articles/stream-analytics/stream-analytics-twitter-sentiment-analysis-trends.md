@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="08/11/2016"
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 
 # Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso

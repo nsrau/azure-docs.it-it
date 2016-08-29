@@ -197,7 +197,7 @@ Lo script di PowerShell seguente illustra come impostare le configurazioni della
 
 >[AZURE.NOTE] La VM deve trovarsi nello stesso account di archiviazione del file VHD caricato.
 
-</br>  
+</br>
 
 	
 	

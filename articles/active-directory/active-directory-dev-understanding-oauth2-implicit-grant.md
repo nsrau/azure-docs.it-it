@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="vittorib;bryanla"/>  
+   ms.author="vittorib;bryanla"/>
 
 # Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
 
@@ -62,7 +62,7 @@ Se si sta sviluppando un'applicazione Web che include un back-end e utilizza un'
 - Per un elenco completo di risorse per sviluppatori, incluse le informazioni di riferimento per i protocolli e il supporto dei flussi di concessione delle autorizzazioni OAuth2 in Azure AD, vedere la [Guida per gli sviluppatori di Azure Active Directory][AAD-Developers-Guide].
 - Per altre informazioni sul processo di integrazione di un'applicazione, vedere [Come integrare un'applicazione con Azure AD][ACOM-How-To-Integrate].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Reference style links in use-->
 [AAD-Developers-Guide]: active-directory-developers-guide.md

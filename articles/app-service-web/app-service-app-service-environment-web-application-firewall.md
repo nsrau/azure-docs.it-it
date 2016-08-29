@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016" 
-	ms.author="naziml"/>  
+	ms.author="naziml"/>
 
 # Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 
@@ -37,7 +37,7 @@ Sul sito Barracuda è disponibile un [articolo dettagliato](https://campus.barra
 ### Aggiunta di endpoint al servizio cloud ###
 Una volta create 2 o più istanze di macchine virtuali WAF nel servizio cloud, è possibile usare il [portale di Azure](https://portal.azure.com/) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione, come illustrato nell'immagine seguente.
 
-![Configurare l'endpoint][ConfigureEndpoint]  
+![Configurare l'endpoint][ConfigureEndpoint]
 
 Se le applicazioni usano altri endpoint, assicurarsi di aggiungerli tutti a questo elenco.
 
@@ -76,7 +76,7 @@ Se l'applicazione richiede l'autenticazione, assicurarsi di disporre di qualche 
 
 Per inoltrare i ping di Gestione traffico dal firewall WAF all'applicazione, è necessario configurare Website Translations in Barracuda WAF per inoltrare il traffico all'applicazione, come illustrato nell'esempio seguente.
 
-![Website Translations][WebsiteTranslations]  
+![Website Translations][WebsiteTranslations]
 
 ## Protezione del traffico verso l'ambiente del servizio app con i gruppi di sicurezza di rete (NSG)##
 Attenersi alla [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md) per informazioni dettagliate sulla limitazione del traffico all'ambiente del servizio app dal firewall WAF usando solo l'indirizzo VIP del servizio cloud. Ecco un comando di Powershell di esempio per eseguire questa attività per la porta TCP 80.
@@ -88,7 +88,7 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 
 > Nota: l'indirizzo VIP del servizio cloud cambia quando si elimina e si ricrea il servizio cloud. In questo caso, assicurarsi di aggiornare l'indirizzo IP nel gruppo di risorse di rete.
  
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png

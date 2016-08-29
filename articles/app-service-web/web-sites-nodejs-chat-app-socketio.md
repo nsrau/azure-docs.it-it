@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure
 
@@ -268,7 +268,7 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 
 * Per una guida per il passaggio da Siti Web a Servizio app vedere: [Servizio app di Azure e i servizi di Azure esistenti]
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Cache Redis di Azure]: /documentation/services/redis-cache/
 [app Web del servizio app]: http://go.microsoft.com/fwlink/?LinkId=529714

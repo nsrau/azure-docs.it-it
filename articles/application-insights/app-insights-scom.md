@@ -47,22 +47,22 @@ Nel computer in cui è in esecuzione Operations Manager seguire questa procedura
 
 1. In Operations Manager, aprire **Creazione**, **.NET... con Application Insights**, **Aggiunta guidata monitoraggio**,e scegliere nuovamente **.NET... con Application Insights**.
 
-    ![](./media/app-insights-scom/020.png)  
+    ![](./media/app-insights-scom/020.png)
 
 2. Assegnare un nome alla configurazione in base all'app. È necessario instrumentare un'applicazione alla volta.
     
-    ![](./media/app-insights-scom/030.png)  
+    ![](./media/app-insights-scom/030.png)
 
 3. Nella stessa pagina della procedura guidata, creare un nuovo management pack o selezionarne uno creato in precedenza per Application Insights.
 
      [Management Pack ](https://technet.microsoft.com/library/cc974491.aspx) per Application Insights è un modello da cui si crea un'istanza. È possibile riutilizzare la stessa istanza in un secondo momento.
 
 
-    ![Nella scheda Proprietà generali, digitare il nome dell'app. Fare clic su Nuovo e digitare un nome per un management pack. Fare clic su OK e quindi su Avanti.](./media/app-insights-scom/040.png)  
+    ![Nella scheda Proprietà generali, digitare il nome dell'app. Fare clic su Nuovo e digitare un nome per un management pack. Fare clic su OK e quindi su Avanti.](./media/app-insights-scom/040.png)
 
 4. Scegliere un'app da monitorare. La funzionalità di ricerca esegue la ricerca nelle app installate nei server.
 
-    ![Nella scheda delle app da monitorare fare clic su Aggiungi, digitare parte del nome dell'app, fare clic su Cerca, scegliere l'app e quindi Aggiungi, OK.](./media/app-insights-scom/050.png)  
+    ![Nella scheda delle app da monitorare fare clic su Aggiungi, digitare parte del nome dell'app, fare clic su Cerca, scegliere l'app e quindi Aggiungi, OK.](./media/app-insights-scom/050.png)
 
     Il campo facoltativo Ambito monitoraggio può essere usato per specificare un subset di server, se non si vuole monitorare l'app in tutti i server.
 
@@ -75,11 +75,11 @@ Nel computer in cui è in esecuzione Operations Manager seguire questa procedura
 
     Queste impostazioni possono essere modificate in seguito.
 
-    ![Nella scheda Impostazioni di Application Insights fare clic su 'accedi' e fornire le credenziali dell'account Microsoft per Azure. Quindi scegliere una sottoscrizione, gruppo di risorse e una risorse.](./media/app-insights-scom/060.png)  
+    ![Nella scheda Impostazioni di Application Insights fare clic su 'accedi' e fornire le credenziali dell'account Microsoft per Azure. Quindi scegliere una sottoscrizione, gruppo di risorse e una risorse.](./media/app-insights-scom/060.png)
 
 6. Completare la procedura guidata.
 
-    ![Fare clic su Crea](./media/app-insights-scom/070.png)  
+    ![Fare clic su Crea](./media/app-insights-scom/070.png)
     
 Ripetere questa procedura per ogni app da monitorare.
 
@@ -93,7 +93,7 @@ La funzionalità di monitoraggio installata cerca l'app in ogni server. Nel serv
 
 È possibile verificare quali istanze dell'app sono state trovate:
 
-![In Monitoraggio aprire Application Insights](./media/app-insights-scom/100.png)  
+![In Monitoraggio aprire Application Insights](./media/app-insights-scom/100.png)
 
 
 ## Visualizzare i dati di telemetria in Application Insights

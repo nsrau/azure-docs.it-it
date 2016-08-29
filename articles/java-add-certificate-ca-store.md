@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Aggiunta di un certificato all'archivio certificati CA Java
 La procedura seguente illustra come aggiungere un certificato dell'Autorità di certificazione (CA) all'archivio certificati CA Java (cacerts). L'esempio usa il certificato CA necessario per il servizio Twilio. Più avanti in questo argomento vengono riportate le informazioni per installare il certificato CA per il bus di servizio di Azure.

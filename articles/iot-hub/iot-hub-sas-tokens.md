@@ -112,8 +112,8 @@ Gli endpoint per il dispositivo sono, indipendentemente dal protocollo:
 
 | Endpoint | Funzionalità |
 | ----- | ----------- |
-| `{iot hub host name}/devices/{deviceId}/messages/events`   | Invio di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound`   | Ricezione di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devices/{deviceId}/messages/events` | Invio di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/devices/{deviceId}/devicebound` | Ricezione di messaggi da cloud a dispositivo. |
 
 ### Usare una chiave simmetrica nel registro identità
 
@@ -180,9 +180,9 @@ Queste sono le funzioni del servizio esposte sugli endpoint:
 | Endpoint | Funzionalità |
 | ----- | ----------- |
 | `{iot hub host name}/devices` | Creazione, aggiornamento, recupero ed eliminazione delle identità dispositivo. |
-| `{iot hub host name}/messages/events`   | Ricezione di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/servicebound/feedback`   | Ricezione di feedback per messaggi da cloud a dispositivo. |
-| `{iot hub host name}/devicebound`   | Invio di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/messages/events` | Ricezione di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/servicebound/feedback` | Ricezione di feedback per messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devicebound` | Invio di messaggi da cloud a dispositivo. |
 
 Ad esempio, un servizio che usa il criterio di accesso condiviso già esistente denominato **registryRead** creerebbe un token con i parametri seguenti:
 

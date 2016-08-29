@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/17/2016"
-   ms.author="jeffstok"/>  
+   ms.author="jeffstok"/>
 
 
 # Panoramica di R Server su HDInsight (anteprima)

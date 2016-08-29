@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/09/2016"
-   ms.author="karolz@microsoft.com"/>  
+   ms.author="karolz@microsoft.com"/>
 
 # Usare ElasticSearch come archivio di traccia delle applicazioni di Service Fabric
 ## Introduzione
@@ -24,9 +24,11 @@ ETW viene usato dal runtime di Service Fabric per ottenere informazioni di diagn
 
 Per poter essere visualizzate in ElasticSearch, le tracce devono essere acquisite nei nodi del cluster di Service Fabric in tempo reale, mentre è in esecuzione l'applicazione, e inviate all'endpoint ElasticSearch. Per l'acquisizione di tracce sono disponibili due opzioni principali:
 
-+ **Acquisizione di tracce in-process** L'applicazione, o più esattamente il processo del servizio, è responsabile dell'invio dei dati di diagnostica all'archivio di traccia (ElasticSearch).
++ **Acquisizione di tracce in-process**  
+L'applicazione, o più esattamente il processo del servizio, è responsabile dell'invio dei dati di diagnostica all'archivio di traccia (ElasticSearch).
 
-+ **Acquisizione di tracce out-of-process** Un agente separato acquisisce le tracce dal processo (o dai processi) di servizio e le invia all'archivio di traccia.
++ **Acquisizione di tracce out-of-process**  
+Un agente separato acquisisce le tracce dal processo (o dai processi) di servizio e le invia all'archivio di traccia.
 
 Di seguito si descrive come configurare ElasticSearch in Azure, si illustrano i vantaggi e gli svantaggi di entrambe le opzioni di acquisizione e si spiega come configurare un servizio di Service Fabric per inviare dati a ElasticSearch.
 
@@ -81,9 +83,9 @@ dove
 
 |Nome del parametro di script |Descrizione|
 |-----------------------  |--------------------------|
-|`<es-group-name>`   |Nome del gruppo di risorse di Azure che conterrà tutte le risorse cluster Elasticsearch.|
+|`<es-group-name>` |Nome del gruppo di risorse di Azure che conterrà tutte le risorse cluster Elasticsearch.|
 |`<azure-region>` |Nome dell'area di Azure in cui si deve creare il cluster Elasticsearch.|         
-|`<es-password>`   |Password per l'utente di Elasticsearch.|
+|`<es-password>` |Password per l'utente di Elasticsearch.|
 
 >[AZURE.NOTE] Se il cmdlet Test-AzureResourceGroup restituisce un messaggio NullReferenceException, significa che non è ancora stato eseguito l'accesso ad Azure (`Add-AzureRmAccount`).
 
@@ -154,7 +156,7 @@ La libreria Microsoft.Diagnostic.Listeners fa parte dell'applicazione di Service
 
 4. Aggiungere un riferimento dai progetti di servizio ai due progetti aggiunti: ogni servizio che dovrà inviare dati a ElasticSearch deve fare riferimento a Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric.
 
-    ![Riferimenti di progetto alle librerie Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric][1]  
+    ![Riferimenti di progetto alle librerie Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric][1]
 
 ### Versione di disponibilità generale di Service Fabric e pacchetto NuGet Microsoft.Diagnostics.Tracing
 Il framework di destinazione delle applicazioni compilate con la versione di disponibilità generale di Service Fabric (2.0.135, rilasciata il 31 marzo 2016) è **.NET Framework 4.5.2**. Questa è la versione più recente di .NET Framework supportata da Azure al momento del rilascio della versione di disponibilità generale. Questa versione del framework, purtroppo, non include alcune API EventListener richieste dalla libreria Microsoft.Diagnostics.Listeners. Poiché EventSource, il componente di base per la registrazione delle API in applicazioni di Service Fabric, ed EventListener sono strettamente collegati, ogni progetto che usa la libreria Microsoft.Diagnostics.Listeners deve usare anche un'implementazione alternativa di EventSource, inclusa nel **pacchetto NuGet Microsoft.Diagnostics.Tracing** creato da Microsoft. Questo pacchetto è totalmente compatibile con la versione di EventSource inclusa nel framework e quindi non dovrebbero essere necessarie modifiche al codice oltre a quelle riguardanti lo spazio dei nomi a cui viene fatto riferimento.
@@ -246,12 +248,12 @@ I valori dei parametri `serviceUri`, `userName` e `password` corrispondono rispe
 ### Verifica
 L'operazione è terminata. A questo punto, ogni volta che il servizio viene eseguito, inizia a inviare tracce al servizio Elasticsearch specificato nella configurazione. È possibile verificare questo aprendo la UI Kibana associata all'istanza di Elasticsearch di destinazione. Nel nostro esempio, l'indirizzo della pagina è http://myBigCluster.westus.cloudapp.azure.com/. Verificare che gli indici con il prefisso del nome scelto per l'`ElasticSearchListener` istanza siano stati effettivamente creati e popolati con i dati.
 
-![Eventi di Kibana che mostrano l'applicazione PartyCluster][2]  
+![Eventi di Kibana che mostrano l'applicazione PartyCluster][2]
 
 ## Passaggi successivi
 - [Altre informazioni sulla diagnostica e il monitoraggio di un servizio di infrastruttura di servizi](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 

@@ -97,14 +97,14 @@ Si noti che il livello di affidabilità scelto determina il numero minimo di nod
 
 Si noti anche che in qualsiasi momento è possibile scegliere di aggiornare l'affidabilità del cluster passando da un livello a un altro. Così facendo si attiveranno gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 Una volta completata la pianificazione della capacità e configurato un cluster, leggere quanto segue:
 - [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 - [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!--Image references-->  
+<!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
 <!---HONumber=AcomDC_0817_2016-->

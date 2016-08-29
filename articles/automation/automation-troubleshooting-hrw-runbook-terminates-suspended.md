@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/17/2016"
-   ms.author="magoedte" />  
+   ms.author="magoedte" />
 
 # Ruolo di lavoro ibrido per runbook: un processo runbook termina con lo stato Sospeso
 

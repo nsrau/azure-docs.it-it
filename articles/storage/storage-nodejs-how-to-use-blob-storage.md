@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
     ms.date="08/11/2016"
-	ms.author="micurd"/>  
+	ms.author="micurd"/>
 
 
 

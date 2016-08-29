@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="stefsch"/>  
+	ms.author="stefsch"/>
 
 # Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 
@@ -91,8 +91,8 @@ Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco del
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
-<!-- LINKS -->  
+<!-- LINKS -->
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 
 <!---HONumber=AcomDC_0817_2016-->

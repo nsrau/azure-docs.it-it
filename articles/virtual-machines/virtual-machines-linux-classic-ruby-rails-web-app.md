@@ -15,7 +15,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 
@@ -121,7 +121,7 @@ L'output dovrebbe essere simile al seguente.
 
 5. Dovrebbe essere visualizzato il messaggio **AGGIORNAMENTO IN CORSO**. Quando questo messaggio scompare, significa che l'endpoint è attivo. A questo punto è possibile testare l'applicazione passando al nome DNS della macchina virtuale. L'aspetto del sito Web dovrebbe essere simile al seguente:
 
-	![Pagina predefinita Rails][default-rails-cloud]  
+	![Pagina predefinita Rails][default-rails-cloud]
 
 ## Passaggi successivi
 

@@ -37,7 +37,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- External Links -->  
+<!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
 <!---HONumber=AcomDC_0817_2016-->

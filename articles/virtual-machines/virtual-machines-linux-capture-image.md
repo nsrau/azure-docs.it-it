@@ -45,7 +45,7 @@ Dopo avere effettuato il provisioning e avviato l'esecuzione della VM, è possib
 
 2. Nella finestra di SSH digitare il comando seguente. L'output di **waagent** può variare leggermente, in base alla versione dell'utilità:
 
-	`sudo waagent -deprovision+user`  
+	`sudo waagent -deprovision+user`
 
 	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
 
@@ -68,15 +68,15 @@ Dopo avere effettuato il provisioning e avviato l'esecuzione della VM, è possib
 
 6. Assicurarsi di essere in modalità Gestione risorse:
 
-	`azure config mode arm`  
+	`azure config mode arm`
 
 7. Arrestare la VM di cui è già stato effettuato il deprovisioning usando il comando seguente:
 
-	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`  
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Generalizzare la VM con il comando seguente:
 
-	`azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`  
+	`azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. Ora acquisire l'immagine e un modello di file locale con il comando seguente:
 

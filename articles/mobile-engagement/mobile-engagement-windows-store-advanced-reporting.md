@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="piyushjo;ricksal" />  
+	ms.author="piyushjo;ricksal" />
 
 # Segnalazione avanzata con Engagement SDK per le app di Windows universali
 

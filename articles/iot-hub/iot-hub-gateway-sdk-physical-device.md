@@ -438,7 +438,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md

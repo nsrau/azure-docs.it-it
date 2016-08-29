@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="08/03/2016"
-   ms.author="markgal; trinadhk"/>  
+   ms.author="markgal; trinadhk"/>
 
 # Distribuire e gestire i backup per le macchina virtuali distribuite con Resource Manager utilizzando PowerShell
 
@@ -34,7 +34,7 @@ Se non si ha familiarità con il servizio di Backup di Azure, vedere l'argomento
 
 Per un utilizzo efficace di PowerShell, è necessario comprendere la gerarchia degli oggetti e da dove iniziare.
 
-![Gerarchia di oggetti dei servizi di ripristino](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)  
+![Gerarchia di oggetti dei servizi di ripristino](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Per visualizzare il riferimento al cmdlet AzureRmRecoveryServicesBackup di PowerShell, vedere [Azure Backup - Recovery Services Cmdlets (Backup di Azure: i cmdlet dei servizi di ripristino)](https://msdn.microsoft.com/library/mt723320.aspx) nella libreria di Azure. Per visualizzare il riferimento al cmdlet AzureRmRecoveryServicesVault di PowerShell, vedere [Azure Recovery Service Cmdlets (Cmdlet dei servizi di ripristino di Azure)](https://msdn.microsoft.com/library/mt643905.aspx).
 

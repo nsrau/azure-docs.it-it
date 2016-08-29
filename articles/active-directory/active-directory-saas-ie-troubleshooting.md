@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="08/16/2016"
-    ms.author="markvi"/>  
+    ms.author="markvi"/>
 
 #Risoluzione dei problemi di Access Panel Extension per Internet Explorer
 

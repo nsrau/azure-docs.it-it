@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/>
 
 # Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 

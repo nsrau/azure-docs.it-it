@@ -153,7 +153,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
-<!-- Links and images -->  
+<!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
 [2]: media/iot-hub-operations-monitoring/enable-OM-2.png
 

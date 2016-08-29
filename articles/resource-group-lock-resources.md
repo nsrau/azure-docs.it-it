@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="tomfitz"/>  
+	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
 

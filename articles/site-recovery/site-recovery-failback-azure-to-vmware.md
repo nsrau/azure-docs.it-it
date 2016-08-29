@@ -38,7 +38,7 @@ Usare questa architettura quando il server di elaborazione è locale e si usa Ex
 
 Usare questa architettura quando il server di elaborazione è in Azure e si dispone di una rete VPN o di una connessione ExpressRoute.
 
-![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Per vedere l'elenco completo delle porte e il diagramma che illustra l'architettura di failback, fare riferimento all'immagine seguente.
 
@@ -98,7 +98,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 1.  Selezionare il server di configurazione in Insieme di credenziali > Impostazioni > Infrastruttura Site Recovery (sotto l'intestazione Gestisci) > **Server di configurazione**, sotto l'intestazione Per VMware e computer fisici. Espandere "Server di elaborazione", evidenziato in giallo nella screenshot di esempio seguente.
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)  
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 
 2. Per la distribuzione del server di elaborazione scegliere la distribuzione di un server di elaborazione di failback in Azure.
 
@@ -112,7 +112,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	1. Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Assicurarsi di selezionare *Classico* come modello di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)  
+		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
 	
 	2. Installare il server di elaborazione seguendo la procedura [specificata qui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -207,7 +207,7 @@ Per applicare modifiche personalizzate dopo aver completato i passaggi successiv
 
 7.	Dopo aver fatto clic su **OK** per avviare la riprotezione, inizia un processo di replica della VM da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
 
-Per eseguire il ripristino in un percorso alternativo, selezionare l'unità di conservazione e l'archivio dati configurati per il server di destinazione master. Quando si esegue il failback al sito locale, le macchine virtuali VMware nel piano di protezione di failback usano lo stesso archivio dati del server di destinazione master. Per ripristinare la macchina virtuale di Azure di replica nella stessa macchina virtuale locale, quest'ultima deve già trovarsi nello stesso archivio dati del server di destinazione master. Se non è presente alcuna macchina virtuale in locale, ne viene creata una nuova durante la riprotezione.![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
+Per eseguire il ripristino in un percorso alternativo, selezionare l'unità di conservazione e l'archivio dati configurati per il server di destinazione master. Quando si esegue il failback al sito locale, le macchine virtuali VMware nel piano di protezione di failback usano lo stesso archivio dati del server di destinazione master. Per ripristinare la macchina virtuale di Azure di replica nella stessa macchina virtuale locale, quest'ultima deve già trovarsi nello stesso archivio dati del server di destinazione master. Se non è presente alcuna macchina virtuale in locale, ne viene creata una nuova durante la riprotezione. ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
 
 
@@ -252,4 +252,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0817_2016--->

@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
 ms.date="08/16/2016"
-ms.author="eugenesh" />  
+ms.author="eugenesh" />
 
 # Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure
 

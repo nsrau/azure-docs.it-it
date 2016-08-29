@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/15/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/>
 
 # Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 
@@ -40,15 +40,15 @@ A differenza che nel corso del flusso di lavoro di creazione del cluster, qui no
 
 Fare clic su **Certificato**. Inizia una distribuzione e una barra di stato blu verrà visualizzata nel pannello Cluster Security (Sicurezza cluster).
 
-![Schermata delle identificazioni personali del certificato nel portale] [SecurityConfigurations\_02]
+![Schermata delle identificazioni personali del certificato nel portale] [SecurityConfigurations_02]
 
 Al completamento della distribuzione, sarà possibile usare il certificato primario o quello secondario per eseguire operazioni di gestione sul cluster.
 
-![Schermata della distribuzione del certificato in corso] [SecurityConfigurations\_03]
+![Schermata della distribuzione del certificato in corso] [SecurityConfigurations_03]
 
 Di seguito è riportata una schermata che illustra l'aspetto del pannello relativo alla sicurezza dopo il completamento della distribuzione.
 
-![Schermata delle identificazioni personali del certificato dopo la distribuzione] [SecurityConfigurations\_08]
+![Schermata delle identificazioni personali del certificato dopo la distribuzione] [SecurityConfigurations_08]
 
 
 È possibile usare il nuovo certificato appena aggiunto per connettersi ed eseguire operazioni nel cluster.
@@ -207,7 +207,10 @@ Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
 - [Configurare l’accesso in base al ruolo per i client](service-fabric-cluster-security-roles.md)
 
 
-<!--Image references-->  
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+<!--Image references-->
+[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
+[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
 <!---HONumber=AcomDC_0817_2016-->

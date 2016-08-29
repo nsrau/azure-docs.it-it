@@ -15,7 +15,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
 

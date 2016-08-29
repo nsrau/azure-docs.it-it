@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/10/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/>
 
 # Scenari di sicurezza di un cluster di Service Fabric
 
@@ -99,7 +99,7 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 
 >[AZURE.NOTE] Tutte le operazioni di gestione in un cluster di Service Fabric richiedono certificati server. I certificati client non possono essere usati per la gestione.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Passaggi successivi

@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 

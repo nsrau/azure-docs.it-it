@@ -15,7 +15,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/29/2016"
-    ms.author="b-hoedid"/>  
+    ms.author="b-hoedid"/>
 
 # Registrazione e gestione degli errori in App per la logica
 
@@ -99,14 +99,14 @@ Viene usato un trigger di richiesta come illustrato nell'esempio seguente.
 
 #### Visualizzazione della finestra di progettazione per l'inserimento di voci di log
 
-![Inserire una voce di log](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)  
+![Inserire una voce di log](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
 #### Visualizzazione della finestra di progettazione per l'inserimento di voci di errore
-![Inserire una voce di log](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)  
+![Inserire una voce di log](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
 #### Verifica della presenza di errori nella creazione di record
 
-![Condizione](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)  
+![Condizione](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
 
 ## Codice sorgente dell'app per la logica
@@ -411,7 +411,7 @@ Di seguito sono riportati esempi dei dettagli dell'app MVC creati con l'approcci
 
 #### Visualizzazione di dettagli dei log di esempio
 
-![Visualizzare i dettagli dei log](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)  
+![Visualizzare i dettagli dei log](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
 ### Dettagli dell'app per le API
 

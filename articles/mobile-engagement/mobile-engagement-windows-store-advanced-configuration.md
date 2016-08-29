@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="piyushjo;ricksal" />  
+	ms.author="piyushjo;ricksal" />
 
 # Configurazione avanzata per Engagement SDK per app universali di Windows
 

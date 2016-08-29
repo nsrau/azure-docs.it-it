@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/17/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 
 # Accesso condizionale di Azure Active Directory   

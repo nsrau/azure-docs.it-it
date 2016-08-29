@@ -41,7 +41,7 @@ Il team di RemoteApp di Azure pubblica mensilmente aggiornamenti nel blog di Ser
 In agosto sono state apportate notevoli modifiche, tra cui:
 
 - Possibilità di usare una rete virtuale di Azure con una raccolta nel cloud. Per la nuova procedura, vedere le [istruzioni per la creazione cloud](remoteapp-create-cloud-deployment.md).
-- Possibilità di aggiungere app al menu **Start ** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start ** di Windows.
+- Possibilità di aggiungere app al menu **Start** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start** di Windows.
 - Aggiunta di una nuova immagine alla raccolta di VM di Azure: Host sessione Desktop remoto di Windows Server con Microsoft Office 365 ProPlus.
 - Correzione del client Mac per evitare il blocco delle app con finestre modali.
 - Documentazione sull'uso della [sottoscrizione di Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="billing"
    ms.date="08/16/2016"
-   ms.author="mobandyo;bryanla"/>  
+   ms.author="mobandyo;bryanla"/>
 
 # Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure
 

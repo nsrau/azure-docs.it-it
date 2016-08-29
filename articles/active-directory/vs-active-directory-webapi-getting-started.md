@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Introduzione ad Azure Active Directory e ai servizi relativi a Visual Studio (progetti WebApi)
 

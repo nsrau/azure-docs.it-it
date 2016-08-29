@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Come gestire un account DocumentDB
 
@@ -36,7 +36,7 @@ Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso p
 
 Nel [portale di Microsoft Azure](https://portal.azure.com/) accedere al pannello **Chiavi** dal pannello **Account DocumentDB** per visualizzare, copiare e rigenerare le chiavi di accesso usate per accedere all'account DocumentDB.
 
-![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)  
+![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)
 
 > [AZURE.NOTE] Il pannello **Chiavi** include anche le stringhe di connessione primaria e secondaria che possono essere usate per connettersi al proprio account dall'[Utilità di migrazione dati](documentdb-import-data.md).
 
@@ -70,7 +70,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 ## <a id="delete"></a> Eliminare un account DocumentDB
 Per rimuovere un account DocumentDB non più usato dal portale di Azure, usare il comando **Elimina account** nel pannello **Account DocumentDB**.
 
-![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccount.png)  
+![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare.
@@ -87,7 +87,7 @@ Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft
 Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
 [3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
@@ -95,10 +95,10 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 [5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->  
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/it-IT/regions/#services
-[offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

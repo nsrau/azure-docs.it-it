@@ -44,7 +44,7 @@ Oltre alle istanze dell'applicazione principale, è consigliabile distribuire un
 
 Il diagramma seguente mostra questa configurazione prima di un'interruzione.
 
-![Configurazione della replica geografica del database SQL. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)  
+![Configurazione della replica geografica del database SQL. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
 Dopo un'interruzione nell'area primaria l'applicazione di monitoraggio rileva che il database primario non è accessibile e registra un avviso. A seconda del contratto di servizio dell'applicazione, è possibile decidere quanti probe di monitoraggio consecutivi devono avere esito negativo prima di dichiarare un'interruzione del database. Per ottenere il failover coordinato dell'endpoint dell'applicazione e del database, è necessario che l'applicazione di monitoraggio esegua i passaggi seguenti:
 
@@ -54,7 +54,7 @@ Dopo un'interruzione nell'area primaria l'applicazione di monitoraggio rileva ch
 Dopo il failover l'applicazione elabora le richieste degli utenti nell'area secondaria, ma continua a condividere il percorso con il database perché il database primario ora si trova nell'area secondaria, secondo lo scenario illustrato dal diagramma seguente. In tutti i diagrammi le linee continue indicano le connessioni attive, le linee con punti indicano le connessioni sospese e i segnali di stop indicano i trigger di azioni.
 
 
-![Replica geografica: failover al database secondario. Backup dei dati delle app.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)  
+![Replica geografica: failover al database secondario. Backup dei dati delle app.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 
 Se si verifica un'interruzione nell'area secondaria, il collegamento di replica tra il database primario e quello secondario è sospeso e l'applicazione di monitoraggio registra un avviso relativo all'esposizione del database primario. Non si registrano effetti sulle prestazioni dell'applicazione, che però risulta esposta a un rischio maggiore se entrambe le aree abbiano esito negativo una dopo l'altra.
 
@@ -62,7 +62,7 @@ Se si verifica un'interruzione nell'area secondaria, il collegamento di replica 
 
 Una volta ridotta l'entità dell'interruzione, il database secondario viene automaticamente sincronizzato con quello primario. Durante la sincronizzazione, le prestazioni di quello primario potrebbero essere leggermente rallentate a seconda della quantità di dati da sincronizzare. Il diagramma seguente illustra un'interruzione nell'area secondaria.
 
-![Database secondario sincronizzato con il database primario. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-3.png)  
+![Database secondario sincronizzato con il database primario. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-3.png)
 
 
 I **vantaggi** chiave di questo modello di progettazione sono:
@@ -119,7 +119,7 @@ Il diagramma seguente illustra questa configurazione prima di un'interruzione. !
 
 Quando Gestione traffico rileva un errore di connettività nell'area primaria, passa automaticamente il traffico utente all'istanza dell'applicazione nell'area secondaria. Con questo modello è importante **non** avviare il failover del database dopo avere rilevato l'interruzione. L'applicazione nell'area secondaria viene attivata e funziona in modalità sola lettura usando il database secondario. Tale condizione è illustrata dal diagramma seguente.
 
-![Interruzione: applicazione in modalità di sola lettura. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)  
+![Interruzione: applicazione in modalità di sola lettura. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
 
 Una volta ridotta l'entità dell'interruzione nell'area primaria, Gestione traffico rileva il ripristino della connettività nell'area primaria e ripassa il traffico utente all'istanza dell'applicazione nell'area primaria. Tale istanza dell'applicazione viene riavviata e funziona in modalità lettura/scrittura usando il database primario.
 
@@ -127,7 +127,7 @@ Una volta ridotta l'entità dell'interruzione nell'area primaria, Gestione traff
 
 In caso di interruzione nell'area secondaria, Gestione traffico contrassegna l'endpoint dell'applicazione nell'area primaria come danneggiato e il canale di replica viene sospeso. Tuttavia, l'interruzione non avrà effetto sulle prestazioni dell'applicazione. Una volta ridotta l'entità dell'interruzione, il database secondario viene immediatamente sincronizzato con quello primario. Durante la sincronizzazione, le prestazioni di quello primario potrebbero essere leggermente rallentate a seconda della quantità di dati da sincronizzare.
 
-![Interruzione: database secondario. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)  
+![Interruzione: database secondario. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
 Questo modello di progettazione presenta diversi **vantaggi**:
 

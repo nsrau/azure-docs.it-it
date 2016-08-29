@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/11/2016"
- ms.author="nberdy"/>  
+ ms.author="nberdy"/>
 
 # Introduzione alla metrica di diagnostica
 
@@ -28,15 +28,15 @@ La metrica di diagnostica fornisce dati migliori sullo stato delle risorse di Az
 
 2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Diagnostica**.
 
-    ![][1]  
+    ![][1]
 
 3. Configurare la diagnostica impostando lo stato su **Sì** e selezionando un account di archiviazione per archiviare i dati di diagnostica. Selezionare **Metriche**, quindi premere **Salva**. Si noti che l'account di archiviazione deve essere creato in anticipo e che il costo di archiviazione viene addebitato separatamente. È anche possibile inviare dati di diagnostica a un endpoint dell'hub eventi.
 
-    ![][2]  
+    ![][2]
 
 4. Dopo avere impostato la diagnostica, tornare al pannello **Panoramica** dell'hub IoT. Le informazioni relative alla metrica vengono popolate nella sezione **Monitoraggio** del pannello. Facendo clic sul grafico, viene aperto il riquadro Metrica dove è possibile visualizzare un riepilogo delle informazioni corrispondenti per l'hub IoT e modificare la selezione della metrica visualizzata nel grafico. È anche possibile configurare gli avvisi in base ai valori della metrica.
 
-    ![][3]  
+    ![][3]
 
 ## Metrica e modalità d'uso
 

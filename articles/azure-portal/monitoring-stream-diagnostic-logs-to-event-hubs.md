@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Trasmettere log di diagnostica di Azure a Hub eventi
 

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="glenga"/>  
+	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app Xamarin.Android
 
@@ -73,7 +73,7 @@ Per completare questa esercitazione, è necessario disporre di:
 	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/

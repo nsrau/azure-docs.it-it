@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="08/15/2016"
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
 
 
 
@@ -28,10 +28,10 @@ Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di
 ##  La subnet di RemoteApp di Azure necessita dell'accesso ai seguenti endpoint e URL: 
 *	*.servicebus.windows.net
 *	 *. servicebus.net
-*	 https://*.remoteapp.windwsazure.com  
+*	 https://*.remoteapp.windwsazure.com
 *	 https://www.remoteapp.windowsazure.com
 *	 https://*remoteapp.windowsazure.com
-*	 https://*.core.windows.net  
+*	 https://*.core.windows.net
 *	 In uscita: TCP: 443, TCP: 10101-10175
 *	 Facoltativo: UDP: 10201-10275
  
@@ -39,12 +39,12 @@ Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di
 
 Per client si intende desktop, dispositivi e così via, usati per connettersi alle app distribuite nella raccolta RemoteApp di Azure.
 
--  https://telemetry.remoteapp.windowsazure.com  
+-  https://telemetry.remoteapp.windowsazure.com
 -  https://*.remoteapp.windowsazure.com (le porte UDP facoltative riguardano questo indirizzo)
 -  https://login.windows.net
 -  https://login.microsoftonline.com
 -  https://www.remoteapp.windowsazure.com
--  https://*.core.windows.net  
+-  https://*.core.windows.net
 -  In uscita: TCP: 443
 -  Facoltativo: UDP: 3391
 

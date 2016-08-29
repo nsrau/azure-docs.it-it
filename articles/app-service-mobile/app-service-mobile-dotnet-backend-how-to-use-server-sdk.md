@@ -146,19 +146,19 @@ Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Stud
 
 2. Se viene richiesto di selezionare una destinazione di pubblicazione, fare clic su **Servizio app di Microsoft Azure** > **Avanti** e quindi, se necessario, accedere con le credenziali di Azure. Visual Studio scaricherà e memorizzerà le impostazioni di pubblicazione direttamente da Azure.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
 3. Scegliere la **Sottoscrizione**, selezionare **Tipo di risorsa** da **Visualizza**, espandere **App per dispositivi mobili** e fare clic sul back-end di App per dispositivi mobili, quindi su **OK**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
 
 4. Verificare le informazioni sul profilo di pubblicazione e fare clic su **Pubblica**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
 	Quando il back-end dell'app per dispositivi mobili ha eseguito la pubblicazione, viene visualizzata una pagina di destinazione.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ##<a name="define-table-controller"></a> Procedura: Definire un controller tabelle
 

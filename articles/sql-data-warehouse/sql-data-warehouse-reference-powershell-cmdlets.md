@@ -88,7 +88,7 @@ Per altri esempi di PowerShell, vedere:
 
 Per un elenco di tutte le attività che possono essere automatizzate tramite PowerShell, vedere [Cmdlet del database di SQL di Azure][]. Per un elenco di attività che possono essere automatizzate con REST, vedere [Operazioni per i database SQL di Azure][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
@@ -111,7 +111,7 @@ Per un elenco di tutte le attività che possono essere automatizzate tramite Pow
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
 <!---HONumber=AcomDC_0817_2016-->

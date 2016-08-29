@@ -88,7 +88,7 @@ Ora che sono state sperimentate alcune query con i dati di esempio, è possibile
 [installare bcp]: sql-data-warehouse-load-with-bcp.md
 [installare sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [script di esempio Adventure Works per SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
 <!---HONumber=AcomDC_0817_2016-->

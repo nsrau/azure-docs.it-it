@@ -402,7 +402,7 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
-<!-- Images. -->  
+<!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
 
@@ -433,7 +433,7 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
-<!-- Links -->  
+<!-- Links -->
 [Informazioni sugli account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Introduzione all'Hub eventi]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: ../storage/storage-scalability-targets.md

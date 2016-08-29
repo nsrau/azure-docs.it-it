@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure
 

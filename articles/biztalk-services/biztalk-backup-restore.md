@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 # Servizi BizTalk: backup e ripristino
@@ -68,7 +68,7 @@ Al termine del backup verrà creato un contenitore con il nome di backup indicat
 2. Impostare **Stato backup** su **Automatico**.
 3. Selezionare **Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per la creazione dei backup e specificare la durata di mantenimento dei backup (**Giorni di conservazione**):
 
-	![][AutomaticBU]  
+	![][AutomaticBU]
 
 	**Note**
 	- In **Giorni di conservazione**, il periodo di conservazione deve essere maggiore della frequenza di backup.
@@ -82,7 +82,7 @@ Quando si esegue un processo di backup pianificato, viene creato un contenitore 
 
 Se nel dashboard del servizio BizTalk Service è indicato uno stato **Non riuscito**:
 
-![Last scheduled backup status][BackupStatus]  
+![Last scheduled backup status][BackupStatus]
 
 Il collegamento apre i log operazioni dei servizi di gestione per semplificare la risoluzione. Vedere [Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
@@ -100,13 +100,13 @@ Il collegamento apre i log operazioni dei servizi di gestione per semplificare l
 
 1. Nel portale di Azure classico, selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
 
-	![Ripristino di un backup][Restore]  
+	![Ripristino di un backup][Restore]
 
 2. In **URL backup** selezionare l'icona della cartella ed espandere l'account di archiviazione di Azure che contiene il backup di configurazione del servizio BizTalk. Espandere il contenitore e nel riquadro sinistro selezionare il file di backup corrispondente con estensione txt. <br/><br/> Selezionare **Apri**.
 
 3. Nella pagina **Ripristina servizio BizTalk** specificare un **Nome servizio BizTalk** e verificare le voci in **URL di dominio**, **Edizione** e **Regione** per il servizio BizTalk ripristinato. **Selezionare **Crea nuova istanza di database SQL per il database di rilevamento:
 
-	![][RestoreBizTalkService]  
+	![][RestoreBizTalkService]
 
 	Fare clic sulla freccia Avanti.
 

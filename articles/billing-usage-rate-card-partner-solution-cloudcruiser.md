@@ -56,7 +56,7 @@ Le cartelle di lavoro di Cloud Cruiser consentono di raccogliere ed elaborare in
 
 Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possibile correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. I due screenshot seguenti illustrano come creare una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
 
-![Figura 1 - Creazione di una nuova raccolta][1]  
+![Figura 1 - Creazione di una nuova raccolta][1]
 
 ![Figura 2 - Importare i data dalla nuova raccolta][2]
 
@@ -148,7 +148,7 @@ Il primo passaggio in questa esercitazione è creare un nuovo gruppo di risorse 
 
 Lo screenshot seguente del portale di Azure illustra un gruppo di risorse con i tag associati.
 
-![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]  
+![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]
 
 Il passaggio successivo è estrarre le informazioni dall'API di utilizzo in Cloud Cruiser. L'API di utilizzo attualmente fornisce risposte nel formato JSON. Segue un esempio dei dati recuperati:
 
@@ -220,7 +220,7 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 ### Ulteriori informazioni
 + Per altre informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 
-<!--Image references-->  
+<!--Image references-->
  
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figura 1 - Creazione di una nuova raccolta"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figura 2 - Importare i data dalla nuova raccolta"

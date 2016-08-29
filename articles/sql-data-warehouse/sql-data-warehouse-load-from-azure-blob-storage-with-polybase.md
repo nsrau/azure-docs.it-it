@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>  
+   ms.author="jrj;barbkess;sonyama"/>
 
 
 # Caricare dati dall’archiviazione BLOB di Azure in un SQL Data Warehouse (PolyBase)
@@ -348,7 +348,7 @@ Ora è possibile usare SQL Data Warehouse per l'esplorazione dei dati.
 ## Passaggi successivi
 Per caricare i dati completi del data warehouse di Contoso Retail, usare lo script disponibile nei suggerimenti per lo sviluppo e vedere [Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
@@ -366,7 +366,7 @@ Per caricare i dati completi del data warehouse di Contoso Retail, usare lo scri
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Caricare nel Data Warehouse completo di Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 

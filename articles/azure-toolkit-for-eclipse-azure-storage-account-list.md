@@ -86,7 +86,7 @@ Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo ave
 
 Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -95,7 +95,7 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png

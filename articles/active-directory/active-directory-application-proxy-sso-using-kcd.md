@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 
 # Single Sign-On con il proxy di applicazione
@@ -25,7 +25,7 @@ Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Ques
 2. Tutti i controlli di convalida della sicurezza avvengono nel cloud (autenticazione preliminare)
 3. Quando la richiesta viene inviata all'applicazione locale, il connettore Proxy applicazione rappresenta l'utente. L'applicazione back-end ritiene che questo sia un utente normale da un dispositivo aggiunto al dominio.
 
-![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)  
+![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
 Il proxy dell'applicazione di Azure AD consente di offrire un'esperienza di accesso Single Sign-On (SSO) agli utenti. Usare le istruzioni seguenti per pubblicare le app mediante l'accesso SSO:
 
@@ -165,7 +165,7 @@ Se si verifica un errore nel processo di accesso Single Sign-On, tale errore ver
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 

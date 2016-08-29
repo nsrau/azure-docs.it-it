@@ -316,7 +316,7 @@ Il file *ServiceConfiguration.Cloud.cscfg* complementare per questo esempio si p
 </ServiceConfiguration>
 ```
 
-<!-- Images. -->  
+<!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
 <!---HONumber=AcomDC_0817_2016-->

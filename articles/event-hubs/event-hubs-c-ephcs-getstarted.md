@@ -14,7 +14,7 @@
 	ms.devlang="csharp"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
 
@@ -48,11 +48,11 @@ A questo punto è possibile eseguire le applicazioni.
 
 1.	In Visual Studio eseguire il progetto **Receiver**, quindi attendere che il progetto avvii i ricevitori per tutte le partizioni.
 
-	![][21]  
+	![][21]
 
 2.	Eseguire il programma **Sender**. Gli eventi verranno visualizzati nella finestra del ricevitore.
 
-	![][24]  
+	![][24]
 
 ## Passaggi successivi
 
@@ -67,7 +67,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
-<!-- Links -->  
+<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="08/16/2016"
-    ms.author="sethm;clemensv" />  
+    ms.author="sethm;clemensv" />
 
 # Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
 

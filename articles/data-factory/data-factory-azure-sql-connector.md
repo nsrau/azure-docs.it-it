@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/05/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Spostare dati da e nel database SQL di Azure con Data factory di Azure
 

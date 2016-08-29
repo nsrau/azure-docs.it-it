@@ -57,7 +57,7 @@ Ad esempio:
     </Dns>
 	</VirtualNetworkConfiguration>
 
-![Definire il DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)  
+![Definire il DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
 ## Si sta utilizzando un controller di dominio di Active Directory nella raccolta? ##
 Attualmente solo un dominio di Active Directory può essere associato a RemoteApp di Azure. La raccolta ibrida supporta solo gli account Azure Active Directory che sono stati sincronizzati mediante uno strumento come DirSync da una distribuzione di Windows Server Active Directory. In particolare, sincronizzati con l'opzione di sincronizzazione password oppure con la federazione di Active Directory Federation Services (ADFS) configurata. È necessario creare un dominio personalizzato che corrisponda al suffisso di dominio UPN per il dominio locale e impostare l'integrazione di directory.

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Questetra BPM Suite
@@ -58,17 +58,17 @@ Per configurare l'integrazione di Questetra BPM Suite in Azure AD, è necessario
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]  
+	![Applicazioni][2]
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]  
+	![Applicazioni][3]
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -170,7 +170,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Cos'è Azure AD Connect][18]  
+	![Cos'è Azure AD Connect][18]
 
 
 
@@ -182,17 +182,17 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creare un utente test di Azure AD][100]  
+	![Creare un utente test di Azure AD][100]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Creare un utente test di Azure AD][101]  
+	![Creare un utente test di Azure AD][101]
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creare un utente test di Azure AD][102]  
+	![Creare un utente test di Azure AD][102]
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -206,7 +206,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creare un utente test di Azure AD][104]  
+	![Creare un utente test di Azure AD][104]
   
     a. Nella casella di testo **Nome** digitare **Britta**.
  
@@ -220,11 +220,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creare un utente test di Azure AD][105]  
+	![Creare un utente test di Azure AD][105]
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creare un utente test di Azure AD][106]  
+	![Creare un utente test di Azure AD][106]
   
     a. Prendere nota del valore visualizzato in **Nuova password**.
   
@@ -271,7 +271,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Cos'è Azure AD Connect][202]  
+	![Cos'è Azure AD Connect][202]
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
@@ -279,7 +279,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Cos'è Azure AD Connect][204]  
+	![Cos'è Azure AD Connect][204]
 
 
 
@@ -293,7 +293,7 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_01.png
 [2]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_02.png
 [3]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_03.png

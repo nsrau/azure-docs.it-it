@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
 	ms.date="08/15/2016" 
-	ms.author="seasa"/>  
+	ms.author="seasa"/>
 
 # Gestire il servizio Ricerca di Azure con PowerShell
 > [AZURE.SELECTOR]

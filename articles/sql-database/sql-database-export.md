@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/>
 
 
 # Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure
@@ -93,7 +93,7 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-export/export.png
 [2]: ./media/sql-database-export/export-blade.png
 [3]: ./media/sql-database-export/export-notification.png

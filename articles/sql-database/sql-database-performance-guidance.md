@@ -189,7 +189,7 @@ Sono disponibili due viste che consentono di monitorare l'utilizzo delle risorse
 ### Uso di sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) è presente in ogni database SQL e fornisce dati di utilizzo delle risorse recenti rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
-Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats ** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
+Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',

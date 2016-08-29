@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>  
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 
@@ -48,7 +48,7 @@ Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti 
 ## Passaggi successivi
 Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [argomenti di riferimento per Transact-SQL][] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Concorrenza]: ./sql-data-warehouse-develop-concurrency.md

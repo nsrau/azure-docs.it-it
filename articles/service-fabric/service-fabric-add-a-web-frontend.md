@@ -169,11 +169,11 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
 2. Scegliere **Gestione configurazione** dal menu **Compila**. Verrà visualizzata una schermata analoga alla seguente:
 
-    ![Gestione configurazione che mostra la libreria di classi per AnyCPU][vs-configuration-manager]  
+    ![Gestione configurazione che mostra la libreria di classi per AnyCPU][vs-configuration-manager]
 
     Si noti che il progetto di libreria di classi, **MyStatefulService.Interface**, è configurato in modo da poter essere compilato per qualsiasi CPU. Per il corretto funzionamento di Service Fabric, deve essere esplicitamente destinato alle piattaforme a 64 bit (x64). Fare clic sul menu a discesa Piattaforma, scegliere **Nuovo** e quindi creare la configurazione della piattaforma a 64 bit (x64).
 
-    ![Creazione della nuova piattaforma per la libreria di classi][vs-create-platform]  
+    ![Creazione della nuova piattaforma per la libreria di classi][vs-create-platform]
 
 3. Aggiungere il pacchetto Microsoft.ServiceFabric.Services al progetto ASP.NET, come è stato fatto prima per il progetto della libreria di classi. Si otterrà così la classe `ServiceProxy`.
 
@@ -208,7 +208,7 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
 5. Premere di nuovo F5 per eseguire l'applicazione modificata. Come prima, Visual Studio avvierà automaticamente il browser nella radice del progetto Web. Aggiungere il percorso "api/values" per visualizzare il valore del contatore attualmente restituito.
 
-    ![Valore del contatore con stato visualizzato nel browser][browser-aspnet-counter-value]  
+    ![Valore del contatore con stato visualizzato nel browser][browser-aspnet-counter-value]
 
     Aggiornare regolarmente il browser per visualizzare l'aggiornamento del valore del contatore.
 
@@ -254,6 +254,6 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/it-IT/services/api-management/
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
 <!---HONumber=AcomDC_0817_2016-->

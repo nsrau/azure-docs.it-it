@@ -14,7 +14,7 @@
 	 ms.devlang="na"
 	 ms.topic="article"
 	 ms.date="07/25/2016"
-	 ms.author="gangan"/>  
+	 ms.author="gangan"/>
 
 # Come creare una richiesta di supporto in Azure
 

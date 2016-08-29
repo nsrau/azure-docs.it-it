@@ -232,9 +232,9 @@ Le sezioni di dati così recuperate potranno essere configurate per essere esegu
 
 Si consideri l'esempio seguente che mostra due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
-![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)  
+![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>  
+<br/>
 
 Il diagramma precedente mostra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per **Dataset2**. La data factory monitorizza automaticamente le dipendenze per il set di dati in serie temporale e, di conseguenza, sospende l'avvio dell'esecuzione di attività per la sezione a valle 9-10 AM.
 
@@ -243,7 +243,7 @@ Gli strumenti di monitoraggio e gestione della data factory consentono inoltre d
 
 Quando, dopo aver avviato la nuova esecuzione della sezione, la sezione 9-10 AM del dataset2 è pronta, la data factory avvierà l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale, come illustrato nel diagramma seguente.
 
-![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)  
+![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 Per un approfondimento sulla definizione e il monitoraggio delle dipendenze per catene complesse di attività e set di dati, fare riferimento alle sezioni seguenti.
 
@@ -259,11 +259,11 @@ In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono dis
 
 La visualizzazione diagramma sarebbe la seguente:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
 La visualizzazione diagramma con entrambe le attività nella stessa pipeline sarebbe la seguente:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copia ordinata
 È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity con i set di dati di input e output seguenti.
@@ -404,7 +404,7 @@ Lo script Hive riceve le informazioni di data e ora appropriate sotto forma di p
 
 Ecco il risultato dal punto di vista della dipendenza dei dati.
 
-![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)  
+![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. La data factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile (perché, ad esempio, nell'attività a monte che produce la sezione è in corso un processo di elaborazione), la data factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione di attività giornaliera.
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/16/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Come configurare i webhook per gli avvisi
 

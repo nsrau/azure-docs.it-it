@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="magoedte;csand"/>  
+	ms.author="magoedte;csand"/>
 
 #Gestione di Azure RemoteApp usando Automazione di Azure
 

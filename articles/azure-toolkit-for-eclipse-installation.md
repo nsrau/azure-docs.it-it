@@ -87,7 +87,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md

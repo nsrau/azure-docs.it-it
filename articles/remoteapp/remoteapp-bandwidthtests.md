@@ -13,7 +13,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="08/15/2016" 
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
     
 # Azure RemoteApp - Scenari comuni di test relativi all'utilizzo della larghezza di banda di rete
 

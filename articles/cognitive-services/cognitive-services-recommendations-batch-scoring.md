@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/24/2016"
-	ms.author="luisca"/>  
+	ms.author="luisca"/>
 
 # Ottenere consigli in batch
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/17/2016"
-   ms.author="magoedte;bwren" />  
+   ms.author="magoedte;bwren" />
 
 # Runbook figlio in Automazione di Azure
 

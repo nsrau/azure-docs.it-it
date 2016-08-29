@@ -1,6 +1,6 @@
 <properties pageTitle="Uso di moduli Node.js" description="Informazioni su come usare i moduli Node.js con Servizio app di Azure e Servizi cloud." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/11/2016" ms.author="robmcm"/>  
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/11/2016" ms.author="robmcm"/>
 
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="08/16/2016"
-    ms.author="markvi"/>  
+    ms.author="markvi"/>
 
 #Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 

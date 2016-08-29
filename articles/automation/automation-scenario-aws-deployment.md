@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/17/2016"
-   ms.author="tiandert; bwren" />  
+   ms.author="tiandert; bwren" />
 
 # Scenario di Automazione di Azure - Provisioning di una macchina virtuale di AWS 
 

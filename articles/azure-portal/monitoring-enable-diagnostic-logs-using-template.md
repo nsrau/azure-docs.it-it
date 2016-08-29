@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Questo permette di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi o di memorizzarli in un account di archiviazione quando viene creata una risorsa.

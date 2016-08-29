@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/12/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Come applicare scalabilità all'elaborazione di contenuti mediante il portale di Azure classico

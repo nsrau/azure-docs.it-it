@@ -13,7 +13,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="08/15/2016" 
-    ms.author="elizapo" />  
+    ms.author="elizapo" />
 
 # Azure RemoteApp: in che modo la larghezza di banda di rete influisce sulla qualità dell'esperienza?
 
