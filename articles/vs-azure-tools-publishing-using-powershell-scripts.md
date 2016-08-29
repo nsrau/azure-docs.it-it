@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test
 
@@ -161,7 +161,7 @@ Se non è stato eseguito prima uno script Windows PowerShell, è innanzitutto ne
 
 ![Creare pacchetto di distribuzione web](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-Per ulteriori informazioni, vedere [Procedura: Creare un pacchetto di distribuzione Web in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). È inoltre possibile automatizzare la creazione del pacchetto di distribuzione Web, come descritto nella sezione **Personalizzazione ed estensione degli script di pubblicazione** più avanti in questo argomento.
+Per ulteriori informazioni, vedere [Procedura: Creare un pacchetto di distribuzione Web in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). È anche possibile automatizzare la creazione del pacchetto di distribuzione Web, come descritto nella sezione **Personalizzazione ed estensione degli script di pubblicazione** più avanti in questo argomento.
 
 1. In **Esplora**, aprire il menu di scelta rapida per lo script e quindi scegliere **Aprire con PowerShell ISE**.
 
@@ -310,7 +310,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 **AzureWebAppPublishModule**
 
-|Nome della funzione|Descrizione|
+|Nome della funzione|Description|
 |---|---|
 |Aggiungere AzureSQLDatabase|Creare un nuovo database SQL Azure.|
 |Aggiungere AzureSQLDatabases|Creare database SQL Azure dai valori nel file di configurazione JSON generato da Visual Studio.|
@@ -318,17 +318,17 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 |Aggiungere AzureVMEndpoints|Aggiunge nuovi endpoint di input a una macchina virtuale e restituisce la macchina virtuale con il nuovo endpoint.|
 |Aggiungere AzureVMStorage|Crea un nuovo account di archiviazione di Azure nella sottoscrizione corrente. Il nome dell'account inizia con "devtest" seguito da una stringa alfanumerica univoca. La funzione restituisce il nome del nuovo account di archiviazione. È necessario specificare un percorso o un gruppo di affinità per il nuovo account di archiviazione.|
 |Aggiungere-AzureWebsite|Crea un sito Web con nome e percorso specificati. Questa funzione chiama la funzione **New-AzureWebsite** nel modulo di Azure. Se la sottoscrizione non include già un sito Web con il nome specificato, questa funzione crea il sito Web e restituisce un oggetto sito Web. In caso contrario, restituirà `$null`.|
-|Backup-Sottoscrizione|Consente di salvare la sottoscrizione Azure corrente nella variabile`$Script:originalSubscription` nell'ambito dello script. Questa funzione consente di salvare la sottoscrizione Azure corrente (ottenuta da `Get-AzureSubscription -Current`) e il relativo account di archiviazione e la sottoscrizione viene modificata da questo script (archiviato nella variabile `$UserSpecifiedSubscription`) e il relativo account di archiviazione, nell'ambito dello script. Salvando i valori, è possibile utilizzare una funzione, ad esempio `Restore-Subscription`, per ripristinare l'account di archiviazione e di sottoscrizione corrente originale allo stato corrente se è stato modificato lo stato corrente.|
+|Backup-Sottoscrizione|Salva la sottoscrizione di Azure corrente nella variabile`$Script:originalSubscription` nell'ambito dello script. Questa funzione salva nell'ambito dello script la sottoscrizione di Azure corrente, ottenuta da `Get-AzureSubscription -Current`, e il relativo account di archiviazione nonché la sottoscrizione modificata da questo script, memorizzato nella variabile `$UserSpecifiedSubscription`, e il relativo account di archiviazione. Salvando i valori, è possibile usare una funzione, ad esempio `Restore-Subscription`, per ripristinare allo stato corrente la sottoscrizione e l'account di archiviazione corrente originale se è stato modificato lo stato corrente.|
 |Trovare-AzureVM|Ottiene la macchina virtuale di Azure specificata.|
 |Formato DevTestMessageWithTime|Antepone la data e l’ora a un messaggio. Questa funzione è progettata per i messaggi scritti ai flussi di errore e dettagliati.|
 |Get-AzureSQLDatabaseConnectionString|Assembla una stringa di connessione per connettersi a un database SQL Azure.|
-|Get-AzureVMStorage|Restituisce il nome del primo account di archiviazione con il nome del modello "devtest " *(maiuscole e minuscole) nel percorso specificato o gruppo di affinità. Se l'account di archiviazione* "devtest" non corrisponde alla posizione o a un gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità.|
+|Get-AzureVMStorage|Restituisce il nome del primo account di archiviazione con il modello di nome "devtest*", senza distinzione maiuscole/minuscole, nel percorso o nel gruppo di affinità specificato. Se l'account di archiviazione "devtest*" non corrisponde alla posizione o al gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità.|
 |Get-MSDeployCmd|Restituisce un comando per eseguire lo strumento MsDeploy.exe.|
 |Nuovo AzureVMEnvironment|Trova o crea una macchina virtuale nella sottoscrizione che corrisponde ai valori nel file di configurazione JSON.|
 |Pubblicare-WebPackage|Utilizza MsDeploy.exe e un file Zip del pacchetto di pubblicazione web per distribuire le risorse a un sito Web. Questa funzione non genera alcun output. Se la chiamata a MSDeploy.exe non riesce, la funzione genera un'eccezione. Per ottenere un output più dettagliato, utilizzare l’opzione **-Verbose**.|
 |Pubblicar-WebPackageToVM|Verifica i valori di parametro e chiama quindi la funzione **Publish-WebPackage**.|
 |Leggere-configFile|Convalida il file di configurazione JSON e restituisce una tabella hash di valori selezionati.|
-|Ripristina-Subscription|Reimposta la sottoscrizione corrente originale.|
+|Ripristina-Subscription|Reimposta la sottoscrizione corrente a quella originale.|
 |Test-AzureModule|Restituisce `$true` se la versione del modulo Azure installata è 0.7.4 o successiva. Restituisce `$false` Se il modulo non è installato o è una versione precedente. Questa funzione non ha parametri.|
 |Test-AzureModuleVersion|Restituisce `$true` se la versione del modulo Azure è 0.7.4 o successiva. Restituisce `$false` se il modulo non è installato o è una versione precedente. Questa funzione non ha parametri.|
 |Test-HttpsUrl|Converte l'URL di input in un oggetto System. Uri. Restituisce `$True` se l'URL è assoluto e il relativo schema è https. Restituisce `$false` se l'URL è relativo, lo schema non è HTTPS o la stringa di input non può essere convertita in un URL.|
@@ -351,4 +351,4 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 Ulteriori informazioni sulla creazione di script PowerShell leggendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e altri script di Azure PowerShell nello [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

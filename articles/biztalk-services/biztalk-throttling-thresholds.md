@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
-	ms.author="mandia"/>
+	ms.date="08/15/2016" 
+	ms.author="mandia"/>  
 
 
 
@@ -22,7 +22,7 @@
 
 # Servizi BizTalk: limitazione
 
-Servizi BizTalk di Azure implementa la limitazione del servizio sulla base di due condizioni: l'utilizzo della memoria e il numero di messaggi simultanei elaborati. In questo argomento sono elencate le soglie di limitazione e viene descritto il comportamento in fase di runtime quando si verifica una condizione di limitazione.
+Servizi BizTalk di Azure implementa la limitazione del servizio sulla base di due condizioni: l'utilizzo della memoria e il numero di messaggi simultanei elaborati. In questo argomento sono elencate le soglie di limitazione e viene descritto il comportamento in fase di esecuzione quando si verifica una condizione di limitazione.
 
 ## Soglie di limitazione
 
@@ -42,9 +42,8 @@ Servizi BizTalk di Azure registra lo stato di limitazione (normale o limitato) e
 
 Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica quanto segue:
 
-- La limitazione viene applicata a ogni istanza del ruolo, Ad esempio:<br/> IstanzaRuoloA è limitata. IstanzaRuoloB non è limitata. In questa situazione, i messaggi in IstanzaRuoloB vengono elaborati come previsto. I messaggi in IstanzaRuoloA vengono rimossi e non vengono eseguiti con l'errore seguente:<br/><br/>
-**Server occupato. Riprova più tardi.**<br/><br/>
-- Nessuna origine di pull esegue il polling o scarica un messaggio. Ad esempio:<br/> una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza del ruolo che effettua il pull entra in stato limitato. In questa situazione, la pipeline interrompe il download di altri messaggi fino a quando l'istanza del ruolo non interrompe la limitazione.
+- La limitazione viene applicata a ogni istanza del ruolo, Ad esempio:<br/> IstanzaRuoloA è limitata. IstanzaRuoloB non è limitata. In questa situazione, i messaggi in IstanzaRuoloB vengono elaborati come previsto. I messaggi in IstanzaRuoloA vengono rimossi e non vengono eseguiti con l'errore seguente:<br/><br/> **Server occupato. Riprova più tardi.**<br/><br/>
+- Nessuna origine di pull esegue il polling o scarica un messaggio, Ad esempio:<br/> una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza del ruolo che effettua il pull entra in stato limitato. In questa situazione, la pipeline interrompe il download di altri messaggi fino a quando l'istanza del ruolo non interrompe la limitazione.
 - Al client viene inviata una risposta in modo che possa inviare di nuovo il messaggio.
 - È necessario attendere che la limitazione sia risolta. In particolare, occorre attendere che venga raggiunta la soglia inferiore.
 
@@ -70,4 +69,4 @@ Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica qu
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

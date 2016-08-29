@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
-   ms.author="v-sharos" />
+   ms.date="07/11/2016"
+   ms.author="v-sharos" />  
 
 # Installare e configurare l’adattatore StorSimple per SharePoint
 
-## Panoramica
+## Overview
 
 L'adattatore StorSimple per SharePoint è un componente che consente di fornire a Microsoft Azure StorSimple archiviazione flessibile e protezione dei dati per server farm di SharePoint. È possibile utilizzare l'adattatore per spostare il contenuto di oggetti BLOB (Binary Large Object) dai database del contenuto di SQL Server al dispositivo di archiviazione cloud ibrida StorSimple di Microsoft Azure.
 
@@ -39,7 +39,7 @@ RBS richiede l'utilizzo di un provider RBS, ad esempio l'adattatore StorSimple p
 
 L’implementazione di RBS in Microsoft Azure StorSimple offre i vantaggi seguenti:
 
-- Spostando il contenuto BLOB in un server separato, è possibile ridurre il carico di query su SQL Server, migliorando la velocità di risposta di SQL Server. 
+- Spostando il contenuto BLOB in un server separato, è possibile ridurre il carico di query su SQL Server, migliorando la velocità di risposta di SQL Server.
 
 - StorSimple di Azure utilizza deduplicazione e compressione per ridurre la dimensione dei dati,
 
@@ -59,7 +59,7 @@ Prima di prendere in considerazione l'uso di RBS nella soluzione SharePoint, è 
 
 Prima di configurare RBS, effettuare le operazioni seguenti:
 
-- Assicurarsi che la dimensione totale del contenuto (le dimensioni di un database del contenuto più la dimensione di eventuali BLOB esternalizzati) non superi il limite delle dimensioni RBS supportato da SharePoint. Questo limite è pari a 200 GB. 
+- Assicurarsi che la dimensione totale del contenuto (le dimensioni di un database del contenuto più la dimensione di eventuali BLOB esternalizzati) non superi il limite delle dimensioni RBS supportato da SharePoint. Questo limite è pari a 200 GB.
 
     **Per misurare le dimensioni di BLOB e database del contenuto**
 
@@ -85,7 +85,7 @@ Prima di configurare RBS, effettuare le operazioni seguenti:
 
     Utilizzare le tradizionali procedure consigliate per la migrazione di SQL Server per spostare il database del contenuto nel dispositivo StorSimple. Spostare il database solo dopo che tutto il contenuto BLOB dal database è stato spostato nella condivisione di file tramite RBS. Se si sceglie di spostare il database del contenuto nel dispositivo StorSimple, è consigliabile configurare l'archiviazione del database del contenuto sul dispositivo come volume principale.
 
-- In Microsoft Azure StorSimple, non è possibile garantire che il contenuto archiviato localmente nel dispositivo StoreSimple non verrà suddiviso in livelli nell’archiviazione cloud di Microsoft Azure. Per accertarsi che il database del contenuto rimanga nel dispositivo StorSimple e non venga spostato in Microsoft Azure (evento che influirebbe negativamente sui tempi di risposta delle transazioni di SharePoint), è importante comprendere e gestire altri carichi di lavoro nel dispositivo StorSimple. È consigliabile non configurare un dispositivo StorSimple per carichi di lavoro host con una frequenza elevata di scritture di dati, se il dispositivo sta già ospitando carichi di lavoro di database del contenuto di SharePoint e carichi di lavoro condivisione file di SharePoint.
+- In Microsoft Azure StorSimple, se si utilizzano i volumi a livelli, non è possibile garantire che il contenuto archiviato localmente nel dispositivo StoreSimple non verrà suddiviso in livelli nell’archiviazione cloud di Microsoft Azure. Di conseguenza, si consiglia di utilizzare i volumi StorSimple aggiunti in locale in combinazione con RBS di SharePoint, affinché tutto il contenuto BLOB rimanga in locale sul dispositivo StorSimple, senza essere spostato in Microsoft Azure.
 
 - Se non si archiviano i database del contenuto nel dispositivo StorSimple, utilizzare le tradizionali procedure consigliate per la disponibilità elevata di SQL Server che supportano RBS. Il clustering di SQL Server supporta RBS, mentre il mirroring di SQL Server no.
 
@@ -103,7 +103,7 @@ Prima di installare l'adattatore StorSimple per SharePoint, è necessario verifi
 
 L'adattatore StorSimple per SharePoint funziona con hardware e software seguenti:
 
-- Sistema operativo a supportato: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. 
+- Sistema operativo a supportato: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
 
 - Versioni supportate di SharePoint: SharePoint Server 2010 o SharePoint Server 2013
 
@@ -141,7 +141,7 @@ Se si prevede di utilizzare Gestione snapshot StorSimple per acquisire snapshot 
 
 Assicurarsi che la server farm di SharePoint sia configurata correttamente, come indicato di seguito:
 
-- Verificare che la server farm di SharePoint sia in uno stato integro e verificare quanto segue: 
+- Verificare che la server farm di SharePoint sia in uno stato integro e verificare quanto segue:
 
 - Tutti i server applicazioni e WFE di SharePoint registrati nella farm devono essere in esecuzione e poter ricevere il ping dal server in cui verrà installato l'adattatore StorSimple per SharePoint.
 
@@ -300,7 +300,7 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 
 [Ulteriori informazioni su StorSimple](storsimple-overview.md).
 
-<!--Reference links-->
+<!--Reference links-->  
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
 [2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
@@ -308,4 +308,4 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/it-IT/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

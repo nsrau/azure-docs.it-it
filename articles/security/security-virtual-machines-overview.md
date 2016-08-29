@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor="TomSh"/>  
+   editor="TomSh"/>
 
 <tags
    ms.service="security"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>  
 
 # Informazioni generali sulla sicurezza di Macchine virtuali di Azure
@@ -66,7 +66,7 @@ Quando si distribuisce e si abilita Microsoft Antimalware sono disponibili le fu
 
 Altre informazioni: per altre informazioni sul software antimalware per la protezione delle macchine virtuali, vedere le risorse seguenti.
 
-- [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../azure-security-antimalware.md)
+- [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../security/azure-security-antimalware.md)
 - [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
@@ -157,4 +157,4 @@ Altre informazioni:
 - [Centro protezione Microsoft - Conformità](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [Trusted Cloud: sicurezza, privacy e conformità di Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

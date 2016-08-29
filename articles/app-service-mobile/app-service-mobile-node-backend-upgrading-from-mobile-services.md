@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="adrianha"/>
+	ms.date="08/11/2016"
+	ms.author="adrianha"/>  
 
 # Aggiornare il servizio mobile Node.js di Azure esistente al servizio app
 
@@ -157,7 +157,7 @@ Se l'applicazione usa le notifiche push, prendere nota delle specifiche istruzio
 
 Quando la nuova versione del client è pronta, provarla con il progetto server aggiornato. Dopo averne verificato il funzionamento, è possibile rilasciare una nuova versione dell'applicazione per i clienti. Infine, quando i clienti avranno ricevuto gli aggiornamenti, sarà possibile eliminare la versione di Servizi mobili dell'app. A questo punto, sono stati aggiornati completamente a un'App per dispositivi mobili del servizio app utilizzando l’SDK più recente del server di App per dispositivi mobili.
 
-<!-- URLs. -->
+<!-- URLs. -->  
 
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
@@ -191,4 +191,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

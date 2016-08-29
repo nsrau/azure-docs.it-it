@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Configurare Multipath I/O per il dispositivo StorSimple
 
@@ -101,7 +101,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 
 9. Fare clic su **Proprietà**. Nella finestra di dialogo **Proprietà**, fare clic su **Aggiungi sessione**.
 10. Nella finestra di dialogo **Connessione alla destinazione**, selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Advanced**.
-11. Nella finestra di dialogo **Impostazioni avanzate**:										
+11. Nella finestra di dialogo **Impostazioni avanzate**:
 	-  Nell’elenco a discesa **Scheda locale**, selezionare Iniziatore iSCSI Microsoft.
 	-  Nell’elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP corrispondente all'host. In questo caso, si sta eseguendo la connessione di due interfacce di rete sul dispositivo a una singola interfaccia di rete sull'host. Pertanto, questa interfaccia è identica a quella fornita per la prima sessione.
 	-  Nell’elenco a discesa **IP portale di destinazione**, selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
@@ -173,4 +173,4 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
-     ms.author="dobett"/>
+     ms.date="08/16/2016"
+     ms.author="dobett"/>  
 
 # Esercitazione: Creare un hub IoT tramite un programma C# e l'API REST
 
@@ -26,7 +26,7 @@
 
 > [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Microsoft Visual Studio 2015
 - Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
@@ -58,14 +58,13 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
     using Microsoft.Rest;
     using System.Linq;
     using System.Threading;
-    using Newtonsoft.Json;
     ```
     
-7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che verrà utilizzato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. Il **nome dell'hub IoT** è il nome dell'hub IoT che verrà creato, ad esempio **MyIoTHub**, che deve essere globalmente univoco, quindi deve includere il nome o le iniziali dell'utente. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
+7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che viene usato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. Il **nome dell'hub IoT** è il nome dell'hub IoT che viene creato, ad esempio **MyIoTHub**, che deve essere globalmente univoco, quindi deve includere il nome o le iniziali dell'utente. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
     
@@ -77,7 +76,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Utilizzare l'API REST per creare un hub IoT
 
-Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un nuovo hub IoT nel gruppo di risorse. È anche possibile usare l'API REST per apportare modifiche a un hub IoT esistente.
+Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un hub IoT nel gruppo di risorse. È anche possibile usare l'API REST per apportare modifiche a un hub IoT esistente.
 
 1. Aggiungere il metodo seguente a Program.cs:
     
@@ -138,7 +137,7 @@ Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un nuovo hub IoT nel gr
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{"Status":"Running"}");
+    } while (body == "{"status":"Running"}");
     ```
 
 6. Aggiungere il codice seguente alla fine del metodo **CreateIoTHub** per recuperare le chiavi dell'hub IoT creato e stamparle nella console:
@@ -167,7 +166,7 @@ Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un nuovo hub IoT nel gr
 
 4. È possibile verificare che l'applicazione abbia aggiunto il nuovo hub IoT visitando il [portale][lnk-azure-portal] e visualizzare l'elenco di risorse, oppure utilizzando il cmdlet PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] Questa applicazione di esempio aggiunge un hub IoT Standard S1 che verrà addebitato. È possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o utilizzando il cmdlet PowerShell **Remove AzureRmResource** al termine.
+> [AZURE.NOTE] Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Dopo aver finito, è possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o usando il cmdlet PowerShell **Remove AzureRmResource** al termine.
 
 ## Passaggi successivi
 
@@ -188,7 +187,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: ../powershell-install-configure.md
@@ -203,4 +202,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

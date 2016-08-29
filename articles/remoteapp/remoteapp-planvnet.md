@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Come pianificare la rete virtuale per Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Questo documento descrive come configurare la rete virtuale di Azure e la subnet per Azure RemoteApp. Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di virtualizzare l'infrastruttura di rete nel cloud e di creare soluzioni ibride con Azure e le risorse locali. Per altre informazioni, leggere [qui](../virtual-network/virtual-networks-overview.md).
 
@@ -27,7 +30,7 @@ L'immagine seguente mostra le due diverse opzioni della raccolta per l'uso di un
 
 ### Raccolta nel cloud di Azure RemoteApp con la rete virtuale
 
- ![Azure RemoteApp - Raccolta nel cloud con una rete virtuale](./media/remoteapp-planvpn/ra-cloudvpn.png)
+ ![Azure RemoteApp - Raccolta nel cloud con una rete virtuale](./media/remoteapp-planvpn/ra-cloudvpn.png)  
 
 L'immagine rappresenta una raccolta Azure RemoteApp dove tutte le risorse a cui gli host sessione di RemoteApp devono accedere sono distribuire in Azure. Possono trovarsi nella stessa rete virtuale, ad esempio la rete virtuale di RemoteApp, o in una rete virtuale di Azure diversa.
 
@@ -55,4 +58,4 @@ Di seguito sono elencati gli elementi che è necessario abilitare nella subnet d
 
 Il [tunneling forzato](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) ora è supportato per tutte le nuove raccolte Azure RemoteApp. Attualmente non è supportata la migrazione di una raccolta esistente per supportare il tunneling forzato. Sarà necessario eliminare tutte le raccolte esistenti usando la rete virtuale collegata ad Azure RemoteApp e crearne di nuove per abilitare il tunneling forzato nelle raccolte.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Come aggiornare la password
 Questo articolo fornisce informazioni utili su come gestire la password dell'account aziendale o dell'istituto di istruzione. Di seguito viene illustrato come eseguire le operazioni più comuni, ad esempio modificare o reimpostare una password o registrarsi per la reimpostazione della password.
 
-* [**Come registrarsi per la reimpostazione della password**](#how-to-register-for-password-reset)
+* [**Mantenere l'accesso all'account**](#how-to-register-for-password-reset)
 * [**Come modificare la password da Office 365**](#how-to-change-your-password-from-o365)
 * [**Come modificare la password dal pannello di accesso**](#how-to-change-your-password-from-the-access-panel)
 * [**Come reimpostare la password**](#how-to-reset-your-password)
 * [**Come sbloccare l'account**](#how-to-unlock-your-account)
 * [**Problemi frequenti e relative soluzioni**](#common-problems-and-their-solutions)
 
-## Come registrarsi per la reimpostazione della password
+## Mantenere l'accesso all'account
 
 > [AZURE.IMPORTANT]
 **Perché viene visualizzata questa pagina?** Se si è selezionato un collegamento, è probabile che questa pagina sia stata visualizzata perché l'amministratore richiede che venga eseguita la registrazione per la reimpostazione della password per ottenere l'accesso all'app. Potrebbero essere richieste informazioni relative al numero di telefono o all'indirizzo di posta elettronica oppure l'impostazione di domande di sicurezza. Queste informazioni non verranno usate per l'invio di posta indesiderata, ma solo per mantenere più sicuro l'account. La procedura qui illustrata consentirà di raggiungere l'obiettivo.
@@ -91,7 +91,7 @@ Seguire questa procedura per reimpostare la password dell'account aziendale o de
 
  2. Nella pagina "Identificarsi" immettere l'ID dell'account aziendale o dell'istituto di istruzione e rispondere al test CAPTCHA.
 
-    ![][002]
+    ![][002]  
 
  3. Fare clic sul pulsante "Avanti".
  4. Scegliere un'opzione per reimpostare la password. In base alla configurazione del sistema da parte dell'amministratore, viene visualizzata una o più delle opzioni seguenti:
@@ -261,4 +261,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

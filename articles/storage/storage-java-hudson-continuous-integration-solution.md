@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>  
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 
-## Panoramica
+## Overview
 
 L'articolo seguente descrive il modo di usare l'archiviazione BLOB come archivio di elementi di compilazione creati dalla soluzione di integrazione continua (CI) Hudson o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
@@ -32,7 +32,7 @@ Per altre informazioni su Hudson, vedere [Meet Hudson](http://wiki.eclipse.org/H
 
 ## Vantaggi dell'uso del servizio BLOB ##
 
-Di seguito sono indicati i vantaggi dell'uso del servizio BLOB per ospitare gli elementi di compilazione prodotti dallo sviluppo Agile:
+Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare gli elementi di compilazione prodotti dallo sviluppo Agile:
 
 - Disponibilità elevata degli elementi di compilazione e/o delle dipendenze scaricabili.
 - Migliori prestazioni nel caricamento degli elementi di compilazione da parte della soluzione di Integrazione continuata Hudson.
@@ -41,7 +41,7 @@ Di seguito sono indicati i vantaggi dell'uso del servizio BLOB per ospitare gli 
 
 ## Prerequisiti ##
 
-Per usare il servizio BLOB con la soluzione di Integrazione continuata Hudson è necessario quanto segue:
+Per utilizzare il servizio BLOB con la soluzione di Integrazione continuata Hudson è necessario quanto segue:
 
 - Una soluzione di Integrazione continuata Hudson.
 
@@ -66,7 +66,7 @@ Per usare il servizio BLOB con la soluzione di Integrazione continuata Hudson è
 
 - La conoscenza della soluzione di Integrazione continuata Hudson è consigliata ma non richiesta, poiché nel contenuto seguente verrà usato un esempio semplice per illustrare i passaggi da seguire nell'uso del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Hudson.
 
-## Come usare il servizio BLOB con l'Integrazione continuata Hudson ##
+## Utilizzo del servizio BLOB con l'Integrazione continuata Hudson ##
 
 Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Archiviazione di Azure, configurare il plug-in per usare l'account di archiviazione e creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione. Questi passaggi vengono descritti nelle sezioni seguenti.
 
@@ -98,7 +98,7 @@ Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Ar
 
     f. Per salvare le impostazioni, fare clic su **Save**.
 
-## Come creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione ##
+## Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione ##
 
 Ai fini di questa esercitazione, è necessario innanzitutto creare un processo che crei più file e quindi aggiungere l'operazione post-compilazione per caricare i file nell'account di archiviazione.
 
@@ -139,7 +139,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 
     e. Fare clic sul contenitore denominato **myjob**, ossia la versione in lettere minuscole del nome processo assegnato al momento della creazione del processo Hudson. In Archiviazione di Azure i nomi di contenitori e i nomi di BLOB sono riportati in lettere minuscole (e si applica la distinzione maiuscole/minuscole). Nell'elenco di BLOB per il contenitore denominato **myjob** dovrebbero essere visualizzati **hello.txt** e **date.txt**. Copiare l'URL di uno di questi elementi e aprirlo nel browser. Verrà visualizzato il file di testo caricato come elemento di compilazione.
 
-È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Hudson crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archiviazione BLOB di Azure, usare quanto segue per il valore **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, usare quanto segue per il valore **List of Artifacts to upload**: **build/\*.jar::binaries;build/\*.txt::notices**.
+È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Hudson crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archiviazione BLOB di Azure, usare quanto segue per il valore **List of Artifacts to upload**: **build/*.jar;build/*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, usare quanto segue per il valore **List of Artifacts to upload**: **build/*.jar::binaries;build/*.txt::notices**.
 
 ## Come creare un passaggio di compilazione per il download di elementi dall'archiviazione BLOB di Azure ##
 
@@ -182,4 +182,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
 Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

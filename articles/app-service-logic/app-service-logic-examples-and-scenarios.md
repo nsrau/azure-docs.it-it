@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
-   ms.author="jehollan"/>
+   ms.date="08/11/2016"
+   ms.author="jehollan"/>  
 
 # Esempi e scenari comuni di app per la logica
 
 Questo documento mostra scenari comuni ed esempi di alcune modalità d'uso delle app per la logica per l'automazione dei processi aziendali.
 
-## Trigger e azioni
+## Azioni e trigger personalizzati
 
-Esistono diversi modi per attivare un'app per la logica da un'altra app. Di seguito sono riportati alcuni di questi modi:
+Esistono diversi modi per attivare un'app per la logica da un'altra app. Ecco alcuni esempi comuni:
 
 - [Creazione di un trigger o un'azione personalizzata](app-service-logic-create-api-app.md)
 - [Azioni a esecuzione prolungata](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@ Esistono diversi modi per attivare un'app per la logica da un'altra app. Di segu
 ### Scenari
 
 - [Risposta sincrona alle richieste](app-service-logic-http-endpoint.md)
+- [Risposta alle richieste con SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Registrazione e gestione degli errori
 
+- [Gestione degli errori e delle eccezioni](app-service-logic-exception-handling.md)
 - [Configurare gli avvisi e la diagnostica di Azure](app-service-logic-monitor-your-logic-apps.md)
 
 ### Scenari
@@ -50,9 +52,9 @@ Esistono diversi modi per attivare un'app per la logica da un'altra app. Di segu
 
 ## Tipi di contenuto, conversioni e trasformazioni
 
-Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica include numerose funzioni che consentono di convertire e utilizzare diversi tipi di contenuto. Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
+Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica include numerose funzioni che consentono di convertire e usare diversi tipi di contenuto. Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
 
-- [Gestione dei tipi di contenuto](app-service-logic-content-type.md) come application/json, application/xml e text/plain
+- [Gestione dei tipi di contenuto](app-service-logic-content-type.md), come application/json, application/xml e text/plain
 - [Creazione di definizioni del flusso di lavoro](app-service-logic-author-definitions.md)
 - [Riferimento al linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
 
@@ -77,4 +79,4 @@ Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
 
 Verranno aggiunti altri esempi e scenari a questo documento. Usare la sezione dei commenti in basso per segnalare eventuali esempi o scenari da includere.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

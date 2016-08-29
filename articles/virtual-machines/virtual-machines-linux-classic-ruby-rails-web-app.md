@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 
@@ -121,7 +121,7 @@ L'output dovrebbe essere simile al seguente.
 
 5. Dovrebbe essere visualizzato il messaggio **AGGIORNAMENTO IN CORSO**. Quando questo messaggio scompare, significa che l'endpoint è attivo. A questo punto è possibile testare l'applicazione passando al nome DNS della macchina virtuale. L'aspetto del sito Web dovrebbe essere simile al seguente:
 
-	![Pagina predefinita Rails][default-rails-cloud]
+	![Pagina predefinita Rails][default-rails-cloud]  
 
 ## Passaggi successivi
 
@@ -156,4 +156,4 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

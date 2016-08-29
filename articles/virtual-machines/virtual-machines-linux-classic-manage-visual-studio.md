@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/08/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Creare e gestire macchine virtuali Linux in Visual Studio
 
@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../includes/virtual-machines-common-classic-manage-visual-studio.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

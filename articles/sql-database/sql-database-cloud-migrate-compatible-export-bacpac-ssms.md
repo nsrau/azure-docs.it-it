@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/31/2016"
-   ms.author="carlrab"/>
+   ms.date="08/16/2016"
+   ms.author="carlrab"/>  
 
 # Esportare un database SQL Server in un file BACPAC mediante SQL Server Management Studio
 
@@ -60,4 +60,4 @@ In questo articolo viene illustrato come esportare un database SQL Server in un 
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

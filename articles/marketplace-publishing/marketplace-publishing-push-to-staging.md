@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="hascipio"/>  
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -48,7 +48,7 @@ In questo passaggio del processo di pubblicazione, sarà necessario fornire alcu
 Ogni logo caricato nel portale di pubblicazione deve rispettare le seguenti linee guida:
 
 - La progettazione di Azure ha una tavolozza dei colori semplice. Nel logo usare un numero ridotto di colori primari e secondari.
-- I colori del tema del portale di Azure sono il bianco e il nero. Pertanto evitare di usare questi colori per lo sfondo dei logo. Usare un colore che faccia risaltare i logo nel portale di Azure. Si consiglia di usare colori primari semplici. **Se si usa lo sfondo trasparente, verificare che i logo e il testo non siano bianchi o neri.**
+- I colori del tema del portale di Azure sono il bianco e il nero. Pertanto evitare di usare questi colori per lo sfondo dei logo. Usare un colore che faccia risaltare i logo nel portale di Azure. Si consiglia di usare colori primari semplici. **Se si usa lo sfondo trasparente, verificare che i logo e il testo non siano bianchi, neri o blu.**
 - Non usare uno sfondo sfumato sul logo.
 - Evitare di inserire testo, anche il nome del marchio o della società, sul logo. L'aspetto del logo deve essere semplice e senza sfumature.
 - Il logo non può essere allungato.
@@ -192,7 +192,7 @@ Per configurare il modello di prezzi orario per uno SKU, seguire i passaggi ripo
 Per configurare il modello di prezzi BYOL per uno SKU, seguire i passaggi riportati di seguito:
 
 1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com).
-2.	Passare alla scheda **VIRTUAL MACHINES** (MACCHINE VIRTUALI) e selezionare l'offerta.
+2.	Passare alla scheda **MACCHINE VIRTUALI** e selezionare l'offerta.
 3.	Dal menu sul lato sinistro fare clic sulla scheda **SKU**.
 4.	Assicurarsi che lo SKU sia contrassegnato come "Bring Your Own License". In caso contrario fare clic sul pulsante MODIFICA per cambiare il modello di fatturazione. Verrà visualizzata una finestra. Selezionare la casella di controllo "Billing and licensing is done externally from Azure (aka Bring Your Own License)" ("La fatturazione e le licenze sono gestite all'esterno di Azure (ovvero Bring Your Own License)") e salvare le modifiche.
 
@@ -277,4 +277,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

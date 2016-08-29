@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Attivare o arrestare il dispositivo StorSimple 
 
-## Panoramica
+## Overview
 
 L’arresto di un dispositivo Microsoft Azure StorSimple non è necessario nel normale funzionamento del sistema. Tuttavia, potrebbe esser necessario spegnere un dispositivo o accenderne uno nuovo. In genere, un arresto è necessario nei casi in cui bisogna sostituire l'hardware non riuscito, spostare fisicamente un'unità o mettere fuori servizio un dispositivo. In questa esercitazione viene descritta la procedura necessaria per l'attivazione e l'arresto del dispositivo StorSimple in scenari diversi.
 
@@ -241,4 +241,4 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

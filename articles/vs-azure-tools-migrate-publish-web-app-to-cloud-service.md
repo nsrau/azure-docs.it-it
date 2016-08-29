@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio
 
 Per sfruttare i servizi di hosting e scalabilità di Azure, è possibile eseguire la migrazione e la pubblicazione dell'applicazione Web su un servizio cloud di Azure. È possibile eseguire un'applicazione Web in Azure con modifiche minime all'applicazione esistente.
 
->[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](./app-service-web/web-sites-deploy.md).
+>[AZURE.NOTE] Questo argomento illustra la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](./app-service-web/web-sites-deploy.md).
 
 Per un elenco di modelli specifici supportati sia per Visual C# che per Visual Basic, vedere la sezione **Modelli di progetto supportati** più avanti in questo argomento.
 
@@ -45,17 +45,17 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
     - La proprietà **Copia localmente** viene impostata su true per qualsiasi assembly necessario per MVC 2, MVC 3, MVC 4 e applicazioni aziendali di Silverlight. Questo aggiunge questi assembly al pacchetto del servizio utilizzato per la distribuzione.
 
-  >[AZURE.IMPORTANT] Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.  
+  >[AZURE.IMPORTANT] Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.
 
   >[AZURE.NOTE] Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
 
   Se si dispone di più progetti Web nell'applicazione web e si desidera creare ruoli Web per ciascun progetto Web, è necessario eseguire i passaggi in questa procedura per ciascun progetto Web. Questo crea progetti Azure distinti per ogni ruolo Web. Ciascun progetto Web può essere pubblicato separatamente. In alternativa, è possibile aggiungere manualmente un altro ruolo Web a un progetto Azure esistente nell'applicazione Web. A tale scopo, aprire il menu di scelta rapida per la cartella **Ruoli** nel progetto Azure, scegliere **Aggiungi**, quindi **Progetto ruolo Web nella soluzione**, scegliere il progetto da aggiungere come ruolo Web e quindi scegliere il pulsante **OK**.
 
-## Utilizzare un Database SQL Azure per l'applicazione
+## Usare un database SQL di Azure per l'applicazione
 
 Se si dispone di una stringa di connessione per l'applicazione Web che utilizza un database SQL Server locale, è necessario modificare questa stringa di connessione per utilizzare un'istanza del database SQL ospitata da Azure.
 
->[AZURE.IMPORTANT] La sottoscrizione deve consentire di utilizzare il database SQL. Se si accede alla sottoscrizione dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885), è possibile determinare quali servizi vengono forniti dalla sottoscrizione. Le istruzioni seguenti si applicano al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) rilasciato. Se si sta usando il [portale di Azure](http://portal.microsoft.com), passare alla procedura successiva.
+>[AZURE.IMPORTANT] La sottoscrizione deve consentire l'uso del database SQL. Se si accede alla sottoscrizione dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885), è possibile determinare quali servizi vengono forniti dalla sottoscrizione. Le istruzioni seguenti si applicano al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) rilasciato. Se si sta usando il [portale di Azure](http://portal.microsoft.com), passare alla procedura successiva.
 
 ### Per utilizzare un'istanza di database SQL nel ruolo Web della stringa di connessione
 
@@ -67,7 +67,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. Per copiare la stringa di connessione ADO.NET da usare, seguire questa procedura nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. Scegliere il pulsante **Database**, quindi aprire il nodo per la sottoscrizione utilizzata per creare l'istanza del database SQL.
+  1. Scegliere il pulsante **Database**, quindi aprire il nodo per la sottoscrizione usata per creare l'istanza del database SQL.
 
   1. Per visualizzare le istanze disponibili del database SQL, scegliere il nodo **Database SQL**.
 
@@ -121,7 +121,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
     Verrà visualizzata la finestra di dialogo **Avvia l'ambiente di debug di Azure** e l'applicazione verrà avviata nel browser. Per informazioni dettagliate su come avviare ogni tipo di applicazione Web nell'emulatore di calcolo, vedere la tabella in questa sezione.
 
-1. Per configurare i servizi per l'applicazione da pubblicare in Azure, è necessario disporre di un account Microsoft e di una sottoscrizione di Azure. Usare i passaggi nell'argomento seguente per configurare i servizi: [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. Per configurare i servizi in modo che l'applicazione possa pubblicare in Azure, sono necessari un account Microsoft e una sottoscrizione di Azure. Seguire la procedura descritta nell'argomento seguente per configurare i servizi: [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
 1. Per pubblicare l'applicazione Web in Azure, aprire il menu di scelta rapida per il progetto Web e scegliere **Pubblica in Azure**.
 
@@ -160,13 +160,13 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
     |Applicazione di servizio WCF|È necessario impostare il file con estensione .svc come pagina iniziale per il progetto di servizio WCF. Nella barra dei menu scegliere quindi **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario passare al file con estensione svc per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of service file>.svc`|
     |Applicazione di servizio del flusso di lavoro WCF|È necessario impostare il file con estensione .svc come pagina iniziale per il progetto di servizio WCF. Nella barra dei menu scegliere quindi **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario passare al file con estensione svc per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of service file>.svc`|
     |Entità dinamiche ASP.NET|Nella barra del menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario aggiornare la stringa di connessione (vedere la sezione successiva). È inoltre necessario passare alla pagina specifica per l'applicazione utilizzando il seguente formato per l'url: `<url for deployment>/<name of page>.aspx`|
-    |Linq ASP.NET Dynamic Data a SQL|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario seguire i passaggi descritti in questa procedura: utilizzare un database SQL Azure per l'applicazione (vedere la sezione precedente in questo argomento). È inoltre necessario passare alla pagina specifica per l'applicazione utilizzando il seguente formato per l'url: `<url for deployment>/<name of page>.aspx`|
+    |Linq ASP.NET Dynamic Data a SQL|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario seguire la procedura descritta in Usare un database SQL di Azure per l'applicazione. Vedere la sezione precedente in questo argomento. È inoltre necessario passare alla pagina specifica per l'applicazione utilizzando il seguente formato per l'url: `<url for deployment>/<name of page>.aspx`|
 
 ## Aggiornamento di una stringa di connessione per entità dinamiche ASP.NET
 
 ### Per aggiornare una stringa di connessione per entità dinamiche ASP.NET
 
-1. Per creare un database SQL Azure che può essere usato per un'applicazione Web di entità dinamiche ASP.NET, seguire i passaggi nella procedura **Utilizzare un database SQL Azure per l'applicazione** precedentemente in questo argomento.
+1. Per creare un database SQL di Azure che possa essere usato per un'applicazione Web di entità dinamiche ASP.NET, seguire la procedura descritta in **Usare un database SQL di Azure per l'applicazione** nella sezione precedente di questo argomento.
 
 1. Aggiungere le tabelle e i campi necessari per il database dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

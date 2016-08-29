@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/16/2016"
+   ms.author="cherylmc"/>  
 
 # Gestire record e set di record DNS con PowerShell
 
@@ -91,7 +91,7 @@ Una volta che il set di record contiene la raccolta di record desiderata, è nec
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-La sequenza delle operazioni per creare un record può anche essere *reindirizzata* , ovvero l'oggetto del set di record viene passato usando il pipe anziché come parametro. ad esempio:
+La sequenza delle operazioni per creare un record può anche essere *reindirizzata* , ovvero l'oggetto del set di record viene passato usando il pipe anziché come parametro. Ad esempio:
 
 	New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
@@ -151,7 +151,7 @@ In questo esempio verranno aggiunti due ulteriori record MX al set di record esi
 
 ## Rimuovere un record da un set di record esistente
 
-È possibile rimuovere i record da un set di record usando `Remove-AzureRmDnsRecordConfig`. Si noti che il record che viene rimosso deve corrispondere esattamente a un record esistente in tutti i parametri. È necessario eseguire il commit delle modifiche usando `Set-AzureRmDnsRecordSet`.
+È possibile rimuovere i record da un set di record usando `Remove-AzureRmDnsRecordConfig`. Il record che viene rimosso deve corrispondere esattamente a un record esistente in tutti i parametri. È necessario eseguire il commit delle modifiche usando `Set-AzureRmDnsRecordSet`.
 
 La rimozione dell'ultimo record da un set di record non elimina il set di record. Per altre informazioni, vedere [Eliminare un set di record](#delete-a-record-set) di seguito.
 
@@ -237,4 +237,4 @@ Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di A
 
 Per altre informazioni sui record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -368,7 +368,7 @@ Durante l'esecuzione dell'esempio è possibile usare lo strumento [Device Explor
 
 ## Inviare messaggi da cloud a dispositivo
 
-Il modulo BLE supporta anche l'invio di istruzioni dall'hub IoT di Azure al dispositivo. È possibile usare [Device Explorer per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o [IoT Hub Explorer] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) per inviare i messaggi JSON che il modulo BLE del gateway passa al dispositivo BLE. Se ad esempio si usa il dispositivo SensorTag di Texas Instruments, è possibile inviare al dispositivo i messaggi JSON seguenti dall'hub IoT.
+Il modulo BLE supporta anche l'invio di istruzioni dall'hub IoT di Azure al dispositivo. È possibile usare [Device Explorer per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o [[IoT Hub Explorer]](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) per inviare i messaggi JSON che il modulo BLE del gateway passa al dispositivo BLE. Se ad esempio si usa il dispositivo SensorTag di Texas Instruments, è possibile inviare al dispositivo i messaggi JSON seguenti dall'hub IoT.
 
 - Reimpostare tutti i LED e il segnalatore acustico (spegnerli)
 
@@ -431,14 +431,14 @@ Per ottenere informazioni più avanzate sul Gateway SDK e provare alcuni esempi 
 - [Gestione di un dispositivo gateway][lnk-manage-devices]
 - [SDK per gateway IoT di Azure][lnk-gateway-sdk]
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
@@ -458,4 +458,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

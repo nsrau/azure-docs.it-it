@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
-	ms.author="mandia"/>
+	ms.date="08/15/2016" 
+	ms.author="mandia"/>  
 
 
 # Servizi BizTalk: backup e ripristino
 
-I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo argomento viene descritto come eseguire il backup e il ripristino dei Servizi BizTalk tramite il portale di Azure classico.
+I Servizi BizTalk di Azure includono funzioni di backup e ripristino. Questo argomento descrive come eseguire il backup e il ripristino dei Servizi BizTalk usando il portale di Azure classico.
 
 È anche possibile eseguire il backup dei Servizi BizTalk mediante l'[API REST](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
@@ -31,9 +31,9 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 
 - Tramite il portale di Azure classico è possibile creare un backup su richiesta o backup pianificati.
 
-- È possibile ripristinare il contenuto del backup nello stesso Servizio BizTalk oppure in nuovo Servizio BizTalk. Per ripristinare il Servizio BizTalk usando lo stesso nome è necessario eliminare il Servizio BizTalk esistente e il nome deve essere disponibile. Dopo aver eliminato un Servizio BizTalk, potrebbe essere necessario un certo periodo di tempo affinché lo stesso nome sia disponibile. Se non è possibile attendere che lo stesso nome sia disponibile, ripristinare un nuovo Servizio BizTalk.
+- È possibile ripristinare il contenuto del backup nello stesso servizio BizTalk oppure in nuovo Servizio BizTalk. Per ripristinare il Servizio BizTalk usando lo stesso nome è necessario eliminare il Servizio BizTalk esistente e il nome deve essere disponibile. Dopo aver eliminato un Servizio BizTalk, potrebbe essere necessario un certo periodo di tempo affinché lo stesso nome sia disponibile. Se non è possibile attendere che lo stesso nome sia disponibile, ripristinare un nuovo Servizio BizTalk.
 
-- I Servizi BizTalk possono essere ripristinati nella stessa edizione o in un'edizione superiore. Il ripristino di una versione precedente di Servizi BizTalk, risalente al momento in cui è stato creato il backup, non è supportato.
+- È possibile ripristinare la stessa edizione oppure un'edizione successiva dei Servizi BizTalk. Il ripristino di una versione precedente di Servizi BizTalk, risalente al momento in cui è stato creato il backup, non è supportato.
 
 	Ad esempio, è possibile ripristinare un backup creato con l'edizione Basic nell'edizione Premium, ma non è possibile ripristinare un backup creato con l'edizione Premium nell'edizione Standard.
 
@@ -57,18 +57,18 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 #### <a name="backupnow"></a>Backup su richiesta
 1. Nel portale di Azure classico, selezionare **Servizi BizTalk** e quindi selezionare il servizio di cui si desidera eseguire il backup.
 2. Nella scheda **Dashboard** selezionare **Backup** nella parte inferiore della pagina.
-3. Immettere un nome per il backup, ad esempio *ServizioBizTalk*BU*Data*.
+3. Indicare un nome per il backup. Ad esempio immettere *ServizioBizTalk*BU*Data*.
 4. Scegliere un account di archiviazione BLOB e selezionare il segno di spunta per avviare il backup.
 
-Al termine del backup verrà creato un contenitore con il nome di backup indicato nell'account di archiviazione. Questo contenitore include la configurazione del backup del proprio Servizio BizTalk.
+Al termine del backup verrà creato un contenitore con il nome di backup indicato nell'account di archiviazione. Questo contenitore include la configurazione del backup del proprio servizio BizTalk.
 
 #### <a name="backupschedule"></a>Pianificare un backup
 
 1. Nel portale di Azure classico selezionare **Servizi BizTalk**, il nome del servizio di cui si vuole pianificare il backup e quindi la scheda **Configura**.
-2. Impostare **Stato backup** su **Automatico**. 
+2. Impostare **Stato backup** su **Automatico**.
 3. Selezionare **Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per la creazione dei backup e specificare la durata di mantenimento dei backup (**Giorni di conservazione**):
 
-	![][AutomaticBU]
+	![][AutomaticBU]  
 
 	**Note**
 	- In **Giorni di conservazione**, il periodo di conservazione deve essere maggiore della frequenza di backup.
@@ -82,9 +82,9 @@ Quando si esegue un processo di backup pianificato, viene creato un contenitore 
 
 Se nel dashboard del servizio BizTalk Service è indicato uno stato **Non riuscito**:
 
-![Stato ultimo backup pianificato][BackupStatus]
+![Last scheduled backup status][BackupStatus]  
 
-Il collegamento apre i log operazioni dei servizi di gestione per semplificare la risoluzione dei problemi. Vedere [Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+Il collegamento apre i log operazioni dei servizi di gestione per semplificare la risoluzione. Vedere [Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
 ## Ripristino
 
@@ -96,17 +96,17 @@ Il collegamento apre i log operazioni dei servizi di gestione per semplificare l
 
 - Verranno ripristinati gli stessi dati di runtime EDI. Il backup del runtime EDI consente di archiviare i numeri di controllo. I numeri di controllo ripristinati sono indicati in sequenza a partire dal momento del backup. Se dopo l'ultimo backup si elaborano dei messaggi, il ripristino del contenuto di questo backup può causare la generazione di numeri di controllo duplicati.
 
-#### Ripristinare un backup
+#### Ripristino di un backup
 
 1. Nel portale di Azure classico, selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
 
-	![Ripristinare un backup][Restore]
+	![Ripristino di un backup][Restore]  
 
 2. In **URL backup** selezionare l'icona della cartella ed espandere l'account di archiviazione di Azure che contiene il backup di configurazione del servizio BizTalk. Espandere il contenitore e nel riquadro sinistro selezionare il file di backup corrispondente con estensione txt. <br/><br/> Selezionare **Apri**.
 
 3. Nella pagina **Ripristina servizio BizTalk** specificare un **Nome servizio BizTalk** e verificare le voci in **URL di dominio**, **Edizione** e **Regione** per il servizio BizTalk ripristinato. **Selezionare **Crea nuova istanza di database SQL per il database di rilevamento:
 
-	![][RestoreBizTalkService]
+	![][RestoreBizTalkService]  
 
 	Fare clic sulla freccia Avanti.
 
@@ -235,4 +235,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure classico, passare a [Se
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

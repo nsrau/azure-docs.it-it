@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure
+# Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure
 
 Node.js include un set minimo di funzionalità nel runtime core. Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express][] che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
 
@@ -104,7 +104,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
 
     ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-    Jade è il motore di visualizzazione predefinito usato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][].
+    Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][].
 
 2.  Modificare l'ultima riga di testo aggiungendo **in Azure**.
 
@@ -138,4 +138,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/dev
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

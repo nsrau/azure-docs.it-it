@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
-	ms.author="mimig"/>
+	ms.date="08/11/2016"
+	ms.author="mimig"/>  
 
 # Livelli di coerenza in DocumentDB
 
@@ -87,15 +87,12 @@ La tabella seguente descrive varie garanzie di coerenza che corrispondono ai qua
 
 2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
-3. Nel pannello dell'account, se il pannello **Tutte le impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
+3. Nel pannello dell'account fare clic su **Coerenza predefinita**.
 
-4. Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
+
+4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **OK**.
 
 	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **OK**.
-
-	![Screenshot con il livello di coerenza e il pulsante OK](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Livelli di coerenza per le query
 
@@ -112,7 +109,7 @@ Come per le richieste di lettura, è possibile abbassare il livello di coerenza 
 
 Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compromessi, è consigliabile che le risorse seguenti:
 
--	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball (video). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+-	Doug Terry. Video: Replicated Data Consistency explained through baseball (La coerenza dei dati replicati illustrata attraverso il baseball). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 -	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball.[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garanzie di sessione per i dati replicati con tipizzazione debole e coerente.[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
@@ -122,4 +119,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

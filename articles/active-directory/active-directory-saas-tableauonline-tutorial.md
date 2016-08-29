@@ -60,17 +60,17 @@ Per configurare l'integrazione di Tableau Online in Azure AD, è necessario aggi
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -163,25 +163,25 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 ### Creazione di un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]
+![Creare un utente di Azure AD][20]  
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_09.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_09.png)  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png)  
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_04.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_04.png)  
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
  
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_05.png)
 
@@ -189,11 +189,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_06.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_06.png)  
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -207,11 +207,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_07.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_07.png)  
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_08.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_08.png)  
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -241,24 +241,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 **Per assegnare Britta Simon a Tableau Online, seguire questa procedura:**
 
-1. Per aprire la visualizzazione di applicazioni nel portale classico, nella
-2. visualizzazione directory scegliere **Applicazioni** dal menu in alto.
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-	![Assegna utente][201]
+	![Assegna utente][201]  
 
 3. Nell'elenco delle applicazioni selezionare **Tableau Online**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_50.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_50.png)  
 
 4. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]
+	![Assegna utente][203]  
 
 5. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
 
-6. Fare clic su **Assegna** nella barra degli strumenti in basso.
+6. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]
+	![Assegna utente][205]  
 
 
 ### Test dell'accesso Single Sign-On
@@ -295,4 +294,4 @@ Quando si fa clic sul riquadro Tableau Online nel pannello di accesso, viene eff
 [204]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

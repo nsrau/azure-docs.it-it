@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -103,18 +103,19 @@ Allo stesso modo, quando la scalabilità automatica torna al profilo predefinito
 In alcuni casi potrebbe essere necessario impostare più regole in un profilo. Il set di regole di scalabilità automatica seguente viene usato dai servizi quando vengono impostate più regole.
 
 In caso di *aumento del numero di istanze*, la scalabilità automatica verrà eseguita se risulta soddisfatta una regola qualsiasi. In caso di *riduzione del numero di istanze*, la scalabilità automatica richiede che tutte le regole siano soddisfatte.
- 
+
 Per illustrare questo concetto, si supponga di avere le 4 regole di scalabilità automatica seguenti:
- 
+
 - Se la CPU è < 30%, ridurre il numero di istanze di 1
-- ​Se la memoria è < 50%, ridurre il numero di istanze di 1
-- ​Se la CPU è > 75%, aumentare il numero di istanzedi 1
-- ​Se la memoria è > 75%, aumentare il numero di istanze di 1
+- Se la memoria è < 50%, ridurre il numero di istanze di 1
+- Se la CPU è > 75%, aumentare il numero di istanzedi 1
+- Se la memoria è > 75%, aumentare il numero di istanze di 1
 
 Si verificherà quindi quanto segue:
+
 - Se la CPU è pari al 76% e la memoria è pari al 50%, il numero di istanze verrà aumentato.
 - Se la CPU è pari al 50% e la memoria è pari al 76%, il numero di istanze verrà aumentato.
- 
+
 Ma, se la CPU è pari al 25% e la memoria è pari al 51%, la scalabilità automatica **non** ridurrà il numero di istanze. Per ridurre il numero di istanze, la CPU deve essere al 29% e la memoria al 49%.
 
 ### Selezionare sempre un conteggio di istanze predefinito sicuro
@@ -126,4 +127,4 @@ La scalabilità automatica invia una notifica tramite posta elettronica agli amm
 - Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 - Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità. Oltre alle condizioni precedenti, è possibile configurare notifiche di posta elettronica o webhook per ricevere notifiche relative alle azioni di scalabilità riuscite.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

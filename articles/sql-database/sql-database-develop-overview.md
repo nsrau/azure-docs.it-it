@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
-	ms.author="annemill"/>
+	ms.date="08/17/2016"
+	ms.author="annemill"/>  
 
 # Panoramica dello sviluppo di database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
 
 ## Linguaggio e piattaforma
-Sono disponibili esempi di codice per un'ampia gamma di piattaforme e linguaggi di programmazione. È possibile trovare collegamenti agli esempi di codice in:
+Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti agli esempi di codice in:
 
 * Altre informazioni: [Librerie di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
@@ -37,12 +37,12 @@ Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i d
 
 ## Autenticazione
 * Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e utenti e account di accesso per l'[autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
-* Sarà necessario specificare un database particolare, invece di usare il database predefinito *master*.
+* È necessario specificare un database particolare, invece di usare il database predefinito *master*.
 * Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL per passare a un altro database.
 * Altre informazioni: [Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md)
 
 ## Resilienza
-Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve ripetere la chiamata. Per la ripetizione dei tentativi si consiglia di utilizzare una logica backoff, in modo da non sovraccaricare inutilmente il database SQL con più client che ripetono i tentativi contemporaneamente.
+Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve ripetere la chiamata. Per la ripetizione dei tentativi si consiglia di usare una logica backoff, in modo da non sovraccaricare il database SQL con più client che ripetono i tentativi contemporaneamente.
 
 * Esempi di codice: per alcuni esempi di codice che illustrano la logica di ripetizione dei tentativi, vedere gli esempi del linguaggio in uso in [Librerie di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 * Altre informazioni: [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
@@ -67,4 +67,4 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

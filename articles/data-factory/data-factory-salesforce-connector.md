@@ -29,10 +29,10 @@ Attualmente Azure Data Factory supporta solo lo spostamento di dati da Salesforc
 ## Copia dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da Salesforce in uno degli archivi dati sink supportati è la procedura guidata Copia dati. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
 
-L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 ## Esempio: Copiare i dati da Salesforce in un BLOB di Azure
-Nell'esempio i dati vengono copiati da Salesforce a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. I dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md#supported-data-stores) tramite l'attività di copia in Azure Data Factory.
+Nell'esempio i dati vengono copiati da Salesforce a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. I dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Spostamento di dati e attività di copia](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 Ecco gli elementi di Data Factory che è necessario creare per implementare lo scenario. Le sezioni che seguono l'elenco forniscono informazioni dettagliate su questi passaggi.
 
@@ -44,7 +44,7 @@ Ecco gli elementi di Data Factory che è necessario creare per implementare lo s
 
 **Servizio collegato Salesforce**
 
-Questo esempio usa il servizio collegato **Salesforce**. Vedere la sezione [Servizio collegato Salesforce](#salesforce-linked-service-properties) per le proprietà supportate da questo servizio collegato. Vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere token di sicurezza) per istruzioni su come ottenere o reimpostare il token di sicurezza.
+Questo esempio usa il servizio collegato **Salesforce**. Per informazioni sulle proprietà supportate da questo servizio collegato, vedere la sezione [Proprietà del servizio collegato Salesforce](#salesforce-linked-service-properties). Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza).
 
 	{
 		"name": "SalesforceLinkedService",
@@ -97,11 +97,11 @@ Questo esempio usa il servizio collegato **Salesforce**. Vedere la sezione [Serv
 		}
 	}
 
-Impostando **external** su **true** si comunica al servizio Data Factory che il set di dati è esterno a Data Factory e non è prodotto da un'attività al suo interno.
+Impostando **external** su **true** si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
 
 **Set di dati di output del BLOB di Azure**
 
@@ -128,7 +128,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per l'uso dei set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **source** è impostato su **RelationalSource** e il tipo **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per l'uso dei set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**.
 
 Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà del tipo RelationalSource](#relationalsource-type-properties).
 
@@ -179,7 +179,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)  
 
 ## Proprietà del servizio collegato Salesforce
 
@@ -190,7 +190,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 | type | La proprietà type deve essere impostata su **Salesforce**. | Sì |
 | username |Specificare un nome utente per l'account utente. | Sì |
 | password | Specificare la password per l'account utente. | Sì |
-| securityToken | Specificare un token di sicurezza per l'account utente. Vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere token di sicurezza) per istruzioni su come ottenere o reimpostare un token di sicurezza. Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.it-IT.api.meta/api/sforce_api_concepts_security.htm) (Sicurezza e API). | Sì |
+| securityToken | Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.it-IT.api.meta/api/sforce_api_concepts_security.htm) (Sicurezza e API). | Sì |
 
 ## Proprietà del set di dati Salesforce
 
@@ -200,22 +200,22 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| tableName | Nome della tabella in Salesforce. | No (se è specificata una **query** di **RelationalSource**) |
+| tableName | Nome della tabella in Salesforce. | No, se è specificata una **query** di **RelationalSource** |
 
 > [AZURE.IMPORTANT]  La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
 
 ## Proprietà del tipo RelationalSource
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo [Pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e diversi criteri.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo relativo alla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e diversi criteri.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e, in caso di attività di copia, variano in base ai tipi di origini e sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource** (che include Salesforce), sono disponibili le proprietà seguenti nella sezione typeProperties:
+In caso di attività di copia con origine di tipo **RelationalSource**, che include Salesforce, sono disponibili le proprietà seguenti nella sezione typeProperties:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| query | Usare la query personalizzata per leggere i dati. | Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.it-IT.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: selezionare * da MyTable\_\_c. | No (se è specificato **tableName** di **set di dati**) |
+| query | Usare la query personalizzata per leggere i dati. | Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.it-IT.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: selezionare * da MyTable\_\_c. | No, se è specificato **tableName** per il **set di dati** |
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.<br> Quando si specifica una query che include la clausola **where** nella colonna DateTime, usare SOQL. Ad esempio: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd) o query SQL ad esempio: $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
@@ -261,4 +261,4 @@ URL | String
 ## Prestazioni e ottimizzazione  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

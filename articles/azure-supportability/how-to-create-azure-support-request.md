@@ -6,15 +6,15 @@
 	 authors="ganganarayanan"
 	 manager="scotthit"
 	 editor=""/>
-	 
+
 <tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/24/2016"
-	 ms.author="gangan"/>
+	 ms.date="07/25/2016"
+	 ms.author="gangan"/>  
 
 # Come creare una richiesta di supporto in Azure
 
@@ -53,15 +53,12 @@ Il secondo passaggio della procedura guidata consiste nella raccolta di altre in
 Proseguendo con il precedente esempio relativo alla connettività della macchina virtuale, è necessario compilare il modulo per segnalare un problema di connettività di rete e fornire ulteriori dettagli relativi al problema, inclusa l'ora approssimativa in cui si è verificato il problema.
 
 ## Guida correlata
-Per alcuni problemi sono disponibili i collegamenti alla Guida correlata per la risoluzione del problema. Se i documenti consigliati non sono utili è possibile proseguire il processo di creazione di una richiesta di supporto.
-![Guida correlata](./media/how-to-create-azure-support-request/RelatedHelp.png)
+Per alcuni problemi sono disponibili i collegamenti alla Guida correlata per la risoluzione del problema. Se i documenti consigliati non sono utili è possibile proseguire il processo di creazione di una richiesta di supporto. ![Guida correlata](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 ## Informazioni di contatto
-L'ultimo passaggio della procedura guidata consiste nella conferma delle informazioni di contatto per indicare come essere raggiunti.
-![Informazioni di contatto](./media/how-to-create-azure-support-request/ContactInformation.png)
+L'ultimo passaggio della procedura guidata consiste nella conferma delle informazioni di contatto per indicare come essere raggiunti. ![Informazioni di contatto](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-A seconda della gravità del problema, verrà richiesto di indicare se si desidera essere contattati in orari lavorativi o se si preferisce una risposta 24x7, che implica la possibilità di essere contattati in qualsiasi momento.
-![Informazioni di contatto 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+A seconda della gravità del problema, verrà richiesto di indicare se si desidera essere contattati in orari lavorativi o se si preferisce una risposta 24x7, che implica la possibilità di essere contattati in qualsiasi momento. ![Informazioni di contatto 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## Gestire le richieste di supporto
 Dopo aver creato la richiesta di supporto è possibile visualizzarne i dettagli nella pagina **Gestisci richieste di supporto**.
@@ -70,11 +67,9 @@ Dopo aver creato la richiesta di supporto è possibile visualizzarne i dettagli 
 
 ![Collegamento Gestire una richiesta di supporto](./media/how-to-create-azure-support-request/ManageSupportRequest-link.png)
 
-Nella pagina **Gestisci richieste di supporto** è possibile visualizzare tutte le richieste di supporto e il relativo stato.
-![Gestire una richiesta di supporto](./media/how-to-create-azure-support-request/ManageSupportRequest.png)
+Nella pagina **Gestisci richieste di supporto** è possibile visualizzare tutte le richieste di supporto e il relativo stato. ![Gestire una richiesta di supporto](./media/how-to-create-azure-support-request/ManageSupportRequest.png)
 
-Selezionare la richiesta di supporto per visualizzarne i dettagli, tra cui gravità e quando è previsto che un tecnico di supporto risponda.
-![VID](./media/how-to-create-azure-support-request/VID.png)
+Selezionare la richiesta di supporto per visualizzarne i dettagli, tra cui gravità e quando è previsto che un tecnico di supporto risponda. ![VID](./media/how-to-create-azure-support-request/VID.png)
 
 Se si desidera modificare la gravità della richiesta, fare clic sul riquadro **Impatto aziendale**. Nell'esempio precedente la richiesta è impostata sul livello di gravità C.
 
@@ -90,4 +85,4 @@ Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti]
 ## Altre informazioni
 [Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq)
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono i moduli di alimentazione e raffreddamento (PCM, Power and Cooling Module), le unità disco, la capacità dell'archiviazione e gli chassis. Le informazioni sulla conformità riguardano argomenti come gli standard internazionali, la sicurezza, le emissioni e i cavi.
 
@@ -68,16 +68,16 @@ I dispositivi StorSimple usano una combinazione di unità disco rigido e unità 
 |------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
 | Numero di unità disco rigido | 8 | 19 |
 | Numero di unità SSD | 4 | 5 |
-| Capacità della singola unità disco rigido | 4 TB | 4 TB |
+| Capacità della singola unità disco rigido | 4 TB | 4 TB |
 | Capacità della singola unità SSD | 400 GB | 800 GB |
-| Capacità di riserva | 4 TB | 4 TB |
+| Capacità di riserva | 4 TB | 4 TB |
 | Capacità utilizzabile dell'unità disco rigido | 14 TB | 36 TB |
 | Capacità utilizzabile dell'unità SSD | 800 GB | 2 TB |
 | Capacità utilizzabile totale* | ~ 15 TB | ~ 38 TB |
 | Capacità massima della soluzione (incluso il cloud) | 200 TB | 500 TB |
 
 
-<sup>* </sup>*La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer.*
+<sup>* </sup>- *La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer.*
 
 ## Specifiche su peso e dimensioni dello chassis  
 
@@ -135,16 +135,16 @@ In questa sezione vengono elencate le specifiche relative all'ambiente dello cha
 ## Conformità agli standard internazionali
 Il dispositivo Microsoft Azure StorSimple è conforme ai seguenti standard internazionali:
 
-- CE - EN 60950 - 1  
-- CB in rapporto a IEC 60950 - 1  
-- UL e cUL rispetto a UL 60950 - 1  
+- CE - EN 60950 - 1
+- CB in rapporto a IEC 60950 - 1
+- UL e cUL rispetto a UL 60950 - 1
 
 ## Conformità di sicurezza  
 
 Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni di sicurezza:
 
-- Approvazione del tipo di prodotto di sistema: UL, cUL, CE  
-- Conformità di sicurezza: UL 60950, IEC 60950, EN 60950  
+- Approvazione del tipo di prodotto di sistema: UL, cUL, CE
+- Conformità di sicurezza: UL 60950, IEC 60950, EN 60950
 
 ## Conformità EMC 
 
@@ -154,8 +154,8 @@ Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni E
 
 Il dispositivo è conforme alle classificazioni EMC per i livelli di emissioni effettuate e irradiate.
 
-- Livelli dei limiti delle emissioni effettuate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A  
-- Livelli dei limiti delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A   
+- Livelli dei limiti delle emissioni effettuate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+- Livelli dei limiti delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
 
 ### Armoniche e sfarfallio  
 
@@ -191,4 +191,4 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all'[elenco 
 
 È ora possibile iniziare la distribuzione di un dispositivo StorSimple nel data center. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

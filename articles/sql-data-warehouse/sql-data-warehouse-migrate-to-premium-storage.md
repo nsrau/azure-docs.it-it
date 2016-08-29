@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/05/2016"
+   ms.date="08/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -22,7 +22,7 @@ SQL Data Warehouse ha recentemente introdotto [Archiviazione Premium per una mag
 Se si hanno più data warehouse, usare la [pianificazione della migrazione automatica][] riportata di seguito per determinare quando verrà eseguita la relativa migrazione.
 
 ## Determinare il tipo di archiviazione
-Se il data warehouse è stato creato prima delle date riportate di seguito, si sta usando Archiviazione Standard. Per ogni Data Warehouse in Archiviazione Standard di cui verrà eseguita la migrazione sarà presente inoltre un avviso nel [portale di Azure][] nella parte superiore del pannello Data Warehouse indicante che un *aggiornamento futuro di archiviazione Premium richiederà un'interruzione del servizio. Altre informazioni->*".
+Se il data warehouse è stato creato prima delle date riportate di seguito, si sta usando Archiviazione Standard. Per ogni Data Warehouse in Archiviazione Standard soggetto alla migrazione automatica è presente una notifica nella parte superiore del pannello Data Warehouse nel [portale di Azure][] in cui viene indicato che un *aggiornamento futuro di archiviazione Premium richiederà un'interruzione del servizio. Altre informazioni->*".
 
 | **Area** | **Data warehouse creato prima di questa data** |
 | :------------------ | :-------------------------------- |
@@ -47,28 +47,30 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 | Stati Uniti centro-meridionali | 27 maggio 2016 |
 | Asia sudorientale | 24 maggio 2016 |
 | Europa occidentale | 25 maggio 2016 |
+| Stati Uniti centro-occidentali | Archiviazione Premium non ancora disponibile |
 | Stati Uniti occidentali | 26 maggio 2016 |
+| Stati Uniti occidentali 2 | Archiviazione Premium non ancora disponibile |
 
 ## Dettagli sulla migrazione automatica
-Per impostazione predefinita, la migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, ora locale dell'area di appartenenza, in base alla [pianificazione della migrazione automatica][] riportata di seguito. Durante la migrazione, non sarà possibile usare il data warehouse esistente. In base alle stime la migrazione richiederà circa un'ora per TB di archiviazione per ogni data warehouse. Microsoft si assicurerà che non vengano addebitati costi durante il processo di migrazione.
+Per impostazione predefinita, la migrazione automatica del database verrà eseguita tra le 18.00 e le 06.00, ora locale dell'area di appartenenza, in base alla [pianificazione della migrazione automatica][] riportata di seguito. Durante la migrazione non sarà possibile usare il Data Warehouse esistente. In base alle stime la migrazione richiederà circa un'ora per TB di archiviazione per ogni data warehouse. Microsoft si assicurerà che non vengano addebitati costi durante il processo di migrazione automatica.
 
 > [AZURE.NOTE] Durante la migrazione non sarà possibile usare il data warehouse esistente. Al termine della migrazione, il data warehouse sarà di nuovo online.
 
-Di seguito sono riportati in dettaglio i passaggi eseguiti automaticamente da Microsoft per completare la migrazione senza richiedere alcun intervento da parte dell'utente. Ai fini di questo esempio, si supponga che il data warehouse esistente in Archiviazione Standard sia attualmente denominato "MyDW".
+Di seguito sono riportati in dettaglio i passaggi eseguiti automaticamente da Microsoft per completare la migrazione senza richiedere alcun intervento da parte dell'utente. In questo esempio, immaginare che il Data Warehouse esistente in Archiviazione Standard sia attualmente denominato "MyDW".
 
 1.	Microsoft rinomina "MyDW" in "MyDW\_DO\_NOT\_USE\_[Timestamp]".
-2.	Microsoft sospende "MyDW\_DO\_NOT\_USE\_[Timestamp]" e ne esegue il backup. In caso problemi, il processo potrebbe essere sospeso e riprendere più volte.
-3.	Microsoft crea un nuovo data warehouse denominato "MyDW" in Archiviazione Premium dal backup eseguito al passaggio 2. "MyDW" non viene visualizzato fino al termine del processo di ripristino.
-4.	Dopo aver completato il ripristino, "MyDW" torna allo stesso livello di DWU e nello stesso stato sospeso o attivo di prima della migrazione.
+2.	Microsoft sospende "MyDW" in "MyDW\_DO\_NOT\_USE\_[Timestamp]". Nel mentre, viene eseguito il backup. In caso problemi, il processo potrebbe essere sospeso e riprendere più volte.
+3.	Microsoft crea un nuovo Data Warehouse denominato "MyDW" in Archiviazione Premium dal backup eseguito al passaggio 2. "MyDW" non viene visualizzato fino al termine del processo di ripristino.
+4.	Dopo aver completato il ripristino, "MyDW" torna agli stessi DWU e allo stato sospeso o attivo di prima della migrazione.
 5.	Al termine della migrazione, Microsoft elimina "MyDW\_DO\_NOT\_USE\_[Timestamp]".
 	
-> [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
+> [AZURE.NOTE] Le impostazioni seguenti non vengono mantenute come parte della migrazione:
 > 
->	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
+>	-  Auditing at the Database level needs to be re-enabled
+>	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ### Pianificazione della migrazione automatica
-La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, ora locale dell'area di appartenenza, in base alla pianificazione riportata di seguito.
+I processi di migrazione automatica vengono eseguiti tra le 18.00 e le 06.00 (ora locale per ogni area) durante la seguente pianificazione di interruzione del servizio.
 
 | **Area** | **Data di inizio prevista** | **Data di fine prevista** |
 | :------------------ | :--------------------------- | :--------------------------- |
@@ -93,29 +95,31 @@ La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, or
 | Stati Uniti centro-meridionali | 23 giugno 2016 | 2 luglio 2016 |
 | Asia sudorientale | 23 giugno 2016 | 1 luglio 2016 |
 | Europa occidentale | 23 giugno 2016 | 8 luglio 2016 |
+| Stati Uniti centro-occidentali | 14 agosto 2016 | 28 agosto 2016 |
 | Stati Uniti occidentali | 23 giugno 2016 | 7 luglio 2016 |
+| Stati Uniti occidentali 2 | 14 agosto 2016 | 28 agosto 2016 |
 
 ## Migrazione self-service ad Archiviazione Premium
-Se si preferisce mantenere il controllo sui tempi di inattività, è possibile usare la procedura seguente per eseguire la migrazione di un data warehouse esistente da Archiviazione Standard in Archiviazione Premium. Se si sceglie di eseguire la migrazione self-service, è necessario completarla prima dell'inizio della migrazione automatica nella stessa area, per evitare il rischio di conflitti dovuti alla migrazione automatica. Vedere in proposito la [pianificazione della migrazione automatica][].
+Se si preferisce mantenere il controllo sui tempi di inattività, è possibile attenersi alla procedura seguente per eseguire la migrazione di un Data Warehouse esistente da Archiviazione Standard in Archiviazione Premium. Se si sceglie di eseguire la migrazione self-service, è necessario completarla prima dell'inizio della migrazione automatica nella stessa area, per evitare il rischio di conflitti dovuti alla migrazione automatica. Vedere in proposito la [pianificazione della migrazione automatica][].
 
 ### Istruzioni per la migrazione self-service
-Se si preferisce mantenere il controllo sui tempi di inattività, è possibile eseguire la migrazione self-service del data warehouse usando la funzionalità di backup/ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, usare la procedura riportata di seguito come [Procedura di ridenominazione durante la migrazione][].
+Se si preferisce mantenere il controllo sui tempi di inattività, è possibile eseguire la migrazione self-service del data warehouse usando la funzionalità di backup/ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni Data Warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, seguire la [Procedura di ridenominazione durante la migrazione][].
 
-1.	[Sospendere][] il data warehouse. Verrà eseguito un backup automatico
+1.	[Sospendere][] il Data Warehouse. Verrà eseguito un backup automatico
 2.	[Ripristinare][] il data warehouse dallo snapshot più recente
 3.	Eliminare il data warehouse esistente in Archiviazione Standard. **Se non viene eseguito questo passaggio, verranno addebitati entrambi i data warehouse.**
 
-> [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
+> [AZURE.NOTE] Le impostazioni seguenti non vengono mantenute come parte della migrazione:
 > 
->	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
+>	-  Auditing at the Database level needs to be re-enabled
+>	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 #### Facoltativo: Procedura di ridenominazione durante la migrazione 
 Due database nello stesso server logico non possono avere lo stesso nome. SQL Data Warehouse ora supporta la possibilità di rinominare un data warehouse.
 
-Ai fini di questo esempio, si supponga che il data warehouse esistente in Archiviazione Standard sia attualmente denominato "MyDW".
+In questo esempio, immaginare che il Data Warehouse esistente in Archiviazione Standard sia attualmente denominato "MyDW".
 
-1.	Rinominare "MyDW" facendo seguire il comando ALTER DATABASE a un elemento come "MyDW\_BeforeMigration". Questa operazione termina tutte le transazioni esistenti e deve essere eseguita nel database master abbia esito positivo.
+1.	Rinominare "MyDW" facendo seguire il comando ALTER DATABASE a un elemento come "MyDW\_BeforeMigration". Questo comando termina tutte le transazioni esistenti e deve essere eseguita nel database master abbia esito positivo.
 ```
 ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 ```
@@ -123,13 +127,13 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 3.	[Ripristinare][] dallo snapshot più recente un nuovo database con il nome di prima (es: "MyDW")
 4.	Eliminare "MyDW\_BeforeMigration". **Se non viene eseguito questo passaggio, verranno addebitati entrambi i data warehouse.**
 
-> [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
+> [AZURE.NOTE] Le impostazioni seguenti non vengono mantenute come parte della migrazione:
 > 
->	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
+>	-  Auditing at the Database level needs to be re-enabled
+>	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Passaggi successivi
-Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Se si verificano problemi relativi alle prestazioni, è consigliabile ricompilare gli indici columnstore cluster usando lo script riportato di seguito. Questa operazione forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
+Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Se si verificano problemi relativi alle prestazioni, è consigliabile ricompilare gli indici columnstore cluster usando il seguente script. Lo script di seguito forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
 
 **Prerequisiti:**
 
@@ -159,19 +163,19 @@ drop table sql\_statements; go ````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [pianificazione della migrazione automatica]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Azure paired region]: ./best-practices-availability-paired-regions.md
-[main documentation site]: ./services/sql-data-warehouse.md
-[Sospendere]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
-[Ripristinare]: ./sql-data-warehouse-manage-database-restore-portal.md
+[creare un ticket di supporto]: sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: best-practices-availability-paired-regions.md
+[main documentation site]: services/sql-data-warehouse.md
+[Sospendere]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Ripristinare]: sql-data-warehouse-restore-database-portal.md
 [Procedura di ridenominazione durante la migrazione]: #optional-steps-to-rename-during-migration
-[Ridimensionare la potenza di calcolo]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[ruolo mediumrc]: ./sql-data-warehouse-develop-concurrency/#workload-management
+[Ridimensionare la potenza di calcolo]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[ruolo mediumrc]: sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
@@ -180,4 +184,4 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 [Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

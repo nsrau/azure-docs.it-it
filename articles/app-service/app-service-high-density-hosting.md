@@ -1,45 +1,43 @@
-<properties 
-	pageTitle="Hosting ad alta densità nel servizio app di Azure" 
-	description="Hosting ad alta densità nel servizio app di Azure" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
+<properties
+	pageTitle="Hosting ad alta densità nel servizio app di Azure | Microsoft Azure"
+	description="Hosting ad alta densità nel servizio app di Azure"
+	authors="btardif"
+	manager="wpickett"
+	editor=""
+	services="app-service\web"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/07/2016" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/07/2016"
 	ms.author="byvinyal"/>  
 
 # Hosting ad alta densità nel servizio app di Azure#
 
-## Informazioni sul ridimensionamento delle app##
+Quando si usa il servizio app di Azure, l'applicazione è distinta dalla capacità allocata in base a due concetti.
 
-Quando si usa il servizio app, l'applicazione viene distinta dalla capacità ad essa allocata in base a due concetti:
- 
->**Applicazione:** rappresenta l'applicazione e la relativa configurazione di runtime, ad esempio la versione di .NET che il runtime deve caricare, le impostazioni dell'app e così via.
+- **Applicazione:** rappresenta l'app e la relativa configurazione di runtime. Include ad esempio la versione di .NET che dovrà essere caricata dal runtime, le impostazioni dell'app e così via.
 
->**Piano del servizio app:** definisce le caratteristiche della capacità, il set di funzionalità disponibili e la località dell'applicazione, ad esempio, computer di grandi dimensioni (a quattro memorie centrali), quattro istanze, funzionalità Premium negli Stati Uniti orientali
+- **Piano di servizio app:** definisce le caratteristiche in termini di capacità, set di funzionalità disponibile e località dell'applicazione. Le caratteristiche possono ad esempio corrispondere a un computer di grandi dimensioni (quattro core), quattro istanze e funzionalità Premium negli Stati Uniti orientali.
 
-Un'app è sempre collegata a un **piano del servizio app** ma un **piano del servizio app** può fornire capacità a una o più app.
+Un'app è sempre collegata a un piano di servizio app, ma un piano di servizio app può fornire capacità a una o più app.
 
-Ciò significa che la piattaforma è abbastanza flessibile da mantenere isolata un'app singola o da consentire a più app di condividere risorse tramite la condivisione di un unico **piano del servizio app**.
+In questo modo, la piattaforma garantisce la possibilità di isolare una singola app o consentire a più app di condividere le risorse condividendo un piano di servizio app.
 
-Se più app condividono un unico **piano del servizio app**, tuttavia, in ogni istanza di tale **piano del servizio app** sarà in esecuzione un'istanza dell'app.
+Se più app condividono un piano di servizio app, tuttavia, un'istanza dell'app viene eseguita in ogni istanza del piano di servizio app.
 
-## Ridimensionamento per app##
-Il **ridimensionamento per app** è una funzionalità che è possibile abilitare a livello di **piano del servizio app** e quindi sfruttare per ogni applicazione.
+## Scalabilità per app##
+La *scalabilità per app* è una funzionalità che può essere abilitata a livello di piano di servizio app ed essere quindi usata per ogni applicazione.
 
-Il **ridimensionamento per app** consente di ridimensionare un'app indipendentemente dal **piano del servizio app** usato per ospitarla. In questo modo, un **piano del servizio app** può essere configurato per fornire 10 istanze, ma un'app può essere impostata per il ridimensionamento solo a 5 di esse.
+La scalabilità per app consente di ridimensionare un'app indipendentemente dal piano di servizio app in cui è ospitata. È così possibile configurare un piano di servizio app per offrire 10 istanze impostando però un'app in modo che venga ridimensionata a solo 5 di tali istanze.
 
-Il modello di Azure Resource Manager riportato di seguito crea un **piano del servizio app** con un numero di istanze aumentato fino a 10 e un'app configurata per l'uso del **ridimensionamento per app** e con ridimensionamento solo fino a cinque istanze.
+Il modello di Azure Resource Manager seguente creerà un piano di servizio app con aumento del numero di istanze a 10 e un'app configurata per usare la scalabilità per app con ridimensionamento a 5 istanze soltanto.
 
-A tale scopo, il piano del servizio app imposta la proprietà di **ridimensionamento per sito** su true ( `"perSiteScaling": true`) e l'app imposta il **numero di ruoli di lavoro** da usare su 1 `"properties": { "numberOfWorkers": "1" }`
+A tale scopo, il piano di servizio app imposta la proprietà della **scalabilità per sito** su true (`"perSiteScaling": true`) e l'app imposta il **numero di ruoli di lavoro** da usare su 1 (`"properties": { "numberOfWorkers": "1" }`).
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -64,7 +62,7 @@ A tale scopo, il piano del servizio app imposta la proprietà di **ridimensionam
             "location": "West US",
             "properties": {
                 "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true 
+                "perSiteScaling": true
             }
         },
         {
@@ -89,18 +87,18 @@ A tale scopo, il piano del servizio app imposta la proprietà di **ridimensionam
 
 ## Configurazione consigliata per l'hosting ad alta densità
 
-Il **ridimensionamento per app** è una funzionalità abilitata sia nelle aree di Azure pubbliche che negli ambienti del servizio app. La strategia consigliata, tuttavia, consiste nell'usare gli ambienti del servizio app per sfruttare le funzionalità avanzate e i pool di capacità di dimensioni maggiori.
+La funzionalità di scalabilità per app è abilitata sia nelle aree di Azure pubbliche che negli ambienti del servizio app. È tuttavia consigliabile usare gli ambienti del servizio app per sfruttarne le funzionalità avanzate e i pool di capacità di maggiori dimensioni.
 
-Seguire i passaggi elencati di seguito come linee guida su come configurare l'**hosting ad alta densità** per le proprie applicazioni.
+Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 
-1. Configurare l'**ambiente del servizio app** e scegliere un **pool di ruoli di lavoro** da riservare allo scenario di *hosting ad alta densità*.
+1. Configurare l'ambiente del servizio app e scegliere un pool di lavoro da dedicare allo scenario di hosting ad alta densità.
 
-1. Creare un singolo **piano del servizio app** e ridimensionarlo in modo che usi tutta la capacità disponibile del **pool di ruoli di lavoro**.
+1. Creare un singolo piano di servizio app e ridimensionarlo in modo da usare tutta la capacità disponibile del pool di lavoro.
 
-1. Impostare il flag del ridimensionamento per sito su true per il **piano del servizio app**.
+1. Impostare il flag della scalabilità per sito su true nel piano di servizio app.
 
-1. Verranno creati nuovi siti, che verranno assegnati al **piano del servizio app** con la proprietà *numberOfWorkers* impostata su *1*. Ciò consente di ottenere la più alta densità possibile per questo **pool di ruoli di lavoro**.
+1. Verranno creati nuovi siti, che verranno assegnati al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. In questo modo si otterrà la massima densità possibile nel pool di lavoro.
 
-1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni sito, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un sito a uso elevato è possibile impostare *numberOfWorkers* su *3* per avere maggiore capacità di elaborazione per l'app corrispondente, mentre per siti di uso inferiore è possibile impostare *numberOfWorkers* su *1*.
+1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni sito, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un sito a uso elevato è possibile impostare **numberOfWorkers** su **3** per avere maggiore capacità di elaborazione per l'app corrispondente, mentre per siti di uso inferiore è possibile impostare **numberOfWorkers** su **1**.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

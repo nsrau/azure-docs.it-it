@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""
 />
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="curtand"/>
+	ms.date="08/10/2016"
+	ms.author="curtand"/>  
 
 
 # Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory
@@ -91,4 +91,4 @@ Ora che si sono comprese le nozioni di base di gestione degli accessi, ecco alcu
 
 * [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

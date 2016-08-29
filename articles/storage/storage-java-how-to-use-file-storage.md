@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Come usare l'archiviazione file da Java
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
 
-## Panoramica
+## Overview
 
 In questa guida verrà illustrato come eseguire operazioni di base nel servizio di archiviazione file di Microsoft Azure. Attraverso esempi scritti in Java sarà possibile apprendere come creare condivisioni e directory, caricare, elencare ed eliminare file. Se non si conosce ancora il servizio di condivisione dei file di Microsoft Azure, la lettura delle seguenti sezioni sarà molto utile per comprendere gli esempi.
 
@@ -216,4 +216,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

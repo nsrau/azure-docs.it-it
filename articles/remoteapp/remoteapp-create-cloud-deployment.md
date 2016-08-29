@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
-	ms.author="elizapo"/>
+	ms.date="08/15/2016" 
+	ms.author="elizapo"/>  
 
 # Come creare una raccolta cloud di Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Sono disponibili due tipi di [raccolte di Azure RemoteApp](remoteapp-collections.md):
 
@@ -109,4 +112,4 @@ La procedura è stata completata e la raccolta di Azure RemoteApp nel cloud è s
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

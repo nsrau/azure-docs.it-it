@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -21,7 +21,7 @@
 
 # Servizi BizTalk: nome e chiave dell'autorità emittente
 
-Servizi BizTalk di Azure usa il nome e la chiave dell'autorità emittente del bus di servizio e il nome e la chiave dell'autorità emittente del Controllo di accesso. In particolare:
+Servizi BizTalk di Azure utilizza il nome e la chiave dell'autorità emittente del bus di servizio e il nome e la chiave dell'autorità emittente del Controllo di accesso. In particolare:
 
 Attività | Nome e chiave dell'autorità emittente da utilizzare
 --- | ---
@@ -29,20 +29,20 @@ Distribuzione dell'applicazione da Visual Studio | Nome e chiave dell'autorità 
 Configurazione del Portale Servizi BizTalk di Azure | Nome e chiave dell'autorità emittente del Controllo di accesso
 Creazione di inoltri LOB con i servizi dell'adapter di BizTalk in Visual Studio | Nome e chiave dell'autorità emittente del bus di servizio
 
-In questo argomento vengono elencati i passaggi necessari per recuperare il nome e la chiave dell'autorità emittente.
+Questo argomento elenca i passaggi necessari per recuperare il nome e la chiave dell'autorità emittente.
 
 ## Nome e chiave dell'autorità emittente del Controllo di accesso
-Il nome e la chiave dell'autorità emittente del Controllo di accesso vengono usati dagli elementi seguenti:
+Il nome e la chiave dell'autorità emittente del Controllo di accesso vengono utilizzati dagli elementi seguenti:
 
-- Applicazione del servizio BizTalk di Azure creata in Visual Studio: per distribuire correttamente l'applicazione del servizio BizTalk in Visual Studio in Azure, immettere il nome e la chiave dell'autorità emittente del Controllo di accesso. 
+- Applicazione del servizio BizTalk di Azure creata in Visual Studio: per distribuire correttamente l'applicazione del servizio BizTalk in Visual Studio in Azure, immettere il nome e la chiave dell'autorità emittente del Controllo di accesso.
 - Portale dei servizi BizTalk di Azure: quando si crea un servizio BizTalk e si apre il portale dei servizi BizTalk, il nome e la chiave dell'autorità emittente del Controllo di accesso vengono registrati automaticamente per le distribuzioni con gli stessi valori del Controllo di accesso.
 
 ### Per copiare e incollare il nome e la chiave dell'autorità emittente del Controllo di accesso
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **BizTalk Services**.
-3. Selezionare il servizio BizTalk desiderato. 
-4. Selezionare **Connection Information** nella barra delle applicazioni. I valori Spazio dei nomi di Access Control, Autorità emittente predefinita (Nome dell'autorità emittente) e Chiave predefinita (Chiave autorità emittente) sono elencati e possono essere copiati e incollati.  
+3. Selezionare il servizio BizTalk desiderato.
+4. Selezionare **Connection Information** nella barra delle applicazioni. I valori Spazio dei nomi di Access Control, Autorità emittente predefinita (Nome dell'autorità emittente) e Chiave predefinita (Chiave autorità emittente) sono elencati e possono essere copiati e incollati.
 
 Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chiave autorità emittente = Chiave predefinita
 
@@ -53,7 +53,7 @@ Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chia
 2. Nel pannello di navigazione sinistro selezionare **BizTalk Services**.
 3. Selezionare il servizio BizTalk desiderato.
 4. Selezionare il pulsante Connection Information e quindi **Open ACS Management Portal**.
-5. Nel portale, in **Impostazioni servizio**, selezionare **Identità del servizio**. Verrà visualizzata l'identità del servizio, che corrisponde al valore del nome dell'autorità emittente del Controllo di accesso. Selezionare il collegamento dell'identità del servizio per visualizzare la password, che corrisponde al valore della chiave dell'autorità emittente. Questi valori possono essere copiati.<br/><br/> Ad esempio, in **Service Identities** viene visualizzato "owner". "Owner" corrisponde al nome dell'autorità emittente del Controllo di accesso. Quando si fa clic sul collegamento "owner", verrà visualizzato il valore **Password**. Quando si fa clic sul collegamento "Password", verrà visualizzato il valore corrispondente. Il valore della password corrisponde alla chiave dell'autorità emittente del Controllo di accesso.  
+5. Nel portale, in **Impostazioni servizio**, selezionare **Identità del servizio**. Verrà visualizzata l'identità del servizio, che corrisponde al valore del nome dell'autorità emittente del Controllo di accesso. Selezionare il collegamento dell'identità del servizio per visualizzare la password, che corrisponde al valore della chiave dell'autorità emittente. Questi valori possono essere copiati.<br/><br/> Ad esempio, in **Service Identities** viene visualizzato "owner". "Owner" corrisponde al nome dell'autorità emittente del Controllo di accesso. Quando si fa clic sul collegamento "owner", verrà visualizzato il valore **Password**. Quando si fa clic sul collegamento "Password", verrà visualizzato il valore corrispondente. Il valore della password corrisponde alla chiave dell'autorità emittente del Controllo di accesso.
 
 Per riepilogare: Nome autorità emittente = Nome identità del servizio Chiave autorità emittente = Valore della password
 
@@ -63,20 +63,18 @@ Nel pannello di navigazione sinistro è inoltre possibile selezionare **Active D
 
 
 ## Nome e chiave dell'autorità emittente del bus di servizio
-Il nome e la chiave dell'autorità emittente del bus di servizio vengono usati da Servizi Adapter BizTalk. Nel progetto di Servizi BizTalk in Visual Studio è possibile usare Servizi Adapter BizTalk per la connessione a un sistema LOB (Line-of-Business) locale. Per effettuare la connessione, creare l'inoltro LOB e immettere i dettagli relativi al sistema LOB. Quando si esegue questa operazione, è necessario immettere anche il nome e la chiave dell'autorità emittente del bus di servizio.
+Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizzati dai servizi dell'adapter di BizTalk. Nel progetto di Servizi BizTalk in Visual Studio è possibile usare Servizi Adapter BizTalk per la connessione a un sistema LOB (Line-of-Business) locale. Per effettuare la connessione, creare l'inoltro LOB e immettere i dettagli relativi al sistema LOB. Quando si esegue questa operazione, è necessario immettere anche il nome e la chiave dell'autorità emittente del bus di servizio.
 
 ### Per recuperare il nome e la chiave dell'autorità emittente del bus di servizio
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **Bus di servizio**.
-3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **Default Issuer** (nome dell'autorità emittente) e **Default Key** (chiave dell'autorità emittente). Questi valori possono essere copiati.  
+3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **Default Issuer** (nome dell'autorità emittente) e **Default Key** (chiave dell'autorità emittente). Questi valori possono essere copiati.
 
-Per riepilogare:  
-Nome autorità emittente = Autorità emittente predefinita  
-Chiave autorità emittente = Chiave predefinita
+Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chiave autorità emittente = Chiave predefinita
 
 ## Avanti
-Ulteriori argomenti relativi a Servizi BizTalk di Azure:
+Altri argomenti relativi a Servizi BizTalk di Azure:
 
 -  [Installare Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [Servizi BizTalk: Esercitazioni ed esempi](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
@@ -94,4 +92,4 @@ Ulteriori argomenti relativi a Servizi BizTalk di Azure:
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

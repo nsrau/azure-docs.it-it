@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 
 # Come usare l'archiviazione tabelle da PHP
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Panoramica
+## Overview
 
 Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Azure. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP][download]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps).
 
@@ -29,7 +29,7 @@ Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Az
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Creazione di un'applicazione PHP
+## Creare un'applicazione PHP
 
 Per creare un'applicazione PHP che accede al Servizio tabelle di Azure, è sufficiente fare riferimento alle classi in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
@@ -41,7 +41,7 @@ In questa guida vengono usate le funzionalità del servizio tabelle che possono 
 
 ## Configurare l'applicazione per accedere al Servizio tabelle
 
-Per usare le API del Servizio tabelle di Azure, è necessario:
+Per utilizzare le API del Servizio tabelle di Azure, è necessario:
 
 1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
@@ -282,7 +282,7 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 
 ## Recuperare un subset di proprietà di entità
 
-È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, usare un filtro come illustrato nelle query precedenti.
+È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, utilizzare un filtro come illustrato nelle query precedenti.
 
 	require_once 'vendor/autoload.php';
 
@@ -435,7 +435,7 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
 		echo $code.": ".$error_message."<br />";
 	}
 
-Per altre informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità][entity-group-transactions].
+Per ulteriori informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità][entity-group-transactions].
 
 ## Eliminare una tabella
 
@@ -478,4 +478,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

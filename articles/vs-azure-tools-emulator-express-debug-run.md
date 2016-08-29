@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/19/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 
 # Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale
@@ -54,4 +54,4 @@ Prima di usare l'emulatore Express, è necessario tenere presenti alcune limitaz
 
 [Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

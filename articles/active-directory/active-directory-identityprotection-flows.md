@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="markvi"/>
+	ms.date="08/16/2016"
+	ms.author="markvi"/>  
 
 # Esperienze di accesso con Azure AD Identity Protection
 
@@ -27,7 +27,7 @@ Con Azure Active Directory Identity Protection è possibile:
 
 La risposta del sistema a questi problemi ha un impatto sull’esperienza di accesso dell’utente, in quanto non sarà più possibile effettuare l’accesso in modo diretto fornendo semplicemente il nome utente e la password. Saranno necessari passaggi aggiuntivi per consentire all’utente un accesso sicuro al sistema.
 
-Questo argomento presenta una panoramica dell’esperienza di accesso dell'utente per tutti i casi che possono verificarsi.
+Questo argomento presenta una panoramica dell'esperienza di accesso dell'utente per tutti i casi possibili.
 
 **Autenticazione a più fattori**
 
@@ -59,7 +59,7 @@ Sia per il ripristino di un account compromesso che per l'accesso rischioso, la 
 
 Gli amministratori possono:
 
-- Impostare criteri che richiedono agli utenti di configurare l'account per la verifica di sicurezza aggiuntiva. 
+- Impostare criteri che richiedono agli utenti di configurare l'account per la verifica di sicurezza aggiuntiva.
 - Consentire di ignorare la registrazione per l'autenticazione a più fattori per un massimo di 30 giorni, per dare agli utenti un periodo di tolleranza prima della registrazione.
 
 **La registrazione per l’autenticazione a più fattori prevede tre passaggi:**
@@ -120,7 +120,7 @@ Dopo che sono stati configurati criteri di sicurezza per il rischio utente, gli 
 
 <br> ![Correzione](./media/active-directory-identityprotection-flows/101.png "Correzione") <br>
 
-2.	L'utente deve dimostrare la propria identità rispondendo a una richiesta di sicurezza. Se l'utente è registrato per l'autenticazione a più fattori può eseguire il ripristino automatico da eventuali compromissioni. Deve eseguire il round trip di un codice di sicurezza al proprio numero di telefono. 
+2.	L'utente deve dimostrare la propria identità rispondendo a una richiesta di sicurezza. Se l'utente è registrato per l'autenticazione a più fattori può eseguire il ripristino automatico da eventuali compromissioni. Deve eseguire il round trip di un codice di sicurezza al proprio numero di telefono.
 
 <br> ![Correzione](./media/active-directory-identityprotection-flows/110.png "Correzione") <br>
 
@@ -156,6 +156,6 @@ Se l’accesso degli utenti compromessi è bloccato, un amministratore può gene
 
 ## Vedere anche
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

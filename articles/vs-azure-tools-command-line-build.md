@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Compilazione da riga di comando per Azure
 
-## Panoramica
+## Overview
 
 È possibile creare un pacchetto per la distribuzione a Azure tramite l'esecuzione di MSBuild al prompt dei comandi. È possibile configurare e definire compilazioni per il debug, la gestione temporanea e la produzione, oltre ad automatizzare parte del processo di compilazione.
 
@@ -28,7 +28,7 @@ Tramite Microsoft Build Engine (MSBuild) è possibile compilare prodotti in ambi
 
 È anche possibile eseguire MSBuild al prompt dei comandi, come illustrato in questo argomento. Impostando le proprietà nel prompt dei comandi, è possibile compilare configurazioni specifiche di un progetto. Analogamente, è possibile definire le destinazioni che il comando di MSBuild compilerà. Per altre informazioni sui parametri della riga di comando e su MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
-## Installare
+## Installazione
 
 Come indicato nella procedura seguente, è necessario installare il software e gli strumenti nel server di compilazione prima di poter creare un pacchetto Azure usando MSBuild:
 
@@ -62,4 +62,4 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

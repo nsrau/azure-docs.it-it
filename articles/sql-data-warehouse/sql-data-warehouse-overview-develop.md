@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/16/2016"
+   ms.author="jrj;barbkess;sonyama"/>  
 
 # Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 
@@ -48,11 +48,11 @@ Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti 
 ## Passaggi successivi
 Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [argomenti di riferimento per Transact-SQL][] per altre informazioni sulla sintassi supportata per SQL Data Warehouse.
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Concorrenza]: ./sql-data-warehouse-develop-concurrency.md
-[Connessioni]: ./sql-data-warehouse-develop-connections.md
+[Connessioni]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL dinamico]: ./sql-data-warehouse-develop-dynamic-sql.md
 [Opzioni di raggruppamento]: ./sql-data-warehouse-develop-group-by-options.md
@@ -75,4 +75,4 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

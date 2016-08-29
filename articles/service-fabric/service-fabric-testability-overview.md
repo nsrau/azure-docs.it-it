@@ -117,7 +117,7 @@ Per creare servizi effettivamente a livello di cloud, è fondamentale assicurars
 
 A questo punto è possibile iniziare a testare le applicazioni e i servizi con gli [scenari di test](service-fabric-testability-scenarios.md) incorporati, o creare i propri scenari di test tramite le [azioni di errore](service-fabric-testability-actions.md) offerte dal servizio di analisi degli errori.
 
-<!--Image references-->
+<!--Image references-->  
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

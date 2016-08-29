@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="rnagpal" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/15/2016" 
 	ms.author="rnagpal"/>  
 
 # SDK e API di DocumentDB 
@@ -39,8 +39,13 @@
 
 ## Note sulla versione
 
-### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+### <a name="1.9.3"/>[1\.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 > [AZURE.IMPORTANT] È possibile che venga visualizzato l'errore System.NotSupportedException quando si eseguono query sulle raccolte partizionate. Per evitare questo errore, deselezionare l'opzione "Preferisci 32 bit" nella scheda Compila della finestra delle proprietà del progetto.
+
+  - Risoluzione di un problema che provocava l'esito negativo con errore delle query con esecuzione prolungata. Al momento il token di autorizzazione non è valido.
+  - Risoluzione di un problema che rimuoveva l'oggetto SqlParameterCollection originale dalle query top/order-by tra partizioni.
+
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
 
   - Aggiunta del supporto per le query parallele nelle raccolte partizionate.
   - Aggiunta del supporto ORDER BY e TOP tra partizioni per le raccolte partizionate.
@@ -126,7 +131,7 @@
   
 		**NB: Possible breaking change** 
   
-    	Se è presente un codice che esegue il provisioning delle raccolte con criteri di indicizzazione personalizzati, tale codice dovrà essere aggiornato per supportare la nuova classe IndexingPolicy. Se non sono presenti criteri di indicizzazione, tale modifica non avrà alcun impatto.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Supporto per il partizionamento dei dati con IPartitionResolver e le nuove classi HashPartitionResolver e RangePartitionResolver
@@ -158,28 +163,7 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.9.2](#1.9.2) | 23 luglio 2016 |--- 
-| 1.9.1 | Deprecato |--- 
-| 1.9.0 | Deprecato |--- 
-| [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
-| [1\.7.1](#1.7.1) | 06 maggio 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.3](#1.6.3) | 08 aprile 2016 |--- 
-| [1\.6.2](#1.6.2) | 29 marzo 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- 
-| [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
-| [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 agosto 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 agosto 2015 |--- 
-| [1\.3.0](#1.3.0) | 05 agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 06 luglio 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 aprile 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
-| [0\.9.3 - versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 
-| [0\.9.2 - versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 
-| [.9.1 - versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 
-| [0\.9.0 - versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
+| [1\.9.3](#1.9.3) | 15 agosto 2016 |--- | [1\.9.2](#1.9.2) | 23 luglio 2016 |--- | 1.9.1 | Deprecato |--- | 1.9.0 | Deprecato |--- | [1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.1](#1.7.1) | 06 maggio 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.3](#1.6.3) | 08 aprile 2016 |--- | [1\.6.2](#1.6.2) | 29 marzo 2016 |--- | [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 25 agosto 2015 |--- | [1\.4.0](#1.4.0) | 13 agosto 2015 |--- | [1\.3.0](#1.3.0) | 05 agosto 2015 |--- | [1\.2.0](#1.2.0) | 06 luglio 2015 |--- | [1\.1.0](#1.1.0) | 30 aprile 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- | [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 | [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 | [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 | [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -188,4 +172,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 
 # Come usare l'archiviazione tabelle di Azure da Ruby
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Panoramica
+## Overview
 
 Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Azure. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento di entità ed esecuzione di query sulle entità in una tabella**.
 
@@ -58,7 +58,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
 4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente.
@@ -138,7 +138,7 @@ Per eseguire query su un set di entità in una tabella, creare un oggetto hash d
 
 ## Eseguire query su un subset di proprietà di entità
 
-Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata "proiezione", consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola select e passare i nomi delle proprietà da inoltrare al client.
+Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata "proiezione", consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Utilizzare la clausola select e passare i nomi delle proprietà da inoltrare al client.
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'",
 	  :select => ["content"] }
@@ -163,4 +163,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

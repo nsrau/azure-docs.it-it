@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
-/>  
+/>
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -25,7 +25,7 @@
 
 Nella figura precedente viene illustrata una macchina virtuale con tre NIC, ciascuna connessa a una subnet diversa.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - L’indirizzo VIP con connessione Internet (distribuzioni classiche) è supportato solo sulla NIC "predefinita". Esiste un solo indirizzo VIP per l'indirizzo IP della NIC predefinita.
 - Attualmente, gli indirizzi IP pubblici a livello di istanza (LPIP) (distribuzioni classiche) non sono supportati per le macchine virtuali a più NIC.
@@ -265,4 +265,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

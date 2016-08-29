@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.date="08/11/2016"
+	ms.author="jeffstok"/>  
 
 
 # Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
@@ -31,7 +31,7 @@ Un sito Web di notizie è interessato a superare la concorrenza offrendo contenu
 ## Prerequisiti
 1.	Account Twitter e [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) dall'Area download Microsoft
-3.	Facoltativo: codice sorgente per client twitter da [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
+3.	Facoltativo: codice sorgente per client twitter da [Github](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
@@ -72,7 +72,7 @@ Attenersi alla seguente procedura per configurare l'applicazione:
 
 Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possibile impostare un processo di Analisi di flusso per analizzare questi eventi in tempo reale.
 
-### Eseguire il provisioning di un processo di Analisi di flusso
+### Eseguire il provisioning di un processo di Analisi dei flussi
 
 1.	Nel [portale di Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
@@ -198,7 +198,7 @@ Se non se ne dispone, attenersi alla procedura seguente per creare un contenitor
 3.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **ALIAS DI OUTPUT**: immettere un nome descrittivo per l'output del processo.
-	* **SOTTOSCRIZIONE**: se l'archiviazione BLOB creata nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Utilizza account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
+	* **SOTTOSCRIZIONE**: se l'archiviazione BLOB creata si trova nella stessa sottoscrizione del processo di analisi di flusso, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* In **Nome account di archiviazione** scegliere l'account di archiviazione da utilizzare.
 	* **CONTENITORE**: selezionare il nome del contenitore
 	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da usare per la scrittura dell'output di BLOB
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

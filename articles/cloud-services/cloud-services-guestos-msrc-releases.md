@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="07/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>  
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo Guest di agosto 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.35, 3.42, 2.54 | 9 agosto 2016 |
+| MS16-097 | [3177393] | Aggiornamento della sicurezza per il componente grafico Microsoft | 4\.35, 3.42, 2.54 | 9 agosto 2016 |
+| MS16-098 | [3178466] | Aggiornamento della sicurezza per i driver in modalità kernel di Windows | 4\.35, 3.42, 2.54 | 9 agosto 2016 |
+| MS16-100 | [3179577] | Aggiornamento della sicurezza per Avvio protetto | 4\.35, 3.42 | 9 agosto 2016 |
+| MS16-101 | [3178465] | Aggiornamento della sicurezza per i metodi di autenticazione di Windows | 4\.35, 3.42, 2.54 | 9 agosto 2016 |
+| MS16-102 | [3182248] | Aggiornamento della sicurezza per la Libreria PDF di Microsoft Windows | 4\.35, 3.42 | 9 agosto 2016 |
+| MS16-077 Nuovo rilascio | [3165191] | Aggiornamento della sicurezza per Web Proxy Autodiscovery (WPAD) | 4\.35, 3.42, 2.54 | 9 agosto 2016 |
+| | [3172605] | Aggiornamento cumulativo di luglio 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.54 | 9 agosto 2016 |
+| | [3172615] | Aggiornamento cumulativo di maggio 2016 per Windows Server 2012 | 3\.42 | 9 agosto 2016 |
+| | [3172614] | Aggiornamento cumulativo di luglio 2016 per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.35 | 9 agosto 2016 |
 
 ## Sistema operativo guest di luglio 
 
@@ -335,6 +350,17 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
 
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
+
 [3169991]: http://support.microsoft.com/kb/3169991
 [3170005]: http://support.microsoft.com/kb/3170005
 [3170050]: http://support.microsoft.com/kb/3170050
@@ -576,4 +602,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -108,10 +108,10 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 <!--Image references-->
 
 <!--Article references-->
-[Connettersi ad Azure SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
-[Introduzione al controllo del database SQL]: ./sql-data-warehouse-overview-auditing.md
+[Connettersi ad Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Introduzione al controllo del database SQL]: ./sql-data-warehouse-auditing-overview.md
 [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse]: ./sql-data-warehouse-encryption-tde.md
-[Autenticazione in Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Autenticazione in Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Configurare le regole del firewall per il database SQL di Azure - Panoramica]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -127,4 +127,4 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

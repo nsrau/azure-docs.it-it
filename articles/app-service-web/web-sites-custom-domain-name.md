@@ -197,7 +197,7 @@ Nel pannello **Porta domini esterni** del portale di Azure (vedere il [passaggio
 
 6.  Fare clic su **Save**.
 
-7.  Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Sarà visibile l'app in esecuzione
+7.  Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Se l'app Azure viene aperta dal browser, il nome di dominio personalizzato è configurato correttamente.
 
 <a name="verify"></a>
 ## Verificare la propagazione di DNS
@@ -219,4 +219,4 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 <!-- Images -->  
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

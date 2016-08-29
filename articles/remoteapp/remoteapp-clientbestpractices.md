@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
-    ms.author="elizapo" />
+    ms.date="08/15/2016"
+    ms.author="elizapo" />  
 
 
 
 # Procedure consigliate per i client RemoteApp di Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Le informazioni seguenti possono essere utili per l'uso dei client Azure RemoteApp:
 
@@ -26,4 +29,4 @@ Le informazioni seguenti possono essere utili per l'uso dei client Azure RemoteA
 
 - RemoteApp esegue automaticamente la disconnessione dopo un determinato periodo di inattività. Per evitare perdite di dati, è consigliabile chiudere le applicazioni dopo aver terminato di usare il servizio.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

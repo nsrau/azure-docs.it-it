@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Uso del reindirizzamento in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Il reindirizzamento dei dispositivi consente agli utenti di interagire con applicazioni remote tramite i dispositivi collegati al proprio computer, telefono o tablet locale. Ad esempio, se Skype è accessibile tramite Azure RemoteApp, sul computer dell'utente deve essere installata una telecamera per poter usare Skype. Lo stesso vale per stampanti, altoparlanti, monitor e vari dispositivi con connessione USB.
 
@@ -102,6 +105,6 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 5. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
 6. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
-8. Fare clic su **OK**.  
+8. Fare clic su **OK**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

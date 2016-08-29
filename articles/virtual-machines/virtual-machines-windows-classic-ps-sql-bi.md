@@ -319,7 +319,7 @@ Oppure eseguire C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\se
 
 >[AZURE.NOTE] La prima volta che si esegue l'installazione di SQL Server, possono essere scaricati più file di installazione che richiedono un riavvio della macchina virtuale e il riavvio del programma di installazione di SQL Server.
 >
->Se è necessario personalizzare ripetutamente l'immagine selezionata dalla macchina virtuale Microsoft Azure, è consigliabile creare la propria immagine di SQL Server. È stata abilitata la funzionalità di Analysis Services SysPrep con SQL Server 2012 SP1 CU2. Per altre informazioni, vedere [Considerazioni per l'installazione di SQL Server tramite SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Se è necessario personalizzare ripetutamente l'immagine selezionata dalla macchina virtuale Microsoft Azure, è consigliabile creare la propria immagine di SQL Server. È stata abilitata la funzionalità di Analysis Services SysPrep con SQL Server 2012 SP1 CU2. Per altre informazioni, vedere [Considerazioni per l'installazione di SQL Server tramite SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) e [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### Per installare la modalità tabulare di Analysis Services
 
@@ -389,7 +389,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 - Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
 
-	|Port|Tipo|Descrizione|
+	|Porta|Tipo|Descrizione|
 |---|---|---|
 |**80**|TCP|Accesso remoto al server di report (*).|
 |**1433**|TCP|SQL Server Management Studio (*).|
@@ -406,7 +406,7 @@ Per altre informazioni sulla creazione di endpoint, vedere:
 
 Il diagramma seguente illustra le porte da aprire nel firewall della macchina virtuale per consentire l'accesso remoto alle funzionalità e i componenti nella macchina virtuale.
 
-![porte da aprire per applicazioni di Business Intelligence in macchine virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
+![porte da aprire per applicazioni di Business Intelligence in macchine virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)  
 
 ## Risorse
 
@@ -436,4 +436,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

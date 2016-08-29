@@ -4,22 +4,22 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
-    ms.author="jeedes" />
+    ms.date="08/16/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con Zscaler Two
 
 Questa esercitazione descrive l'integrazione di Azure e Zscaler Two. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
--   Sottoscrizione di Zscaler Two abilitata per l'accesso Single Sign-On
+-   Sottoscrizione di ZScaler Two abilitata per l'accesso Single Sign-On
   
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zscaler Two potranno accedere all'applicazione tramite il sito aziendale di Zscaler Two (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
   
@@ -47,11 +47,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zsca
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -81,23 +81,23 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 3.  Nella casella di testo **URL di accesso Zscaler Two** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Zscaler Two e quindi fare clic su **Avanti**.
 
-    ![Configura URL app](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configura URL app")
+    ![Configura URL app](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configura URL app")  
 
     >[AZURE.NOTE] Se necessario, è possibile ottenere il valore effettivo per l'ambiente in uso dal team di supporto Zscaler Two.
 
 4.  Nella pagina **Configura accesso Single Sign-On in Zscaler Two** fare clic su **Scarica certificato** e quindi salvare il file di certificato sul computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Configura accesso Single Sign-On")  
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Zscaler Two come amministratore.
 
 6.  Scegliere **Amministrazione** dal menu disponibile nella parte superiore.
 
-    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Amministrazione")  
 
 7.  In **Manage Administrators & Roles** fare clic su **Manage Users & Authentication**.
 
-    ![Manage Users & Authentication](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Manage Users & Authentication")
+    ![Manage Users & Authentication](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Manage Users & Authentication")  
 
 8.  Nella sezione **Choose Authentication Options for your Organization** seguire questa procedura:
 
@@ -108,19 +108,19 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 9.  Nella pagina della finestra di dialogo **Configure SAML Single Sign-On Parameters** procedere come descritto di seguito e quindi fare clic su **Done**:
 
-    ![Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Single Sign-On")  
 
-    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Zscaler Two** del portale di Azure classico copiare il valore **URL richiesta di autenticazione** e quindi incollarlo nella casella di testo **URL del portale SAML al quale si reindirizzano gli utenti per l’autenticazione**.
-    2.  Nella casella di testo **Attributo che contiene il nome di accesso** digitare **ID nome**.
+    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in ZScaler Two** del portale di Azure classico copiare il valore **URL richiesta di autenticazione** e quindi incollarlo nella casella di testo **URL of the SAML Portal to which users are sent for authentication** (URL del portale di SAML a cui vengono indirizzati gli utenti per l'autenticazione).
+    2.  Nella casella di testo **Attribute containing Login Name** digitare **NameID**.
     3.  Per caricare il certificato scaricato fare clic su **Zscaler pem**.
     4.  Selezionare **Enable SAML Auto-Provisioning**.
 
 10. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
-    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Amministrazione")  
 
     1.  Fare clic su **Save**.
-    2.  Fare clic su **Attiva subito**.
+    2.  Fare clic su **Activate Now**.
 
 11. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in ZScaler Two** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa**.
 
@@ -134,17 +134,17 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 2.  Selezionare **Opzioni Internet** dal menu **Strumenti** per aprire la finestra di dialogo **Opzioni Internet**.
 
-    ![Opzioni Internet](./media/active-directory-saas-zscaler-two-tutorial/IC769492.png "Opzioni Internet")
+    ![Opzioni Internet](./media/active-directory-saas-zscaler-two-tutorial/IC769492.png "Opzioni Internet")  
 
 3.  Fare clic sulla scheda **Connessioni**.
 
-    ![Connessioni](./media/active-directory-saas-zscaler-two-tutorial/IC769493.png "Connessioni")
+    ![Connessioni](./media/active-directory-saas-zscaler-two-tutorial/IC769493.png "Connessioni")  
 
 4.  Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.
 
 5.  Nella sezione del server proxy seguire questa procedura:
 
-    ![Server proxy](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Server proxy")
+    ![Server proxy](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Server proxy")  
 
     1.  Selezionare Usa un server di proxy per la rete LAN.
     2.  Nella casella di testo Indirizzo digitare **gateway.zscalerone.net**.
@@ -158,25 +158,25 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
   
 Per consentire agli utenti di Azure AD di accedere a Zscaler Two, è necessario eseguirne il provisioning in Zscaler Two. Nel caso di Zscaler Two, il provisioning è un'attività manuale.
 
-###Per configurare il provisioning utente, seguire questa procedura:
+###Per configurare il provisioning utente, eseguire la procedura seguente:
 
 1.  Accedere al tenant **Zscaler**.
 
 2.  Fare clic su **Administration**.
 
-    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Amministrazione")  
 
 3.  Fare clic su **User Management**.
 
-    ![Aggiungi](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Aggiungi")
+    ![Add](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Add")
 
 4.  Nella scheda **Users** fare clic su **Add**.
 
-    ![Aggiungi](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Aggiungi")
+    ![Add](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Aggiungi")  
 
 5.  Nella sezione Add User seguire questa procedura:
 
-    ![Aggiunta di un utente](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "Aggiunta di un utente")
+    ![Aggiunta di un utente](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "Aggiunta di un utente")  
 
     1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Salva**.
@@ -185,7 +185,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Two, è necessario 
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Zscaler Two, seguire questa procedura:
 
@@ -199,6 +199,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

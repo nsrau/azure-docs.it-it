@@ -8,7 +8,7 @@ Non è consigliabile usare una singola VM per carichi di lavoro di produzione pe
 
 Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre alla VM in sé. Sono presenti elementi di calcolo, rete e archiviazione.
 
-![[0]][0]
+![[0]][0]  
 
 - **Gruppo di risorse.** Un [_gruppo di risorse_][resource-manager-overview] è un contenitore in cui risiedono le risorse correlate. Creare un gruppo di risorse in cui includere le risorse per questa VM.
 
@@ -136,7 +136,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 - Per verificare le azioni di provisioning e altri eventi della VM, usare i [log di controllo][audit-logs].
 
-- Se è necessario crittografare i dischi del sistema operativo e i dischi dati, usare [Crittografia dischi di Azure ][disk-encryption].
+- Se si necessitano di crittografare i dischi del sistema operativo e i dischi dati, usare [Crittografia dischi di Azure ][disk-encryption].
 
 ## Componenti della soluzione
 
@@ -353,7 +353,7 @@ Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è
 [boot-diagnostics]: https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/it-IT/library/dn595129.aspx
@@ -393,4 +393,4 @@ Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Singola architettura VM di Windows in Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

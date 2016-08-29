@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/03/2016"
-    ms.author="sethm;clemensv" />
+    ms.date="08/16/2016"
+    ms.author="sethm;clemensv" />  
 
 # Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
 
@@ -37,7 +37,7 @@ Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono fir
 
 ### Creare la chiave SAS
 
-Quando si crea uno spazio dei nomi, Bus di servizio genera una chiave SAS a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
+Quando si crea uno spazio dei nomi di Hub eventi, Hub eventi di Azure genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
 
 L'esempio seguente crea una chiave di solo invio durante la creazione dell'hub eventi:
 
@@ -95,9 +95,9 @@ In caso di furto di un token da parte di un utente malintenzionato, l'autore del
 
 ## Autenticazione delle applicazioni back-end
 
-Per autenticare le applicazioni back-end che utilizzano i dati generati dai dispositivi, Hub eventi utilizza un modello di protezione simile al modello utilizzato per gli argomenti di Bus di servizio. Un gruppo di consumer di Hub eventi è equivalente a una sottoscrizione a un argomento di Bus di servizio. Un client può creare un gruppo di consumer, se la richiesta per creare il gruppo di consumer è accompagnata da un token che concede privilegi di gestione per l'Hub eventi o per lo spazio dei nomi a cui appartiene l'Hub di eventi. Un client può utilizzare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'Hub eventi o lo spazio dei nomi a cui appartiene l'Hub eventi.
+Per autenticare le applicazioni back-end che utilizzano i dati generati dai dispositivi, Hub eventi usa un modello di sicurezza simile al modello usato per gli argomenti del bus di servizio. Un gruppo di consumer di Hub eventi equivale a una sottoscrizione a un argomento del bus di servizio. Un client può creare un gruppo di consumer, se la richiesta per creare il gruppo di consumer è accompagnata da un token che concede privilegi di gestione per l'Hub eventi o per lo spazio dei nomi a cui appartiene l'Hub di eventi. Un client può utilizzare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'Hub eventi o lo spazio dei nomi a cui appartiene l'Hub eventi.
 
-La versione corrente di Bus di servizio non supporta regole SAS per singole sottoscrizioni. Lo stesso vale per i gruppi di consumer di Hub eventi. In futuro verrà aggiunto il supporto SAS per entrambe le funzionalità.
+La versione corrente del bus di servizio non supporta regole di firma di accesso condiviso per sottoscrizioni singole. Lo stesso vale per i gruppi di consumer di Hub eventi. In futuro verrà aggiunto il supporto SAS per entrambe le funzionalità.
 
 In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile utilizzare chiavi SAS per proteggere tutti i gruppi di consumer con una chiave comune. Questo approccio consente a un'applicazione di utilizzare dati di tutti i gruppi di consumer di un Hub eventi.
 
@@ -105,7 +105,7 @@ In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile ut
 
 ACS supporta diversi modi per creare identità del servizio, relying party e regole, ma il modo più semplice consiste nell'utilizzare il [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Ad esempio:
 
-1. Creare un'identità del servizio per un **EventHubSender**. Restituisce il nome dell'identità del servizio creato e la relativa chiave:
+1. Creare un'identità del servizio per un **EventHubSender**. Questa operazione restituisce il nome dell'identità del servizio creata e la relativa chiave:
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
@@ -143,7 +143,7 @@ ACS supporta diversi modi per creare identità del servizio, relying party e reg
 
 ## Passaggi successivi
 
-Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
+Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 
 - [Panoramica di Hub eventi]
 - Un'[applicazione di esempio completa che usa Hub eventi].
@@ -154,4 +154,4 @@ Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

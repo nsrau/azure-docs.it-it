@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
-	ms.author="mandia"/>
+	ms.date="08/15/2016" 
+	ms.author="mandia"/>  
 
 
 
@@ -44,7 +44,7 @@ Nelle tabelle seguenti sono elencate le operazioni o le azioni consentite quando
         <th>Arresto</th>
         <th>Riavvio</th>
         <th>Sospensione</th>
-        <th>Ripresa</th>
+        <th>Riprendi</th>
         <th>Elimina</th>
 </tr>
 <tr>
@@ -133,7 +133,7 @@ ResumeFailed</b></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-RestoreFailed<br/></b></td>
+RestoreFailed<br/></b>  </td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -267,4 +267,4 @@ RestoreFailed<br/></b></td>
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

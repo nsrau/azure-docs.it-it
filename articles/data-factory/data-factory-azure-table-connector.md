@@ -20,8 +20,10 @@
 
 Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati da un altro archivio dati alle tabelle di Azure e spostare i dati dalle tabelle di Azure a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Gli esempi seguenti mostrano come copiare dati da e nell'archivio tabelle di Azure e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+## Copia di dati guidata
+Il modo più semplice di creare una pipeline che copia i dati in/da un archivio tabelle di Azure consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
+Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e dall'archivio tabelle di Azure e in e dal database BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 ## Esempio: Copiare i dati dalle tabelle di Azure al BLOB di Azure
 
@@ -46,7 +48,7 @@ Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in 
 	  }
 	}
 
-Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
 
 **Set di dati di input di tabelle di Azure**
 
@@ -208,11 +210,11 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB 
 	  }
 	}
 
-Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
 
 **Set di dati di input del BLOB di Azure:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa parte relativa all'ora dell'ora di inizio. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -365,10 +367,10 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 ### Schema da Data Factory
 Per gli archivi di dati privi di schema, ad esempio Tabella di Azure, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
 
-1.	Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
-2.	Se non si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
+1.	Se si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
+2.	Se non si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
 
-Pertanto, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
+Di conseguenza, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
 
 ## Proprietà del tipo di attività di copia di tabelle di Azure
 
@@ -402,7 +404,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatorio
 azureTableDefaultPartitionKeyValue | Valore predefinito della chiave di partizione che può essere usato dal sink. | Valore stringa. | No 
 azureTablePartitionKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. | Nome colonna. | No |
 azureTableRowKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di riga. Se non specificato, usare un GUID per ogni riga. | Nome colonna. | No  
-azureTableInsertType | Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori verranno sostituiti o uniti. <br/><br/>Vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) per informazioni sul funzionamento delle impostazioni di unione e sostituzione. <br/><br> Si noti che le impostazioni vengono applicate a livello di riga, non a livello di tabella, e che nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. | merge (impostazione predefinita)<br/>replace | No 
+azureTableInsertType | Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori verranno sostituiti o uniti. <br/><br/>Vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità) per informazioni sul funzionamento delle impostazioni di unione e sostituzione. <br/><br> Si noti che le impostazioni vengono applicate a livello di riga, non a livello di tabella, e che nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. | merge (impostazione predefinita)<br/>replace | No 
 writeBatchSize | Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. | Numero intero (numero di righe)| No (valore predefinito: 10000) 
 writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout | Intervallo di tempo<br/><br/>Ad esempio: "00:20:00" (20 minuti) | No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi)
 
@@ -529,4 +531,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

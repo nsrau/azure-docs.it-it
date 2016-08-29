@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
-	ms.author="naziml"/>
+	ms.date="08/17/2016" 
+	ms.author="naziml"/>  
 
 # Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 
-## Panoramica ##
+## Overview ##
 [Barracuda WAF per Azure](https://www.barracuda.com/programs/azure) è un Web application firewall disponibile in [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) che consente di proteggere le applicazioni Web esaminando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. In associazione all'isolamento e alla scalabilità aggiuntiva fornita dagli ambienti del servizio app, costituisce un ambiente ideale per le applicazioni Web critiche per l'azienda, che devono sostenere richieste dannose e un volume elevato di traffico.
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Impostazione ##
+## Configurazione ##
 Per questo documento si configurerà l'ambiente del servizio app dietro più istanze con carico bilanciato di Barracuda WAF, in modo che solo il traffico proveniente dal firewall WAF possa raggiungere l'ambiente del servizio app che non sarà accessibile dalla rete perimetrale. Gestione traffico di Azure sarà invece davanti alle istanze di Barracuda WAF per bilanciare il carico tra i data center e le aree di Azure. Il diagramma generale della configurazione sarà simile al seguente.
 
 ![Architettura][Architecture]
@@ -32,12 +32,12 @@ Per questo documento si configurerà l'ambiente del servizio app dietro più ist
 Per configurare un ambiente del servizio app, fare riferimento alla [documentazione](app-service-web-how-to-create-an-app-service-environment.md) sull'argomento. Una volta creato un ambiente del servizio app, è possibile creare in questo ambiente le [app Web](app-service-web-overview.md), le [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) e le [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) che saranno protette dietro il firewall WAF che verrà configurato nella sezione successiva.
 
 ## Configurazione del servizio Cloud Barracuda WAF ##
-Sul sito Barracuda è disponibile un [articolo dettagliato](https://techlib.barracuda.com/WAF/AzureDeploy) sulla distribuzione del firewall WAF in una macchina virtuale in Azure. Poiché tuttavia quello che si vuole è la ridondanza senza introdurre un singolo punto di guasto, è opportuno distribuire almeno 2 VM con istanze WAF nello stesso servizio cloud quando si seguono queste istruzioni.
+Sul sito Barracuda è disponibile un [articolo dettagliato](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) sulla distribuzione del firewall WAF in una macchina virtuale in Azure. Poiché tuttavia quello che si vuole è la ridondanza senza introdurre un singolo punto di guasto, è opportuno distribuire almeno 2 VM con istanze WAF nello stesso servizio cloud quando si seguono queste istruzioni.
 
 ### Aggiunta di endpoint al servizio cloud ###
-Una volta create 2 o più istanze VM WAF nel servizio cloud, è possibile usare il [portale di Azure](https://portal.azure.com/) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione come illustrato nell'immagine seguente.
+Una volta create 2 o più istanze di macchine virtuali WAF nel servizio cloud, è possibile usare il [portale di Azure](https://portal.azure.com/) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione, come illustrato nell'immagine seguente.
 
-![Configurare l'endpoint][ConfigureEndpoint]
+![Configurare l'endpoint][ConfigureEndpoint]  
 
 Se le applicazioni usano altri endpoint, assicurarsi di aggiungerli tutti a questo elenco.
 
@@ -76,7 +76,7 @@ Se l'applicazione richiede l'autenticazione, assicurarsi di disporre di qualche 
 
 Per inoltrare i ping di Gestione traffico dal firewall WAF all'applicazione, è necessario configurare Website Translations in Barracuda WAF per inoltrare il traffico all'applicazione, come illustrato nell'esempio seguente.
 
-![Website Translations][WebsiteTranslations]
+![Website Translations][WebsiteTranslations]  
 
 ## Protezione del traffico verso l'ambiente del servizio app con i gruppi di sicurezza di rete (NSG)##
 Attenersi alla [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md) per informazioni dettagliate sulla limitazione del traffico all'ambiente del servizio app dal firewall WAF usando solo l'indirizzo VIP del servizio cloud. Ecco un comando di Powershell di esempio per eseguire questa attività per la porta TCP 80.
@@ -88,7 +88,7 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 
 > Nota: l'indirizzo VIP del servizio cloud cambia quando si elimina e si ricrea il servizio cloud. In questo caso, assicurarsi di aggiornare l'indirizzo IP nel gruppo di risorse di rete.
  
-<!-- IMAGES -->
+<!-- IMAGES -->  
 [Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png
@@ -99,4 +99,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

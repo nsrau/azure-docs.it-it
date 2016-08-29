@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
@@ -282,7 +282,7 @@ Per impostazione predefinita, il processo di distribuzione git nel servizio app 
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -293,7 +293,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
@@ -319,4 +319,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

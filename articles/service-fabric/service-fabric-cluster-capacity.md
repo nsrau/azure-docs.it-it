@@ -50,7 +50,7 @@ Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario, ovve
 ### Tipo di nodo primario
 Per un cluster con più tipi di nodo, sarà necessario sceglierne uno come primario. Ecco le caratteristiche di un tipo di nodo primario:
 
-- Le dimensioni minime delle macchine virtuali per il tipo di nodo primario sono determinate dal livello di durabilità scelto. Il valore predefinito per il livello di durabilità è Bronze. Per sapere che cos'è il livello di durabilità e su quali valori può essere impostato, scorrere verso il basso.  
+- Le dimensioni minime delle macchine virtuali per il tipo di nodo primario sono determinate dal livello di durabilità scelto. Il valore predefinito per il livello di durabilità è Bronze. Per sapere che cos'è il livello di durabilità e su quali valori può essere impostato, scorrere verso il basso.
 
 - Il numero minimo delle macchine virtuali per il tipo di nodo primario è determinato dal livello di affidabilità scelto. Il valore predefinito per il livello di affidabilità è Silver. Per sapere che cos'è il livello di affidabilità e su quali valori può essere impostato, scorrere verso il basso.
 
@@ -62,7 +62,7 @@ Per un cluster con più tipi di nodo, sarà necessario sceglierne uno come prima
 ### Tipo di nodo non primario
 Per un cluster con più tipi di nodo, sarà presente un tipo di nodo primario, mentre gli altri saranno non primari. Ecco le caratteristiche di un tipo di nodo non primario:
 
-- Le dimensioni minime delle macchine virtuali per questo tipo di nodo sono determinate dal livello di durabilità scelto. Il valore predefinito per il livello di durabilità è Bronze. Per sapere che cos'è il livello di durabilità e su quali valori può essere impostato, scorrere verso il basso.  
+- Le dimensioni minime delle macchine virtuali per questo tipo di nodo sono determinate dal livello di durabilità scelto. Il valore predefinito per il livello di durabilità è Bronze. Per sapere che cos'è il livello di durabilità e su quali valori può essere impostato, scorrere verso il basso.
 
 - Il numero minimo di VM per questo tipo di nodo può essere uno. È tuttavia consigliabile scegliere questo numero in base al numero di repliche dell'applicazione o dei servizi che si vuole eseguire in questo tipo di nodo. Il numero di VM in un tipo di nodo può essere aumentato dopo avere distribuito il cluster.
 
@@ -97,14 +97,14 @@ Si noti che il livello di affidabilità scelto determina il numero minimo di nod
 
 Si noti anche che in qualsiasi momento è possibile scegliere di aggiornare l'affidabilità del cluster passando da un livello a un altro. Così facendo si attiveranno gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
 ## Passaggi successivi
 
 Una volta completata la pianificazione della capacità e configurato un cluster, leggere quanto segue:
 - [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 - [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!--Image references-->
+<!--Image references-->  
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

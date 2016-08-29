@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creare un'app Web Hello World per Azure in Eclipse
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Luna o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Un abbonamento di Azure, che può essere acquistato all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 
 ## Per creare un'applicazione Hello World
@@ -75,7 +75,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
    ![][04]
    
    Nota: se si hanno più account Azure, durante il processo di accesso alcune richieste, all'apparenza identiche, possono essere visualizzate più volte, ognuna per un account diverso. In questo caso, continuare a seguire le istruzioni di accesso.
-1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato l'elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni elencate e si desidera usare solo alcune di esse, è possibile deselezionare le sottoscrizioni che non si desidera utilizzare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
+1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato un elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni e se ne vogliono usare solo alcune, è possibile deselezionare le sottoscrizioni che non si intende usare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
 
    ![][05]
    
@@ -97,15 +97,15 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Nel menu a discesa **Web Container** (Contenitore Web) selezionare il software appropriato per l'applicazione.
 
-        Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-  1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si desidera usare per la distribuzione.
+  1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
 
   1. Nel menu a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse a cui si vuole associare l'App Web.
 
-        Nota: i gruppi di risorse di Azure consentono di raggruppare le risorse correlate in modo che, ad esempio, possano essere eliminate insieme.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        YÈ possibile selezionare un gruppo di risorse esistente, se presente, e andare al passaggio g seguente o usare questa procedura per creare un nuovo gruppo di risorse:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
       * Fare clic su **New** (Nuovo).
 
@@ -121,9 +121,9 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Il menu a discesa **Piano di servizio app** elenca i piani di servizio app associati al gruppo di risorse selezionato.
 
-        Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        È possibile selezionare un piano di servizio app esistente, se presente, e andare al passaggio h seguente o usare questa procedura per creare un nuovo piano di servizio app:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
       * Fare clic su **New** (Nuovo).
 
@@ -145,7 +145,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Fare clic su **OK** per completare la creazione del nuovo contenitore di App Web.
 
-        Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. A questo punto si è pronti completare la distribuzione iniziale dell'app Web in Azure:
 
@@ -210,7 +210,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse.md
 [Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md
@@ -244,4 +244,4 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

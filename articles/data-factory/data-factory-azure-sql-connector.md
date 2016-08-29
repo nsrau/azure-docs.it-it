@@ -14,14 +14,16 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/05/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
 # Spostare dati da e nel database SQL di Azure con Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati in SQL Azure da un altro archivio dati e spostare dati da un altro archivio dati a SQL Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Gli esempi seguenti mostrano come copiare dati da e nel database SQL di Azure e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+## Copia di dati guidata
+Il modo più semplice di creare una pipeline che copia i dati in/da un database SQL di Azure consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
+Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da un database SQL di Azure e un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
 
 ## Esempio: Copiare i dati dal database SQL di Azure SQL nel BLOB di Azure
 
@@ -628,4 +630,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

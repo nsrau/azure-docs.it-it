@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 
-Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.
+Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.
 
 ## Connessione
 
@@ -98,7 +98,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [imparare a monitorare le query]: ./sql-data-warehouse-manage-monitor.md
 [Procedura di configurazione del provisioning]: ./sql-data-warehouse-get-started-provision.md
 [Configurare l'accesso al firewall del server per l'indirizzo IP del client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
+[Visual Studio 2013 o 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [tabella sulle dimensioni]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -126,13 +126,13 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Blog]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blog del team CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum MSDN]: https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureSQLDataWarehouse
+[Forum MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Forum su Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

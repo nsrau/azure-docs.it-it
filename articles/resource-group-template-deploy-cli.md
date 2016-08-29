@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
@@ -29,18 +29,18 @@
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
-In questo argomento viene illustrato come utilizzare l'interfaccia della riga di comando di Azure con i modelli di Azure Resource Manager per distribuire le risorse in Azure.
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con modelli di Resource Manager per distribuire risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure ](resource-manager-troubleshoot-deployments-cli.md) per informazioni su come risolvere l'errore
+> - [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md), per ottenere informazioni su come risolvere l'errore
 > - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
 
 Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 ## Azioni rapide per la distribuzione
 
-Questo articolo descrive tutte le diverse opzioni disponibili durante la distribuzione. Tuttavia, molto spesso saranno necessari solo due semplici comandi. Per iniziare a usare rapidamente la distribuzione, usare i comandi seguenti:
+Questo articolo descrive tutte le diverse opzioni disponibili durante la distribuzione. Tuttavia, spesso sono necessari solo due semplici comandi. Per iniziare a usare rapidamente la distribuzione, usare i comandi seguenti:
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
@@ -53,14 +53,14 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
 Se l’interfaccia della riga comando di Azure non è stata usata in precedenza con Gestione risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
 
-1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce il risultato dell'accesso.
+1. Accedere all'account Azure. Una volta specificate le credenziali, il comando restituisce il risultato dell'accesso.
 
         azure login
   
         ...
         info:    login command OK
 
-2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
+2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione da usare per la distribuzione.
 
         azure account set <YourSubscriptionNameOrId>
 
@@ -70,7 +70,7 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
    
         info:     New mode is arm
 
-4. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
+4. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
 
         azure group create -n ExampleResourceGroup -l "West US"
    
@@ -86,15 +86,15 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
         data:
         info:    group create command OK
 
-5. Convalidare la distribuzione prima dell'esecuzione eseguendo il comando **azure group template validate**. Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+5. Convalidare la distribuzione prima di eseguirla usando il comando **azure group template validate**. Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando seguente e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
+5. Per distribuire le risorse al gruppo di risorse, eseguire il comando seguente e specificare i parametri necessari. I parametri includono un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
    
      Per specificare i valori dei parametri sono disponibili le tre opzioni seguenti:
 
-     1. Usare i parametri inline e un modello locale. Ogni parametro è nel formato: `"ParameterName": { "value": "ParameterValue" }`. Nell'esempio seguente vengono illustrati i parametri con caratteri di escape.
+     1. Usare i parametri inline e un modello locale. Ogni parametro è nel formato: `"ParameterName": { "value": "ParameterValue" }`. L'esempio seguente mostra i parametri con caratteri di escape.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -132,11 +132,11 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
 
 Configurare un account di archiviazione per i modelli nel modo seguente:
 
-1. Creare un nuovo gruppo di risorse.
+1. Creare un gruppo di risorse.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Creare un nuovo account di archiviazione. Il nome dell'account di archiviazione deve essere univoco in tutto l'ambiente di Azure, pertanto assegnare all'account il proprio nome.
+2. Creare un account di archiviazione. Il nome dell'account di archiviazione deve essere univoco in tutto l'ambiente di Azure, pertanto assegnare all'account il proprio nome.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
@@ -145,7 +145,7 @@ Configurare un account di archiviazione per i modelli nel modo seguente:
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Creare un nuovo contenitore. L'autorizzazione è impostata su **Off**, pertanto il contenitore è accessibile solo al proprietario.
+4. Creare un contenitore L'autorizzazione è impostata su **Off**, pertanto il contenitore è accessibile solo al proprietario.
 
         azure storage container create --container templates -p Off 
         
@@ -176,4 +176,4 @@ Per un esempio sull'uso di un token di firma di accesso condiviso con modelli co
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

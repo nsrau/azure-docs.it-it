@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/16/2016"
+   ms.author="cherylmc"/>  
 
 
 
@@ -64,4 +64,4 @@ Per gestire i set di record e i record, vedere le informazioni su [come creare e
 
 Per altre informazioni sul servizio DNS di Azure, vedere la [panoramica del servizio DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

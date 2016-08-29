@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
-	ms.author="jeedes"/>
+	ms.date="08/12/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con ICIMS
@@ -57,19 +57,19 @@ Per configurare l'integrazione di ICIMS in Azure AD, è necessario aggiungere IC
 
 **Per aggiungere ICIMS dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -119,7 +119,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Nella casella di testo URL accesso digitare l'URL usato dagli utenti per accedere all'applicazione ICIMS adottando il modello seguente: `https://<tenant name>.icims.com`
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in ICIMS** seguire questa procedura:
@@ -128,7 +128,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di ICIMS e inviare per posta elettronica il file di metadati scaricato. Specificare inoltre l'URL dell'autorità di certificazione, l'URL SSO SAML e l'URL di disconnessione in modo da configurarli per l'integrazione SSO.
@@ -136,11 +136,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
 
-	![Accesso Single Sign-On di Azure AD][10]
+	![Accesso Single Sign-On di Azure AD][10]  
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Accesso Single Sign-On di Azure AD][11]
+	![Accesso Single Sign-On di Azure AD][11]  
 
 
 
@@ -153,17 +153,17 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_09.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_09.png)  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_03.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_03.png)  
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_04.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_04.png)  
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -173,11 +173,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_06.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_06.png)  
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -189,13 +189,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **Crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_07.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_07.png)  
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_08.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-icims-tutorial/create_aaduser_08.png)  
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -229,13 +229,13 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]
+	![Assegna utente][203]  
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** nella barra degli strumenti in basso.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]
+	![Assegna utente][205]  
 
 
 
@@ -268,4 +268,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-icims-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-icims-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

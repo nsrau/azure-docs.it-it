@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
-	ms.author="annemill"/>
+	ms.date="08/17/2016"
+	ms.author="annemill"/>  
 
 
 # Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12
@@ -120,4 +120,4 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

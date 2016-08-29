@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="terrylan"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="asmalser-msft"/>
+	ms.date="08/15/2016"
+	ms.author="asmalser-msft"/>  
 
 #Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 
@@ -172,7 +172,7 @@ Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul 
 
 ![][3]
 
-Il Pannello di accesso è separato dal portale di gestione di Azure e non richiede agli utenti di disporre di una sottoscrizione di Azure o della sottoscrizione a Office 365.
+Il riquadro di accesso non fa parte del portale di gestione di Azure e non richiede agli utenti di avere una sottoscrizione di Azure o di Office 365.
 
 Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione al riquadro di accesso](active-directory-saas-access-panel-introduction.md).
 
@@ -227,4 +227,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0817_2016-->

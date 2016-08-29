@@ -2,6 +2,7 @@
    pageTitle="Raccolta di immagini di Azure Government | Microsoft Azure"
    description="Questo articolo fornisce una panoramica generale sulla raccolta di immagini di Azure Government e le immagini incluse"
    services="Azure-Government"
+   cloud="gov"
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
@@ -112,7 +113,7 @@ Visual Studio|Visual Studio Enterprise 2015 Update 2 con Azure SDK 2.9 su Window
 
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->  
 
 ## <a name="next"></a>Passaggi successivi
 
@@ -141,4 +142,4 @@ Le risorse riportate di seguito forniscono ulteriori informazioni sulla distribu
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

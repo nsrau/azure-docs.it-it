@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/28/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Sostituzione di un'unità disco nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questa esercitazione viene illustrato come rimuovere e sostituire un'unità disco rigido che non funziona correttamente o guasta in un dispositivo Microsoft Azure StorSimple. Per sostituire un'unità disco, è necessario:
 
@@ -35,7 +35,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
 
 #### Per sbloccare il blocco antimanomissione:
 
-1. Inserire la chiave di blocco (un cacciavite "a prova di manomissione" T10 fornito da Microsoft) con attenzione nell'apertura del punto di manipolazione e nel relativo socket. 
+1. Inserire la chiave di blocco (un cacciavite "a prova di manomissione" T10 fornito da Microsoft) con attenzione nell'apertura del punto di manipolazione e nel relativo socket.
 
     >[AZURE.NOTE] Se il blocco antimanomissione è attivato, l'indicatore rosso è visibile nell'apertura.
 
@@ -43,7 +43,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
 
     **Figura 1** Blocco antimanomissione attivato
 
-    |Etichetta|Descrizione|
+    |Etichetta|Description|
     |:----|:----------|
     |1|Apertura indicatore|
     |2|Blocco antimanomissione|
@@ -124,4 +124,4 @@ Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa pr
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

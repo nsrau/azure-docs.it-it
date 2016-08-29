@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/06/2016"
- ms.author="nberdy"/>
+ ms.date="08/11/2016"
+ ms.author="nberdy"/>  
 
 # Introduzione alla metrica di diagnostica
 
-La metrica di diagnostica fornisce dati migliori sullo stato delle risorse di Azure nella sottoscrizione. La metrica consente all'utente di valutare l'integrità complessiva del servizio e dei dispositivi ad esso connessi. Le statistiche per l'utente sono importanti perché consentono di vedere le attività in corso nell'hub IoT e di individuare la causa radice dei problemi senza dover contattare il supporto di Azure.
+La metrica di diagnostica fornisce dati migliori sullo stato delle risorse di Azure nella sottoscrizione. La metrica consente di valutare l'integrità complessiva del servizio e dei dispositivi ad esso connessi. Le statistiche per l'utente sono importanti perché consentono di vedere le attività in corso nell'hub IoT e di individuare la causa radice dei problemi senza dover contattare il supporto di Azure.
 
 È possibile abilitare la metrica di diagnostica dal portale di Azure.
 
@@ -26,17 +26,17 @@ La metrica di diagnostica fornisce dati migliori sullo stato delle risorse di Az
 
 1. Creare un hub IoT. È possibile trovare istruzioni su come creare un hub IoT in [Introduzione all'hub IoT di Azure][lnk-get-started].
 
-2. Aprire il pannello dell'hub IoT. Nel pannello fare clic su **Tutte le impostazioni** e quindi su **Diagnostica**.
+2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Diagnostica**.
 
-    ![][1]
+    ![][1]  
 
-3. Configurare la diagnostica impostando lo stato su **Sì** e selezionando un account di archiviazione per archiviare i dati di diagnostica. Selezionare la casella di controllo Metrica e quindi fare clic su **Salva**. Si noti che l'account di archiviazione deve essere creato in anticipo e che il costo di archiviazione verrà addebitato separatamente.
+3. Configurare la diagnostica impostando lo stato su **Sì** e selezionando un account di archiviazione per archiviare i dati di diagnostica. Selezionare **Metriche**, quindi premere **Salva**. Si noti che l'account di archiviazione deve essere creato in anticipo e che il costo di archiviazione viene addebitato separatamente. È anche possibile inviare dati di diagnostica a un endpoint dell'hub eventi.
 
-    ![][2]
+    ![][2]  
 
-4. Dopo avere impostato la diagnostica, tornare al pannello principale dell'hub IoT. Le informazioni relative alla metrica vengono popolate nella sezione **Monitoraggio** del pannello. Facendo clic sul grafico, viene aperto il riquadro Metrica dove è possibile visualizzare un riepilogo delle informazioni corrispondenti per l'hub IoT e modificare la selezione della metrica visualizzata nel grafico. È anche possibile configurare gli avvisi in base ai valori della metrica.
+4. Dopo avere impostato la diagnostica, tornare al pannello **Panoramica** dell'hub IoT. Le informazioni relative alla metrica vengono popolate nella sezione **Monitoraggio** del pannello. Facendo clic sul grafico, viene aperto il riquadro Metrica dove è possibile visualizzare un riepilogo delle informazioni corrispondenti per l'hub IoT e modificare la selezione della metrica visualizzata nel grafico. È anche possibile configurare gli avvisi in base ai valori della metrica.
 
-    ![][3]
+    ![][3]  
 
 ## Metrica e modalità d'uso
 
@@ -84,4 +84,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

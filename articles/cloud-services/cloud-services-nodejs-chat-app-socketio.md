@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
@@ -38,7 +38,7 @@ Eseguire le operazioni seguenti per creare il progetto servizio cloud che ospite
 
 1. Nel **menu Start** o nella **schermata Start** cercare **Windows PowerShell**. Fare infine clic con il pulsante destro del mouse su **Windows PowerShell** e scegliere **Esegui come amministratore**.
 
-	![Icona di Azure PowerShell][powershell-menu]
+	![Icona di Azure PowerShell][powershell-menu]  
 
 2. Creare una directory denominata **C:\\node**.
  
@@ -125,7 +125,7 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
 
         PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
 
-4.  Per distribuire l'applicazione in Azure, usare il cmdlet **Publish-AzureServiceProject**, ad esempio:
+4.  Per distribuire l'applicazione in Azure, usare il cmdlet **Publish-AzureServiceProject**, Ad esempio:
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
@@ -170,4 +170,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node. js
   
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

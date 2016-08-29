@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Procedura guidata Pubblica l'applicazione Azure
 
-## Panoramica
+## Overview
 
 Un'applicazione Web sviluppata in Visual Studio può essere pubblicata più facilmente in un servizio cloud di Azure mediante la procedura guidata **Pubblica l'applicazione Azure**. La prima sezione illustra i passaggi da completare per poter usare la procedura guidata, mentre le sezioni successive descrivono le funzionalità di tale procedura guidata.
 
->[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere l'argomento relativo alla [Come distribuire un sito Web di Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] Questo argomento illustra la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere l'argomento relativo alla [Come distribuire un sito Web di Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Prerequisiti
 
-Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un account Microsoft e una sottoscrizione di Azure ed è necessario associare l'applicazione Web a un servizio cloud di Azure. Se queste attività sono già state completate, è possibile passare alla sezione successiva.
+Per poter pubblicare l'applicazione Web in Azure, è necessario avere un account Microsoft e una sottoscrizione di Azure ed è necessario associare l'applicazione Web a un servizio cloud di Azure. Se queste attività sono già state completate, è possibile passare alla sezione successiva.
 
 1. Ottenere un account Microsoft e una sottoscrizione di Azure. Una sottoscrizione di valutazione di Azure gratuita per un mese è disponibile [qui](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -43,13 +43,13 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 ### Per scegliere una sottoscrizione
 
-1. Prima di usare la procedura guidata per la prima volta, è necessario effettuare l'accesso. Fare clic sul collegamento **Accedi**. Accedere al portale di Azure quando richiesto e immettere il nome utente e la password di Azure. 
+1. Prima di usare la procedura guidata per la prima volta, è necessario effettuare l'accesso. Fare clic sul collegamento **Accedi**. Accedere al portale di Azure quando richiesto e immettere il nome utente e la password di Azure.
 
     ![Una delle schermate della procedura guidata di pubblicazione](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
-    L'elenco delle sottoscrizioni viene popolato con le sottoscrizioni associate all'account. Potrebbero anche essere presenti le sottoscrizioni contenute nei file di sottoscrizione importati in precedenza.
+    L'elenco delle sottoscrizioni viene popolato con le sottoscrizioni associate all'account. Potrebbero essere visualizzate anche le sottoscrizioni contenute in file di sottoscrizione importati in precedenza.
 
-1. In **Scegliere la propria sottoscrizione** scegliere la sottoscrizione da usare per la distribuzione.
+1. Dall'elenco **Scegliere la sottoscrizione** scegliere la sottoscrizione da usare per la distribuzione.
 
    Se si sceglie **<Gestisci…>**, viene visualizzata la finestra di dialogo **Gestisci sottoscrizioni** e sarà possibile scegliere la sottoscrizione e l'account utente da usare. La scheda **Account** mostra tutti gli account e la scheda **Sottoscrizioni** mostra tutte le sottoscrizioni associate agli account. È anche possibile scegliere un'area da cui usare le risorse di Azure, oltre a creare o importare certificati per la sottoscrizione dal portale di Azure. Se sono state importate sottoscrizioni da un file di sottoscrizione, i certificati associati verranno visualizzati nella scheda **Certificati**. Al termine, scegliere il pulsante **Chiudi**.
 
@@ -57,7 +57,7 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. Per continuare, scegliere **Avanti**. 
+1. Per continuare, scegliere **Avanti**.
 
     Se nella sottoscrizione non sono presenti servizi cloud, è necessario creare un servizio cloud in Azure per ospitare il progetto. Verrà visualizzata la finestra di dialogo **Crea servizio cloud e account di archiviazione**.
 
@@ -139,4 +139,4 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

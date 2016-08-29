@@ -12,23 +12,25 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="danha"/>
+	ms.date="07/26/2016" 
+	ms.author="danha"/>  
 
 
 # Uso di Analytics in Application Insights
 
 
-[Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
+L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 * **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
 
 ## Aprire Analytics
 
-Nella home page dell'app in Application Insights fare clic su Analisi. ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics-using/001.png)
+Nella home page dell'app in Application Insights fare clic su Analytics.
 
-L'esercitazione in linea fornisce alcune informazioni su come procedere.
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics-using/001.png)  
+
+L'esercitazione inline fornisce alcune informazioni su come procedere.
 
 È disponibile una [panoramica più ampia qui](app-insights-analytics-tour.md).
 
@@ -36,15 +38,15 @@ L'esercitazione in linea fornisce alcune informazioni su come procedere.
 
 ### Scrivere una query
 
-![](./media/app-insights-analytics-using/150.png)
+![Visualizzazione schema](./media/app-insights-analytics-using/150.png)  
 
-Iniziare con i nomi delle tabelle elencate a sinistra oppure con gli operatori [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator). Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators). IntelliSense suggerirà gli operatori e alcuni degli elementi delle espressioni che è possibile usare.
+Iniziare con i nomi delle tabelle elencate a sinistra oppure con l'operatore [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator). Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators). IntelliSense suggerisce gli operatori e alcuni elementi delle espressioni che è possibile usare.
 
 Vedere la [panoramica del linguaggio di Analisi](app-insights-analytics-tour.md) e le [informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md).
 
 ### Eseguire una query
 
-![Esecuzione di una query](./media/app-insights-analytics-using/130.png)
+![Esecuzione di una query](./media/app-insights-analytics-using/130.png)  
 
 1. Nelle query è possibile usare interruzioni di riga.
 2. Posizionare il cursore all'interno o alla fine della query da eseguire.
@@ -53,7 +55,7 @@ Vedere la [panoramica del linguaggio di Analisi](app-insights-analytics-tour.md)
 
 ### Salvare una query
 
-![Salvataggio di una query](./media/app-insights-analytics-using/140.png)
+![Salvataggio di una query](./media/app-insights-analytics-using/140.png)  
 
 1. Salvare il file di query corrente.
 2. Aprire un file di query salvato.
@@ -64,7 +66,7 @@ Vedere la [panoramica del linguaggio di Analisi](app-insights-analytics-tour.md)
 
 Espandere una riga dei risultati per visualizzarne l'elenco completo delle proprietà. È possibile espandere ulteriormente qualsiasi proprietà che sia un valore strutturato, ad esempio le dimensioni personalizzate o l'elenco in pila di un'eccezione.
 
-![Espandere una riga](./media/app-insights-analytics-using/070.png)
+![Espandere una riga](./media/app-insights-analytics-using/070.png)  
 
  
 
@@ -78,7 +80,7 @@ Espandere una riga dei risultati per visualizzarne l'elenco completo delle propr
 
 Selezionare le colonne da visualizzare, trascinare le intestazioni di colonna per ridisporle e ridimensionare le colonne trascinandone i bordi.
 
-![Disporre le colonne](./media/app-insights-analytics-using/030.png)
+![Disporre le colonne](./media/app-insights-analytics-using/030.png)  
 
 ### Ordinare e filtrare elementi
 
@@ -86,7 +88,7 @@ Ordinare i risultati facendo clic sull'intestazione di una colonna. Fare clic di
 
 Usare l'icona del filtro per perfezionare la ricerca.
 
-![Ordinare e filtrare le colonne](./media/app-insights-analytics-using/040.png)
+![Ordinare e filtrare le colonne](./media/app-insights-analytics-using/040.png)  
 
 
 
@@ -94,13 +96,13 @@ Usare l'icona del filtro per perfezionare la ricerca.
 
 Per ordinare più di una colonna, usare il raggruppamento. Abilitare il raggruppamento e quindi trascinare le intestazioni di colonna nello spazio sopra la tabella.
 
-![Gruppo](./media/app-insights-analytics-using/060.png)
+![Gruppo](./media/app-insights-analytics-using/060.png)  
 
 
 
 ### Mancano alcuni risultati?
 
-È previsto un limite di 10.000 righe di risultati restituiti dal portale. Se il numero di risultati supera il limite verrà visualizzato un avviso. In tal caso, l'ordinamento dei risultati nella tabella non permette sempre di visualizzare i primo o gli ultimi risultati effettivi.
+È previsto un limite di 10.000 righe di risultati restituiti dal portale. Se il numero di risultati supera il limite, verrà visualizzato un avviso. In tal caso, l'ordinamento dei risultati nella tabella non permette sempre di visualizzare i primo o gli ultimi risultati effettivi.
 
 È consigliabile evitare di raggiungere il limite. Usare operatori quali:
 
@@ -115,23 +117,54 @@ Per ordinare più di una colonna, usare il raggruppamento. Abilitare il raggrupp
 
 Selezionare il tipo di diagramma desiderato:
 
-![](./media/app-insights-analytics-using/230.png)
+![Selezionare un tipo di diagramma](./media/app-insights-analytics-using/230.png)  
 
 Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi X e Y e una colonna di dimensioni in base alla quale dividere i risultati.
 
 Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma, è possibile usare la [direttiva render](app-insights-analytics-reference.md#render-directive) alla fine di una query.
 
-Per aggiungere un diagramma a uno dei [dashboard condivisi](app-insights-dashboards.md), è sufficiente fare clic sul segnaposto (disponibile solo per le app in un piano tariffario a pagamento).
+## Aggiungi al dashboard
+
+Per aggiungere un diagramma a uno dei [dashboard condivisi](app-insights-dashboards.md), è sufficiente fare clic sul segnaposto. Potrebbe essere necessario [aggiornare il pacchetto dei prezzi dell'app](app-insights-pricing.md) per attivare questa funzionalità.
+
+![Fare clic sulla puntina](./media/app-insights-analytics-using/pin-01.png)  
+
+Ciò significa che, quando si crea un dashboard per monitorare le prestazioni o l'utilizzo dei servizi Web, è possibile includere analisi piuttosto complesse insieme ad altre metriche.
+
+#### Aggiornamento del dashboard
+
+Il grafico aggiunto al dashboard viene aggiornato automaticamente eseguendo di nuovo la query ogni mezz'ora circa.
+
+#### Semplificazioni automatiche
+
+In alcuni casi, determinate semplificazioni vengono applicate a un grafico quando lo si aggiunge a un dashboard.
+
+Quando si aggiunge un grafico che visualizza molti bin discreti, in genere un grafico a barre, i bin meno popolati vengono raggruppati automaticamente in un unico bin denominato "other". Ad esempio, questa query:
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+ha questo aspetto in Analisi:
+
+
+![Grafico con una lunga coda](./media/app-insights-analytics-using/pin-07.png)
+
+ma quando la si aggiunge un dashboard, è simile alla figura seguente:
+
+
+![Grafico con bin limitati](./media/app-insights-analytics-using/pin-08.png)  
+
+
+
 
 ## Eseguire l'esportazione in Excel
 
-Dopo aver eseguito una query, è possibile scaricare un file con estensione csv. Fare clic su **Esporta, Excel**.
+Dopo aver eseguito una query, è possibile scaricare un file con estensione csv. Fare clic su **Esporta in Excel**.
 
 ## Esportare in Power BI
 
-1. Posizionare il cursore in una query e scegliere **Esporta, Power BI**.
+1. Posizionare il cursore in una query e scegliere **Esporta in Power BI**.
 
-    ![](./media/app-insights-analytics-using/240.png)
+    ![](./media/app-insights-analytics-using/240.png)  
 
     Verrà scaricato un file di script M.
 
@@ -143,11 +176,11 @@ Dopo aver eseguito una query, è possibile scaricare un file con estensione csv.
 
 4. Se necessario, modificare le credenziali e procedere alla creazione del report.
 
-    ![](./media/app-insights-analytics-using/260.png)
+    ![](./media/app-insights-analytics-using/260.png)  
 
 
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

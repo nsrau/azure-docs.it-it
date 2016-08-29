@@ -13,16 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="micurd"/>
+	ms.date="08/11/2016"
+	ms.author="micurd"/>  
 
 
 # Come usare l'archiviazione tabelle di Azure da Node.js
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-
-## Panoramica
+## Overview
 
 Questo argomento illustra come eseguire scenari comuni usando il servizio tabelle di Azure in un'applicazione Node.js.
 
@@ -159,7 +158,7 @@ Esempio di risposta:
 
 Esistono vari metodi per aggiornare un'entità esistente:
 
-* **replaceEntity**: aggiorna un'entità esistente sostituendola.
+* **replaceEntity**: aggiorna un'entità esistente sostituendola
 
 * **mergeEntity**: aggiorna un'entità esistente unendovi i nuovi valori delle proprietà.
 
@@ -181,7 +180,7 @@ Nell'esempio seguente viene illustrato l'aggiornamento di un'entità mediante **
 >
 > 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
 >
->     `entity2['.metadata'].etag = currentEtag;`
+>     `entity2['.metadata'].etag = currentEtag;`  
 >
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
 
@@ -289,7 +288,7 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 
 ## Eliminare un'entità
 
-È possibile eliminare un'entità usando le relative chiavi di riga e di partizione. In questo esempio, l'oggetto **task1** contiene i valori **RowKey** e **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi passato al metodo **deleteEntity**.
+È possibile eliminare un'entità utilizzando le relative chiavi di riga e di partizione. In questo esempio, l'oggetto **task1** contiene i valori **RowKey** e **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi passato al metodo **deleteEntity**.
 
 	var task = {
 	  PartitionKey: {'_':'hometasks'},
@@ -442,4 +441,4 @@ Per altre informazioni, vedere le risorse seguenti:
   [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

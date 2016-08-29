@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Come usare l'archiviazione di accodamento da PHP
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Panoramica
+## Overview
 
 Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'inserimento, la visualizzazione, il recupero e l'eliminazione dei messaggi in coda, oltre alle procedure di creazione ed eliminazione di code.
 
@@ -28,7 +28,7 @@ Questa guida illustra diversi scenari di utilizzo comuni del servizio di archivi
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Creazione di un'applicazione PHP
+## Creare un'applicazione PHP
 
 Per creare un'applicazione PHP che accede al Servizio di accodamento di Azure, è sufficiente fare riferimento alle classi di Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
@@ -121,7 +121,7 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
 
 ## Aggiungere un messaggio a una coda
 
-Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessage**. Il metodo usa il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
+Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessage**. Il metodo utilizza il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
 
 	require_once 'vendor/autoload.php';
 
@@ -384,4 +384,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [require\_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
-    ms.author="robmcm" />
+    ms.date="08/11/2016" 
+    ms.author="robmcm" />  
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
 
-In questa guida verrà descritto come visualizzare il codice SAML (Security Assertion Markup Language) sottostante restituito all'applicazione dal Servizio di controllo di accesso di Azure. Questa guida si basa sull'argomento [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse][] e fornisce codice per la visualizzazione delle informazioni relative a SAML. L'applicazione completata avrà un aspetto analogo al seguente.
+In questa guida verrà descritto come visualizzare il codice SAML (Security Assertion Markup Language) sottostante restituito all'applicazione dal Servizio di controllo di accesso di Azure. Questa guida si basa sull'argomento [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse][] e fornisce il codice per la visualizzazione delle informazioni relative a SAML. L'applicazione completata avrà un aspetto analogo al seguente.
 
 ![Esempio di output SAML][saml_output]
 
@@ -31,7 +31,7 @@ Il filtro dei Servizi di controllo di accesso di Azure è una Community Technolo
 
 Per completare le attività in questa guida, completare l'esempio disponibile in [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse][] e usarlo come punto di partenza per questa esercitazione.
 
-## Aggiungere la libreria JspWriter al percorso della build e all'assembly di distribuzione
+## Aggiunta della libreria JspWriter al percorso della build e all'assembly di distribuzione
 
 Aggiungere la libreria contenente la classe **javax.servlet.jsp.JspWriter** al percorso della build e all'assembly di distribuzione. Se si usa Tomcat, la libreria sarà **jsp-api.jar**, che si trova nella cartella **lib** di Apache.
 
@@ -43,7 +43,7 @@ Aggiungere la libreria contenente la classe **javax.servlet.jsp.JspWriter** al p
 6. Selezionare la libreria appropriata e fare clic su **Finish**.
 7. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for MyACSHelloWorld**.
 
-## Modificare il file JSP per la visualizzazione del codice SAML
+## Modifica del file JSP per la visualizzazione del codice SAML
 
 Modificare **index.jsp** in modo che usi il codice seguente.
 
@@ -196,4 +196,4 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

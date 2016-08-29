@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -26,7 +26,7 @@ Azure Toolkit per Eclipse consente di eseguire il debug delle applicazioni, indi
 
 In questa esercitazione si presuppone che sia già stata creata correttamente un'applicazione e che si abbia familiarità con l'emulatore di calcolo e con la distribuzione in Azure.
 
-Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'esercitazione [Uso della libreria di runtime del servizio Azure in JSP][]. Se non è stato ancora fatto, creare l'applicazione prima di continuare.
+Come punto di partenza per questo argomento verrà usata l'applicazione creata nell'esercitazione relativa all'[uso della libreria di runtime del servizio Azure in JSP][]. Se non è stato ancora fatto, creare l'applicazione prima di continuare.
 
 ## Per eseguire il debug dell'applicazione durante l'esecuzione in Azure ##
 
@@ -53,8 +53,7 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Se non è stato ancora impostato un punto di interruzione in index.jsp, impostarlo:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:  
-        ![][ic551537]
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Cloud (WorkerRole1)** e infine fare clic su **Debug**.
 1. Nel browser eseguire l'applicazione di staging, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sostituendo il GUID dal nome DNS per *&lt;guid&gt;*. Se richiesto da una finestra di dialogo **Confirm Perspective Switch** (Conferma il cambio di prospettiva), fare clic su **Yes** (Sì). La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
@@ -95,8 +94,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Impostare un punto di interruzione in index.jsp:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
-        ![][ic551537]
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
 
        Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
 1. Avviare l'applicazione nell'emulatore di calcolo facendo clic sul pulsante **Run in Azure Emulator** sulla barra degli strumenti di Azure.
@@ -128,11 +126,11 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Uso della libreria di runtime del servizio Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[uso della libreria di runtime del servizio Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

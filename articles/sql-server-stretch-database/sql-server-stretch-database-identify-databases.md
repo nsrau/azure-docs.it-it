@@ -18,7 +18,7 @@
 
 # Identificare database e tabelle per l'estensione database eseguendo Gestione estensione database
 
-Per identificare i database e le tabelle per l'estensione database, scaricare Gestione spazio aggiornamenti di SQL Server 2016 ed eseguire Gestione estensione database. Gestione estensione database consente anche di identificare i problemi di blocco.
+Per identificare i database e le tabelle per l'estensione database, scaricare Gestione spazio aggiornamenti di SQL Server 2016 ed eseguire Gestione estensione database. L'ottimizzazione guidata Estensione database consente anche di identificare i problemi di blocco.
 
 ## Scaricare e installare Preparazione aggiornamento
 È possibile scaricare e installare Gestione spazio aggiornamenti da [qui](http://go.microsoft.com/fwlink/?LinkID=613421). Questo strumento non è incluso nei supporti di installazione di SQL Server.
@@ -62,6 +62,8 @@ Abilitare Database Estensione.
 
 [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md)
 
-[Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
+[Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+[Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure](sql-server-stretch-database-index-all-articles.md)
+
+<!---HONumber=AcomDC_0817_2016-->

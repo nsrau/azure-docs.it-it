@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="kgremban"/>
+	ms.date="08/10/2016"
+	ms.author="kgremban"/>  
 
 
 # Single Sign-On con il proxy di applicazione
@@ -23,9 +23,9 @@ Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Ques
 
 1. Un utente accede al cloud
 2. Tutti i controlli di convalida della sicurezza avvengono nel cloud (autenticazione preliminare)
-3. Quando la richiesta viene inviata all'applicazione locale, il connettore del proxy di applicazione rappresenta l'utente in modo che l'applicazione back-end lo identifichi come proveniente da un dispositivo aggiunto al dominio.
+3. Quando la richiesta viene inviata all'applicazione locale, il connettore Proxy applicazione rappresenta l'utente. L'applicazione back-end ritiene che questo sia un utente normale da un dispositivo aggiunto al dominio.
 
-![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
+![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)  
 
 Il proxy dell'applicazione di Azure AD consente di offrire un'esperienza di accesso Single Sign-On (SSO) agli utenti. Usare le istruzioni seguenti per pubblicare le app mediante l'accesso SSO:
 
@@ -57,7 +57,7 @@ Prima di iniziare a usare SSO per il proxy dell'applicazione, verificare che l'a
 
 - Tutte le app devono avere nomi delle entità servizio.
 
-- Il server che esegue il connettore e il server che esegue l'app devono essere aggiunti a un dominio e appartenere allo stesso dominio. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
+- Il server che esegue il connettore e il server che esegue l'app devono essere aggiunti a un dominio e appartenere allo stesso dominio o a domini trusting. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
 
 - Il server che esegue il connettore deve avere accesso in lettura a TokenGroupsGlobalAndUniversal per gli utenti. Si tratta di un'impostazione predefinita che potrebbe essere interessata dalla protezione avanzata dell'ambiente. Altre informazioni sono disponibili in [KB2009157](https://support.microsoft.com/it-IT/kb/2009157).
 
@@ -106,7 +106,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 
 
 ## Accesso Single Sign-On per app non Windows
-Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy di applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. Per la definizione dell'invio della richiesta sono presenti numerosi protocolli. La maggior parte dei server non Windows prevede l'uso del protocollo Negotiate/SPNego, al momento supportato nel proxy di applicazione di Azure AD.
+Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy di applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. Per definire come inviare queste richieste sono disponibili diversi protocolli. La maggior parte dei server non Windows prevede l'uso del protocollo Negotiate/SPNego, al momento supportato nel proxy di applicazione di Azure AD.
 
 ![Diagramma SSO non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
@@ -165,8 +165,8 @@ Se si verifica un errore nel processo di accesso Single Sign-On, tale errore ver
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

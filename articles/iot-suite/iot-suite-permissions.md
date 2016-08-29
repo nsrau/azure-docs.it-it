@@ -14,8 +14,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/16/2016"
-  ms.author="araguila"/>
+  ms.date="08/10/2016"
+  ms.author="araguila"/>  
   
 # Autorizzazioni per il sito azureiotsuite.com
 
@@ -133,7 +133,7 @@ Esaminare il diagramma seguente:
 
 **Perché viene visualizzato questo errore quando si ha una sottoscrizione di Azure?** *Per creare soluzioni preconfigurate è necessaria una sottoscrizione di Azure. È possibile creare un account di valutazione gratuito in pochi minuti.*
 
-Se si è certi di che avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant desiderato è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di AAD.
+Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant desiderato è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di AAD.
 
 ## Passaggi successivi
 
@@ -154,4 +154,4 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

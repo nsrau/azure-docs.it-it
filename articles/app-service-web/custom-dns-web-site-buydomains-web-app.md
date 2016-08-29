@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
 
@@ -37,9 +37,9 @@ Per un'app Web di produzione, è probabile che l'amministratore desideri che gli
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 
-## Panoramica
+## Overview
 
-> [AZURE.NOTE] Non tentare di acquistare un dominio con una sottoscrizione a cui non è associata una carta di credito attiva, perché è possibile che la sottoscrizione venga disabilitata.
+> [AZURE.NOTE] Non provare ad acquistare un dominio con una sottoscrizione a cui non è associata una carta di credito attiva, perché è possibile che la sottoscrizione venga disabilitata.
 
 Se l'app Web non ha un nome di dominio, è possibile acquistarne uno facilmente sul [portale di Azure](https://portal.azure.com/). Durante il processo di acquisto è possibile scegliere che i record DNS WWW e di radice di dominio vengano associati automaticamente all'app Web. È inoltre possibile gestire il dominio direttamente dal portale di Azure.
 
@@ -116,4 +116,4 @@ Se il dominio personalizzato è stato acquistato all'interno del pannello **Domi
 - È possibile che a un certo punto il dominio personalizzato sia stato eliminato. Verificare i log di controllo facendo clic su **Impostazioni** > **Log di controllo** nel pannello principale dell'applicazione.
 - Il pannello **Domini personalizzati ed SSL** che si sta esaminando potrebbe appartenere a un'app creata in un'altra sottoscrizione di Azure. Passare a un'altra app in una sottoscrizione differente ed esaminare il relativo pannello **Domini personalizzati ed SSL**. All'interno del portale non sarà possibile visualizzare o gestire domini personalizzati creati in una sottoscrizione di Azure diversa da quella dell'app. Tuttavia, se si fa clic su **Gestione avanzata** nel pannello **Gestisci dominio** del dominio, si verrà reindirizzati al sito Web del provider di dominio, dove sarà possibile [configurare manualmente il dominio personalizzato come qualsiasi dominio personalizzato esterno](web-sites-custom-domain-name.md) per app create in un'altra sottoscrizione di Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Tipi di endpoint di Gestione traffico | Microsoft Azure"
    description="Questo articolo illustra tipi diversi di endpoint che è possibile usare con Gestione traffico di Azure"
    services="traffic-manager"
@@ -6,14 +6,14 @@
    authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="jtuliani" />  
 
 # Endpoint di Gestione traffico
 
@@ -40,8 +40,8 @@ Le sezioni seguenti descrivono i singoli tipi di endpoint in modo più approfond
 Gli endpoint di Azure vengono usati per configurare servizi basati su Azure in Gestione traffico. Gli endpoint di Azure attualmente supportano i tipi di risorse di Azure seguenti:
 
 - Macchine virtuali IaaS classiche e servizi cloud PaaS.
-- App Web.
-- Risorse PublicIPAddress, che possono essere collegate alle macchine virtuali direttamente o tramite Azure Load Balancer.
+- App Web
+- Risorse PublicIPAddress, che possono essere collegate alle macchine virtuali direttamente o tramite Azure Load Balancer. Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
 
 Le risorse PublicIPAddress sono risorse di Azure Resource Manager che non sono disponibili nelle Azure Service Management API. Sono quindi supportate unicamente nelle esperienze di tipo Azure Resource Manager di Gestione traffico. Gli altri tipi di endpoint sono supportati tramite esperienze Resource Manager ed esperienze Service Management in Gestione traffico.
 
@@ -144,4 +144,4 @@ Per quanto riguarda le app Web, gli endpoint di Azure di Gestione traffico non p
 
 - Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) di Gestione traffico.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

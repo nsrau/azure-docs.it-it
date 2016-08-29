@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -64,7 +64,7 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -72,8 +72,6 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
               }
 }
 ```
-
->[AZURE.NOTE] In occasione del prossimo aggiornamento, verrà aggiunto il supporto per gli avvisi relativi agli eventi ("conditionType": "Evento")
 
 
 | Campo | Obbligatorio? | Set fisso di valori? | Note |
@@ -123,4 +121,4 @@ Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguent
 
 [Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

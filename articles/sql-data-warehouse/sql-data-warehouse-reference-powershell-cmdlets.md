@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse
@@ -93,7 +93,7 @@ Per un elenco di tutte le attività che possono essere automatizzate tramite Pow
 <!--Article references-->
 [Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
 [Creare SQL Data Warehouse con PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Ripristino del database]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Ripristino del database]: ./sql-data-warehouse-restore-database-powershell.md
 [Gestire le operazioni di scalabilità con REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
@@ -114,4 +114,4 @@ Per un elenco di tutte le attività che possono essere automatizzate tramite Pow
 <!--Other Web references-->  
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

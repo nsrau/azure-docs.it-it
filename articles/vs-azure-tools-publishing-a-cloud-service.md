@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Pubblicazione di un servizio cloud con gli strumenti di Azure
 
 Utilizzando gli Strumenti di Azure per Microsoft Visual Studio, è possibile pubblicare l'applicazione Azure direttamente da Visual Studio. Visual Studio supporta la pubblicazione integrata per la gestione temporanea o l’ambiente di produzione di un servizio cloud.
 
-Prima di poter pubblicare un'applicazione Azure, è necessario disporre di una sottoscrizione di Azure. È necessario anche impostare un servizio cloud e un account di archiviazione che possano essere utilizzati dall'applicazione. È possibile impostarli nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
+Per poter pubblicare un'applicazione Azure è necessario avere una sottoscrizione di Azure. È necessario anche impostare un servizio cloud e un account di archiviazione che possano essere utilizzati dall'applicazione. È possibile impostarli nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] Quando si pubblica, è possibile selezionare l'ambiente di distribuzione per il servizio cloud. E’ necessario inoltre selezionare un account di archiviazione utilizzato per archiviare il pacchetto dell'applicazione durante la distribuzione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione.
 
@@ -91,7 +91,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
 1. Per abilitare Distribuzione Web per tutti i ruoli web nell'applicazione, selezionare **Abilita Distribuzione Web per tutti i ruoli web**.
 
-    Viene visualizzato un triangolo giallo. Distribuzione Web utilizza un certificato autofirmato non attendibile per impostazione predefinita, che non è consigliato per il caricamento dei dati riservati. Se è necessario proteggere questo processo per i dati riservati, è possibile aggiungere un certificato SSL da utilizzare per le connessioni di Distribuzione Web. Questo certificato deve essere un certificato attendibile. Per informazioni su come eseguire questa operazione, vedere la sezione **Rendere sicuro Distribuzione Web** più avanti in questo argomento.
+    Viene visualizzato un triangolo giallo. Distribuzione Web utilizza un certificato autofirmato non attendibile per impostazione predefinita, che non è consigliato per il caricamento dei dati riservati. Se è necessario proteggere questo processo per i dati riservati, è possibile aggiungere un certificato SSL da utilizzare per le connessioni di Distribuzione Web. Questo certificato deve essere un certificato attendibile. Per informazioni su come eseguire questa operazione, vedere la sezione **Per proteggere Distribuzione Web** più avanti in questo argomento.
 
 1. Scegliere **Avanti** per mostrare la schermata **Riepilogo** e quindi scegliere **Pubblica** per distribuire il servizio cloud.
 
@@ -103,7 +103,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
 1. Per utilizzare Distribuzione Web, apportare modifiche al codice del progetto per uno dei ruoli web in Visual Studio che si desidera pubblicare, quindi fare doppio clic su questo nodo del progetto nella soluzione e scegliere **Pubblica**. La finestra di dialogo **Pubblica sito Web** viene visualizzata.
 
-1. (Facoltativo) Se è stato aggiunto un certificato SSL attendibile da utilizzare per le connessioni remote per IIS, è possibile deselezionare la casella di controllo **Consenti certificato non attendibile**. Per informazioni su come aggiungere un certificato per rendere Distribuzione Web sicuro, vedere la sezione **Rendere sicuro Distribuzione Web** più avanti in questo argomento.
+1. (Facoltativo) Se è stato aggiunto un certificato SSL attendibile da utilizzare per le connessioni remote per IIS, è possibile deselezionare la casella di controllo **Consenti certificato non attendibile**. Per informazioni su come aggiungere un certificato per rendere Distribuzione Web sicuro, vedere la sezione **Per proteggere Distribuzione Web** più avanti in questo argomento.
 
 1. Per utilizzare Distribuzione Web, il meccanismo di pubblicazione richiede il nome utente e la password impostati per la connessione desktop remoto alla prima pubblicazione del pacchetto.
 
@@ -173,4 +173,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

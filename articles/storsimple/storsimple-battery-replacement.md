@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dello chassis principale nel dispositivo Microsoft Azure StorSimple dispone di un pacchetto di batteria aggiuntivo. Tale pacchetto fornisce l'alimentazione in modo che il dispositivo StorSimple possa salvare i dati in caso di perdita dell'alimentazione CA allo chassis principale. Questo pacchetto di batteria viene definito come *modulo della batteria di backup*. Il modulo della batteria di backup è disponibile solo per lo chassis principale nel dispositivo StorSimple (lo chassis EBOD non contiene un modulo della batteria di backup).
 
 In questa esercitazione viene illustrato come:
 
-- Rimuovere il modulo della batteria di backup 
+- Rimuovere il modulo della batteria di backup
 - Installare un nuovo modulo della batteria di backup
 - Mantenimento del modulo della batteria di backup
 
@@ -56,7 +56,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
 
     **Figura 2** Parte posteriore del PCM in cui vengono mostrati gli indicatori LED di monitoraggio
 
-    |Etichetta|Descrizione|
+    |Etichetta|Description|
     |:---|:-----------|
     |1|Guasto dell’alimentazione CA|
     |2|Guasto alla ventola|
@@ -77,7 +77,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
 
 6. Restituire l'unità difettosa a Microsoft per un'assistenza e una gestione appropriate.
 
-## Installazione di un nuovo modulo della batteria di backup
+## Installare un nuovo modulo della batteria di backup
 
 Eseguire i passaggi seguenti per installare il modulo della batteria sostitutiva nel PCM nello chassis principale del dispositivo StorSimple.
 
@@ -115,4 +115,4 @@ Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la lin
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

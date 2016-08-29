@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/16/2016"
+   ms.author="jrj;barbkess;sonyama"/>  
 
 
 # Caricare dati dall’archiviazione BLOB di Azure in un SQL Data Warehouse (PolyBase)
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 
 ## Prima di iniziare
-Per eseguire questa esercitazione, è necessario un account di Azure che già dispone di un database SQL Data Warehouse. In caso contrario, vedere [Creare un'istanza di SQL Data Warehouse][].
+Per eseguire questa esercitazione, è necessario un account di Azure che già dispone di un database SQL Data Warehouse. In caso contrario, vedere [Creare un SQL Data Warehouse][].
 
 ## 1\. Configurare l'origine dati
 
@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. Caricare i dati in nuove tabelle
 
-Per caricare i dati dall'archiviazione BLOB di Azure e salvarli in una tabella all'interno del database, utilizzare l'istruzione [CREATE TABLE AS SELECT][] \(CTAS) T-SQL. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate appena create. Per caricare i dati in nuove tabelle, usare una sola istruzione [CTAS][] per ogni tabella.
+Per caricare i dati dall'archiviazione BLOB di Azure e salvarli in una tabella all'interno del database, utilizzare l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][]. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate appena create. Per caricare i dati in nuove tabelle, utilizzare un’istruzione [CTAS][] per ogni tabella.
 
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
 
@@ -282,7 +282,7 @@ Per altre informazioni sulla gestione degli indici columnstore, vedere [Indicizz
 
 È consigliabile creare statistiche a colonna singola subito dopo un caricamento. Sono disponibili alcune opzioni per le statistiche. Ad esempio, se si creano statistiche a colonna singola su ogni colonna, ricompilare tutte le statistiche potrebbe richiedere molto tempo. Se si sa che alcune colonne non si aggiungeranno ai predicati di query, è possibile ignorare la creazione delle statistiche su tali colonne.
 
-Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` disponibile in [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
+Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` disponibile in [Gestione delle statistiche nelle tabelle in SQL Data Warehouse][].
 
 L'esempio seguente è un buon punto di partenza per la creazione delle statistiche. Qui vengono create statistiche a colonna singola su ogni colonna nella tabella della dimensione e su ogni colonna di join nelle tabelle dei fatti. È sempre possibile aggiungere in un secondo momento statistiche a colonna singola o a più colonne per altre colonne delle tabelle dei fatti.
 
@@ -348,25 +348,26 @@ Ora è possibile usare SQL Data Warehouse per l'esplorazione dei dati.
 ## Passaggi successivi
 Per caricare i dati completi del data warehouse di Contoso Retail, usare lo script disponibile nei suggerimenti per lo sviluppo e vedere [Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
-[Creare un'istanza di SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Indicizzazione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-index.md
-[Managing statistics on tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[label]: ./sql-data-warehouse-develop-label.md
+[Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Indicizzazione di tabelle in SQL Data Warehouse]: sql-data-warehouse-tables-index.md
+[Gestione delle statistiche nelle tabelle in SQL Data Warehouse]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/it-IT/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/it-IT/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Caricare nel Data Warehouse completo di Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

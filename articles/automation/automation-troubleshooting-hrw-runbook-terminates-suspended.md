@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
-   ms.author="magoedte" />
+   ms.date="08/17/2016"
+   ms.author="magoedte" />  
 
 # Ruolo di lavoro ibrido per runbook: un processo runbook termina con lo stato Sospeso
 
@@ -33,7 +33,7 @@ Si verifica un errore di esecuzione del runbook e viene restituito l'errore "Imp
 Le cause dell'errore possono essere diverse:
 
   1. Il ruolo di lavoro ibrido è protetto da proxy o firewall
-  2. Il computer in cui è in esecuzione il ruolo di lavoro ibrido non soddisfa i [requisiti](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) hardware minimi 
+  2. Il computer in cui è in esecuzione il ruolo di lavoro ibrido non soddisfa i [requisiti](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) hardware minimi
   3. I runbook non possono autenticarsi con le risorse locali
 
 
@@ -57,9 +57,9 @@ Verificare che il computer designato per svolgere il ruolo di lavoro ibrido per 
 
 ### Soluzione
 
-Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]*. La causa dell'errore è che l'autenticazione non è stata configurata nei runbook oppure le credenziali Esegui come non sono state specificate per il gruppo del ruolo di lavoro ibrido. Vedere le [Autorizzazioni per il runbook](automation-hybrid-runbook-worker#runbook-permissions) per confermare di aver configurato correttamente l'autenticazione per i runbook.
+Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]*. La causa dell'errore è che l'autenticazione non è stata configurata nei runbook oppure le credenziali Esegui come non sono state specificate per il gruppo del ruolo di lavoro ibrido. Per verificare di aver configurato correttamente l'autenticazione per i runbook, vedere [Autorizzazioni per i runbook](automation-hybrid-runbook-worker.md#runbook-permissions).
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

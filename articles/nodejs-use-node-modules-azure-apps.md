@@ -1,6 +1,6 @@
 <properties pageTitle="Uso di moduli Node.js" description="Informazioni su come usare i moduli Node.js con Servizio app di Azure e Servizi cloud." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="06/24/2016" ms.author="robmcm"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/11/2016" ms.author="robmcm"/>  
 
 
 
@@ -34,7 +34,7 @@ Servizio app di Azure non supporta tutti i moduli nativi e potrebbe non riuscire
 * Eseguire **npm install** in un computer Windows con installati tutti i prerequisiti del modulo nativo. Distribuire quindi la cartella **node\_modules** creata come parte dell'applicazione in Servizio app di Azure.
 * È possibile configurare Servizio app di Azure per l'esecuzione di script bash o della shell durante la distribuzione, offrendo la possibilità di eseguire comandi personalizzati e di configurare con precisione la modalità di esecuzione di **npm install**. Per un video che illustra come eseguire questa operazione, vedere l'articolo relativo agli [script di distribuzione di un sito Web personalizzato con Kudu].
 
-###Usare un file package.json
+###Utilizzare un file package.json
 
 Il file **package.json** consente di specificare le dipendenze di livello superiore necessarie all'applicazione in modo che la piattaforma di hosting possa installare le dipendenze anziché richiedere che venga inclusa la cartella **node\_packages** come parte della distribuzione. Dopo che l'applicazione è stata distribuita, viene utilizzato il comando **npm install** per analizzare il file **package.json** e installare le dipendenze elencate.
 
@@ -50,7 +50,7 @@ Durante la distribuzione di Servizio app di Azure, se il file <b>package.json</b
 >		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
 
 
-###Usare un file npm-shrinkwrap.json
+###Utilizzare un file npm-shrinkwrap.json
 
 Il file **npm-shrinkwrap.json** costituisce un tentativo per risolvere i limiti relativi al controllo delle versioni dei moduli del file **package.json**. Mentre il file **package.json** include solo le versioni per i moduli di livello superiore, il file **npm-shrinkwrap.json** contiene i requisiti della versione per l'intera catena delle dipendenze dei moduli.
 
@@ -77,4 +77,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [script di distribuzione di un sito Web personalizzato con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

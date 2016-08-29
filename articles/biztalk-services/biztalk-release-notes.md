@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="deonhe"/>
+	ms.date="08/15/2016"
+	ms.author="deonhe"/>  
 
 # Note sulla versione per Servizi BizTalk di Azure
 
@@ -27,34 +27,33 @@ Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i probl
 
 ### Aggiornamento di ottobre
 
-* Supporto per gli account aziendali:  
- * **Scenario**: è stata registrata la distribuzione di un servizio BizTalk usando un account Microsoft (ad esempio user@live.com). In questo scenario, solo gli utenti di account Microsoft possono gestire il servizio BizTalk nel portale di Servizi BizTalk. Non è possibile usare un account aziendale.  
- * **Scenario**: è stata registrata la distribuzione di un servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio user@fabrikam.com o user@contoso.com). In questo scenario, solo gli utenti di Azure Active Directory all'interno della stessa organizzazione possono gestire il servizio BizTalk nel portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
+* Supporto per gli account aziendali:
+ * **Scenario**: è stata registrata la distribuzione di un servizio BizTalk usando un account Microsoft (ad esempio user@live.com). In questo scenario, solo gli utenti di account Microsoft possono gestire il servizio BizTalk nel portale di Servizi BizTalk. Non è possibile usare un account aziendale.
+ * **Scenario**: è stata registrata la distribuzione di un servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio user@fabrikam.com o user@contoso.com). In questo scenario, solo gli utenti di Azure Active Directory all'interno della stessa organizzazione possono gestire il servizio BizTalk nel portale di Servizi BizTalk. Non è possibile usare un account Microsoft.
 * Quando si crea un servizio BizTalk nel portale di Azure classico, l'utente viene registrato automaticamente nel portale di Servizi BizTalk.
- * **Scenario**: si accede al portale di Azure classico, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni. Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+ * **Scenario**: si accede al portale di Azure classico, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni. Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).
 
 ### Aggiornamento del 14 agosto
-* Dissociazione di bridge e accordo: i bridge e gli accordi tra partner commerciale sono ora separati nel portale di Servizi BizTalk. È ora possibile creare accordi e bridge separatamente e in fase di esecuzione i bridge si risolvono in un accordo in base ai valori nel messaggio EDI. Vedere [Creare accordi in Servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [Creare un bridge EDI con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [Creare un bridge AS2 con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx) e [Come i bridge si risolvono in accordi in fase di esecuzione](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
-* L'opzione per la creazione di modelli per gli accordi non è più disponibile.  
-* Per l'accordo sul lato trasmissione, è ora possibile specificare set di delimitatori diversi per ogni schema. Questa configurazione è specificata nelle impostazioni del protocollo per l'accordo sul lato trasmissione. Per altre informazioni, vedere [Creare un accordo X12 in Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Creare un accordo EDIFACT in Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn606267.aspx). Sono state aggiunte due nuove entità all'API del modello a oggetti TPM per lo stesso scopo. Vedere [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* I costrutti XSD standard, inclusi i tipi derivati, sono ora supportati. Vedere [Usare costrutti XSD standard nelle mappe](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usare tipi derivati in scenari ed esempi di mapping](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 supporta nuovi algoritmi MIC per la firma dei messaggi e nuovi algoritmi di crittografia. Vedere [Creare un contratto AS2 nei servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* Dissociazione di bridge e accordo: i bridge e gli accordi tra partner commerciale sono ora separati nel portale di Servizi BizTalk. È ora possibile creare accordi e bridge separatamente e in fase di esecuzione i bridge si risolvono in un accordo in base ai valori nel messaggio EDI. Vedere [Creare accordi in Servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [Creare un bridge EDI con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [Creare un bridge AS2 con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx) e [Come i bridge si risolvono in accordi in fase di esecuzione](https://msdn.microsoft.com/library/azure/dn794001.aspx)
+* L'opzione per la creazione di modelli per gli accordi non è più disponibile.
+* Per l'accordo sul lato trasmissione, è ora possibile specificare set di delimitatori diversi per ogni schema. Questa configurazione è specificata nelle impostazioni del protocollo per l'accordo sul lato trasmissione. Per altre informazioni, vedere [Creare un accordo X12 in Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Creare un accordo EDIFACT in Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn606267.aspx). Sono state aggiunte due nuove entità all'API del modello a oggetti TPM per lo stesso scopo. Vedere [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).
+* I costrutti XSD standard, inclusi i tipi derivati, sono ora supportati. Vedere [Usare costrutti XSD standard nelle mappe](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usare tipi derivati in scenari ed esempi di mapping](https://msdn.microsoft.com/library/azure/dn793997.aspx).
+* AS2 supporta nuovi algoritmi MIC per la firma dei messaggi e nuovi algoritmi di crittografia. Vedere [Creare un contratto AS2 nei servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).
 ## Problemi noti
 
 ### Problemi di connettività dopo l'aggiornamento del portale di Servizi BizTalk
 
-  Se il portale di Servizi BizTalk è aperto durante l'aggiornamento di Servizi BizTalk per distribuire le modifiche apportate al servizio, potrebbero verificarsi problemi di connettività con il portale di Servizi BizTalk.  
-  Per risolvere il problema, provare a riavviare il browser, a eliminare la cache del browser o ad avviare il portale in modalità privata.
+  Se il portale di Servizi BizTalk è aperto durante l'aggiornamento di Servizi BizTalk per distribuire le modifiche apportate al servizio, potrebbero verificarsi problemi di connettività con il portale di Servizi BizTalk. Per risolvere il problema, provare a riavviare il browser, a eliminare la cache del browser o ad avviare il portale in modalità privata.
 
 ### L'ambiente di sviluppo integrato (IDE) di Visual Studio non può individuare l'elemento se si fa clic su un errore o un avviso in un progetto di Servizi BizTalk
 Installare Visual Studio 2012 Update 3 RC 1 per correggere il problema.
 
 ### Riferimento al progetto di associazione personalizzata
 Considerare le situazioni seguenti con un progetto di Servizi BizTalk in una soluzione di Visual Studio:
-* Nella stessa soluzione di Visual Studio sono disponibili un progetto di Servizi BizTalk e un progetto di associazione personalizzata. Il progetto di Servizi BizTalk contiene un riferimento a questo file di progetto di associazione personalizzata. 
+* Nella stessa soluzione di Visual Studio sono disponibili un progetto di Servizi BizTalk e un progetto di associazione personalizzata. Il progetto di Servizi BizTalk contiene un riferimento a questo file di progetto di associazione personalizzata.
 * Il progetto di Servizi BizTalk contiene un riferimento a una DLL di comportamento/associazione personalizzata.
 
-La soluzione viene 'compilata' correttamente in Visual Studio. Successivamente, la soluzione viene 'ricompilata' o 'pulita'. In seguito, quando si procede di nuovo alla ricompilazione o alla pulizia, viene restituito un errore che indica che non è possibile copiare il file <Path to DLL> in "bin\\Debug\\FileName.dll". Il processo non riesce ad accedere al file 'bin\\Debug\\FileName.dll' perché è usato da un altro processo.
+La soluzione viene 'compilata' correttamente in Visual Studio. Successivamente, la soluzione viene 'ricompilata' o 'pulita'. In seguito, quando si procede di nuovo alla ricompilazione o alla pulizia, viene restituito un errore che indica che non è possibile copiare il file <percorso della DLL> in "bin\\Debug\\FileName.dll". Il processo non riesce ad accedere al file 'bin\\Debug\\FileName.dll' perché è usato da un altro processo.
 
 #### Soluzione alternativa
 * Se [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) è installato, sono disponibili le due opzioni seguenti:
@@ -78,8 +77,7 @@ Se sono presenti spazi vuoti che superano un segmento IEA, il disassemblatore li
 Gli eventi di rilevamento vengono acquisiti nell'ambito dell'elaborazione dei messaggi EDI e di qualsiasi correlazione. Se un errore di elaborazione del messaggio si verifica all'esterno della fase del protocollo, il rilevamento risulterà elaborato in modo corretto. Per i dettagli relativi all'errore, vedere la sezione LOG della colonna **Dettagli** in **Rilevamento**. Le impostazioni di ricezione e invio per X12 ([Creare un accordo X12 in Servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) forniscono le informazioni sulla fase del protocollo.
 
 ### Accordo di aggiornamento  
-Quando viene configurato un accordo, il portale di Servizi BizTalk consente di modificare il qualificatore di un'identità. Per effetto di questa operazione è possibile che vengano create proprietà incoerenti. Ad esempio nel caso di un accordo in cui vengono usate ZZ:1234567 e ZZ:7654321 come proprietà del qualificatore. Nelle impostazioni del profilo del portale di Servizi BizTalk, modificare ZZ:1234567 specificando 01:ChangedValue. Se si apre l'accordo, viene visualizzato 01:ChangedValue in sostituzione di ZZ:1234567. 
-Per modificare il qualificatore di un'identità, eliminare l'accordo, aggiornare il campo **Identità** nel profilo del partner, quindi creare nuovamente l'accordo.
+Quando viene configurato un accordo, il portale di Servizi BizTalk consente di modificare il qualificatore di un'identità. Per effetto di questa operazione è possibile che vengano create proprietà incoerenti. Ad esempio nel caso di un accordo in cui vengono usate ZZ:1234567 e ZZ:7654321 come proprietà del qualificatore. Nelle impostazioni del profilo del portale di Servizi BizTalk, modificare ZZ:1234567 specificando 01:ChangedValue. Se si apre l'accordo, viene visualizzato 01:ChangedValue in sostituzione di ZZ:1234567. Per modificare il qualificatore di un'identità, eliminare l'accordo, aggiornare il campo **Identità** nel profilo del partner, quindi creare nuovamente l'accordo.
 > AZURE.WARNING Questo comportamento influisce su X12 e AS2.
 
 ### Allegati dei messaggi AS2  
@@ -87,17 +85,14 @@ Gli allegati dei messaggi AS2 non sono supportati né in invio né in ricezione.
 ### Risorse: memorizzazione del percorso  
 Quando si aggiungono **risorse**, è possibile che nella finestra di dialogo non venga memorizzato il percorso precedentemente usato per aggiungere una risorsa. Per fare in modo che il percorso precedentemente usato venga memorizzato, in Internet Explorer provare ad aggiungere il sito Web del portale di Servizi BizTalk all'area **Siti attendibili**.
 ### Se si rinomina il nome dell'entità di un bridge e si chiude il progetto senza salvare le modifiche, quando si apre nuovamente l'entità si verifica un errore
-Si consideri uno scenario costituito da azioni nell'ordine seguente:  
-* Si aggiunge un bridge, ad esempio un bridge unidirezionale XML, a un progetto di Servizi BizTalk  
+Si consideri uno scenario costituito da azioni nell'ordine seguente:
+* Si aggiunge un bridge, ad esempio un bridge unidirezionale XML, a un progetto di Servizi BizTalk
 
 * Si rinomina il bridge specificando un valore per la proprietà Entity Name. In questo modo il file con estensione bridgeconfig associato viene rinominato con il nome specificato.
 
 * Si chiude il file con estensione bcs chiudendo la relativa scheda in Visual Studio senza salvare le modifiche.
 
-* Si apre nuovamente il file BCS in Esplora soluzioni.
-Si noterà che mentre il nome del file BRIDGECONFIG associato corrisponde al nuovo nome, il nome dell'entità nell'area di Creazione progetti corrisponde ancora al nome precedente. Se si prova ad aprire la configurazione del bridge facendo doppio clic sul componente bridge, verrà visualizzato un messaggio di errore simile al seguente:  
-  Il file associato '<old name>.bridgeconfig' dell'entità '<old name>' non esiste.  
-Per evitare che si verifichi questo errore, assicurarsi di salvare le modifiche dopo aver rinominato le entità in un progetto di Servizi BizTalk.
+* Si apre nuovamente il file BCS in Esplora soluzioni. Si noterà che mentre il nome del file BRIDGECONFIG associato corrisponde al nuovo nome, il nome dell'entità nell'area di Creazione progetti corrisponde ancora al nome precedente. Se si prova ad aprire la configurazione del bridge facendo doppio clic sul componente bridge, verrà visualizzato un messaggio di errore simile al seguente: Il file associato "<nome precedente>.bridgeconfig" dell'entità "<nome precedente>" non esiste. Per evitare che si verifichi questo errore, assicurarsi di salvare le modifiche dopo aver rinominato le entità in un progetto di Servizi BizTalk.
 ### La compilazione di un progetto di Servizi BizTalk viene eseguita in modo corretto anche se un elemento è stato escluso da un progetto di Visual Studio
 Si consideri uno scenario in cui si aggiunge un elemento, ad esempio un file XSD, a un progetto di Servizi BizTalk, si include tale elemento nella Configurazione bridge, ad esempio impostandolo come tipo di messaggio di richiesta e quindi lo si esclude dal progetto di Visual Studio. In un caso come questo, la compilazione del progetto non genererà errori fino a quando l'elemento eliminato resterà disponibile sul disco nello stesso percorso in cui si trovava quando è stato incluso nel progetto di Visual Studio.
 ### Il progetto di Servizi BizTalk non verifica la disponibilità degli schemi durante la configurazione dei bridge
@@ -128,7 +123,7 @@ Se una trasformazione contiene un'operazione di mappa **Get Context Property**, 
 ### La proprietà Mappa di test non viene visualizzata
 Le proprietà **Mappa di test** non vengono visualizzate in Visual Studio. Questo errore può verificarsi quando le finestre **Proprietà** ed **Esplora soluzioni** non vengono ancorate contemporaneamente. Per risolvere il problema, ancorare le finestre **Proprietà** ed **Esplora soluzioni**.
 ### L'elenco a discesa dell'operazione DateTime Reformat non è disponibile
-Quando un'operazione di mappa DateTime Reformat viene aggiunta all'area di Creazione progetti e viene configurata, l'elenco a discesa Formato può non essere disponibile. Questa condizione può verificarsi se la risoluzione dello schermo del computer è impostata su **Medio – 125%** o su **Grande – 150%**. Per risolvere il problema, impostare la risoluzione su **Piccolo – 100% (impostazione predefinita)** seguendo questa procedura.  
+Quando un'operazione di mappa DateTime Reformat viene aggiunta all'area di Creazione progetti e viene configurata, l'elenco a discesa Formato può non essere disponibile. Questa condizione può verificarsi se la risoluzione dello schermo del computer è impostata su **Medio – 125%** o su **Grande – 150%**. Per risolvere il problema, impostare la risoluzione su **Piccolo – 100% (impostazione predefinita)** seguendo questa procedura.
 1. Aprire il **Pannello di controllo** e selezionare **Aspetto e personalizzazione**.
 2. Fare clic su **Schermo**.
 3. Fare clic su **Piccolo – 100% (impostazione predefinita)** e quindi su **Applica**.
@@ -146,8 +141,7 @@ Si consideri lo scenario seguente:
 ### I bridge non usano i certificati aggiornati nemmeno dopo l'aggiornamento di un certificato nell'archivio elementi
 Esaminare gli scenari seguenti:
 
-**Scenario 1: Uso di certificati basati su identificazione personale allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**.  
-Provare a usare certificati basati su identificazione personale nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk usando lo stesso nome e un'identificazione personale diversa, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.
+**Scenario 1: Uso di certificati basati su identificazione personale allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**. Provare a usare certificati basati su identificazione personale nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk usando lo stesso nome e un'identificazione personale diversa, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.
 
 **Soluzione alternativa**. Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.
 
@@ -158,8 +152,7 @@ Provare a usare comportamenti basati su nomi per identificare i certificati nel 
 **Soluzione alternativa**. Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.
 
 ### I bridge continuano a elaborare i messaggi anche quando il database SQL è offline
-I bridge di Servizi BizTalk continuano a elaborare i messaggi per un determinato periodo di tempo anche se il database SQL di Microsoft Azure, che archivia le informazioni di esecuzione quali pipeline ed elementi distribuiti, è offline. Questa condizione si verifica perché Servizi BizTalk usa gli elementi memorizzati nella cache e la configurazione del bridge.
-Per evitare che i bridge elaborino i messaggi quando il database SQL è offline, è possibile usare i cmdlet di PowerShell per Servizi BizTalk per arrestare o sospendere il servizio BizTalk. Per informazioni sulla gestione delle operazioni con i cmdlet di Windows PowerShell, vedere un [esempio di gestione del servizio BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019).
+I bridge di Servizi BizTalk continuano a elaborare i messaggi per un determinato periodo di tempo anche se il database SQL di Microsoft Azure, che archivia le informazioni di esecuzione quali pipeline ed elementi distribuiti, è offline. Questa condizione si verifica perché Servizi BizTalk usa gli elementi memorizzati nella cache e la configurazione del bridge. Per evitare che i bridge elaborino i messaggi quando il database SQL è offline, è possibile usare i cmdlet di PowerShell per Servizi BizTalk per arrestare o sospendere il servizio BizTalk. Per informazioni sulla gestione delle operazioni con i cmdlet di Windows PowerShell, vedere un [esempio di gestione del servizio BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019).
 ### La lettura di un messaggio XML in un componente del codice personalizzato di un bridge include un carattere BOM aggiuntivo
 Si consideri uno scenario in cui si vuole leggere un messaggio XML all'interno del codice personalizzato di un bridge. Se si usa il metodo System.Text.Encoding.UTF8.GetString(bytes) dell'API .NET, all'inizio del messaggio di output viene incluso un carattere BOM aggiuntivo. Se quindi non si vuole che nell'output venga incluso il carattere BOM aggiuntivo, è necessario usare ```System.IO.StreamReader().ReadToEnd()```.
 ### L'invio di messaggi a un bridge con WCF non supporta il ridimensionamento
@@ -175,7 +168,7 @@ Questa situazione si verifica quando è presente un accordo EDI o AS2 con batch 
 ### AGGIORNAMENTO. Dopo l'aggiornamento di BizTalk Services SDK, nella casella degli strumenti vengono visualizzate le icone dei bridge di versioni precedenti.
 Dopo avere aggiornato una versione precedente di BizTalk Services SDK, in cui i bridge erano rappresentati da icone di vecchio tipo, la casella degli strumenti continua a visualizzare le icone dei bridge di versioni precedenti. Se tuttavia si aggiunge un bridge all'area di Creazione progetti del progetto di Servizi BizTalk, nell'area verrà visualizzata la nuova icona.
 
-**Soluzione alternativa**. Per risolvere il problema, è possibile eliminare i file con estensione tbd in <system drive>:\\Utenti<utente>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
+**Soluzione alternativa**. Per risolvere il problema, è possibile eliminare i file con estensione tbd in <unità di sistema>:\\Utenti<utente>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
 
 ### AGGIORNAMENTO. Durante l'aggiornamento del portale BizTalk dalla versione di anteprima alla versione disponibile per tutti potrebbe essere visualizzato un messaggio di errore indicante che la funzionalità EDI non è disponibile
 Se si è connessi al portale di Servizi BizTalk mentre si esegue l'aggiornamento di Servizi BizTalk dalla versione di anteprima alla versione disponibile per tutti, nel portale può essere visualizzato il messaggio di errore seguente:
@@ -193,4 +186,4 @@ In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo i
 
 [Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

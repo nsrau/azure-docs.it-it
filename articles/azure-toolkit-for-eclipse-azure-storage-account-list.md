@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -37,8 +37,8 @@ Questa finestra di dialogo può anche essere aperta da un collegamento **Account
 
 1. All'interno della finestra di dialogo **Account di archiviazione**, fare clic su **Importa da file di IMPOSTAZIONI DI PUBBLICAZIONE**.
 2. (Saltare questo passaggio se è già stato salvato un file di impostazioni di pubblicazione nel computer locale). Nella finestra di dialogo **Importazione delle informazioni di sottoscrizione**, fare clic su **Download del File delle IMPOSTAZIONI DI PUBBLICAZIONE**. Se non ci si è ancora connessi al proprio account Azure, verrà richiesto di farlo. Quindi verrà richiesto di salvare un file di impostazioni di pubblicazione di Azure. (È possibile ignorare le istruzioni risultanti visualizzate nelle pagine di accesso, sono fornite dal portale di Azure e sono destinate agli utenti di Visual Studio.) Salvarlo nel computer locale.
-3. Sempre nella finestra di dialogo **Importazione delle informazioni di sottoscrizione**, fare clic sul pulsante **Sfoglia**, selezionare il file di impostazioni di pubblicazione che è stato salvato precedentemente in locale e quindi fare clic su **Apri**.
-4. Fare clic su **OK** per chiudere la finestra di dialogo **Importazione delle informazioni di sottoscrizione**.
+3. Sempre nella finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione) fare clic sul pulsante **Browse** (Sfoglia), selezionare il file di impostazioni di pubblicazione precedentemente salvato in locale e quindi fare clic su **Open** (Apri).
+4. Fare clic su **OK** per chiudere la finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione).
 
 ## Per creare un nuovo account di archiviazione ##
 
@@ -48,7 +48,7 @@ Questa finestra di dialogo può anche essere aperta da un collegamento **Account
     * Nome dell'account di archiviazione.
     * Posizione dell'account di archiviazione.
     * Descrizione dell'account di archiviazione.
-    * La sottoscrizione a cui appartiene l'account di archiviazione.
+    * Sottoscrizione a cui appartiene l'account di archiviazione.
 4. Fare clic su **OK** per chiudere la finestra di dialogo **Nuovo Account di archiviazione**.
 
 Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo averlo creato, fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi Account di archiviazione** e il nuovo account di archiviazione verrà aggiunto all'elenco di account di archiviazione disponibili.
@@ -74,7 +74,7 @@ Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo ave
 1. Nella finestra di dialogo **Account di archiviazione**, fare clic sull'account di archiviazione che si desidera modificare e quindi fare clic su **Rimuovi**.
 2. Fare clic su **OK** quando viene richiesto di rimuovere l'account di archiviazione.
 
->[AZURE.NOTE] Rimuovendo l’account di archiviazione tramite la finestra di dialogo **Account di archiviazione**, esso viene rimosso solo dall'elenco di account di archiviazione visualizzabile in Eclipse. Non viene rimosso l'account di archiviazione dalla sottoscrizione di Azure. Inoltre, l'account di archiviazione potrebbe apparire di nuovo nell'elenco dopo che Eclipse ricarica i dettagli della sottoscrizione.
+>[AZURE.NOTE] Rimuovendo l’account di archiviazione tramite la finestra di dialogo **Account di archiviazione**, esso viene rimosso solo dall'elenco di account di archiviazione visualizzabile in Eclipse. L'account di archiviazione non viene rimosso dalla sottoscrizione di Azure e potrebbe essere nuovamente visualizzato nell'elenco dopo che Eclipse ricarica i dettagli della sottoscrizione.
 
 ## Vedere anche ##
 
@@ -86,7 +86,7 @@ Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo ave
 
 Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure][].
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -95,9 +95,9 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

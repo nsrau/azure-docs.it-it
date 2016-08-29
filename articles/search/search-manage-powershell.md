@@ -14,8 +14,8 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
-	ms.author="seasa"/>
+	ms.date="08/15/2016" 
+	ms.author="seasa"/>  
 
 # Gestire il servizio Ricerca di Azure con PowerShell
 > [AZURE.SELECTOR]
@@ -38,7 +38,7 @@ Specificare l'indirizzo e-mail del proprio account Microsoft Azure e la relativa
 
 In alternativa è possibile [accedere in modo non interattivo con un'entità servizio](../resource-group-authenticate-service-principal.md).
 
-Se si dispone di più sottoscrizioni di Microsoft Azure, è necessario impostare la sottoscrizione di Microsoft Azure prescelta. Per visualizzare un elenco di sottoscrizioni correnti, eseguire questo comando.
+Se sono disponibili più sottoscrizioni di Azure, è necessario impostare la sottoscrizione di Azure in uso. Per visualizzare un elenco di sottoscrizioni correnti, eseguire questo comando.
 
 	Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
@@ -139,4 +139,4 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 
 - [Analizzare il traffico di Ricerca di Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

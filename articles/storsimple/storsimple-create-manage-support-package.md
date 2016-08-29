@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 
 # Creare e gestire un pacchetto di supporto StorSimple
 
-## Panoramica
+## Overview
 
 Un pacchetto per il supporto StorSimple è un meccanismo semplice da usare che raccoglie tutti i log pertinenti per aiutare il supporto tecnico Microsoft a risolvere i problemi relativi ai dispositivi StorSimple. I log raccolti vengono crittografati e compressi.
 
@@ -102,7 +102,7 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 ### Parametri del cmdlet Export-HcsSupportPackage
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | Descrizione |
+| Parametro | Obbligatorio/Facoltativo | Description |
 |----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `-Path` | Obbligatorio | Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
 | `-EncryptionPassphrase` | Obbligatorio | Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
@@ -190,4 +190,4 @@ L'esempio seguente mostra come decrittografare, modificare e crittografare di nu
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

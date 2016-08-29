@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="08/11/2016"
    ms.author="seanmck"/>
 
 
@@ -188,7 +188,7 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
-            ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApplication/MyStatefulService"));
+            ServiceProxy.Create<ICounter>(new Uri("fabric:/MyApplication/MyStatefulService"), new ServicePartitionKey(0));
 
         long count = await counter.GetCountAsync();
 
@@ -256,4 +256,4 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/it-IT/services/api-management/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

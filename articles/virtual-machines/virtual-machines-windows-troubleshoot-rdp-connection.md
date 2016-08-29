@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Risolvere i problemi di connessione a Desktop remoto a una VM di Azure | Microsoft Azure"
-	description="Risolvere i problemi di errori di connessione a Desktop remoto per una VM Windows. Ottenere rapidamente procedure di prevenzione, istruzioni in base al messaggio di errore e informazioni dettagliate sulla risoluzione dei problemi di rete."
-	keywords="Errore di desktop remoto, errore di connessione al desktop remoto, impossibile connettersi alla VM, risoluzione dei problemi di desktop remoto, impossibile connettersi alla vm azure, connessione non possibile tra rdp e vm azure"
+	description="Se si è in grado di accedere alla macchina virtuale di Azure, ottenere la procedura rapida di risoluzione dei problemi RDP, ricevere assistenza attraverso i messaggi di errore e ottenere la procedura dettagliata di risoluzione dei problemi di rete."
+	keywords="Errore di desktop remoto, errore di connessione al desktop remoto, impossibile connettersi alla macchina virtuale, risoluzione dei problemi di desktop remoto"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -20,7 +20,7 @@
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows
 
-La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può essere dovuta a vari motivi. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. Se il problema non è elencato qui o se non è ancora possibile connettersi alla VM tramite RDP, leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. Se il problema non è elencato qui o se non è ancora possibile connettersi alla VM tramite RDP, leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
 
@@ -75,7 +75,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 	
 4. Verificare che le [regole del gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) consentano il traffico RDP (porta TCP 3389).
 
-5. Esaminare il log o lo screenshot della console della VM per correggere i problemi di avvio. Selezionare **Sfoglia** > **Macchine virtuali** > *macchina virtuale Windows* > **Supporto e risoluzione dei problemi** > **Diagnostica di avvio**.
+5. Esaminare il log o la cattura di schermata della console della macchina virtuale per correggere i problemi di avvio. Selezionare **Sfoglia** > **Macchine virtuali** > *macchina virtuale Windows* > **Supporto e risoluzione dei problemi** > **Diagnostica di avvio**.
 
 6. [Reimpostare la password della VM](virtual-machines-windows-reset-rdp.md).
 
@@ -96,7 +96,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 	
 4. Verificare che l'[endpoint di Servizi cloud consenta il traffico RDP](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 
-5. Esaminare il log o lo screenshot della console della VM per correggere i problemi di avvio. Selezionare **Sfoglia** > **Macchine virtuali (classico**) > *VM personale* > **Impostazioni** > **Diagnostica di avvio**.
+5. Esaminare il log o la cattura di schermata della console della macchina virtuale per correggere i problemi di avvio. Selezionare **Sfoglia** > **Macchine virtuali (classico**) > *VM personale* > **Impostazioni** > **Diagnostica di avvio**.
 
 6. Controllare l'integrità delle risorse della VM per eventuali problemi di piattaforma. Selezionare **Sfoglia** > **Macchine virtuali (classico)** > *VM personale* > **Impostazioni** > **Controlla integrità**.
 
@@ -156,7 +156,7 @@ La parte dell'indirizzo del file RDP contiene:
 
 Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *AutoritàSicurezza*\\*NomeUtente* (esempio: CORP\\Utente1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *AutoritàSicurezza*\*NomeUtente* (esempio: CORP\\Utente1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
 
 Possibili soluzioni:
 
@@ -173,8 +173,8 @@ Causa: la macchina virtuale di destinazione non può convalidare il nome e la pa
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\\Admin4798).
-- Per gli account di dominio usare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
+- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio usare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 
@@ -191,7 +191,7 @@ Causa: l'account usato per la connessione non dispone dei diritti di accesso Des
 
 Ogni computer Windows dispone di un gruppo locale Utenti desktop remoto, che contiene gli account e i gruppi che hanno il diritto di accedere in remoto. Anche i membri del gruppo Administrators locale dispongono dell'accesso, sebbene tali account non siano elencati nel gruppo locale Utenti Desktop remoto. Per le macchine appartenenti a un dominio, il gruppo Administrators locale contiene anche gli amministratori di dominio per il dominio.
 
-Assicurarsi che l'account che si usa per la connessione disponga dei diritti di accesso a Desktop remoto. Come soluzione alternativa, usare un account amministratore locale o di dominio per connettersi tramite Desktop remoto. Usare quindi lo snap-in Microsoft Management Console (**Utilità di sistema > Utenti e gruppi locali > Gruppi > Utenti desktop remoto**) per aggiungere l'account desiderato al gruppo locale Utenti desktop remoto.
+Assicurarsi che l'account che si usa per la connessione disponga dei diritti di accesso a Desktop remoto. Come soluzione alternativa, usare un account amministratore locale o di dominio per connettersi tramite Desktop remoto. Per aggiungere l'account desiderato al gruppo locale Utenti desktop remoto, usare quindi lo snap-in Microsoft Management Console (**Utilità di sistema > Utenti e gruppi locali > Gruppi > Utenti desktop remoto**).
 
 ## Risolvere errori di Desktop remoto generici
 
@@ -210,4 +210,4 @@ Se non si è verificato alcuno di questi errori e non è ancora possibile connet
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

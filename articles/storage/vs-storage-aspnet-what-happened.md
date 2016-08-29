@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
-	ms.author="tarcher"/>
+	ms.date="08/15/2016"
+	ms.author="tarcher"/>  
 
 # Cosa è successo a un progetto ASP.NET (servizio connesso a Visual Studio Archiviazione di Azure)?
 
@@ -36,4 +36,4 @@ Nel file web.config del progetto è stato creato un elemento con la stringa di c
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

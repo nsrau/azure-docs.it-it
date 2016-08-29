@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL | Microsoft Azure"
-	description="Come usare le funzionalità di ADAL SDK per abilitare Single Sign-On tra le applicazioni."
+	description="Come usare le funzionalità di ADAL SDK per abilitare Single Sign-On tra le applicazioni. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,9 +33,10 @@ Questa procedura si applica a:
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
+* Accesso condizionale di Azure Active Directory
 
 
-Si noti che il documento seguente presuppone che si sappia come [effettuare il provisioning delle applicazioni del portale legacy per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l'applicazione con [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+Si noti che il documento seguente presuppone che si sappia come [effettuare il provisioning delle applicazioni nel portale legacy per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l'applicazione con [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Concetti di SSO nella piattaforma Microsoft Identity
 
@@ -59,7 +60,7 @@ Gli accessi non assistiti da broker sono esperienze di accesso in linea con l'ap
 Questi tipi di accessi offrono i seguenti vantaggi:
 
 -  L'esperienza utente si svolge interamente all'interno dell'applicazione.
--  Le credenziali possono essere condivise tra applicazioni firmate dallo stesso certificato, offrendo un'esperienza di Single Sign-On alla suite di applicazioni. 
+-  Le credenziali possono essere condivise tra applicazioni firmate dallo stesso certificato, offrendo un'esperienza di Single Sign-On alla suite di applicazioni.
 -  Il controllo dell'esperienza di accesso viene fornito all'applicazione prima e dopo l'accesso.
 
 Questi tipi di accessi presentano i seguenti svantaggi:
@@ -154,7 +155,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK di Microsoft Identit
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione. 
+1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
 * Verificare che tutte le applicazioni condividano lo stesso certificato di firma di Apple per poter condividere i portachiavi.
 * Richiedere lo stesso diritto per i portachiavi per ogni applicazione.
 * Indicare agli SDK di Microsoft Identity il portachiavi condiviso da usare.
@@ -199,13 +200,13 @@ Gli URI vengono nidificati sotto lo stesso ID client / ID applicazione e cercati
 ```
 
 
-*Il formato degli URI di reindirizzamento viene illustrato di seguito. È possibile usare qualsiasi URI di reindirizzamento a meno che non si voglia supportare il broker, nel qual caso deve essere simile ai precedenti*
+*Il formato degli URI di reindirizzamento è illustrato di seguito. È possibile usare qualsiasi URI di reindirizzamento a meno che non si voglia supportare il broker, nel qual caso deve essere simile ai precedenti*
 
 
 
 #### Creare la condivisione dei portachiavi tra le applicazioni
 
-L'abilitazione della condivisione dei portachiavi esula dall'ambito di questo documento ed è illustrata da Apple nel documento relativo all'[aggiunta di funzionalità](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). È importante decidere quale portachiavi deve essere chiamato e aggiungere tale funzionalità in tutte le applicazioni.
+L'abilitazione della condivisione dei portachiavi esula dall'ambito di questo documento ed è illustrata da Apple nel documento relativo all'[Adding Capabilities](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) (Aggiunta di funzionalità). È importante decidere quale portachiavi deve essere chiamato e aggiungere tale funzionalità in tutte le applicazioni.
 
 Una volta configurati correttamente i diritti, nella directory del progetto verrà visualizzato un file denominato `entitlements.plist` il cui contenuto è simile al seguente:
 
@@ -285,20 +286,20 @@ Per assicurarsi che i token delle credenziali vengano sempre restituiti all'appl
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
-`<app-scheme>://<your.bundle.id>`
+`<app-scheme>://<your.bundle.id>`  
 
-Ad esempio: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+Ad esempio:*x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-L'URI di reindirizzamento deve essere specificato nella registrazione dell'app usando il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'app Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
+L'URI di reindirizzamento deve essere specificato nella registrazione dell'app tramite il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'app Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 ##### Passaggio 3a: Aggiungere un URI di reindirizzamento nell'app e nel portale per sviluppatori per supportare l'autenticazione basata su certificati
 
-Per supportare l'autenticazione basata su certificati, è necessario registrare un secondo "msauth" nell'applicazione e nel [portale di Azure classico](https://manage.windowsazure.com/) per gestire l'autenticazione del certificato se si vuole aggiungere tale supporto nell'applicazione.
+Per supportare l'autenticazione basata su certificati, è necessario registrare un secondo "msauth" nell'applicazione e nel [portale di Azure classico](https://manage.windowsazure.com/) per gestire l'autenticazione del certificato, se si vuole aggiungere tale supporto nell'applicazione.
 
-`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
+`msauth://code/<broker-redirect-uri-in-url-encoded-form>`  
 
-Ad esempio: **msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+Ad esempio: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 
 #### Passaggio 4: iOS9: Aggiungere un parametro di configurazione all'app
@@ -307,8 +308,8 @@ ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositi
 
 <key>LSApplicationQueriesSchemes</key> <array> <string>msauth</string> </array>
 
-### SSO è stato configurato
+### L'SSO è stato configurato!
 
 Ora Microsoft Identity SDK condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

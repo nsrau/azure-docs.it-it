@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/02/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
  
 # Application Insights per le applicazioni web Java che sono già live
 
@@ -21,7 +21,7 @@
 
 Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, è possibile avviare il monitoraggio con[Application Insight](app-insights-overview.md)senza la necessità di apportare modifiche al codice o ricompilare il progetto. Con questa opzione, è possibile ottenere informazioni sulle richieste HTTP inviate ai server, le eccezioni non gestite e i contatori delle prestazioni.
 
-È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com).
+È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE] La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. Ciò è utile se non si desidera aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
 
@@ -40,7 +40,7 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 
 ## 2\. Scaricare l'SDK
 
-1. Scaricare [Application Insights SDK per Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
+1. Scaricare [Application Insights SDK per Java](https://aka.ms/aijavasdk).
 2. Sul server, estrarre i contenuti SDK nella directory da cui vengono caricati i file binari del progetto. Se si utilizza Tomcat, in genere il risultato sarà in`webapps<your_app_name>\WEB-INF\lib`
 
 
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0817_2016-->

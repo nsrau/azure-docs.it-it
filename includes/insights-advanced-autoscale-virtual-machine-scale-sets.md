@@ -1,52 +1,50 @@
-# Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
+# Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali
 
-You can scale out and in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all the above using a Resource Manager template on a VM Scale Set.
+È possibile aumentare e ridurre il numero di istanze dei set di scalabilità delle macchine virtuali in base ai valori soglia per le metriche delle prestazioni, con una pianificazione ricorrente o in una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di quanto elencato sopra con un modello di Resource Manager in un set di scalabilità delle macchine virtuali.
 
->[AZURE.NOTE] While this walkthrough explains the steps for VM Scale Sets, you can apply the same for autoscaling Cloud Services and Web Apps.
-For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) documents
-
+>[AZURE.NOTE] Questa procedura dettagliata illustra i passaggi per i set di scalabilità di macchine virtuali, ma è possibile applicarla anche alla scalabilità automatica di servizi cloud e app Web. Per una semplice impostazione di riduzione/aumento del numero di istanze in un set di scalabilità di macchine virtuali in base a una semplice metrica delle prestazioni, ad esempio la CPU, vedere i documenti relativi a [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 
 
-## Walkthrough
-In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.com/) to configure and update the autoscale setting for a scale set. Azure Resource Explorer is an easy way to manage Azure resources via Resource Manager templates. If you are new to Azure Resource Explorer tool, read [this introduction](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Deploy a new scale set with a basic autoscale setting. This article uses the one from the Azure QuickStart Gallery, which has a Windows scale set with a basic autoscale template. Linux scale sets work the same way.
+## Procedura dettagliata
+In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://resources.azure.com/) per configurare e aggiornare l'impostazione di ridimensionamento automatico per un set di scalabilità. Esplora risorse di Azure consente di gestire facilmente le risorse di Azure con i modelli di Resource Manager. Se non si ha esperienza con lo strumento Esplora risorse di Azure, vedere [questa introduzione](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-2. After the scale set is created, navigate to the scale set resource from Azure Resource Explorer. You see the following under Microsoft.Insights node.
+1. Distribuire un nuovo set di scalabilità con un'impostazione di scalabilità automatica di base. Questo articolo usa quello della raccolta di guide introduttive di Azure che ha un set di scalabilità Windows con il modello di scalabilità automatica di base. I set di scalabilità Linux funzionano allo stesso modo.
+
+2. Una volta creato il set di scalabilità, passare alla risorsa set di scalabilità da Esplora risorse di Azure. Sotto il nodo Microsoft.Insights viene visualizzato quanto segue.
 
 	![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
-	The template execution has created a default autoscale setting with the name **'autoscalewad'**. On the right-hand side, you can view the full definition of this autoscale setting. In this case, the default autoscale setting comes with a CPU% based scale-out and scale-in rule.
+	L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"**. Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.
 
-3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](../articles/azure-portal/insights-autoscale-best-practices.md). 
+3. Ora è possibile aggiungere altri profili e regole basati sulla pianificazione o su specifici requisiti. Viene creata un'impostazione di ridimensionamento automatico con tre profili. Per conoscere i profili e le regole nel ridimensionamento automatico, vedere [Procedure consigliate per la scalabilità automatica](../articles/azure-portal/insights-autoscale-best-practices.md).
 
-    | Profiles & Rules | Description |
+    | Profili e regole | Descrizione |
 	|---------|-------------------------------------|
-	| **Profile** | **Performance/metric based**    |
-	| Rule    | Service Bus Queue Message Count > x |
-	| Rule    | Service Bus Queue Message Count < y |
-	| Rule    | CPU%,< n                            |
-	| Rule    | CPU% < p                            |
-	| **Profile** | **Weekday morning hours (no rules)**    |
-	| **Profile** | **Product Launch day (no rules)**       |
+	| **Profilo** | **Basato su prestazioni/metrica** |
+	| Regola | Numero di messaggi della coda del bus di servizio > x |
+	| Regola | Numero di messaggi della coda del bus di servizio < y |
+	| Regola | % CPU < n |
+	| Regola | % CPU < p |
+	| **Profilo** | **Ore della mattina dei giorni feriali (nessuna regola)** |
+	| **Profilo** | **Giorno di lancio del prodotto (nessuna regola)** |
 
-4. Here is a hypothetical scaling scenario that we use for this walkthrough.
-	- _**Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set._
-	- _**Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold._
-	- _**Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time._
-	- _**Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application._
-	- _The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles._
+4. Ecco un ipotetico scenario di ridimensionamento per questa esercitazione.
+	- _**Basato sul carico**: si vuole aumentare o ridurre il numero di istanze in base al carico sull'applicazione ospitata nel set di scalabilità._
+	- _**Dimensioni della coda di messaggi**: si usa una coda del bus di servizio per i messaggi in arrivo nell'applicazione. Si usa il numero di messaggi della coda e la percentuale di CPU e si configura un profilo predefinito per attivare un'azione di scalabilità se il conteggio dei messaggi o la CPU raggiunge la soglia._
+	- _**Ora della settimana e del giorno**: si vuole un profilo basato su un'"ora del giorno" con ricorrenza settimanale denominato "Ore della mattina dei giorni feriali". In base ai dati cronologici, si è stabilito che è meglio avere un certo numero di istanze di VM per gestire il carico dell'applicazione durante questo orario._
+	- _**Date speciali**: si è aggiunto un profilo "Giorno di lancio del prodotto". Si pianificano in anticipo date specifiche in modo che l'applicazione sia pronta a gestire il carico derivante da annunci di marketing e dall'inserimento di un nuovo prodotto nell'applicazione._
+	- _Gli ultimi due profili possono anche contenere altre regole basate sulla metrica delle prestazioni. In questo caso, ho deciso di non averne e di affidarmi alle regole basate sulla metrica delle prestazioni predefinite. Le regole sono facoltative per i profili ricorrenti e basati sulle date._
 
-	Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](../articles/azure-portal/insights-autoscale-best-practices.md) article.
-	For a list of common metrics for autoscale, refer [Common metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+	La classificazione in ordine di priorità dei profili e delle regole con il motore di ridimensionamento automatico è illustrata anche nell'articolo [Procedure consigliate per la scalabilità automatica in Azure Insights](../articles/azure-portal/insights-autoscale-best-practices.md). Per un elenco di metriche comuni per il ridimensionamento automatico, vedere [Metriche comuni per la scalabilità automatica](../articles/azure-portal/insights-autoscale-common-metrics.md)
 
-5. Make sure you are on the **Read/Write** mode in Resource Explorer
+5. Verificare che Esplora risorse sia in modalità **Lettura/Scrittura**.
 
-	![Autoscalewad, default autoscale setting](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+	![Autoscalewad, impostazione di ridimensionamento automatico predefinita](./media/insights-advanced-autoscale-vmss/autoscalewad.png)  
 
-6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following:
+6. Fare clic su Edit. **Sostituire** l'elemento "profiles" nell'impostazione di ridimensionamento automatico con il codice seguente:
 
-	![profiles](./media/insights-advanced-autoscale-vmss/profiles.png)
+	![Profili](./media/insights-advanced-autoscale-vmss/profiles.png)  
 
 	```
 	{
@@ -178,19 +176,19 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	        }
 	      }
 	```
-	For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx).
+	Per i campi e i valori supportati, vedere la [documentazione sull'API REST per il ridimensionamento automatico](https://msdn.microsoft.com/it-IT/library/azure/dn931928.aspx).
 
-	Now your autoscale setting contains the three profiles explained previously.
+	Ora l'impostazione di scalabilità automatica contiene i tre profili descritti in precedenza.
 
-7. 	Finally let's look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
+7. 	Verrà esaminata infine la sezione **notification** per il ridimensionamento automatico. Le notifiche di ridimensionamento automatico consentono di eseguire tre operazioni quando un'azione di aumento o riduzione del numero di istanze viene correttamente attivata.
 
-	1. Notify the admin and co-admins of your subscription
+	1. Inviare una notifica all'amministratore e ai coamministratori della sottoscrizione.
 
-	2. Email a set of users
+	2. Inviare un messaggio di posta elettronica a un set di utenti.
 
-	3. Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md).
+	3. Attivare una chiamata webhook. Se attivato, questo webhook invia i metadati sulla condizione di scalabilità automatica e sulla risorsa del set di scalabilità. Per altre informazioni sul payload del webhook di ridimensionamento automatico, vedere [Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](../articles/azure-portal/insights-autoscale-to-webhook-email.md).
 
-	Add the following to the Autoscale setting replacing your **notification** element whose value is null
+	Aggiungere il codice seguente all'impostazione di ridimensionamento automatico sostituendo l'elemento **notification** il cui valore è null.
 
 	```
 	"notifications": [
@@ -218,20 +216,22 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 	```
 
-	Hit **Put** button in Resource Explorer to update the autoscale setting.
+	Fare clic sul pulsante **Put** in Esplora risorse per aggiornare l'impostazione di scalabilità automatica.
 
-You have updated an autoscale setting on a VM Scale set to include multiple scale profiles and scale notifications.
+È stata aggiornata un'impostazione di ridimensionamento automatico in un set di scalabilità di macchine virtuali per includere più profili di scalabilità e notifiche di scalabilità.
 
-## Next Steps
+## Passaggi successivi
 
-Use these links to learn more about autoscaling.
+Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
-[Common Metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+[Metriche comuni per il ridimensionamento automatico](../articles/azure-portal/insights-autoscale-common-metrics.md)
 
-[Best Practices for Azure Autoscale](../articles/azure-portal/insights-autoscale-best-practices.md)
+[Procedure consigliate per il ridimensionamento automatico di Azure](../articles/azure-portal/insights-autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../articles/azure-portal/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Gestire il ridimensionamento automatico con PowerShell](../articles/azure-portal/insights-powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](../articles/azure-portal/insights-cli-samples.md#autoscale)
+[Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](../articles/azure-portal/insights-cli-samples.md#autoscale)
 
-[Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md)
+[Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](../articles/azure-portal/insights-autoscale-to-webhook-email.md)
+
+<!---HONumber=AcomDC_0817_2016-->

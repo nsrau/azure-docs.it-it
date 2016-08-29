@@ -203,14 +203,14 @@ Si supponga che in SQL Azure siano presenti i dati seguenti:
 
 Distribuendo questa pipeline, l'archivio BLOB di Azure verrà popolato come segue:
 
-1.	Il file mypath/2015/1/1/8/Data.<Guid>.txt con i dati seguenti: 
+1.	Il file mypath/2015/1/1/8/Data.<Guid>.txt con dati.
 
 		10002345,334,2,2015-01-01 08:24:00.3130000
 		10002345,347,15,2015-01-01 08:24:00.6570000
 		10991568,2,7,2015-01-01 08:56:34.5300000
 
-	**Nota:** <Guid> verrà sostituito con un guid effettivo. Nome file di esempio: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	Il file mypath/2015/1/1/9/Data.<Guid>.txt con i dati seguenti:
+	**Nota:** <Guid> verrà sostituito con un GUID effettivo. Nome file di esempio: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+2.	Il file mypath/2015/1/1/9/Data.<Guid>.txt con dati.
 
 		10002345,334,1,2015-01-01 09:13:00.3900000
 		24379245,569,23,2015-01-01 09:25:00.3130000
@@ -224,7 +224,7 @@ L'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md) ha in
  
 Per il periodo attivo della pipeline è possibile impostare una data di inizio nel passato e la data factory calcolerà automaticamente (recuperando le informazioni) tutte le sezioni di dati nel passato e ne inizierà l'elaborazione.
 
-Le sezioni di dati così recuperate potranno essere configurate per essere eseguite in parallelo. A questo scopo, è necessario impostare la proprietà **concurrency** nella sezione **policy** del file JSON dell'attività, come illustrato nell'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
+Le sezioni di dati così recuperate potranno essere configurate per essere eseguite in parallelo. A questo scopo, è necessario impostare la proprietà **concurrency** nella sezione **policy** del file JSON dell'attività, come illustrato nell'articolo relativo alla [creazione di pipeline](data-factory-create-pipelines.md).
 
 ## Nuova esecuzione di sezioni di dati non riuscite e monitoraggio automatico delle dipendenze di dati
 
@@ -232,9 +232,9 @@ Le sezioni di dati così recuperate potranno essere configurate per essere esegu
 
 Si consideri l'esempio seguente che mostra due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
-![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)
+![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)  
 
-<br/>
+<br/>  
 
 Il diagramma precedente mostra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per **Dataset2**. La data factory monitorizza automaticamente le dipendenze per il set di dati in serie temporale e, di conseguenza, sospende l'avvio dell'esecuzione di attività per la sezione a valle 9-10 AM.
 
@@ -243,7 +243,7 @@ Gli strumenti di monitoraggio e gestione della data factory consentono inoltre d
 
 Quando, dopo aver avviato la nuova esecuzione della sezione, la sezione 9-10 AM del dataset2 è pronta, la data factory avvierà l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale, come illustrato nel diagramma seguente.
 
-![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
+![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)  
 
 Per un approfondimento sulla definizione e il monitoraggio delle dipendenze per catene complesse di attività e set di dati, fare riferimento alle sezioni seguenti.
 
@@ -259,11 +259,11 @@ In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono dis
 
 La visualizzazione diagramma sarebbe la seguente:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)  
 
 La visualizzazione diagramma con entrambe le attività nella stessa pipeline sarebbe la seguente:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)  
 
 ### Copia ordinata
 È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity con i set di dati di input e output seguenti.
@@ -274,7 +274,7 @@ CopyActivity2: Inputs: Dataset2 Output: Dataset4
 
 CopyActivity2 viene eseguita solo se l'esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile.
 
-Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input per CopyActivity2, in modo che l'attività non venga eseguita fino a quando CopyActivity1 non è stata completata. ad esempio:
+Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input per CopyActivity2, in modo che l'attività non venga eseguita fino a quando CopyActivity1 non è stata completata. Ad esempio:
 
 CopyActivity1: Input: Dataset1 Output Dataset2
 
@@ -282,8 +282,8 @@ CopyActivity2: Inputs: Dataset3, Dataset2 Output: Dataset4
 
 Quando si specificano più input, solo il primo set di dati di input viene usato per la copia dei dati e gli altri set di dati vengono usati come dipendenze. L'esecuzione di CopyActivity2 si avvia solo quando le seguenti condizioni sono soddisfatte:
 
-- L’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
-- Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
+- L’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.
+- Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.
 
 
 
@@ -382,7 +382,7 @@ Lo script Hive riceve le informazioni di data e ora appropriate sotto forma di p
 		                "scriptPath": "adftutorial\\hivequery.hql",
 		                "scriptLinkedService": "StorageLinkedService",
 		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
 		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
 		                }
@@ -404,7 +404,7 @@ Lo script Hive riceve le informazioni di data e ora appropriate sotto forma di p
 
 Ecco il risultato dal punto di vista della dipendenza dei dati.
 
-![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)
+![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)  
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. La data factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile (perché, ad esempio, nell'attività a monte che produce la sezione è in corso un processo di elaborazione), la data factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione di attività giornaliera.
 
@@ -534,7 +534,7 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
 	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+	            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
 	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
 	          }
@@ -557,7 +557,7 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
 
 ## Funzioni e variabili di sistema di Data Factory   
 
-Vedere l'articolo [Funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md) per un elenco di funzioni e variabili di sistema supportate da Azure Data Factory.
+Per un elenco di funzioni e variabili di sistema supportate da Azure Data Factory, vedere l'articolo [Azure Data Factory - Funzioni e variabili di sistema](data-factory-functions-variables.md).
 
 ## Approfondimento della dipendenza dei dati
 
@@ -588,7 +588,7 @@ In questi casi, al termine del processo di esecuzione, lo stato della sezione di
    
 Se una sezione di dati è stata correttamente generata ma non ha superato il processo di convalida, le esecuzioni di attività per le sezioni a valle dipendenti dalla sezione non riuscita non vengono elaborate.
 
-In [Monitorare e gestire le pipeline di Azure Data Factory](data-factory-monitor-manage-pipelines.md) vengono descritti i vari stati disponibili per le sezioni di dati della data factory.
+In [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md) vengono descritti i vari stati disponibili per le sezioni di dati della data factory.
 
 ## Dati esterni
 
@@ -626,7 +626,7 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
 
 ## Pipeline monouso
-È possibile creare e pianificare una pipeline in modo da eseguirla periodicamente (ogni ora, ogni giorno e così via) tra le ore di inizio e di fine specificate nella definizione della pipeline. Per informazioni dettagliate, vedere [Pianificazione delle attività](#scheduling-and-execution). È anche possibile creare una pipeline che viene eseguita una sola volta. A tale scopo, impostare la proprietà **pipelineMode** nella definizione della pipeline su **onetime** come illustrato nell'esempio JSON seguente. Il valore predefinito per questa proprietà è **scheduled**.
+È possibile creare e pianificare una pipeline in modo da eseguirla periodicamente (ogni ora, ogni giorno e così via) tra le ore di inizio e di fine specificate nella definizione della pipeline. Per informazioni dettagliate, vedere la sezione [Pianificazione delle attività](#scheduling-and-execution). È anche possibile creare una pipeline che viene eseguita una sola volta. A tale scopo, impostare la proprietà **pipelineMode** nella definizione della pipeline su **onetime**, come illustrato nell'esempio JSON seguente. Il valore predefinito per questa proprietà è **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -664,10 +664,10 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
 Tenere presente quanto segue:
  
-- Non è necessario specificare le ore di **inizio** e **fine** per la pipeline. 
-- È necessario specificare la disponibilità dei set di dati di input e output (frequenza e l'intervallo) in questa fase anche se i valori non vengono usati da Data Factory.  
-- Le pipeline monouso non vengono visualizzate nella vista Diagramma. Si tratta di un comportamento previsto da progettazione. 
-- Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra. 
+- Non è necessario specificare le ore di **inizio** e **fine** per la pipeline.
+- È necessario specificare la disponibilità dei set di dati di input e output (frequenza e l'intervallo) in questa fase anche se i valori non vengono usati da Data Factory.
+- Le pipeline monouso non vengono visualizzate nella vista Diagramma. Si tratta di un comportamento previsto da progettazione.
+- Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra.
 
   
 
@@ -702,4 +702,4 @@ Tenere presente quanto segue:
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

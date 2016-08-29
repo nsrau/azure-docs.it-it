@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Ottimizzare il codice Azure
 
@@ -127,7 +127,7 @@ Per altre informazioni, vedere gli argomenti seguenti.
 
 - [Come usare l'autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn205161.aspx)
 
-- Per un progetto di esempio, vedere [l'autenticazione tramite firma di accesso condiviso (SAS) con le sottoscrizioni di Service Bus](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
+- Per un progetto di esempio, vedere l'articolo relativo all'[autenticazione tramite firma di accesso condiviso con le sottoscrizioni del bus di servizio](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
 ## È consigliabile utilizzare il metodo OnMessage per evitare il "ciclo di ricezione"
 
@@ -143,7 +143,7 @@ Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi d
 
 ### Motivo
 
-Quando si chiama **OnMessage**, il client avvia un pump del messaggio interno che esegue costantemente il polling della coda o della sottoscrizione. Questo pump del messaggio contiene un ciclo infinito che emette una chiamata per ricevere messaggi. Se la chiamata scade, genera una nuova chiamata. L'intervallo di timeout è determinato dal valore della proprietà [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) del [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)che viene utilizzato.
+Quando si chiama **OnMessage**, il client avvia un message pump interno che esegue costantemente il polling della coda o della sottoscrizione. Questo pump del messaggio contiene un ciclo infinito che emette una chiamata per ricevere messaggi. Se la chiamata scade, genera una nuova chiamata. L'intervallo di timeout è determinato dal valore della proprietà [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) del [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)che viene utilizzato.
 
 Il vantaggio dell'utilizzo di **OnMessage** rispetto alla **Ricezione** è che gli utenti non devono manualmente effettuare il polling dei messaggi, gestire le eccezioni, elaborare più messaggi in parallelo e completare i messaggi.
 
@@ -259,7 +259,7 @@ Vedere [QueueClient class (Microsoft.ServiceBus.Messaging)](https://msdn.microso
 
 Per migliorare le prestazioni dell'infrastruttura di messaggistica di Azure, vedere il modello di progettazione [Nozioni di base di messaggistica asincrona](https://msdn.microsoft.com/library/dn589781.aspx).
 
-## Prendere in considerazione il partizionamento delle code e degli argomenti del Bus di servizio.
+## Prendere in considerazione il partizionamento delle code e degli argomenti del bus di servizio.
 
 ### ID
 
@@ -267,13 +267,13 @@ AP2004
 
 ### Descrizione
 
-Le code e gli argomenti del Bus di servizio della partizione per ottenere prestazioni migliori con la messaggistica del Bus di servizio.
+Esegue il partizionamento delle code e degli argomenti del bus di servizio per ottenere prestazioni migliori con la messaggistica del bus di servizio.
 
 Condividere idee e suggerimenti in [Commenti e suggerimenti sull'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### Motivo
 
-Le code e gli argomenti del partizionamento del Bus di servizio aumenta la disponibilità dei servizi e la velocità effettiva delle prestazioni poiché la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker di messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea di un archivio di messaggistica non ha una coda o argomento partizionato non disponibile. Per ulteriori informazioni, vedere [Partizionamento delle entità di messaggistica](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Il partizionamento delle code e degli argomenti del bus di servizio permette di aumentare la disponibilità dei servizi e la velocità effettiva delle prestazioni, perché la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Una interruzione temporanea di un archivio di messaggistica non influisce sulla disponibilità di code e argomenti partizionati. Per ulteriori informazioni, vedere [Partizionamento delle entità di messaggistica](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ### Soluzione
 
@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Per ulteriori informazioni, vedere [Code e argomenti partizionati del Bus di servizio | Blog di Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) ed estrarre l’esempio [Coda partizionata di Microsoft Azure Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Per altre informazioni, vedere il blog di Microsoft Azure [Partitioned Service Bus Queues and Topics](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) (Code e argomenti partizionati del bus di servizio) e l'esempio [Microsoft Azure Service Bus Partitioned Queue](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) (Coda partizionata del bus di servizio di Microsoft Azure).
 
 ## Non impostare SharedAccessStartTime
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Per altre informazioni sull’ottimizzazione e la risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

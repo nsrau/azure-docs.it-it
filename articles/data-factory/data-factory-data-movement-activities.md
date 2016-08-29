@@ -97,6 +97,9 @@ Giappone occidentale | Giappone orientale
 Brasile meridionale | Brasile meridionale
 Australia orientale | Australia orientale
 Australia sudorientale | Australia sudorientale
+India centrale | India centrale
+India meridionale | India centrale
+India occidentale | India centrale
 
 
 > [AZURE.NOTE] Se l'area dell'archivio dati di destinazione non è nell'elenco precedente, l'attività di copia non viene completata invece di passare attraverso un'area alternativa.
@@ -185,4 +188,4 @@ Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico arc
 - Per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

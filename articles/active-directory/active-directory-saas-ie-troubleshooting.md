@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/19/2016"
-    ms.author="markvi;liviodlc"/>
+    ms.date="08/16/2016"
+    ms.author="markvi"/>  
 
 #Risoluzione dei problemi di Access Panel Extension per Internet Explorer
 
@@ -109,4 +109,4 @@ Se si verificano problemi durante la disinstallazione dell'estensione, è possib
 - [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

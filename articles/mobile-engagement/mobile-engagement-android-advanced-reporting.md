@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Opzioni di segnalazione con Engagement in Android
+# Segnalazione avanzata con Engagement in Android
 
 > [AZURE.SELECTOR]
+- [Windows universale](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-advanced-reporting.md)
 
-Questo argomento descrive scenari di segnalazione aggiuntivi nell'applicazione Android. È possibile scegliere alcune opzioni da applicare all'app creata nell'esercitazione [introduttiva](mobile-engagement-android-get-started.md).
+Questo argomento descrive scenari di segnalazione aggiuntivi nell'applicazione Android. È possibile applicare queste opzioni all'app creata nell'esercitazione [introduttiva](mobile-engagement-android-get-started.md).
 
 ## Prerequisiti
 
 [AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
 
-Anche se l'esercitazione completata era volutamente diretta e semplice, è possibile scegliere tra diverse opzioni.
+Anche se l'esercitazione completata è stata volutamente diretta e semplice, sono disponibili opzioni avanzate.
 
 ## Modifica delle classi `Activity`
 
@@ -41,7 +44,7 @@ Queste classi sono incluse nella cartella `src` e possono essere copiate nel pro
 
 Se non si può o non si vuole eseguire l'overload delle classi `Activity`, è possibile avviare e terminare le attività chiamando direttamente i metodi di `EngagementAgent`.
 
-> [AZURE.IMPORTANT] Android SDK non chiama mai il metodo `endActivity()`, neanche alla chiusura dell'applicazione (in Android le applicazioni in realtà non vengono mai chiuse). Per questo motivo, è *ALTAMENTE* consigliabile chiamare il metodo `startActivity()` nel callback `onResume` di *TUTTE* le attività e il metodo `endActivity()` nel callback `onPause()` di *TUTTE* le attività. È l'unico modo per evitare la perdita di sessioni. In caso di perdita di una sessione, il servizio Engagement non si disconnetterà mai dal back-end di Engagement, dato che il servizio rimane connesso fintanto che una sessione è in sospeso.
+> [AZURE.IMPORTANT] Android SDK non chiama mai il metodo `endActivity()`, neanche alla chiusura dell'applicazione; in Android le applicazioni in realtà non vengono mai chiuse. Per questo motivo, è *ALTAMENTE* consigliabile chiamare il metodo `startActivity()` nel callback `onResume` di *TUTTE* le attività e il metodo `endActivity()` nel callback `onPause()` di *TUTTE* le attività. È l'unico modo per evitare la perdita di sessioni. In caso di perdita di una sessione, il servizio Engagement non si disconnetterà mai dal back-end di Engagement, dato che il servizio rimane connesso fintanto che una sessione è in sospeso.
 
 Di seguito è fornito un esempio:
 
@@ -63,7 +66,7 @@ Di seguito è fornito un esempio:
 	  }
 	}
 
-Questo esempio è molto simile alla classe `EngagementActivity` e alle relative varianti, il cui codice di origine è disponibile nella cartella `src`.
+Questo esempio è simile alla classe `EngagementActivity` e alle relative varianti, il cui codice di origine è disponibile nella cartella `src`.
 
 ## Uso di Application.onCreate()
 
@@ -87,7 +90,7 @@ Se si esegue l'override di `Application.onCreate()`, è consigliabile aggiungere
 
 Nel tag service nel file AndroidManifest.xml l'attributo `android:label` consente di scegliere il nome del servizio Engagement così come verrà presentato agli utenti finali nella schermata dei servizi in esecuzione sul telefono. È consigliabile impostare questo attributo su `"<Your application name>Service"`, ad esempio `"AcmeFunGameService"`.
 
-Se si specifica l'attributo `android:process`, il servizio Engagement verrà eseguito nel relativo processo (l'esecuzione di Engagement nello stesso processo dell'applicazione può ridurre la reattività del thread principale o dell'interfaccia utente).
+Se si specifica l'attributo `android:process`, il servizio Engagement verrà eseguito nel relativo processo; l'esecuzione di Engagement nello stesso processo dell'applicazione può ridurre la reattività del thread principale o dell'interfaccia utente.
 
 ## Compilazione con ProGuard
 
@@ -98,4 +101,4 @@ Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantene
 	<methods>;
  	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

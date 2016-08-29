@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>  
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
@@ -57,7 +57,7 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
     2. Specificare la dimensione da utilizzare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
     4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
-    5. Fare clic su **Avanti**.
+    5. Fare clic su **Next**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
     1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
@@ -521,4 +521,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -78,6 +78,25 @@ Si tratta di una funzione Node che calcola il token dagli input `resourceUri, si
         // console.log("signature:" + token);
         return token;
     };
+ 
+ Ai fini del confronto, il codice Python equivalente è:
+ 
+    from base64 import b64encode, b64decode
+    from hashlib import sha256
+    from hmac import HMAC
+    from urllib import urlencode
+    
+    def generate_sas_token(uri, key, policy_name='device', expiry=3600):
+        ttl = time() + expiry
+        sign_key = "%s\n%d" % (uri, int(ttl))
+        signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+     
+        return 'SharedAccessSignature ' + urlencode({
+            'sr' :  uri,
+            'sig': signature,
+            'se' : str(int(ttl)),
+            'skn': policy_name
+        })
 
 > [AZURE.NOTE] Poiché la validità temporale del token viene verificata sui computer hub IoT, è importante che lo sfasamento dell'orologio del computer che genera il token sia minimo.
 
@@ -85,7 +104,7 @@ Si tratta di una funzione Node che calcola il token dagli input `resourceUri, si
 
 Esistono due modi per ottenere le autorizzazioni **DeviceConnect** su hub IoT con i token di sicurezza: con una chiave di identità dispositivo o una chiave criteri di accesso condiviso.
 
-Inoltre, è importante notare che tutte le funzionalità accessibili dai dispositivi vengono esposte, per impostazione predefinita, sugli endpoint con prefisso `/devices/{deviceId}`.
+È anche importante notare che tutte le funzionalità accessibili dai dispositivi vengono esposte, per impostazione predefinita, sugli endpoint con prefisso `/devices/{deviceId}`.
 
 > [AZURE.IMPORTANT] L'unico modo di cui dispone l'hub IoT per autenticare un dispositivo specifico è tramite la chiave simmetrica identità dispositivo. Nei casi in cui si acceda alle funzionalità del dispositivo tramite criteri di accesso condiviso, la soluzione deve considerare il componente che emette il token di sicurezza come sottocomponente attendibile.
 
@@ -93,8 +112,8 @@ Gli endpoint per il dispositivo sono, indipendentemente dal protocollo:
 
 | Endpoint | Funzionalità |
 | ----- | ----------- |
-| `{iot hub host name}/devices/{deviceId}/messages/events` | Invio di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` | Ricezione di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devices/{deviceId}/messages/events`   | Invio di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/devices/{deviceId}/devicebound`   | Ricezione di messaggi da cloud a dispositivo. |
 
 ### Usare una chiave simmetrica nel registro identità
 
@@ -122,7 +141,7 @@ Il risultato, che concede l'accesso a tutte le funzionalità per device1, sarà:
 
 ### Usare criteri di accesso condiviso
 
-Quando si crea un token da criteri di accesso condiviso, il campo del nome del criterio `skn` deve essere impostato sul nome del criterio usato. È inoltre necessario che i criteri concedano l'autorizzazione **DeviceConnect**.
+Quando si crea un token da criteri di accesso condiviso, il campo del nome del criterio `skn` deve essere impostato sul nome del criterio usato. È anche necessario che i criteri concedano l'autorizzazione **DeviceConnect**.
 
 I due scenari principali per l'uso di criteri di accesso condiviso per accedere alla funzionalità dei dispositivi sono:
 
@@ -161,14 +180,14 @@ Queste sono le funzioni del servizio esposte sugli endpoint:
 | Endpoint | Funzionalità |
 | ----- | ----------- |
 | `{iot hub host name}/devices` | Creazione, aggiornamento, recupero ed eliminazione delle identità dispositivo. |
-| `{iot hub host name}/messages/events` | Ricezione di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/servicebound/feedback` | Ricezione di feedback per messaggi da cloud a dispositivo. |
-| `{iot hub host name}/devicebound` | Invio di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/messages/events`   | Ricezione di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/servicebound/feedback`   | Ricezione di feedback per messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devicebound`   | Invio di messaggi da cloud a dispositivo. |
 
 Ad esempio, un servizio che usa il criterio di accesso condiviso già esistente denominato **registryRead** creerebbe un token con i parametri seguenti:
 
 * URI della risorsa: `{IoT hub name}.azure-devices.net/devices`,
-* chiave di firma: una delle chiavi dell'elemento plocy `registryRead`,
+* chiave di firma: una delle chiavi del criterio `registryRead`,
 * nome criterio: `registryRead`,
 * Qualsiasi ora di scadenza.
 
@@ -194,7 +213,7 @@ Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'aut
 
 ## Registrare un certificato client X.509 per un dispositivo
 
-L'[SDK Azure IoT Service per C#][lnk-service-sdk] \(versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato client X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati client X.509.
+L'[SDK Azure IoT Service per C#][lnk-service-sdk] (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato client X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati client X.509.
 
 ### Supporto di C#
 
@@ -221,11 +240,11 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usare un certificato client X.509 durante le operazioni di runtime
 
-[Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] \(versione 1.0.11+) supporta l'uso dei certificati client X.509.
+[Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] (versione 1.0.11+) supporta l'uso dei certificati client X.509.
 
 ### Supporto di C#
 
-La classe **DeviceAuthenticationWithX509Certificate** supporta la creazione di istanze **DeviceClient** mediante un certificato client X.509.
+La classe **DeviceAuthenticationWithX509Certificate** supporta la creazione di istanze **DeviceClient** tramite un certificato client X.509.
 
 Di seguito è riportato un frammento di codice di esempio:
 
@@ -246,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

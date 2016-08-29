@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/03/2016"
-	ms.author="glenga"/>
+	ms.date="08/12/2016"
+	ms.author="glenga"/>  
 
 # Aggiungere notifiche push all'app Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Panoramica
+##Overview
 
 In questa esercitazione vengono aggiunte notifiche push al progetto [Creare un'app per Xamarin.Android] in modo che venga inviata una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione [Creare un'app per Xamarin.Android] che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -73,10 +73,10 @@ Per completare questa esercitazione, è necessario disporre di:
 	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2016" 
-    ms.author="elizapo" />
+    ms.date="08/15/2016" 
+    ms.author="elizapo" />  
 
 # Azure RemoteApp come salva dati e impostazioni?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp salva identità utente e personalizzazioni nei dispositivi e nelle sessioni. Tali dati utente vengono archiviati in un disco per ogni raccolta per utente, noto come disco del profilo utente (UPD). Il disco segue l'utente e garantisce che l'utente disponga di un'esperienza coerente, indipendentemente da dove si registrano i salvataggi
 
@@ -31,7 +34,7 @@ Leggere le informazioni specifiche sui dati del profilo utente.
 
 ## Come può un amministratore accedere ai dati?
 
-Se è necessario accedere ai dati per uno degli utenti (per il ripristino di emergenza o se l'utente lascia la società), contattare [Azure RemoteApp](mailto:remoteappforum@microsoft.com) e fornire le informazioni di sottoscrizione per la raccolta e l'identità dell'utente. Il team di Azure RemoteApp fornirà un URL per il disco rigido virtuale. Scaricare il disco rigido virtuale e recuperare i documenti o i file necessari. Si noti che il disco rigido virtuale è di 50GB, pertanto ci può volere del tempo per scaricarlo.
+Se è necessario accedere ai dati per uno degli utenti, per il ripristino di emergenza o se l'utente lascia la società, contattare il supporto tecnico di Azure e fornire le informazioni di sottoscrizione per la raccolta e l'identità dell'utente. Il team di Azure RemoteApp fornirà un URL per il disco rigido virtuale. Scaricare il disco rigido virtuale e recuperare i documenti o i file necessari. Si noti che il disco rigido virtuale è di 50GB, pertanto ci può volere del tempo per scaricarlo.
 
 
 ## Si esegue il backup dei dati?
@@ -75,7 +78,7 @@ Sì, qualsiasi elemento scritto in HKEY\_Current\_User fa parte del UPD.
 
 ## È possibile disattivare gli UPD per una raccolta?
 
-Sì, è possibile chiedere a RemoteApp di Azure di disabilitare gli UPD per una sottoscrizione, ma non è possibile eseguirla manualmente. Ciò significa che gli UPD verranno disabilitati per tutte le raccolte nella sottoscrizione.
+Sì, è possibile chiedere ad Azure RemoteApp di disabilitare gli UPD per una sottoscrizione, ma non è possibile eseguirla manualmente. Ciò significa che gli UPD verranno disabilitati per tutte le raccolte nella sottoscrizione.
 
 È consigliabile disabilitare i dischi del profilo utente in una delle situazioni seguenti:
 
@@ -111,13 +114,13 @@ No, tutti gli UPD hanno 50 GB di spazio di archiviazione. Se si desidera archivi
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
-Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione *prima* di eseguire sysprep.)
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione*prima*di eseguire sysprep.)
 
 ![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
 
 ![Creare un'attività di sistema che viene eseguita quando un utente accede](./media/remoteapp-upd/upd2.png)
 
-Nella scheda **Generale** assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
+Nella scheda **Generale**, assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
 
 ![Modificare l'account utente in un gruppo](./media/remoteapp-upd/upd4.png)
 
@@ -155,4 +158,4 @@ NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno
 
 In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

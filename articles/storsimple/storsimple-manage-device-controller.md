@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Gestire i controller del dispositivo StorSimple
 
@@ -215,4 +215,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 - Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

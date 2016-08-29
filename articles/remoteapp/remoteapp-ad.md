@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
-    ms.author="elizapo" />
+    ms.date="08/15/2016" 
+    ms.author="elizapo" />  
 
 
 
 # Azure AD + requisiti di Active Directory per Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 
 Per la raccolta ibrida di RemoteApp di Azure o per un insieme di cloud che si desidera attuare utilizzando una connessione di Active Directory, è necessario eseguire le operazioni seguenti.
@@ -45,4 +47,4 @@ Inoltre, è necessario creare i seguenti oggetti di Active Directory locali:
 
 Entrambi questi oggetti sono necessari quando si crea la raccolta di RemoteApp, sarà dunque necessario innanzitutto eseguire questi passaggi.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

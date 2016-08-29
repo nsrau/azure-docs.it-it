@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
-	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
+	ms.date="08/15/2016"
+	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>  
 
 
 # Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
@@ -64,7 +64,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
     - Protezione dati breve termine tramite: Disco.
     - Protezione dati online.
 
-6. Fare clic su **Avanti**.
+6. Fare clic su **Next**.
 
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
@@ -132,4 +132,4 @@ Per i punti di ripristino online sono disponibili cinque tipi:
 
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

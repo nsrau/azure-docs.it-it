@@ -20,7 +20,7 @@
 
 ##Overview
 
-Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure (SSE)](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure (SSE)](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Questo articolo include una panoramica di ognuna di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Sono disponibili i collegamenti ad articoli contenenti informazioni dettagliate per ogni funzionalità, per poter approfondire facilmente i concetti per ogni argomento.
 
@@ -634,4 +634,4 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 	Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>  
 
 # Caricamento di un sito Web Java personalizzato in Azure
 
-In questo argomento viene illustrato come caricare un'applicazione web di Java personalizzata di [servizio App Azure] applicazioni Web. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
+Questo argomento illustra come caricare un'app Web Java personalizzata nelle app Web del [servizio app di Azure]. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
 
 Si noti che Azure fornisce un mezzo per la creazione di applicazioni web Java utilizzando l'interfaccia utente di configurazione del portale di Azure e Azure Marketplace, come descritto in [creare un'applicazione web Java nel servizio App di Azure](web-sites-java-get-started.md). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione del Portale di Azure o il Marketplace di Azure.
 
@@ -26,7 +26,7 @@ Si noti che Azure fornisce un mezzo per la creazione di applicazioni web Java ut
 
 Di seguito sono descritte le impostazioni previste per i siti Web Java personalizzati in Azure.
 
-- La porta HTTP usata dal processo Java viene assegnata in modo dinamico. Il processo deve usare la porta indicata dalla variabile di ambiente `HTTP_PLATFORM_PORT`.
+- La porta HTTP utilizzata dal processo Java viene assegnata in modo dinamico. Il processo deve usare la porta indicata dalla variabile di ambiente `HTTP_PLATFORM_PORT`.
 - Tutte le porte di ascolto diverse dal listener HTTP devono essere disabilitate. In Tomcat questo include le porte di arresto, HTTPS e AJP.
 - Il contenitore deve essere configurato solo per il traffico IPv4.
 - Il comando **startup** per l'applicazione deve essere impostato nella configurazione.
@@ -239,7 +239,7 @@ Allo stesso livello di directory della cartella tomcat-7.0.40 creare un file den
 
 Nel blocco **httpPlatform**, la variabile **requestTimeout** è impostata su "00:10:00". Questo valore può essere ridotto ma in questo caso è probabile che si verifichino errori di timeout durante il bootstrap di Liferay. Se il valore viene modificato, è necessario modificare anche **connectionTimeout** nel file server.xml di Tomcat.
 
-Si noti che nel file web.config riportato sopra la variabile di ambiente JRE\_HOME è impostata in modo da fare riferimento alla versione di JDK a 64 bit. La versione predefinita è a 32 bit, ma poiché Liferay può richiedere livelli elevati di memoria è consigliabile usare il JDK a 64 bit.
+Si noti che nel file web.config riportato sopra la variabile di ambiente JRE\_HOME è impostata in modo da fare riferimento alla versione di JDK a 64 bit. La versione predefinita è a 32 bit, ma poiché Liferay può richiedere livelli elevati di memoria è consigliabile utilizzare il JDK a 64 bit.
 
 Dopo avere apportato le modifiche indicate, riavviare il sito Web che esegue Liferay, quindi aprire http://yourwebapp. Il portale Liferay è disponibile dalla radice del sito Web.
 
@@ -254,7 +254,7 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
-<!-- External Links -->
-[servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+<!-- External Links -->  
+[servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

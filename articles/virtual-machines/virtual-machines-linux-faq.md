@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="cynthn"/>
+	ms.date="08/16/2016"
+	ms.author="cynthn"/>  
 
 # Domande frequenti sulle macchine virtuali Linux 
 
 
-Questo articolo analizza alcune delle domande più comuni poste dagli utenti sulle macchine virtuali Linux create in Azure mediante il modello di distribuzione Resource Manager. Per la versione di Windows di questo argomento, vedere [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md) (Domande frequenti sulle macchine virtuali Windows)
+Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Linux create in Azure mediante il modello di distribuzione Resource Manager. Per la versione di Windows di questo argomento, vedere [Domande frequenti sulle macchine virtuali Windows](virtual-machines-windows-faq.md)
 
 ## Cosa è possibile eseguire in una VM di Azure?
 
@@ -44,7 +44,7 @@ Se si verificano problemi, vedere l'argomento [Risolvere i problemi relativi all
 
 ## È possibile usare il disco temporaneo (/dev/sdb1) per archiviare i dati?
 
-Non è possibile usare il disco temporaneo (/dev/sdb1) per archiviare i dati. Si tratta solo di memorie temporanee, pertanto si rischierebbe di perdere dati che non possono essere recuperati.
+Non usare il disco temporaneo (/dev/sdb1) per archiviare i dati. Si tratta solo di memorie temporanee e si rischierebbe di perdere dati che non possono essere recuperati.
 
 ## È possibile copiare o clonare una VM di Azure esistente?
 
@@ -52,10 +52,10 @@ Sì. Per le istruzioni, vedere [How to create a copy of a Linux virtual machine 
 
 ## Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Azure Resource Manager?
 
-Le due nuove aree del Canada centrale e del Canada orientale non vengono registrate automaticamente per la creazione della macchina virtuale per le sottoscrizioni di Azure esistenti. La registrazione viene eseguita automaticamente quando si distribuisce una macchina virtuale tramite il portale di Azure in qualsiasi altra area di Gestione risorse di Azure. Dopo aver distribuito una macchina virtuale in qualsiasi altra area di Azure le nuove aree dovrebbero essere disponibili per le macchine virtuali successive.
+Le due nuove aree del Canada centrale e del Canada orientale non vengono registrate automaticamente per la creazione della macchina virtuale per le sottoscrizioni di Azure esistenti. La registrazione viene eseguita automaticamente quando si distribuisce una macchina virtuale tramite il portale di Azure in qualsiasi altra area di Azure Resource Manager. Dopo aver distribuito una macchina virtuale in qualsiasi altra area di Azure le nuove aree dovrebbero essere disponibili per le macchine virtuali successive.
 
 ## È possibile aggiungere un NIC alla VM dopo la sua creazione?
 
-No. Attualmente questa operazione può essere eseguita solo al momento della creazione.
+No. L'aggiunta di una scheda di rete può essere effettuata solo al momento della creazione.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

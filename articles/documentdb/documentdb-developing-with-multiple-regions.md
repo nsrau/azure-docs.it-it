@@ -36,13 +36,13 @@ Se la proprietà PreferredLocations non è impostata, tutte le richieste verrann
 
 
 ## .NET SDK
-L'SDK può essere usato senza alcuna modifica del codice. In questo caso, l'SDK reindirizzerà automaticamente sia le letture sia le scritture all'area di scrittura corrente.
+L'SDK può essere usato senza alcuna modifica del codice. In questo caso l'SDK reindirizza automaticamente sia le operazioni di lettura che di scrittura all'area di scrittura corrente.
 
 Nella versione 1.8 e nelle versioni successive di .NET SDK, il parametro ConnectionPolicy per il costruttore DocumentClient dispone di una proprietà denominata Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Questa proprietà è di tipo raccolta `<string>` e deve contenere un elenco di nomi di aree. I valori della stringa vengono formattati secondo la colonna Nome dell'area nella pagina [Regioni di Azure][regions], senza spazi prima o dopo il primo e l'ultimo carattere.
 
 Gli endpoint di lettura e scrittura correnti sono disponibili rispettivamente in DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint.
 
-> [AZURE.NOTE] Gli URL per gli endpoint non devono essere considerati come costanti di lunga durata. Il servizio può aggiornare gli URL in qualsiasi momento. L'SDK gestirà questa modifica in automatico.
+> [AZURE.NOTE] Gli URL per gli endpoint non devono essere considerati come costanti di lunga durata. Il servizio può aggiornare gli URL in qualsiasi momento. L'SDK gestisce la modifica in modo automatico.
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -88,7 +88,7 @@ Di seguito è riportato un esempio di codice per NodeJS/Javascript. Python e Jav
 
 
 ## REST 
-Dopo aver reso disponibile un account di database in più aree, i client possono eseguire query sulla sua disponibilità tramite una richiesta GET all'URI seguente.
+Dopo aver reso disponibile un account di database in più aree, i client possono eseguire query sulla relativa disponibilità tramite una richiesta GET all'URI seguente.
 
     https://{databaseaccount}.documents.azure.com/dbs
 
@@ -141,8 +141,8 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 - [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md)
 - [Livelli di coerenza](documentdb-consistency-levels.md)
 - [How throughput works with multiple regions (Funzionamento della produttività con più aree)](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Aggiungere aree tramite il portale di Azure](documentdb-manage-account.md#addregion)
+- [Aggiungere aree tramite il portale di Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

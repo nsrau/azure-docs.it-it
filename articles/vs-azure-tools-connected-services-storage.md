@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
-   ms.author="tarcher" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />  
 
 # Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
 
-## Panoramica
+## Overview
 
 Con Visual Studio 2015, è possibile connettersi a qualsiasi servizio cloud in C#, servizio mobile back-end .NET, sito Web o servizio ASP.NET, servizio ASP.NET 5 o servizio di Processo Web di Azure in archiviazione di Azure tramite la finestra di dialogo **Aggiungi servizi connessi**. La funzionalità servizio connesso aggiunge tutti i riferimenti richiesti e il codice di connessione e modifica i file di configurazione in modo appropriato. La finestra di dialogo visualizza inoltre la documentazione che indica i passaggi successivi per avviare l'archiviazione BLOB, code e tabelle.
 
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

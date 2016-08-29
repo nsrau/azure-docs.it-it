@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
-   ms.author="yurid"/>
+   ms.date="08/16/2016"
+   ms.author="yurid"/>  
 
 # Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -134,4 +134,4 @@ Azure AD Identity Protection è invece un sistema di monitoraggio attivo che con
 
 Le organizzazioni che non monitorano attivamente i sistemi di identità sono esposti al rischio di compromissione delle credenziali utente. Se l'organizzazione non è a conoscenza dello svolgimento di attività sospette con tali credenziali, non potrà attenuare questo tipo di minaccia. Per altre informazioni in merito, vedere [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->
