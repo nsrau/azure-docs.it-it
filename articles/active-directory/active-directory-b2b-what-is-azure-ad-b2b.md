@@ -6,7 +6,7 @@
    authors="viv-liu"
    manager="femila"
    editor=""
-   tags=""/>  
+   tags=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/09/2016"
-   ms.author="femila"/>  
+   ms.date="08/11/2016"
+   ms.author="femila"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: integrazione cloud dei partner semplice e sicura
 
@@ -23,8 +23,7 @@ Poiché le aziende si concentrano maggiormente sulla loro attività principale, 
 
 - **Semplice**: ogni utente partner utilizza un account di Azure AD esistente o un account che viene facilmente creato durante l'accettazione dell'invito. È possibile fornire a tale utente un accesso diretto all’app aziendale scelta o a un insieme di applicazioni tramite il Pannello di accesso dell'applicazione.
 
-- **Sicura**: l'amministratore controlla ogni accesso alle applicazioni aziendali tramite la directory di Azure AD. Al termine della collaborazione, gli utenti partner possono essere rimossi
-- da Azure AD, revocandone immediatamente l'accesso alle applicazioni. Inoltre, quando l'utente partner lascia l'organizzazione partner, l'accesso viene perso automaticamente.
+- **Sicura**: l'amministratore controlla ogni accesso alle applicazioni aziendali tramite la directory di Azure AD. Quando viene terminata la collaborazione, gli utenti partner possono essere rimossi da Azure AD e viene immediatamente revocato il loro accesso alle applicazioni in uso. Inoltre, quando l'utente partner lascia l'organizzazione partner, l'accesso viene perso automaticamente.
 
 - **Seamless**: le società partner che richiedono l'accesso alle applicazioni aziendali **non devono necessariamente disporre di Azure AD.** La collaborazione B2B di Azure AD offre un'esperienza di iscrizione utente semplice per fornire a tali partner l’accesso immediato alle applicazioni in uso.
 
@@ -43,4 +42,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
 
-## Panoramica
+## Overview
 
 In questa esercitazione, si estenderà l'applicazione creata nell'esercitazione [Creazione di un'applicazione Node.js con Express] utilizzando le librerie client di Azure per Node.js per lavorare con i servizi di gestione dati. L'applicazione verrà estesa in modo da creare un'applicazione elenco di attività basata sul Web che sarà possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
 
@@ -26,7 +26,7 @@ Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazio
 
 In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Node.js Web Application using Express].
 
-Si apprenderà come:
+Si acquisiranno le nozioni seguenti:
 
 -   Usare il motore dei modelli Jade
 -   Usare i servizi di gestione dati di Azure
@@ -39,7 +39,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. A questo scopo, si utilizzano le impostazioni dell'applicazione web.config. Tali impostazioni verranno passate a Node come variabili di ambiente, che verranno quindi lette da Azure SDK.
 
-> [AZURE.NOTE] Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
+> [AZURE.NOTE] Le credenziali di archiviazione vengono utilizzate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
 
 Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione e aggiungerle alle impostazioni di web.config:
 
@@ -93,7 +93,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-##Uso del servizio tabelle in un'applicazione Node
+##Utilizzo del servizio tabelle in un'applicazione Node
 
 In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js** esistente e si creerà un nuovo file **tasklist.js** che utilizzi il modello.
 
@@ -382,7 +382,7 @@ Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di temp
 
 Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicazione.
 
-1.  Nella finestra di Windows PowerShell arrestare la distribuzione del servizio creata nella sezione precedente con il seguente cmdlet:
+1.  Nella finestra di Windows PowerShell arrestare la distribuzione del servizio creato nella sezione precedente con il cmdlet seguente:
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
@@ -403,4 +403,4 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
  
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 
 
 # Usare i cmdlet Windows PowerShell con Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
  È possibile usare i cmdlet Azure RemoteApp PowerShell per amministrare e gestire le raccolte. Per iniziare, usare le informazioni seguenti.
 
@@ -36,7 +39,7 @@ Per iniziare rapidamente è possibile eseguire questi passaggi:
 
 1.	Scaricare e installare i [cmdlet di Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2.	Avviare Microsoft Azure PowerShell.
-3.	Eseguire **Add-AzureAccount** per eseguire l'autenticazione alla sottoscrizione Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.
+3.	Eseguire **Add-AzureAccount** per l'autenticazione alla sottoscrizione di Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.
 4.	Eseguire **Get-AzureSubscription** per elencare le sottoscrizioni associate all'account utente.
 5.	Eseguire **Select-AzureSubscription** e specificare il nome o l'ID della sottoscrizione da usare nella console di PowerShell.
 
@@ -111,4 +114,4 @@ Altri cmdlet di RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

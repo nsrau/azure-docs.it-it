@@ -24,7 +24,7 @@
 
 È possibile usare la [libreria CDN di Azure per .NET](https://msdn.microsoft.com/library/mt657769.aspx) per automatizzare la creazione e la gestione di profili ed endpoint di una rete CDN. Questa esercitazione illustra in dettaglio la creazione di una semplice applicazione console .NET che dimostra varie operazioni disponibili. Lo scopo di questa esercitazione non è descrivere dettagliatamente tutti gli aspetti della libreria CDN di Azure per .NET.
 
-Per completare questa esercitazione è necessario disporre di Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) è disponibile gratuitamente per il download.
+Per completare questa esercitazione, è necessario Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) è disponibile gratuitamente per il download.
 
 > [AZURE.TIP] Il [progetto completato di questa esercitazione](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) è disponibile per il download in MSDN.
 
@@ -323,7 +323,7 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 ![Il programma in esecuzione](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare al gruppo di risorse nel portale di Azure e verificare che il profilo è stato creato.
+Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare al gruppo di risorse nel portale di Azure e verificare che il profilo sia stato creato.
 
 ![Completamento della procedura](./media/cdn-app-dev-net/cdn-success.png)
 
@@ -337,4 +337,6 @@ Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'
 
 Per altra documentazione su Azure CDN Management Library per .NET, vedere i [riferimenti su MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gestire le risorse della rete CDN con [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

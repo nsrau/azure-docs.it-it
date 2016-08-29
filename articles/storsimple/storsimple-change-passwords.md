@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
 
-## Panoramica 
+## Overview 
 
 La pagina **Configura**del portale di Azure classico contiene tutti i parametri del dispositivo che è possibile riconfigurare in un dispositivo StorSimple gestito da un servizio StorSimple Manager. In questa esercitazione viene illustrato come utilizzare la pagina**Configura** per modificare la password dell’amministratore del dispositivo o la password di StorSimple Snapshot Manager.
 
@@ -69,4 +69,4 @@ La password di StorSimple Snapshot Manager ora deve essere aggiornata.
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

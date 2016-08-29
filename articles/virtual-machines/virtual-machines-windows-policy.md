@@ -3,7 +3,7 @@
 	description="Come applicare criteri a una macchina virtuale Windows di Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -106,4 +106,4 @@ Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambi
 
 * [Creazione dei criteri](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -77,11 +77,15 @@ I pannelli o i set di grafici particolarmente interessanti possono essere aggiun
 
 Si noti che i grafici sono raggruppati in riquadri e che un riquadro può contenere più di un grafico. Viene aggiunto al dashboard l'intero riquadro.
 
+### Grafici di Analisi
+
+È anche possibile [aggiungere grafici di Analisi](app-insights-analytics-using.md#pin-to-dashboard) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard.
+
 ## Modificare un riquadro nel dashboard
 
 Dopo aver aggiunto un riquadro al dashboard, è possibile modificarlo.
 
-![Passare il mouse sopra un grafico per modificarlo.](./media/app-insights-dashboards/36.png)
+![Passare il puntatore del mouse su un grafico per modificarlo.](./media/app-insights-dashboards/36.png)
 
 1. Aggiungere un grafico al riquadro.
 2. Impostare la metrica, la dimensione group-by e lo stile (tabella, grafico) di un grafico.
@@ -111,7 +115,6 @@ Nel dashboard i pannelli vengono visualizzati sotto forma di riquadri: fare clic
 
 Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
-
 ![Fare clic su Condividi nell'intestazione del dashboard](./media/app-insights-dashboards/41.png)
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
@@ -124,8 +127,8 @@ Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configu
 * [Nuova richiesta di supporto](app-insights-get-dev-support.md): opzioni per ricevere assistenza su qualsiasi aspetto di Azure. Per ottenere supporto per Application Insights, è inoltre possibile fare clic sul pulsante Decorazione faccina in alto a destra.
 * [Mappa delle applicazioni](app-insights-dependencies.md#application-map): mappa attiva che mostra i componenti dell'applicazione, ricavata dalle informazioni sulle dipendenze.
 * [Flusso metriche attive](app-insights-metrics-explorer.md#live-metrics-stream): metriche chiave con circa 1 secondo di latenza per il monitoraggio di una nuova versione.
-* **Errori**: richieste non riuscite, chiamate a dipendenze non riuscite ed eccezioni. [Pannello delle metriche modificabile](app-insights-metrics-explorer.md).
-* **Prestazioni**: tempo di risposta, tempo di risposta delle dipendenze. [Pannello delle metriche modificabile](app-insights-metrics-explorer.md).
+* **Errori**: richieste non riuscite, chiamate a dipendenze non riuscite ed eccezioni. [Pannello delle metriche modificabili](app-insights-metrics-explorer.md).
+* **Prestazioni**: tempo di risposta, tempi di risposta delle dipendenze. [Pannello delle metriche modificabili](app-insights-metrics-explorer.md).
 * [Server](app-insights-web-monitor-performance.md): contatori delle prestazioni. Disponibile se si [installa Status Monitor](app-insights-monitor-performance-live-website-now.md).
 * **Browser**: prestazioni AJAX e di visualizzazione di pagine. Disponibile se si [instrumentano le pagine Web](app-insights-javascript.md).
 * **Utilizzo**: numero di sessioni, utenti e visualizzazioni di pagine. Disponibile se si [instrumentano le pagine Web](app-insights-javascript.md).
@@ -134,9 +137,9 @@ Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configu
 * [Disponibilità](app-insights-monitor-web-app-availability.md): configurazione e risultati del test Web.
 * [Avvisi](app-insights-alerts.md): configurazione degli avvisi sulle metriche.
 * [Esportazione continua](app-insights-export-telemetry.md): configurazione dell'esportazione dei dati di telemetria nell'archiviazione di Azure.
-* [Test delle prestazioni](app-insights-monitor-web-app-availability.md#performance-tests): impostazione di un carico sintetico sul sito Web.
+* [Test delle prestazioni](app-insights-monitor-web-app-availability.md#performance-tests): impostazione di un carico sintetico nel sito Web.
 * [Quota e prezzi](app-insights-pricing.md) e [campionamento per inserimento](app-insights-sampling.md).
-* **Accesso API**: attualmente usato per creare [annotazioni sulle versioni](app-insights-annotations.md) e per l'API di accesso ai dati.
+* **Accesso API**: usato attualmente per creare [annotazioni sulle versioni](app-insights-annotations.md) e per l'API di accesso ai dati.
 * [**Elementi di lavoro**](app-insights-diagnostic-search.md#create-work-item): connessione a un sistema di verifica del lavoro per poter creare bug durante l'analisi dei dati di telemetria.
 * [**Utenti**](app-insights-resources-roles-access-control.md): gestione degli utenti che possono accedere alla risorsa app.
 * [**Ruoli**](app-insights-resources-roles-access-control.md): gestione delle operazioni che gli utenti possono eseguire.
@@ -150,6 +153,6 @@ Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configu
 |---|---
 |[Esplora metriche](app-insights-metrics-explorer.md)<br/>Consente di filtrare e segmentare le metriche|![Esempio di ricerca](./media/app-insights-dashboards/64.png)
 |[Ricerca diagnostica](app-insights-diagnostic-search.md)<br/>Consente di cercare e analizzare eventi ed eventi correlati e di creare bug |![Esempio di ricerca](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>Linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)
+|[Analisi](app-insights-analytics.md)<br/>Linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

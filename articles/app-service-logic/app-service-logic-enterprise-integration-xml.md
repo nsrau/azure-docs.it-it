@@ -26,8 +26,12 @@ Enterprise Integration Pack semplifica la convalida ed elaborazione dei document
 - [Codifica file flat e decodifica file flat](./app-service-logic-enterprise-integration-flatfile.md "Informazioni sulla codifica/decodifica dei file flat"): consente di codificare o decodificare un file flat.
 - [XPath](https://msdn.microsoft.com/library/mt643789.aspx): consente di arricchire un messaggio ed estrarre le proprietà specifiche del messaggio. Le proprietà estratte possono quindi essere usate per indirizzare il messaggio a un endpoint intermedio o di destinazione.
 
+## Prova
+
+Per fare una prova, fare clic [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) per distribuire una propria app per la logica completamente operativa usando le funzionalità XML di App per la logica.
+
 ## Altre informazioni
 
 [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

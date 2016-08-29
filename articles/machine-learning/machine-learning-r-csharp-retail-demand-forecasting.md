@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="xueshzha"/>
+	ms.date="08/17/2016" 
+	ms.author="yijichen"/>
 
 #Previsioni - ETS + STL  
 
@@ -84,7 +84,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 
 In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script”][execute-r-script] è collegato allo schema dati e genera il modello di previsione ARIMA usando le funzioni 'ets' e 'forecast' di R.
 
-###Flusso dell'esperimento:
+###Flusso dell'esperimento
 
 ![Flusso dell'esperimento][2]
 
@@ -123,7 +123,7 @@ In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati
 
 ##Limitazioni 
 
-Questo è un esempio molto semplice di previsione ETS+STL. Come si può notare nell'esempio di codice precedente, il rilevamento di errori non è implementato, il servizio presuppone che tutte le variabili siano valori continui/positivi e la frequenza deve essere un numero intero maggiore di 1. La lunghezza dei vettori della data e il valore devono essere gli stessi e la lunghezza della serie temporale deve essere maggiore della frequenza 2 *. La variabile relativa alla data deve avere il formato 'mm/dd/yyyy'.
+Questo è un esempio molto semplice di previsione ETS+STL. Come si può notare nell'esempio di codice precedente, il rilevamento di errori non è implementato, il servizio presuppone che tutte le variabili siano valori continui/positivi e la frequenza deve essere un numero intero maggiore di 1. La lunghezza dei vettori di data e valore deve essere uguale. La lunghezza dei vettori della data e il valore devono essere gli stessi e la lunghezza della serie temporale deve essere maggiore della frequenza 2 *. La variabile relativa alla data deve avere il formato 'mm/dd/yyyy'.
 
 ##Domande frequenti
 Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione in Azure Marketplace, vedere [qui](machine-learning-marketplace-faq.md).
@@ -137,4 +137,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

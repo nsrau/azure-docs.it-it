@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/07/2016"
+   ms.date="08/16/2016"
    ms.author="bruceper" />
 
 # Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
@@ -83,7 +83,7 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche sull'attivit�
 - [Passare valori protetti come password durante la distribuzione](../resource-manager-keyvault-parameter.md): se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.
 - [Extensible Key Management tramite l'insieme di credenziali delle chiavi di Azure (SQL Server)](https://msdn.microsoft.com/library/dn198405.aspx): SQL Server Connector per l'insieme di credenziali delle chiavi di Azure consente a SQL Server e SQL-in-a-VM di sfruttare il servizio di insieme di credenziali delle chiavi di Azure come provider EKM (Extensible Key Management) per proteggere le chiavi di crittografia per le applicazioni. L'articolo contiene esempi di Transparent Data Encryption, backup della crittografia e crittografia a livello di colonna.
 - [Come distribuire certificati a macchine virtuali dall'insieme di credenziali delle chiavi](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): un'applicazione cloud in esecuzione su una VM in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
-- [Come integrare l'insieme di credenziali delle chiavi con Crittografia dischi di Azure per VM IaaS Windows e Linux](../azure-security-disk-encryption.md): questa soluzione per la crittografia dei dischi è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
+- [Come integrare l'insieme di credenziali delle chiavi con Crittografia dischi di Azure per VM IaaS Windows e Linux](../security/azure-security-disk-encryption.md): questa soluzione per la crittografia dei dischi è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
 - [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo end-to-end): illustra come configurare la rotazione e il controllo delle chiavi con l'insieme di credenziali delle chiavi di Azure.
 
 Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere gli [esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -105,4 +105,4 @@ Questi articoli illustrano altri scenari e servizi che usano l'integrazione con 
 - [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

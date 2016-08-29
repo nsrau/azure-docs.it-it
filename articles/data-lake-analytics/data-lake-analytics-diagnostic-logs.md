@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="Blackmist" 
    manager="paulettm" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
-   ms.author="larryfr"/>  
+   ms.date="08/11/2016"
+   ms.author="larryfr"/>
 
 # Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -32,7 +32,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Analytics. Vedere le [istruzioni](data-lake-analytics-get-started-portal.md#signup).
 - **Account di Azure Data Lake Analytics**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md).
 
-## Abilitare la registrazione diagnostica per l'account di Data Lake Analytics
+## Abilitazione della registrazione
 
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 
 3. Nel pannello **Diagnostica**, apportare le modifiche seguenti per configurare la registrazione diagnostica.
 
-	![Abilitare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")  
+	![Abilitare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
 
 	* Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 	* È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
@@ -52,7 +52,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 
 Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i log nella scheda **Log di diagnostica**.
 
-## Visualizzare i log di diagnostica dell'account di Data Lake Analytics
+## Visualizzare i log
 
 Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytics.
 
@@ -63,7 +63,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
 1. Nel pannello **Impostazioni** dell'account Data Lake Analytics, fare clic su **Log di diagnostica**.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")  
+	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
 
 2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati in **Log di controllo** e **Log delle richieste**.
 	* I log delle richieste acquisiscono tutte le richieste API fatte nell'account di Data Lake Analytics.
@@ -75,7 +75,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")  
+	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 
 	* Il contenitore **insights-logs-audit** contiene i log di controllo.
 	* Il contenitore **insights-logs-requests** contiene i log delle richieste.
@@ -108,7 +108,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Informazioni sulla struttura dei dati del log
+## Struttura di log
 
 I log di controllo e delle richieste sono in formato JSON. In questa sezione, viene esaminata la struttura di JSON per i log delle richieste e di controllo.
 
@@ -225,13 +225,13 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ e __Parallelism__ forniscono informazioni su un'operazione e contengono un valore solo se un'operazione è stata avviata o completata. Ad esempio, __SubmitTime__ contiene un valore dopo che __operationName__ indica __JobSubmitted__.
 
-## Esempi per elaborare i dati di log
+## Elaborare i dati di log
 
 Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio all'indirizzo [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Vedere anche
+## Passaggi successivi
 
 - [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

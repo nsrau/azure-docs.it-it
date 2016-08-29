@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurare Multipath I/O per il dispositivo StorSimple
@@ -48,12 +48,12 @@ Per installare questa funzionalità nell'host Windows Server, completare la proc
 3. Nella procedura guidata **Aggiungi ruoli e funzionalità**, effettuare le seguenti operazioni:
 
 	- Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
-	- Nella pagina **Seleziona tipo di installazione**, accettare l’impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**.![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+	- Nella pagina **Seleziona tipo di installazione**, accettare l’impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
 	- Nella pagina **Selezione server di destinazione**, scegliere **Selezionare un server dal pool di server**. Il server host deve essere rilevato automaticamente. Fare clic su **Avanti**.
 	- Nella pagina **Selezione ruoli server**, fare clic su **Avanti**.
-	- Nella pagina **Selezione funzionalità**, selezionare **Multipath I/O** e fare clic su **Avanti**.![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-	- Nella pagina **Conferma selezioni per l’installazione**, confermare la selezione, quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come mostrato di seguito. Fare clic su **Installa**.![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-	- Al termine dell'installazione si riceverà una notifica. Fare clic su **Chiudi** per chiudere la procedura guidata.![Aggiunta guidata ruoli e funzionalità 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+	- Nella pagina **Selezione funzionalità**, selezionare **Multipath I/O** e fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+	- Nella pagina **Conferma selezioni per l’installazione**, confermare la selezione, quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come mostrato di seguito. Fare clic su **Installa**. ![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+	- Al termine dell'installazione si riceverà una notifica. Fare clic su **Chiudi** per chiudere la procedura guidata. ![Aggiunta guidata ruoli e funzionalità 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
 ## Passaggio 2: Configurare MPIO per volumi StorSimple
 
@@ -101,7 +101,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 
 9. Fare clic su **Proprietà**. Nella finestra di dialogo **Proprietà**, fare clic su **Aggiungi sessione**.
 10. Nella finestra di dialogo **Connessione alla destinazione**, selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Advanced**.
-11. Nella finestra di dialogo **Impostazioni avanzate**:										
+11. Nella finestra di dialogo **Impostazioni avanzate**:
 	-  Nell’elenco a discesa **Scheda locale**, selezionare Iniziatore iSCSI Microsoft.
 	-  Nell’elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP corrispondente all'host. In questo caso, si sta eseguendo la connessione di due interfacce di rete sul dispositivo a una singola interfaccia di rete sull'host. Pertanto, questa interfaccia è identica a quella fornita per la prima sessione.
 	-  Nell’elenco a discesa **IP portale di destinazione**, selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
@@ -173,4 +173,4 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

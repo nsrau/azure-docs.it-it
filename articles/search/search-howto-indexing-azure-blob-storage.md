@@ -12,8 +12,8 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="08/08/2016"
-ms.author="eugenesh" />  
+ms.date="08/16/2016"
+ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 
@@ -37,7 +37,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 
 ## Configurazione dell'indicizzazione BLOB
 
-Per impostare e configurare un indicizzatore di Archiviazione BLOB di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati**, come descritto in [questo articolo](https://msdn.microsoft.com/library/azure/dn946891.aspx). In futuro, il supporto per l'indicizzazione BLOB verrà aggiunto ad Azure Search .NET SDK e al portale di Azure.
+Per impostare e configurare un indicizzatore di Archiviazione BLOB di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati**, come descritto in [questo articolo](https://msdn.microsoft.com/library/azure/dn946891.aspx). È possibile anche usare la [versione 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) di .NET SDK. In futuro, il supporto per l'indicizzazione BLOB verrà aggiunto al portale di Azure.
 
 Per configurare un indicizzatore, eseguire questi tre passaggi: creare un'origine dati, creare un indice, configurare l'indicizzatore.
 
@@ -303,4 +303,4 @@ Se è necessario estrarre tutti i metadati ignorando tuttavia l'estrazione del c
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

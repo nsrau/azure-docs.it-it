@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
@@ -50,7 +50,7 @@ Per creare un'app Web di Azure e un database SQL, seguire questa procedura:
 
 5. Dopo aver letto la descrizione dell'app Web e dell'SQL, fare clic su **Crea**.
 
-6. Fare clic sulle singole parti (**Gruppo di risorse**, **App Web**, **Database** e **Sottoscrizione**) e immettere o selezionare i valori per i campi obbligatori:
+6. Fare clic sulle singole parti, **Gruppo di risorse**, **App Web**, **Database** e **Sottoscrizione**, e immettere o selezionare i valori per i campi obbligatori:
 	
 	- Immettere un nome di URL a scelta.
 	- Configurare le credenziali del server di database.
@@ -298,4 +298,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

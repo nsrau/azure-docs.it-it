@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 
@@ -20,7 +20,7 @@
 Questa esercitazione descrive l'integrazione di Azure e Zscaler ZSCloud. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
--   Sottoscrizione di Zscaler ZSCloud abilitata per l'accesso Single Sign-On
+-   Sottoscrizione di ZScaler ZSCloud abilitata per l'accesso Single Sign-On
   
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zscaler ZSCloud potranno accedere all'applicazione tramite il sito aziendale di Zscaler ZSCloud (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
   
@@ -72,7 +72,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Zscaler ZSCloud** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **ZScaler ZSCloud** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Configura accesso Single Sign-On")
 
@@ -111,8 +111,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Single Sign-On")
 
-    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Zscaler ZSCloud** del portale di Azure classico copiare il valore **URL richiesta di autenticazione** e quindi incollarlo nella casella di testo **URL del portale SAML al quale si reindirizzano gli utenti per l’autenticazione**.
-    2.  Nella casella di testo **Attributo che contiene il nome di accesso** digitare **ID nome**.
+    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in ZScaler ZSCloud** del portale di Azure classico copiare il valore **URL richiesta di autenticazione** e quindi incollarlo nella casella di testo **URL of the SAML Portal to which users are sent for authentication** (URL del portale di SAML a cui vengono indirizzati gli utenti per l'autenticazione).
+    2.  Nella casella di testo **Attribute containing Login Name** digitare **NameID**.
     3.  Per caricare il certificato scaricato fare clic su **Zscaler pem**.
     4.  Selezionare **Enable SAML Auto-Provisioning**.
 
@@ -121,9 +121,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Amministrazione](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800210.png "Amministrazione")
 
     1.  Fare clic su **Save**.
-    2.  Fare clic su **Attiva subito**.
+    2.  Fare clic su **Activate Now**.
 
-11. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Zscaler ZSCloud** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa**.
+11. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in ZScaler ZSCloud** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Configura accesso Single Sign-On")
 
@@ -169,24 +169,24 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler ZSCloud, è necessa
 
 3.  Fare clic su **User Management**.
 
-    ![Aggiungi](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Aggiungi")
+    ![Add](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Add")
 
 4.  Nella scheda **Users** fare clic su **Add**.
 
-    ![Aggiungi](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Aggiungi")
+    ![Add](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Aggiungi")
 
 5.  Nella sezione Add User seguire questa procedura:
 
     ![Aggiunta di un utente](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781038.png "Aggiunta di un utente")
 
     1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Salva**.
+    2.  Fare clic su **Save**.
 
 >[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler ZSCloud per eseguire il provisioning degli account utente Azure AD.
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Zscaler ZSCloud, seguire questa procedura:
 
@@ -202,4 +202,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

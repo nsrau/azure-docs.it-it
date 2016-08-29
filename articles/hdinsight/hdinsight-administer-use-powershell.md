@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
@@ -103,7 +103,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![Ribilanciamento scala di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
@@ -172,7 +172,7 @@ Il seguente script di Powershell dimostra come ottenere il nome dell’account d
 
 ##Trovare il gruppo di risorse
 
-Nella modalità ARM, ogni cluster HDInsight appartiene a un gruppo di risorse di Azure. Trovare il gruppo di risorse:
+Nella modalità Resource Manager ogni cluster HDInsight appartiene a un gruppo di risorse di Azure. Trovare il gruppo di risorse:
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

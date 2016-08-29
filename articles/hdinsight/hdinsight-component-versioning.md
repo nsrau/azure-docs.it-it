@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -87,15 +87,15 @@ La tabella seguente include l'elenco delle versioni di HDInsight attualmente dis
 * i cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per HDInsight 2.1 e versioni successive. Non sono disponibili per i cluster HDInsight 1.6.
 * Dopo che il supporto per una particolare versione è scaduto, potrebbe non essere disponibile tramite il portale di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di Azure classico. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) di Windows PowerShell e .NET SDK fino alla data di dichiarazione di obsolescenza.
 
-HDInsight Version|Versione HDP|Disponibilità elevata|Data di rilascio|Disponibile nel portale di Azure|Data di scadenza del supporto|Data di dichiarazione obsolescenza
----|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Sì|29/03/2016|Sì||
-HDI 3.3|HDP 2.3|Sì|02/12/2015|Sì||
-HDI 3.2|HDP 2.2|Sì|2/18/2015|Sì||
-HDI 3.1|HDP 2.1|Sì|6/24/2014|Sì||
-HDI 3.0|HDP 2.0|Sì|11/02/2014|Sì|17/09/2014|30/06/2015
-HDI 2.1|HDP 1.3|Sì|28/10/2013|Sì|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1|No|28/10/2013|Sì|26/04/2014|31/05/2015
+HDInsight Version|Versione HDP|Sistema operativo della macchina virtuale|Disponibilità elevata|Data di rilascio|Disponibile nel portale di Azure|Data di scadenza del supporto|Data di dichiarazione obsolescenza
+---|---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Sì|29/03/2016|Sì||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sì|02/12/2015|Sì||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sì|2/18/2015|Sì||
+HDI 3.1|HDP 2.1|Windows Server 2012 R2|Sì|6/24/2014|Sì||
+HDI 3.0|HDP 2.0|Windows Server 2012 R2|Sì|11/02/2014|Sì|17/09/2014|30/06/2015
+HDI 2.1|HDP 1.3|Windows Server 2012 R2|Sì|28/10/2013|Sì|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1||No|28/10/2013|Sì|26/04/2014|31/05/2015
 
 **Distribuzione di cluster non predefiniti**
 
@@ -156,4 +156,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

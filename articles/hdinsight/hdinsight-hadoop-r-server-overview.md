@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/01/2016"
+   ms.date="08/17/2016"
    ms.author="jeffstok"/>
 
 
@@ -63,23 +63,24 @@ Per assegnare un punteggio in HDInsight, scrivere una funzione R che chiama il m
 
 ### Assegnare punteggi in Azure Machine Learning
 
-Per assegnare un punteggio tramite un servizio Web di Azure Machine Learning, usare il [pacchetto R open source Azure Machine Learning](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) per [pubblicare il modello come servizio Web di Azure](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/). Usare quindi le funzioni di Machine Learning per creare un'interfaccia utente per il servizio Web e poi richiamare il servizio Web quando necessario per l'assegnazione dei punteggi.
+Per assegnare un punteggio tramite un servizio Web di Azure Machine Learning, usare il pacchetto R open source di Azure Machine Learning noto come [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) per pubblicare il modello come servizio Web di Azure. Per comodità, questo pacchetto è già installato nel nodo perimetrale. Usare quindi le funzioni di Machine Learning per creare un'interfaccia utente per il servizio Web e poi richiamare il servizio Web quando necessario per l'assegnazione dei punteggi.
 
 Se si sceglie questa opzione, sarà necessario convertire gli oggetti del modello ScaleR in oggetti equivalenti del modello open source per l'uso con il servizio Web. A tale scopo, è possibile usare le funzioni di coercizione di ScaleR, come `as.randomForest()` per i modelli basati su insiemi.
 
+
 ### Assegnare punteggi in locale
 
-Per assegnare punteggi in locale dopo aver creato il modello, si potrebbe serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in [Assegnazione di punteggi in HDInsight](#scoring-in-hdinsight) o tramite [DeployR](https://deployr.revolutionanalytics.com/).
+Per assegnare punteggi in locale dopo aver creato il modello, si potrebbe serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in [Assegnare punteggi in HDInsight](#scoring-in-hdinsight) o tramite [DeployR](https://deployr.revolutionanalytics.com/).
 
 ## Eseguire la manutenzione del cluster
 
 ### Installare e gestire i pacchetti R
 
-Molti dei pacchetti R che si usano saranno necessari sul nodo perimetrale, in quanto la maggior parte degli script R sarà eseguita qui. Per installare altri pacchetti R sul nodo perimetrale è possibile usare il consueto metodo `install.packages()` in R.
+Molti dei pacchetti R che si usano saranno necessari sul nodo perimetrale, in quanto la maggior parte degli script R sarà eseguita qui. Per installare altri pacchetti R nel nodo perimetrale è possibile usare il consueto metodo `install.packages()` in R.
 
-Nella maggior parte dei casi non è necessario installare altri pacchetti R sui nodi dati se si usano solo routine della libreria ScaleR in tutto il cluster. Potrebbero invece essere necessari pacchetti aggiuntivi per supportare l'uso dell'esecuzione **rxExec** o **RxDataStep** sui nodi dati.
+Nella maggior parte dei casi non è necessario installare altri pacchetti R sui nodi dati se si usano solo routine della libreria ScaleR in tutto il cluster. Potrebbero invece essere necessari pacchetti aggiuntivi per supportare l'uso dell'esecuzione **rxExec** o **RxDataStep** nei nodi dati.
 
-In questi casi i pacchetti aggiuntivi devono essere specificati tramite l'uso di un'azione script dopo la creazione del cluster. Per altre informazioni, vedere l'articolo dedicato alla [creazione di un cluster HDInsight con R Server](hdinsight-hadoop-r-server-get-started.md).
+In questi casi i pacchetti aggiuntivi devono essere specificati tramite l'uso di un'azione script dopo la creazione del cluster. Per altre informazioni, vedere l'articolo relativo alla [creazione di un cluster HDInsight con R Server](hdinsight-hadoop-r-server-get-started.md).
 
 ### Modificare le impostazioni di memoria per Hadoop MapReduce
 
@@ -91,7 +92,7 @@ In questi casi i pacchetti aggiuntivi devono essere specificati tramite l'uso di
 
 ### Applicare la scalabilità al cluster
 
-Un cluster esistente può essere dimensionato, in aumento o in riduzione, tramite il portale. Eseguendo la scalabilità è possibile ottenere funzionalità aggiuntive necessarie per le attività di elaborazione più consistenti oppure è possibile ridimensionare il cluster quando inutilizzato. Per istruzioni su come eseguire la scalabilità di un cluster, vedere [Gestire cluster HDInsight](hdinsight-administer-use-portal-linux.md).
+Un cluster esistente può essere dimensionato, in aumento o in riduzione, tramite il portale. Eseguendo la scalabilità è possibile ottenere funzionalità aggiuntive necessarie per le attività di elaborazione più consistenti oppure è possibile ridimensionare il cluster quando inutilizzato. Per istruzioni su come ridimensionare un cluster, vedere l'articolo relativo alla [gestione di cluster HDInsight](hdinsight-administer-use-portal-linux.md).
 
 ### Eseguire la manutenzione del sistema
 
@@ -103,9 +104,9 @@ Poiché i nodi head sono ridondanti e non tutti i nodi dati sono influenzati dal
 
 Il nodo perimetrale Linux di un cluster HDInsight Premium è la destinazione delle analisi basate su R. Dopo la connessione al cluster, è possibile avviare la console di interfaccia di R Server digitando **R** al prompt dei comandi di Linux. L'uso della console di interfaccia è più semplice se si esegue un editor di testo per lo sviluppo di script R in un'altra finestra e si tagliano e incollano le sezioni dello script nella console R.
 
-Uno strumento più avanzato per lo sviluppo di script R è l'IDE basata su R per l'uso sul desktop. Ad esempio Microsoft ha di recente lanciato [Strumenti R per Visual Studio](https://www.visualstudio.com/it-IT/features/rtvs-vs.aspx) (RTVS). Si tratta di una famiglia di strumenti per desktop e server di [RStudio](https://www.rstudio.com/products/rstudio-server/). È anche possibile usare [StatET](http://www.walware.de/goto/statet) basati su Eclipse di Walware.
+Uno strumento più avanzato per lo sviluppo di script R è l'IDE basato su R per l'uso su PC desktop, come [Strumenti R per Visual Studio](https://www.visualstudio.com/it-IT/features/rtvs-vs.aspx) (RTVS), recentemente annunciato da Microsoft. Si tratta di una famiglia di strumenti per desktop e server di [RStudio](https://www.rstudio.com/products/rstudio-server/). È anche possibile usare [StatET](http://www.walware.de/goto/statet), basato su Eclipse, di Walware.
 
-Un'altra opzione è installare un'IDE sul nodo perimetrale stesso di Linux. Una scelta molto comune è [RStudio Server](https://www.rstudio.com/products/rstudio-server/) che offre un'IDE basata sul browser per l'uso da parte di client remoti. L'installazione di RStudio Server nel nodo perimetrale di un cluster HDInsight Premium offre un'esperienza IDE completa per lo sviluppo e l'esecuzione di script R con R Server nel cluster. Questo metodo può risultare molto più produttivo rispetto all'uso della console di R predefinita. Se si desidera usare RStudio Server, vedere [Installazione di RStudio sui cluster HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
+Un'altra opzione è installare un'IDE sul nodo perimetrale stesso di Linux. Una scelta molto comune è [RStudio Server](https://www.rstudio.com/products/rstudio-server/) che offre un IDE basato sul browser per l'uso da parte di client remoti. L'installazione di RStudio Server nel nodo perimetrale di un cluster HDInsight Premium offre un'esperienza IDE completa per lo sviluppo e l'esecuzione di script R con R Server nel cluster. Questo metodo può risultare molto più produttivo rispetto all'uso della console di R predefinita. Per informazioni sull'uso di RStudio Server, vedere [Installazione di RStudio con R Server su HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## Informazioni sui prezzi
 
@@ -123,4 +124,4 @@ Per leggere altre informazioni sull'uso di R Server con i cluster HDInsight, seg
 
 - [Opzioni di Archiviazione di Azure per R Server su HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

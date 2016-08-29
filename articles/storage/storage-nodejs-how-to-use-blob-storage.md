@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 
 # Come usare l'archiviazione BLOB da Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
-## Panoramica
+## Overview
 
 Questo articolo illustra scenari comuni relativi all'uso dell'archiviazione BLOB. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati illustrano come caricare, elencare, scaricare ed eliminare i BLOB.
 
@@ -107,7 +107,7 @@ L'esempio di codice seguente illustra l'impostazione del livello di accesso su *
 	    }
 	});
 
-In alternativa, è possibile modificare il livello di accesso di un contenitore utilizzando **setContainerAcl** per specificare il livello di accesso. L'esempio di codice seguente illustra la modifica del livello di accesso al contenitore:
+In alternativa, è possibile modificare il livello di accesso di un contenitore usando **setContainerAcl** per specificare il livello di accesso. L'esempio di codice seguente illustra la modifica del livello di accesso al contenitore:
 
 	blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, {publicAccessLevel : 'container'} /* publicAccessLevel*/, function(error, result, response){
 	  if(!error){
@@ -415,4 +415,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

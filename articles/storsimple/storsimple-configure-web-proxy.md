@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurare il proxy web per il dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questa esercitazione viene illustrato come utilizzare Windows PowerShell per StorSimple per configurare e visualizzare le impostazioni proxy Web per il dispositivo StorSimple. Le impostazioni proxy Web vengono utilizzate dal dispositivo StorSimple per comunicare con il cloud. Un server proxy Web viene utilizzato per aggiungere un ulteriore livello di sicurezza, contenuto per filtro e cache per semplificare i requisiti di larghezza di banda o l'analisi dei dati.
 
@@ -137,12 +137,12 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 |3\.|0x80070057 - Parametro non valido|Uno dei parametri forniti per le impostazioni proxy non è valido.|L'URI non è fornito nel formato corretto. Utilizzare il seguente formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
 |4\.|0x800706ba - Server RPC non disponibile|La causa principale è una delle seguenti:</br></br>Il cluster non è attivo.</br></br>Il servizio di percorso dati non è in esecuzione.</br></br>Il comando viene eseguito dal controller passivo e non è in grado di comunicare con il controller attivo.|Contattare il supporto tecnico Microsoft per assicurarsi che il cluster sia attivo e il servizio di percorso dati sia in esecuzione.</br></br>Eseguire il comando dal controller attivo. Se si desidera eseguire il comando dal controller passivo, è necessario verificare che il controller passivo sia in grado di comunicare con il controller attivo. È necessario contattare il supporto tecnico Microsoft se la connettività viene interrotta.|
 |5\.|0X800706be - Chiamata RPC non riuscita|Cluster non attivo.|Contattare il supporto tecnico Microsoft per assicurarsi che il cluster sia attivo.|
-|6\.|0x8007138f - Risorsa cluster non trovata|La risorsa cluster del servizio di piattaforma non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta.|Potrebbe essere necessario eseguire il ripristino delle impostazioni di fabbrica del dispositivo. Potrebbe essere necessario creare una risorsa di piattaforma. Contattare il supporto tecnico Microsoft per i passaggi successivi.|
+|6\.|0x8007138f - Risorsa cluster non trovata|La risorsa cluster del servizio di piattaforma non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta.|Potrebbe essere necessario eseguire il ripristino delle impostazioni predefinite sul dispositivo. Potrebbe essere necessario creare una risorsa di piattaforma. Contattare il supporto tecnico Microsoft per i passaggi successivi.|
 |7\.|0x8007138c - Risorsa cluster non online|Le risorse cluster del servizio di percorso dati o piattaforma non sono online.|Contattare il supporto tecnico Microsoft per garantire che la risorsa servizio di percorso dati e piattaforma sia online.|
 
 > [AZURE.NOTE] 
 > 
-> -  L'elenco dei messaggi di errore riportato sopra non è esaustivo. 
+> -  L'elenco dei messaggi di errore riportato sopra non è esaustivo.
 > - Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure classico del servizio StorSimple Manager. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico. |
 
 ## Passaggi successivi
@@ -151,4 +151,4 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

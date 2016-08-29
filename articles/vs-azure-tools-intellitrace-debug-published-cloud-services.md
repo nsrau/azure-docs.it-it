@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio
 
-##Panoramica
+##Overview
 
 Con IntelliTrace è possibile registrare informazioni di debug approfondite per un'istanza del ruolo quando è in esecuzione in Azure. Se è necessario individuare la causa di un problema, è possibile usare i log di IntelliTrace per esaminare il codice da Visual Studio come se fosse in esecuzione in Azure. In effetti, IntelliTrace registra i dati fondamentali dell’esecuzione del codice e dell’ambiente quando l'applicazione Azure è in esecuzione come servizio cloud in Azure e consente di riprodurre i dati registrati da Visual Studio. In alternativa, è possibile usare il debug remoto per connettersi direttamente a un servizio cloud in esecuzione in Azure. Vedere [Debug dei servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=623041).
 
@@ -67,4 +67,4 @@ Quando i log vengono scaricati, Visual Studio visualizza lo stato di avanzamento
 
 [Debug di Servizi cloud](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

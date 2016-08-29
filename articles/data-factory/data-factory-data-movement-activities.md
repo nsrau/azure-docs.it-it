@@ -15,14 +15,14 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/08/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Spostare dati con l'attività di copia
 
 ## Overview
 Azure Data Factory consente di usare l'attività di copia per copiare i dati di diverse forme da una vasta gamma di origini dati locali e cloud in Azure, per poter ulteriormente trasformarli e analizzarli. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'utilizzo delle applicazioni.
 
-![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)  
+![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)
 
 L'attività di copia è un servizio [disponibile a livello globale](#global) sicuro, affidabile e scalabile. Questo articolo fornisce informazioni dettagliate sullo spostamento dei dati in Data factory e sull'attività di copia. Prima di tutto, verrà illustrato come avviene la migrazione dei dati tra due archivi dati cloud e tra un archivio dati locale e un archivio dati cloud
 
@@ -43,7 +43,7 @@ Il servizio sceglie automaticamente l'area ottimale per lo spostamento dei dati,
 ### Copiare dati tra un archivio dati locale e un archivio dati cloud
 Per spostare in modo sicuro i dati tra gli archivi dati locali protetti da firewall aziendale e un archivio dati cloud, è necessario installare il Gateway di gestione dati, ovvero un agente che consente lo spostamento e l'elaborazione ibridi dei dati sul computer locale. Il Gateway di gestione dati può essere installato sullo stesso computer dell'archivio dati o su un computer separato che è in grado di accedere all'archivio dati. In questo scenario, la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo vengono eseguiti dal Gateway di gestione dati. In questo caso, i dati non transitano attraverso il servizio Data factory di Azure. Gateway di gestione dati scrive direttamente i dati nell'archivio di destinazione.
 
-![copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)  
+![copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
 Per l'introduzione e la procedura dettagliata leggere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md), mentre l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) fornisce informazioni dettagliate sul gateway di gestione dei dati.
 
@@ -97,6 +97,9 @@ Giappone occidentale | Giappone orientale
 Brasile meridionale | Brasile meridionale
 Australia orientale | Australia orientale
 Australia sudorientale | Australia sudorientale
+India centrale | India centrale
+India meridionale | India centrale
+India occidentale | India centrale
 
 
 > [AZURE.NOTE] Se l'area dell'archivio dati di destinazione non è nell'elenco precedente, l'attività di copia non viene completata invece di passare attraverso un'area alternativa.
@@ -185,4 +188,4 @@ Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico arc
 - Per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

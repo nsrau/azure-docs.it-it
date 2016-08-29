@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)? | Microsoft Azure"
+	pageTitle="Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)? | Microsoft Azure "
 	description="Viene descritto cosa succede al progetto WebApi quando ci si connette ad Azure AD mediante Visual Studio"
   services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)?
@@ -52,7 +52,7 @@
 
 Al progetto è stata aggiunta una classe Startup, **App\_Start/Startup.Auth.cs**, contenente la logica di avvio per l'autenticazione di Azure AD.
 
-###È stato aggiunto codice di avvio al progetto
+###È stato aggiunto un codice di avvio al progetto
 
 Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato includendo una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto.
 
@@ -70,7 +70,7 @@ Sono state aggiunte le voci di configurazione seguenti.
 
 ###È stata creata un'app Azure AD
 
-Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD.
+Un'app Azure AD è stata creata nella directory selezionata nella procedura guidata.
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
@@ -117,4 +117,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

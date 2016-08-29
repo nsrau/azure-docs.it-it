@@ -47,7 +47,7 @@ Il sink di Hub eventi in Diagnostica di Azure è supportato su servizi Cloud, ma
 
 ## Collegare Diagnostica di Azure al sink dell'Hub eventi
 
-Per impostazione predefinita, Diagnostica di Azure effettua sempre il sink dei registri e delle metriche a un account di archiviazione di Azure. Un'applicazione può anche eseguire il sink all'Hub eventi tramite l'aggiunta di una nuova sezione **Sinks** all'elemento **WadCfg** nella sezione **PublicConfig** del file *.wadcfgx*. In Visual Studio il file *.wadcfgx* viene archiviato nel percorso di destinazione seguente: **Cloud Service Project** (Progetto servizio cloud) > **Ruoli** > **(Nome ruolo)** > file **diagnostics.wadcfgx**.
+Per impostazione predefinita, Diagnostica di Azure effettua sempre il sink dei registri e delle metriche a un account di archiviazione di Azure. Un'applicazione può anche eseguire il sink all'Hub eventi tramite l'aggiunta di una nuova sezione **Sinks** all'elemento **WadCfg** nella sezione **PublicConfig** del file *.wadcfgx*. In Visual Studio il file con estensione *wadcfgx* viene archiviato nel percorso di destinazione seguente: **Cloud Service Project** (Progetto servizio cloud) > **Ruoli** > **(Nome ruolo)** > file **diagnostics.wadcfgx**.
 
 ```
 <SinksConfig>
@@ -57,7 +57,7 @@ Per impostazione predefinita, Diagnostica di Azure effettua sempre il sink dei r
 </SinksConfig>
 ```
 
-In questo esempio, l'URL dell'Hub eventi è impostato sullo spazio dei nomi completo dell'Hub eventi (spazio dei nomi ServiceBus + "/" + nome Hub eventi).
+In questo esempio, l'URL dell'hub eventi è impostato sullo spazio dei nomi completo dell'hub eventi: spazio dei nomi di Hub eventi + "/" + nome dell'hub eventi.
 
 L'URL dell'Hub eventi viene visualizzato nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard di Hub eventi.
 
@@ -74,7 +74,7 @@ Il sink dell'Hub eventi deve essere dichiarato e definito anche nella sezione **
 </PrivateConfig>
 ```
 
-Il valore `SharedAccessKeyName` deve corrispondere a una chiave di firma di accesso condiviso (SAS) e ai criteri definiti nello spazio dei nomi **ServiceBus/EventHub**. Passare al dashboard Hub eventi nel [portale di Azure](https://manage.windowsazure.com), selezionare la scheda **Configura** e impostare un criterio denominato (ad esempio, "SendRule") che dispone delle autorizzazioni *di invio*. Anche il valore **StorageAccount** viene dichiarato in **PrivateConfig**. Non è necessario modificare i valori se funzionano. In questo esempio, i valori vengono lasciati vuoti, poiché verranno impostati da un asset downstream. Ad esempio, il file di configurazione dell'ambiente *ServiceConfiguration.Cloud.cscfg* consente l'impostazione delle chiavi e dei nomi appropriati per l'ambiente.
+Il valore `SharedAccessKeyName` deve corrispondere a una chiave di firma di accesso condiviso e ai criteri definiti nello spazio dei nomi di **Hub eventi**. Passare al dashboard Hub eventi nel [portale di Azure](https://manage.windowsazure.com), selezionare la scheda **Configura** e impostare un criterio denominato (ad esempio, "SendRule") che dispone delle autorizzazioni *di invio*. Anche il valore **StorageAccount** viene dichiarato in **PrivateConfig**. Non è necessario modificare i valori se funzionano. In questo esempio, i valori vengono lasciati vuoti, poiché verranno impostati da un asset downstream. Ad esempio, il file di configurazione dell'ambiente *ServiceConfiguration.Cloud.cscfg* consente l'impostazione delle chiavi e dei nomi appropriati per l'ambiente.
 
 > [AZURE.WARNING] La chiave di firma di accesso condiviso di Hub eventi è archiviata in testo normale nel file *.wadcfgx*. Spesso questa chiave viene archiviata nel controllo del codice sorgente o risulta disponibile in un asset del server di compilazione, pertanto è necessario proteggerla in maniera appropriata. Si consiglia di usare una chiave SAS con autorizzazioni *Send only* in modo che qualsiasi utente malintenzionato possa al massimo scrivere nell'Hub eventi, ma non ascoltarlo o gestirlo.
 
@@ -319,4 +319,4 @@ Il file *ServiceConfiguration.Cloud.cscfg* complementare per questo esempio si p
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

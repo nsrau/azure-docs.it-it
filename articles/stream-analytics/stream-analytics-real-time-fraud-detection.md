@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok" />
 
 
@@ -37,7 +37,7 @@ In scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard vien
 ## Prerequisiti
 
 - Scaricare [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft
-- Facoltativo: codice sorgente del generatore di eventi da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
+- Facoltativo: codice sorgente del generatore di eventi da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## Creare un input di hub eventi di Azure e un gruppo di consumer
 
@@ -114,7 +114,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 4.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **Alias di input**:immettere un nome descrittivo per il processo di input, ad esempio *CallStream*. Si noti che il nome verrà usato nella query in un secondo momento.
-	* **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi dei flussi, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+	* **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 
 	Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **Spazio dei nomi del bus di servizio**, **Nome hub eventi**, **Nome criterio hub eventi**, **Chiave criterio hub eventi** e **Conteggio partizioni hub eventi**.
 
@@ -155,7 +155,7 @@ Se si desidera archiviare ogni evento, è possibile utilizzare una query passthr
 	> Assicurarsi che il nome dell'origine di input corrisponda al nome dell'input specificato precedentemente.
 
 3.	Fare clic su **Test** nell'editor di query.
-4.	Fornire un file di test, che può essere sia un file creato tramite la procedura precedente che [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Fornire un file di test, che può essere sia un file creato tramite la procedura precedente che [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/SampleDataFiles/Telco.json).
 5.	Fare clic sul segno di spunta e vedere i risultati visualizzati sotto la definizione della query.
 
 	![Risultati della definizione della query](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sim-fraud-output.png)
@@ -227,7 +227,7 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 3.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **ALIAS DI OUTPUT**: immettere un nome descrittivo per l'output del processo.
-	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
+	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi di flusso, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* **ACCOUNT DI ARCHIVIAZIONE**: selezionare il nome dell’account di archiviazione.
 	* **CONTENITORE**: selezionare il nome del contenitore.
 	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da utilizzare nella scrittura dell’output del BLOB
@@ -249,7 +249,7 @@ Poiché l'input, la query e l'output di un processo sono stati specificati, a qu
 
 ## Visualizzare l'output di rilevamento di illeciti
 
-Utilizzare uno strumento di [esplorazione di archiviazione di Azure](https://azurestorageexplorer.codeplex.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare la scrittura degli eventi illeciti nell’output in tempo reale.
+Utilizzare uno strumento di [esplorazione di archiviazione di Azure](http://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare la scrittura degli eventi illeciti nell’output in tempo reale.
 
 ![Rilevamento di illeciti: eventi illeciti visualizzati in tempo reale](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
@@ -264,4 +264,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

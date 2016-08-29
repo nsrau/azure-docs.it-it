@@ -30,10 +30,10 @@ Si presuppone che si abbia accesso a un feed di dati. È ad esempio possibile es
 
 Quando la soluzione GenericWebToEH si avvia, legge un file di configurazione (App.config) per ottenere una serie di elementi:
 
-1. L'URL o un elenco di URL per il sito che pubblica i dati. In teoria si tratta di un sito che pubblica i dati in formato JSON, come quelli a cui fa riferimento WSDOT [qui](http://www.wsdot.wa.gov/Traffic/api/). 
+1. L'URL o un elenco di URL per il sito che pubblica i dati. In teoria si tratta di un sito che pubblica i dati in formato JSON, come quelli a cui fa riferimento WSDOT [qui](http://www.wsdot.wa.gov/Traffic/api/).
 2. Le credenziali per l'URL, se necessario. Molte origini pubbliche non richiedono le credenziali oppure è possibile inserirle nella stringa dell'URL. Per altre origini, le credenziali devono essere specificate separatamente. Si noti che è possibile specificare solo un set di credenziali in questa applicazione, che quindi funzionerà solo se si specifica un singolo URL e non un elenco di URL.
-3. La stringa di connessione del bus di servizio e il nome dell'hub eventi nello spazio dei nomi del bus di servizio in cui si eseguirà il push dei dati. Queste informazioni sono disponibili nel portale di Azure classico.
-4. Un intervallo di sospensione, in millisecondi, per l'intervallo di polling del sito di dati pubblici. L'impostazione di questa opzione richiede una certa cautela. Se si esegue il polling troppo raramente, si potrebbero perdere dati. D'altra parte, se si esegue il polling troppo frequentemente, si possono ottenere molti dati ripetitivi o si può persino essere bloccati come robot dannosi. Considerare la frequenza di aggiornamento dell'origine dati: i dati relativi al meteo o al traffico possono essere aggiornati ogni 15 minuti, ma le quotazioni azionarie devono essere aggiornate ogni pochi secondi, in base alla provenienza dei dati. 
+3. La stringa di connessione e il nome dell'hub eventi nello spazio dei nomi di Hub eventi in cui si effettuerà il push dei dati. Queste informazioni sono disponibili nel portale di Azure.
+4. Un intervallo di sospensione, in millisecondi, per l'intervallo di polling del sito di dati pubblici. L'impostazione di questa opzione richiede una certa cautela. Se si esegue il polling troppo raramente, si potrebbero perdere dati. D'altra parte, se si esegue il polling troppo frequentemente, si possono ottenere molti dati ripetitivi o si può persino essere bloccati come robot dannosi. Considerare la frequenza di aggiornamento dell'origine dati: i dati relativi al meteo o al traffico possono essere aggiornati ogni 15 minuti, ma le quotazioni azionarie devono essere aggiornate ogni pochi secondi, in base alla provenienza dei dati.
 5. Un flag per indicare all'applicazione se i dati in entrata sono in formato JSON o XML. Poiché è necessario eseguire il push dei dati a un hub eventi, l'applicazione include un modulo per convertire il formato XML in JSON prima dell'invio.
 
 Dopo aver letto il file di configurazione, l'applicazione viene eseguita in un ciclo infinito: accede al sito Web pubblico, converte i dati se necessario, li scrive nell'hub eventi e quindi attende l'intervallo di sospensione prima di ricominciare. In particolare:
@@ -47,4 +47,4 @@ Per distribuire la soluzione, clonare o scaricare l'applicazione [GenericWebToEH
 
 Vedere altri esempi relativi a Hub eventi nella [raccolta di esempi di Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e su [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

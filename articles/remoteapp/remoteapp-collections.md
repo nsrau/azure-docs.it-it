@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/20/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Tipi di raccolte disponibili per Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp consente di condividere applicazioni e risorse con utenti su qualsiasi dispositivo. Questo risultato si ottiene con la creazione di raccolte per contenere le applicazioni e le risorse, quindi con la condivisione di tali raccolte con gli utenti. Esistono 2 diverse opzioni per le raccolte con opzioni differenti per la rete e l'autenticazione. Qual è quella appropriata per ogni esigenza?
 
@@ -35,7 +38,7 @@ Verranno esaminate le diverse considerazioni e le scelte che è necessario effet
 
 ## Raccolte nel cloud
 - Facile da creare. Il provisioning di questa raccolta è veloce e ciò significa che le applicazioni raggiungono più velocemente gli utenti.
-- Applicazioni proprie o condivisione delle applicazioni predefinite. È possibile usare un'immagine personalizzata creata da una macchina virtuale di Azure oppure una delle immagini incluse nella sottoscrizione.
+- Applicazioni proprie o condivisione delle applicazioni predefinite. È possibile usare un'immagine personalizzata creata da una VM di Azure oppure una delle immagini incluse nella sottoscrizione.
 - Non è necessario configurare una connessione tra la raccolta e il dominio locale.
 - È comunque possibile usare facoltativamente la rete virtuale di Azure per fornire l'accesso all'ambiente locale per la condivisione dei dati o per usare l'autenticazione non di Windows per risorse come SQL Server (usando l'autenticazione del database).
 
@@ -74,7 +77,7 @@ Con le raccolte nel cloud è possibile usare account Microsoft, account Azure AD
 
 Non sono previsti requisiti specifici per l'uso di account Microsoft.
 
-Se si desidera usare gli account Azure AD, è necessario assicurarsi che il tenant di Azure AD corrisponda a quello associato alla sottoscrizione. Durante la creazione della sottoscrizione di Azure RemoteApp, il tenant di Azure AD in uso è stato associato automaticamente alla sottoscrizione. Qualsiasi utente di Azure AD a cui vengono concesse le autorizzazioni deve corrispondere allo stesso tenant. Se necessario, è possibile [modificare il tenant di Azure AD](remoteapp-changetenant.md) associato alla sottoscrizione.
+Se si vuole usare gli account Azure AD, è necessario assicurarsi che il tenant di Azure AD corrisponda a quello associato alla sottoscrizione. Durante la creazione della sottoscrizione di Azure RemoteApp, il tenant di Azure AD in uso è stato associato automaticamente alla sottoscrizione. Qualsiasi utente di Azure AD a cui vengono concesse le autorizzazioni deve corrispondere allo stesso tenant. Se necessario, è possibile [modificare il tenant di Azure AD](remoteapp-changetenant.md) associato alla sottoscrizione.
  
 ### Ibrido (o cloud + Azure AD + Active Directory)
 
@@ -91,4 +94,4 @@ con la creazione della prima raccolta di Azure RemoteApp.
 
 [Creare una raccolta nel cloud](remoteapp-create-cloud-deployment.md) o [creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

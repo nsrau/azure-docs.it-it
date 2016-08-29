@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -106,12 +106,12 @@ Il sesto esempio mostra come usare la serializzazione Avro per caricare dati nel
 
 Di seguito sono riportati i sei esempi contenuti nel presente argomento:
 
- * <a href="#Scenario1">**Serializzazione con reflection**</a>: lo schema JSON per i tipi da serializzare viene automaticamente compilato dagli attributi del contratto dati.
- * <a href="#Scenario2">**Serializzazione con un record generico**</a>: lo schema JSON viene specificato in modo esplicito in un record quando non è disponibile alcun tipo .NET per la reflection.
- * <a href="#Scenario3">**Serializzazione mediante file contenitore di oggetti con reflection**</a>: lo schema JSON viene automaticamente compilato e condiviso insieme ai dati serializzati mediante un file contenitore di oggetti Avro.
- * <a href="#Scenario4">**Serializzazione mediante file contenitore di oggetti con un record generico**</a>: lo schema JSON viene specificato in modo esplicito prima della serializzazione e viene condiviso insieme ai dati mediante un file contenitore di oggetti Avro.
- * <a href="#Scenario5">**Serializzazione mediante file contenitore di oggetti con un codec di compressione personalizzato**</a>: questo esempio mostra come creare un file contenitore di oggetti Avro con un'implementazione .NET personalizzata del codec di compressione dati Deflate.
- * <a href="#Scenario6">**Uso di Avro per caricare dati per il servizio Microsoft Azure HDInsight**</a>: questo esempio mostra il modo in cui la serializzazione Avro interagisce con il servizio HDInsight. Per eseguire questo esempio, sono necessari una sottoscrizione di Azure attiva e l'accesso a un cluster Azure HDInsight.
+ * <a href="#Scenario1">**Serializzazione con reflection:**</a> lo schema JSON per i tipi da serializzare viene compilato automaticamente dagli attributi del contratto dati.
+ * <a href="#Scenario2">**Serializzazione con un record generico:**</a> lo schema JSON viene specificato in modo esplicito in un record quando non è disponibile alcun tipo .NET per la reflection.
+ * <a href="#Scenario3">**Serializzazione mediante file contenitore di oggetti con reflection:**</a> lo schema JSON viene compilato automaticamente e condiviso insieme ai dati serializzati mediante un file contenitore di oggetti Avro.
+ * <a href="#Scenario4">**Serializzazione mediante file contenitore di oggetti con un record generico:**</a> lo schema JSON viene specificato in modo esplicito prima della serializzazione e viene condiviso insieme ai dati mediante un file contenitore di oggetti Avro.
+ * <a href="#Scenario5">**Serializzazione mediante file contenitore di oggetti con un codec di compressione personalizzato:**</a> questo esempio mostra come creare un file contenitore di oggetti Avro con un'implementazione .NET personalizzata del codec di compressione dati Deflate.
+ * <a href="#Scenario6">**Uso di Avro per caricare dati per il servizio Microsoft Azure HDInsight:**</a> questo esempio mostra il modo in cui la serializzazione Avro interagisce con il servizio HDInsight. Per eseguire questo esempio, sono necessari una sottoscrizione di Azure attiva e l'accesso a un cluster Azure HDInsight.
 
 ###<a name="Scenario1"></a>Esempio 1: Serializzazione con reflection
 
@@ -873,7 +873,7 @@ I dati vengono quindi letti dal file e deserializzati in una raccolta di oggetti
 
 Il quinto esempio mostra come usare un codec di compressione personalizzato per i file contenitore di oggetti Avro. È possibile scaricare questo esempio di codice dal sito degli [esempi di codice di Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
 
-Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'uso di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato un codec completamente nuovo come Snappy (indicato come codec facoltativo supportato nelle [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#snappy)). L'esempio mostra invece come usare l'implementazione del codec [**Deflate**][deflate-110] di .NET Framework 4.5, che offre un migliore algoritmo di compressione basato sulla libreria di compressione [zlib](http://zlib.net/) rispetto alla versione predefinita di .NET Framework 4.
+Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'utilizzo di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato un codec completamente nuovo come Snappy (indicato come codec facoltativo supportato nelle [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#snappy)). L'esempio mostra invece come usare l'implementazione del codec [**Deflate**][deflate-110] di .NET Framework 4.5, che offre un migliore algoritmo di compressione basato sulla libreria di compressione [zlib](http://zlib.net/) rispetto alla versione predefinita di .NET Framework 4.
 
 
     //
@@ -1374,7 +1374,7 @@ Il sesto esempio mostra alcune tecniche di programmazione correlate all'interazi
 L'esempio esegue le operazioni seguenti:
 
 * Connessione a un cluster esistente del servizio HDInsight.
-* Serializzazione di diversi file con estensione csv e caricamento dei risultati nell'archivio BLOB di Azure. I file con estensione csv vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](http://www.infochimps.com/) per il periodo 1970-2010. L'esempio legge i dati del file con estensione csv, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
+* Serializzazione di diversi file con estensione csv e caricamento dei risultati nell'archivio BLOB di Azure. I file CSV vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](http://www.infochimps.com/) per il periodo 1970-2010. L'esempio legge i dati del file CSV, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
 * Viene creata una nuova tabella esterna chiamata **Stocks** in Hive, che viene quindi collegata ai dati caricati nel passaggio precedente.
 * Usando Hive, viene eseguita una query sulla tabella **Stocks**.
 
@@ -1403,4 +1403,4 @@ Per pulire il cluster, eseguire il comando seguente:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

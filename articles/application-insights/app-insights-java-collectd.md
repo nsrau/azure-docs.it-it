@@ -40,12 +40,12 @@ Copiare la chiave di strumentazione, che identifica la risorsa.
 Nei computer server Unix:
 
 1. Installare [collectd](http://collectd.org/) versione 5.4.0 o successive.
-2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Annotare il numero di versione.
+2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://aka.ms/aijavasdk). Annotare il numero di versione.
 3. Copiare il file JAR del plug-in in `/usr/share/collectd/java`.
 3. Modificare `/etc/collectd/collectd.conf`:
  * Assicurarsi che il [plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) sia abilitato.
  * Aggiornare JVMArg per java.class.path in modo da includere il file JAR seguente. Aggiornare il numero di versione in modo che corrisponda a quello scaricato:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Aggiungere questo frammento di codice usando la chiave di strumentazione dalla risorsa:
 
 ```
@@ -71,7 +71,7 @@ Di seguito è riportata una parte di un file di configurazione di esempio:
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@ Per impostazione predefinita, il plug-in di Application Insights invierà tutti 
 
 Per escludere dati da plug-in specifici oppure origini dati specifiche:
 
-* Modificare il file di configurazione. 
+* Modificare il file di configurazione.
 * In `<Plugin ApplicationInsightsWriter>` aggiungere righe di direttive analoghe alle seguenti:
 
 Direttiva | Effetto
@@ -143,4 +143,4 @@ Separare le direttive con un valore NewLine.
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

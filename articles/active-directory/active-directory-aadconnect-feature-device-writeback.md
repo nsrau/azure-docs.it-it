@@ -18,7 +18,7 @@
 
 # Azure AD Connect: abilitazione del writeback dei dispositivi
 
->[AZURE.NOTE] Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei dispositivi.
+>[AZURE.NOTE] Per il writeback dei dispositivi è necessaria una sottoscrizione di Azure AD Premium.
 
 Il documento seguente illustra come abilitare la funzionalità di writeback dei dispositivi in Azure AD Connect. Il writeback dei dispositivi viene usato negli scenari seguenti:
 
@@ -56,8 +56,8 @@ Le credenziali di amministratore dell'organizzazione sono obbligatorie, perché 
 
 Descrizione:
 
-- Se non esistono, crea e configura nuovi contenitori e oggetti in CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- Se non esistono, crea e configura nuovi contenitori e oggetti in CN=RegisteredDevices,[domain-dn]. Gli oggetti dispositivo verranno creati in questo contenitore.
+- Se non esistono già, crea e configura nuovi contenitori e oggetti in CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- Se non esistono già, crea e configura nuovi contenitori e oggetti in CN=RegisteredDevices,[domain-dn]. Gli oggetti dispositivo verranno creati in questo contenitore.
 - Imposta le autorizzazioni necessarie nell'account Azure AD Connector per gestire i dispositivi nella propria istanza di Active Directory.
 - Deve essere eseguito in una sola foresta, anche se Azure AD Connect verrà installato in più foreste.
 
@@ -130,4 +130,4 @@ Verificare la configurazione in Active Directory:
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

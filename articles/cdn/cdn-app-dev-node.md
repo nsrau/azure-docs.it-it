@@ -42,12 +42,12 @@ Verrà quindi visualizzata una serie di domande per inizializzare il progetto. C
 
 ![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-A questo punto il progetto viene inizializzato con un file *packages.json*. Il progetto userà alcune librerie di Azure contenute in pacchetti NPM. Verrà usato il runtime del client di Azure per Node.js (ms-rest-azure) e la libreria client della rete CDN di Azure per Node.js (azure-arm-cd). Aggiungere tali elementi al progetto come dipendenze.
+A questo punto il progetto viene inizializzato con un file *packages.json*. Il progetto userà alcune librerie di Azure contenute in pacchetti NPM. Verranno usati il runtime del client di Azure per Node.js (ms-rest-azure) e la libreria client della rete CDN di Azure per Node.js (azure-arm-cd). Aggiungere tali elementi al progetto come dipendenze.
  
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-Al termine dell'installazione dei pacchetti, il file *package.json* dovrebbe avere un aspetto simile al seguente, anche se i numeri di versione possono variare:
+Al termine dell'installazione dei pacchetti, il file *package.json* dovrebbe avere un aspetto simile a questo esempio, anche se i numeri di versione possono variare:
 
 ``` json
 {
@@ -117,7 +117,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
 4.  L'applicazione console Node.js necessita di alcuni parametri della riga di comando. Verificare che venga passato almeno un parametro.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -129,7 +129,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
 	}
 	```
 
-5. Nella parte principale del programma si passerà poi ad altre funzioni, in base ai parametri che sono stati passati.
+5. Nella parte principale del programma si passa poi ad altre funzioni, in base ai parametri che sono stati passati.
 
 	```javascript
 	switch(parms[0].toLowerCase())
@@ -213,7 +213,7 @@ Ora che la struttura di base del programma è stata scritta, è necessario crear
 
 ## Elencare i profili e gli endpoint della rete CDN
 
-Scrivere il codice necessario per elencare i profili e gli endpoint esistenti. Insieme alla sintassi prevista, di seguito vengono forniti commenti al codice che permettono di determinare la posizione dei parametri.
+Scrivere il codice necessario per elencare i profili e gli endpoint esistenti. I commenti al codice forniscono la sintassi prevista che permette di determinare la posizione dei parametri.
 
 ```javascript
 // list profiles
@@ -367,4 +367,6 @@ Per informazioni su Azure CDN SDK per Node.js, vedere il [riferimento](http://az
 
 Per altra documentazione su Azure SDK per Node.js, vedere il [riferimento completo](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gestire le risorse della rete CDN con [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

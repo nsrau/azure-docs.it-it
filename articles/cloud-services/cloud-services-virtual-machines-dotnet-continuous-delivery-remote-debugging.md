@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure
@@ -91,4 +91,4 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -23,9 +23,14 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
+
 In questo argomento viene descritto come utilizzare **ssh keygen** e **openssl** in Linux e Mac per creare e utilizzare i file di formato **ssh rsa** e **.pem** per proteggere la comunicazione con le macchine virtuali di Azure basate su Linux. È consigliabile creare macchine virtuali di Azure basate su Linux utilizzando il modello di distribuzione di Gestione risorse per nuove distribuzioni e accettare un tipo di stringa o file di chiave pubblica (in base al client di distribuzione) *ssh rsa*. Il [portale di Azure](https://portal.azure.com) attualmente accetta solo le stringhe in formato **ssh-rsa** sia per il modello di distribuzione classica che per quello di Resource Manager.
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Per creare questi tipi di file per l'utilizzo in un computer Windows per comunicare in modo sicuro con macchine virtuali Linux in Azure, vedere [utilizzare chiavi SSH in Windows](virtual-machines-linux-ssh-from-windows.md).
+
+> [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
+
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Per creare questi tipi di file per l'utilizzo in un computer Windows per comunicare in modo sicuro con macchine virtuali Linux in Azure, vedere [utilizzare chiavi SSH in Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## Quali file sono necessari?
 
@@ -34,7 +39,7 @@ Una configurazione di base di ssh per Azure include una coppia di chiavi pubblic
 Di seguito sono descritti gli scenari di distribuzione e i tipi di file da usare per ognuno:
 
 1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione eseguita tramite il [portale di Azure](https://portal.azure.com), indipendentemente dal modello di distribuzione.
-2. I file con estensione .pem sono necessari per creare macchine virtuali utilizzando il [portale classico](https://manage.windowsazure.com). I file .pem sono supportati anche nelle distribuzioni classiche che usano l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
+2. I file con estensione .pem sono necessari per creare macchine virtuali utilizzando il [portale classico](https://manage.windowsazure.com). I file .pem sono supportati anche nelle distribuzioni classiche che usano l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## Creazione di chiavi per l'utilizzo con SSH
 
@@ -42,7 +47,7 @@ Se sono già disponibili chiavi SSH, passare il file della chiave pubblica quand
 
 Se è necessario creare i file:
 
-1. Assicurarsi che l'implementazione di **ssh keygen** e **openssl** sia aggiornata. Ciò varia a seconda della piattaforma. 
+1. Assicurarsi che l'implementazione di **ssh keygen** e **openssl** sia aggiornata. Ciò varia a seconda della piattaforma.
 
 	- Per Mac, assicurarsi di visitare il [Sito web del prodotto di protezione Apple](https://support.apple.com/HT201222) e, se necessario, scegliere gli aggiornamenti appropriati.
 	- Per distribuzioni di Linux basate su Debian, come Ubuntu, Debian, Mint e così via:
@@ -293,4 +298,4 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
  
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -16,7 +16,7 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-#Effettuare il provisioning di cluster Hadoop in HDInsight
+#Provisioning di cluster Hadoop in HDInsight
 
 Informazioni su come pianificare il provisioning di cluster HDInsight.
 
@@ -43,7 +43,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 	- Il campo deve essere una stringa contenente da 3 a 63 caratteri.
 	- Il campo può contenere solo lettere, numeri e trattini.
 
-- **Nome sottoscrizione**
+- **Nome della sottoscrizione**
 
 	Un cluster HDInsight è associato a una sottoscrizione di Azure.
  
@@ -51,7 +51,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	È possibile eseguire il provisioning di cluster HDInsight in uno dei due sistemi operativi seguenti:
 	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight su Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight su Linux**: HDInsight offre la possibilità di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versione HDInsight**
@@ -253,7 +253,7 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base] e l
 3. Nella pagina **Dettagli cluster** digitare o scegliere i valori seguenti:
 
 	- Cluster Name
-	- Subscription Name
+	- Nome sottoscrizione
 	- Tipo di cluster
 	- Sistema operativo
 	- HDInsight Version
@@ -304,7 +304,7 @@ Azure PowerShell è un ambiente di scripting potente che può essere usato per c
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight con Azure PowerShell:
 
-- Creare un account di archiviazione di Azure
+- Creare un account di Archiviazione di Azure
 - Creazione di un contenitore BLOB di Azure
 - Creazione di un cluster HDInsight
 
@@ -471,7 +471,7 @@ Seguire queste procedure per configurare il computer Linux per l'uso dell'interf
 
 		azure hdinsight -h
 
-	È possibile usare l'opzione *-h* a livelli diversi per visualizzare le informazioni della Guida. ad esempio:
+	È possibile usare l'opzione *-h* a livelli diversi per visualizzare le informazioni della Guida. Ad esempio:
 
 		azure -h
 		azure hdinsight -h
@@ -486,7 +486,7 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 
 
 1.	Aprire una finestra del terminale.
-2.	Eseguire il comando seguente per accedere alla sottoscrizione di Azure:
+2.	Eseguire questo comando per accedere alla sottoscrizione di Azure:
 
 		azure account download
 
@@ -505,7 +505,7 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 Seguire queste procedure per configurare il computer Windows per l'uso dell'interfaccia della riga di comando di Azure:
 
 - Installare l'interfaccia della riga di comando di Azure tramite NPM o Windows Installer
-- Scaricare e importare le impostazioni di pubblicazione dell'account Azure
+- Download e importazione di impostazioni di pubblicazione dell'account Azure
 
 
 L'interfaccia della riga di comando di Azure può essere installata tramite NPM o Windows Installer. È consigliabile eseguire l'installazione usando solo una delle due opzioni.
@@ -545,7 +545,7 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 
 
 1.	Aprire **Command Prompt**.
-2.	Per scaricare il file delle impostazioni di pubblicazione, eseguire il comando seguente.
+2.	Per scaricare il file di impostazioni di pubblicazione, eseguire il comando seguente:
 
 		azure account download
 
@@ -562,7 +562,7 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight tramite l'interfaccia della riga di comando di Azure:
 
-- Creare un account di archiviazione di Azure
+- Creare un account di Archiviazione di Azure
 - Effettuare il provisioning di un cluster
 
 **Per creare un account di archiviazione di Azure**
@@ -641,7 +641,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, si eseguono i pr
 
 **Per elencare e mostrare i dettagli dei cluster**
 
-- Usare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
+- Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
 		azure hdinsight cluster list
 		azure hdinsight cluster show <ClusterName>
@@ -651,7 +651,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, si eseguono i pr
 
 **Per eliminare un cluster**
 
-- Usare il comando seguente per eliminare un cluster:
+- Utilizzare il comando seguente per eliminare un cluster:
 
 		azure hdinsight cluster delete <ClusterName>
 
@@ -815,4 +815,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,7 +25,7 @@
 
 Per usare il client DNS, è necessario installare il pacchetto NuGet **Azure DNS Management Library** e aggiungere al progetto gli spazi dei nomi di gestione DNS.
  
-1. In **Visual Studio** aprire un progetto o un nuovo progetto. 
+1. In **Visual Studio** aprire un progetto o un nuovo progetto.
 
 2. Fare clic su **Strumenti** **>** **Gestione pacchetto NuGet** **>** **Console di gestione pacchetti**.
 
@@ -37,7 +37,7 @@ Per usare il client DNS, è necessario installare il pacchetto NuGet **Azure DNS
 
 ## Inizializzare il client di gestione DNS
 
-*DnsManagementClient* contiene i metodi e le proprietà necessari per gestire le zone e i set di record DNS. Affinché i client possano accedere alla sottoscrizione, è necessario impostare le autorizzazioni corrette e generare un token AWT. Per altre informazioni dettagliate, vedere [Autenticazione delle richieste di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790557.aspx).
+*DnsManagementClient* contiene i metodi e le proprietà necessari per gestire le zone e i set di record DNS. Perché il client possa accedere alla sottoscrizione, è necessario impostare le autorizzazioni corrette e generare un token AWT. Per altre informazioni dettagliate, vedere [Autenticazione delle richieste di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 	// get a token for the AAD application (see the article link above for code)
 	string jwt = GetAToken();
@@ -113,4 +113,4 @@ L'esempio seguente mostra come ottenere un elenco di zone e set di record DNS.
 
 [Progetto di esempio di Visual Studio SDK](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

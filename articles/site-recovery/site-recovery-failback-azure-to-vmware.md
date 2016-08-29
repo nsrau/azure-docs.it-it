@@ -28,7 +28,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 
 
 
-## Panoramica
+## Overview
 
 Questo diagramma illustra l'architettura di failback per questo scenario.
 
@@ -57,9 +57,9 @@ Funzionamento del failback:
 Se è stato eseguito il failover di una macchina virtuale VMware è possibile eseguire il failback nella stessa macchina virtuale di origine, se è ancora presente in locale. In questo scenario viene eseguito il failback delle sole modifiche differenziali. Si noti che:
 
 - Se è stato eseguito il failover di server fisici, il failback viene sempre eseguito in una nuova macchina virtuale VMware.
-	- Prima di eseguire il failback di una computer fisico, ricordare che
-	- Un computer fisico protetto viene restituito come macchina virtuale dopo aver effettuato il failover da Azure in VMware.
-	- È necessario individuare almeno un server di destinazione master e gli host ESX/ESXi necessari per il failback.
+	- Prima di eseguire il failback di un computer fisico, ricordare che:
+		- Un computer fisico protetto viene restituito come macchina virtuale dopo aver effettuato il failover da Azure in VMware.
+		- È necessario individuare almeno un server di destinazione master e gli host ESX/ESXi necessari per il failback.
 - Se si esegue il failback nella macchina virtuale originaria è necessario quanto segue:
 	- Se la macchina virtuale è gestita da un server vCenter, l'host ESX della destinazione master deve avere accesso all'archivio dati delle macchine virtuali.
 	- Se la macchina virtuale si trova in un host ESX ma non è gestita da vCenter, il disco rigido della macchina virtuale deve trovarsi in un archivio dati accessibile da parte dell'host della destinazione master.
@@ -96,11 +96,11 @@ Per eseguire la replica locale, sono necessari criteri di failback. Questi crite
 
 Se i computer sono stati protetti come risorse classiche (ovvero la macchina virtuale ripristinata in Azure è una VM classica), è necessario un server di elaborazione classico in Azure. Se i computer sono stati ripristinati con Resource Manager come tipo di distribuzione, è necessario un server di elaborazione di tipo di distribuzione Resource Manager. Il tipo viene selezionato in base alla rete virtuale di Azure in cui si distribuisce il server di elaborazione.
 
-1.  Selezionare il server di configurazione in Insieme di credenziali > Impostazioni > Manage Site Recovery Infrastructure (Gestisci infrastruttura di Site Recovery) > **Server di configurazione**, sotto l'intestazione For VMware and Physical Machines (Per VMware e computer fisici). Fare clic su + Server di elaborazione
+1.  Selezionare il server di configurazione in Insieme di credenziali > Impostazioni > Infrastruttura Site Recovery (sotto l'intestazione Gestisci) > **Server di configurazione**, sotto l'intestazione Per VMware e computer fisici. Espandere "Server di elaborazione", evidenziato in giallo nella screenshot di esempio seguente.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 
-2. Per la distribuzione del server di elaborazione scegliere la distribuzione di un server di elaborazione di failback in Azure
+2. Per la distribuzione del server di elaborazione scegliere la distribuzione di un server di elaborazione di failback in Azure.
 
 3. Selezionare la sottoscrizione in cui sono state ripristinati i computer.
 
@@ -108,11 +108,11 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 5. Se è stata selezionata una rete di *distribuzione classica*, verrà richiesto di creare una nuova VM tramite la raccolta di Azure e installarvi il server di elaborazione.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 	
 	1. Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Assicurarsi di selezionare *Classico* come modello di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
 	
 	2. Installare il server di elaborazione seguendo la procedura [specificata qui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -128,7 +128,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	5. Scegliere la subnet specifica e l'interfaccia di rete per la connessione. Nota: è necessario creare un'[interfaccia di rete](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selezionarla in fase di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 	
 	6. Fare clic su OK. Si attiverà quindi un processo che creerà una macchina virtuale di tipo di distribuzione Resource Manager con l’installazione del server di elaborazione. È necessario eseguire l’installazione all'interno della VM per registrare il server nel server di configurazione. A tale scopo, seguire [questa procedura](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -137,7 +137,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 7. Al termine, il server di elaborazione dovrebbe essere elencato nella pagina dei server di configurazione, nella sezione dei server associati della scheda Server di elaborazione. ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
 		
-	>[AZURE.NOTE] Il server non sarà visibile nelle **proprietà della VM**, ma solo nella scheda **Server** del server di gestione in cui è stato registrato. Possono essere necessari circa 10-15 minuti perché il server di elaborazione venga visualizzato.
+	>[AZURE.NOTE] Il server non è visibile nelle **proprietà della macchina virtuale**, ma solo nella scheda **Server** del server di gestione in cui è stato registrato. Possono essere necessari circa 10-15 minuti perché il server di elaborazione venga visualizzato.
 
 
 ## Configurare il server di destinazione master in locale
@@ -147,27 +147,27 @@ Il server di destinazione master riceve i dati di failback. Un server di destina
 >[AZURE.NOTE] Per installare un server di destinazione master in Linux, seguire le istruzioni riportate nella procedura successiva.
 
 1. Se si installa il server di destinazione master in Windows, aprire la pagina Avvio rapido dalla macchina virtuale in cui si sta installando il server di destinazione master e scaricare il file di installazione per l'installazione guidata unificata di Azure Site Recovery.
-2. Eseguire la configurazione, quindi in **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
-3. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Nella pagina **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di destinazione master e una passphrase per accedere alla VM.
+2. Eseguire la configurazione, quindi in **Prima di iniziare** selezionare **Aggiungere server di elaborazione per scalare la distribuzione**.
+3. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Nella pagina **Dettagli del server di configurazione** specificare l'indirizzo IP del server di destinazione master e una passphrase per accedere alla macchina virtuale.
 
 ### Configurare una macchina virtuale Linux come server di destinazione master
 Per configurare il server di gestione che esegue il server di destinazione master come una macchina virtuale Linux, è necessario installare il sistema operativo minimo CentOS 6.6, recuperare gli ID SCSI per ogni disco rigido SCSI, installare alcuni pacchetti aggiuntivi e applicare alcune modifiche personalizzate.
 
 #### Installare CentOS 6.6
 
-1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare la lingua inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** (Modifica del sistema) selezionare **Connect automatically** (Connetti automaticamente) e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione.
-2.	Quando viene richiesto il tipo di installazione, selezionare **Create Custom Layout** (Crea layout personalizzato) come partizione. Dopo aver selezionato **Next** (Avanti), selezionare **Free** (Gratuito) e quindi fare clic su Create (Crea). Creare partizioni **/**, **/var/crash** e **/home ** con **FS Type:** **ext4**. Creare la partizione di swapping con **FS Type: swap**.
-3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Format** (Formatta) per formattare l'unità con le impostazioni della partizione. Fare clic su **Write change to disk** (Scrivi modifica su disco) per applicare le modifiche della partizione.
-4.	Selezionare **Install boot loader** (Installa caricatore di avvio) > **Next** (Avanti) per installare il caricatore di avvio nella partizione radice.
-5.	Al termine dell'installazione fare clic su **Reboot** (Riavvia).
+1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Dispositivi di archiviazione di base**, verificare che il disco rigido non contenga dati importanti e fare clic su **Sì**. Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Modifica del sistema** selezionare** Connetti automaticamente** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione.
+2.	Quando viene richiesto il tipo di installazione, selezionare **Crea layout personalizzato** come partizione. Dopo aver fatto clic su **Avanti** selezionare **Gratuito** e fare clic su Crea. Creare partizioni **/**, **/var/crash** e **/home** con **FS Type:** **ext4**. Creare la partizione di swapping con **FS Type: swap**.
+3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Formatta** per formattare l'unità con le impostazioni della partizione. Fare clic su **Scrivi modifica su disco** per applicare le modifiche della partizione.
+4.	Selezionare **Installa caricatore di avvio** > **Avanti** per installare il caricatore di avvio nella partizione radice.
+5.	Al termine dell'installazione, fare clic su **Riavvia**.
 
 
 #### Recuperare gli ID SCSI
 
-1. Dopo l'installazione, recuperare gli ID SCSI per ogni disco rigido SCSI nella macchina virtuale. A tale scopo, arrestare la VM del server di gestione e nelle proprietà della VM in VMware fare clic con il pulsante destro del mouse sulla voce della VM > **Edit Settings** (Modifica impostazioni) > **Options** (Opzioni).
-2. Selezionare **Advanced** (Avanzate) > **General item** (Generale) e fare clic su **Configuration Parameters** (Parametri di configurazione). Quando il computer è in esecuzione questa opzione è disattivata. Per attivarla è necessario arrestare il computer.
+1. Dopo l'installazione, recuperare gli ID SCSI per ogni disco rigido SCSI nella macchina virtuale. A tale scopo, arrestare la VM del server di gestione nelle proprietà della VM in VMware, fare clic con il pulsante destro del mouse sulla voce della VM > **Modifica impostazioni** > **Opzioni**.
+2. Selezionare **Avanzate** > **Generale** e fare clic su **Parametri di configurazione**. Quando il computer è in esecuzione questa opzione è disattivata. Per attivarla è necessario arrestare il computer.
 3. Se la riga **disk.EnableUUID** esiste, verificare che il valore sia impostato su **True**, con distinzione tra maiuscole e minuscole. Se il valore è già impostato su True, è possibile annullare e testare il comando SCSI in un sistema operativo guest dopo l'avvio.
-4.	Se la riga non esiste, fare clic su **Add Row** (Aggiungi riga) e aggiungerla impostando il valore su **True**. Non usare le virgolette doppie.
+4. Se la riga non esiste, fare clic su **Aggiungi riga** e aggiungerla impostando il valore su **True**. Non usare le virgolette doppie.
 
 #### Installare pacchetti aggiuntivi
 
@@ -201,13 +201,13 @@ Per applicare modifiche personalizzate dopo aver completato i passaggi successiv
 2.	Nel pannello, si può osservare che la direzione della protezione “da Azure al sito locale” è già selezionata.
 3.  In **Server di destinazione master** e **Server di elaborazione** selezionare il server di destinazione master locale e il server di elaborazione della VM di Azure.
 4.  Selezionare l'**archivio dati** in cui ripristinare i dischi in locale. Questa opzione viene utilizzata quando la VM locale viene eliminata e devono essere creati nuovi dischi. Questa opzione viene ignorata se i dischi esistono già, ma è necessario specificare un valore.
-5.	Per arrestare i punti temporali in cui la VM viene replicata nel sito locale viene usata un’unità di conservazione. Di seguito sono indicati alcuni criteri per un’unità di conservazione, senza i quali l’unità non sarà elencata per il server master di destinazione. a. Il volume non deve essere in uso per altri scopi (destinazione di replica e così via). b. Il volume non deve essere in modalità di blocco. c. Il volume non deve essere il volume della cache. Nel volume non deve esistere un’installazione MT. Il volume di installazione personalizzata PS+MT non è idoneo per il volume di conservazione. Qui il volume PS-MT installato è il volume della cache di MT. d. Il file system del volume non deve essere di tipo FAT e FAT32. e. La capacità del volume deve essere diversa da zero. e. Il volume di conservazione predefinito per Windows è il volume R. f. Il volume di conservazione predefinito per Linux è /mnt/retention/.
+5.	Per arrestare i punti temporali in cui la VM viene replicata nel sito locale viene usata un’unità di conservazione. Di seguito sono indicati alcuni criteri per un’unità di conservazione, senza i quali l’unità non sarà elencata per il server master di destinazione. a. Il volume non deve essere in uso per altri scopi (destinazione di replica e così via). b. Il volume non deve essere in modalità di blocco. c. Il volume non deve essere il volume della cache. Nel volume non deve esistere un'installazione MT. Il volume di installazione personalizzata PS+MT non è idoneo per il volume di conservazione. Qui il volume PS-MT installato è il volume della cache di MT. d. Il file system del volume non deve essere di tipo FAT e FAT32. e. La capacità del volume deve essere diversa da zero. e. Il volume di conservazione predefinito per Windows è il volume R. f. Il volume di conservazione predefinito per Linux è /mnt/retention/.
 
 6.  I criteri di failback verranno selezionati automaticamente.
 
 7.	Dopo aver fatto clic su **OK** per avviare la riprotezione, inizia un processo di replica della VM da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
 
-Per eseguire il ripristino in un percorso alternativo, selezionare l'unità di conservazione e l'archivio dati configurati per il server di destinazione master. Quando si esegue il failback al sito locale, le macchine virtuali VMware nel piano di protezione di failback usano lo stesso archivio dati del server di destinazione master. Per ripristinare la macchina virtuale di Azure di replica nella stessa macchina virtuale locale, quest'ultima deve già trovarsi nello stesso archivio dati del server di destinazione master. Se non è presente alcuna VM in locale, ne viene creata una nuova durante la riprotezione. ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
+Per eseguire il ripristino in un percorso alternativo, selezionare l'unità di conservazione e l'archivio dati configurati per il server di destinazione master. Quando si esegue il failback al sito locale, le macchine virtuali VMware nel piano di protezione di failback usano lo stesso archivio dati del server di destinazione master. Per ripristinare la macchina virtuale di Azure di replica nella stessa macchina virtuale locale, quest'ultima deve già trovarsi nello stesso archivio dati del server di destinazione master. Se non è presente alcuna macchina virtuale in locale, ne viene creata una nuova durante la riprotezione. ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
 
 
@@ -219,7 +219,7 @@ Per eseguire il ripristino in un percorso alternativo, selezionare l'unità di c
 
 Dopo la riprotezione della macchina virtuale è possibile avviare un failover da Azure nel sito locale.
 
-1.	Nella pagina degli elementi replicati selezionare la macchina virtuale contenente il menu di scelta rapida **Failover non pianificato**.
+1.	Nella pagina degli elementi replicati selezionare la macchina virtuale e con il pulsante destro del mouse selezionare **Failover non pianificato**.
 2.	In **Conferma failover** verificare la direzione del failover (da Azure) e selezionare il punto di ripristino da usare per il failover. Usare il più recente o quello coerente con l'app più recente. Il punto coerente con l’app deve essere antecedente all’ultimo punto di temporizzazione e causerà la perdita di alcuni dati.
 3.	Durante il failover, Site Recovery arresta le macchine virtuali di Azure. Assicurarsi che il failback sia stato completato e quindi verificare che le macchine virtuali di Azure siano state arrestate come previsto.
 
@@ -252,4 +252,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!-------HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016--->

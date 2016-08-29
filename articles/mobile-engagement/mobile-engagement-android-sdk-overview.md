@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="piyushjo;ricksal" />  
+	ms.date="08/12/2016"
+	ms.author="piyushjo;ricksal" />
 
 # Integrazione di Android SDK per Azure Mobile Engagement
 
@@ -61,6 +61,6 @@ Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagemen
 
 ## Procedure di aggiornamento
 
-Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
+Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, vedere le [procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

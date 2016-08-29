@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come abilitare l'accesso Single Sign-On tra app su Android tramite ADAL | Microsoft Azure"
-	description="Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Single Sign-On tra le applicazioni."
+	description="Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Single Sign-On tra le applicazioni. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,8 +33,9 @@ Questa procedura si applica a:
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
+* Accesso condizionale di Azure Active Directory
 
-Si noti che il documento seguente presuppone che si sappia come [effettuare il provisioning delle applicazioni del portale legacy per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l’applicazione con [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+Si noti che il documento seguente presuppone che si sappia come [effettuare il provisioning delle applicazioni nel portale legacy per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l'applicazione con [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Concetti di SSO nella piattaforma Microsoft Identity
 
@@ -58,7 +59,7 @@ Gli accessi non assistiti da broker sono esperienze di accesso in linea con l'ap
 Questi tipi di accessi offrono i seguenti vantaggi:
 
 -  L'esperienza utente si svolge interamente all'interno dell'applicazione.
--  Le credenziali possono essere condivise tra applicazioni firmate dallo stesso certificato, offrendo un'esperienza di Single Sign-On alla suite di applicazioni. 
+-  Le credenziali possono essere condivise tra applicazioni firmate dallo stesso certificato, offrendo un'esperienza di Single Sign-On alla suite di applicazioni.
 -  Il controllo dell'esperienza di accesso viene fornito all'applicazione prima e dopo l'accesso.
 
 Questi tipi di accessi presentano i seguenti svantaggi:
@@ -155,7 +156,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK di Microsoft Identit
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione. 
+1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
 * Verificare che tutte le applicazioni abbiano lo stesso set di SharedUserID.
 * Verificare che tutte le applicazioni condividano lo stesso certificato di firma da Google Play Store per condividere l'archiviazione.
 
@@ -165,7 +166,7 @@ Per comunicare alla piattaforma Microsoft Identity che è consentita la condivis
 
 Ci si potrebbe chiedere come si fa a identificare le varie applicazioni nel servizio di gestione delle identità Microsoft se tutte utilizzano lo stesso ID applicazione. La risposta sono gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. La situazione potrebbe essere simile alla seguente:
 
-URI di reindirizzamento dell’app 1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+URI di reindirizzamento dell'app 1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
 URI di reindirizzamento dell'app 2: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
@@ -204,9 +205,9 @@ Gli URI vengono nidificati sotto lo stesso ID client / ID applicazione e cercati
 
 #### Passaggio 2: Configurazione dell'archiviazione condivisa in Android
 
-L'impostazione di `SharedUserID` esula dal contesto di questo documento, ma per maggiori informazioni si può leggere la documentazione di Google Android sul [Manifesto](http://developer.android.com/guide/topics/manifest/manifest-element.html). È importante decidere il nome di sharedUserID e usarlo in tutte le applicazioni.
+L'impostazione di `SharedUserID` esula dal contesto di questo documento, ma per maggiori informazioni si può leggere la documentazione di Google Android su [Manifest](http://developer.android.com/guide/topics/manifest/manifest-element.html). È importante decidere il nome di sharedUserID e usarlo in tutte le applicazioni.
 
-Dopo aver creato l'attributo `SharedUserID` in tutte le applicazioni, si può usare l'SSO.
+Dopo aver creato l'attributo `SharedUserID` in tutte le applicazioni, si può usare SSO.
 
 > [AZURE.WARNING] 
 Quando si condivide una risorsa di archiviazione tra le applicazioni, qualsiasi applicazione può eliminare utenti o peggio ancora eliminare tutti i token dell'applicazione. Questo può essere un problema grave se le applicazioni usano i token per svolgere operazioni in background. La condivisione della risorsa di archiviazione implica che è necessario prestare grande attenzione durante tutte le operazioni di eliminazione tramite gli SDK di Microsoft Identity.
@@ -240,9 +241,9 @@ L'URI di reindirizzamento deve essere nel formato corretto:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-Ad esempio: **msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+Ad esempio: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-L'URI di reindirizzamento deve essere specificato nella registrazione dell'app usando il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'app Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
+L'URI di reindirizzamento deve essere specificato nella registrazione dell'app tramite il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'app Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 #### Passaggio 3: Impostare le autorizzazioni corrette all'interno dell'applicazione
@@ -261,4 +262,4 @@ MANAGE_ACCOUNTS
 
 Ora l'SDK di Microsoft Identity condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

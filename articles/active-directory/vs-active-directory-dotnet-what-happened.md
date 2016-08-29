@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)? | Microsoft Azure"
+	pageTitle="Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)? | Microsoft Azure "
 	description="Viene descritto cosa succede al progetto MVC quando ci si connette ad Azure AD mediante i servizi relazionati di Visual Studio."
 	services="active-directory"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
@@ -171,4 +171,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

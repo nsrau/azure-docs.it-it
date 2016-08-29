@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="08/03/2016"
-   ms.author="markgal; trinadhk"/>  
+   ms.author="markgal; trinadhk"/>
 
 # Distribuire e gestire i backup per le macchina virtuali distribuite con Resource Manager utilizzando PowerShell
 
@@ -34,7 +34,7 @@ Se non si ha familiarità con il servizio di Backup di Azure, vedere l'argomento
 
 Per un utilizzo efficace di PowerShell, è necessario comprendere la gerarchia degli oggetti e da dove iniziare.
 
-![Gerarchia di oggetti dei servizi di ripristino](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)  
+![Gerarchia di oggetti dei servizi di ripristino](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Per visualizzare il riferimento al cmdlet AzureRmRecoveryServicesBackup di PowerShell, vedere [Azure Backup - Recovery Services Cmdlets (Backup di Azure: i cmdlet dei servizi di ripristino)](https://msdn.microsoft.com/library/mt723320.aspx) nella libreria di Azure. Per visualizzare il riferimento al cmdlet AzureRmRecoveryServicesVault di PowerShell, vedere [Azure Recovery Service Cmdlets (Cmdlet dei servizi di ripristino di Azure)](https://msdn.microsoft.com/library/mt643905.aspx).
 
@@ -339,10 +339,9 @@ Dopo aver ripristinato i dischi, seguire questa procedura per creare e configura
 2. Impostare il contesto di archiviazione di Azure e ripristinare il file di configurazione JSON.
 
     ```
-    Set -AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
+    PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
     PS C:\> $destination_path = "C:\vmconfig.json"
-    Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination
-    PS C:\> $destination_path -Context $storageContext
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -394,4 +393,4 @@ Dopo aver ripristinato i dischi, seguire questa procedura per creare e configura
 
 Se si preferisce usare PowerShell per interagire con le risorse di Azure, vedere l'articolo di PowerShell per la protezione di Windows Server, [Distribuire e gestire il servizio di backup per Windows Server](./backup-client-automation.md). È disponibile anche un articolo di PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il servizio di backup per DPM](./backup-dpm-automation.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

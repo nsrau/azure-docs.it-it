@@ -1,6 +1,6 @@
 ## File di parametri
 
-Se si usa un file di parametri per passare i valori di parametro al modello durante la distribuzione, è necessario creare un file JSON con un formato simile all'esempio seguente.
+Se si usa un file di parametri per passare i valori di parametro durante la distribuzione, è necessario creare un file JSON con un formato simile all'esempio seguente.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -26,6 +26,8 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
        }
     }
 
+Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](../articles/resource-manager-keyvault-parameter.md).
+
 La dimensione del file di parametro non può essere superiore a 64 KB.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

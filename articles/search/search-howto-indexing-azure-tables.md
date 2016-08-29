@@ -12,18 +12,18 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/28/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure
 
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure. Con il nuovo indicizzatore di tabelle di Ricerca di Azure, questo processo diventa rapido e facile.
 
-> [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST usando la versione **2015-02-28-Preview** e nella versione 2.0-preview di .NET SDK. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
 ## Configurazione dell'indicizzazione delle tabelle di Azure
 
-Per installare e configurare un indicizzatore di tabelle di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati** come descritto in [Operazioni dell'indicizzatore](https://msdn.microsoft.com/library/azure/dn946891.aspx). In futuro, il supporto per l'indicizzazione di tabelle sarà aggiunto a .NET SDK di Ricerca di Azure e al portale di Azure.
+Per installare e configurare un indicizzatore di tabelle di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati** come descritto in [Operazioni dell'indicizzatore](https://msdn.microsoft.com/library/azure/dn946891.aspx). È possibile anche usare la [versione 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) di .NET SDK. In futuro, il supporto per l'indicizzazione di tabelle sarà aggiunto al portale di Azure.
 
 Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate).
 
@@ -36,7 +36,7 @@ Per configurare l'indicizzazione delle tabelle:
 	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`
 	- Specificare il nome della tabella usando il parametro `container.name`
 	- Specificare facoltativamente una query usando il parametro `container.query`. Se possibile, usare un filtro sul parametro PartitionKey per ottimizzare le prestazioni. Qualsiasi altra query comporterà un'analisi completa della tabella e il conseguente peggioramento delle prestazioni per tabelle di grandi dimensioni.
-2. Creare un indice di ricerca con lo schema corrispondente alle colonne della tabella che si desidera indicizzare. 
+2. Creare un indice di ricerca con lo schema corrispondente alle colonne della tabella che si desidera indicizzare.
 3. Creare l'indicizzatore connettendo l'origine dati all'indice di ricerca.
 
 ### Creare un'origine dati
@@ -68,7 +68,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
   		]
 	}
 
-Per altre informazioni sull'API di creazione di un indice, vedere [Create Index](https://msdn.microsoft.com/library/dn798941.aspx) (Creare un indice)
+Per altre informazioni sull'API di creazione di un indice, vedere [Creare l'indice](https://msdn.microsoft.com/library/dn798941.aspx).
 
 ### Creare un indicizzatore 
 
@@ -124,4 +124,4 @@ Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigli
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

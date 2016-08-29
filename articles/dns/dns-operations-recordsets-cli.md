@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Gestire record e set di record DNS con l'interfaccia della riga di comando
@@ -178,4 +178,4 @@ Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di A
 
 Per usare i record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite l'interfaccia della riga di comando di Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

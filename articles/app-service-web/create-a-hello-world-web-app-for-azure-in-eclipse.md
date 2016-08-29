@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creare un'app Web Hello World per Azure in Eclipse
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 * Java Developer Kit (JDK) versione 1.7 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 
 ## Per creare un'applicazione Hello World
@@ -75,7 +75,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
     ![][04]
    
     Nota: se si hanno più account Azure, durante il processo di accesso alcune richieste, all'apparenza identiche, possono essere visualizzate più volte, ognuna per un account diverso. In questo caso, continuare a seguire le istruzioni di accesso.
-1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato l'elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni elencate e si desidera usare solo alcune di esse, è possibile deselezionare le sottoscrizioni che non si desidera utilizzare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
+1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato un elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni e se ne vogliono usare solo alcune, è possibile deselezionare le sottoscrizioni che non si intende usare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
 
     ![][05]
    
@@ -97,7 +97,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
         Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
 
-    1. Nel menu a discesa **Sottoscrizione** selezionare la sottoscrizione che si vuole usare per la distribuzione.
+    1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
 
     1. Nel menu a discesa **Gruppo di risorse** selezionare il gruppo di risorse a cui si vuole associare l'app Web.
 
@@ -196,7 +196,7 @@ Quando viene aperta la visualizzazione **Azure Explorer**, seguire questa proced
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere i collegamenti seguenti:
+Per ulteriori informazioni, vedere i collegamenti seguenti:
 
 * [Centro per sviluppatori Java](/develop/java/).
 * [Panoramica delle app Web](app-service-web-overview.md)
@@ -226,4 +226,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 [14]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

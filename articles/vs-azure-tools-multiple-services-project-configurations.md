@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configurazione del progetto Azure tramite più configurazioni del servizio
@@ -110,4 +110,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 |Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
 |Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

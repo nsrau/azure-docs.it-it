@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 # Come impostare un indirizzo IP statico privato (classico) in PowerShell
 
@@ -46,12 +46,12 @@ Output previsto:
 Lo script PowerShell seguente crea un nuovo servizio cloud denominato *TestService*, recupera un'immagine da Azure, quindi crea una macchina virtuale *DNS01* nel nuovo servizio cloud usando l'immagine recuperata, imposta la macchina virtuale in modo che sia posizionata nella subnet *FrontEnd* e infine imposta *192.168.1.7* come indirizzo IP interno statico per la macchina virtuale:
 
 	New-AzureService -ServiceName TestService -Location "Central US"
-	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-	New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName `
-	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-	| Set-AzureSubnet –SubnetNames FrontEnd `
-	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-	| New-AzureVM -ServiceName "TestService" –VNetName TestVNet
+	$image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+	New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName |
+	  Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! |
+	  Set-AzureSubnet –SubnetNames FrontEnd |
+	  Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+	  New-AzureVM -ServiceName TestService –VNetName TestVNet
 
 Output previsto:
 
@@ -98,9 +98,9 @@ Output previsto:
 ## Come rimuovere un indirizzo IP statico privato da una macchina virtuale
 Per rimuovere l'indirizzo IP privato statico aggiunto alla macchina virtuale nello script precedente, eseguire il comando PowerShell seguente:
 	
-	Get-AzureVM -ServiceName TestService -Name DNS01 `
-	| Remove-AzureStaticVNetIP `
-	| Update-AzureVM
+	Get-AzureVM -ServiceName TestService -Name DNS01 |
+	  Remove-AzureStaticVNetIP |
+	  Update-AzureVM
 
 Output previsto:
 
@@ -111,9 +111,9 @@ Output previsto:
 ## Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
 Per aggiungere un indirizzo IP privato statico alla macchina virtuale creata usando lo script precedente, eseguire il comando seguente:
 
-	Get-AzureVM -ServiceName TestService -Name DNS01 `
-	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-	| Update-AzureVM
+	Get-AzureVM -ServiceName TestService -Name DNS01 |
+	  Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+	  Update-AzureVM
 
 Output previsto:
 
@@ -127,4 +127,4 @@ Output previsto:
 - Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

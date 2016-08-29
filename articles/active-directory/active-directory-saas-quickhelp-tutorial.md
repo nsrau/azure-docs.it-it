@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 Questa esercitazione descrive l'integrazione di QuickHelp con Azure Active Directory (Azure AD). L'integrazione di QuickHelp con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a QuickHelp. 
+- È possibile controllare in Azure AD chi può accedere a QuickHelp.
 - È possibile abilitare gli utenti per l'accesso automatico a QuickHelp (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -31,7 +31,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con QuickHelp, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
+- Sottoscrizione di Azure AD.
 - Sottoscrizione di QuickHelp abilitata per l'accesso Single Sign-On
 
 
@@ -41,13 +41,13 @@ Per configurare l'integrazione di Azure AD con QuickHelp, sono necessari gli ele
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di QuickHelp dalla raccolta 
+1. Aggiunta di QuickHelp dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di QuickHelp in Azure AD, è necessario aggiunger
 
 **Per aggiungere QuickHelp dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -114,11 +114,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 	![Configurare le impostazioni dell'app][8]
  
-     a. Nella casella di testo **URL di accesso**, digitare l'URL usato dagli utenti per accedere al sito QuickHelp, (ad esempio:* https://quickhelp.com/bsiazure/*).
+     a. Nella casella di testo **URL di accesso**, digitare l'URL usato dagli utenti per accedere al sito QuickHelp, ad esempio:* https://quickhelp.com/bsiazure/*.
 
      > [AZURE.NOTE] Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di QuickHelp.
 
-     b. Fare clic su **Avanti**.
+     b. Fare clic su **Next**.
 
  
 4. Nella pagina **Configura accesso Single Sign-On in QuickHelp** seguire questa procedura: fare clic su **Scarica metadati** e quindi salvare il file di metadati in locale nel computer.
@@ -202,7 +202,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
@@ -316,4 +316,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

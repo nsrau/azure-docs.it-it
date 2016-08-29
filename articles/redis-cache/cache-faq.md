@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="08/12/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -96,11 +96,11 @@ La tabella seguente mostra i valori massimi per la larghezza di banda osservati 
 
 Da questa tabella è possibile trarre le seguenti conclusioni.
 
--	La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard. Ad esempio. Per una Cache di 6 GB, la velocità effettiva di P1 è 140K RPS rispetto a 49 K per C3.
+-	La velocità effettiva per cache con dimensioni simili è superiore nel Premium rispetto al livello Standard. Ad esempio, con una cache di 6 GB, la velocità effettiva di P1 è 140K RPS rispetto a 49 K per C3.
 -	Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di RPS.
 -	La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Pricing tier | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
+| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
 |--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
 | **Dimensioni della cache livello Standard** | | | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** | **Richieste al secondo (RPS)** |
 | C0 | 250 MB | Condiviso | 5 / 0,625 | 600 |
@@ -145,8 +145,8 @@ StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impo
 Opzioni configurazione|Descrizione|Raccomandazione
 ---|---|---
 AbortOnConnectFail|Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete.|Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente.
-ConnectRetry|Numero di nuovi tentativi di connessione durante la connessione iniziale.| Per istruzioni, vedere di seguito. |
-ConnectTimeout|Timeout in millisecondi per le operazioni di connessione.| Per istruzioni, vedere di seguito. |
+ConnectRetry|Numero di nuovi tentativi di connessione durante la connessione iniziale.| Per indicazioni, vedere le note seguenti. |
+ConnectTimeout|Timeout in millisecondi per le operazioni di connessione.| Per indicazioni, vedere le note seguenti. |
 
 Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. È possibile ottimizzare le opzioni in base al carico di lavoro specifico.
 
@@ -237,17 +237,47 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 
 ## Domande frequenti sulla produzione
 
+-	[Quali sono alcune procedure consigliate per la produzione?](#what-are-some-production-best-practices)
 -	[Che cosa occorre prendere in considerazione quando si usano i comandi Redis comuni?](#what-are-some-of-the-considerations-whit-ITing-common-redis-commands)
 -	[In che modo è possibile valutare e testare le prestazioni della cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 -	[Informazioni importanti sulla crescita del pool di thread](#important-details-about-threadpool-growth)
 -	[Abilitare il server Garbage Collection in modo da ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-whit-ITing-stackexchangeredis)
 
+### Quali sono alcune procedure consigliate per la produzione?
+
+-	[Procedure consigliate di StackExchange.Redis](#stackexchangeredis-best-practices)
+-	[Configurazione e concetti](#configuration-and-concepts)
+-	[Test delle prestazioni](#performance-testing)
+
+#### Procedure consigliate di StackExchange.Redis
+
+-	Impostare `AbortConnect` su false, quindi consentire a ConnectionMultiplexer di eseguire la riconnessione automatica. [Per informazioni dettagliate, vedere qui](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+-	Riutilizzare ConnectionMultiplexer: non creare una nuova istanza per ogni richiesta. È fortemente consigliato usare il modello `Lazy<ConnectionMultiplexer>` [mostrato qui](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+-	Redis funziona meglio con valori inferiori, quindi considerare di suddividere i dati più grandi in più chiavi. In [questa discussione di Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb viene considerato "grande". Leggere [in questo articolo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) per un problema di esempio che può essere causato da valori di grandi dimensioni.
+-	Configurare le [impostazioni ThreadPool](#important-details-about-threadpool-growth) per evitare timeout.
+-	Usare almeno il connectTimeout predefinito di 5 secondi. Ciò fornirebbe a StackExchange.Redis tempo sufficiente per ristabilire la connessione, in caso di un problema di rete.
+-	Tenere presente i costi delle prestazioni associati a diverse operazioni in esecuzione. Ad esempio, il comando `KEYS` è un'operazione O(n) e deve essere evitato. Il [sito redis.io](http://redis.io/commands/) fornisce i dettagli sulla complessità del tempo per ogni operazione supportata. Fare clic su ogni comando per visualizzare la complessità di ogni operazione.
+
+#### Configurazione e concetti
+
+-	Usare il livello Premium o Standard per i sistemi di produzione. Il livello Basic è un sistema a nodo singolo senza replica dei dati e senza contratto di servizio. Usare almeno una cache di livello C1. Le cache di livello C0 sono destinate a scenari semplici di sviluppo e test.
+-	Tenere presente che Redis è un archivio dati **in memoria**. Leggere [questo articolo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) per acquisire familiarità con gli scenari in cui può verificarsi una perdita di dati.
+-	Sviluppare il sistema in modo che possa gestire i problemi di connessione [causati da failover e applicazione di patch](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+
+#### Test delle prestazioni
+
+-	Usare innanzitutto `redis-benchmark.exe` per acquisire familiarità con le velocità effettive possibili prima di scrivere il proprio test delle prestazioni. Si noti che il benchmark di redis non supporta SSL, pertanto è necessario [abilitare la porta Non SSL tramite il portale di Azure](cache-configure.md#access-ports) prima di eseguire il test. Per esempi, vedere [In che modo è possibile valutare e testare le prestazioni della cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	La macchina virtuale client usata per il test deve trovarsi nella stessa area dell'istanza della cache Redis.
+-	È consigliabile usare macchine virtuali della serie Dv2 per il client poiché dispongono di hardware migliore e forniranno risultati più precisi.
+-	Assicurarsi che la macchina virtuale client disponga almeno della capacità di elaborazione e della larghezza di banda della cache che si sta testando.
+-	Se si usa Windows, abilitare VRSS sul computer client. [Per informazioni dettagliate, vedere qui](https://technet.microsoft.com/library/dn383582.aspx).
+-	Le istanze del livello Premium di Redis hanno migliore latenza di rete e velocità effettiva, poiché sono in esecuzione su hardware migliori in CPU e rete.
 
 <a name="cache-redis-commands"></a>
 ### Che cosa occorre prendere in considerazione quando si usano i comandi Redis comuni?
 
 -	È consigliabile non eseguire determinati comandi Redis che richiedono molto tempo per il completamento se non si comprende l'impatto di tali comandi.
--	Ad esempio, non eseguire il comando [KEYS](http://redis.io/commands/keys) in produzione, poiché la restituzione di un valore potrebbe richiedere molto tempo, in base al numero delle chiavi. Redis è un server a thread singolo ed elabora un comando alla volta. Eventuali comandi emessi dopo KEYS verranno elaborati solo dopo l'elaborazione del comando KEYS.
+	-	Ad esempio, non eseguire il comando [KEYS](http://redis.io/commands/keys) in produzione, poiché la restituzione di un valore potrebbe richiedere molto tempo, in base al numero delle chiavi. Redis è un server a thread singolo ed elabora un comando alla volta. Eventuali comandi emessi dopo KEYS verranno elaborati solo dopo l'elaborazione del comando KEYS. Il [sito redis.io](http://redis.io/commands/) fornisce i dettagli sulla complessità del tempo per ogni operazione supportata. Fare clic su ogni comando per visualizzare la complessità di ogni operazione.
 -	È consigliabile usare coppie chiave-valore di piccole o di grandi dimensioni? In genere, dipende dallo scenario. Se lo scenario richiede chiavi di dimensioni maggiori, sarà possibile modificare il valore di ConnectionTimeout e dei nuovi tentativi e regolare la logica di ripetizione dei tentativi. Dal punto di vista del server Redis, è stato osservato che valori più piccoli permettono prestazioni migliori.
 -	Ciò non significa che non sia possibile archiviare valori di dimensioni maggiori in Redis. Occorre tenere presenti le considerazioni seguenti. Le latenze saranno più elevate. Se sono presenti un set di dati più grande e un set di dati più piccolo, sarà possibile usare più istanze di ConnectionMultiplexer, ognuna delle quali configurata con un diverso set di valori di timeout e di nuovi tentativi, come illustrato nella sezione [Qual è la funzione delle opzioni di configurazione StackExchange.Redis?](#cache-configuration) precedente.
 
@@ -263,6 +293,15 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 -	Se il carico provoca la frammentazione elevata della memoria, è consigliabile passare a dimensioni di cache maggiori.
 -	Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
+Di seguito è riportato un esempio di uso di redis-benchmark.exe. Per risultati accurati, eseguire questo comando da una macchina virtuale situata nella stessa area della cache.
+
+-	Testare le richieste SET in pipeline usando un payload 1 k
+
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
+	
+-	Testare le richieste GET in pipeline usando un payload 1 k. NOTA: eseguire il test SET mostrato in alto prima di popolare la cache
+	
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
 
 <a name="threadpool"></a>
 ### Informazioni importanti sulla crescita del pool di thread
@@ -336,7 +375,7 @@ La sezione **Supporto e risoluzione dei problemi** del pannello **Impostazioni**
 
 -	**Risoluzione dei problemi** fornisce informazioni sui problemi comuni e sulle strategie per risolverli.
 -	**Log di controllo** fornisce informazioni sulle azioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse.
--	**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
+-	**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
 -	**Nuova richiesta di supporto** fornisce opzioni per aprire una richiesta di supporto per la cache.
 
 Questi strumenti permettono di monitorare l'integrità delle istanze della Cache Redis di Azure e semplificano la gestione delle applicazioni di memorizzazione nella cache. Per altre informazioni, vedere [Supporto e impostazioni di risoluzione dei problemi](cache-configure.md#support-amp-troubleshooting-settings).
@@ -353,9 +392,8 @@ Le cache nella stessa area e sottoscrizione condividono le stesse impostazioni d
 <a name="cache-timeouts"></a>
 ### Perché vengono visualizzati timeout?
 
-I timeout si verificano nel client usato per comunicare con Redis. Nella maggior parte dei casi, non si verifica il timeout del server Redis. Quando un comando viene inviato al server Redis, il comando viene accodato e il server Redis preleva il comando e lo esegue. È tuttavia possibile che durante questo processo si verifichi il timeout del client e in tale caso viene generata un'eccezione sul lato del chiamante. Per altre informazioni sulla risoluzione dei problemi di timeout, vedere [Risoluzione dei problemi lato client](cache-how-to-troubleshoot.md#client-side-troubleshooting) e [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+I timeout si verificano nel client usato per comunicare con Redis. Nella maggior parte dei casi, non si verifica il timeout del server Redis. Quando un comando viene inviato al server Redis, il comando viene accodato e il server Redis preleva il comando e lo esegue. È tuttavia possibile che durante questo processo si verifichi il timeout del client e in tale caso viene generata un'eccezione sul lato del chiamante. Per altre informazioni sulla risoluzione dei problemi di timeout, vedere [Risoluzione dei problemi lato client](cache-how-to-troubleshoot.md#client-side-troubleshooting) ed [Eccezioni di timeout StackExchange.Redis](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
-'<-- Commento di localizzazione: collegamento interrotto: [Eccezioni timeout StackExchange.Redis](Risoluzione dei problemi lato client](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(Risoluzione dei problemi lato client]" deve essere rimosso. -->'
 
 <a name="cache-disconnect"></a>
 ### Perché il client è stato disconnesso dalla cache?
@@ -410,4 +448,4 @@ Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, ve
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,31 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
-# Funzioni del modello di Gestione risorse di Azure
+# Funzioni del modello di Azure Resource Manager
 
-Questo argomento descrive tutte le funzioni che è possibile usare in un modello di Gestione risorse di Azure.
+Questo argomento descrive tutte le funzioni disponibili in un modello di Azure Resource Manager.
 
-Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la distinzione tra maiuscole e minuscole sarà mantenuta, a meno che non venga modificata espressamente dalla funzione (ad esempio toUpper o toLower). Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle funzioni.
+Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la funzione mantiene invariato l'uso delle maiuscole/minuscole, a meno che queste non vengano modificate espressamente dalla funzione, ad esempio toUpper o toLower. Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle funzioni.
 
 ## Funzioni numeriche
 
 Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
-- [aggiungere](#add)
+- [add](#add)
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
-- [length](#length)
 - [mod](#mod)
 - [mul](#mul)
 - [sub](#sub)
 
 
 <a id="add" />
-### aggiungere
+### add
 
 **add(operand1, operand2)**
 
@@ -45,9 +44,32 @@ Restituisce la somma dei due numeri interi forniti.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| operand1 | Sì | Primo operando da usare.
-| operand2 | Sì | Secondo operando da usare.
+| operand1 | Sì | Primo numero intero da sommare.
+| operand2 | Sì | Secondo numero intero da sommare.
 
+L'esempio seguente aggiunge due parametri.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to add"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to add"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "addResult": {
+        "type": "int",
+        "value": "[add(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="copyindex" />
 ### copyIndex
@@ -56,7 +78,25 @@ Restituisce la somma dei due numeri interi forniti.
 
 Restituisce l'indice corrente di un ciclo di iterazione.
 
-Questa funzione viene sempre usata con un oggetto **copy**. Per esempi di uso di **copyIndex**, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| offset | No | Quantità da aggiungere al valore di iterazione corrente.
+
+Questa funzione viene sempre usata con un oggetto **copy**. Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
+
+L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome.
+
+    "resources": [ 
+      { 
+        "name": "[concat('examplecopy-', copyIndex())]", 
+        "type": "Microsoft.Web/sites", 
+        "copy": { 
+          "name": "websitescopy", 
+          "count": "[parameters('count')]" 
+        }, 
+        ...
+      }
+    ]
 
 
 <a id="div" />
@@ -68,9 +108,32 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| operand1 | Sì | Numero che viene diviso.
-| operand2 | Sì | Numero usato per dividere, deve essere diverso da 0.
+| operand1 | Sì | Numero intero che viene diviso.
+| operand2 | Sì | Numero intero usato per dividere. Non può essere 0.
 
+L'esempio seguente mostra come dividere un parametro per un altro parametro.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "divResult": {
+        "type": "int",
+        "value": "[div(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="int" />
 ### int
@@ -79,7 +142,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 Converte il valore specificato in numero intero.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | valueToConvert | Sì | Il valore da convertire in numero intero. Il tipo di valore può essere solo Stringa o Numero Intero.
 
@@ -102,10 +165,32 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| operand1 | Sì | Numero che viene diviso.
-| operand2 | Sì | Numero usato per dividere, deve essere diverso da 0.
+| operand1 | Sì | Numero intero che viene diviso.
+| operand2 | Sì | Numero intero usato per dividere. Deve essere diverso da 0.
 
+L'esempio seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "modResult": {
+        "type": "int",
+        "value": "[mod(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="mul" />
 ### mul
@@ -114,11 +199,34 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 Restituisce la moltiplicazione dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Sì | Primo operando da usare.
-| operand2 | Sì | Secondo operando da usare.
+| operand1 | Sì | Primo numero intero da moltiplicare.
+| operand2 | Sì | Secondo numero intero da moltiplicare.
 
+L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to multiply"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to multiply"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "mulResult": {
+        "type": "int",
+        "value": "[mul(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="sub" />
 ### sub
@@ -129,9 +237,32 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| operand1 | Sì | Numero da cui sottrarre.
-| operand2 | Sì | Numero da sottrarre.
+| operand1 | Sì | Numero intero da cui sottrarre.
+| operand2 | Sì | Numero intero che viene sottratto.
 
+L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer subtracted from"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer to subtract"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "subResult": {
+        "type": "int",
+        "value": "[sub(parameters('first'), parameters('second'))]"
+      }
+    }
 
 ## Funzioni stringa
 
@@ -139,19 +270,20 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 - [base64](#base64)
 - [concat](#concat)
-- [length](#length)
+- [length](#lengthstring)
 - [padLeft](#padleft)
 - [replace](#replace)
+- [skip](#skipstring)
 - [split](#split)
 - [string](#string)
 - [substring](#substring)
+- [take](#takestring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [Trim](#trim)
 - [uniqueString](#uniquestring)
 - [Uri](#uri)
 
-Per ottenere il numero di caratteri in una stringa o in una matrice, vedere [length](#length).
 
 <a id="base64" />
 ### base64
@@ -172,11 +304,18 @@ L'esempio seguente mostra come usare la funzione base64.
     }
 
 <a id="concat" />
-### concat
+### Funzione per valori stringa: concat
 
-**concat (arg1, arg2, arg3, ...)**
+**concat (string1, string2, string3, ...)**
 
-Combina più valori e restituisce il risultato concatenato. Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
+Combina più valori stringa e restituisce la stringa concatenata.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| string1 | Sì | Valore stringa da concatenare.
+| stringhe aggiuntive | No | Valori stringa da concatenare.
+
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Per un esempio di concatenazione di matrici, vedere [Funzione di matrice concat](#concatarray).
 
 L'esempio seguente illustra come combinare più valori di stringa per restituire una stringa concatenata.
 
@@ -187,19 +326,28 @@ L'esempio seguente illustra come combinare più valori di stringa per restituire
         }
     }
 
-L'esempio successivo illustra come combinare due matrici.
+
+<a id="lengthstring" />
+### Funzione per valori stringa: length
+
+**length(string)**
+
+Restituisce il numero di caratteri in una stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringa | Sì | Valore stringa da usare per ottenere il numero di caratteri.
+
+Per un esempio relativo all'uso di length con una matrice, vedere [Funzione di matrice length](#length).
+
+L'esempio seguente restituisce il numero di caratteri in una stringa.
 
     "parameters": {
-        "firstarray": {
-            type: "array"
-        }
-        "secondarray": {
-            type: "array"
-        }
-     },
-     "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
-     }
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
         
 
 <a id="padleft" />
@@ -209,7 +357,7 @@ L'esempio successivo illustra come combinare due matrici.
 
 Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a sinistra, fino a raggiungere la lunghezza totale specificata.
   
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | valueToPad | Sì | Stringa o numero intero allineato a destra.
 | totalLength | Sì | Numero totale di caratteri della stringa restituita.
@@ -233,7 +381,7 @@ Restituisce una nuova stringa con tutte le istanze di un carattere della stringa
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| originalString | Sì | Stringa che disporrà di tutte le istanze di un carattere sostituito da un altro carattere.
+| originalString | Sì | Stringa che sostituisce tutte le istanze di un carattere con un altro carattere.
 | oldCharacter | Sì | Carattere da rimuovere dalla stringa originale.
 | newCharacter | Sì | Carattere da aggiungere al posto del carattere rimosso.
 
@@ -246,14 +394,55 @@ Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla str
         "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
+<a id="skipstring" />
+### Funzione per valori stringa: skip
+**skip(originalValue, numberToSkip)**
+
+Restituisce una stringa con tutti i caratteri dopo il numero specificato nella stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalValue | Sì | Stringa da usare.
+| numberToSkip | Sì | Numero di caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti i caratteri nella stringa. Se è maggiore della lunghezza della stringa, viene restituita una stringa vuota. 
+
+Per un esempio relativo all'uso di skip con una matrice, vedere [Funzione di matrice skip](#skip).
+
+L'esempio seguente ignora il numero specificato di caratteri nella stringa.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for skipping"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to skip"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+
 <a id="split" />
 ### split
 
-**split(inputString, delimiter)** **split(inputString, [delimiters])**
+**split(inputString, delimiterString)**
 
-Restituisce una matrice di stringhe che contiene le sottostringhe della stringa di input che sono delimitate dai delimitatori inviati.
+**split(inputString, delimiterArray)**
 
-| Parametro | Obbligatorio | Descrizione
+Restituisce una matrice di stringhe che contiene le sottostringhe della stringa di input delimitate dai delimitatori specificati.
+
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | inputString | Sì | Stringa da dividere.
 | delimiter | Sì | Delimitatore da usare, può essere una stringa singola o una matrice di stringhe.
@@ -267,6 +456,20 @@ Nell'esempio seguente la stringa di input viene divisa con una virgola.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+L'esempio seguente mostra come suddividere la stringa di input usando una virgola o un punto e virgola.
+
+    "variables": {
+      "stringToSplit": "test1,test2;test3",
+      "delimiters": [ ",", ";" ]
+    },
+    "resources": [ ],
+    "outputs": {
+      "exampleOutput": {
+        "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
+        "type": "array"
+      }
+    }
+
 <a id="string" />
 ### string
 
@@ -274,7 +477,7 @@ Nell'esempio seguente la stringa di input viene divisa con una virgola.
 
 Converte il valore specificato in una stringa.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | valueToConvert | Sì | Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici.
 
@@ -325,6 +528,44 @@ Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
         "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
+<a id="takestring" />
+### Funzione per valori stringa: take
+**take(originalValue, numberToTake)**
+
+Restituisce una stringa con il numero specificato di caratteri dall'inizio della stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalValue | Sì | Stringa da cui prendere i caratteri.
+| numberToTake | Sì | Numero di caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa vuota. Se è maggiore della lunghezza della stringa specificata, vengono restituiti tutti i caratteri nella stringa.
+
+Per un esempio relativo all'uso di take con una matrice, vedere [Funzione di matrice take](#take).
+
+L'esempio seguente prende il numero specificato di caratteri dalla stringa.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for taking"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to take"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[take(parameters('first'), parameters('second'))]"
+      }
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -332,7 +573,7 @@ Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
 
 Converte la stringa specificata in caratteri minuscoli.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | stringToChange | Sì | Stringa da convertire in lettere minuscole.
 
@@ -352,7 +593,7 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 
 Converte la stringa specificata in lettere maiuscole.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | stringToChange | Sì | Stringa da convertire in lettere maiuscole.
 
@@ -372,7 +613,7 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 
 Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specificata.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | stringToTrim | Sì | La stringa da eliminare.
 
@@ -388,18 +629,22 @@ Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del p
 <a id="uniquestring" />
 ### uniqueString
 
-**uniqueString (stringForCreatingUniqueString, ...)**
+**uniqueString (baseString, ...)**
 
-Crea una stringa univoca in base ai valori forniti come parametri. Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
+Crea una stringa univoca in base ai valori forniti come parametri.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| stringForCreatingUniqueString | Sì | Stringa di base usata nella funzione hash per creare una stringa univoca.
+| baseString | Sì | Stringa usata nella funzione hash per creare una stringa univoca.
 | parametri aggiuntivi in base alle esigenze | No | È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità.
 
-Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più facile da riconoscere.
+Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
 
-Negli esempi seguenti viene illustrato come usare uniqueString per creare un valore univoco per diversi livelli di uso comune.
+Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più facile da riconoscere. L'esempio seguente illustra il formato del valore restituito. Naturalmente, il valore effettivo varia in base ai parametri forniti.
+
+    tcvhiyu5h2o5o
+
+Gli esempi seguenti mostrano come usare uniqueString per creare un valore univoco per livelli di uso comune.
 
 Valore univoco basato su una sottoscrizione
 
@@ -420,6 +665,8 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+
+
 <a id="uri" />
 ### Uri
 
@@ -427,12 +674,12 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
 
 Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base **http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituisce un URI di base **http://contoso.com/resources/**.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
@@ -442,18 +689,54 @@ Nell'esempio seguente viene illustrato come costruire un collegamento a un model
 
 Gestione risorse fornisce diverse funzioni per usare i valori di matrice:
 
-- [concat](#concat)
+- [concat](#concatarray)
 - [length](#length)
 - [skip](#skip)
-- [split](#split)
 - [take](#take)
 
+Per ottenere una matrice di valori stringa delimitata da un valore, vedere [split](#split).
+
+<a id="concatarray" />
+### Funzione di matrice: concat
+
+**concat (array1, array2, array3, ...)**
+
+Combina più matrici e restituisce la matrice concatenata.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| array1 | Sì | Matrice da concatenare.
+| matrici aggiuntive | No | Matrici da concatenare.
+
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Per un esempio di concatenazione di valori stringa, vedere la sezione [Funzione per valori stringa concat](#concat).
+
+L'esempio seguente illustra come combinare due matrici.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
+
 <a id="length" />
-### length
+### Funzione di matrice: length
 
-**lunghezza (matrice o stringa)**
+**length(array)**
 
-Restituisce il numero di elementi in una matrice o il numero di caratteri in una stringa. È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
+Restituisce il numero di elementi in una matrice.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| array | Sì | Matrice da usare per ottenere il numero di elementi.
+
+È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
 
     "copy": {
         "name": "websitescopy",
@@ -462,35 +745,36 @@ Restituisce il numero di elementi in una matrice o il numero di caratteri in una
 
 Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
-In alternativa, è possibile utilizzarla con una stringa:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
+Per un esempio relativo all'uso di length con un valore stringa, vedere la sezione [Funzione per valori stringa length](#lengthstring).
 
 <a id="skip" />
-### skip
+### Funzione di matrice: skip
 **skip(originalValue, numberToSkip)**
 
-Restituisce una matrice o una stringa con tutti gli elementi o i caratteri dopo il numero specificato nella matrice o stringa.
+Restituisce una matrice con tutti gli elementi dopo il numero specificato nella matrice.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| originalValue | Sì | La matrice o stringa da usare per ignorare gli elementi o i caratteri.
-| numberToSkip | Sì | Il numero di elementi o caratteri da ignorare. Se questo valore è 0 o minore, vengono restituiti tutti gli elementi nella matrice o stringa. Se è maggiore della lunghezza della matrice o stringa, viene restituita una matrice o stringa vuota. 
+| originalValue | Sì | Matrice da usare.
+| numberToSkip | Sì | Numero di elementi da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi nella matrice. Se è maggiore della lunghezza della matrice, viene restituita una matrice vuota. 
+
+Per un esempio relativo all'uso di skip con una stringa, vedere la sezione [Funzione per valori stringa skip](#skipstring).
 
 L'esempio seguente ignora il numero specificato di elementi nella matrice.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for skipping"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to skip"
+        }
       }
     },
     "resources": [
@@ -498,30 +782,38 @@ L'esempio seguente ignora il numero specificato di elementi nella matrice.
     "outputs": {
       "return": {
         "type": "array",
-        "value": "[skip(parameters('first'),parameters('second'))]"
+        "value": "[skip(parameters('first'), parameters('second'))]"
       }
     }
 
 <a id="take" />
-### take
+### Funzione di matrice: take
 **take(originalValue, numberToTake)**
 
-Restituisce una matrice o una stringa con il numero specificato di elementi o i caratteri dall'inizio della matrice o stringa.
+Restituisce una matrice con il numero specificato di elementi dall'inizio della matrice.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
-| originalValue | Sì | La matrice o stringa da cui accettare gli elementi o i caratteri.
-| numberToTake | Sì | Il numero di elementi o caratteri da accettare. Se questo valore è 0 o minore, viene restituita una matrice o una stringa vuota. Se è maggiore della lunghezza della matrice o della stringa specificata, vengono restituiti tutti gli elementi nella matrice o stringa.
+| originalValue | Sì | Matrice da cui prendere gli elementi.
+| numberToTake | Sì | Numero di elementi da prendere. Se il valore è minore o uguale a 0, viene restituita una matrice vuota. Se è maggiore della lunghezza della matrice specificata, vengono restituiti tutti gli elementi nella matrice.
+
+Per un esempio relativo all'uso di take con una stringa, vedere la sezione [Funzione per valori stringa take](#takestring).
 
 L'esempio seguente accetta il numero specificato di elementi dalla matrice.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for taking"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to take"
+        }
       }
     },
     "resources": [
@@ -541,7 +833,7 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 - [parameters](#parameters)
 - [variables](#variables)
 
-Per ottenere i valori dalle risorse, dai gruppi di risorse o dalle sottoscrizioni, vedere [Funzioni delle risorse](#resource-functions).
+Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funzioni delle risorse](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -550,7 +842,9 @@ Per ottenere i valori dalle risorse, dai gruppi di risorse o dalle sottoscrizion
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
 
-Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito varieranno in base a se l'oggetto di distribuzione viene passato come un collegamento o come un oggetto inline. Quando l'oggetto di distribuzione viene passato inline, come quando si usa il parametro **- TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
+Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito variano a seconda che l'oggetto di distribuzione venga passato come un collegamento o come un oggetto inline.
+
+Quando l'oggetto di distribuzione viene passato inline, ad esempio quando si usa il parametro **-TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
 
     {
         "name": "",
@@ -558,6 +852,8 @@ Questa funzione restituisce l'oggetto che viene passato durante la distribuzione
             "template": {
                 "$schema": "",
                 "contentVersion": "",
+                "parameters": {},
+                "variables": {},
                 "resources": [
                 ],
                 "outputs": {}
@@ -574,9 +870,17 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
         "name": "",
         "properties": {
             "templateLink": {
-                "uri": "",
-                "contentVersion": ""
+                "uri": ""
             },
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "parameters": {},
+                "variables": {},
+                "resources": [],
+                "outputs": {}
+            },
+            "parameters": {},
             "mode": "",
             "provisioningState": ""
         }
@@ -587,7 +891,6 @@ Nell'esempio seguente viene illustrato come utilizzare la distribuzione () per c
     "variables": {  
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
     }  
-
 
 <a id="parameters" />
 ### parameters
@@ -623,73 +926,99 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | variable Name | Sì | Nome della variabile da restituire.
 
+L'esempio seguente usa un valore della variabile.
 
+    "variables": {
+      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+      }
+    ],
 
 ## Funzioni delle risorse
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
-- [listkeys](#listkeys)
-- [list*](#list)
+- [listKeys e list{Value}](#listkeys)
 - [provider](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
 - [resourceId](#resourceid)
 - [sottoscrizione](#subscription)
 
-Per ottenere i valori dai parametri, dalle variabili o dalla distribuzione corrente, vedere [Funzioni dei valori della distribuzione](#deployment-value-functions).
+Per ottenere valori dai parametri, dalle variabili o dalla distribuzione corrente, vedere [Funzioni dei valori della distribuzione](#deployment-value-functions).
 
-<a id="listkeys" />
-### listKeys
+<a id="listkeys" /> <a id="list" />
+### listKeys e list{Value}
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
-Restituisce le chiavi per qualsiasi tipo di risorsa che supporta l'operazione listKeys. È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **providerNamespace/resourceType/resourceName**. È possibile usare la funzione per ottenere i valori primaryKey e secondaryKey.
+**list{Value} (resourceName o resourceIdentifier, apiVersion)**
+
+Restituisce i valori per qualsiasi tipo di risorsa che supporta l'operazione di tipo elenco. L'uso più comune è rappresentato da **listKeys**.
   
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
 | resourceName o resourceIdentifier | Sì | Identificatore univoco della risorsa.
 | apiVersion | Sì | Versione dell'API dello stato di runtime della risorsa.
 
-L'esempio seguente mostra come restituire le chiavi da un account di archiviazione nella sezione outputs.
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo **listKeys**, ma anche operazioni come **list**, **listAdminKeys** e **listStatus**. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
+
+    Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente mostra come recuperare tutte le operazioni per **apiapps** e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
+
+È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **{providerNamespace}/{resourceType}/{resourceName}**.
+
+L'esempio seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs.
 
     "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
+      "listKeysOutput": { 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
         "type" : "object" 
       } 
     } 
 
-<a id="list" />
-### list*
+L'oggetto restituito da listKeys è nel formato seguente:
 
-**list* (resourceName or resourceIdentifier, apiVersion)**
-
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Queste operazioni includono **listKeys**, come illustrato in precedenza, ma anche operazioni quali **list**, **listAdminKeys** e **listStatus**. Per chiamare la funzione, usare il nome effettivo della funzione, non list*. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
-
-    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
-
-In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente recupera tutte le operazioni per **apiapps** e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
-
-    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
+    {
+      "keys": [
+        {
+          "keyName": "key1",
+          "permissions": "Full",
+          "value": "{value}"
+        },
+        {
+          "keyName": "key2",
+          "permissions": "Full",
+          "value": "{value}"
+        }
+      ]
+    }
 
 <a id="providers" />
 ### provider
 
 **providers (providerNamespace, [resourceType])**
 
-Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non viene specificato un tipo, vengono restituiti tutti i tipi supportati.
+Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non si specifica un tipo di risorsa, la funzione restituisce tutti i tipi supportati per il provider di risorse.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | providerNamespace | Sì | Spazio dei nomi del provider
 | resourceType | No | Il tipo di risorsa all'interno dello spazio dei nomi specificato.
 
-Ogni tipo supportato viene restituito nel formato seguente. Non è garantito l'ordine della matrice:
+Ogni tipo supportato viene restituito nel formato seguente: L'ordinamento della matrice non è garantito.
 
     {
         "resourceType": "",
@@ -711,12 +1040,12 @@ L'esempio seguente mostra come usare la funzione provider:
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
 
-Consente a un'espressione di derivare il valore dallo stato di runtime di un'altra risorsa.
+Restituisce un oggetto che rappresenta lo stato di runtime di un'altra risorsa.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
 | resourceName o resourceIdentifier | Sì | Nome o identificatore univoco di una risorsa.
-| apiVersion | No | Versione dell'API della risorsa specificata. È necessario includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello.
+| apiVersion | No | Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello.
 
 La funzione **reference** deriva il proprio valore da uno stato di runtime, quindi non può essere usata nella sezione variables. Può essere usata, invece, nella sezione outputs di un modello.
 
@@ -735,16 +1064,16 @@ L'esempio seguente fa riferimento a un account di archiviazione non distribuito 
 
     "outputs": {
 		"ExistingStorage": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
 			"type" : "object"
 		}
 	}
 
-È possibile recuperare un particolare valore dall'oggetto restituito, ad esempio l'URI dell'endpoint BLOB, come illustrato di seguito.
+È possibile recuperare un valore specifico dall'oggetto restituito, ad esempio l'URI dell'endpoint BLOB, come illustrato nell'esempio seguente.
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
@@ -753,22 +1082,31 @@ L'esempio seguente fa riferimento a un account di archiviazione in un gruppo di 
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
+
+Le proprietà nell'oggetto restituito variano in base al tipo di risorsa.
 
 <a id="resourcegroup" />
 ### resourceGroup
 
 **resourceGroup()**
 
-Restituisce un oggetto strutturato che rappresenta il gruppo di risorse corrente. L'oggetto sarà nel seguente formato:
+Restituisce un oggetto che rappresenta il gruppo di risorse corrente.
+
+L'oggetto restituito è nel formato seguente:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
       "name": "{resourceGroupName}",
       "location": "{resourceGroupLocation}",
+      "tags": {
+      },
+      "properties": {
+        "provisioningState": "{status}"
+      }
     }
 
 L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percorso per un sito Web.
@@ -788,17 +1126,19 @@ L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percor
 
 **resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
-Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. L'identificatore viene restituito nel formato seguente:
-
-    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
+Restituisce l'identificatore univoco di una risorsa.
       
 | Parametro | Obbligatorio | Descrizione
 | :---------------: | :------: | :----------
-| subscriptionId | No | ID sottoscrizione facoltativo. Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si recupera una risorsa in un'altra sottoscrizione.
-| resourceGroupName | No | Nome del gruppo di risorse facoltativo. Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si recupera una risorsa in un altro gruppo di risorse.
+| subscriptionId | No | Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione.
+| resourceGroupName | No | Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse.
 | resourceType | Sì | Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse.
 | resourceName1 | Sì | Nome della risorsa.
 | resourceName2 | No | Segmento successivo del nome della risorsa se la risorsa è annidata.
+
+Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. L'identificatore viene restituito nel formato seguente:
+
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
 
 L'esempio seguente mostra come recuperare gli ID risorsa per un sito Web e un database. Il sito Web si trova in un gruppo di risorse denominato **myWebsitesGroup**, mentre il database si trova nel gruppo di risorse corrente per questo modello.
 
@@ -849,7 +1189,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
     }
 
 <a id="subscription" />
-### subscription
+### sottoscrizione
 
 **subscription()**
 
@@ -877,4 +1217,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

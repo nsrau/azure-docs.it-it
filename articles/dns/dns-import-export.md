@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure
@@ -172,7 +172,7 @@ Valori:
 - `<zone name>` è il nome della zona.
 - `<zone file name>` è il nome/percorso del file di zona da esportare.
 
-Come con l'importazione di zona, è prima di tutto necessario accedere, scegliere la sottoscrizione e configurare l'interfaccia della riga di comando di Azure per l'uso della modalità Gestione risorse.
+Come per l'importazione di una zona, è necessario prima di tutto accedere, scegliere la sottoscrizione e configurare l'interfaccia della riga di comando di Azure per l'uso della modalità Resource Manager.
 
 ### Per esportare un file di zona:
 
@@ -193,4 +193,4 @@ Come con l'importazione di zona, è prima di tutto necessario accedere, sceglier
 
 		azure network dns zone export myresourcegroup contoso.com contoso.com.txt
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

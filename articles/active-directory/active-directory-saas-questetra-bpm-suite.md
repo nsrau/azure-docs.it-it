@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 Questa esercitazione descrive l'integrazione di Questetra BPM Suite con Azure Active Directory (Azure AD). L'integrazione di Questetra BPM Suite con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Questetra BPM Suite. 
+- È possibile controllare in Azure AD chi può accedere a Questetra BPM Suite.
 - È possibile abilitare gli utenti per l'accesso automatico a Questetra BPM Suite (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -31,7 +31,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Questetra BPM Suite, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
+- Sottoscrizione di Azure AD.
 - Sottoscrizione di [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) abilitata per l'accesso Single Sign-On
 
 
@@ -41,13 +41,13 @@ Per configurare l'integrazione di Azure AD con Questetra BPM Suite, sono necessa
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
-1. Aggiunta di Questetra BPM Suite dalla raccolta 
+1. Aggiunta di Questetra BPM Suite dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Questetra BPM Suite in Azure AD, è necessario
 
 **Per aggiungere Questetra BPM Suite dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -131,7 +131,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
     c. Nella sezione SP Information del sito aziendale di **Questetra BPM Suite** copiare il valore di **ACS URL** e incollarlo nella casella di testo **URL di risposta**.
 
-    d. Fare clic su **Avanti**.
+    d. Fare clic su **Next**.
 
  
 7. Nella pagina **Configura accesso Single Sign-On in Questetra BPM Suite** fare clic su **Scarica certificato** e quindi salvare il file del certificato localmente nel computer.
@@ -190,7 +190,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creare un utente test di Azure AD][101]
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creare un utente test di Azure AD][102]
 
@@ -222,7 +222,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creare un utente test di Azure AD][105]
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
 	![Creare un utente test di Azure AD][106]
   
@@ -238,8 +238,8 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Questetra
 **Per creare un utente test denominato Britta Simon in Questetra BPM Suite, seguire questa procedura:**
 
 1.	Accedere al sito aziendale di Questetra BPM Suite come amministratore.
-2.	Scegliere **System Settings > User List > New User**. 
-3.	Nella finestra di dialogo New User (Nuovo utente) seguire questa procedura: 
+2.	Scegliere **System Settings > User List > New User**.
+3.	Nella finestra di dialogo New User (Nuovo utente) seguire questa procedura:
 
 	![Creare un utente test][300]
 
@@ -332,4 +332,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

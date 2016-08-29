@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
-## Panoramica
+## Overview
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
 
 Lo scopo di questo articolo è mostrare la distribuzione di Cassandra in Ubuntu come cluster di uno solo o di più data center sfruttando le macchine virtuali di Microsoft Azure e le reti virtuali. La distribuzione del cluster per i carichi di lavoro ottimizzati per la produzione esula dall'ambito di questo articolo perché richiede una configurazione nodi a più dischi, una progettazione appropriata della topologia ad anello e la modellazione dati per supportare i requisiti necessari di replica, coerenza dei dati, velocità effettiva e disponibilità elevata.
@@ -113,7 +113,7 @@ Le distribuzioni devono riconoscere l'impatto della topologia del cluster sulla 
 Durante la distribuzione vengono usate le seguenti versioni software:
 
 <table>
-<tr><th>Software</th><th>Source</th><th>Versione</th></tr>
+<tr><th>Software</th><th>Sorgente</th><th>Versione</th></tr>
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
@@ -155,7 +155,7 @@ Immettere le informazioni seguenti nella schermata n. 2 "Configurazione macchina
 <tr><td> NOME DNS DEL SERVIZIO CLOUD:	</td><td>ubuntu-template.cloudapp.net	</td><td>Assegnare un nome bilanciamento del carico indipendente dal computer</td></tr>
 <tr><td> AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE </td><td>	Stati Uniti occidentali	</td><td> Selezionare un'area da cui le applicazioni Web accedono al cluster Cassandra</td></tr>
 <tr><td>ACCOUNT DI ARCHIVIAZIONE </td><td>	Usare l'impostazione predefinita.	</td><td>Usare l'account di archiviazione predefinito o un account di archiviazione creato in precedenza in una determinata area</td></tr>
-<tr><td>SET DI DISPONIBILITÀ </td><td>	Nessuno </td><td>	Lasciare vuoto</td></tr>
+<tr><td>SET DI DISPONIBILITÀ </td><td>	None </td><td>	Lasciare vuoto</td></tr>
 <tr><td>ENDPOINT	</td><td>Usare l'impostazione predefinita. </td><td>	Usare la configurazione SSH predefinita </td></tr>
 </table>
 
@@ -305,8 +305,8 @@ Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGIN
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
 <tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>	
 <tr><td>Region</td><td>Stati Uniti occidentali</td><td></td></tr>	
-<tr><td>Server DNS	</td><td>Nessuno</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
-<tr><td>Configura una VPN Point-to-Site</td><td>Nessuno</td><td> Ignorare questo attributo</td></tr>
+<tr><td>Server DNS	</td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
+<tr><td>Configura una VPN Point-to-Site</td><td>None</td><td> Ignorare questo attributo</td></tr>
 <tr><td>Configura una VPN Site-to-Site</td><td>Nessuno</td><td> Ignorare questo attributo</td></tr>
 <tr><td>Spazio di indirizzi</td><td>10.1.0.0/16</td><td></td></tr>	
 <tr><td>IP iniziale</td><td>10.1.0.0</td><td></td></tr>	
@@ -424,7 +424,7 @@ Accedere a uno dei nodi (ad esempio, hk-c1-west-us) ed eseguire il comando segue
 Per un cluster a 8 nodi i dati visualizzati saranno simili ai seguenti:
 
 <table>
-<tr><th>Stato</th></th>Address	</th><th>Load	</th><th>Tokens	</th><th>Owns </th><th>Host ID	</th><th>Rack</th></tr>
+<tr><th>Stato</th></th>Indirizzo	</th><th>chiudi	</th><th>Tokens	</th><th>Owns </th><th>Host ID	</th><th>Rack</th></tr>
 <tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81 KB	</td><td>256	</td><td>38,0%	</td><td>Guid (removed)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08 KB	</td><td>256	</td><td>68,9% 	</td><td>Guid (removed)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>Guid (removed)</td><td>rack2</td></tr>
@@ -470,7 +470,7 @@ Accedere al portale di Azure classico e creare una rete virtuale con gli attribu
 <table>
 <tr><th>Nome attributo    </th><th>Valore	</th><th>Osservazioni</th></tr>
 <tr><td>Nome	</td><td>vnet-cass-east-us</td><td></td></tr>	
-<tr><td>Region	</td><td>Stati Uniti Orientali</td><td></td></tr>	
+<tr><td>Region	</td><td>Stati Uniti orientali</td><td></td></tr>	
 <tr><td>Server DNS		</td><td></td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
 <tr><td>Configura una VPN Point-to-Site</td><td></td><td>		Ignorare questo attributo</td></tr>
 <tr><td>Configura una VPN Site-to-Site</td><td></td><td>		Ignorare questo attributo</td></tr>
@@ -697,7 +697,7 @@ Con una delle macchine virtuali Linux create nel livello "Web" in precedenza, ve
 		readCustomer(ksConOptions)
 
 
-## Conclusioni 
+## Conclusione 
 Microsoft Azure è una piattaforma flessibile che consente di eseguire software sia Microsoft che open source, come è stato illustrato in questa esercitazione. I cluster Cassandra a disponibilità elevata possono essere distribuiti in un data center singolo distribuendo i nodi dei cluster in più domini di errore. I cluster Cassandra possono essere distribuiti anche in più area di Azure geograficamente distanti per sistemi a prova di emergenza. La combinazione di Azure e Cassandra consente di creare servizi cloud a scalabilità elevata, a disponibilità elevata e ripristinabili in caso di emergenza, necessari per gli odierni servizi su scala Internet.
 
 ##Riferimenti##
@@ -705,4 +705,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com)
 - [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

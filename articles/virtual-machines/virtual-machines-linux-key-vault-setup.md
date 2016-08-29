@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager | Microsoft Azure"
-	description="Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager"
+	description="Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="rothja"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -49,4 +49,4 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
 
 Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio 
 
-##Panoramica
+##Overview
 Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione AD Azure, gli utenti possono usare gli account da Azure AD per connettersi alle applicazioni web. I vantaggi dell'autenticazione AD Azure con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
 
 ## Tipi di progetto supportati
@@ -79,4 +79,4 @@ Porre domande e ottenere assistenza.
 
  - [Post di blog: Introduzione a Microsoft Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

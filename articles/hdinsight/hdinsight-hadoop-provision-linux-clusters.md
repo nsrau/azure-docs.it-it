@@ -103,14 +103,14 @@ Vedere [Tipi di cluster](#cluster-types) e [Livelli di cluster](#cluster-tiers).
 
 È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti:
 
-- HDInsight in Linux (Ubuntu 12.04 LTS per Linux). HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+- HDInsight in Linux. HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 - HDInsight in Windows (Windows Server 2012 R2 Datacenter).
 
 ### Versione HDInsight###
 
 Consente di determinare la versione di HDInsight necessaria per questo cluster. Per altre informazioni, vedere [Quali sono i diversi componenti di Hadoop disponibili in HDInsight?](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
-### Nome sottoscrizione###
+### Nome della sottoscrizione###
 
 Ogni cluster HDInsight è associato a una sottoscrizione di Azure.
 
@@ -297,4 +297,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | & nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

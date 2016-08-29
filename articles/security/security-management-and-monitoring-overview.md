@@ -1,6 +1,6 @@
 <properties
    pageTitle="Panoramica su gestione e monitoraggio della sicurezza di Azure | Microsoft Azure"
-   description="Azure offre meccanismi di sicurezza utili per la gestione e il monitoraggio dei servizi cloud e delle macchine virtuali di Azure. Questo articolo offre una panoramica dei servizi e delle funzionalità di sicurezza di base."
+   description=" Azure offre meccanismi di sicurezza utili per la gestione e il monitoraggio dei servizi cloud e delle macchine virtuali di Azure. Questo articolo offre una panoramica dei servizi e delle funzionalità di sicurezza di base. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Panoramica su gestione e monitoraggio della sicurezza di Azure
@@ -63,7 +63,7 @@ Anche Symantec Endpoint Protection (SEP) è supportato in Azure. Attraverso l'in
 Altre informazioni:
 
 - [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../azure-security-antimalware.md)
+- [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../security/azure-security-antimalware.md)
 - [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [Nuove opzioni antimalware per la protezione di macchine virtuali di Azure: McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
@@ -123,7 +123,7 @@ Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacc
 
 Il Centro sicurezza di Azure consente di ottimizzare e monitorare la sicurezza di delle risorse di Azure tramite le funzionalità seguenti:
 
-- La possibilità di definire i criteri per le risorse delle sottoscrizioni di Azure in base alle esigenze di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
+- La possibilità di definire i criteri per le risorse delle sottoscrizioni di Azure in base alle esigenze di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ogni sottoscrizione.
 - Il monitoraggio dello stato della rete, delle applicazioni e delle macchine virtuali di Azure.
 - La visualizzazione di un elenco degli avvisi di sicurezza con priorità, inclusi gli avvisi relativi alle soluzioni dei partner integrate, nonché le informazioni che è necessario esaminare rapidamente e le indicazioni su come risolvere un attacco.
 
@@ -134,4 +134,4 @@ Altre informazioni:
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Panoramica dell'API Hub eventi
@@ -23,9 +23,9 @@ Gli scenari di monitoraggio comprendono sia la gestione che il runtime. Per la d
 
 ## API di gestione
 
-Per eseguire le seguenti operazioni di gestione è necessario disporre di **Gestisci** le autorizzazioni per lo spazio dei nomi del Bus di servizio:
+Per eseguire le operazioni di gestione riportate di seguito sono necessarie autorizzazioni di **gestione** per lo spazio dei nomi di Hub eventi:
 
-### Creazione
+### Create
 
 ```
 // Create the Event Hub
@@ -47,7 +47,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
-### Delete
+### Elimina
 
 ```
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
@@ -177,7 +177,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 ## Passaggi successivi
 
-Per ulteriori informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
+Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
 - [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
 - [Panoramica di Hub eventi](event-hubs-overview.md)
@@ -189,4 +189,4 @@ I riferimenti API .NET sono qui:
 - [Riferimenti API .NET di Hub eventi e del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
@@ -223,4 +223,4 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->
