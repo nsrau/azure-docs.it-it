@@ -147,9 +147,11 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se la query è attivamente in attesa di risorse da un'altra query, lo stato sarà **AcquireResources**. Se la query dispone di tutte le risorse necessarie, lo stato sarà **Granted**.
 
 ## Passaggi successivi
-Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di sistema][]. Per suggerimenti sulla gestione di SQL Data Warehouse, vedere [Gestire i database in Azure SQL Data Warehouse][]. Per informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di sistema][].  
+Per suggerimenti sulla gestione di SQL Data Warehouse, vedere [Gestire i database in Azure SQL Data Warehouse][].  
+Per informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Gestire i database in Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-manage.md
@@ -168,3 +170,4 @@ Per altre informazioni sulle viste a gestione dinamica (DMV), vedere [Viste di s
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
 <!---HONumber=AcomDC_0810_2016-->
+
