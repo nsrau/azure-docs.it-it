@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/17/2016"
-	ms.author="v-livech"/>  
+	ms.author="v-livech"/>
 
 # Creare una VM Linux usando un modello di Azure
 

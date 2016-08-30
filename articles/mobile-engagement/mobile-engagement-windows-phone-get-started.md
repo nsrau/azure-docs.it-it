@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per app per Windows Phone Silverlight
 
@@ -159,7 +159,7 @@ Si dovrebbe ora vedere una notifica sul dispositivo che verrà visualizzata come
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9874664
 [Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-windows-phone-get-started/project-properties.png
 [2]: ./media/mobile-engagement-windows-phone-get-started/wmappmanifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png

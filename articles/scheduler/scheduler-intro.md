@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>  
+ ms.author="krisragh"/>
 
 # Che cos'è l'Utilità di pianificazione di Azure?
 

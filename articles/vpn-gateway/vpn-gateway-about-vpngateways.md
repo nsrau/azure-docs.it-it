@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Informazioni sul gateway VPN
 
@@ -43,7 +43,7 @@ Poiché il gateway VPN è una raccolta di impostazioni, è possibile configurarn
 
 Una connessione da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico assegnato e non dietro una NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.
 
-![Connessione da sito a sito](./media/vpn-gateway-about-vpngateways/demos2s.png "Da sito a sito")  
+![Connessione da sito a sito](./media/vpn-gateway-about-vpngateways/demos2s.png "Da sito a sito")
 
 
 ### Multisito
@@ -92,7 +92,7 @@ Azure offre attualmente di due modelli di distribuzione: classica e Resource Man
 Una configurazione da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. P2S è una connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Le connessioni P2S non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per stabilire la connessione VPN, avviarla dal computer client. È la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
 
 
-![Connessione da punto a sito](./media/vpn-gateway-about-vpngateways/demop2s.png "da punto a sito")  
+![Connessione da punto a sito](./media/vpn-gateway-about-vpngateways/demop2s.png "da punto a sito")
 
 ### Metodi e modelli di distribuzione
 

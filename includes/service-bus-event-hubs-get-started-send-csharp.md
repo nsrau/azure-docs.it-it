@@ -10,7 +10,7 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 
 3. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto **Sender** sia specificato nella casella **Versione/i**. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-	![][8]  
+	![][8]
 
 	Visual Studio scarica e installa il [pacchetto NuGet delle librerie del bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) e aggiunge un riferimento al pacchetto.
 
@@ -66,7 +66,7 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 	```
 
 
-<!-- Images -->  
+<!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 

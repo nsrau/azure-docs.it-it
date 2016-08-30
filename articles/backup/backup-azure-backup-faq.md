@@ -191,7 +191,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 **D1. Come si modifica il percorso della cache specificato per l'agente di Backup di Azure?**<br/> R1. Scorrere in sequenza l'elenco puntato riportato di seguito per modificare il percorso della cache.
 - Arrestare il motore Backup eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:
 
-  ```PS C:\> Net stop obengine```  
+  ```PS C:\> Net stop obengine```
 
 - Non spostare i file. Copiare invece la cartella dello spazio della cache in un'altra unità con spazio sufficiente. Lo spazio della cache originale può essere rimosso dopo avere verificato che i backup usino il nuovo spazio della cache.
 
@@ -199,12 +199,12 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 |Percorso del Registro | Chiave del Registro | Valore |
 | ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config`   | ScratchLocation | *Nuovo percorso della cartella della cache* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider`   | ScratchLocation | *Nuovo percorso della cartella della cache* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Nuovo percorso della cartella della cache* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Nuovo percorso della cartella della cache* |
 
 - Riavviare il motore Backup eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:
 
-  ```PS C:\> Net start obengine```  
+  ```PS C:\> Net start obengine```
 
   Una volta completata la creazione del backup nel nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 

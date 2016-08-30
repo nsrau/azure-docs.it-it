@@ -91,23 +91,23 @@ Creare in questa sezione il front-end dell'applicazione. Creare prima di tutto l
 
 2.  Da **Modelli installati**, in **Visual C#**, fare clic su **Cloud** e quindi su **Servizio cloud Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
 
-    ![][9]  
+    ![][9]
 
 3.  Dai ruoli **.NET Framework 4.5** fare doppio clic su **Ruolo Web ASP.NET**.
 
-    ![][10]  
+    ![][10]
 
 4.  Passare il puntatore su **RuoloWeb1** in **Soluzione Servizio cloud Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Fare quindi clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
 
-    ![][11]  
+    ![][11]
 
 5.  Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **MVC** nell'elenco **Selezionare un modello**.
 
-    ![][12]  
+    ![][12]
 
 6. Sempre nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
 
-	![][16]  
+	![][16]
 
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK** per creare il progetto.
 
@@ -203,11 +203,11 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 
 5.  Creare quindi la visualizzazione per il metodo `Submit()` creato in precedenza. Fare clic con il pulsante destro del mouse all'interno del metodo `Submit()`, ovvero l'overload del metodo `Submit()` che non accetta parametri, e quindi scegliere **Aggiungi visualizzazione**.
 
-    ![][14]  
+    ![][14]
 
 6.  Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** scegliere la classe **OnlineOrder**.
 
-    ![][15]  
+    ![][15]
 
 7.  Fare clic su **Aggiungi**.
 
@@ -217,7 +217,7 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 
 10. Rimuovere i collegamenti **Home**, **About** e **Contact**. Eliminare il codice evidenziato:
 
-	![][28]  
+	![][28]
 
 11. Modificare infine la pagina di invio in modo da includere informazioni sulla coda. In **Esplora soluzioni** fare doppio clic sul file **Views\\Home\\Submit.cshtml** per aprirlo nell'editor di Visual Studio. Aggiungere la riga seguente dopo `<h2>Submit</h2>`. Per ora `ViewBag.MessageCount` non contiene valori. Il valore verrà inserito successivamente.
 
@@ -227,7 +227,7 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 
 12. L'interfaccia utente è stata implementata. È possibile premere **F5** per eseguire l'applicazione e confermare che abbia l'aspetto previsto.
 
-    ![][17]  
+    ![][17]
 
 ### Scrivere codice per l'invio di elementi a una coda del bus di servizio
 
@@ -349,7 +349,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
 
 9.  È ora possibile eseguire di nuovo l'applicazione. Ogni volta che si invia un ordine, il conteggio dei messaggi aumenta.
 
-    ![][18]  
+    ![][18]
 
 ## Creare il ruolo di lavoro
 
@@ -361,11 +361,11 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 3.  Fare clic su **Aggiungi**, quindi su **Nuovo progetto di ruolo di lavoro**. Viene visualizzata la finestra di dialogo **Aggiungi nuovo progetto di ruolo**.
 
-	![][26]  
+	![][26]
 
 4.  Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** fare clic su **Ruolo di lavoro con coda del bus di servizio**.
 
-	![][23]  
+	![][23]
 
 5.  Nella casella **Name** assegnare il nome **OrderProcessingRole** al progetto. Fare quindi clic su **Aggiungi**.
 
@@ -375,7 +375,7 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 8.  Nella scheda **Impostazioni** della finestra di dialogo **Proprietà** posizionare il cursore all'interno della casella **Valore** per **Microsoft.ServiceBus.ConnectionString**, quindi incollare il valore dell'endpoint copiato al passaggio 6.
 
-	![][25]  
+	![][25]
 
 9.  Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla classe **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sull'icona della classe, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
 
@@ -406,9 +406,9 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 14. L'applicazione è stata completata. È possibile testare l'applicazione completa facendo clic con il pulsante destro del mouse sul progetto MultiTierApp in Esplora soluzioni. Selezionare quindi **Imposta come progetto di avvio** e premere F5. Il numero totale dei messaggi non aumenta perché il ruolo di lavoro elabora gli elementi dalla coda e li contrassegna come completati. È possibile verificare l'output di traccia del ruolo di lavoro visualizzando l'interfaccia utente dell'emulatore di calcolo di Azure. Per eseguire questa operazione, fare clic con il pulsante destro del mouse sull'icona dell'emulatore nell'area di notifica della barra delle applicazioni, quindi scegliere **Show Compute Emulator UI**.
 
-    ![][19]  
+    ![][19]
 
-    ![][20]  
+    ![][20]
 
 ## Passaggi successivi  
 

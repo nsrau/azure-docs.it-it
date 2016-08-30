@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
-   ms.author="osamazia"/>  
+   ms.author="osamazia"/>
 
 # Routing asimmetrico con più percorsi di rete
 
@@ -25,7 +25,7 @@ Per comprendere il routing asimmetrico occorre avere chiari due concetti. Uno è
 
 Quando una rete aziendale ha un solo collegamento a Internet tramite il provider di servizi Internet, tutto il traffico da e verso Internet passa per lo stesso percorso. Spesso le aziende acquistano più circuiti, per avere percorsi ridondanti e migliorare i tempi di attività della rete. In questi casi il traffico in uscita dalla rete verso Internet e il traffico di ritorno potrebbero passare per collegamenti diversi. Questo fenomeno è comunemente noto come routing asimmetrico, perché il traffico di ritorno segue un percorso diverso rispetto al flusso originale.
 
-![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)  
+![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
 La descrizione precedente si riferisce a Internet, ma è applicabile anche ad altre combinazioni di più percorsi, ad esempio nel caso di un percorso Internet e un percorso privato per la stessa destinazione, di più percorsi privati per la stessa destinazione e così via.
 
@@ -47,7 +47,7 @@ Quando ci si connette a Microsoft tramite ExpressRoute, nella rete si verificano
 
 Di seguito vengono proposti alcuni scenari per illustrare l'impatto di questi fattori. Si supponga di avere un solo circuito per Internet e di utilizzare tutti i servizi Microsoft tramite Internet. Il traffico dalla rete a Microsoft e viceversa attraversa lo stesso collegamento Internet e passa per il firewall. Il firewall registra il flusso non appena rileva il primo pacchetto e ai pacchetti di ritorno viene consentito il passaggio perché il flusso è già presente nella tabella dello stato.
 
-![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)  
+![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
 A questo punto si abilita ExpressRoute e si utilizzano i servizi offerti da Microsoft tramite ExpressRoute. Tutti gli altri servizi Microsoft vengono utilizzati tramite Internet. Si distribuisce un firewall di confine separato che si connette a ExpressRoute. Tramite ExpressRoute, Microsoft annuncia alla rete prefissi più specifici per servizi specifici. Per tali prefissi l'infrastruttura di routing sceglierà ExpressRoute come percorso preferito. Se gli indirizzi IP pubblici non vengono annunciati a Microsoft tramite ExpressRoute, Microsoft comunica con gli indirizzi IP pubblici tramite Internet. Quindi, il traffico inoltrato dalla rete a Microsoft userà ExpressRoute mentre il traffico di ritorno da Microsoft userà Internet. Quando il firewall di confine rileva un pacchetto di risposta per un flusso non presente nella tabella dello stato, elimina il traffico di ritorno.
@@ -69,7 +69,7 @@ Il problema del routing asimmetrico può essere risolto principalmente in due mo
 	Un altro metodo per risolvere i problemi di routing asimmetrico è il Source NAT (SNAT). Si supponga, ad esempio, di non aver annunciato l'indirizzo IP pubblico del server SMTP locale tramite ExpressRoute perché si intende usare Internet per questa comunicazione. Una richiesta originata da Microsoft e diretta al server SMTP locale attraversa Internet. Tramite il Source NAT la richiesta in ingresso viene inviata a un indirizzo IP interno. Il traffico di ritorno dal server SMTP passerà per il firewall di confine usato per il NAT, anziché attraverso ExpressRoute. In questo modo il traffico di ritorno passerà per Internet.
 
 
-![Routing2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)  
+![Routing2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## Rilevamento del routing asimmetrico
 

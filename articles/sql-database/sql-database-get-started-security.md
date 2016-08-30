@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/17/2016"
-	ms.author="carlrab"/>  
+	ms.author="carlrab"/>
 
 # Esercitazione sul database SQL: Creare account utente del database SQL per accedere a un database e gestirlo
 

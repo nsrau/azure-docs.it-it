@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>  
+   ms.author="narayanannamalai"/>
 
 # Creare un peering reti virtuali usando i cmdlet di PowerShell
 

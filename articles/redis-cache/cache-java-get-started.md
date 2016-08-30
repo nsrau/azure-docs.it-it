@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="08/24/2016"
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure con Java
 

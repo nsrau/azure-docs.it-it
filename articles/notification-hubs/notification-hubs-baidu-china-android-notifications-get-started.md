@@ -462,7 +462,7 @@ L'app recupera le proprietà 'userId' e 'channelId' dal servizio di notifiche pu
 Per inviare una notifica di prova, è possibile usare la scheda Debug del portale di Azure classico. Se è stata compilata l'applicazione console .NET per Visual Studio, è sufficiente premere F5 in Visual Studio per eseguirla. L'applicazione invierà una notifica, che verrà visualizzata nell'area di notifica principale del dispositivo o dell'emulatore.
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png
 [2]: ./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png
 [3]: ./media/notification-hubs-baidu-get-started/BaiduConfirmation.png

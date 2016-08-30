@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="08/22/2016"
-	ms.author="marsma"/> 
+	ms.author="marsma"/>
 
 # Panoramica delle funzionalità di Batch per sviluppatori
 
@@ -175,7 +175,7 @@ Un processo è una raccolta di attività. Gestisce la modalità di esecuzione de
 
 ### Priorità dei processi
 
-È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo usando l'operazione [Aggiornare le proprietà di un processo][rest_update_job] (Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
+È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo usando l'operazione [Aggiornare le proprietà di un processo][rest_update_job] \(Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] \(Batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non ha tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
 
@@ -195,7 +195,7 @@ Quando si crea un'attività, è possibile specificare:
 
 	È importante notare che la riga di comando non viene effettivamente eseguita in una shell. Non può quindi usare in modo nativo i vantaggi delle funzionalità della shell, ad esempio l'espansione delle [variabili di ambiente](#environment-settings-for-tasks), incluso `PATH`. Per usare queste funzionalità, è necessario richiamare la shell nella riga di comando, ad esempio avviando `cmd.exe` nei nodi Windows o `/bin/sh` in Linux:
 
-	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%` 
+	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
 	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
@@ -286,20 +286,20 @@ Vedere [Relazioni tra attività in Azure Batch](batch-task-dependencies.md) e l'
 
 Ogni attività eseguita all'interno di un processo Batch può accedere sia alle variabili di ambiente configurate dal servizio Batch (definite dal servizio, come illustrato nella tabella seguente), sia alle quelle personalizzate, che è possibile configurare per le attività. Le applicazioni e gli script eseguiti nei nodi dalle attività hanno accesso a queste variabili di ambiente durante l'esecuzione.
 
-È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio l'operazione [Aggiungere un'attività a un processo][rest_add_task] (API Batch REST) o le proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
+È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio l'operazione [Aggiungere un'attività a un processo][rest_add_task] \(API Batch REST) o le proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
 
-L'applicazione o il servizio client può ottenere le variabili di ambiente di un'attività, sia quelle definite dal servizio che quelle personalizzate, usando l'operazione [Ottenere informazioni su un'attività][rest_get_task_info] (API Batch REST) o accedendo alla proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). I processi eseguiti in un nodo di calcolo possono accedere a queste e ad altre variabili di ambiente nel nodo, ad esempio usando la sintassi familiare `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+L'applicazione o il servizio client può ottenere le variabili di ambiente di un'attività, sia quelle definite dal servizio che quelle personalizzate, usando l'operazione [Ottenere informazioni su un'attività][rest_get_task_info] \(API Batch REST) o accedendo alla proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] \(Batch .NET). I processi eseguiti in un nodo di calcolo possono accedere a queste e ad altre variabili di ambiente nel nodo, ad esempio usando la sintassi familiare `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
 Le variabili di ambiente seguenti vengono impostate dal servizio Batch e sono accessibili dalle attività:
 
 | Nome di variabile di ambiente | Descrizione |
 |---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME`  | Nome dell'account a cui appartiene l'attività. |
+| `AZ_BATCH_ACCOUNT_NAME` | Nome dell'account a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_ID` | ID del processo a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_PREP_DIR` | Percorso completo della directory di attività di preparazione sul nodo. |
 | `AZ_BATCH_JOB_PREP_WORKING_DIR` | Percorso completo della directory di lavoro di attività di preparazione sul nodo. |
 | `AZ_BATCH_NODE_ID` | ID del nodo in cui è in esecuzione l'attività. |
-| `AZ_BATCH_NODE_ROOT_DIR`  | Percorso completo della directory radice nel nodo. |
+| `AZ_BATCH_NODE_ROOT_DIR` | Percorso completo della directory radice nel nodo. |
 | `AZ_BATCH_NODE_SHARED_DIR` | Percorso completo della directory condivisa nel nodo. |
 | `AZ_BATCH_NODE_STARTUP_DIR` | Percorso completo della directory delle attività di avvio del nodo di calcolo nel nodo. |
 | `AZ_BATCH_POOL_ID` | ID del pool in cui è in esecuzione l'attività. |
@@ -379,7 +379,7 @@ Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere 
 
 È in genere necessario usare certificati per crittografare o decrittografare informazioni riservate per le attività, ad esempio la chiave per un [account di archiviazione di Azure][azure_storage]. Per supportare questa funzionalità, è possibile installare certificati nei nodi. I segreti crittografati vengono passati alle attività nei parametri della riga di comando o incorporati in una delle risorse dell'attività e i certificati installati possono essere usati per decrittografarli.
 
-Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungere un certificato a un account][rest_add_cert] (Batch REST) o il metodo [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
+Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungere un certificato a un account][rest_add_cert] \(Batch REST) o il metodo [CertificateOperations.CreateCertificate][net_create_cert] \(Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
 
 Se si aggiungono certificati a un pool *esistente*, è necessario riavviare i relativi nodi di calcolo per applicare i certificati ai nodi.
 

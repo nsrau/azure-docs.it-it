@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per app Xamarin.iOS
 
@@ -158,7 +158,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-xamarin-ios-get-started/new-solution.png
 [2]: ./media/mobile-engagement-xamarin-ios-get-started/app-type.png
 [3]: ./media/mobile-engagement-xamarin-ios-get-started/configure-project-name.png

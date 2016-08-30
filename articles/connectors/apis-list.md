@@ -50,7 +50,7 @@ Usare i connettori EIP per creare app per la logica per gli scenari B2B che incl
 |[![Icona API][as2icon]<br/>**Decodifica</br>AS2**][as2decode]|[![Icona API][as2icon]<br/>**Codifica</br>AS2**][as2encode]|[![Icona API][x12icon]<br/>**Decodifica</br>X12**][x12decode]|[![Icona API][x12icon]<br/>**Codifica</br>X12**][x12encode]|
 |[![Icona API][x12icon]<br/>**Decodifica</br>EDIFACT**][EDIFACTdecode]|[![Icona API][x12icon]<br/>**Codifica</br>EDIFACT**][EDIFACTencode]||||
 
-<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->  
+<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connettori come trigger
 Vari connettori forniscono trigger che possono inviare notifiche all'app quando si verifica un evento specifico. Ad esempio, il connettore FTP include il trigger OnUpdatedFile. È possibile creare un'app per la logica, una PowerApp o un flusso che resta in ascolto del trigger ed esegue un'azione ogni volta che il trigger viene attivato.
 

@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="sstein;carlrab" />  
+	ms.author="sstein;carlrab" />
 
 # Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio
 
@@ -39,7 +39,7 @@ Dopo la connessione al server è possibile connettersi a un database ed eseguire
 1. In **Esplora oggetti** passare a un database nel server, come il database di esempio **AdventureWorks**.
 2. Fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**:
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)  
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
 3. Nella finestra della query copiare e incollare quanto segue:
 
@@ -53,7 +53,7 @@ Dopo la connessione al server è possibile connettersi a un database ed eseguire
 
 4. Fare clic sul pulsante **Esegui**:
 
-	![Completamento della procedura. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)  
+	![Completamento della procedura. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Passaggi successivi
 

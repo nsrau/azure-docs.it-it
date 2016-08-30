@@ -27,7 +27,7 @@
 
 Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Questo articolo si applica al modello di distribuzione classica e fa uso del portale di Azure classico. Attualmente, non è possibile creare una configurazione da sito a sito per il modello di distribuzione classica tramite il portale di Azure.
 
-![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")  
+![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")
 
 
 ### Strumenti e modelli di distribuzione per le connessioni da sito a sito

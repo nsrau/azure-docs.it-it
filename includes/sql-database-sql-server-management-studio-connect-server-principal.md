@@ -15,7 +15,7 @@ I passaggi seguenti illustrano come connettersi a un server e a un database SQL 
  - **Nome utente**: immettere il nome di un utente con accesso a un database nel server, ad esempio l'*amministratore del server* configurato durante la creazione del server.
  - **Password**: immettere la password per l'utente specificato, ad esempio la *password* impostata durante la creazione del server.
    
-       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)  
+       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
 3. Fare clic su **Connect**.
  
@@ -23,12 +23,12 @@ I passaggi seguenti illustrano come connettersi a un server e a un database SQL 
 
     Fare clic su **Accedi** e creare la regola del firewall a livello di server. È necessario essere un amministratore di Azure per creare una regola del firewall a livello di server.
  
-       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)  
+       ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
 
 5. Dopo aver stabilito la connessione al database SQL di Azure, si aprirà **Esplora oggetti** e sarà possibile accedere al database per [eseguire attività amministrative o query sui dati](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
-     ![Nuovo firewall a livello di server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)  
+     ![Nuovo firewall a livello di server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
 ## Risolvere i problemi relativi agli errori di connessione

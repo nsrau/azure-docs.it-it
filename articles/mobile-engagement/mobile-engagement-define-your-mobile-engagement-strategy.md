@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Definire la strategia di Mobile Engagement
 
@@ -126,11 +126,11 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 - Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md).
 - Per altre informazioni sull'implementazione, vedere la pagina [Esercitazioni].
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case1.png
 [2]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case2.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 

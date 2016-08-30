@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 

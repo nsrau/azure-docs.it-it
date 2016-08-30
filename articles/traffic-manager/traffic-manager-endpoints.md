@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 

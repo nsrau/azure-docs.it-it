@@ -138,7 +138,7 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 
 [AZURE.INCLUDE [Inviare notifiche dal portale](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-<!-- Images -->  
+<!-- Images -->
 [40]: ./media/mobile-engagement-unity-android-get-started/40.png
 [70]: ./media/mobile-engagement-unity-android-get-started/70.png
 [71]: ./media/mobile-engagement-unity-android-get-started/71.png

@@ -192,10 +192,10 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png

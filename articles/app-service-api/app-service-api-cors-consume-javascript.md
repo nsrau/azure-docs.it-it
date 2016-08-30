@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/27/2016"
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
 

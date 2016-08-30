@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/19/2016"
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Introduzione alle app per le API, ad ASP.NET e a Swagger in Servizio app di Azure
 

@@ -14,7 +14,7 @@
 	ms.devlang="js"
 	ms.topic="hero-article" 
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito tramite il portale di Azure e Azure Resource Manager
 
@@ -27,7 +27,7 @@
 
 Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il modello di distribuzione Azure Resource Manager e il portale di Azure.
 
-![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)  
+![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 

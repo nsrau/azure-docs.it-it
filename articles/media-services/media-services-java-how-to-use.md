@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"   
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Introduzione alla distribuzione di contenuto su richiesta tramite Java
 
@@ -268,7 +268,7 @@ Sostituire le variabili clientId' e clientSecret con i valori richiesti. Questo 
 
 Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][].
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
   [Centro per sviluppatori Java in Azure]: http://azure.microsoft.com/develop/java/
   [librerie di Azure per la documentazione Java]: http://dl.windowsazure.com/javadoc/

@@ -14,7 +14,7 @@
     ms.devlang="java"
     ms.topic="hero-article"
     ms.date="08/17/2016"
-    ms.author="ricksal"/>  
+    ms.author="ricksal"/>
 
 #Creare un'app per Android
 

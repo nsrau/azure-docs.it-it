@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
     ms.date="08/19/2016"
-    ms.author="sstein"/>  
+    ms.author="sstein"/>
 
 # Creare un database SQL ed eseguire comuni attività di configurazione del database con i cmdlet di PowerShell
 

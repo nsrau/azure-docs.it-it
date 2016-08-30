@@ -6,15 +6,15 @@ Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, co
 
 3. Selezionare lo spazio dei nomi in cui si vuole creare la coda. In questo caso è **nstest1**.
 
-    ![Creare una coda][createqueue1]  
+    ![Creare una coda][createqueue1]
 
 4. Nel pannello **Spazio dei nomi del bus di servizio**, selezionare **Code** e quindi fare clic su **Aggiungi coda**.
 
-    ![Selezionare Code][createqueue2]  
+    ![Selezionare Code][createqueue2]
 
 5. Immettere un nome in **Nome coda** e lasciare invariati gli altri valori.
 
-    ![Selezionare Nuovo][createqueue3]  
+    ![Selezionare Nuovo][createqueue3]
 
 7. Fare clic su **Crea** nella parte inferiore del pannello.
 

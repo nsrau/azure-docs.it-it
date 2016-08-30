@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="06/16/2016"
-	ms.author="jotaub"/>  
+	ms.author="jotaub"/>
 
 # Introduzione all'Hub eventi
 

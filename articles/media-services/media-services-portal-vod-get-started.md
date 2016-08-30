@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/18/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure
@@ -48,7 +48,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
 
-	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)  
+	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
 	
 	1. In **Nome account** immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 	2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
@@ -66,7 +66,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 	Dopo aver creato l'account, lo stato diventa **In esecuzione**.
 
-	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)  
+	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
 	Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni**.
 
@@ -83,7 +83,7 @@ Per accedere a livello di codice all'account Servizi multimediali, sono necessar
 	Nella finestra **Gestisci chiavi** sono visualizzati il nome dell'account e le chiavi primaria e secondaria.
 3. Per copiare i valori, scegliere il pulsante Copia.
 	
-	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)  
+	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## Configurare gli endpoint di streaming
 
@@ -109,7 +109,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)  
+	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -121,7 +121,7 @@ Per riprodurre video in streaming con Servizi multimediali di Azure, è necessar
 
 1. Nella finestra **Impostazione** fare clic su **Asset**.
 
-	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)  
+	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
 3. Fare clic sul pulsante **Upload**.
 
@@ -157,14 +157,14 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 	
 	Per una gestione più semplice, è possibile modificare il nome dell'asset di output e il nome del processo.
 		
-	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)  
+	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Fare clic su **Crea**.
 
 ### Monitorare lo stato del processo di codifica
 
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e quindi selezionare **Processi**.
 
-![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)  
+![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## Pubblicare contenuti
 
@@ -215,7 +215,7 @@ Il portale di Azure fornisce un lettore di contenuti che può essere usato per t
 
 Fare clic sul video richiesto e quindi sul pulsante **Riproduci**.
 
-![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)  
+![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Considerazioni applicabili:
 

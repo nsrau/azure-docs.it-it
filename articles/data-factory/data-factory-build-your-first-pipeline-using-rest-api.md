@@ -375,7 +375,7 @@ In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare 
 
 Eseguire il comando Invoke e il comando successivo fino a quando la sezione non avrà stato **Pronta** o **Non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. Tenere presente che la creazione di un cluster HDInsight su richiesta di solito richiede tempo.
 
-![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png) 
+![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
 

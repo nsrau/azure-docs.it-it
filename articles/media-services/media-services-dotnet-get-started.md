@@ -446,7 +446,7 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 
 <!-- URLs. -->

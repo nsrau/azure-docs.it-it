@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in iOS
 
@@ -117,7 +117,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- Images. -->  
+<!-- Images. -->
 [40]: ./media/mobile-engagement-unity-ios-get-started/40.png
 [41]: ./media/mobile-engagement-unity-ios-get-started/41.png
 [42]: ./media/mobile-engagement-unity-ios-get-started/42.png

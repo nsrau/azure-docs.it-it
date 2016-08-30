@@ -58,13 +58,13 @@ Per connettersi a un database SQL usando Visual Studio sono necessari gli elemen
 
 7. Fare clic su **Apri in Visual Studio**. Se è necessario Visual Studio, fare clic sul collegamento per il download:
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)  
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
 8. Visual Studio si apre con la finestra **Connetti al server** già impostata per la connessione al server e al database selezionati nel portale. Fare clic su **Opzioni** per verificare che la connessione sia impostata sul database corretto. Digitare la password amministratore server e fare clic su **Connetti**.
 
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)  
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
 
 8. Se non è stata configurata una regola del firewall per l'indirizzo IP del computer, verrà visualizzato il messaggio *Impossibile connettersi*. Per creare una regola del firewall, vedere [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md).
@@ -72,7 +72,7 @@ Per connettersi a un database SQL usando Visual Studio sono necessari gli elemen
 
 9. Dopo aver stabilito la connessione si aprirà la finestra **Esplora oggetti di SQL Server** con una connessione al database.
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)  
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
 
 
 ## Eseguire una query di esempio
@@ -81,7 +81,7 @@ Ora che è stata stabilita la connessione al database, i passaggi seguenti illus
 
 2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova query**.
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png) 
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
 
@@ -95,7 +95,7 @@ Ora che è stata stabilita la connessione al database, i passaggi seguenti illus
 
 4. Fare clic sul pulsante **Esegui** per eseguire la query:
 
-	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query/run-query.png)  
+	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Passaggi successivi
 

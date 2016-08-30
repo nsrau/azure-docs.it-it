@@ -60,7 +60,7 @@ Questa procedura è definita risoluzione del nome DNS. In modo più specifico, l
 In che modo una zona padre "punta" ai server dei nomi per una zona figlio? Usando un tipo speciale di record DNS, denominato record NS (Name Server, server dei nomi). Ad esempio, la zona radice contiene record NS per "com" e mostra i server dei nomi per la zona "com". A sua volta, la zona "com" contiene record NS per "contoso.com" che mostra i server dei nomi per la zona "'contoso.com". La configurazione di record NS per una zona figlio in una zona padre è definita delega del dominio.
 
 
-![Dns-nameserver](./media/dns-domain-delegation/image1.png)  
+![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 Ogni delega include effettivamente due copie dei record NS, una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio. la zona "contoso.com" contiene i record NS per "contoso.com" (oltre ai record NS contenuti in "com"). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
 
@@ -79,7 +79,7 @@ Prima di poter delegare la zona DNS a DNS Azure è necessario conoscere i nomi d
 
 Il modo più semplice per visualizzare i server dei nomi assegnati alla zona è con il portale di Azure. In questo esempio, alla zona "contoso.net" sono stati assegnati i server dei nomi 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info'.
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)  
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
 DNS Azure crea automaticamente i record NS autorevoli nella zona con i server dei nomi assegnati. Per visualizzare i nomi dei server dei nomi con Azure PowerShell o l'interfaccia della riga di comando di Azure è sufficiente recuperare questi record.
 

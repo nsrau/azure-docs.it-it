@@ -4,6 +4,6 @@
 
   Dopo l'installazione, digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows ed eseguire l'app:
 
-  ![SQL Server Management Studio](./media/sql-server-management-studio-install/ssms.png)  
+  ![SQL Server Management Studio](./media/sql-server-management-studio-install/ssms.png)
 
 <!---HONumber=AcomDC_0824_2016-->
