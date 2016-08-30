@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/15/2016"
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Sono disponibili due tipi di raccolte Azure RemoteApp:
 
 - Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.
-- Ibrida: include una rete virtuale per l'accesso in locale - è necessario l'uso di Azure Active Directory e un ambiente Active Directory locale.
+- Ibrida: include una rete virtuale per l'accesso in locale, è necessario l'uso di Azure Active Directory e un ambiente Active Directory locale.
 
 Non si sa cosa è necessario? Vedere [Tipo di raccolta necessario per RemoteApp di Azure](remoteapp-collections.md).
 
@@ -126,7 +129,7 @@ Prima che gli utenti possano accedere alle app, è necessario pubblicarle. In qu
 
 ## Passaggio 7: Configurare l'accesso utente ##
 
-A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli utenti che potranno usare le risorse remote. Gli utenti o i gruppi a cui viene fornito l'accesso devono esistere nel tenant di Active Directory associato alla sottoscrizione usata per creare la raccolta RemoteApp di Azure.
+A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli utenti che potranno usare le risorse remote. Gli utenti o i gruppi a cui viene fornito l'accesso devono esistere nel tenant di Active Directory associato alla sottoscrizione usata per creare la raccolta di Azure RemoteApp.
 
 1.	Nella pagina Avvio rapido fare clic su **Configura accesso utente**.
 2.	Immettere l'account di lavoro (da Active Directory) o l'account Microsoft al quale concedere l'accesso.
@@ -149,4 +152,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stat
 ### Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

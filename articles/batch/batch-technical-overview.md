@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/22/2016"
 	ms.author="marsma"/>
 
 # Nozioni di base su Azure Batch
@@ -125,7 +125,7 @@ Tenere presente che questo è soltanto uno dei modi in cui è possibile usare Ba
 
 Ora che è stata esaminata una panoramica generale del servizio Batch è necessario un approfondimento per imparare a usare il servizio per l'elaborazione di carichi di lavoro paralleli a elevato utilizzo di calcolo.
 
-- Per informazioni più approfondite sulle funzionalità API offerte da Batch per l'elaborazione dei carichi di lavoro, vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md). Questo articolo è una lettura fondamentale per chiunque intenda usare Batch.
+- Vedere [Panoramica sulle funzionalità di Batch per sviluppatori](batch-api-basics.md) per informazioni essenziali per chiunque si prepari all'uso di Batch. L'articolo contiene informazioni più dettagliate sulle risorse del servizio Batch, ad esempio pool, nodi, processi e attività, e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch.
 
 - Per imparare a usare C# e la libreria Batch .NET per eseguire un carico di lavoro semplice con un flusso di lavoro di Batch comune, vedere [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md). È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch. È anche disponibile una [versione Python](batch-python-tutorial.md) dell'esercitazione.
 
@@ -160,4 +160,4 @@ Ora che è stata esaminata una panoramica generale del servizio Batch è necessa
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

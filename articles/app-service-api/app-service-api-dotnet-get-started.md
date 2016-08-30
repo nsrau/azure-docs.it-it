@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="08/19/2016"
 	ms.author="rachelap"/>
 
 # Introduzione alle app per le API, ad ASP.NET e a Swagger in Servizio app di Azure
@@ -219,7 +219,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 4. Accedere al proprio account Azure, se non è già stato fatto, o aggiornare le credenziali se sono scadute.
 
-4. Nella finestra di dialogo del servizio app, scegliere la **sottoscrizione** di Azure da usare e quindi fare clic su **Nuovo**.
+4. Nella finestra di dialogo Servizio app scegliere la **sottoscrizione** di Azure da usare e quindi fare clic su **Nuovo**.
 
 	![Fare clic su Nuovo nella finestra di dialogo Servizio app](./media/app-service-api-dotnet-get-started/clicknew.png)
 
@@ -243,7 +243,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 4. Fare clic sul pulsante **Nuovo** accanto all'elenco a discesa **Piano di servizio app**.
 
-	Lo screenshot mostra i valori di esempio per **Nome app per le API**, **Sottoscrizione** e **Gruppo di risorse**. I valori dell'utente saranno diversi.
+	Lo screenshot mostra i valori di esempio per **API App Name** (Nome app per le API), **Sottoscrizione** e **Gruppo di risorse**. I valori dell'utente saranno diversi.
 
 	![Finestra di dialogo Crea servizio app](./media/app-service-api-dotnet-get-started/createas.png)
 
@@ -418,7 +418,7 @@ Prima è stata [creata l'app per le API di livello dati in cui si è distribuito
 
 3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** accettare il **Nome app per le API** predefinito o immettere un nome che sia univoco nel dominio *azurewebsites.net*.
 
-5. Scegliere la **Sottoscrizione** di Azure usata.
+5. Scegliere la **Sottoscrizione** di Azure in uso.
 
 6. Nell'elenco a discesa **Gruppo di risorse** selezionare il nome del gruppo di risorse creato in precedenza.
 
@@ -491,4 +491,4 @@ Per creare nuovi progetti di app per le API da zero, usare il modello**App per l
 
 Scegliere il modello di progetto **App per le API di Azure** equivale a scegliere il modello di ASP.NET 4.5.2 **Vuoto**, fare clic sulla casella di controllo per aggiungere il supporto per l'API Web e installare il pacchetto NuGet Swashbuckle. Il modello aggiunge anche un codice di configurazione di Swashbuckle progettato per evitare la creazione di ID operazione di Swagger duplicati. Una volta creato un progetto di app per le API, è possibile distribuirlo in un'app per le API nello stesso modo illustrato in questa esercitazione.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

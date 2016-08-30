@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -27,7 +27,7 @@ I log operazioni costituiscono una funzionalità dei servizi di gestione disponi
 ## Visualizzazione dei log operazioni di Servizi BizTalk
 1. Nel portale di Azure classico, selezionare **Servizi di gestione**, quindi selezionare la scheda **Log operazioni**.
 2. È possibile filtrare i log in base a diversi parametri quali sottoscrizione, intervallo di date, tipo di servizio (ad esempio Servizi BizTalk), nome del servizio o stato dell'operazione (Completata, Non riuscita).
-3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. Nell'immagine seguente sono mostrate le attività correlate a testbiztalkservice: ![Visualizzazione dei log operazioni][ViewLogs] 
+3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. Nell'immagine seguente sono mostrate le attività correlate a testbiztalkservice: ![Visualizzazione dei log operazioni][ViewLogs]
 4. Per visualizzare informazioni più dettagliate su una specifica operazione, selezionare la riga e fare clic su **Dettagli** nella barra delle attività nella parte inferiore.
 
 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operazione di cancellazione dei backup del servizio 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

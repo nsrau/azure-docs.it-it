@@ -19,7 +19,7 @@
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
 
-## Panoramica
+## Overview
 
 Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. I tre livelli isolano rigorosamente la risorsa fornita al database SQL di Azure e garantiscono prestazioni prevedibili. La velocità effettiva garantita per il database aumenta dal livello Basic a quello Standard fino al livello Premium.
 
@@ -507,4 +507,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

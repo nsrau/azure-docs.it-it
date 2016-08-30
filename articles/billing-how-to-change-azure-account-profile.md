@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
@@ -33,7 +33,7 @@ L'indirizzo di posta elettronica nel profilo dell'amministratore account viene u
 
 ## Come modificare le informazioni sul profilo
 
-1.	Accedere al [Centro account di Azure](https://account.windowsazure.com/) come amministratore account e fare clic su **Profilo**. In alternativa, visitare la pagina https://account.windowsazure.com/Profile.
+1.	Accedere al [Centro account di Azure](https://account.windowsazure.com/) come amministratore account e fare clic su **Profilo**. Oppure passare a https://account.windowsazure.com/Profile.
 
 2.	Selezionare il pulsante **Modifica dettagli** e aggiornare le informazioni sul **Profilo**.
 
@@ -61,4 +61,4 @@ A causa di limiti tecnici non è possibile modificare il paese di un account esi
 
 Se si effettua l'iscrizione alla nuova funzione di anteprima degli avvisi di fatturazione di Azure, si riceverà un messaggio di posta elettronica da parte di avvisi di fatturazione di Azure all'indirizzo specificato, indipendentemente dall'eventuale modifica dell'indirizzo di posta elettronica dell'amministratore account.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

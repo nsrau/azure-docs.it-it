@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti 
+# L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti
 
-Cloudyn, partner di sviluppo Microsoft e fornitore leader di funzionalità di gestione del cloud, è stato scelto per un'anteprima privata delle nuove API di utilizzo delle risorse e RateCard di Microsoft Azure. L’API di utilizzo fornisce l’accesso alle stime dei dati di consumo di Azure relative a una sottoscrizione. L'API RateCard fornisce informazioni complete sui prezzi di tutti i servizi di Azure per i clienti non EA. Insieme, queste API forniscono una base di informazioni complete da inserire negli strumenti ITFM, ad esempio quelli forniti da Cloudyn.
+Cloudyn, partner di sviluppo Microsoft e fornitore leader di funzionalità di gestione del cloud, è stato scelto per un'anteprima privata delle nuove API di utilizzo delle risorse e RateCard di Microsoft Azure. L'API di utilizzo fornisce l'accesso alle stime dei dati di consumo di Azure relative a una sottoscrizione. L'API RateCard fornisce informazioni complete sui prezzi di tutti i servizi di Azure per i clienti non EA. Insieme, queste API forniscono una base di informazioni complete da inserire negli strumenti ITFM, ad esempio quelli forniti da Cloudyn.
 
-## Introduzione 
+## Introduzione
 
 La cosiddetta "moltiplicazione" dei dati dell'API di utilizzo con i dati dall'API RateCard ([unità] di utilizzo price[$unit] = uso e costi dettagliati) consente oggi di creare informazioni di fatturazione più granulari, accurate e affidabili per Azure.
 
@@ -38,7 +38,7 @@ Al momento della registrazione ai servizi [Cloudyn per Azure](https://www.cloudy
 
 Cloudyn utilizza sia le API di utilizzo, sia le API RateCard API oltre alle API di prestazioni di Azure, per creare livelli aggiuntivi di visualizzazione, analisi, avviso, creazione di report, gestione dei costi e suggerimenti applicabili, offrendo ai clienti di Azure uno strumento ITFM per il cloud aziendale affidabile.
 
-## Casi di utilizzo di ITFM Cloudyn abilitati mediante l’integrazione delle API di utilizzo e RateCard 
+## Casi di utilizzo di ITFM Cloudyn abilitati mediante l’integrazione delle API di utilizzo e RateCard
 I casi di utilizzo di ITFM Cloudyn comuni abilitati mediante l’integrazione delle API di utilizzo e RateCard includono quelli indicati di seguito:
 
 + **Analisi dei costi**: consente di ripartire l'analisi dei costi del cloud nelle dimensioni identificative di origine (provider, servizio, account, area e così via). Le API di utilizzo e RateCard di Azure semplificano questo compito, fornendo la suddivisione più granulare dei dati di utilizzo e di costo per ogni account, che vengono quindi raggruppati e filtrati da Cloudyn e presentati all'utente in forma grafica o tabulare.
@@ -63,10 +63,10 @@ I casi di utilizzo di ITFM Cloudyn comuni abilitati mediante l’integrazione de
 
 ![Gestione categorie][7]
 
-## Video 
+## Video
 
 Di seguito viene fornito un breve video in cui viene mostrato come un cliente di Azure può utilizzare Cloudyn e le API di fatturazione di Azure per ottenere approfondimenti utili sui dati consumo di Azure.
- 
+
 > [AZURE.VIDEO cloudyn-provides-cloud-itfm-tools-via-microsoft-azure-apis]
 
 
@@ -77,7 +77,7 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 + Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all'API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 + Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
-## Altre informazioni
+## Ulteriori informazioni
 + Per ulteriori informazioni sulle offerte relative al contratto di Microsoft Azure Enterprise, visitare [Licenze di Azure per l’azienda](https://azure.microsoft.com/pricing/enterprise-agreement/)
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
@@ -91,4 +91,4 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="kevin;barbkess;sonyama"/>  
+   ms.date="08/16/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Usare Azure Machine Learning con SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Selezionare il modulo Reader e compilare il riquadro delle proprietà.
 1. Selezionare il database SQL di Azure in Data Source.
 2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure][].
 
-![][server_name]  
+![][server_name]
 
 3. Database name: digitare il nome del database nel server specificato.
 4. Server user account name: digitare il nome utente di un account con autorizzazioni di accesso al database.
@@ -120,11 +120,9 @@ Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 
 ## Passaggi successivi
 
-Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][].
-
 Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 [drag_reader]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png
 [server_name]: ./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png
@@ -137,7 +135,6 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Article references-->
 
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
 [esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
@@ -145,8 +142,8 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--MSDN references-->
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

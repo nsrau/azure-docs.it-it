@@ -3,7 +3,7 @@
 	description="Questo articolo illustra come clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -120,7 +120,7 @@ Lo scopo del cmdlet non è duplicare le impostazioni della rete classica in Reso
 1.  Nessuna rete virtuale nel gruppo di risorse di destinazione
     - La macchina virtuale di origine non è presente una subnet: viene creata una rete virtuale predefinita con valore 10.0.0.0/16 e una subnet, con uno spazio indirizzi 10.0.0.0/22.
     - La macchina virtuale di origine si trova in una subnet: viene individuata la rete virtuale in cui si trova la macchina virtuale, vengono copiate la specifica della rete virtuale insieme alle subnet.
-2.  Il gruppo di risorse di destinazione ha una rete virtuale con nome `<VM virtual network>arm` (viene aggiunta la stringa 'arm').
+2.  Il gruppo di risorse di destinazione ha una rete virtuale con nome `<VM virtual network>arm` (viene aggiunta la stringa 'arm')
     - Se la rete virtuale ah una subnet con lo stesso nome e lo stesso spazio di indirizzi, usarli.
     - Se non viene trovata una subnet appropriata, trovare un blocco di indirizzi nelle subnet esistenti con maschera di 22 bit e usarlo.
 
@@ -150,7 +150,7 @@ Esistono alcune differenze tra l'approccio attuale alla clonazione e la migrazio
 
 **Le operazioni seguenti non rientrano nell'ambito degli script di clonazione**
 
- 1. Arrestare una macchina virtuale in esecuzione. 
+ 1. Arrestare una macchina virtuale in esecuzione.
  2. Modificare dati o dischi.
  3. Clonare VM in esecuzione.
  4. Clonare automaticamente più VM in un scenario complesso.
@@ -185,4 +185,4 @@ Il cmdlet _Add-AzureSMVmToRM_ è stato testato con i test case seguenti:
 ## Note
 1. Se più macchine virtuali vengono clonate una dopo l'altra a intervalli brevi, potrebbero verificarsi conflitti di nomi DNS per gli indirizzi IP pubblici, a causa dei tempi di aggiornamento della cache DNS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

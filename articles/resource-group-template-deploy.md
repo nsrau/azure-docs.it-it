@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
@@ -30,18 +30,18 @@
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-In questo argomento viene illustrato come utilizzare Azure PowerShell con i modelli di Resource Manager per distribuire le risorse in Azure.
+Questo articolo illustra come usare Azure PowerShell con modelli di Resource Manager per distribuire risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [Visualizzare le operazioni di distribuzione con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) per informazioni su come risolvere l'errore
+> - [Visualizzare le operazioni di distribuzione con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md), per ottenere informazioni su come risolvere l'errore
 > - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
 
 Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 ## Azioni rapide per la distribuzione
 
-Questo articolo descrive tutte le diverse opzioni disponibili durante la distribuzione. Tuttavia, molto spesso saranno necessari solo due semplici comandi. Per iniziare a usare rapidamente la distribuzione, usare i comandi seguenti:
+Questo articolo descrive tutte le diverse opzioni disponibili durante la distribuzione. Tuttavia, spesso sono necessari solo due semplici comandi. Per iniziare a usare rapidamente la distribuzione, usare i comandi seguenti:
 
     New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
     New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
@@ -52,7 +52,7 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
 ## Distribuire con PowerShell
 
-1. Accedere al proprio account Azure.
+1. Accedere all'account Azure.
 
         Add-AzureRmAccount
 
@@ -68,7 +68,7 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
 3. In genere, quando si distribuisce un nuovo modello, è consigliabile creare un nuovo gruppo di risorse per contenere le risorse. Se si desidera distribuire un gruppo di risorse esistente, ignorare questo passaggio e utilizzare semplicemente il gruppo di risorse in questione.
 
-     Per creare un nuovo gruppo di risorse, specificare il nome e il percorso del gruppo di risorse.
+     Per creare un gruppo di risorse, specificare il nome e il percorso del gruppo di risorse.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -88,7 +88,7 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureRmResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
+5. Per distribuire le risorse al gruppo di risorse, eseguire il comando **New-AzureRmResourceGroupDeployment** e specificare i parametri necessari. I parametri includono un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
 
      Per distribuire un modello locale, usare il parametro **TemplateFile**:
 
@@ -117,6 +117,8 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
 
+        Quando si usa un file di parametri esterni non è possibile passare altri valori, né inline né da un file locale. Per altre informazioni, vedere la sezione [Precedenza dei parametri](#parameter-precendence).
+
      Una volta distribuite le risorse, verrà visualizzato un riepilogo della distribuzione.
 
         DeploymentName    : ExampleDeployment
@@ -126,7 +128,7 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
         Mode              : Incremental
         ...
 
-     Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+     Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell per la distribuzione del modello, viene richiesto di fornire un valore per il parametro con il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 6. Per registrare informazioni aggiuntive sulla distribuzione che potrebbero contribuire a risolvere eventuali errori di distribuzione, usare il parametro **DeploymentDebugLogLevel**. È possibile specificare la registrazione del contenuto della richiesta, del contenuto della risposta o di entrambi con l'operazione di distribuzione.
 
@@ -144,11 +146,11 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
 Configurare un account di archiviazione per i modelli nel modo seguente:
 
-1. Creare un nuovo gruppo di risorse.
+1. Creare un gruppo di risorse.
 
         New-AzureRmResourceGroup -Name ManageGroup -Location "West US"
 
-2. Creare un nuovo account di archiviazione. Il nome dell'account di archiviazione deve essere univoco in tutto l'ambiente di Azure, pertanto assegnare all'account il proprio nome.
+2. Creare un account di archiviazione. Il nome dell'account di archiviazione deve essere univoco in tutto l'ambiente di Azure, pertanto assegnare all'account il proprio nome.
 
         New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates -Type Standard_LRS -Location "West US"
 
@@ -156,7 +158,7 @@ Configurare un account di archiviazione per i modelli nel modo seguente:
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Creare un nuovo contenitore. L'autorizzazione è impostata su **Off**, quindi il contenitore è accessibile solo al proprietario.
+4. Creare un contenitore L'autorizzazione è impostata su **Off**, quindi il contenitore è accessibile solo al proprietario.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -184,10 +186,17 @@ Per un esempio sull'uso di un token di firma di accesso condiviso con modelli co
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
-- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
-- Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+## Precedenza dei parametri
 
-<!---HONumber=AcomDC_0720_2016-->
+È possibile usare i parametri inline e un file di parametri locale nella stessa operazione di distribuzione. Ad esempio, è possibile specificare alcuni valori nel file di parametri locale e aggiungere altri valori inline durante la distribuzione. Se si specificano valori per un parametro sia nel file dei parametri locale che inline, il valore inline ha la precedenza.
+
+Non è tuttavia possibile usare i parametri inline con un file di parametri esterno. Quando si specifica un file di parametri nel parametro **TemplateParameterUri**, tutti i parametri inline vengono ignorati. È necessario fornire tutti i valori dei parametri nel file esterno. Se il modello include un valore importante che non è possibile includere nel file di parametri, aggiungere tale valore a un insieme di credenziali delle chiavi e farvi riferimento nel file di parametri esterno oppure fornire inline tutti valori dei parametri in modo dinamico.
+
+Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+
+## Passaggi successivi
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere l'articolo relativo alla [distribuzione delle risorse usando le librerie .NET e un modello](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per definire i parametri nel modello, vedere l'articolo relativo alla [creazione di modelli](resource-group-authoring-templates.md#parameters).
+- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
+
+<!---HONumber=AcomDC_0817_2016-->

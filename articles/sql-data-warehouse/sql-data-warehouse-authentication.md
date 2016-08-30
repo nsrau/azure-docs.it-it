@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>  
+   ms.date="08/15/2016"
+   ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticazione in Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@
 - [Autenticazione](sql-data-warehouse-authentication.md)
 - [Driver](sql-data-warehouse-connection-strings.md)
 
-Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
+Per connettersi a SQL Data Warehouse è necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione, alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
 
 Per altre informazioni sulla sicurezza e sull'attivazione di connessioni al data warehouse, vedere l'articolo [Proteggere un database in SQL Data Warehouse][].
 
@@ -37,12 +37,12 @@ Per connettersi a SQL Data Warehouse è necessario fornire le informazioni segue
 - Password
 - Database predefinito (facoltativo)
 
-Per impostazione predefinita la connessione si connetterà al database master e non al database utente. Per connettersi al database utente è possibile scegliere di effettuare una delle seguenti operazioni:
+Per impostazione predefinita la connessione si collega al database master e non al database utente. Per connettersi al database utente è possibile scegliere di effettuare una delle seguenti operazioni:
 
-1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT, SSMS o nella stringa di connessione dell'applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
-2. Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
+- Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT, SSMS o nella stringa di connessione dell'applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
+- Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
 
-> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l'articolo [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
+> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare l'articolo [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
 Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <DB>** non è supportata per la modifica del database per una connessione
 
@@ -62,6 +62,7 @@ Ecco alcuni vantaggi:
 - Può eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 - L'autenticazione di Azure Active Directory usa gli utenti di database indipendente per autenticare le identità a livello di database.
 - Azure Active Directory supporta l'autenticazione basata su token per le applicazioni che si connettono a SQL Data Warehouse.
+- Quando viene configurata l'autenticazione di Azure Active Directory, SQL Server Management Studio supporta la Multi-Factor Authentication tramite l'autenticazione universale di Active Directory. Per una descrizione di Multi-Factor Authentication, vedere [Il supporto SSMS per l'MFA di Azure Active Directory con database SQL e SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 
 ### Procedura di configurazione
@@ -90,4 +91,4 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

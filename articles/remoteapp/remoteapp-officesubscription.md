@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Come usare l'abbonamento a Office 365 con Azure RemoteApp | Microsoft Azure"
-	description="Informazioni su come usare l'abbonamento a Office 365 in Azure RemoteApp per condividere app di Office."
+    pageTitle="Come usare la sottoscrizione di Office 365 con Azure RemoteApp | Microsoft Azure"
+	description="Informazioni su come usare la sottoscrizione di Office 365 in Azure RemoteApp per condividere app di Office."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="piotrci" 
@@ -13,26 +13,29 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
-# Come usare l'abbonamento a Office 365 con Azure RemoteApp
+# Come usare la sottoscrizione di Office 365 con Azure RemoteApp
 
-È possibile usare l'abbonamento esistente a Office 365 in Azure RemoteApp per condividere app di Office dal cloud. Di seguito sono disponibili informazioni sulle opzioni per Office 365 con Azure RemoteApp, inclusi collegamenti ad articoli relativi a Office 365 che consentono di sfruttare al meglio la sottoscrizione.
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
+Non tutti sanno che è possibile usare la sottoscrizione di Office 365 in Azure RemoteApp per condividere le app di Office dal cloud. Di seguito sono disponibili informazioni sulle opzioni per Office 365 con Azure RemoteApp, inclusi collegamenti ad articoli relativi a Office 365 che consentono di sfruttare al meglio la sottoscrizione.
 
 ## Utilizzo di account di Office 365 per Azure RemoteApp
 Leggere il nuovo articolo di Peter per tutte le informazioni: [Come usare Azure RemoteApp con gli account utente di Office 365](remoteapp-o365user.md)
 
-## Possibilità di usare l'abbonamento a Office 365 per eseguire applicazioni di Office in Azure RemoteApp
+## Posso usare la sottoscrizione di Office 365 per eseguire applicazioni di Office in Azure RemoteApp?
 
-È possibile usarlo. L'uso dell'abbonamento a Office 365, in effetti, è l'unico modo per portare le applicazioni di Office in Azure RemoteApp.
+È possibile usarlo. L'uso della sottoscrizione di Office 365, in effetti, è l'unico modo per eseguire le applicazioni di Office in Azure RemoteApp.
 
 (Nota: se la distribuzione RemoteApp di Azure viene fornita a un partner di hosting, questi potrebbe essere in grado di fornire licenze di Office in base a un [Service Provider Licensing Agreement](http://www.microsoft.com/it-IT/Licensing/licensing-programs/spla-program.aspx))
 
 
-Uno dei vantaggi dell'abbonamento a Office 365 consiste nel fatto che consente di usare la stessa licenza utente su molte piattaforme diverse e molti ambienti diversi, incluso il cloud di Azure. Quando si usano le applicazioni di Office in Azure RemoteApp, non è necessario acquistare licenze aggiuntive o configurare le licenze esistenti in modo particolare. È sufficiente avere una sottoscrizione a Office 365 che include [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
+Uno dei vantaggi della sottoscrizione di Office 365 consiste nel fatto che consente di usare la stessa licenza utente su molte piattaforme diverse e molti ambienti diversi, incluso il cloud di Azure. Quando si usano le applicazioni di Office in Azure RemoteApp, non è necessario acquistare licenze aggiuntive o configurare le licenze esistenti in modo particolare. È sufficiente disporre di una sottoscrizione di Office 365 che includa [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
 Office 365 ProPlus consente l'[attivazione di computer condivisi](https://technet.microsoft.com/library/Dn782860.aspx). Questa funzionalità consente l'attivazione temporanea basata sull'utente per Office in ambienti cloud e virtuali quali Azure RemoteApp e Servizi Desktop remoto.
 
@@ -48,11 +51,11 @@ Se, in qualità di amministratore, si assegnano agli utenti licenze di Office 36
 
 ## Applicazioni di Office che possono essere usate con Office 365 e Azure RemoteApp
 
-È possibile usare l'abbonamento a Office 365 ProPlus per condividere Office 2013 e Office 2016 (quando verrà rilasciato). Azure RemoteApp non supporta versioni precedenti di Office.
+È possibile usare la sottoscrizione di Office 365 ProPlus per condividere Office 2013 e Office 2016, dopo il relativo rilascio. Azure RemoteApp non supporta versioni precedenti di Office.
 
 ## Informazioni su Visio Pro o Project Pro
 
-L'immagine di Office 365 ProPlus inclusa nella sottoscrizione di RemoteApp offre sia Visio Pro che Project Pro. Non è tuttavia possibile usare l'abbonamento a Office 365 ProPlus per attivare questi programmi. Per ogni programma è prevista una licenza specifica. È possibile attivarli nel [portale di Office 365](https://portal.office365.com/).
+L'immagine di Office 365 ProPlus inclusa nella sottoscrizione di RemoteApp offre sia Visio Pro che Project Pro. Non è tuttavia possibile usare la sottoscrizione di Office 365 ProPlus per attivare questi programmi. Per ogni programma è prevista una licenza specifica. È possibile attivarli nel [portale di Office 365](https://portal.office365.com/).
 
 Se non si prevede di usarli, non è necessario ottenere la licenza per questi programmi. È sufficiente attivare i programmi da usare e ignorare gli altri. I programmi verranno visualizzati comunque nell'immagine, ma non potranno essere usati.
 
@@ -97,7 +100,7 @@ Il file di configurazione dovrebbe ora includere le righe seguenti:
 
 L'aggiornamento dell'immagine nella raccolta è necessario per molti motivi, tra cui i seguenti:
 
-- Ottenere gli aggiornamenti Windows più recenti 
+- Ottenere gli aggiornamenti Windows più recenti
 - Ottenere gli aggiornamenti più recenti per le applicazioni di Office 365 ProPlus
 - Aggiornare l'app personalizzata
 - Modificare altre impostazioni di configurazione per l'immagine stessa
@@ -123,4 +126,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

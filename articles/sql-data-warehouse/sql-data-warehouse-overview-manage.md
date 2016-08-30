@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="08/16/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestire i database in Azure SQL Data Warehouse
@@ -39,14 +39,14 @@ Questa panoramica illustra questi aspetti della gestione di SQL Data Warehouse.
 ### Portale di Azure
 Il [portale di Azure][] è un portale basato sul Web in cui è possibile creare, aggiornare ed eliminare i database e monitorare le risorse di database. Si tratta dello strumento ideale se si sta appena iniziando a usare Azure, se si gestisce un numero ridotto di database del data warehouse o se è necessario operare rapidamente.
 
-Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse][] (portale di Azure).
+Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse][] \(portale di Azure).
 
 ### SQL Server Data Tools in Visual Studio
-[SQL Server Data Tools][] (SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
+[SQL Server Data Tools][] \(SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
 
 SSDT include Esplora oggetti di SQL Server., che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure classico.
 
-Per iniziare a usare SSDT in Visual Studio, vedere [Connettersi a SQL Data Warehouse con Visual Studio][].
+Per iniziare a usare SSDT in Visual Studio, vedere [Eseguire query su Azure SQL Data Warehouse con Visual Studio][].
 
 ### Strumenti da riga di comando
 Gli strumenti da riga di comando sono ideali per l'automazione dei carichi di lavoro. PowerShell e sqlcmd sono due ottimi modi per automatizzare i processi. È consigliabile servirsi di questi strumenti per gestire un numero elevato di server logici e distribuire le modifiche relative alle risorse in un ambiente di produzione, in quanto è possibile scrivere gli script per le attività necessarie e quindi automatizzare tali attività.
@@ -100,7 +100,7 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Creare un database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
-[Connettersi a SQL Data Warehouse con Visual Studio]: sql-data-warehouse-get-started-connect.md
+[Eseguire query su Azure SQL Data Warehouse con Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connettersi ed eseguire query con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
 [Monitoraggio del carico di lavoro mediante DMV]: sql-data-warehouse-manage-monitor.md
@@ -118,4 +118,4 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

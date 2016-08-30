@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/01/2016"
+	ms.date="08/15/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Questo articolo illustra come archiviare il database SQL di Azure come file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) nell'archiviazione BLOB di Azure. Questo articolo spiega come farlo utilizzando PowerShell.
+Questo articolo illustra come usare PowerShell per archiviare il database SQL di Azure come file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) nell'archiviazione BLOB di Azure.
 
 Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file ZIP con estensione BACPAC. Il file BACPAC può essere successivamente memorizzato nell'archiviazione BLOB di Azure oppure nell'archiviazione di un percorso locale. È anche possibile importarlo nuovamente nel database di SQL di Azure o in un'installazione di SQL Server locale.
 
@@ -36,7 +36,7 @@ Per creare un archivio di un database SQL di Azure, è possibile esportare lo sc
 - Se l'operazione di esportazione dura oltre 20 ore, potrebbe essere annullata. Per migliorare le prestazioni durante l'esportazione è possibile:
  - Aumentare temporaneamente il livello di servizio.
  - Interrompere tutte le attività di lettura e scrittura durante l'esportazione.
- - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero.
+ - Utilizzare un [indice cluster](https://msdn.microsoft.com/library/ms190457.aspx) con valori non null in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero. Un modo valido di determinare se le tabelle sono ottimizzate per l'esportazione consiste nell'eseguire **DBCC SHOW\_STATISTICS** e verificare che il parametro *RANGE\_HI\_KEY* non sia null e il relativo valore abbia distribuzione valide. Per i dettagli, vedere [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [AZURE.NOTE] I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per conoscere i dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
@@ -126,4 +126,4 @@ Sostituire quanto segue `VARIABLE-VALUES` con i valori relativi alle specifiche 
 - [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx)
 - [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

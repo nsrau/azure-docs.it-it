@@ -13,11 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Non archiviare mai dati sensibili in immagini personalizzate
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Quando si ospita un'applicazione personalizzata in Azure RemoteApp, il primo passaggio consiste nella creazione di un'immagine personalizzata. L'immagine personalizzata viene usata per creare istanze di VM che forniscono le app agli utenti. L'immagine personalizzata deve contenere SOLTANTO applicazioni e mai dati sensibili che possano essere persi, ad esempio database SQL, file personali o file di dati speciali come i file aziendali QuickBooks. Tutti i dati riservati devono essere esterni ad Azure RemoteApp e trovarsi in un file server, in un'altra VM di Azure o in SQL Azure. L'immagine deve ospitare soltanto l'applicazione che si collega all'origine dati e visualizza i dati. Per altre informazioni vedere [Requisiti per le immagini di Azure RemoteApp](remoteapp-imagereqs.md).
 
@@ -42,4 +45,4 @@ Punti principali:
 - I dati sensibili devono sempre trovarsi in un file server separato, in una VM di Azure separata o nel cloud e devono essere sempre esterni alle istanze della VM che ospita le applicazioni all'interno di Azure RemoteApp.
 - I dati utente vengono salvati e mantenuti nel disco profili utente.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

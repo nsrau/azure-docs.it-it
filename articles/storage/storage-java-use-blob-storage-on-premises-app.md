@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Applicazione locale con archiviazione BLOB (Java) | Microsoft Azure"
-	description="Informazioni su come creare un'applicazione console che carica un'immagine in Azure e quindi visualizza l'immagine nel browser. Gli esempi di codice sono scritti in Java."
+	description="Informazioni su come creare un'applicazione console che carica un'immagine in Azure e quindi visualizza l'immagine nel browser. Esempi di codice in Java."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="rmcmurray"/>
 
 # Applicazione locale con archiviazione BLOB
@@ -178,7 +178,7 @@ Scrivere nel file locale, aggiungendo negli elementi **&lt;html&gt;**, **&lt;hea
 
 Scorrere l'elenco di BLOB caricati. Per ogni BLOB, nella pagina HTML creare un elemento **&lt;img&gt;** il cui attributo **src** è stato inviato all'URI del BLOB perché esiste nell'account di archiviazione di Azure. Anche se in questo esempio è stata aggiunta una sola immagine, se se ne aggiungono altre, il codice le itererà tutte.
 
-Per maggior semplicità, in questo esempio si presume che ogni BLOB caricato sia un'immagine. Se sono stati caricati BLOB diversi da immagini o BLOB di pagine invece di BLOB in blocchi, modificare il codice nel modo necessario.
+Per maggior semplicità, in questo esempio si presume che ogni BLOB caricato sia un'immagine. Se sono stati caricati BLOB non corrispondenti a immagini o BLOB di pagine invece di BLOB in blocchi, modificare il codice, se necessario.
 
     // Enumerate the uploaded blobs.
     for (ListBlobItem blobItem : container.listBlobs()) {
@@ -359,4 +359,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

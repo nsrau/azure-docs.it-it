@@ -1,20 +1,20 @@
 <properties
     pageTitle="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager | Microsoft Azure"
-    description="Creare uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager"
-    services="service-bus"
+    description="Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager"
+    services="event-hubs"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>  
+    editor=""/>
 
 <tags
-    ms.service="service-bus"
+    ms.service="event-hubs"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="07/11/2016"
-    ms.author="sethm;shvija"/>  
+    ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
 
@@ -166,4 +166,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello di Hub eventi e del gruppo di consumer del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -83,20 +83,20 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 
 * [Aggiungere notifiche push all'app](app-service-mobile-xamarin-ios-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
 [Create a new mobile app backend]: #create-new-service
 [Next Steps]: #next-steps
 
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
 [8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
 [9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0810_2016-->

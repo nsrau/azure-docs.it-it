@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
     
 # Azure RemoteApp - Scenari comuni di test relativi all'utilizzo della larghezza di banda di rete
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Come accennato nell'articolo [Uso previsto della larghezza di banda di rete di Azure RemoteApp](remoteapp-bandwidth.md), il modo migliore per capire in che modo Azure RemoteApp influisce sulla rete consiste nell'eseguire alcuni test di utilizzo. Eseguire questi test per un periodo di tempo specifico e misurare la larghezza di banda necessaria per ogni scenario. È anche possibile misurare la perdita di pacchetti e l'instabilità di rete per comprendere i modelli di rete che verranno creati nell'ambiente specifico.
 
@@ -24,7 +27,7 @@ Quando si valuta l'uso della larghezza di banda, tenere presente che l'utilizzo 
 
 Leggere prima di tutto le informazioni sui test, scegliere la combinazione e quindi eseguirli. È possibile tenere traccia delle prestazioni tramite la tabella seguente.
 
->[AZURE.NOTE] Se non si ha la possibilità o il tempo per eseguire i test di rete, consultare le [stime/raccomandazioni di base sulla larghezza di banda di rete](remoteapp-bandwidthguidelines.md). Dal momento che il chilometraggio può variare, nei limiti del possibile è *consigliabile* eseguire test propri.
+>[AZURE.NOTE] Se non si ha la possibilità o il tempo per eseguire i test di rete, vedere [stime/raccomandazioni di base sulla larghezza di banda di rete](remoteapp-bandwidthguidelines.md). Dal momento che il chilometraggio può variare, nei limiti del possibile è *consigliabile* eseguire test propri.
 
 
 ## Test di utilizzo
@@ -74,7 +77,7 @@ Per semplicità, si ipotizza che tutti gli scenari vengano testati utilizzando l
 
 Informazioni sulla tabella:
 - La colonna **Utilizzo medio** indica la larghezza di banda di rete che non influenza significativamente la produttività dell'utente ma non esclude la possibilità di glitch video o audio occasionali. Il sistema è in grado di eseguire il ripristino rapidamente sfruttando la logica dinamica. Le stime relative alla larghezza di banda di rete tentano di garantire la qualità dell'esperienza utente.
- - La colonna **Problemi evidenti (punto di interruzione)** contiene la larghezza di banda di rete in cui gli utenti potrebbero notare importanti problemi nella loro esperienza con conseguente impatto sulla produttività per periodi di tempo misurabili. A questo punto gli algoritmi RDP possono essere problematici e non riuscire a garantire la qualità dell'esperienza utente per via di una larghezza di banda di rete insufficiente.
+ - La colonna **Problemi evidenti (punto di interruzione)** contiene la larghezza di banda di rete in cui l'esperienza degli utenti potrebbe riscontrare problemi importanti con conseguente impatto sulla produttività per periodi di tempo misurabili. A questo punto gli algoritmi RDP possono essere problematici e non riuscire a garantire la qualità dell'esperienza utente per via di una larghezza di banda di rete insufficiente.
  - La colonna **Consigliata** contiene la larghezza di banda di rete consigliata per un'esperienza buona o eccellente. È in genere superiore al valore della colonna corrispondente **Utilizzo medio**.
  - La colonna **Note** include osservazioni e commenti.
  
@@ -97,4 +100,4 @@ Per valutare la larghezza di banda di rete per utente, creare una combinazione d
 
 - [Larghezza di banda di rete di Azure RemoteApp - Linee guida generali (se non è possibile verificare direttamente)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

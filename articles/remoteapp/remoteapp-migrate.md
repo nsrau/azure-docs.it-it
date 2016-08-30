@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Come eseguire la migrazione di dati in entrata e in uscita da Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 È possibile usare numerosi metodi e strumenti diversi per trasferire i [dati utente](remoteapp-upd.md) in entrata e in uscita da Azure RemoteApp. Ecco alcuni metodi:
 
@@ -55,4 +58,4 @@ Anche se non è possibile abilitare l'agente di sincronizzazione OneDrive for Bu
 
 Se è stato abilitato il [reindirizzamento delle unità](remoteapp-redirection.md), è già stata creata un'unità mappata per gli utenti. In questo caso, è possibile comprimere i file sull'unità reindirizzata e salvarli nel PC locale.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

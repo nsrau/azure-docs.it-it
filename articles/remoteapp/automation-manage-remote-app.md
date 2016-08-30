@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/15/2016"
 	ms.author="magoedte;csand"/>
 
 #Gestione di Azure RemoteApp usando Automazione di Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione di Azure RemoteApp.
 
@@ -40,4 +43,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 
 * Vedere l'[esercitazione introduttiva](../automation/automation-first-runbook-graphical.md) di Automazione di Azure
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

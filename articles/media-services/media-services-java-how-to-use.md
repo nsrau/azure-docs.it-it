@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare Servizi multimediali di Azure con Java" 
+	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite Java | Microsoft Azure" 
 	description="Descrive come usare Servizi multimediali di Azure per eseguire attività comuni, tra cui codifica, crittografia e streaming delle risorse." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#Come usare Servizi multimediali con Java
+# Introduzione alla distribuzione di contenuto su richiesta tramite Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ In questa sezione vengono illustrati i prerequisiti generali per lo sviluppo di 
 
 ##Procedura: come usare Servizi multimediali con Java
 
-Il seguente codice illustra come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e creare un localizzatore per trasmettere il video.
+Il codice seguente illustra come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e creare un localizzatore per trasmettere il video.
 
-Prima di usare il codice, sarà necessario configurare un account di Servizi multimediali. Per informazioni su come configurare un account, vedere [Come creare un account di Servizi multimediali](media-services-create-account.md).
+Prima di usare il codice, è necessario configurare un account Servizi multimediali. Per informazioni su come configurare un account, vedere [Come creare un account di Servizi multimediali](media-services-create-account.md).
 
-Sostituire le variabili `clientId` e `clientSecret` con i valori personali. Questo codice si basa inoltre su un file archiviato in locale. Sarà necessario fornire un file personale da usare.
+Sostituire le variabili clientId' e clientSecret con i valori richiesti. Questo codice si basa inoltre su un file archiviato in locale. Sarà necessario fornire un file personale da usare.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -276,4 +276,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

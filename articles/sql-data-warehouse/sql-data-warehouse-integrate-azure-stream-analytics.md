@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Usare Analisi di flusso di Azure con SQL Data Warehouse
@@ -77,7 +77,7 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 [add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
 [server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
@@ -86,7 +86,7 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Introduzione ad Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-introductiond.md
+[Introduzione ad Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-introduction.md
 [Introduzione all'utilizzo di Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-get-started.md
 [Introduzione all’uso di Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-get-started.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
@@ -97,4 +97,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

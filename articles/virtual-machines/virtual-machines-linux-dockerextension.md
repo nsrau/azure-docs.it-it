@@ -35,7 +35,7 @@ Tramite Azure Resource Manager, è possibile creare e distribuire modelli che de
 
 ## Distribuire un modello con l'estensione di VM Docker:
 
-Per mostrare come distribuire una VM Ubuntu su cui è installata l'estensione di VM Docker, si userà un modello di avvio rapido esistente. Per visualizzare il modello, vedere [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) (Distribuzione semplice di una VM Ubuntu con Docker).
+Per mostrare come distribuire una VM Ubuntu su cui è installata l'estensione di VM Docker, si userà un modello di avvio rapido esistente. Per visualizzare il modello, vedere [Distribuzione semplice di una VM Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). È necessaria anche la [più recente interfaccia della riga di comando di Azure](../xplat-cli-install.md) in modalità Gestione risorse (`azure config mode arm`).
 
 Distribuire il modello tramite l'interfaccia della riga di comando di Azure specificando un nome per il nuovo gruppo di risorse, in questo caso `myDockerResourceGroup`, insieme all'URI del modello:
 
@@ -127,7 +127,7 @@ In questo esempio viene usato un modello di avvio rapido. Per distribuire l'este
 }
 ```
 
-Per altre procedure dettagliate relative all'uso di modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
+Per altre procedure dettagliate relative all'uso di modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
 
 ## Passaggi successivi
 
@@ -138,4 +138,4 @@ Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

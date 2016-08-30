@@ -213,7 +213,7 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 
 Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
-<!-- Images -->  
+<!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png

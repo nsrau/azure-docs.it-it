@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure
@@ -54,7 +54,7 @@ Per illustrare questo caso di utilizzo, si immagini un carico di lavoro di diver
 
 Le cartelle di lavoro di Cloud Cruiser consentono di raccogliere ed elaborare informazioni dall'API RateCard in modo automatico. Le cartelle di lavoro ETL (extract-transform-load) consentono di configurare la raccolta, la trasformazione e la pubblicazione dei dati nel database Cloud Cruiser.
 
-Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possibile correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. Nelle due schermate riportate di seguito, viene illustrata la creazione di una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
+Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possibile correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. I due screenshot seguenti illustrano come creare una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
 
 ![Figura 1 - Creazione di una nuova raccolta][1]
 
@@ -146,7 +146,7 @@ Sul lato degli addebiti Cloud Cruiser automatizza il processo Showback/Chargebac
 ### Creazione di un gruppo di risorse con tag in Microsoft Azure
 Il primo passaggio in questa esercitazione è creare un nuovo gruppo di risorse nel portale di Azure e quindi creare nuovi tag da associare alle risorse. Per questo esempio verranno creati i seguenti tag: reparto, ambiente, proprietario, progetto.
 
-La schermata seguente del portale di Azure illustra un gruppo di risorse con i tag associati.
+Lo screenshot seguente del portale di Azure illustra un gruppo di risorse con i tag associati.
 
 ![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]
 
@@ -217,7 +217,7 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 + Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all'API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 + Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
-### Altre informazioni
+### Ulteriori informazioni
 + Per altre informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 
 <!--Image references-->
@@ -237,4 +237,4 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Creare nuovi campi per le informazioni sui tag"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Popolamento della struttura dei conti con le informazioni provenienti dalle ricerche"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

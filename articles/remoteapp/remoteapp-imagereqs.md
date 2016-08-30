@@ -13,15 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Requisiti per le immagini di Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp usa un'immagine di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un’immagine personalizzata, è possibile iniziare con un’immagine esistente oppure [crearne una nuova](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP] Non tutti sanno che la sottoscrizione di Azure RemoteApp consente di accedere a un'immagine di Windows Server 2012 R2 nella raccolta di macchine Virtuali di Azure che è possibile utilizzare per creare la propria immagine modello [Provare](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP] Non tutti sanno che la sottoscrizione di Azure RemoteApp consente di accedere a un'immagine di Windows Server 2012 R2 nella raccolta di VM di Azure che è possibile usare per creare la propria immagine modello. [Provare](remoteapp-image-on-azurevm.md).
 
 
 I requisiti per l'immagine che possono essere caricati e usati con l'app Azure RemoteApp sono i seguenti:
@@ -44,4 +48,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 
 Vedere [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md) per ulteriori informazioni sulla creazione di immagini per Azure RemoteApp.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

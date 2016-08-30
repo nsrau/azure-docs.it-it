@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/15/2016"
 	ms.author="juliako"/>
 
 #Usare Servizi multimediali di Azure per trasmettere il contenuto HLS in modo protetto con Apple FairPlay 
@@ -23,10 +23,6 @@ Servizi multimediali di Azure consente di crittografare dinamicamente i contenut
 - **AES-128 envelope clear key**: l'intero blocco viene crittografato usando la modalità **AES-128 CBC**. La decrittografia del flusso è supportata dai lettori iOS e OSX in modo nativo. Per altre informazioni, vedere [questo articolo](media-services-protect-with-aes128.md).
 
 - **Apple FairPlay**: i singoli campioni audio e video vengono crittografati con la modalità **AES-128 CBC**. **FairPlay Streaming** (FPS) è integrato nei sistemi operativi dei dispositivi, con supporto nativo per iOS e Apple TV. Safari su OS X abilita FPS con il supporto dell'interfaccia EME (Encrypted Media Extensions).
-
-	>[AZURE.NOTE]
-	L'uso di AMS per distribuire HLS crittografato con FairPlay è attualmente in anteprima.
-
 
 L'immagine seguente illustra il flusso di lavoro "crittografia dinamica FairPlay".
 
@@ -41,13 +37,13 @@ Questo argomento illustra come usare Servizi multimediali di Azure per crittogra
 
 	- Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
-	- Effettuare l'iscrizione all'[Apple Development Program](https://developer.apple.com/).
-	- Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Nella richiesta indicare che il KSM (Key Security Module) è già stato implementato con Servizi multimediali di Azure e che si richiede il pacchetto FPS finale. Nel pacchetto FPS finale saranno presenti istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione (ASK) che verrà usata per configurare FairPlay.
+	- Eseguire l'iscrizione all'[Apple Development Program](https://developer.apple.com/).
+	- Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Indicare nella richiesta che è già stato implementato il modulo KSM (Key Security Module) con Servizi multimediali di Azure e che si sta richiedendo il pacchetto FPS finale. Nel pacchetto FPS finale saranno presenti istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione (ASK) che verrà usata per configurare FairPlay.
 
-	- Azure Media Services SDK per .NET versione **3.6.0** o successiva.
+	- Azure Media Services .NET SDK versione **3.6.0** o successiva.
 
 - È necessario impostare quanto segue sul lato della distribuzione delle chiavi AMS:
-	- **App Cert (AC)**: file con estensione pfx che contiene la chiave privata. Questo file viene creato dal cliente e crittografato con una password di sua scelta.
+	- **App Cert (AC)**: file con estensione PFX che contiene la chiave privata. Questo file viene creato dal cliente e crittografato con una password di sua scelta.
 		
 	 	Quando l'utente configura i criteri di distribuzione delle chiavi, deve specificare la password e il file PFX in formato Base64.
 
@@ -65,16 +61,16 @@ Questo argomento illustra come usare Servizi multimediali di Azure per crittogra
 		
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
-	- **App Cert password**: password del cliente per creare il file con estensione pfx.
-	- **App Cert password ID**: il cliente deve caricare la password con una procedura simile a quella per il caricamento delle altre chiavi di AMS e usando il valore di enumerazione **ContentKeyType.FairPlayPfxPassword**. Nel risultato viene visualizzato l'ID AMS da usare nell'opzione dei criteri di distribuzione delle chiavi.
-	- **iv**: valore casuale da 16 byte che deve corrispondere a iv nei criteri di distribuzione dell'asset. Il cliente genera IV e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
-	- **ASK**: la chiave privata dell'applicazione (Application Secret Key, ASK) viene ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente sarà necessario configurare ASK come FairPlayAsk in Servizi multimediali di Azure.
+	- **App Cert password**: password del cliente per creare il file con estensione PFX.
+	- **App Cert password ID**: il cliente deve caricare la password con una procedura simile a quella per il caricamento delle altre chiavi di AMS e usando il valore di enumerazione **ContentKeyType.FairPlayPfxPassword**. Come risultato viene visualizzato l'ID AMS da usare nell'opzione dei criteri di distribuzione delle chiavi.
+	- **iv**: valore casuale da 16 byte che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Il cliente genera IV e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
+	- **ASK**: la chiave privata dell'applicazione (Application Secret Key) viene ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente sarà necessario configurare ASK come FairPlayAsk in Servizi multimediali di Azure.
 	-  **ID ASK**: si ottiene quando il cliente carica la chiave privata dell'applicazione in AMS. Il cliente deve caricare la chiave privata dell'applicazione usando il valore di enumerazione **ContentKeyType.FairPlayASk**. Verrà restituito l'ID AMS che dovrà essere usato per impostare l'opzione dei criteri di distribuzione delle chiavi.
 
 - Sul lato client FPS è necessario impostare quanto segue:
- 	- **App Cert (AC)**: file con estensione cer/der che contiene la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che AMS lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
+ 	- **App Cert (AC)**: file con estensione CER/DER che contiene la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che AMS lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
 
-- Per riprodurre un flusso crittografato FairPlay, è necessario ottenere prima la chiave ASK reale, quindi generare un certificato reale. Questo processo crea tutte e tre le parti:
+- Per riprodurre un flusso crittografato FairPlay, è necessario ottenere prima la chiave ASK reale, quindi generare un certificato reale. Questo processo crea tutte le 3 parti:
 
 	-  DER,
 	-  PFX e
@@ -94,7 +90,7 @@ Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gl
 	- metodo di distribuzione (in questo caso FairPlay),
 	- configurazione delle opzioni dei criteri FairPlay. Per informazioni dettagliate sulla configurazione di FairPlay, vedere il metodo ConfigureFairPlayPolicyOptions() seguente.
 	
-		>[AZURE.NOTE] Nella maggior parte dei casi sarà opportuno configurare le opzioni dei criteri FairPlay una sola volta, dato che sarà presente un solo set di certificazione e ASK.
+		>[AZURE.NOTE] In genere è opportuno configurare le opzioni dei criteri FairPlay una sola volta, dato che sarà presente un solo set di certificazione e ASK.
 	- restrizioni (aperte o token)
 	- e le informazioni specifiche per il tipo di distribuzione delle chiavi che definisce la modalità di distribuzione della chiave al client.
 	
@@ -113,7 +109,7 @@ Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gl
 
 ##Uso della distribuzione delle chiavi FairPlay da app lettore/client
 
-I clienti possono sviluppare applicazioni lettore tramite l'SDK di iOS. Per poter riprodurre contenuti FairPlay, i clienti sono devono implementare il protocollo di scambio delle licenze. Il protocollo di scambio delle licenze non è specificato da Apple: spetta a ogni app scegliere come inviare le richieste di distribuzione delle chiavi. Il servizio di distribuzione delle chiavi FairPlay di AMS prevede che SPC venga fornito in un messaggio codificato inviato come www-form-url nella forma seguente:
+I clienti possono sviluppare applicazioni lettore tramite l'SDK di iOS. Per poter riprodurre contenuti FairPlay, i clienti sono devono implementare il protocollo di scambio delle licenze. Il protocollo di scambio delle licenze non è specificato da Apple. Spetta a ogni app scegliere come inviare le richieste di distribuzione delle chiavi. Il servizio di distribuzione delle chiavi FairPlay di AMS prevede che SPC venga fornito in un messaggio codificato inviato come www-form-url nella forma seguente:
 
 	spc=<Base64 encoded SPC>
 
@@ -554,4 +550,4 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

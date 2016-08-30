@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
 # Test delle prestazioni di un servizio cloud 
 
-##Panoramica
+##Overview
 
 È possibile testare le prestazioni di un servizio cloud nei modi seguenti:
 
@@ -68,7 +68,7 @@ Quando si usa il profiler, è possibile raccogliere dati quando un servizio clou
 
 - Test delle prestazioni di un servizio cloud con un carico simulato o reale.
 
-- Usare il metodo di strumentazione di raccolta dei dati della profilatura, come descritto più avanti in questo argomento.
+- Usare il metodo di strumentazione di raccolta dei dati di profilatura, come descritto più avanti in questo argomento.
 
 - Test delle prestazioni del servizio nello stesso ambiente in cui il servizio viene eseguito in produzione.
 
@@ -136,7 +136,7 @@ Viene creata una sessione di profilatura per ogni istanza di un ruolo nel serviz
 
 1. Per visualizzare i rapporti sulla profilatura per un'istanza, scegliere il ruolo nel servizio, aprire il meno di scelta rapida per un'istanza specifica, quindi scegliere **Visualizza rapporto sulla profilatura**.
 
-    Il rapporto, un file con estensione vsp, viene ora scaricato da Azure e lo stato del download viene visualizzato nel log attività di Azure. Al termine del download, il rapporto sulla profilatura viene visualizzato in una scheda nell'editor per Visual Studio con nome <Role name>\_<Instance Number>\_<identifier>.vsp. Vengono visualizzati i dati di riepilogo per il report.
+    Il rapporto, un file con estensione vsp, viene ora scaricato da Azure e lo stato del download viene visualizzato nel log attività di Azure. Al termine del download, il report sulla profilatura viene visualizzato in una scheda nell'editor per Visual Studio con il nome <Nome ruolo>_<numero di istanza>_<identificatore>.vsp. Vengono visualizzati i dati di riepilogo per il report.
 
 1. Per visualizzare viste diverse del report, nell'elenco Vista corrente, scegliere il tipo di visualizzazione che si desidera. Per altre informazioni, vedere [Visualizzazioni dei rapporti degli strumenti di profilatura](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
@@ -146,4 +146,4 @@ Viene creata una sessione di profilatura per ogni istanza di un ruolo nel serviz
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

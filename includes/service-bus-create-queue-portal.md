@@ -1,33 +1,28 @@
 Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, come illustrato [qui][namespace-how-to].
 
-1. Accedere al [portale di Azure classico][classic-portal].
+1. Accedere al [portale di Azure][azure-portal].
 
 2. Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3. Selezionare lo spazio dei nomi in cui si vuole creare la coda. In questo caso è "mytestns1".
+3. Selezionare lo spazio dei nomi in cui si vuole creare la coda. In questo caso è **nstest1**.
 
-    ![Selezione di uno spazio dei nomi][select-namespace]
+    ![Creare una coda][createqueue1]
 
-4. Selezionare **Code**.
+4. Nel pannello **Spazio dei nomi del bus di servizio**, selezionare **Code** e quindi fare clic su **Aggiungi coda**.
 
-    ![Selezionare Code][select-queue]
+    ![Selezionare Code][createqueue2]
 
-5. Selezionare **Nuovo** nell'angolo inferiore sinistro, quindi selezionare **Creazione rapida**.
+5. Immettere un nome in **Nome coda** e lasciare invariati gli altri valori.
 
-    ![Selezionare Nuovo][select-new]
+    ![Selezionare Nuovo][createqueue3]
 
-6. Immettere il **Nome coda** e assicurarsi che sia selezionato lo spazio dei nomi corretto.
+7. Fare clic su **Crea** nella parte inferiore del pannello.
 
-7. Selezionare **Crea una nuova coda**.
-
-    ![Creare una coda][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

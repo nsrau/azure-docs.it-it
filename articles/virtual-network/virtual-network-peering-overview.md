@@ -4,9 +4,9 @@
    description="Informazioni sul peering reti virtuali in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/28/2016"
-   ms.author="narayan" />  
+   ms.author="narayan" />
 
 # Peering reti virtuali
 
@@ -67,7 +67,7 @@ Il transito gateway non è supportato nella relazione di peering tra reti virtua
 
 Quando viene eseguito il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di esse passa attraverso la relazione di peering, ovvero tramite la rete backbone di Azure. Gli utenti possono continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale oppure usare un gateway condiviso e configurare il transito per la connettività locale.
 
-![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure02.png)  
+![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure02.png)
 
 ## Provisioning
 Il peering reti virtuali è un'operazione con privilegi. È una funzione separata nello spazio dei nomi VirtualNetworks. È possibile assegnare a un utente diritti specifici per autorizzare il peering. Un utente con accesso in lettura e scrittura alla rete virtuale eredita questi diritti automaticamente.
@@ -88,4 +88,4 @@ Il peering reti virtuali è disponibile gratuitamente durante il periodo di veri
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 - Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

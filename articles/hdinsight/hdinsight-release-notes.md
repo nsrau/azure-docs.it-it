@@ -14,11 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="nitinme"/>  
+	ms.date="08/17/2016"
+	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di R Server su HDInsight rilasciata il 17/08/2016
+
+• R Server 8.0.5 - principalmente una versione di correzione di bug. Vedere la sezione [Note sulla versione di R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) per maggiori informazioni. • Il pacchetto AzureML nel nodo perimetrale, [questo pacchetto R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), consente la pubblicazione e l'uso dei modelli R come servizio Web di Azure ML. Vedere la sezione ["Rendere operativo un modello"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) dell'articolo ["Panoramica di R Server su HDInsight"](hdinsight-hadoop-r-server-overview.md) per maggiori informazioni. • Le dipendenze Linux dei [100 pacchetti R più diffusi](https://github.com/metacran/cranlogs) sono ora preinstallate. • Opzione per l'uso del repository CRAN quando si aggiungono pacchetti R ai nodi di dati. Vedere la sezione ["Installare pacchetti R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) dell'articolo ["Introduzione all'uso di R Server su HDInsight "](hdinsight-hadoop-r-server-get-started.md) per maggiori informazioni. • Miglioramento dell'affidabilità del provisioning di R Server dopo la creazione dei cluster.
+
 
 ## Note sulla versione di HDInsight rilasciata in data 01/08/2016
 
@@ -312,7 +317,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versione HDP predefinita modificata in HDP 2.2 | La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. | Service | Tutti| N/D |
-|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode\*, workernode\* e zookeepernode\* a hn\*, wn\* e zk\*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servizio | Cluster HDInsight basati su Linux | N/D |
+|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode*, workernode* e zookeepernode* a hn*, wn* e zk*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Service | Cluster HDInsight basati su Linux | N/D |
 | Modifiche di configurazione | Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> | Service | Tutti | N/D |
 
 
@@ -743,7 +748,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 01/04/2015
 
@@ -848,7 +853,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 03/03/2015
 
@@ -883,7 +888,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 18/02/2015
 
@@ -972,7 +977,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 06/02/2015
 
@@ -1026,7 +1031,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 29/01/2015
 
@@ -1061,7 +1066,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 5/1/2015
 
@@ -1140,7 +1145,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 18/12/2014
 
@@ -1165,7 +1170,7 @@ Questa versione include l'aggiornamento dei componenti indicato di seguito.
 
 
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDinsight rilasciata il 05/12/2014
 
@@ -1267,7 +1272,7 @@ Questa versione include gli aggiornamenti dei componenti indicati di seguito.
 <td>N/D</td>
 </tr>
 </table>
-<br>  
+<br>
 
 ## Note per la versione di HDInsight rilasciata il 14/11/2014
 
@@ -1316,7 +1321,7 @@ Per imparare a usare HDInsight, esaminare nel dettaglio alcuni scenari di base, 
 <td>https://issues.apache.org/jira/browse/HADOOP-11248</td>
 </tr>
 </table>
-<br>  
+<br>
 
 
 **Nota**: per illustrare le nuove funzionalità rese disponibili dalla personalizzazione dei cluster, sono state documentate le procedure che usano azioni di script per installare moduli Spark e R in un cluster. Per altre informazioni, vedere:
@@ -1370,7 +1375,7 @@ Questa versione include gli aggiornamenti dei componenti indicati di seguito.
 <td>N/D</td>
 </tr>
 </table>
-<br>  
+<br>
 
 **Nota**: il bug che impediva la visualizzazione del numero di versione completo nel portale o la restituzione di tale numero da parte dell'SDK o di PowerShell è stato risolto in questa versione.
 
@@ -1385,7 +1390,7 @@ Questa versione dell'hotfix ha risolto una perdita di memoria in Templeton che i
 
 * Sono state fornite nuove impostazioni di memoria per l'implementazione predefinita del cluster HDInsight. Le precedenti impostazioni di memoria predefinite non tenevano adeguatamente conto delle indicazioni relative al numero di core CPU implementati. Queste nuove impostazioni di memoria dovrebbero offrire valori predefiniti migliori, sulla base delle raccomandazioni di Hortonworks. Per modificare queste impostazioni, consultare la documentazione di riferimento dell'SDK sulla modifica della configurazione del cluster. Le nuove impostazioni di memoria usate dal cluster HDInsight predefinito con 4 core CPU (8 contenitori) sono elencate nella tabella seguente. Vengono forniti tra parentesi anche i valori usati prima di questa versione.
 
-<table border="1">  
+<table border="1">
 <tr><th>Componente</th><th>Allocazione della memoria</th></tr>
 <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (in precedenza 512 MB)</td></tr>
 <tr><td> yarn.scheduler.maximum-allocation</td><td>6.144 MB (invariato)</td></tr>
@@ -1451,7 +1456,7 @@ Questi problemi di compatibilità sono stati risolti nelle versioni più recenti
 * HDInsight versione 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versione 2.1 (HDP1.3 e Hadoop 1.2) verranno rimossi dal portale di gestione di Azure. È possibile continuare a creare cluster Hadoop per queste versioni usando il cmdlet di Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) oppure usando [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Per altre informazioni, fare riferimento alla pagina relativa al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 * Modifiche a Hortonworks Data Platform (HDP) in questa versione:
 
-<table border="1">  
+<table border="1">
 <tr><th>HDP</th><th>Modifiche</th></tr>
 <tr><td>HDP 1.3/HDI 2.1</td><td>Nessuna modifica</td></tr>
 <tr><td>HDP 2.0/HDI 3.0</td><td>Nessuna modifica</td></tr>
@@ -1679,4 +1684,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

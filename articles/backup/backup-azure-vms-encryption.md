@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Gestione di dischi crittografati durante il backup delle macchine Virtuali
 
-Per le aziende interessate a crittografare i dati delle macchine virtuali in Azure, la soluzione da usare è [Crittografia dischi di Azure](../azure-security-disk-encryption.md) o Bitlocker nei computer Windows e dmcrypt nei computer Linux.
+Per le aziende interessate a crittografare i dati delle macchine virtuali in Azure, la soluzione da usare è [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md) o Bitlocker nei computer Windows e dmcrypt nei computer Linux.
 
 > [AZURE.NOTE]  Backup di Azure supporta il backup e ripristino di macchine virtuali crittografate con Crittografia dischi di Azure. <br>
 1. Questa funzionalità è supportata tramite PowerShell se la macchina virtuale viene crittografata con BEK e KEK. <br>
@@ -77,4 +77,4 @@ Quando è necessario effettuare il rollover o modificare le chiavi per le macchi
 - [Guida alla distribuzione - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Distribuzione e uso di SecureVM - video](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

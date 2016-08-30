@@ -1,6 +1,6 @@
 <properties
  pageTitle="Monitoraggio delle operazioni dell'hub IoT"
- description="Panoramica del monitoraggio delle operazioni dell'hub IoT che consente agli utenti di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale"
+ description="Panoramica del monitoraggio delle operazioni dell'hub IoT che consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/07/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introduzione al monitoraggio delle operazioni
 
-Il monitoraggio delle operazioni dell'hub IoT consente agli utenti di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni e gli utenti possono scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. Gli utenti possono monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
+Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni e consente di scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 L'hub IoT monitora cinque categorie di eventi:
 
@@ -32,7 +32,7 @@ L'hub IoT monitora cinque categorie di eventi:
 
 1. Creare un hub IoT. È possibile trovare le istruzioni su come creare un hub IoT nella [Guida introduttiva][lnk-get-started].
 
-2. Aprire il pannello dell'hub IoT. Nel pannello fare clic su **Tutte le impostazioni**, quindi selezionare **Monitoraggio operazioni**.
+2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
 
     ![][1]
 
@@ -46,7 +46,7 @@ Ogni categoria di monitoraggio delle operazioni tiene traccia di un diverso tipo
 
 ### Operazioni relative alle identità dei dispositivi
 
-La categoria di operazioni di identità del dispositivo tiene traccia degli errori che si verificano quando l'utente prova a creare, aggiornare o eliminare una voce nel registro delle identità dell'hub IoT. Il rilevamento di questa categoria è utile per gli scenari di provisioning.
+La categoria di operazioni di identità del dispositivo tiene traccia degli errori che si verificano quando si prova a creare, aggiornare o eliminare una voce nel registro delle identità dell'hub IoT. Il rilevamento di questa categoria è utile per gli scenari di provisioning.
 
     {
         "time": "UTC timestamp",
@@ -57,13 +57,13 @@ La categoria di operazioni di identità del dispositivo tiene traccia degli erro
          "statusDescription": "MessageDescription",
          "deviceId": "device-ID",
          "durationMs": 1234,
-         "userAgent": “userAgent”,
+         "userAgent": "userAgent",
          "sharedAccessPolicy": "accessPolicy"
     }
 
 ### Telemetria dei dispositivi
 
-La categoria di telemetria dei dispositivi tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di telemetria. Sono inclusi gli errori che si verificano durante l'invio di eventi di telemetria, ad esempio la limitazione, e la ricezione di eventi di telemetria, ad esempio un lettore non autorizzato. Si noti che questa categoria non può intercettare gli errori causati da codice in esecuzione nel dispositivo stesso.
+La categoria di telemetria dei dispositivi tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di telemetria. Questa categoria include gli errori che si verificano durante l'invio di eventi di telemetria, ad esempio la limitazione, e la ricezione di eventi di telemetria, ad esempio un lettore non autorizzato. Si noti che questa categoria non può intercettare gli errori causati da codice in esecuzione nel dispositivo stesso.
 
     {
          "messageSizeInBytes": 1234,
@@ -85,7 +85,7 @@ La categoria di telemetria dei dispositivi tiene traccia degli errori che si ver
 
 ### Comandi da cloud a dispositivo
 
-La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di comandi dei dispositivi. Sono inclusi gli errori che si verificano durante l'invio di comandi, ad esempio un mittente non autorizzato, la ricezione di comandi, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui comandi, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un comando, se questo è stato recapitato correttamente.
+La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di comandi dei dispositivi. Questa categoria include gli errori che si verificano durante l'invio di comandi, ad esempio un mittente non autorizzato, la ricezione di comandi, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui comandi, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un comando, se questo è stato recapitato correttamente.
 
     {
          "messageSizeInBytes": 1234,
@@ -125,7 +125,7 @@ La categoria Connessioni tiene traccia degli errori che si verificano quando i d
 
 ### Caricamenti di file
 
-La categoria di caricamenti dei file tiene traccia degli errori che si verificano nell'hub IoT e correlati alla funzionalità di caricamento dei file. Questo include errori che si verificano con l'URI della firma di accesso condiviso (ad esempio, quando scade prima che un dispositivo invii una notifica all'hub riguardo a un caricamento completato), con caricamenti non riusciti segnalati dal dispositivo e quando non è possibile trovare un file in memoria durante la creazione dei messaggi di notifica dell’hub IoT. Notare che questa categoria non può intercettare errori che si verificano direttamente mentre il dispositivo sta caricando un file in memoria.
+La categoria di caricamenti dei file tiene traccia degli errori che si verificano nell'hub IoT e correlati alla funzionalità di caricamento dei file. Questa categoria include errori che si verificano con l'URI della firma di accesso condiviso (ad esempio, quando scade prima che un dispositivo invii una notifica all'hub riguardo a un caricamento completato), con caricamenti non riusciti segnalati dal dispositivo e quando non è possibile trovare un file in memoria durante la creazione dei messaggi di notifica dell'hub IoT. Questa categoria non può intercettare errori che si verificano direttamente mentre il dispositivo sta caricando un file in memoria.
 
     {
          "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
@@ -146,7 +146,7 @@ La categoria di caricamenti dei file tiene traccia degli errori che si verifican
 
 Dopo questa panoramica sul monitoraggio delle operazione, vedere [Gestire l'accesso all'hub IoT][lnk-itpro] per ottenere maggiori informazioni sulla gestione dell'hub IoT.
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
@@ -169,4 +169,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
 	description="Come eseguire la scalabilità verticale di una macchina virtuale Linux in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -88,4 +88,4 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

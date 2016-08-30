@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
 
-## Panoramica
+## Overview
 Microsoft Azure StorSimple 8600 è un dispositivo enclosure con doppio alloggiamento, costituito da un'enclosure principale e un'enclosure EBOD. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8600 prima di configurarne il software.
 
 ## Disimballare il dispositivo StorSimple 8600
@@ -46,7 +46,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 
     **Dispositivo di archiviazione disimballato**
 
-     Etichetta | Descrizione
+     Etichetta | Description
      ----- | -------------
      1 | Scatola
      2 | Cavi SAS (nel vassoio cavi e accessori)
@@ -253,7 +253,7 @@ G | Controller 1 EBOD
 H,I | Host (ad esempio, file server)
 0-5 | Interfacce di rete
 6 | Enclosure principale
-7 | Enclosure EBOD
+7 | Chassis EBOD
 
 Quando si effettua il cablaggio del dispositivo, la configurazione minima richiede:
 
@@ -302,4 +302,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

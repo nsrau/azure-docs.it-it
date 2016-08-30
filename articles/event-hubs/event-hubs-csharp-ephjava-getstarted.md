@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.author="jotaub"/>
 
 # Introduzione all'Hub eventi
 
@@ -22,11 +22,11 @@
 
 ## Introduzione
 
-Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e di raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui l’Internet delle cose (IoT).
+Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
 Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra anche come inserire messaggi in un hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la libreria dell'host processore di eventi Java.
 
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
@@ -71,4 +71,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

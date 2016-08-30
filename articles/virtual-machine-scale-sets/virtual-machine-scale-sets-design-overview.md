@@ -20,19 +20,19 @@
 
 # Progettare set di scalabilità di VM per la scalabilità
 
-Questo argomento descrive considerazioni di progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
+Questo argomento descrive una serie di considerazioni di progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
 
 
 ## Archiviazione
 
-Un set di scalabilità usa account di archiviazione per archiviare i dischi del sistema operativo delle VM all'interno del set stesso. È consigliabile un rapporto di 20 VM al massimo per account di archiviazione. È anche consigliabile usare le diverse lettere dell'alfabeto come caratteri iniziali dei nomi degli account di archiviazione. Questo consente di suddividere il carico tra diversi sistemi interni. Ad esempio, nel modello seguente è usata la funzione di modello ARM uniqueString per generare hash di prefisso anteposti a nomi di account di archiviazione: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
+Un set di scalabilità usa account di archiviazione per archiviare i dischi del sistema operativo delle VM all'interno del set stesso. È consigliabile un rapporto di 20 VM al massimo per account di archiviazione. È anche consigliabile usare le diverse lettere dell'alfabeto come caratteri iniziali dei nomi degli account di archiviazione. Questo consente di suddividere il carico tra diversi sistemi interni. Ad esempio, nel modello seguente è usata la funzione di Modello di Resource Manager uniqueString per generare hash di prefisso anteposti a nomi di account di archiviazione: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
 
 ## Provisioning eccessivo
 
-A partire dalla versione dell'API 2016-03-30, l'impostazione predefinita dei set di scalabilità di VM corrisponde al provisioning eccessivo di VM. Ciò significa che il set di scalabilità avvierà un numero maggiore di VM rispetto a quello richiesto dall'utente, eliminando quindi le VM superflue tra le ultime avviate. Questo consente di migliorare la percentuale di riuscita del provisioning, poiché se il provisioning ha esito negativo anche per una sola VM, Azure Resource Manager considera non riuscita l'intera distribuzione. Le VM aggiuntive non verranno addebitate all'utente e non verranno considerate per il raggiungimento dei limiti di quota.
+A partire dalla versione dell'API "2016-03-30", l'impostazione predefinita dei set di scalabilità di VM corrisponde al provisioning eccessivo di VM. Con il provisioning eccessivo attivato, il set di scalabilità di fatto avvia un maggior numero di macchine virtuali rispetto a quanto richiesto, dopodiché elimina le macchine virtuali avviate per ultime. Il provisioning eccessivo migliora le percentuali di riuscita del provisioning. Le VM aggiuntive non vengono addebitate all'utente e non se ne tiene conto per il raggiungimento dei limiti di quota.
 
-Questa funzione consente di migliorare la percentuale di riuscita del provisioning, ma può causare il comportamento confuso delle applicazioni non progettate per gestire VM che scompaiono senza preavviso. Per disattivare la funzionalità di provisioning in eccesso, inserire la stringa "overprovision": "false" nel modello, se non è già presente.
+Il provisioning eccessivo consente di migliorare la percentuale di riuscita del provisioning, ma può causare il comportamento confuso delle applicazioni non progettate per gestire VM che scompaiono senza preavviso. Per disattivare la funzionalità di provisioning in eccesso, inserire la stringa "overprovision": "false" nel modello, se non è già presente. Per ulteriori informazioni, consultare la [documentazione dell'API REST relativo al set di scalabilità delle VM](https://msdn.microsoft.com/library/azure/mt589035.aspx).
 
 Se si disattiva il provisioning eccessivo, è possibile usare senza problemi un numero maggiore di VM per account di archiviazione. Non è tuttavia consigliabile superare le 40 macchine virtuali.
 
@@ -42,6 +42,6 @@ Un set di scalabilità basato su un'immagine personalizzata creata dall'utente d
 
 Un set di scalabilità basato su un'immagine di piattaforma è attualmente limitato a 100 VM, per le quali è consigliabile usare 5 account di archiviazione.
 
-Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità. Per informazioni su come eseguire questa operazione, [vedere questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
+Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità, come indicato in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Come reindirizzare i dispositivi USB in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Il reindirizzamento dei dispositivi consente agli utenti di usare i dispositivi USB collegati al computer o al tablet con le app in Azure RemoteApp. Ad esempio, se si condivide Skype tramite Azure RemoteApp, gli utenti devono poter usare le videocamere dei loro dispositivi.
 
@@ -28,7 +31,7 @@ Anche se questo articolo descrive il reindirizzamento della webcam, è possibile
 ## Opzioni di reindirizzamento per i dispositivi USB
 Azure Remote App usa meccanismi molto simili a quelli disponibili per Servizi Desktop remoto per il reindirizzamento dei dispositivi USB. La tecnologia sottostante consente di scegliere il metodo di reindirizzamento corretto per un determinato dispositivo, per ottenere il reindirizzamento ottimale sia ad alto livello che con RemoteFX del dispositivo USB tramite il comando **usbdevicestoredirect:s:**. Questo comando include quattro elementi:
 
-| Ordine di elaborazione | Parametro | Descrizione |
+| Ordine di elaborazione | Parametro | Description |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
 | 1 | * | Seleziona tutti i dispositivi che non vengono selezionati dal reindirizzamento ad alto livello. Nota: per impostazione predefinita, * non funziona per le webcam USB. |
 | | {Device class GUID} | Seleziona tutti i dispositivi che corrispondono alla classe di installazione del dispositivo specificato. |
@@ -77,4 +80,4 @@ A questo punto, è possibile usare l'ID istanza nel cmdlet seguente:
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

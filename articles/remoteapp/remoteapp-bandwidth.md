@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Uso previsto della larghezza di banda di rete di Azure RemoteApp 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp usa il protocollo RDP (Remote Desktop Protocol) per la comunicazione tra applicazioni in esecuzione nel cloud di Azure e gli utenti. In questo articolo vengono offerte alcune linee guida di base che è possibile usare per stimare l'utilizzo della rete e valutare potenzialmente l'utilizzo della larghezza di banda di rete per ogni utente di Azure RemoteApp.
 
@@ -39,4 +42,4 @@ Verrà esaminato il reindirizzamento dei dispositivi, ma non verrà preso in con
 
 Inoltre non verrà esaminato in che modo un utente possa influire sugli altri utenti all'interno della stessa rete. Ad esempio, un utente che usa video 4K in una rete a 100 MB/s può influire in modo significativo sugli altri utenti della stessa rete che tentano di eseguire la stessa attività. Purtroppo diventa sempre più difficile determinare l'impatto dell'uso simultaneo per offrire una soluzione comune o esaustiva per le prestazioni del sistema nel complesso. È possibile affermare solo che la tecnologia del protocollo sottostante usa al meglio la larghezza di banda disponibile, ma presenta comunque alcune limitazioni.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/25/2016"
+   ms.date="08/10/2016"
    ms.author="seanmck"/>
 
 # Ripristino di emergenza in Azure Service Fabric
 
-Un elemento fondamentale di un'applicazione cloud ad alta disponibilità è la sua capacità di resistere a tutti i vari tipi di errori, inclusi quelli completamente al di fuori del controllo dell'utente. L'articolo descrive il layout fisico di un cluster di Azure Service Fabric nel contesto di potenziali emergenze e fornisce indicazioni su come gestire tali emergenze per limitare o eliminare il rischio di tempi di inattività o perdita di dati.
+Un elemento fondamentale di un'applicazione cloud ad alta disponibilità è la sua capacità di resistere a tutti i vari tipi di errori, inclusi quelli al di fuori del controllo dell'utente. L'articolo descrive il layout fisico di un cluster di Azure Service Fabric nel contesto di potenziali emergenze e fornisce indicazioni su come gestire tali emergenze per limitare o eliminare il rischio di tempi di inattività o perdita di dati.
 
 ## Layout fisico dei cluster Service Fabric in Azure
 
@@ -38,7 +38,7 @@ Per impostazione predefinita, le VM nel cluster vengono distribuite uniformement
 
 ### Distribuzione geografica
 
-Esistono attualmente [25 aree di Azure in tutto il mondo][azure-regions], più diverse altre già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
+Esistono attualmente [26 aree di Azure in tutto il mondo][azure-regions], più diverse altre già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
 
 ## Gestione degli errori
 
@@ -56,7 +56,9 @@ Di solito il cluster continua a funzionare fintanto che la maggioranza dei nodi 
 
 #### Perdita del quorum
 
-Se la maggioranza delle repliche della partizione di un servizio con stato si blocca, la partizione passerà a uno stato di "perdita del quorum". A quel punto, Service Fabric bloccherà le operazioni di scrittura sulla partizione per garantire che la partizione rimanga coerente e affidabile. È stato scelto infatti di accettare un periodo di indisponibilità per fare in modo che ai client non venga comunicato che i dati sono stati salvati se in realtà non è così. Tenere presente che, se è stato scelto di consentire le letture dalle repliche secondarie per il servizio con stato, sarà possibile continuare a eseguire le operazioni di lettura in questo stato. Una partizione rimane in uno stato di perdita del quorum finché non torna disponibile un numero sufficiente di repliche oppure fino a quando l'amministratore del cluster non forza il sistema a proseguire con l'[API Repair-ServiceFabricPartition][repair-partition-ps]. Lo svolgimento di quest'operazione quando la replica primaria è inattiva comporta la perdita dei dati.
+Se la maggioranza delle repliche della partizione di un servizio con stato si blocca, la partizione passerà a uno stato di "perdita del quorum". A quel punto, Service Fabric bloccherà le operazioni di scrittura sulla partizione per garantire che la partizione rimanga coerente e affidabile. È stato scelto infatti di accettare un periodo di indisponibilità per fare in modo che ai client non venga comunicato che i dati sono stati salvati se in realtà non è così. Tenere presente che, se è stato scelto di consentire le letture dalle repliche secondarie per il servizio con stato, sarà possibile continuare a eseguire le operazioni di lettura in questo stato. Una partizione rimane in uno stato di perdita del quorum finché non torna disponibile un numero sufficiente di repliche oppure fino a quando l'amministratore del cluster non forza il sistema a proseguire con l'[API Repair-ServiceFabricPartition][repair-partition-ps].
+
+>[AZURE.WARNING] Lo svolgimento di quest'operazione quando la replica primaria è inattiva comporta la perdita dei dati.
 
 Anche i servizi di sistema possono subire la perdita del quorum, con un impatto commisurato al servizio in questione. Ad esempio, la perdita del quorum nel servizio di denominazione incide sulla risoluzione dei nomi, mentre la perdita del quorum nel servizio di gestione failover bloccherà la creazione e i failover di nuovi servizi. Si noti che, a differenza dei propri servizi, *non* è consigliabile provare a ripristinare i servizi di sistema. È preferibile attendere invece che le repliche tornino disponibili.
 
@@ -108,4 +110,4 @@ Tra le cause di perdita dei dati, gli errori di codice nei servizi, gli errori u
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

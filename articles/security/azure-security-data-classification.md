@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="yurid"/>  
+   ms.date="08/16/2016"
+   ms.author="yurid"/>
 
 # Classificazione dei dati per Azure
 
@@ -134,7 +134,7 @@ Le informazioni classificate come pubbliche includono dati e file non critici pe
 | Responsabile | | | X | | |
 | Amministratore | | | | | X |
 | Utente* | | X | | X | |
-* *Un responsabile può concedere agli utenti diritti aggiuntivi, ad esempio di modifica ed eliminazione*
+**Un responsabile può concedere agli utenti diritti aggiuntivi, ad esempio di modifica ed eliminazione*
 
 > [AZURE.NOTE] Questa tabella è solo un esempio rappresentativo e non include un elenco completo di ruoli e diritti.
 
@@ -190,7 +190,7 @@ Questa sezione fornisce informazioni di base su alcune tecnologie che possono au
  
 Come illustra la figura seguente, queste tecnologie possono essere distribuite come soluzioni locali o basate sul cloud oppure in modalità ibrida, con alcune tecnologie distribuite in locale e altre nel cloud. Alcune tecnologie, ad esempio la crittografia e Rights Management, si estendono anche ai dispositivi utente.
 
-![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)  
+![Tecnologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### Software di Rights Management  
 
@@ -239,4 +239,4 @@ Alcune tecnologie DLP offrono anche la possibilità di eseguire l'override della
 - [Blog del team di sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

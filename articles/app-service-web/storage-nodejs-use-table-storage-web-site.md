@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # App Web Node.js con il servizio tabelle di Azure
@@ -25,9 +25,9 @@ In questa esercitazione viene illustrato come usare il servizio tabelle fornito 
 
 Si acquisiranno le nozioni seguenti:
 
-* Utilizzare npm (Node Package Manager) per installare i moduli di Node
+* Usare npm (Node Package Manager) per installare i moduli di Node
 
-* Usare il servizio tabelle di Azure
+* Utilizzare il servizio tabelle di Azure
 
 * Come usare l'interfaccia della riga di comando di Azure per creare un'app Web.
 
@@ -68,7 +68,7 @@ Creare un account di archiviazione di Azure L'app utilizzerà questo account per
 
 ##Installazione dei moduli e generazione dello scaffolding
 
-In questa sezione verrà creata una nuova applicazione Node e verrà usato npm per aggiungere pacchetti di modulo. Per questa applicazione verranno usati i moduli [Express] e [Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
+In questa sezione verrà creata una nuova applicazione Node e verrà utilizzato npm per aggiungere pacchetti di modulo. Per questa applicazione verranno usati i moduli [Express] e [Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
 
 ### Installare Express e generare lo scaffolding
 
@@ -476,7 +476,7 @@ Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati ne
 
 ## Distribuire l'applicazione in Azure
 
-Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
+Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per eseguire questi passaggi, è necessario disporre di una sottoscrizione di Azure.
 
 > [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com/). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
@@ -535,7 +535,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE] Se questa è la prima app Web del servizio app per la sottoscrizione, verrà indicato di utilizzare il Portale di Azure per la creazione dell'app Web. Per ulteriori informazioni, vedere [compilare e distribuire un'applicazione web di Node. js in Azure App servizio].
+	> [AZURE.NOTE] Se si tratta della prima app Web del servizio app per la sottoscrizione, verrà indicato di usare il Portale di Azure per la creazione dell'app Web. Per ulteriori informazioni, vedere [compilare e distribuire un'applicazione web di Node. js in Azure App servizio].
 
 ### Impostare le variabili di ambiente
 
@@ -636,4 +636,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

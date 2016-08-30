@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 #Risoluzione dei problemi di Azure RemoteApp: Errori di connessione e avvio dell'applicazione 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Le applicazioni ospitate in Azure RemoteApp possono non avviarsi per diversi motivi. In questo articolo vengono descritti vari motivi e i messaggi di errore che gli utenti potrebbero ricevere in caso di mancato avvio delle applicazioni. Vengono affrontati anche gli errori di connessione ma non i problemi di accesso al client di Azure RemoteApp.
 
@@ -51,4 +54,4 @@ Si tratta di un messaggio di errore generico: contattare il supporto tecnico di 
 
 ![Messaggio generico di Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

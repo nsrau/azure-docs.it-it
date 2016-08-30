@@ -13,16 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Accesso alle app in Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Uno dei vantaggi di Azure RemoteApp consiste nel fatto che è possibile accedere alle app da qualsiasi dispositivo. Non solo: è anche possibile iniziare a lavorare su un dispositivo e passare senza problemi a un secondo dispositivo, riprendendo il lavoro da dove era stato interrotto. Per iniziare, è necessario scaricare il client adatto al proprio dispositivo e accedere al servizio.
 
-In questo argomento si esaminerà l'elenco dei client attualmente supportati, con istruzioni su come scaricarli. In seguito, verrà spiegato come accedere a RemoteApp da ogni client.
+In questo argomento esamineremo l'elenco di client attualmente supportati, con istruzioni su come scaricarli. In seguito, spiegheremo come accedere a RemoteApp da ogni client.
 
 ## Client supportati
 
@@ -207,4 +210,4 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 	![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

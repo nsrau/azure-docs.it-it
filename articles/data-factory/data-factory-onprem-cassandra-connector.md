@@ -33,7 +33,8 @@ Per consentire al servizio Azure Data Factory di connettersi al database Cassand
 ## Copia di dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da un database Cassandra in uno degli archivi dati sink supportati è la procedura guidata per la copia dei dati. Per la procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
 
-L'esempio di seguito fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+L'esempio di seguito fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database Cassandra in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+
 
 ## Esempio: Copiare dati da Cassandra a BLOB
 Nell'esempio i dati vengono copiati da un database Cassandra a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. I dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores), usando l'attività di copia in Azure Data Factory.
@@ -104,7 +105,7 @@ Questo esempio usa il servizio collegato **Cassandra**. Per informazioni sulle p
 		}
 	}
 
-Impostando **external** su **true** si comunica al servizio Data Factory che il set di dati è esterno a Data Factory e non è prodotto da un'attività al suo interno.
+Impostando **external** su **true** si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 **Set di dati di output del BLOB di Azure**
 
@@ -203,8 +204,8 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| keyspace | Nome del keyspace o schema nel database Cassandra. | Sì (se **query** per **CassandraSource** non è definito). |
-| tableName | Nome della tabella in un database Cassandra. | Sì (se **query** per **CassandraSource** non è definito). |
+| keyspace | Nome del keyspace o schema nel database Cassandra. | Sì, se **query** per **CassandraSource** non è definito. |
+| tableName | Nome della tabella in un database Cassandra. | Sì, se **query** per **CassandraSource** non è definito. |
 
 
 ## Proprietà del tipo CassandraSource
@@ -216,8 +217,8 @@ In caso di attività di copia con origine di tipo **CassandraSource**, sono disp
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| query | Usare la query personalizzata per leggere i dati. | Query SQL-92 o query CQL. Vedere le informazioni di [riferimento su CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui si desidera eseguire la query. | No (se tableName e keyspace sul set di dati sono definiti). |
-| consistencyLevel | Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. | ONE, TWO, THREE, QUORUM, ALL, LOCAL\_QUORUM, EACH\_QUORUM, LOCAL\_ONE. Per informazioni dettagliate, vedere l'articolo dedicato alla [configurazione della coerenza dei dati](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) . | No. Il valore predefinito è ONE. |  
+| query | Usare la query personalizzata per leggere i dati. | Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. | No (se tableName e keyspace sul set di dati sono definiti). |
+| consistencyLevel | Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. | ONE, TWO, THREE, QUORUM, ALL, LOCAL\_QUORUM, EACH\_QUORUM, LOCAL\_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). | No. Il valore predefinito è ONE. |  
 
 
 ### Mapping dei tipi per Cassandra
@@ -240,7 +241,7 @@ VARCHAR | String
 VARINT | Decimale
 
 > [AZURE.NOTE]  
-Per i tipi di raccolta (mappa, set, elenco, ecc.), vedere la sezione dedicata all'[uso dei tipi di raccolta Cassandra con una tabella virtuale](#work-with-collections-using-virtual-table).
+Per i tipi di raccolta (mappa, set, elenco e così via), vedere la sezione [Uso delle raccolte con una tabella virtuale](#work-with-collections-using-virtual-table).
 > 
 > I tipi definiti dall'utente non sono supportati.
 > 
@@ -254,7 +255,7 @@ Azure Data Factory usa un driver ODBC integrato per connettersi ai dati di un da
 
 Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo al driver di accedere ai dati denormalizzati. Per informazioni dettagliate, vedere la sezione riportata di seguito. È possibile accedere al contenuto delle raccolte Cassandra eseguendo query e join sulle tabelle virtuali.
 
-È possibile sfruttare la [Copia guidata](data-factory-data-movement-activities.md#data-factory-copy-wizard) per visualizzare intuitivamente l'elenco delle tabelle nel database Cassandra che includono tabelle virtuali e visualizzare in anteprima i dati all'interno. È inoltre possibile costruire una query nella Copia guidata ed eseguire la convalida per visualizzare il risultato.
+È possibile usare la [Copia guidata](data-factory-data-movement-activities.md#data-factory-copy-wizard) per visualizzare in modo intuitivo l'elenco delle tabelle nel database Cassandra, comprese le tabelle virtuali, e visualizzare in anteprima i dati all'interno. È inoltre possibile costruire una query nella Copia guidata ed eseguire la convalida per visualizzare il risultato.
 
 ### Esempio
 Ad esempio, "ExampleTable" di seguito è una tabella di un database Cassandra contenente una colonna chiave primaria integer denominata "pk\_int", una colonna testo denominata value, una colonna elenco, una colonna mappa e una colonna set (denominata "StringSet").
@@ -312,4 +313,4 @@ pk\_int | StringSet\_value
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

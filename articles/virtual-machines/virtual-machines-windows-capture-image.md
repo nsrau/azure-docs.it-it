@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Come creare un'immagine di VM da una VM di Azure esistente
 
@@ -28,6 +28,8 @@ Questo articolo illustra come usare Azure PowerShell per creare un'immagine gene
 - Questa procedura presuppone che sia già disponibile una macchina virtuale di Azure nel modello di distribuzione di Resource Manager, da usare per creare l'immagine. È necessario conoscere il nome della VM e il nome del gruppo di risorse. È possibile ottenere un elenco dei gruppi di risorse nella sottoscrizione tramite il cmdlet di PowerShell `Get-AzureRmResourceGroup`. È possibile ottenere un elenco delle VM nella sottoscrizione digitando `Get-AzureRMVM`.
 
 - È necessario aver installato Azure PowerShell 1.0.x. Se non è già stato installato PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per la procedura di installazione.
+
+- Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Preparare la VM di origine 
 
@@ -93,7 +95,7 @@ Questa sezione illustra come generalizzare la macchina virtuale di Windows in mo
 
 1. Copiare l'immagine della macchina virtuale nel contenitore di archiviazione di destinazione usando questo comando. L'immagine viene creata nello stesso account di archiviazione della macchina virtuale originale. La variabile `-Path` salva una copia del modello JSON in locale. La variabile `-DestinationContainerName` è il nome del contenitore in cui si vuole salvare le immagini. Se il contenitore non esiste, verrà creato.
 
-		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
+		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -Name YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
 	È possibile ottenere l'URL dell'immagine dal modello del file JSON. Passare alla sezione **resources** > **storageProfile** > **osDisk** > **image** > **uri** per il percorso completo dell'immagine. L'URL dell'immagine è simile a questo: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
@@ -143,7 +145,7 @@ Lo script di PowerShell seguente illustra come impostare le configurazioni della
 
 >[AZURE.NOTE] La VM deve trovarsi nello stesso account di archiviazione del disco rigido virtuale originale.
 
-</br>  
+</br>
 
 	
 	
@@ -208,4 +210,4 @@ Al termine, la VM appena creata verrà visualizzata nel [portale di Azure](https
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

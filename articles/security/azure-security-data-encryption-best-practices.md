@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yuridio"/>
 
 #Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
@@ -163,4 +163,4 @@ Le organizzazioni che sono carenti a livello di [classificazione dei dati](http:
 
 Per altre informazioni su Azure RMS, leggere l'articolo [Introduzione a Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

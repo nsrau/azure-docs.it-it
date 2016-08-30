@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
@@ -91,13 +91,13 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
     ![Specificare l'account di archiviazione da usare](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 
-1. Nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** specificare se si vuole effettuare la connessione usando l'emulatore di archiviazione di Azure, una sottoscrizione di Azure o credenziali immessi manualmente.
+1. Nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** specificare se ci si vuole connettere usando l'emulatore di archiviazione di Azure, una sottoscrizione di Azure o credenziali immesse manualmente.
 
     ![Finestra di dialogo Account di archiviazione](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
 
   - Se si sceglie l'opzione Emulatore di archiviazione di Microsoft Azure, la stringa di connessione sarò impostata su UseDevelopmentStorage=true.
 
-  - Se si sceglie l'opzione relativa alla propria sottoscrizione, sarà possibile selezionare la sottoscrizione di Azure e il nome di account da usare. Per gestire le sottoscrizioni di Azure, è possibile usare il pulsante Gestisci account.
+  - Se si sceglie l'opzione relativa alla propria sottoscrizione, sarà possibile selezionare la sottoscrizione di Azure da usare e il nome dell'account. Per gestire le sottoscrizioni di Azure, è possibile usare il pulsante Manage Accounts (Gestisci account).
 
   - Se si sceglie l'opzione Credenziali immesse manualmente, verrà richiesta l'immissione del nome e della chiave dell'account di Azure da usare.
 
@@ -109,7 +109,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
 1. La casella **Quota disco in MB** specifica la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. Se si vuole, è possibile cambiare il valore predefinito.
 
-1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**. Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni di configurazione su ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
+1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**. Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni sulla configurazione di ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
 1. Dopo l'abilitazione della raccolta di tutti i dati di diagnostica desiderati, fare clic su **OK**.
 
@@ -151,7 +151,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
 1. In ogni scheda dei dati di diagnostica da raccogliere selezionare la rispettiva casella di controllo **Abilita il trasferimento di <tipo di log>**.
 
-    Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni di configurazione su ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
+    Ad esempio, per raccogliere i log applicazioni, selezionare la casella di controllo **Abilita il trasferimento di log applicazioni** nella scheda **Log applicazioni**. Specificare anche eventuali altre informazioni richieste da ogni tipo di dati di diagnostica. Per informazioni sulla configurazione di ogni scheda, vedere la sezione **Configurare le origini dati di diagnostica** più avanti in questo argomento.
 
 1. Dopo l'abilitazione della raccolta di tutti i dati di diagnostica desiderati, fare clic su **OK**.
 
@@ -357,4 +357,4 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

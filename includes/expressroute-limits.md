@@ -18,7 +18,6 @@ Le seguenti limitazioni si applicano alle risorse di ExpressRoute per ogni sotto
 
 | **Dimensioni circuito** | **Numero di collegamenti VNet per il livello standard** | **Numero di collegamenti VNet con il componente aggiuntivo Premium** |
 |---|---|---|
-| 10 Mbps | 10 | Non supportato |
 | 50 Mbps | 10 | 20 |
 | 100 Mbps | 10 | 25 |
 | 200 Mbps | 10 | 25 |
@@ -28,4 +27,4 @@ Le seguenti limitazioni si applicano alle risorse di ExpressRoute per ogni sotto
 | 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook figlio in Automazione di Azure
-
 
 È buona norma in automazione di Azure scrivere runbook riutilizzabili e modulari con una funzione discreta che può essere utilizzata da altri runbook. Un runbook padre chiama spesso uno o più runbook figlio per eseguire la funzionalità richiesta. Esistono due modi per chiamare un runbook figlio e ognuno presenta differenze che è necessario comprendere in modo che sia possibile determinare quale sarà migliore per i diversi scenari.
 
@@ -35,7 +34,7 @@ I parametri di un runbook figlio chiamato inline possono essere costituiti da qu
 
 Tipi che possono richiamarsi a vicenda:
 
-- Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) e i [runbook grafici](automation-runbook-types.md#graphical-runbooks) possono richiamarsi a vicenda inline (entrambi i tipi si basano su PowerShell).
+- Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) e i [runbook grafici](automation-runbook-types.md#graphical-runbooks) possono chiamarsi a vicenda inline (entrambi i tipi sono basati su PowerShell).
 - Un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e i runbook grafici del flusso di lavoro PowerShell possono richiamarsi a vicenda inline (entrambi i tipi si basano su PowerShell).
 - I tipi PowerShell e i tipi di flusso di lavoro PowerShell non possono richiamarsi a vicenda online e devono utilizzare Start-AzureRmAutomationRunbook.
 	
@@ -86,7 +85,7 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 |Esecuzione|Il runbook padre attende il completamento del runbook figlio prima di continuare.|Il runbook padre continua subito dopo l'avvio del runbook figlio *o* attende il completamento del processo figlio.|
 |Output|Il runbook padre può ottenere output direttamente dal runbook figlio.|Il runbook padre deve recuperare l'output dal processo del runbook figlio *o* può ottenere direttamente l'output dal runbook figlio.|
 |Parametri|I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati.|I valori per i parametri di runbook figlio devono essere combinati in una singola tabella di hash e possono includere solo tipi di dati semplici, matrice e oggetto che sfruttano la serializzazione JSON.|
-|Account di automazione|Il runbook padre può utilizzare solo runbook figlio nello stesso account di automazione.|Il runbook padre può utilizzare runbook figlio da qualsiasi account di automazione dalla stessa sottoscrizione di Azure e anche da una sottoscrizione diversa se si dispone di una connessione ad essa.|
+|Account di automazione|Il runbook padre può utilizzare solo runbook figlio nello stesso account di automazione.|Il runbook padre può usare runbook figlio di qualsiasi account di automazione della stessa sottoscrizione di Azure e anche di una sottoscrizione diversa a cui si ha una connessione.|
 |Pubblicazione|Il runbook figlio deve essere pubblicato prima della pubblicazione del runbook padre.|Il runbook figlio deve essere pubblicato prima che il runbook padre venga avviato.|
 
 ## Passaggi successivi
@@ -94,4 +93,4 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

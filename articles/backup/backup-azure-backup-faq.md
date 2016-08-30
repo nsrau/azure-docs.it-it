@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/01/2016"
+	 ms.date="08/21/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Servizio Backup di Azure: Domande frequenti
@@ -51,11 +51,11 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D5. Esistono limiti al numero degli insiemi di credenziali per il backup che è possibile creare in ogni sottoscrizione di Azure?** <br/> R5. Sì. A partire da marzo 2015, è possibile creare 25 insiemi di credenziali per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una nuova sottoscrizione.
 
-**D6. È necessario considerare l'insieme di credenziali come un'entità di fatturazione?** <br/> R6. Sebbene sia possibile ottenere una fattura dettagliata per ogni insieme di credenziali, è consigliabile considerare una sottoscrizione di Azure come un'entità di fatturazione. È infatti coerente in tutti i servizi ed è più facile da gestire.
+**D6. È necessario considerare l'insieme di credenziali come un'entità di fatturazione?** <br/> R6. Nonostante sia possibile ottenere una fattura dettagliata per ogni insieme di credenziali, è consigliabile considerare una sottoscrizione di Azure come un'entità di fatturazione. È infatti coerente in tutti i servizi ed è più facile da gestire.
 
 **D7. Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?** <br/> R7. Sì, è possibile registrare fino a 50 computer per ogni insieme di credenziali. Per le macchine virtuali IaaS di Azure, il limite è di 200 macchine virtuali per ogni insieme di credenziali. Se è necessario registrare più computer, creare un nuovo insieme di credenziali.
 
-**D8. Esistono limiti alla quantità di dati di cui è possibile eseguire il backup da un server/client Windows o da un server SCDPM?** <br/> R8. No.
+**D8. Esistono limiti alla quantità di dati di cui è possibile eseguire il backup da un server/client Windows o da un server SCDPM?** <br/> R8. di serie
 
 **D9. Come si registra un server in un altro data center?**<br/> R9. I dati di backup vengono inviati al data center del servizio di backup in cui sono registrati. Il modo più semplice per modificare il data center consiste nel disinstallare e reinstallare l'agente e registrarlo in un nuovo data center.
 
@@ -182,7 +182,9 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 **D3. Qual è la lunghezza minima della chiave di crittografia usata per crittografare i dati di backup?** <br/> R3. La chiave di crittografia deve contenere almeno 16 caratteri.
 
-**D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.  
+**D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
+
+**D5. I dati di backup per le macchine virtuali di Azure vengono crittografati?** <br/> R5. Backup di Azure si basa sulle impostazioni di crittografia della macchina virtuale di Azure per la crittografia dei backup. Se la macchina virtuale è crittografata con Crittografia dischi di Azure, Azure Backup usa questa modalità di crittografia per proteggere i dati.  
 
 ## Backup della cache
 
@@ -221,4 +223,4 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 Per il corretto funzionamento dell'agente di Backup di Azure, è consigliabile che né la cartella della cache né il disco rigido virtuale dei metadati abbiano gli attributi precedenti.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

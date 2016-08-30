@@ -17,7 +17,7 @@
 
 # Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure  
 
-## Panoramica
+## Overview
 
 Alla base dell’Utilità di pianificazione di Azure c’è la *pianificazione*. La pianificazione determina come e quando l'Utilità di Pianificazione esegue il processo.
 
@@ -35,7 +35,7 @@ In questo articolo, presenteremo dei processi di esempio che è possibile creare
 
 ## Scenari Supportati
 
-I molti esempi che verranno forniti illustrano la varietà di scenari che l’Utilità di Pianificazione di Azure supporta. Complessivamente, questi esempi illustrano come creare pianificazioni adeguate a molti tipi di utilizzo, tra cui quelli indicati di seguito:
+I numerosi esempi forniti in questo argomento illustrano i diversi scenari che l'Utilità di Pianificazione di Azure supporta. Complessivamente, questi esempi illustrano come creare pianificazioni adeguate a molti tipi di utilizzo, tra cui quelli indicati di seguito:
 
 -	Esecuzione una sola volta in una determinata data e ora
 -	Esecuzione ricorrente per un numero esplicito di volte
@@ -92,13 +92,13 @@ Dopo questa panoramica, esaminiamo ciascuno di questi elementi in modo dettaglia
 
 |**Nome JSON**|**Tipo di valore**|**Obbligatorio?**|**Valore predefinito**|**Valori validi**|**Esempio**|
 |:---|:---|:---|:---|:---|:---|
-|**_startTime_**|Stringa|No|Nessuno|Date-Ore ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
-|**_ricorrenza_**|Object|No|Nessuno|Oggetto ricorrenza|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
-|**_frequency_**|Stringa|Sì|Nessuno|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
+|**_startTime_**|String|No|None|Date-Ore ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
+|**_ricorrenza_**|Oggetto|No|None|Oggetto ricorrenza|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
+|**_frequency_**|String|Sì|None|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
 |**_interval_**|Number|No|1|Da 1 a 1000.|<code>"interval":10</code>|
-|**_endTime_**|Stringa|No|Nessuno|Il valore Data-Ora fa riferimento a un momento nel futuro|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-|**_count_**|Number|No|Nessuno|>= 1|<code>"count": 5</code>|
-|**_schedule_**|Object|No|Nessuno|Oggetto pianificazione|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
+|**_endTime_**|String|No|None|Il valore Data-Ora fa riferimento a un momento nel futuro|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+|**_count_**|Number|No|None|>= 1|<code>"count": 5</code>|
+|**_schedule_**|Oggetto|No|None|Oggetto pianificazione|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
 
 ## Approfondimenti: _startTime_
 
@@ -145,36 +145,36 @@ Le pianificazioni di seguito assumono che l’_intervallo_ sia impostato su 1. I
 |**Esempio**|**Descrizione**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|Eseguire alle 5 di mattina di ogni giorno. L’Utilità di pianificazione di Azure fa corrispondere ogni valore in "ore" con ogni valore in "minuti", uno per uno, per creare un elenco di tutte le volte in cui deve essere eseguito il processo.|
-|<code>{"minutes":[15],"hours":[5]}</code>|Eseguire alle 5:15 di mattina di ogni giorno.|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|Eseguire alle 5:15 di mattina e alle 17:15 ogni giorno|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|Eseguire alle 5:15, 5:45, 17:15 e 17:45 ogni giorno|
+|<code>{"minutes":[15], "hours":[5]}</code>|Eseguire alle 5:15 di mattina di ogni giorno.|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Eseguire alle 5:15 di mattina e alle 17:15 ogni giorno|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Eseguire alle 5:15, 5:45, 17:15 e 17:45 ogni giorno|
 |<code>{"minutes":[0,15,30,45]}</code>|Eseguire ogni 15 minuti|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Eseguire ogni ora. Questo processo viene eseguito ogni ora. Il minuto è controllato dallo _startTime_, se è stato specificato o, se non è specificato, dal momento della creazione. Ad esempio, se l'ora di inizio o l’ora di creazione (qualunque delle due si applichi) è 12:25, il processo verrà eseguito a 00:25, 01:25, 02:25, ..., 23:25. La pianificazione è equivalente all’avere un processo con _frequenza_ di "ora", un _intervallo_ di 1, e nessuna _pianificazione_. La differenza è che questa pianificazione può essere utilizzata con _frequenza_ e _intervallo_ diversi per creare anche altri processi. Ad esempio, se _frequenza_ fosse "mese", la pianificazione verrebbe eseguita solo una volta al mese anziché ogni giorno, se la _frequenza_ fosse "giorno"|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Eseguire ogni ora. Questo processo viene eseguito ogni ora. Il minuto è controllato dallo _startTime_, se è stato specificato o, se non è specificato, dal momento della creazione. Ad esempio, se l'ora di inizio o l’ora di creazione (qualunque delle due si applichi) è 12:25, il processo verrà eseguito a 00:25, 01:25, 02:25, ..., 23:25. La pianificazione è equivalente all’avere un processo con _frequenza_ di "ora", un _intervallo_ di 1, e nessuna _pianificazione_. La differenza è che questa pianificazione può essere utilizzata con _frequenza_ e _intervallo_ diversi per creare anche altri processi. Ad esempio, se _frequenza_ fosse "mese", la pianificazione verrebbe eseguita solo una volta al mese anziché ogni giorno, se la _frequenza_ fosse "giorno"|
 |<code>{minutes:[0]}</code>|Eseguire ogni ora all’inizio dell’ora. Anche questo processo viene eseguito ogni ora, ma al suo inizio (ad esempio 12:00, 13:00, 14:00, etc.) Ciò equivale a un processo con frequenza di "ora", uno startTime con zero minuti, e nessuna pianificazione se la frequenza è "giorno", ma se la frequenza è "settimana" o "mese", la pianificazione verrebbe eseguita un solo giorno alla settimana o al mese, rispettivamente.|
 |<code>{"minutes":[15]}</code>|Eseguire 15 minuti dopo l’inizio di ogni ora. Viene eseguito ogni ora, a partire da 00:15, poi 01:15, 02:15, e così via fino a 22:15 e 23:15.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|Eseguire alle 17.00 di ogni sabato|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Eseguire alle 17 di ogni lunedì, mercoledì e venerdì|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Eseguire alle 17:15 e alle 17:45 di ogni lunedì, mercoledì e venerdì|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Eseguire alle 05:00 e alle 17:00 di ogni lunedì, mercoledì e venerdì|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Eseguire alle 05:15, alle 05:45, alle 17:15 e alle 17:45 di ogni lunedì, mercoledì e venerdì|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Eseguire ogni 15 minuti nei giorni feriali|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Eseguire ogni 15 minuti nei giorni feriali tra le 09:00 e le 16:45|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Eseguire alle 17.00 di ogni sabato|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Eseguire alle 17 di ogni lunedì, mercoledì e venerdì|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Eseguire alle 17:15 e alle 17:45 di ogni lunedì, mercoledì e venerdì|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Eseguire alle 05:00 e alle 17:00 di ogni lunedì, mercoledì e venerdì|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Eseguire alle 05:15, alle 05:45, alle 17:15 e alle 17:45 di ogni lunedì, mercoledì e venerdì|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Eseguire ogni 15 minuti nei giorni feriali|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Eseguire ogni 15 minuti nei giorni feriali tra le 09:00 e le 16:45|
 |<code>{"weekDays":["sunday"]}</code>|Eseguire ogni domenica all'ora di inizio|
 |<code>{"giorni feriali": ["martedì", "giovedì"]}</code>|Eseguire ogni martedì e giovedì all'ora di inizio|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|Eseguire alle 06:00 il ventottesimo giorno di ogni mese (assumendo che la frequenza sia mensile)|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|Eseguire alle 06:00 dell’ultimo giorno di ogni mese. Se si desidera eseguire un processo l'ultimo giorno del mese, utilizzare -1 anziché il giorno 28, 29, 30 o 31.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|Eseguire alle 06:00 il primo e l’ultimo giorno di ogni mese|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Eseguire alle 06:00 il ventottesimo giorno di ogni mese (assumendo che la frequenza sia mensile)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Eseguire alle 06:00 dell’ultimo giorno di ogni mese. Se si desidera eseguire un processo l'ultimo giorno del mese, utilizzare -1 anziché il giorno 28, 29, 30 o 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Eseguire alle 06:00 il primo e l’ultimo giorno di ogni mese|
 |<code>{monthDays":[1,-1]}</code>|Eseguire il primo e l’ultimo giorno di ogni mese all’ora di inizio|
 |<code>{monthDays":[1,14]}</code>|Eseguire il primo e il quattordicesimo giorno di ogni mese all’ora di inizio|
 |<code>{monthDays":[2]}</code>|Eseguire il secondo giorno di ogni mese all’ora di inizio|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|Eseguire il primo venerdì di ogni mese alle 05:00|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|: Eseguire il primo venerdì di ogni mese all’ora di inizio|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|Eseguire il terzultimo venerdì di ogni mese, all'ora di inizio|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Eseguire il primo e l’ultimo venerdì di ogni mese alle 05:15|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Eseguire il primo e l’ultimo venerdì di ogni mese all’ora di inizio|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|Eseguire il quinto venerdì di ogni mese all’ora di inizio Se non ci sono cinque venerdì nel mese, il processo non viene eseguito, dato che è pianificato per essere lanciato solamente al quinto venerdì del mese. È consigliabile utilizzare -1 anziché 5 per l'occorrenza se si desidera eseguire il processo all'ultimo venerdì del mese.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Eseguire ogni 15 minuti all’ultimo venerdì del mese|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Eseguire alle 05:15, 05:45, 17:15 e 17:45 il terzo mercoledì di ogni mese|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Eseguire il primo venerdì di ogni mese alle 05:00|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Eseguire il primo venerdì di ogni mese all’ora di inizio|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Eseguire il terzultimo venerdì di ogni mese, all'ora di inizio|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Eseguire il primo e l’ultimo venerdì di ogni mese alle 05:15|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Eseguire il primo e l’ultimo venerdì di ogni mese all’ora di inizio|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Eseguire il quinto venerdì di ogni mese all’ora di inizio Se non ci sono cinque venerdì nel mese, il processo non viene eseguito, dato che è pianificato per essere lanciato solamente al quinto venerdì del mese. È consigliabile utilizzare -1 anziché 5 per l'occorrenza se si desidera eseguire il processo all'ultimo venerdì del mese.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Eseguire ogni 15 minuti all’ultimo venerdì del mese|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Eseguire alle 05:15, 05:45, 17:15 e 17:45 il terzo mercoledì di ogni mese|
 
 ## Vedere anche
 
@@ -197,4 +197,4 @@ Le pianificazioni di seguito assumono che l’_intervallo_ sia impostato su 1. I
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

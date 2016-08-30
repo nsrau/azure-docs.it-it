@@ -156,4 +156,4 @@ Inviare un messaggio di posta elettronica all'indirizzo [aadreportinghelp@micros
 
 > [AZURE.TIP] Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
