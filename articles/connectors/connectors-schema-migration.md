@@ -46,4 +46,4 @@ Viene visualizzata la pagina Aggiorna schema, con un collegamento a un documento
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-----HONumber=AcomDC_0824_2016-->
