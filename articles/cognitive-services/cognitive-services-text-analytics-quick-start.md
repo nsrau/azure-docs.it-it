@@ -82,7 +82,7 @@ Si noti che i linguaggi supportati sono i seguenti:
 		Content-Type: application/json
 		Accept: application/json
 
-1. Formattare quindi le righe di input in JSON. Il formato è lo stesso per sentimenti, frasi chiave e lingua. Si noti che ogni ID deve essere univoco e sarà l'ID restituito dal sistema. Le dimensioni massime di un singolo documento che è possibile inviare sono pari a 10 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 1 MB. In una sola chiamata non è possibile inviare più di 1.000 documenti. Language è un parametro facoltativo che deve essere specificato se si analizzano testi in una lingua diversa dall'inglese. Di seguito è riportato un esempio di input in cui è incluso il parametro facoltativo `language` per l'analisi di sentimenti o l'estrazione di frasi chiave:
+1. Formattare quindi le righe di input in JSON. Il formato è lo stesso per sentimenti, frasi chiave e lingua. Si noti che ogni ID deve essere univoco e sarà l'ID restituito dal sistema. Le dimensioni massime di un singolo documento che è possibile inviare sono pari a 10 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 1 MB. In una sola chiamata non è possibile inviare più di 1.000 documenti. Esistono limitazioni di frequenza che non consentono più di 100 chiamate al minuto: è quindi consigliabile inviare grandi quantità di documenti in un'unica chiamata. Language è un parametro facoltativo che deve essere specificato se si analizzano testi in una lingua diversa dall'inglese. Di seguito è riportato un esempio di input in cui è incluso il parametro facoltativo `language` per l'analisi di sentimenti o l'estrazione di frasi chiave:
 
 		{
 			"documents": [
@@ -170,12 +170,12 @@ Si noti che i linguaggi supportati sono i seguenti:
 
 Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. L'API è progettata per funzionare al meglio con testi brevi in linguaggio naturale, ad esempio recensioni e commenti degli utenti.
 
-Questa API richiede un **minimo di 100 record di testo** da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Qualsiasi record non in lingua inglese o con meno di 3 parole sarà rimosso e quindi non verranno assegnati agli argomenti. Per il rilevamento di argomenti, le dimensioni massime di un singolo documento che è possibile inviare sono pari a 30 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 30 MB.
+Questa API richiede un **minimo di 100 record di testo** da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Qualsiasi record non in lingua inglese o con meno di 3 parole sarà rimosso e quindi non verranno assegnati agli argomenti. Per il rilevamento di argomenti, le dimensioni massime di un singolo documento che è possibile inviare sono pari a 30 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 30 MB. Il limite di frequenza per il rilevamento degli argomenti è pari a 5 invii ogni 5 minuti.
 
 Sono disponibili altri due parametri di input **facoltativi** che possono contribuire a migliorare la qualità dei risultati:
 
 - **Parole non significative.** Queste parole e le relative forme chiuse, ad esempio i plurali, verranno escluse dall'intera pipeline di rilevamento degli argomenti. Usare questa opzione per le parole comuni. Ad esempio, "issue", "error" e "user" possono essere scelte appropriate per reclami relativi al software da parte dei clienti. Ogni stringa deve contenere una singola parola.
-- **Parole non significative**: le parole verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
+- **Frasi non significative**: le frasi verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
 
 Seguire questi passaggi per rilevare gli argomenti nel testo.
 
@@ -205,7 +205,7 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
-1. Verrà restituita `operation-location` come intestazione nella risposta, dove il valore è l'URL per eseguire query sugli argomenti risultanti:
+1. Verrà restituita `operation-location` come intestazione nella risposta, dove il valore è l'URL per effettuare una query degli argomenti risultanti:
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
@@ -272,21 +272,21 @@ Di seguito viene spiegata ogni parte della risposta:
 
 | Chiave | Descrizione |
 |:-----|:----|
-| id | Identificatore univoco di ciascun argomento. |
+| id | Identificatore univoco di ogni argomento. |
 | score | Numero di documenti assegnati all'argomento. |
 | keyPhrase | Parola o frase di riepilogo dell'argomento. |
 
 **topicAssignments**
 
-| Chiave | Descrizione |
+| Chiave | Description |
 |:-----|:----|
 | documentId | Identificatore del documento. Equivale all'ID incluso nell'input. |
-| topicId | ID dell'argomento a cui è stato assegnato il documento. |
+| topicId | ID argomento a cui è stato assegnato il documento. |
 | distance | Punteggio di un'associazione documento-argomento compreso tra 0 e 1. Minore è il valore della distanza, più forte è l'associazione all'argomento. |
 
 **errors**
 
-| Chiave | Descrizione |
+| Chiave | Description |
 |:-----|:----|
 | id | Identificatore univoco del documento di input cui fa riferimento l'errore. |
 | message | Messaggio di errore. |
@@ -297,4 +297,4 @@ Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibi
 
 Per scoprire come utilizzare le funzionalità di Text Analytics, ad esempio una valutazione, come parte di un bot, vedere l'esempio [Bot emotivo](http://docs.botframework.com/it-IT/bot-intelligence/language/#example-emotional-bot) sul sito Bot Framework.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

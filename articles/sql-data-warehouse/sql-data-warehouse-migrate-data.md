@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Eseguire la migrazione dei dati
@@ -22,7 +22,7 @@
 Questo articolo descrive in primo luogo gli scenari di migrazione semplici di ADF Copy, SSIS e bcp, per poi analizzare come ottimizzare la migrazione.
 
 ## ADF Copy
-[ADF Copy][] fa parte di [Data factory di Azure][]. È possibile usare ADF Copy per esportare i dati in file flat che si trovano in un'archiviazione locale, in file flat remoti contenuti nell'archiviazione BLOB di Azure o direttamente in SQL Data Warehouse.
+[ADF Copy][] fa parte di [Azure Data Factory][]. È possibile usare ADF Copy per esportare i dati in file flat che si trovano in un'archiviazione locale, in file flat remoti contenuti nell'archiviazione BLOB di Azure o direttamente in SQL Data Warehouse.
 
 Se i dati sono contenuti in file flat, è necessario trasferirli nei BLOB di archiviazione di Azure prima di avviare un caricamento in SQL Data Warehouse. Dopo il trasferimento dei dati nell'archiviazione BLOB di Azure, è possibile scegliere di usare [ADF Copy][] di nuovo per effettuare il push dei dati in SQL Data Warehouse.
 
@@ -30,7 +30,7 @@ Anche PolyBase rappresenta un'opzione a prestazioni molto elevate per il caricam
 
 > [AZURE.NOTE] PolyBase richiede file di dati in formato UTF-8. Questa è la codifica predefinita di ADF Copy, pertanto non è necessario apportare modifiche. Questo è solo un promemoria che indica di non modificare il comportamento predefinito di ADF Copy.
 
-Visitare l'articolo seguente per alcuni [esempi di ADF Copy][].
+Visitare l'articolo seguente per alcuni [esempi di ADF][].
 
 ## Integration Services ##
 Integration Services (SSIS) è uno strumento sofisticato e flessibile di Extract Transform and Load (ETL) che supporta flussi di lavoro complessi, la trasformazione dei dati e diverse opzioni di caricamento dei dati. Usare SSIS per trasferire semplicemente dati in Azure o come parte di una migrazione più ampia.
@@ -75,7 +75,7 @@ Un processo di migrazione di dati SQLDW può essere suddiviso in modo efficace i
 È possibile ottimizzare singolarmente ogni passaggio per creare un processo di migrazione solido, nuovamente avviabile e resiliente che ottimizza le prestazioni a ogni passaggio.
 
 ## Ottimizzazione del caricamento dei dati
-Esaminando per un momento queste operazioni in ordine inverso, il modo più rapido per caricare i dati è tramite PolyBase. L'ottimizzazione per un processo di caricamento PolyBase prevede prerequisiti per i passaggi precedenti, pertanto è consigliabile capire questo aspetto dall'inizio. Sono:
+Esaminando per un momento queste operazioni in ordine inverso, il modo più rapido per caricare i dati è tramite PolyBase. L'ottimizzazione per un processo di caricamento PolyBase prevede prerequisiti per i passaggi precedenti, pertanto è consigliabile capire questo aspetto dall'inizio. Vale a dire:
 
 1. Codifica dei file di dati
 2. Formato dei file di dati
@@ -173,9 +173,9 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-copy-activity.md
-[esempi di ADF Copy]: ../data-factory/data-factory-copy-activity-examples.md
-[panoramica dello sviluppo]: sql-data-warehouse-develop-overview.md
+[esempi di ADF]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
 [migrazione di una soluzione in SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [uso di bcp per caricare dati in SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
@@ -185,7 +185,7 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Data factory di Azure]: http://azure.microsoft.com/services/data-factory/
+[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentazione relativa a ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
@@ -194,4 +194,4 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 [adattatore di destinazione ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentazione relativa a SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

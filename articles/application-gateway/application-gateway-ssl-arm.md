@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager
 
@@ -85,14 +85,14 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
 
 Creare un gruppo di risorse. Ignorare questo passaggio se si usa un gruppo di risorse esistente.
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. Questa impostazione viene usata come località predefinita per le risorse presenti nel gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
@@ -115,7 +115,7 @@ Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" p
 
 ### Passaggio 3
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 Assegna l'oggetto subnet alla variabile $subnet per i passaggi successivi.
 
@@ -200,4 +200,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

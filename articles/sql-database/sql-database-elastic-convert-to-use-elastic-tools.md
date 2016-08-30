@@ -3,7 +3,7 @@
    description="Convertire database partizionati per l'uso di strumenti dei database elastici mediante la creazione di un gestore mappe partizioni"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,18 +14,18 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Prima è necessario convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
-## Panoramica
+## Overview
 Per eseguire la migrazione di un database partizionato esistente:
 
 1. Preparare il [database del gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 2. Creare la mappa partizioni.
-3. Preparare le singole partizioni.  
+3. Preparare le singole partizioni.
 2. Aggiungere i mapping alla mappa partizioni.
 
 Queste tecniche possono essere implementate tramite la [libreria client .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o gli script di PowerShell disponibili nella pagina relativa agli [script degli strumenti di database elastico del database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Negli esempi in questo articolo vengono usati gli script PowerShell.
@@ -62,7 +62,7 @@ Dopo la creazione, è possibile recuperare il gestore mappe partizioni con quest
 
 È necessario selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database:
 
-1. Singolo tenant per database. Per informazioni sui i termini, vedere il [glossario](sql-database-elastic-scale-glossary.md). 
+1. Singolo tenant per database. Per informazioni sui i termini, vedere il [glossario](sql-database-elastic-scale-glossary.md).
 2. Più tenant per database (due tipi):
 	3. Mapping di tipo elenco
 	4. Mapping di tipo intervallo
@@ -187,4 +187,4 @@ Per domande è possibile visitare il [forum sul database SQL](http://social.msdn
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

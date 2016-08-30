@@ -20,9 +20,9 @@
 
 Per disabilitare Database Estensione per una tabella, selezionare **Estensione** per una tabella in SQL Server Management Studio. Selezionare quindi una delle opzioni seguenti.
 
--   **Disabilita| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This operation incurs data transfer costs, and it can't be canceled.
+-   **Disabilita| Bring data back from Azure**. Copiare i dati remoti per la tabella da Azure a SQL Server, quindi disabilitare Database Estensione per la tabella. Questa operazione comporta costi di trasferimento dati e non può essere annullata.
 
--   **Disabilita| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+-   **Disabilita| Leave data in Azure**. Disabilitare Database Estensione per la tabella.  Abbandonare i dati remoti per la tabella in Azure.
 
 È possibile usare anche Transact-SQL per disabilitare Database Estensione per una tabella o per un database.
 
@@ -40,13 +40,13 @@ Se si vuole semplicemente sospendere la migrazione dei dati, vedere [Sospendere 
 
 2.  Fare clic con il pulsante destro del mouse e selezionare **Stretch**, quindi selezionare una delle opzioni seguenti.
 
-    -   **Disabilita| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This command can't be canceled.
+    -   **Disabilita| Bring data back from Azure**. Copiare i dati remoti per la tabella da Azure a SQL Server, quindi disabilitare Database Estensione per la tabella. Questo comando non può essere annullato.
 
-        >   [AZURE.NOTE] Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+        >   [AZURE.NOTE] La copia dei dati remoti per la tabella da Azure a SQL Server comporta costi di trasferimento dati. Per altre informazioni, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-        After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
+        Dopo aver copiato tutti i dati remoti da Azure a SQL Server, l'estensione per la tabella risulta disabilitata.
 
-    -   **Disabilita| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+    -   **Disabilita| Leave data in Azure**. Disabilitare Database Estensione per la tabella.  Abbandonare i dati remoti per la tabella in Azure.
 
     >   [AZURE.NOTE] La disabilitazione del database di estensione per una tabella non elimina i dati remoti o la tabella remota. Per eliminare la tabella remota è necessario rimuoverla usando il portale di gestione di Azure. La tabella remota continua a comportare costi di Azure fino alla sua eliminazione. Per altre informazioni, vedere i [prezzi di Estensione database di SQL Server](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 

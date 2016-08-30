@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Applicazioni protette e risorse in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 RemoteApp di Azure fornisce agli utenti l'accesso alle applicazioni Windows gestite centralmente, il che consente di controllare ciò che gli utenti possono e non possono fare. Ciò è particolarmente utile quando l'utente si connette da un dispositivo non gestito (ad esempio, i Macbook personali) e si desidera controllare l'accesso dell’utente o l'esperienza.
 
@@ -46,4 +49,4 @@ Un altro esempio è se si desidera bloccare l'accesso a internet per una partico
 - [Criteri di Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 - [Criteri di office 2013](https://technet.microsoft.com/library/cc178969.aspx) (inclusi [come personalizzare la barra degli strumenti di Office](https://technet.microsoft.com/library/cc179143.aspx)).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

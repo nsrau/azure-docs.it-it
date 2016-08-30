@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -37,7 +37,7 @@ Le informazioni più recenti sui limiti delle risorse per il Database SQL sono d
 ## Miglioramento della compatibilità delle applicazioni con SQL Server
 
 
-Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. ad esempio:
+Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
 
 - [Supporto JSON incorporato](https://msdn.microsoft.com/library/dn921897.aspx)
 
@@ -61,7 +61,7 @@ Per informazioni sul piccolo set di funzionalità non ancora supportate nel data
 
 > [AZURE.IMPORTANT] A partire da **giugno 2016**, i *nuovi* database creati con la versione 12 del database SQL di Azure hanno un livello di compatibilità che parte da 130, corrispondente a Microsoft SQL Server 2016 GA.
 > 
-> Se si preferisce, naturalmente è possibile anche usare `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`.
+> Se si preferisce, è possibile anche usare `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`.
 > 
 > Per i database creati prima di giugno 2016 il livello di compatibilità non cambia in seguito a questa modifica del valore predefinito. Questo vale anche per i database aggiornati dalla versione 11 alla versione 12.
 
@@ -99,7 +99,7 @@ Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulter
 ## Migliore supporto per i fornitori di soluzioni cloud SaaS
 
 
-Solo nella versione 12 sono stati rilasciati il nuovo livello di prestazioni Standard S3 e l'anteprima pubblica dei [pool di database elastici](sql-database-elastic-pool.md). Questa soluzione è stata appositamente progettata per i fornitori di soluzioni cloud SaaS. Con i pool di database elastici è possibile:
+Solo nella versione 12 sono stati rilasciati il nuovo livello di prestazioni Standard S3 e l'anteprima pubblica dei [pool di database elastici](sql-database-elastic-pool.md). Pool di database elastici è una soluzione ideata per i fornitori di soluzioni cloud SaaS. Con i pool di database elastici è possibile:
 
 
 - Condividere DTU tra i database per ridurre i costi per un numero elevato di database.
@@ -125,7 +125,7 @@ La sicurezza è della massima importanza per chiunque gestisca la propria attivi
 ## Aumento della continuità aziendale quando è necessario il ripristino
 
 
-La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero stimato (ERT) significativi:
+La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero stimato (ERT):
 
 
 | Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
@@ -183,4 +183,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

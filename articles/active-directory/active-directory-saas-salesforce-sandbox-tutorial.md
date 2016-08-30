@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 
 <tags 
     ms.service="active-directory" 
@@ -12,14 +12,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/19/2016" 
+    ms.date="08/12/2016" 
     ms.author="jeedes" />
 
 
 #Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox. Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce. Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox.
+Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce.
+Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -92,7 +94,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 6.  Nel menu in alto fare clic su **Impostazione**.
 
-    ![Impostazione](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "Impostazione")
+    ![Configurazione](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "Configurazione")
 
 7.  Nel riquadro di spostamento a sinistra, fare clic su **Controlli di sicurezza** e quindi fare clic su **Impostazioni Single Sign-On**.
 
@@ -177,7 +179,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 7.  Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure classico fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
 
-    ![Configurare il provisioning utente.](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configurare il provisioning utente.")
+    ![Configurare il provisioning utente](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configurare il provisioning utente")
 
 8.  Nella pagina **Immettere le credenziali di Salesforce Sandbox per abilitare il provisioning automatico degli utenti** specificare le impostazioni di configurazione seguenti:
 
@@ -196,7 +198,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 9.  Nella pagina **Conferma** fare clic su **Completa** per salvare la configurazione.
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Salesforce Sandbox, eseguire la procedura seguente:
 
@@ -214,4 +216,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

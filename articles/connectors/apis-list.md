@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Elenco di connettori
 
-Selezionare un'icona per informazioni su come usare rapidamente i connettori per creare flussi di lavoro che chiamano i servizi corrispondenti.
+Selezionare un connettore per informazioni su come usarlo per creare rapidamente flussi di lavoro.
 
 ## Connettori Standard
 
@@ -46,8 +46,9 @@ Usare i connettori EIP per creare app per la logica per gli scenari B2B che incl
  
 |Connettori EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Icona API][as2icon]<br/>**Codifica/decodifica</br>AS2**][as2doc]|[![Icona API][x12icon]<br/>**Codifica/decodifica</br>X12**][x12Doc]|[![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc]|[![Icona API][xmltransformicon]<br/>**Trasformazione<br/> XML**][xmltransformdoc]|
-|[![Icona API][flatfileicon]<br/>**Codifica</br>file flat**][flatfiledoc]|[![Icona API][flatfiledecodeicon]<br/>**Decodifica</br>file flat**][flatfiledecodedoc]|||
+|[![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc]|[![Icona API][xmltransformicon]<br/>**Trasformazione<br/> XML**][xmltransformdoc]|[![Icona API][flatfileicon]<br/>**Codifica</br>file flat**][flatfiledoc]|[![Icona API][flatfiledecodeicon]<br/>**Decodifica</br>file flat**][flatfiledecodedoc]|
+|[![Icona API][as2icon]<br/>**Decodifica</br>AS2**][as2decode]|[![Icona API][as2icon]<br/>**Codifica</br>AS2**][as2encode]|[![Icona API][x12icon]<br/>**Decodifica</br>X12**][x12decode]|[![Icona API][x12icon]<br/>**Codifica</br>X12**][x12encode]|
+|[![Icona API][x12icon]<br/>**Decodifica</br>EDIFACT**][EDIFACTdecode]|[![Icona API][x12icon]<br/>**Codifica</br>EDIFACT**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connettori come trigger
@@ -55,8 +56,8 @@ Vari connettori forniscono trigger che possono inviare notifiche all'app quando 
 
 Sono disponibili due tipi di trigger:
 
-* Trigger di polling: questi trigger eseguono il polling del servizio a una frequenza specificata per verificare la disponibilità di nuovi dati. Quando sono disponibili nuovi dati, viene eseguita una nuova istanza dell'app con i dati come input. Per evitare che gli stessi dati vengano usati più volte, il trigger può eseguire la pulizia dei dati letti e passati all'app.
-* Trigger di push: tali trigger restano in ascolto di dati su un endpoint oppure di un evento, quindi attivano una nuova istanza dell'app. Il connettore Twitter ne è un esempio.
+* Trigger di polling: questi trigger eseguono il polling del servizio a una frequenza specificata per verificare la disponibilità di nuovi dati. Quando sono disponibili nuovi dati, viene eseguita una nuova istanza dell'app con i dati come input. Per evitare che gli stessi dati vengano utilizzati più volte, il trigger può eseguire la pulizia dei dati letti e passati all'app.
+* Trigger di push: questi trigger restano in attesa dei dati su un endpoint o che si verifichi un evento, quindi attivano una nuova istanza dell'app. Il connettore Twitter ne è un esempio.
 
 ### Connettori come azioni
 I connettori possono anche essere usati come azioni all'interno delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
@@ -105,6 +106,12 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Informazioni su Enterprise Integration: Flat File."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Informazioni su Enterprise Integration: XML validation."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Informazioni su Enterprise Integration: trasformazioni."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Informazioni su Enterprise Integration: decodifica AS2."
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Informazioni su Enterprise Integration: codifica AS2."
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Informazioni su Enterprise Integration: decodifica X12."
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Informazioni su Enterprise Integration: codifica X12."
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Informazioni su Enterprise Integration: decodifica EDIFACT."
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Informazioni su Enterprise Integration: codifica EDIFACT."
 [httpdoc]: ./connectors-native-http.md "Connettore HTTP per effettuare chiamate HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Azioni di richiesta e di risposta."
 [http~responsedoc]: ./connectors-native-reqres.md "Azioni di richiesta e di risposta."
@@ -183,4 +190,4 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

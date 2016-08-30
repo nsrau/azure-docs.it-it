@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Le informazioni seguenti consentono di configurare e usare in modo efficiente Azure RemoteApp.
 
@@ -23,7 +26,7 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 
 
 - Usare sempre la versione più recente del client. L'uso di client meno recenti potrebbe causare problemi di connettività e altre situazioni di funzionalità ridotta. Per assicurarsi che sia sempre installato il client più recente, abilitare gli aggiornamenti automatici delle applicazioni per il dispositivo.
-- Usare sempre la connessione internet più stabile e affidabile a disposizione.  
+- Usare sempre la connessione internet più stabile e affidabile a disposizione.
 - Usare solo connessioni proxy supportate per prestazioni di connettività ottimali. Il proxy SOCKS non è supportato.
 
 ## Applicazioni
@@ -35,7 +38,7 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 ## Configurazione e gestione
 
 
-- Mantenere le immagini modello aggiornate e installare aggiornamenti software e altre correzioni critiche in base alle esigenze. Ciò garantisce che man mano che Azure RemoteApp si ridimensiona automaticamente per soddisfare la capacità richiesta, ogni istanza viene correttamente aggiornata.  
+- Mantenere le immagini modello aggiornate e installare aggiornamenti software e altre correzioni critiche in base alle esigenze. Ciò garantisce che man mano che Azure RemoteApp si ridimensiona automaticamente per soddisfare la capacità richiesta, ogni istanza viene correttamente aggiornata.
 - Assicurarsi che la distribuzione di Active Directory Federation Services (ADFS) sia protetta e affidabile. In caso contrario le autenticazioni client potrebbero non riuscire, impedendo agli utenti di accedere ad Azure RemoteApp.
 - Configurare immagini modello con le applicazioni, i ruoli o le funzionalità installate, in modo che siano prive di stato. È consigliabile non basarsi su alcuna istanza di macchine virtuali in un servizio di RemoteApp che si trova in uno stato persistente.
 	- Archiviare tutti i dati utente in profili utente o in altri percorsi di archiviazione esterni al servizio, ad esempio condivisioni file locali o OneDrive.
@@ -43,4 +46,4 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Configurare le impostazioni a livello di sistema nell'immagine modello anziché sulle singole macchine virtuali in un servizio.
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

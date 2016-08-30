@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
 # Creare e condividere un'area di lavoro di Azure Machine Learning
 
-Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati utilizzati da Cortana Analytics Process (CAP).
+Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati usati da Cortana Analytics Process (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -105,4 +105,4 @@ La tabella seguente chiarisce la differenza tra amministratore di una sottoscriz
 [Machine Learning Studio]: https://studio.azureml.net/
 [portale di Microsoft Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

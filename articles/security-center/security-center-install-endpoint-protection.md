@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Installare Endpoint Protection nel Centro sicurezza di Azure
@@ -32,7 +32,7 @@ Il Centro sicurezza di Azure consiglia il provisioning di un programma antimalwa
 
 4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Crea**. ![Creare una soluzione antimalware][4]
 
-5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione**, quindi selezionare **OK**. Per altre informazioni sulle impostazioni di configurazione, vedere [Configurazione di Antimalware predefinita e personalizzata](../azure-security-antimalware.md#default-and-custom-antimalware-configuration).
+5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione**, quindi selezionare **OK**. Per altre informazioni sulle impostazioni di configurazione, vedere [Configurazione di Antimalware predefinita e personalizzata](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 [Microsoft Antimalware](../azure-security-antimalware.md) è ora attivo nelle macchina virtuali selezionate.
 
@@ -58,4 +58,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

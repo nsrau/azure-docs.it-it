@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
 # Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
@@ -90,12 +90,12 @@ Per iniziare a usare il Servizio di controllo di accesso (ACS) in Azure, è nece
 3. Per creare un nuovo spazio dei nomi ACS, fare clic su **New**, **App Services**, **Access Control** e quindi su **Quick Create**.
 4. Immettere un nome per lo spazio dei nomi. Azure verificherà che il nome sia univoco.
 5. Selezionare l'area in cui viene usato lo spazio dei nomi. Per prestazioni ottimali, usare l'area in cui si sta distribuendo l'applicazione.
-6. Se si dispone di più sottoscrizioni, selezionare la sottoscrizione che si desidera usare per lo spazio dei nomi ACS.
+6. Se sono disponibili più sottoscrizioni, selezionare quella che si vuole usare per lo spazio dei nomi ACS.
 7. Fare clic su **Create**.
 
 Azure creerà e attiverà lo spazio dei nomi. Prima di continuare, attendere che lo stato del nuovo spazio dei nomi sia **Active**.
 
-## Aggiungere un provider di identità
+## Aggiunta di un provider di identità
 
 In questa attività si aggiungeranno provider di identità da usare con l'applicazione relying party per l'autenticazione. A scopo dimostrativo, questa attività illustra come aggiungere Windows Live come provider di identità, ma è possibile usare uno qualsiasi dei provider di identità elencati nel portale di gestione ACS.
 
@@ -123,7 +123,7 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
 
 L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure (all'indirizzo http://localhost:8080/) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
 
-## Creare regole
+## Creazione di regole
 
 In questa attività verranno definite le regole in base alle quali le attestazioni vengono passate dai provider di identità all'applicazione relying party. Ai fini di questa guida, ACS verrà semplicemente configurato per copiare i tipi di attestazione e i valori in ingresso direttamente nella categoria token di output senza filtrarli o modificarli.
 
@@ -133,16 +133,16 @@ In questa attività verranno definite le regole in base alle quali le attestazio
 4.  Nella pagina **Generate Rules: Default Rule Group for Azure Web App** assicurarsi che l'opzione Windows Live ID sia selezionata e quindi fare clic su **Generate**.
 5.  Nella pagina **Edit Rule Group** fare clic su **Save**.
 
-## Caricare un certificato nello spazio dei nomi ACS
+## Caricamento di un certificato nello spazio dei nomi ACS
 
-In questa attività verrà caricato un certificato PFX che verrà usato per firmare le richieste di token create dallo spazio dei nomi ACS.
+In questa attività verrà caricato un certificato .PFX che verrà utilizzato per firmare le richieste di token create dallo spazio dei nomi ACS.
 
 1.  Nella pagina principale del portale di gestione ACS fare clic su **Certificates and keys**.
 2.  Nella pagina **Certificates and keys** fare clic su **Add** sopra **Token Signing**.
 3.  Nella pagina **Add Token-Signing Certificate or Key**:
     1. Nella sezione **Used for** fare clic su **Relying Party Application** e selezionare **Azure Web App** (impostato in precedenza come nome dell'applicazione relying party).
     2. Nella sezione **Type** selezionare **X.509 Certificate**.
-    3. Nella sezione **Certificate** fare clic sul pulsante Browse e passare al file del certificato X.509 che si intende usare. Si tratta di un file PFX. Selezionare il file, fare clic su **Open** e quindi immettere la password certificato nella casella di testo **Password**. Si noti che a fini di test è possibile usare un certificato autofirmato. Per creare un certificato autofirmato, selezionare il pulsante **New** nella finestra di dialogo **ACS Filter Library** (illustrata di seguito) oppure usare l'utilità **encutil.exe** del [sito Web del progetto][] di Azure Starter Kit per Java.
+    3. Nella sezione **Certificate** fare clic sul pulsante Browse e passare al file del certificato X.509 che si intende usare. Si tratta di un file .PFX. Selezionare il file, fare clic su **Open** e quindi immettere la password certificato nella casella di testo **Password**. Si noti che a fini di test è possibile utilizzare un certificato autofirmato. Per creare un certificato autofirmato, selezionare il pulsante **New** nella finestra di dialogo **ACS Filter Library** (illustrata di seguito) oppure usare l'utilità **encutil.exe** del [sito Web del progetto][] di Azure Starter Kit per Java.
     4. Assicurarsi che **Make Primary** sia selezionato. La pagina **Add Token-Signing Certificate or Key** dovrebbe essere simile alla seguente. ![Aggiunta di un certificato di firma di token][add_token_signing_cert]
     5. Fare clic su **Save** per salvare le impostazioni e chiudere la pagina **Add Token-Signing Certificate or Key**.
 
@@ -158,7 +158,7 @@ Nella pagina di integrazione applicazioni del portale di gestione ACS è possibi
 
 Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web Java verrà usato l'URL visualizzato in **Option 1: Link to an ACS-hosted login page**. Questo valore è necessario per aggiungere la libreria dei filtri dei Servizi di controllo di accesso di Azure all'applicazione Java.
 
-## Creare un'applicazione Web Java
+## Creazione di un'applicazione Web Java
 1. Nel menu di Eclipse fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** non è elencato tra i progetti disponibili dopo aver fatto clic su **File**, **New**, fare clic su **File**, **New**, **Project**, espandere **Web**, fare clic su **Dynamic Web Project** e quindi su **Next**. Ai fini di questa esercitazione, denominare il progetto **MyACSHelloWorld**. Assicurarsi di usare questo nome, poiché i passaggi successivi dell'esercitazione prevedono che il file WAR sia denominato MyACSHelloWorld. L'aspetto della schermata sarà simile al seguente:
 
     ![Creazione di un progetto Hello World a titolo di esempio per ACS][create_acs_hello_world]
@@ -209,7 +209,7 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
 3. Selezionare un JDK e un server applicazioni. Questi passaggi vengono descritti in dettaglio nell'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 4. Fare clic su **Finish**.
 5. Fare clic sul pulsante **Run in Azure Emulator**.
-6. Dopo l'avvio dell'applicazione Web Java nell'emulatore di calcolo, chiudere tutte le istanze del browser, per evitare che sessioni correnti del browser interferiscano con il test di accesso di ACS.
+6. Dopo l'avvio dell'applicazione Web Java nell'emulatore di calcolo, chiudere tutte le istanze del browser (per evitare che sessioni correnti del browser interferiscano con il test di accesso di ACS.
 7. Eseguire l'applicazione aprendo <http://localhost:8080/MyACSHelloWorld/> nel browser (o <https://localhost:8080/MyACSHelloWorld/> se è stata selezionata l'opzione **Require HTTPS connections**). Verrà richiesto di immettere un account di accesso Windows Live ID, quindi si verrà reindirizzati all'URL restituito specificato per l'applicazione relying party.
 99.  Terminata la visualizzazione dell'applicazione, fare clic sul pulsante **Reset Azure Emulator**.
 
@@ -219,7 +219,7 @@ Per la distribuzione in Azure è necessario modificare l'area di autenticazione 
 
 1. Nella pagina **Edit Relying Party Application** del portale di gestione di Azure modificare **Realm** affinché corrisponda all'URL del sito distribuito. Sostituire **example** con il nome DNS specificato per la distribuzione.
 
-    ![Area di autenticazione dell'applicazione relying party da usare in produzione][relying_party_realm_production]
+    ![Area di autenticazione dell'applicazione relying party da utilizzare in produzione][relying_party_realm_production]
 
 2. Modificare **Return URL** affinché corrisponda all'URL dell'applicazione. Sostituire **example** con il nome DNS specificato per la distribuzione.
 
@@ -240,11 +240,11 @@ Per la distribuzione in Azure è necessario modificare l'area di autenticazione 
 
 13. Fare clic su **Finish** per chiudere la finestra di dialogo **Edit Library**.
 14. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for MyACSHelloWorld**.
-15. In Eclipse fare clic sul pulsante **Publish to Azure Cloud**. Rispondere alle richieste visualizzate, come nella sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
+15. In Eclipse fare clic sul pulsante **Publish to Azure Cloud**. Rispondere alle richieste visualizzate, come nella sezione **Per distribuire l'applicazione in Azure** dell'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 Dopo la distribuzione dell'applicazione Web, chiudere le sessioni del browser aperte ed eseguire l'applicazione Web. Verrà richiesto di accedere con le credenziali di Windows Live ID e si verrà reindirizzati all'URL restituito dell'applicazione relying party.
 
-Al termine dell'uso dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
+Al termine dell'utilizzo dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Passaggi successivi
@@ -310,4 +310,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

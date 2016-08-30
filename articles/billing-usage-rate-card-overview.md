@@ -14,23 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure 
+# Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure
 
 Clienti e partner richiedono la possibilità di prevedere e gestire i costi di Azure con precisione. Nel passaggio da un modello basato sugli investimenti a un modello basato sui costi operativi, devono inoltre avere la possibilità di eseguire analisi di showback e chargeback, nonché fornire fedeltà di modalità per la stima e la fatturazione, specialmente per le distribuzioni di cloud di grandi dimensioni.
 
 L'API di utilizzo delle risorse di Azure e l’API RateCard illustrate in questo articolo soddisfano queste esigenze, offrendo la possibilità di ottenere nuove informazioni sul consumo delle risorse di Azure.
 
-## Introduzione all’API di utilizzo delle risorse di Azure e all’API RateCard 
+## Introduzione all’API di utilizzo delle risorse di Azure e all’API RateCard
 
 L'API di utilizzo delle risorse di Azure e l’API RateCard vengono implementate come provider di risorse, nell’ambito della famiglia di API esposte da Gestione risorse di Azure.
 
 ### API di utilizzo delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure per ottenere una stima dei dati di consumo di Azure. Le funzionalità includono:
-	
-- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
+
+- **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
 
 - **Aggregazioni orarie o giornaliere**: i chiamanti possono specificare se desiderano i dati di utilizzo di Azure in intervalli orari o giornalieri. L’impostazione predefinita è rappresentata dagli intervalli giornalieri.
 
@@ -43,9 +43,9 @@ Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure pe
 ### API RateCard delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API RateCard delle risorse di Azure per ottenere l'elenco delle risorse di Azure disponibili, insieme a una stima delle informazioni di prezzo di ognuna di esse. Le funzionalità includono:
 
-- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
-	
-- **Supporto delle offerte di pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA non supportato)**: questa API fornisce informazioni sulle tariffe a livello di offerta di Azure, piuttosto che a livello di sottoscrizione. Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse. Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA.
+- **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
+
+- **Supporto delle offerte con pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA non supportato)**: questa API fornisce informazioni sulle tariffe a livello di offerta di Azure e a livello di sottoscrizione. Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse. Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA.
 
 ## Scenari
 
@@ -79,4 +79,4 @@ In [Cloud Cruiser e integrazione dell’API di fatturazione di Microsoft Azure](
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

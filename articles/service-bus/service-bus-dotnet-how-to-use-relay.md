@@ -39,43 +39,11 @@ Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è necess
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di Azure classico][].
-
-2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
-
-3.  Nel riquadro inferiore del portale fare clic su **Crea**.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
-
-	> [AZURE.IMPORTANT] selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
-
-6.	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-	Lo spazio dei nomi creato verrà quindi visualizzato nel portale e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
-
-## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
-
-Per poter eseguire le operazioni di gestione, ad esempio creare una connessione di inoltro, nel nuovo spazio dei nomi è necessario configurare la regola di autorizzazione con firma di accesso condiviso per lo spazio dei nomi. Per altre informazioni sulla firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio][].
-
-1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Fare doppio clic sullo spazio dei nomi appena creato nell'elenco visualizzato. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Fare clic sulla scheda **Configura** nella parte superiore della pagina.
-
-4.  Quando viene eseguito il provisioning di uno spazio dei nomi del bus di servizio, per impostazione predefinita viene creata una regola **SharedAccessAuthorizationRule**, con **KeyName** impostato su **RootManageSharedAccessKey**. In questa pagina viene visualizzata questa chiave, nonché la chiave primaria e quella secondaria per la regola predefinita.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva.
@@ -156,7 +124,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto. Uno è locale e uno viene proiettato tramite il bus di servizio. Le differenze principali tra i due endpoint sono costituite dalle associazioni, [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) per l'endpoint e gli indirizzi del bus di servizio. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint del bus di servizio include un indirizzo composto dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene in tal modo l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP del bus di servizio con un nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto come spiegato in precedenza nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sul bus di servizio, rimuovere la dichiarazione dell'endpoint locale.
+Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il bus di servizio. Le differenze principali tra i due endpoint sono costituite dalle associazioni, [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) per l'endpoint e gli indirizzi del bus di servizio. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint del bus di servizio include un indirizzo composto dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene in tal modo l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP del bus di servizio con un nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto come spiegato in precedenza nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sul bus di servizio, rimuovere la dichiarazione dell'endpoint locale.
 
 ### Come configurare un host del servizio nel file App.config
 
@@ -267,9 +235,8 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - Scaricare esempi del bus di servizio da [esempi di Azure][] o vedere la [panoramica degli esempi del bus di servizio][].
 
-  [portale di Azure classico]: http://manage.windowsazure.com
-  [Autenticazione della firma di accesso condiviso con il bus di servizio]: service-bus-shared-access-signature-authentication.md
+  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [panoramica degli esempi del bus di servizio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

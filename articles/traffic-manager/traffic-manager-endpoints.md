@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà ad aggiungere, rimuovere, abilitare e disabilitare gli endpoint da Gestione traffico di Azure."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
@@ -28,7 +28,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 ## Per aggiungere un servizio cloud o un endpoint del sito Web
 
 
-1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 2. Nella parte superiore della pagina fare clic su **Endpoint** per visualizzare gli endpoint che fanno già parte della configurazione.
 3. Nella parte inferiore della pagina fare clic su **Aggiungi** per accedere alla pagina **Aggiungi endpoint del servizio**. Per impostazione predefinita, in **Endpoint di servizio** sono elencati i servizi cloud.
 4. Per i servizi cloud, selezionare nell'elenco quelli che si desidera abilitare come endpoint per il profilo specificato. Se si cancella il nome del servizio cloud, questo viene rimosso dall'elenco degli endpoint.
@@ -75,4 +75,4 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

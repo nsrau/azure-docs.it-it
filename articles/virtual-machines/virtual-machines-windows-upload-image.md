@@ -33,6 +33,8 @@ Questo articolo presuppone che l'utente abbia:
 
 - **Una macchina virtuale che esegue Windows**: sono disponibili numerosi strumenti per la creazione di macchine virtuali in locale. Vedere ad esempio [Installare Hyper-V e creare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). Per informazioni sui sistemi operativi Windows supportati in Azure, vedere l'articolo sul [supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
+- Assicurarsi che i ruoli server in esecuzione sulla macchina supportino Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+
 
 ## Verificare che il formato di file della VM sia corretto
 
@@ -252,4 +254,4 @@ Al termine, la VM appena creata verrà visualizzata nel [portale di Azure](https
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere l'articolo relativo a come [gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

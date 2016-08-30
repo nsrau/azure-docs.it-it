@@ -146,19 +146,19 @@ Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Stud
 
 2. Se viene richiesto di selezionare una destinazione di pubblicazione, fare clic su **Servizio app di Microsoft Azure** > **Avanti** e quindi, se necessario, accedere con le credenziali di Azure. Visual Studio scaricherà e memorizzerà le impostazioni di pubblicazione direttamente da Azure.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
 3. Scegliere la **Sottoscrizione**, selezionare **Tipo di risorsa** da **Visualizza**, espandere **App per dispositivi mobili** e fare clic sul back-end di App per dispositivi mobili, quindi su **OK**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
 
 4. Verificare le informazioni sul profilo di pubblicazione e fare clic su **Pubblica**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
 	Quando il back-end dell'app per dispositivi mobili ha eseguito la pubblicazione, viene visualizzata una pagina di destinazione.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)  
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ##<a name="define-table-controller"></a> Procedura: Definire un controller tabelle
 
@@ -465,7 +465,7 @@ Verificare che nell'applicazione sia installato [Microsoft.Azure.Mobile.Server.A
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
 			ValidAudiences = new[] { ConfigurationManager.AppSettings["authAudience"] },
 			ValidIssuers = new[] { ConfigurationManager.AppSettings["authIssuer"] },
-			TokenHandler = config.GetMobileAppTokenHandler()
+			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
 Nell'esempio seguente è consigliabile configurare le impostazioni dell'applicazione _authAudience_ e _authIssuer_ nel file Web.config in modo che ognuna sia l'URL della radice dell'applicazione, usando lo schema HTTPS. Allo stesso modo, è consigliabile impostare _authSigningKey_ come valore della chiave per la firma dell'applicazione. Si tratta di un valore sensibile che non deve mai essere condiviso o incluso in un client. Per ottenerlo, andare all'app nel [portale di Azure] e fare clic su **Strumenti**. Selezionare quindi **Kudu** e fare clic su **Vai**. Verrà visualizzato l'endpoint di gestione di Kudu per il sito. Fare clic su **Ambiente** e trovare il valore in _WEBSITE\_AUTH\_SIGNING\_KEY_. Questo è il valore da usare per _authSigningKey_ nella configurazione dell'app locale.
@@ -481,4 +481,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

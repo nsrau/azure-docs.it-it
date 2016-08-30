@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Correzione a disposizione dell'utente per accedere ad applicazioni protette con accesso condizionale basato su dispositivo di Azure AD | Microsoft Azure"
+	pageTitle="Risoluzione dei problemi: Non è possibile accedervi da qui | Microsoft Azure"
 	description="Questo argomento consente di identificare se è disponibile una procedura di correzione da seguire per ottenere l'accesso all'applicazione desiderata."
 	services="active-directory"
 	keywords="accesso condizionale basato su dispositivo, registrazione dispositivo, abilitare registrazione dispositivo, registrazione dispositivo e software MDM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# Correzione a disposizione dell'utente per accedere ad applicazioni protette con accesso condizionale basato su dispositivo di Azure AD
+# Risoluzione dei problemi: Non è possibile accedervi da qui
 
 Quando durante l'accesso a un'applicazione come Office 365 SharePoint Online viene visualizzata una pagina "Accesso negato", come si deve procedere?
 
@@ -172,4 +172,4 @@ Per le istruzioni per telefoni o tablet Android, visitare di nuovo questa pagina
 
 [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

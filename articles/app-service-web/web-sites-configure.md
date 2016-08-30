@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Configurazione delle app Web in Servizio app di Azure #
 
-In questo argomento viene descritto come configurare un'app usando il [portale di Azure].
+Questo argomento descrive come configurare un'app Web usando il [portale di Azure].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -148,7 +148,7 @@ Per visualizzare i nomi di dominio, fare clic su **Tutte le impostazioni** > **D
 
 ### Deployments
 
-- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] \(Uso di Git per distribuire app Web nel servizio app di Azure)
+- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] (Uso di Git per distribuire app Web nel servizio app di Azure)
 - Slot di distribuzione. Vedere [Configurare ambienti di staging per le app Web nel servizio app di Azure].
 
 Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni** > **Slot di distribuzione**.
@@ -188,4 +188,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

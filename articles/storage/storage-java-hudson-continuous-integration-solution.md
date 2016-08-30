@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
@@ -32,7 +32,7 @@ Per altre informazioni su Hudson, vedere [Meet Hudson](http://wiki.eclipse.org/H
 
 ## Vantaggi dell'uso del servizio BLOB ##
 
-Di seguito sono indicati i vantaggi dell'uso del servizio BLOB per ospitare gli elementi di compilazione prodotti dallo sviluppo Agile:
+Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare gli elementi di compilazione prodotti dallo sviluppo Agile:
 
 - Disponibilità elevata degli elementi di compilazione e/o delle dipendenze scaricabili.
 - Migliori prestazioni nel caricamento degli elementi di compilazione da parte della soluzione di Integrazione continuata Hudson.
@@ -41,7 +41,7 @@ Di seguito sono indicati i vantaggi dell'uso del servizio BLOB per ospitare gli 
 
 ## Prerequisiti ##
 
-Per usare il servizio BLOB con la soluzione di Integrazione continuata Hudson è necessario quanto segue:
+Per utilizzare il servizio BLOB con la soluzione di Integrazione continuata Hudson è necessario quanto segue:
 
 - Una soluzione di Integrazione continuata Hudson.
 
@@ -66,7 +66,7 @@ Per usare il servizio BLOB con la soluzione di Integrazione continuata Hudson è
 
 - La conoscenza della soluzione di Integrazione continuata Hudson è consigliata ma non richiesta, poiché nel contenuto seguente verrà usato un esempio semplice per illustrare i passaggi da seguire nell'uso del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Hudson.
 
-## Come usare il servizio BLOB con l'Integrazione continuata Hudson ##
+## Utilizzo del servizio BLOB con l'Integrazione continuata Hudson ##
 
 Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Archiviazione di Azure, configurare il plug-in per usare l'account di archiviazione e creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione. Questi passaggi vengono descritti nelle sezioni seguenti.
 
@@ -98,7 +98,7 @@ Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Ar
 
     f. Per salvare le impostazioni, fare clic su **Save**.
 
-## Come creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione ##
+## Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione ##
 
 Ai fini di questa esercitazione, è necessario innanzitutto creare un processo che crei più file e quindi aggiungere l'operazione post-compilazione per caricare i file nell'account di archiviazione.
 
@@ -182,4 +182,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
 Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

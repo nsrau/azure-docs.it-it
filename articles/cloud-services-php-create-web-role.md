@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 #Come creare ruoli Web e di lavoro PHP
 
-## Panoramica
+## Overview
 
 Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
-## Cosa sono i ruoli Web e di lavoro PHP
+## Cosa sono i ruoli Web e di lavoro PHP?
 
 Azure offre tre modelli di calcolo per le applicazioni in esecuzione: Servizio App di Azure, Macchine virtuali di Azure e Servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
 
 Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](./cloud-services/cloud-services-choose-me.md).
 
-## Scaricare Azure SDK per PHP
+## Download di Azure SDK per PHP
 
 [Azure SDK per PHP] è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
@@ -44,11 +44,11 @@ Questo comando permette di creare una nuova directory (`myProject`) a cui è pos
 
 ## Aggiungere ruoli Web o di lavoro PHP
 
-Per aggiungere un ruolo Web PHP a un progetto, eseguire il comando seguente dalla directory radice del progetto:
+Per aggiungere un ruolo Web PHP a un progetto, avviare il comando seguente dalla directory radice del progetto:
 
 	PS C:\myProject> Add-AzurePHPWebRole roleName
 
-Per un ruolo di lavoro, usare il comando seguente:
+Per un ruolo di lavoro, utilizzare il comando seguente:
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
@@ -177,7 +177,7 @@ Gli emulatori di Azure forniscono un ambiente locale in cui è possibile testare
 
 Si noti che per usare l'emulatore di calcolo è necessario aver installato PHP in locale. L'emulatore di calcolo userà l'installazione locale di PHP per eseguire l'applicazione.
 
-Per eseguire il progetto negli emulatori, eseguire il comando seguente dalla directory radice del progetto:
+Per eseguire il progetto negli emulatori, avviare il comando seguente dalla directory radice del progetto:
 
 	PS C:\MyProject> Start-AzureEmulator
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

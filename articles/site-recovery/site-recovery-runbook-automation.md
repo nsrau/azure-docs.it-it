@@ -103,7 +103,7 @@ Entrambe queste impostazioni sono ora disponibili negli asset.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Ulteriori informazioni su come connettersi alla sottoscrizione tramite Powershell sono disponibili [qui](../powershell-install-configure.md).
+Altre informazioni su come connettersi alla sottoscrizione tramite PowerShell sono disponibili [qui](../powershell-install-configure.md).
 
 Successivamente, verrà creato un runbook in Automazione di Azure che può aggiungere un endpoint per la macchina virtuale front-end dopo il failover.
 
@@ -266,8 +266,7 @@ Di seguito è riportato lo script completo per riferimento
 
 Quando lo script è pronto, è possibile aggiungerlo al piano di ripristino creato in precedenza.
 
-1.  Nel piano di ripristino creato, scegliere di aggiungere uno script dopo il gruppo 2.
-![](media/site-recovery-runbook-automation/15.png)
+1.  Nel piano di ripristino creato, scegliere di aggiungere uno script dopo il gruppo 2. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  Specificare un nome per lo script. Si tratta semplicemente di un nome descrittivo per lo script, per la visualizzazione all'interno del piano di ripristino.
 
@@ -309,4 +308,4 @@ Anche se in questa esercitazione è stata illustrata l'automazione di un’attiv
 
 [Script di esempio di Automazione di Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Script di esempio di Automazione di Azure")
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

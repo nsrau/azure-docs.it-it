@@ -25,10 +25,11 @@ Di seguito sono spiegate le differenze tra l'**importazione** e la modalità **D
 |Importazione | DirectQuery
 |---|---
 |Vengono importati o copiati nel set di dati del report tabelle, colonne *e dati* Per visualizzare le modifiche apportate ai dati sottostanti, è necessario aggiornare o importare nuovamente un set di dati completo e corrente.|Vengono importate o copiate nel set di dati del report solo *tabelle e colonne*. Vengono visualizzati sempre i dati più recenti.
+Con Power BI Embedded è attualmente possibile usare DirectQuery con le origini dati cloud ma non su origini dati locali.
 
 ## Vantaggi di DirectQuery
 
-L'uso di **DirectQuery** presenta due i vantaggi principali:
+L'uso di **DirectQuery** presenta due vantaggi principali:
 
    -	**DirectQuery** consente di creare visualizzazioni su set di dati molto grandi. In caso contrario, sarebbe impossibile importare tutti i dati in una sola volta.
    -	Le modifiche ai dati sottostanti possono richiedere un aggiornamento dei dati. Nel caso di alcuni report, per visualizzare i dati correnti, può essere quindi necessario trasferire molti dati, rendendo la re-importazione dei dati impossibile. I report **DirectQuery** usano invece sempre dati correnti.
@@ -52,4 +53,4 @@ Per garantire che le prestazioni delle query inviate all'origine dati sottostant
 - [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

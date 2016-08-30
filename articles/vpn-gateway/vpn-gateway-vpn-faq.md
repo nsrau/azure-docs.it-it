@@ -42,17 +42,15 @@ Le seguenti connessioni cross-premise sono supportate:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute è una connessione diretta ad Azure dalla rate WAN, non sulla rete Internet pubblica. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
-Per altre informazioni sulle connessioni cross-premise, vedere [Informazioni sulla connettività cross-premise protetta](vpn-gateway-cross-premises-options.md).
+Per altre informazioni sulle connessioni, vedere [Informazioni sul gateway VPN](vpn-gateway-topology.md).
 
 ### Qual è la differenza tra una connessione da sito a sito e una connessione da punto a sito?
 
-Le connessioni **Site-to-Site** consentono di connettere qualsiasi computer locale a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale, a seconda della configurazione di routing. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre dell'hardware VPN richiesto e di un indirizzo IP IPv4 accessibile pubblicamente.
+Le connessioni **Site-to-Site** consentono di connettere qualsiasi computer locale a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale, a seconda della configurazione di routing. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario avere l'hardware VPN richiesto e un indirizzo IPv4 accessibile pubblicamente.
 
 Le connessioni **Point-to-Site** consentono di connettere un singolo computer a qualsiasi elemento all'interno della rete virtuale. Questo tipo di connessione usa il client VPN incorporato di Windows. La configurazione da spunto a sito prevede l'installazione di un certificato e di un pacchetto di configurazione client VPN che contiene le impostazioni che consentono al computer di connettersi a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale. Si tratta di un'ottima opzione quando si desidera connettersi a una rete virtuale ma non ci si trova nella sede locale. È utile anche quando non si ha accesso all'hardware VPN o a un indirizzo IP IPv4 accessibile pubblicamente, entrambi necessari per una connessione da sito a sito.
 
 È possibile configurare la rete virtuale in modo da usare sia la connettività da punto a sito che da sito a sito contemporaneamente, purché la connessione da sito a sito venga creata usando un tipo di VPN basato su route per il gateway. I tipi di VPN basati su route sono detti gateway dinamici nel modello di distribuzione classica.
-
-Per altre informazioni, vedere [Informazioni sulla connettività cross-premise protetta per reti virtuali](vpn-gateway-cross-premises-options.md).
 
 ### Che cos'è ExpressRoute?
 
@@ -174,7 +172,7 @@ Le dimensioni minime della subnet del gateway dipendono interamente dalla config
 
 ## È possibile distribuire macchine virtuali o istanze del ruolo alla subnet del gateway?
 
-No.
+di serie
 
 ### In che modo è possibile specificare il traffico che può passare attraverso il gateway VPN?
 
@@ -283,4 +281,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

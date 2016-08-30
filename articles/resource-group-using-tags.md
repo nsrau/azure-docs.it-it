@@ -4,8 +4,8 @@
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/16/2016"
 	ms.author="tomfitz"/>
 
 
@@ -88,104 +88,7 @@ Attualmente Gestione risorse non supporta l'elaborazione di un oggetto per i nom
 
 ## PowerShell
 
-I tag risultano direttamente sulle risorse e sui gruppi di risorse. Per visualizzare i tag esistenti, è sufficiente recuperare una risorsa o un gruppo di risorse tramite **Get-AzureRmResource** o **Get-AzureRmResourceGroup**. Iniziare con un gruppo di risorse.
-
-    Get-AzureRmResourceGroup -Name tag-demo-group
-
-Questo cmdlet restituisce diversi bit di metadati sul gruppo di risorse, inclusi i tag che sono stati applicati, se presenti.
-
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name         Value
-                    ===========  ==========
-                    Dept         Finance
-                    Environment  Production
-
-Durante il recupero dei metadati per una risorsa, i tag non vengono visualizzati direttamente.
-
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
-
-Nei risultati è possibile notare che i tag vengono visualizzati solo come oggetto Hashtable.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-È possibile visualizzare i tag effettivi recuperando la proprietà **Tag**.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Verranno restituiti i risultati formattati:
-    
-    Dept: Finance
-    Environment: Production
-
-Invece di visualizzare i tag per un determinato gruppo di risorse o una risorsa, è spesso necessario recuperare tutte le risorse o i gruppi di risorse con un tag e un valore specifici. Per recuperare i gruppi di risorse che presentano un tag specifico, usare il cmdlet **Find-AzureRmResourceGroup** con il parametro **-Tag**.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
-Verranno restituiti i nomi dei gruppi di risorse con tale valore di tag.
-   
-    tag-demo-group
-    web-demo-group
-
-Per recuperare tutte le risorse con un tag e un valore specifico, usare il cmdlet **Find-AzureRmResource**.
-
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
-    
-Verranno restituiti i nomi delle risorse con tale valore di tag.
-    
-    tfsqlserver
-    tfsqldatabase
-
-Per aggiungere un tag a un gruppo di risorse senza tag, usare semplicemente il comando **Set-AzureRmResourceGroup** e specificare un oggetto tag.
-
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-
-Verrà restituito il gruppo di risorse con i nuovi valori di tag.
-
-    ResourceGroupName : test-group
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name          Value
-                    =======       =====
-                    Dept          IT
-                    Environment   Test
-                    
-È possibile aggiungere tag a una risorsa senza tag usando il comando **Set-AzureRmResource**.
-
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
-
-I tag vengono aggiornati nel loro complesso. Per aggiungere un tag a una risorsa che dispone di altri tag, utilizzare una matrice con tutti i tag che si desidera conservare. In primo luogo, selezionare i tag esistenti, aggiungerne uno al set e riapplicarli tutti.
-
-    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
-    Set-AzureRmResourceGroup -Name test-group -Tag $tags
-
-Se si vuole rimuovere uno o più tag, è sufficiente salvare la matrice senza i tag da rimuovere.
-
-Il processo è lo stesso per le risorse, ad eccezione del fatto che si useranno i cmdlet **Get-AzureRmResource** e **Set-AzureRmResource**.
-
-Per ottenere un elenco di tutti i tag all'interno di una sottoscrizione tramite PowerShell, usare il cmdlet **Get-AzureRmTag**.
-
-    Get-AzureRmTag
-    Name                      Count
-    ----                      ------
-    env                       8
-    project                   1
-
-È possibile che vengano visualizzati tag che iniziano con "hidden-" e "link:". Si tratta di tag interni, che dovrebbero essere ignorati e comunque non devono modificati.
-
-Usare il cmdlet **New-AzureRmTag** per aggiungere nuovi tag alla tassonomia. Questi tag vengono inclusi nel completamento automatico anche se non sono stati ancora applicati a risorse o gruppi di risorse. Per rimuovere una coppia nome-valore di un tag, rimuovere prima il tag dalle eventuali risorse che ne fanno uso, quindi usare il cmdlet **Remove-AzureRmTag** per rimuoverlo dalla tassonomia.
+[AZURE.INCLUDE [resource-manager-tag-resources](../includes/resource-manager-tag-resources-powershell.md)]
 
 ## Interfaccia della riga di comando di Azure
 
@@ -272,7 +175,7 @@ Le informazioni sui tag possono essere recuperate tramite l'[API di utilizzo del
 
 Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fatturazione, i tag vengono visualizzati nella colonna **Tag**. Per ulteriori informazioni, vedere [Informazioni sulla fattura di Microsoft Azure](billing-understand-your-bill.md).
 
-![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)  
+![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)
 
 ## Passaggi successivi
 
@@ -281,4 +184,4 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure durante la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
 - Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](./azure-portal/resource-group-portal.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

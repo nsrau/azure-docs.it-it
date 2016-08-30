@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -28,7 +28,7 @@ La configurazione delle proprietà del ruolo di Azure viene eseguita tramite le 
 
 ![][ic789599]
 
-Questo argomento descrive le diverse proprietà che è possibile impostare nelle finestre di dialogo **Properties**. Si noti che molte proprietà vengono compilate automaticamente quando si crea un nuovo progetto di distribuzione di Azure.
+Questo argomento descrive le diverse proprietà che è possibile impostare nelle finestre di dialogo **Properties** (Proprietà). Si noti che molte proprietà vengono compilate automaticamente quando si crea un nuovo progetto di distribuzione di Azure.
 
 Per i ruoli di Azure sono disponibili le pagine delle proprietà seguenti.
 
@@ -439,4 +439,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

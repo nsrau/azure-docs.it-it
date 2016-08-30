@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -112,7 +112,7 @@ I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la mi
 
 Se è necessario eseguire la migrazione a Microsoft Azure dell’elaborazione di orchestrazioni di BizTalk Server, le orchestrazioni devono essere riscritte poiché Microsoft Azure non supporta l'esecuzione di orchestrazioni di BizTalk Server. È possibile riscrivere la funzionalità di orchestrazione in un servizio di Windows Workflow Foundation 4.0 (WF4). Si tratta di una riscrittura completa poiché non esiste attualmente la migrazione dalle orchestrazioni di BizTalk Server a WF4. Di seguito sono riportate alcune risorse per Windows Workflow:
 
-- [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://msdn.microsoft.com/library/azure/hh709041.aspx) di Paolo Salvatori. 
+- [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://msdn.microsoft.com/library/azure/hh709041.aspx) di Paolo Salvatori.
 
 - Sessione [*Creazione di applicazioni con Windows Workflow Foundation e Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) estratta dalla conferenza Build 2011.
 
@@ -126,13 +126,13 @@ Di seguito sono riportate alcune informazioni da tenere in considerazione quando
 
 ### Accordi di fallback
 
-L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback". I servizi BizTalk **non** hanno ancora un concetto di accordo di fallback. Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà del contratto globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'utilizzo di contratti di fallback in BizTalk Server.
+L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback". I servizi BizTalk **non** hanno ancora un concetto di accordo di fallback. Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà del contratto globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'uso di contratti di fallback in BizTalk Server.
 
 ### Routing a più destinazioni
 
 I bridge dei servizi BizTalk nello stato attuale non supportano il routing dei messaggi a più destinazioni tramite il modello pubblicazione-sottoscrizione. Tuttavia, è possibile instradare i messaggi da un bridge dei servizi BizTalk a un argomento del bus di servizio che può avere più sottoscrizioni per ricevere il messaggio su più endpoint.
 
-## Conclusioni
+## Conclusione
 
 I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari per aggiungere ulteriori funzionalità e capacità. A ogni aggiornamento, viene offerto il supporto per le funzionalità migliorate in modo da facilitare la creazione di soluzioni end-to-end con i servizi BizTalk e le altre tecnologie Azure.
 
@@ -142,4 +142,4 @@ I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari pe
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

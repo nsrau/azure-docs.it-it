@@ -4,8 +4,8 @@
 	description="Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,15 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="08/12/2016"
+	ms.author="markvi"/>
 
 
 # Supporto dell'accesso condizionale per le applicazioni
 
-Le regole di accesso condizionale sono supportate in applicazioni connesse di Azure AD, applicazioni SaaS federate preintegrate, applicazioni che usano l'accesso Single Sign-On basato su password, applicazioni line-of-business e proxy dell'applicazione di Azure AD. Per un elenco dettagliato delle applicazioni in cui è possibile abilitare l'accesso condizionale, vedere [Servizi abilitati con l'accesso condizionale](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). L'accesso condizionale è ideale per le applicazioni desktop e per dispositivi mobili che usano un'autenticazione moderna. Questo argomento illustra le funzionalità supportate nelle versioni desktop e per dispositivi mobili di queste app.
+Le regole di accesso condizionale sono supportate in applicazioni connesse di Azure Active Directory, applicazioni SaaS federate preintegrate, applicazioni che usano l'accesso Single Sign-On basato su password, applicazioni line-of-business e proxy dell'applicazione di Azure AD. Per un elenco dettagliato delle applicazioni in cui è possibile abilitare l'accesso condizionale, vedere [Servizi abilitati con l'accesso condizionale](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). L'accesso condizionale è ideale per le applicazioni desktop e per dispositivi mobili che usano un'autenticazione moderna. Questo argomento illustra le funzionalità supportate nelle versioni desktop e per dispositivi mobili di queste app.
 
- Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
+Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
 
 ## Applicazioni che utilizzano l'autenticazione moderna
 Le applicazioni seguenti sono state testate con l'autenticazione Multi-Factor Authentication (MFA) e i criteri di posizione impostati sul servizio di destinazione.
@@ -39,11 +39,34 @@ Le applicazioni seguenti sono state testate con l'autenticazione Multi-Factor Au
 | App Yammer|Yammer| Windows Mobile 10, iOS, Android|
 |App remote di Azure|Servizio app Azure Remote|Windows 10, Windows 8.1, Windows 7, Mac, iOS, Android|
 
+
+
+
+
+Le applicazioni seguenti supportano criteri basati sul dispositivo impostati nel servizio di destinazione:
+
+| Applicazione | Servizio di destinazione | Piattaforma |
+| :--                                     | :--            | :--      |
+| Posta elettronica/Calendario/Persone | Exchange | Windows 10, Windows Mobile 10 |
+| Office universale: Word/Excel/PowerPoint | SharePoint | Windows 10, Windows Mobile 10 |
+| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
+|Outlook 2013 (richiede l'abilitazione dell'autenticazione moderna) | Exchange | Windows 8.1, Windows 7 |
+
+
+Le applicazioni seguenti non supportano criteri basati sul dispositivo impostati nel servizio di destinazione.
+
+| Applicazione | Servizio di destinazione | Piattaforma |
+| :--                                     | :--            | :--      |
+| OneDrive for Business usando il client di sincronizzazione di nuova generazione (sia siti personali che del team) | SharePoint | Windows 10, Windows Mobile 10 |
+| App Mie app | Qualsiasi | iOS, Android |
+
+
 ## Applicazioni che non utilizzano l'autenticazione moderna
 
 Attualmente, l'accesso delle app che non utilizzano l'autenticazione moderna deve essere bloccato utilizzando altri metodi, poiché esse non sono regolate dall'accesso condizionale. Ciò vale soprattutto per l'accesso a Exchange e SharePoint, poiché le app di versioni precedenti sono state compilate utilizzando protocolli meno recenti.
 
 ## SharePoint
+
 I protocolli legacy possono essere disabilitati in SharePoint, tramite il cmdlet Set-SPOTenant, che impedirà ai client di Office che utilizzano protocolli di autenticazione non moderni di accedere alle risorse di SharePoint Online.
 
 **Comando di esempio**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
@@ -107,4 +130,4 @@ Regola 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

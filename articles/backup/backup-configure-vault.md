@@ -6,7 +6,7 @@
 	authors="markgalioto"
 	manager="cfreeman"
 	editor=""
-	keywords="insieme di credenziali di backup; backup di un server Windows; backup di Windows;"/>  
+	keywords="insieme di credenziali di backup; backup di un server Windows; backup di Windows;"/>
 
 <tags
 	ms.service="backup"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jimpark; trinadhk; markgal"/>  
+	ms.author="jimpark; trinadhk; markgal"/>
 
 # Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 
@@ -27,7 +27,7 @@ Questo articolo illustra come eseguire il backup di file e cartelle di Windows S
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
-![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)  
+![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)
 
 
 ## Prima di iniziare
@@ -134,6 +134,32 @@ Dopo aver creato un insieme di credenziali, preparare l'infrastruttura per il ba
 
 L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
+### Verificare l'installazione
+
+Per verificare che l'agente sia stato installato e registrato correttamente, è possibile controllare gli elementi di cui si è eseguito il backup nella sezione **Server di produzione** del portale di gestione. A tale scopo, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
+
+2. Scegliere **Sfoglia** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
+
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
+
+2. Selezionare il nome dell'insieme di credenziali creato.
+
+    Si apre il pannello del dashboard dell'insieme di credenziali dei servizi di ripristino.
+
+    ![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Fare clic sul pulsante **Impostazioni** nella parte superiore della pagina.
+
+4. Fare clic su **Infrastruttura di backup > Server di produzione**.
+
+    ![Server di produzione](./media/backup-configure-vault/production-server-verification.png)
+
+Se i server sono visualizzati nell'elenco, significa che l'agente è stato installato e registrato correttamente.
+
 ## Passaggio 4: Completare il backup iniziale
 
 Il backup iniziale comprende due attività fondamentali:
@@ -226,4 +252,4 @@ Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro
 - Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 - Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Come risolvere i problemi relativi alla gestione delle password
@@ -45,7 +45,7 @@ Se non è possibile risolvere il problema con le indicazioni fornite di seguito,
 
     ![][001]
 
- - **ID utente**: l'ID dell'utente che ha visualizzato l'errore (ad esempio user@contoso.com)
+ - **ID utente**: l'ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com.
  - **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud, All'utente è assegnata una licenza AAD Premium o AAD Basic?
  - **Registro eventi dell'applicazione**: se si usa il writeback della password e l'errore si verifica nell'infrastruttura locale, comprimere una copia del registro eventi dell'applicazione dal server Azure AD Connect e inviarla insieme alla richiesta.
 
@@ -456,7 +456,21 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Se è stato configurato il writeback, durante il riavvio del servizio ADSync verrà avviato l'endpoint WCF. Se tuttavia l'avvio dell'endpoint non riesce, il servizio di sincronizzazione viene avviato e viene semplicemente registrato l'evento 6800. La presenza di questo evento indica che l'endpoint di writeback della password non è stato avviato. I dettagli del registro eventi per questo evento (6800) e le voci del registro eventi generate dal componente PasswordResetService indicheranno i motivi per cui non è stato possibile avviare l'endpoint. Esaminare gli errori nel registro eventi e provare a riavviare Azure AD Connect se il writeback della password ancora non funziona. Se il problema persiste, provare a disabilitare e riabilitare il writeback della password.</p>
             </td>
           </tr>
-          <tr>
+					<tr>
+            <td>
+              <p>Quando un utente prova a reimpostare una password o a sbloccare un account con il writeback delle password abilitato, l'operazione non riesce. Inoltre, dopo l'esecuzione dell'operazione di sblocco, nel log eventi di Azure AD Connect viene visualizzato un evento simile a: "Il motore di sincronizzazione ha restituito un errore hr=800700CE, messaggio=Nome del file o estensione troppo lunga".
+							</p>
+            </td>
+            <td>
+              <p>Ciò può verificarsi se è stato eseguito l'aggiornamento da versioni precedenti di Azure AD Connect o DirSync. L'aggiornamento a versioni precedenti di Azure AD Connect imposta una password di 254 caratteri per l'account dell'agente di gestione di Azure AD, mentre per le versioni più recenti viene impostata una password con una lunghezza di 127 caratteri. Le password lunghe funzionano per le operazioni di esportazione e importazione di AD Connector, ma non sono supportate dall'operazione di sblocco.
+							</p>
+            </td>
+            <td>
+              <p>[Trovare l'account Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) per Azure AD Connect e reimpostare la password in modo che non contenga più di 127 caratteri. Aprire quindi **Synchronization Service** dal menu Start. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionarlo e fare clic su **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Scegliere **OK** per chiudere la pagina.
+							</p>
+            </td>
+          </tr>
+					<tr>
             <td>
               <p>Errore di configurazione del writeback durante l'installazione di Azure AD Connect</p>
             </td>
@@ -1501,4 +1515,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

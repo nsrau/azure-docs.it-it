@@ -80,7 +80,7 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 
 È anche opportuno vedere le [procedure consigliate][].
 
-<!--Article references-->  
+<!--Article references-->
 [Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
@@ -93,7 +93,7 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F

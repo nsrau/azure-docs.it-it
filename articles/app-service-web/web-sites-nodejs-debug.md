@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
@@ -79,7 +79,7 @@ L'URL FTP restituito nel dashboard si riferisce alla directory **LogFiles**, che
 
 ###Archivio ZIP
 
-Per scaricare un archivio ZIP dei log di diagnostica, usare il seguente comando degli strumenti da riga di comando di Azure:
+Per scaricare un archivio ZIP dei log di diagnostica, utilizzare il seguente comando degli strumenti da riga di comando di Azure:
 
 	azure site log download [sitename]
 
@@ -126,4 +126,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

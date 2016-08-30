@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configurare i ruoli per un servizio cloud di Azure con Visual Studio
@@ -99,7 +99,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 1. Per usare l'emulatore dell'account di archiviazione locale, scegliere il pulsante di opzione **Emulatore di archiviazione di Microsoft Azure** e quindi scegliere **OK**.
 
-1. Per usare un account di archiviazione in Azure, scegliere il pulsante di opzione **Sottoscrizione** e selezionare l'account di archiviazione desiderato.
+1. Per usare un account di archiviazione in Azure, scegliere il pulsante di opzione **Sottoscrizione** e selezionare l'account di archiviazione.
 
 1. Per usare le credenziali personalizzate, scegliere il pulsante di opzione **Credenziali immesse manualmente**. Immettere il nome dell'account di archiviazione e la chiave primaria o secondaria. Per informazioni su come creare un account di archiviazione e come immettere dettagli per l'account di archiviazione nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione**, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

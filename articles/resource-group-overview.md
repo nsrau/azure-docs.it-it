@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -39,7 +39,7 @@ Gestione risorse offre numerosi vantaggi:
 - È possibile gestire l'infrastruttura con modelli dichiarativi, piuttosto che con script.
 - È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
 - è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
-- È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
+- È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 - È possibile ottenere informazioni di fatturazione dettagliate visualizzando i costi aggregati per l'intero gruppo o per un gruppo di risorse che condividono la stessa categoria.
 
 Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](resource-manager-deployment-model.md).
@@ -105,11 +105,11 @@ Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse d
 
 ## Controllo di accesso
 
-Gestione risorse di Azure consente di controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione. In modo nativo, integra la piattaforma di gestione OAuth e controllo di accesso basato sui ruoli (RBAC) e applica tale controllo di accesso a tutti i servizi nel gruppo di risorse. È possibile aggiungere utenti ai ruoli predefiniti specifici di piattaforma e risorsa e applicare tali ruoli a una sottoscrizione, a un gruppo di risorse o a una risorsa per limitare l'accesso. Ad esempio, è possibile sfruttare il ruolo predefinito denominato Collaboratore di DB SQL che consente agli utenti di gestire i database, ma non i server di database o i criteri di sicurezza. È possibile aggiungere utenti dell'organizzazione che richiedono questo tipo di accesso al ruolo Collaboratore DB SQL e assegnare il ruolo alla sottoscrizione, al gruppo di risorse o alla risorsa.
+Gestione risorse di Azure consente di controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione. In modo nativo, integra la piattaforma di gestione OAuth e controllo di accesso basato sui ruoli (RBAC) e applica tale controllo di accesso a tutti i servizi nel gruppo di risorse. È possibile aggiungere utenti ai ruoli specifici di risorsa e di piattaforma predefiniti e applicare tali ruoli a una sottoscrizione, a un gruppo di risorse o a una risorsa per limitare l'accesso. Ad esempio, è possibile sfruttare il ruolo predefinito denominato Collaboratore di DB SQL che consente agli utenti di gestire i database, ma non i server di database o i criteri di sicurezza. È possibile aggiungere utenti dell'organizzazione che richiedono questo tipo di accesso al ruolo Collaboratore Database SQL e applicare il ruolo alla sottoscrizione, al gruppo di risorse o alla risorsa.
 
 Gestione risorse di Azure registra automaticamente le azioni dell'utente ai fini del controllo. Per informazioni sull'uso dei log di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md). L'argomento [RBAC: Ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md) contiene un elenco dei ruoli predefiniti e delle azioni consentite. I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
+Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md). Per un elenco dei ruoli predefiniti e delle azioni consentite, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
@@ -117,7 +117,7 @@ Per le procedure consigliate, vedere [Considerazioni sulla sicurezza per Gestion
 
 ## Gestire risorse con criteri personalizzati
 
-Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere scenari diversi, ad esempio l'applicazione di una convenzione di denominazione alle risorse, la limitazione dei tipi di istanze delle risorse che è possibile distribuire, la limitazione delle aree che possono ospitare un tipo di risorsa o la richiesta di un valore di tag sulle risorse per organizzare la fatturazione per reparto. Creare criteri per ridurre i costi e mantenere la coerenza nella sottoscrizione. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
+Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere scenari diversi, ad esempio l'applicazione di una convenzione di denominazione alle risorse, la limitazione dei tipi di istanze delle risorse che è possibile distribuire, la limitazione delle aree che possono ospitare un tipo di risorsa o la richiesta di un valore di tag sulle risorse per organizzare la fatturazione per reparto. Creare criteri per ridurre i costi e mantenere la coerenza della sottoscrizione. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## Livello di gestione coerente
 
@@ -133,31 +133,50 @@ Per informazioni sull'uso del portale, vedere [Distribuire le risorse con i mode
 
 Gestione risorse di Azure supporta la condivisione di risorse tra origini (CORS, Cross-Origin Resource Sharing). Con CORS è possibile chiamare l'API REST di Gestione risorse o un'API REST del servizio Azure da un'applicazione Web residente in un dominio diverso. Senza il supporto di CORS il Web browser impedisce a un'app in un dominio di accedere alle risorse in un altro dominio. Gestione risorse abilita CORS per tutte le richieste con credenziali di autenticazione valide.
 
-## SDK ed esempi
+## SDK
 
 Azure SDK sono disponibili per più linguaggi e piattaforme. Ogni implementazione del linguaggio è disponibile tramite Gestione pacchetti del relativo ecosistema e in GitHub.
 
 Il codice in ogni SDK viene generato dalle specifiche dell'API RESTful di Azure. Queste specifiche sono open source e si basano sulla specifica Swagger 2.0. Il codice degli SDK viene generato con un progetto open source denominato AutoRest. AutoRest trasforma le specifiche delle API basate su REST in librerie client in più linguaggi. Se si vogliono migliorare alcuni aspetti del codice generato negli SDK, l'intero set di strumenti per creare gli SDK è aperto, disponibile gratuitamente e basato su un formato di specifica API ampiamente diffuso.
 
-**Esempi**: operatività immediata con il linguaggio scelto.
+Di seguito sono riportati i repository SDK open source. Sono graditi commenti e suggerimenti, segnalazioni di problemi e richieste pull.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *presto disponibile*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
-
-**Repository di SDK open source**: sono graditi commenti e suggerimenti, problemi e richieste pull.
-
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.JS](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l'[API REST di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+
+## Esempi
+
+### .NET
+
+- [Manage Azure resources and resource groups](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/) (Gestire risorse e gruppi di risorse di Azure)
+- [Deploy an SSH Enabled VM with a Template](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/) (Distribuire una macchina virtuale abilitata per SSH con un modello)
+
+### Java
+
+- [Manage Azure resources](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/) (Gestire risorse di Azure)
+- [Manage Azure resource groups](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/) (Gestire gruppi di risorse di Azure)
+- [Deploy an SSH Enabled VM with a Template](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/) (Distribuire una macchina virtuale abilitata per SSH con un modello)
+
+### Node.js
+
+- [Manage Azure resources and resource groups](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/) (Gestire risorse e gruppi di risorse di Azure)
+- [Deploy an SSH Enabled VM with a Template](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/) (Distribuire una macchina virtuale abilitata per SSH con un modello)
+
+### Python
+
+- [Manage Azure resources and resource groups](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/) (Gestire risorse e gruppi di risorse di Azure)
+- [Deploy an SSH Enabled VM with a Template](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/) (Distribuire una macchina virtuale abilitata per SSH con un modello)
+
+### Ruby
+
+- [Manage Azure resources and resource groups](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/) (Gestire risorse e gruppi di risorse di Azure)
+- [Deploy an SSH Enabled VM with a Template](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/) (Distribuire una macchina virtuale abilitata per SSH con un modello)
+
+
+Oltre che in questi esempi, è possibile cercare negli esempi della raccolta.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Passaggi successivi
 
@@ -171,4 +190,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

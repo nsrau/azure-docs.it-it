@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Domande frequenti sulla versione di anteprima pubblica di Backup di Azure | Microsoft Azure"
+   pageTitle="Insieme di credenziali di Servizi di ripristino: domande frequenti | Microsoft Azure"
    description="Questa versione delle domande frequenti supporta la versione di anteprima pubblica del servizio Backup di Azure. Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure."
    services="backup"
    documentationCenter=""
@@ -14,33 +14,33 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/01/2016"
+	 ms.date="08/21/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
-# Versione di anteprima pubblica del servizio Backup di Azure: Domande frequenti
+# Insieme di credenziali di Servizi di ripristino: domande frequenti
 
 > [AZURE.SELECTOR]
 - [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
 - [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Questo articolo fornisce informazioni specifiche per la versione di anteprima pubblica del servizio Backup di Azure. L'articolo viene aggiornato di volta in volta con l'aggiunta di nuove domande frequenti e integra l'articolo [Domande frequenti su Backup di Azure](backup-azure-backup-faq). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
+In questo articolo fornisce informazioni specifiche per l'insieme di credenziali di Servizi di ripristino e integra [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
 
 È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Cosa include la versione di anteprima pubblica?
-La versione di anteprima pubblica introduce l'insieme di credenziali di Servizi di ripristino e il supporto di Azure Resource Manager per la protezione delle macchine virtuali di Azure. L'insieme di credenziali di Servizi di ripristino è un insieme di credenziali di nuova generazione. È lo stesso usato dal servizio Backup di Azure e dal servizio Azure Site Recovery. Può essere considerato come la versione 2 dell'insieme di credenziali.
+## Gli insiemi di credenziali di Servizi di ripristino si basano su Azure Resource Manager. Gli insiemi di credenziali per il backup (modalità classica) sono ancora supportati? <br/>
+Sì, gli insiemi di credenziali di Backup sono ancora supportati. Creare gli insiemi di credenziali per il backup nel [portale classico](https://manage.windowsazure.com). Creare insiemi di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com). Tuttavia, è consigliabile creare un insieme di credenziali di Servizi di ripristino perché tutti gli miglioramenti futuri saranno disponibili solo nell'insieme di credenziali di Servizi di ripristino.
 
-## Insiemi di credenziali di Backup e Servizi di ripristino
+## È possibile eseguire la migrazione di un insieme di credenziali per il backup in un insieme di credenziali di Servizi di ripristino? <br/>
+Purtroppo no, al momento non è possibile eseguire la migrazione del contenuto di un insieme di credenziali di Backup in un insieme di credenziali di Servizi di ripristino. Questa funzionalità verrà presto aggiunta, ma non è disponibile nell'anteprima pubblica.
 
-**D1. Se gli insiemi di credenziali di Servizi di ripristino sono la versione 2, gli insiemi di credenziali di Backup, ovvero la versione 1, sono ancora supportati?** <br/> R1. Sì, gli insiemi di credenziali di Backup sono ancora supportati. Per creare gli insiemi di credenziali di Backup si usa il portale classico. Per creare gli insiemi di credenziali di Servizi di ripristino si usa il portale di Azure.
+## Gli insiemi di credenziali di Servizi di ripristino supportano le macchine virtuali in modalità classica o quelle basate su Resource Manager? <br/>
+Gli insiemi di credenziali di Servizi di ripristino supportano entrambi modelli. È possibile eseguire il backup di una macchina virtuale creata nel portale classico (VM in modalità classica) oppure nel portale di Azure (basata su Azure Resource Manager) in un insieme di credenziali di Servizi di ripristino.
 
-**D2. È possibile eseguire la migrazione di un insieme di credenziali di Backup in un insieme di credenziali di Servizi di ripristino?** <br/> R2. Purtroppo no, al momento non è possibile eseguire la migrazione del contenuto di un insieme di credenziali di Backup in un insieme di credenziali di Servizi di ripristino. Questa funzionalità verrà presto aggiunta, ma non è disponibile nell'anteprima pubblica.
+## È stato eseguito il backup delle macchine virtuali in modalità classica nell'insieme di credenziali per il backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Come è possibile eseguirne il backup nell'insieme di credenziali di Servizi di ripristino?
+Per i backup di macchine virtuali in modalità classica nell'insieme di credenziali per il backup non viene eseguita automaticamente la migrazione nell'insieme di credenziali di Servizi di ripristino nel caso di migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Per la migrazione di backup di macchine virtuali, seguire questa procedura:
 
-**D3. Gli insiemi di credenziali di Servizi di ripristino supportano macchine virtuali versione 1 o versione 2?** <br/> R3. Gli insiemi di credenziali di Servizi di ripristino supportano macchine virtuali di entrambe le versioni. È possibile eseguire il backup di una macchina virtuale creata nel portale classico (versione 1) oppure nel portale di Azure (versione 2) in un insieme di credenziali di Servizi di ripristino.
+1. Nell'insieme di credenziali per il backup passare alla scheda **Elementi protetti** e selezionare la macchina virtuale. Fare clic su [Arresta protezione](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
+2. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche della risorsa di archiviazione e della rete corrispondenti alla macchina virtuale.
+3. Creare un insieme di credenziali di Servizi di ripristino e configurare il backup della macchina virtuale di cui è stata eseguita la migrazione usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Altre informazioni su come [abilitare il backup nell'insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md)
 
-
-## Supporto di Azure Resource Manager per le macchine virtuali di Azure
-
-**D1. Sono previste limitazioni al supporto di Azure Resource Manager per le macchine virtuali di Azure?** <br/> R1. Attualmente i cmdlet di PowerShell per Azure Resource Manager non sono disponibili. Per aggiungere risorse a un gruppo di risorse è necessario usare l'interfaccia utente del portale di Azure.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Creare una soluzione IoT con analisi di flusso | Microsoft Azure" 
 	description="Esercitazione di introduzione alla soluzione IoT di analisi di flusso nello scenario del casello"
-	keywords=""
+	keywords="soluzione IOT, funzioni finestra"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -42,7 +42,7 @@ Sono necessari i prerequisiti seguenti per svolgere correttamente questa esercit
 -   [Sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegi di amministratore nel computer
 -   Scaricare [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) dall'Area download Microsoft.
--   Facoltativo: codice sorgente per il generatore di eventi TollApp in [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
+-   Facoltativo: codice sorgente per il generatore di eventi TollApp in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Presentazione dello scenario: il casello
 
@@ -58,9 +58,9 @@ I flussi di dati su cui si lavora sono due e sono prodotti dai sensori installat
 ### Flusso di dati di ingresso
 
 Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano nel casello.
-  
-  
-| ID casello | Tempo ingresso | Targa | Stato | Assicurarsi | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
+
+
+| ID casello | Tempo ingresso | Targa | Stato | Casa automobilistica | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1 | 2014-09-10 12:01:00.000 | JNB 7001 | NY | Honda | CRV | 1 | 0 | 7 | |
 | 1 | 2014-09-10 12:02:00.000 | YXZ 1001 | NY | Toyota | Camry | 1 | 0 | 4 | 123456789 |
@@ -68,17 +68,17 @@ Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano
 | 2 | 2014-09-10 12:03:00.000 | XYZ 1003 | CT | Toyota | Corolla | 1 | 0 | 4 | |
 | 1 | 2014-09-10 12:03:00.000 | BNJ 1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |
 | 2 | 2014-09-10 12:05:00.000 | CDE 1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |
-  
+
 
 Ecco una breve descrizione delle colonne:
-  
-  
+
+
 | ID casello | ID della cabina del casello che identifica in modo univoco una cabina del casello |
 |--------------|----------------------------------------------------------------|
 | Tempo ingresso | Data e ora di ingresso del veicolo nella corsia della cabina del casello in UTC |
 | Targa | Numero di targa del veicolo |
 | Stato | Uno stato negli Stati Uniti |
-| Assicurarsi | Il produttore dell'automobile |
+| Casa automobilistica | Il produttore dell'automobile |
 | Modello | Numero di modello dell'automobile |
 | Tipo veicolo | 1 per veicoli passeggeri e 2 per veicoli commerciali |
 | Peso veicolo | Peso del veicolo in tonnellate, 0 per veicoli passeggeri |
@@ -89,8 +89,8 @@ Ecco una breve descrizione delle colonne:
 ### Flusso di dati di uscita
 
 Il flusso di dati di uscita contiene informazioni sulle automobili che lasciano il casello.
-  
-  
+
+
 | **ID casello** | **Tempo ingresso** | **Targa** |
 |------------|------------------------------|------------------|
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB 7001 |
@@ -101,8 +101,8 @@ Il flusso di dati di uscita contiene informazioni sulle automobili che lasciano 
 | 2 | 2014-09-10T12:07:00.0000000Z | CDE 1007 |
 
 Ecco una breve descrizione delle colonne:
-  
-  
+
+
 | Colonna | Descrizione |
 |--------------|-----------------------------------------------------------------|
 | ID casello | ID della cabina del casello che identifica in modo univoco una cabina del casello |
@@ -112,8 +112,8 @@ Ecco una breve descrizione delle colonne:
 ### Dati di registrazione del veicolo commerciale
 
 Viene riportato uno snapshot statico del database di registrazione del veicolo commerciale.
-  
-  
+
+
 | Targa | ID registrazione | Scaduto |
 |--------------|----------------|---------|
 | SVT 6023 | 285429838 | 1 |
@@ -121,11 +121,11 @@ Viene riportato uno snapshot statico del database di registrazione del veicolo c
 | BAC 1005 | 876133137 | 1 |
 | RIV 8632 | 992711956 | 0 |
 | SNY 7188 | 592133890 | 0 |
-| ELH 9896 | 678427724 | 1 |                      
+| ELH 9896 | 678427724 | 1 |
 
 Ecco una breve descrizione delle colonne:
-  
-  
+
+
 | Colonna | Descrizione |
 |--------------|-----------------------------------------------------------------|
 | Targa | Numero di targa del veicolo |
@@ -246,22 +246,22 @@ Connettersi al database di Azure (la destinazione) da Visual Studio:
 6) Scegliere TollDataDB come database
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-    
+
 7) Fare clic su OK.
 
 8) Aprire Esplora server
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-  
+
 9) È possibile visualizzare 4 tabelle create nel database TollDataDB.
-  
+
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
-  
+
 ## Generatore di eventi: progetto di esempio TollApp
 
 Lo script di PowerShell invia automaticamente gli eventi tramite il programma dell'applicazione di esempio TollApp. Non è necessario eseguire ulteriori passaggi.
 
-Tuttavia, se si desidera conoscere i dettagli di implementazione, è possibile trovare il codice sorgente dell'applicazione TollApp in [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp) di GitHub
+Tuttavia, se si desidera conoscere i dettagli di implementazione, è possibile trovare il codice sorgente dell'applicazione TollApp in [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source) di GitHub
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -517,7 +517,7 @@ Per visualizzare altre informazioni su un evento specifico, selezionare l'evento
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-## Conclusioni
+## Conclusione
 
 Questa esercitazione ha presentato il servizio di analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di analisi di flusso. Con lo scenario dei dati del casello, è stato possibile spiegare le tipologie più comuni di problemi che si verificano nello spazio dei dati in movimento e come possono essere risolti tramite semplici query simili a SQL nell'analisi di flusso di Azure. Sono stati descritti i costrutti di estensioni SQL per lavorare con i dati temporali. È stato illustrato come unire i flussi di dati e come arricchirli tramite dati di riferimento statici. È stato spiegato come aumentare il numero di istanze di una query per ottenere maggiore produttività.
 
@@ -535,4 +535,4 @@ Tenere presente che le risorse possono essere identificate in base al nome. Assi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

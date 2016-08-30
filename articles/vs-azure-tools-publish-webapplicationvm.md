@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell script)
@@ -44,13 +44,13 @@ Percorso del file di configurazione JSON che descrive i dettagli della distribuz
 
 ### SubscriptionName
 
-Il nome della sottoscrizione di Azure in cui si desidera creare la macchina virtuale.
+Nome della sottoscrizione di Azure in cui creare la macchina virtuale.
 
 |Alias|nessuno|
 |---|---|
 |Obbligatorio?|false|
 |Posizione|denominata|
-|Valore predefinito|Utilizza la prima sottoscrizione nel file di sottoscrizione|
+|Valore predefinito|Usa la prima sottoscrizione nel file di sottoscrizione|
 |Input pipeline accettato?|false|
 |Caratteri jolly accettati?|false|
 
@@ -189,4 +189,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 È possibile modificare il file di configurazione JSON per cambiare gli elementi del provisioning. Una macchina virtuale e un servizio cloud sono necessari, ma la sezione del database è facoltativa.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

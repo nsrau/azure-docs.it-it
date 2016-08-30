@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/15/2016"
 	ms.author="deonhe"/>
 
 # Note sulla versione per Servizi BizTalk di Azure
@@ -54,7 +54,7 @@ Considerare le situazioni seguenti con un progetto di Servizi BizTalk in una sol
 * Nella stessa soluzione di Visual Studio sono disponibili un progetto di Servizi BizTalk e un progetto di associazione personalizzata. Il progetto di Servizi BizTalk contiene un riferimento a questo file di progetto di associazione personalizzata. 
 * Il progetto di Servizi BizTalk contiene un riferimento a una DLL di comportamento/associazione personalizzata.
 
-La soluzione viene 'compilata' correttamente in Visual Studio. Successivamente, la soluzione viene 'ricompilata' o 'pulita'. In seguito, quando si procede di nuovo alla ricompilazione o alla pulizia, viene restituito un errore che indica che non è possibile copiare il file <Path to DLL> in "bin\\Debug\\FileName.dll". Il processo non riesce ad accedere al file 'bin\\Debug\\FileName.dll' perché è usato da un altro processo.
+La soluzione viene 'compilata' correttamente in Visual Studio. Successivamente, la soluzione viene 'ricompilata' o 'pulita'. In seguito, quando si procede di nuovo alla ricompilazione o alla pulizia, viene restituito un errore che indica che non è possibile copiare il file <percorso della DLL> in "bin\\Debug\\FileName.dll". Il processo non riesce ad accedere al file 'bin\\Debug\\FileName.dll' perché è usato da un altro processo.
 
 #### Soluzione alternativa
 * Se [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) è installato, sono disponibili le due opzioni seguenti:
@@ -94,9 +94,9 @@ Si consideri uno scenario costituito da azioni nell'ordine seguente:
 
 * Si chiude il file con estensione bcs chiudendo la relativa scheda in Visual Studio senza salvare le modifiche.
 
-* Si apre nuovamente il file BCS in Esplora soluzioni.
-Si noterà che mentre il nome del file BRIDGECONFIG associato corrisponde al nuovo nome, il nome dell'entità nell'area di Creazione progetti corrisponde ancora al nome precedente. Se si prova ad aprire la configurazione del bridge facendo doppio clic sul componente bridge, verrà visualizzato un messaggio di errore simile al seguente:  
-  Il file associato '<old name>.bridgeconfig' dell'entità '<old name>' non esiste.  
+* Si apre nuovamente il file BCS in Esplora soluzioni. 
+Si noterà che mentre il nome del file BRIDGECONFIG associato corrisponde al nuovo nome, il nome dell'entità nell'area di Creazione progetti corrisponde ancora al nome precedente. Se si prova ad aprire la configurazione del bridge facendo doppio clic sul componente bridge, verrà visualizzato un messaggio di errore simile al seguente: 
+Il file associato "<nome precedente>.bridgeconfig" dell'entità "<nome precedente>" non esiste. 
 Per evitare che si verifichi questo errore, assicurarsi di salvare le modifiche dopo aver rinominato le entità in un progetto di Servizi BizTalk.
 ### La compilazione di un progetto di Servizi BizTalk viene eseguita in modo corretto anche se un elemento è stato escluso da un progetto di Visual Studio
 Si consideri uno scenario in cui si aggiunge un elemento, ad esempio un file XSD, a un progetto di Servizi BizTalk, si include tale elemento nella Configurazione bridge, ad esempio impostandolo come tipo di messaggio di richiesta e quindi lo si esclude dal progetto di Visual Studio. In un caso come questo, la compilazione del progetto non genererà errori fino a quando l'elemento eliminato resterà disponibile sul disco nello stesso percorso in cui si trovava quando è stato incluso nel progetto di Visual Studio.
@@ -128,7 +128,7 @@ Se una trasformazione contiene un'operazione di mappa **Get Context Property**, 
 ### La proprietà Mappa di test non viene visualizzata
 Le proprietà **Mappa di test** non vengono visualizzate in Visual Studio. Questo errore può verificarsi quando le finestre **Proprietà** ed **Esplora soluzioni** non vengono ancorate contemporaneamente. Per risolvere il problema, ancorare le finestre **Proprietà** ed **Esplora soluzioni**.
 ### L'elenco a discesa dell'operazione DateTime Reformat non è disponibile
-Quando un'operazione di mappa DateTime Reformat viene aggiunta all'area di Creazione progetti e viene configurata, l'elenco a discesa Formato può non essere disponibile. Questa condizione può verificarsi se la risoluzione dello schermo del computer è impostata su **Medio – 125%** o su **Grande – 150%**. Per risolvere il problema, impostare la risoluzione su **Piccolo – 100% (impostazione predefinita)** seguendo questa procedura.  
+Quando un'operazione di mappa DateTime Reformat viene aggiunta all'area di Creazione progetti e viene configurata, l'elenco a discesa Formato può non essere disponibile. Questa condizione può verificarsi se la risoluzione dello schermo del computer è impostata su **Medio – 125%** o su **Grande – 150%**. Per risolvere il problema, impostare la risoluzione su **Piccolo – 100% (impostazione predefinita)** seguendo questa procedura.
 1. Aprire il **Pannello di controllo** e selezionare **Aspetto e personalizzazione**.
 2. Fare clic su **Schermo**.
 3. Fare clic su **Piccolo – 100% (impostazione predefinita)** e quindi su **Applica**.
@@ -146,12 +146,12 @@ Si consideri lo scenario seguente:
 ### I bridge non usano i certificati aggiornati nemmeno dopo l'aggiornamento di un certificato nell'archivio elementi
 Esaminare gli scenari seguenti:
 
-**Scenario 1: Uso di certificati basati su identificazione personale allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**.  
+**Scenario 1: Uso di certificati basati su identificazione personale allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**.
 Provare a usare certificati basati su identificazione personale nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk usando lo stesso nome e un'identificazione personale diversa, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.
 
 **Soluzione alternativa**. Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.
 
-**Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**
+**Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio** 
 
 Provare a usare comportamenti basati su nomi per identificare i certificati nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.
 
@@ -175,7 +175,7 @@ Questa situazione si verifica quando è presente un accordo EDI o AS2 con batch 
 ### AGGIORNAMENTO. Dopo l'aggiornamento di BizTalk Services SDK, nella casella degli strumenti vengono visualizzate le icone dei bridge di versioni precedenti.
 Dopo avere aggiornato una versione precedente di BizTalk Services SDK, in cui i bridge erano rappresentati da icone di vecchio tipo, la casella degli strumenti continua a visualizzare le icone dei bridge di versioni precedenti. Se tuttavia si aggiunge un bridge all'area di Creazione progetti del progetto di Servizi BizTalk, nell'area verrà visualizzata la nuova icona.
 
-**Soluzione alternativa**. Per risolvere il problema, è possibile eliminare i file con estensione tbd in <system drive>:\\Utenti<utente>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
+**Soluzione alternativa**. Per risolvere il problema, è possibile eliminare i file con estensione tbd in <unità di sistema>:\\Utenti<utente>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
 
 ### AGGIORNAMENTO. Durante l'aggiornamento del portale BizTalk dalla versione di anteprima alla versione disponibile per tutti potrebbe essere visualizzato un messaggio di errore indicante che la funzionalità EDI non è disponibile
 Se si è connessi al portale di Servizi BizTalk mentre si esegue l'aggiornamento di Servizi BizTalk dalla versione di anteprima alla versione disponibile per tutti, nel portale può essere visualizzato il messaggio di errore seguente:
@@ -193,4 +193,4 @@ In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo i
 
 [Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

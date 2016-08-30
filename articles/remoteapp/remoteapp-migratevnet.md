@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Come eseguire la migrazione di una raccolta ibrida da una rete virtuale RemoteApp a una rete virtuale di Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Ottime notizie! Ora è possibile distribuire raccolte ibride di RemoteApp direttamente nelle reti virtuali di Azure esistenti invece di creare reti virtuali RemoteApp specifiche. In questo modo è possibile sfruttare le nuove funzionalità delle reti virtuali (come ExpressRoute) e concedere alle raccolte ibride l'accesso diretto alla rete per altri servizi e macchine virtuali di Azure distribuiti in a tale rete virtuale. È così possibile migliorare le prestazioni e facilitare l'installazione rispetto alle configurazioni tra reti virtuali.
 
@@ -49,4 +52,4 @@ L'operazione è così completata.
 
 In caso di domande o se è necessaria un'assistenza particolare, inviare un messaggio di posta elettronica a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

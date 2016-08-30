@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -72,7 +72,7 @@ Nella tabella seguente sono elencati errori potenziali e indica come correggerli
 |-----------------------|-------------------|-----------------------------|
 | Errore: l'attributo non è supportato | (user.invalidProperty -eq "Valore") | (user.department -eq "valore")<br/>La proprietà deve corrispondere a una delle proprietà nell'[elenco di proprietà supportate](#supported-properties). |
 | Errore: l'operatore non è supportato sull'attributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true)<br/>La proprietà è di tipo booleano. Usare gli operatori supportati (-eq o - ne) per il tipo boolean nell'elenco precedente. |
-| Errore: si è verificato un errore di compilazione della query. | (user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Vendite") -and (user.department -eq "Marketing")<br/>L'operatore logico deve corrispondere a un operatore incluso nel precedente elenco di proprietà supportate. (user.userPrincipalName -match ".*@domain.ext") o (user.userPrincipalName -match "@domain.ext$") Errore nell'espressione regolare. |
+| Errore: si è verificato un errore di compilazione della query. | (user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Vendite") -and (user.department -eq "Marketing")<br/>L'operatore logico deve corrispondere a un operatore incluso nel precedente elenco di proprietà supportate. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") Errore nell'espressione regolare. |
 | Errore: l'espressione binaria non ha il formato corretto | (user.department –eq "Vendite") (user.department -eq "Vendite")(user.department-eq"Vendite") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
 | Errore: si è verificato un errore sconosciuto durante la configurazione delle appartenenze dinamiche. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
 
@@ -121,7 +121,7 @@ Operatori consentiti
 
 * -notMatch
 
-| Proprietà | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 | city | Qualsiasi valore stringa o $null | (user.city -eq "valore") |
 | country | Qualsiasi valore stringa o $null | (user.country -eq "valore") |
@@ -168,7 +168,7 @@ Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window 
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension\_[GUID]\_\_[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
+Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -183,7 +183,7 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 
 2. Selezionare la scheda **Gruppi** e aprire il gruppo da modificare.
 
-3. Selezionare la scheda **Configura** e selezionare **REGOLA AVANZATA**.
+3. Selezionare la scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
 
 4. Digitare la regola con la sintassi seguente:
 
@@ -196,6 +196,23 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
 
+## Uso degli attributi per creare regole per gli oggetti dispositivo
+
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
+
+| Proprietà | Valori consentiti | Uso |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName | Qualsiasi valore stringa | (device.displayName - eq "Iphone di Rob") |
+| deviceOSType | Qualsiasi valore stringa | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | Qualsiasi valore stringa | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+Impossibile creare le regole di dispositivo usando l'elenco a discesa "regola semplice" nel portale di Azure classico.
+
+
 ## Informazioni aggiuntive
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
@@ -203,10 +220,10 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
-* [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings (Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Gestire le risorse Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima) | Microsoft Azure"
 	description="Gestire contenitori BLOB e BLOB di Azure con Storage Explorer (anteprima)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/14/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima)
 
-## Panoramica
+## Overview
 
 [Archivio BLOB di Azure](./storage/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer (anteprima) per l'utilizzo di contenitori BLOB e BLOB.
 
@@ -277,4 +277,4 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

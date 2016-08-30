@@ -122,4 +122,4 @@ Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-app
 - [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
 - [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->

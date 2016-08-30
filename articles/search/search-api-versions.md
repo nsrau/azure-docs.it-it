@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="brjohnst"/>
 
 # Versioni API in Ricerca di Azure
@@ -31,6 +31,7 @@ Di seguito è illustrata una panoramica delle versioni correnti di tutte le inte
 Interfacce|Versione principale più recente|Stato
 ----------|-------------------------|------
 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Disponibile a livello generale, rilasciata a febbraio 2016
+[Anteprima di .NET SDK](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|anteprima, rilasciata ad agosto 2016
 [API REST del servizio](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Disponibile a livello generale
 [Anteprima API REST del servizio](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Preview
 [API REST di gestione ](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Disponibile a livello generale
@@ -39,7 +40,7 @@ Per le API REST, è necessario includere il parametro `api-version` a ogni chiam
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2015-02-28
 
-> [AZURE.NOTE] Benché ogni richiesta abbia un parametro `api-version`, si consiglia di usare la stessa versione per tutte le richieste API. Ciò vale soprattutto nel caso in cui nuove versioni API introducano attributi oppure operazioni non riconosciuti dalle versioni precedenti. La combinazione di diverse versioni API può avere conseguenze impreviste e deve essere evitata.
+> [AZURE.NOTE] Benché ogni richiesta abbia un parametro `api-version`, è consigliabile usare la stessa versione per tutte le richieste API. Ciò vale soprattutto nel caso in cui nuove versioni API introducano attributi oppure operazioni non riconosciuti dalle versioni precedenti. La combinazione di diverse versioni API può avere conseguenze impreviste e deve essere evitata.
 > 
 L'API REST del servizio e l'API REST di gestione sono sottoposte al controllo delle versioni in modo indipendente tra loro. L'eventuale somiglianza del numero di versione è causale.
 
@@ -54,12 +55,12 @@ Ogni versione di .NET SDK è destinata a una particolare versione dell'API REST 
 Versione di .NET SDK|Versione API REST|Funzionalità|ETA
 ----------------|----------------|--------|---
 1\.1|2015-02-28|Sintassi di query Lucene|Febbraio 2016
-2\.x-preview|2015-02-28-Preview|Analizzatori personalizzati, indicizzatore BLOB di Azure, mapping dei campi, ETag|Le funzionalità verranno introdotte nel primo trimestre del 2016
-2\.x|Nuova versione API GA|Uguale a 2.x-preview|Subito dopo il completamento di 2.x-preview
+2\.0-preview|2015-02-28-Preview|Analizzatori personalizzati, indicizzatori di tabelle e BLOB di Azure, mapping dei campi, ETag|Agosto 2016
+2\.x|Nuova versione API GA|Stesse della versione 2.0-preview|Preliminare nel quarto trimestre 2016
 
 ##Informazioni sull'anteprima e sulle versioni disponibili a livello generale
 
-Ricerca di Azure rilascia sempre in via preliminare funzionalità sperimentali tramite l'API REST, quindi tramite versioni non definitive di .NET SDK. Un elenco di funzionalità di anteprima è incluso in [Novità dell'ultimo aggiornamento di Ricerca di Azure](search-latest-updates.md).
+Ricerca di Azure rilascia sempre in via preliminare funzionalità sperimentali tramite l'API REST, quindi tramite versioni non definitive di .NET SDK.
 
 La migrazione alla versione GA delle funzionalità di anteprima non è garantita. Mentre le funzionalità in una versione GA vengono considerate stabili e difficilmente modificabili, ad eccezione di piccoli miglioramenti e correzioni compatibili con le versioni precedenti, le funzionalità di anteprima sono disponibili per il testing e la sperimentazione, allo scopo di raccogliere commenti e suggerimenti sulla relativa progettazione e implementazione.
 
@@ -69,4 +70,4 @@ Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'
 
 Con disponibilità a livello generale si intende che Ricerca di Azure è ora soggetta al contratto di servizio (SLA). Il contratto di servizio è reperibile in [Contratto di Servizio per Ricerca](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

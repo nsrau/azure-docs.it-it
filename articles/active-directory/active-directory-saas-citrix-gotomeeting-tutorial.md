@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Citrix GoToMeeting  
@@ -75,7 +75,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **Citrix GoToMeeting** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **CONFIGURA ACCESSO SINGLE SIGN-ON**.
 
-    ![Abilitare l'autenticazione Single Sign-On](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Abilitare l'autenticazione Single Sign-On")
+    ![Attiva Single Sign-On](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Attiva Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Citrix GoToMeeting** selezionare **Single Sign-On di Microsoft Azure AD**.
 
@@ -84,7 +84,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 3. Nella pagina **Configurare le impostazioni dell'app** fare clic su **Avanti**.
 
-	![Abilitare l'autenticazione Single Sign-On](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Abilitare l'autenticazione Single Sign-On")
+	![Attiva Single Sign-On](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Attiva Single Sign-On")
 
 4.  Nella pagina **Configura accesso Single Sign-On in Citrix GoToMeeting** fare clic su **Download certificato** e quindi salvare il file di certificato nel computer.
 
@@ -134,11 +134,11 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 1.  Nella pagina di integrazione dell'applicazione **Citrix GoToMeeting** del portale di Azure classico fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
 
-    ![Configurare il provisioning utente.](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configurare il provisioning utente.")
+    ![Configurare il provisioning utente](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configurare il provisioning utente")
 
 2.  Nella pagina **Impostazioni e credenziali amministratore** seguire questa procedura:
 
-    ![Configurare il provisioning utente.](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configurare il provisioning utente.")
+    ![Configurare il provisioning utente](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configurare il provisioning utente")
 
 	a. Nella casella di testo **Nome utente amministratore Citrix GoToMeeting** digitare il nome utente di un amministratore.
 
@@ -146,7 +146,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 	b. Nella casella di testo **Password amministratore Citrix GoToMeeting** digitare la password dell'amministratore.
 
     
-	c. Fare clic su **Avanti**.
+	c. Fare clic su **Next**.
 
 3.  Nella pagina **Conferma** fare clic sul segno di spunta per salvare la configurazione.
 
@@ -183,4 +183,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso.
 
 Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

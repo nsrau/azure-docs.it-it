@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creare record DNS personalizzati per un'app Web | Microsoft Azure" 
+   pageTitle="Creare record DNS personalizzati per un'app Web | Microsoft Azure " 
    description="Come creare record DNS di un dominio personalizzato per un'app Web usando DNS di Azure." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creare record DNS per un'app Web in un dominio personalizzato
@@ -31,8 +31,8 @@ Tenere presente che, se si crea un record A per un'app Web in Azure, il record A
 
 Prima di iniziare, è necessario innanzitutto creare una zona DNS in DNS di Azure e delegare la zona nel registrar a DNS di Azure.
  
-1. Per creare una zona DNS, seguire i passaggi in [Creare una zona DNS](dns-getstarted-create-dnszone.md). 
-2. Per delegare il DNS a DNS di Azure, seguire i passaggi nell'articolo relativo alla [delega del dominio DNS](dns-domain-delegation.md). 
+1. Per creare una zona DNS, seguire i passaggi in [Creare una zona DNS](dns-getstarted-create-dnszone.md).
+2. Per delegare il DNS a DNS di Azure, seguire i passaggi nell'articolo relativo alla [delega del dominio DNS](dns-domain-delegation.md).
 
 Dopo la creazione di una zona e la relativa delega a DNS di Azure, è quindi possibile creare record per il dominio personalizzato.
 
@@ -179,4 +179,4 @@ Per configurare l'app Web per l'uso di un dominio personalizzato, seguire i pass
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

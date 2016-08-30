@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Requisiti delle app
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp supporta applicazioni basate su Windows a 32 bit o a 64 bit in streaming Windows da un'immagine di Windows Server 2012 R2. La maggior parte delle applicazioni basate su Windows a 32 bit o a 64 bit vengono eseguite "così come sono" in un ambiente Azure RemoteApp (Servizi Desktop remoto, in precedenza noti come Servizi terminal). Tuttavia, esiste una differenza tra esecuzione e corretta esecuzione: alcune applicazioni funzionano correttamente e offrono buone prestazioni, mentre altre no. Le informazioni seguenti forniscono indicazioni per lo sviluppo di applicazioni in un ambiente di Servizi Desktop remoto e l'esecuzione di test per garantire la compatibilità.
 
 Suggerimento: è in corso la creazione di alcuni esempi di app per gli utenti. Verranno pubblicati altri argomenti sull'uso di Microsoft Access, QuickBooks e App-V in RemoteApp.
@@ -28,7 +32,7 @@ Questi tre requisiti, se seguiti, contribuiscono a una corretta esecuzione dell'
 
 1.	Le applicazioni che soddisfano tutti i [requisiti di certificazione per le app desktop di Windows](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) e sono conformi alle [linee guida di programmazione dei Servizi Desktop remoto](https://msdn.microsoft.com/library/aa383490.aspx) saranno totalmente compatibili con RemoteApp.
 2.	Le applicazioni non devono mai archiviare dati localmente nell'immagine o nelle istanze di RemoteApp che possono essere perse. Dopo aver creato una raccolta di RemoteApp, le istanze vengono clonate e sono senza stato; inoltre, devono contenere solo applicazioni. Archiviare i dati in un'origine esterna o all'interno del profilo utente.
-3.	Le immagini personalizzate non devono mai contenere dati che possono essere persi.  
+3.	Le immagini personalizzate non devono mai contenere dati che possono essere persi.
 
 ## Test delle app
 Usare questa procedura per eseguire il test delle applicazioni:
@@ -55,4 +59,4 @@ Usare le linee guida seguenti per lo sviluppo di applicazioni per RemoteApp.
 - È consigliabile ottimizzare e bilanciare l'[utilizzo del thread](https://msdn.microsoft.com/library/aa383520.aspx) dell'applicazione per un ambiente multiutente e multiprocessore.
 - Per ottimizzare le prestazioni, è consigliabile che le applicazioni [rilevino](https://msdn.microsoft.com/library/aa380798.aspx) se sono in esecuzione in una sessione client.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016" 
+	ms.date="08/15/2016" 
 	ms.author="elizapo"/>
 
 # Come creare un'immagine modello personalizzata per Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un'immagine modello di RemoteApp personalizzata, è possibile iniziare con un'immagine esistente o crearne una nuova.
 
 
@@ -142,4 +146,4 @@ Ora che si dispone di un'immagine modello personalizzata, è necessario caricarl
 - [Come creare una raccolta RemoteApp nel cloud](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

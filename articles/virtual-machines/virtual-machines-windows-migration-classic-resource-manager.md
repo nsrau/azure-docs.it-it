@@ -82,10 +82,10 @@ Provider di risorse | Funzionalità
 ---------- | ------------
 Calcolo | Dischi di macchine virtuali non associati.
 Calcolo | Immagini di macchine virtuali.
-Rete | IP riservati non associati (se non collegati a una VM). Sono supportati gli IP riservati collegati alle VM.
-Rete | Gruppi di sicurezza di rete non associati (se non collegati a una rete virtuale o a un'interfaccia di rete). Sono supportati NSG a cui fanno riferimento reti virtuali.
 Rete | ACL endpoint.
-Rete | Gateway di rete virtuale (da sito a sito, Azure ExpressRoute, da punto a sito).
+Rete | Gateway di rete virtuale (da sito a sito, Azure ExpressRoute, gateway applicazione, da punto a sito).
+Rete | Reti virtuali usando il peering delle reti virtuali. (Eseguire la migrazione della rete virtuale a ARM, quindi eseguire il peering) Ulteriori informazioni su [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
+Rete | Profili di Gestione traffico.
 
 ### Configurazioni non supportate
 
@@ -235,4 +235,4 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 - [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

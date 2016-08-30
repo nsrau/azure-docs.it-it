@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Creare e connettersi a un database MySQL in Azure
@@ -37,10 +37,10 @@ Per creare un database MySQL nel portale di Azure, seguire questa procedura:
 
 	- **Nome database**: digitare un nome identificabile in modo univoco.
 	- **Sottoscrizione**: scegliere la sottoscrizione da usare.
-	- **Tipo database**: selezionare **Condiviso** per i livelli gratuiti o a basso costo oppure **Dedicato** per ottenere risorse dedicate. 
+	- **Tipo database**: selezionare **Condiviso** per i livelli gratuiti o a basso costo oppure **Dedicato** per ottenere risorse dedicate.
 	- **Gruppo di risorse**: aggiungere il database MySQL a un [gruppo di risorse](../resource-group-overview.md) esistente o inserirlo in un nuovo gruppo. Le risorse all'interno dello stesso gruppo possono essere facilmente gestite insieme.
 	- **Località**: scegliere una località vicina. Quando si aggiunge il database a un gruppo di risorse esistente, l'utente è vincolato alla località del gruppo di risorse.
-	- **Piano tariffario**: fare clic su **Piano tariffario**, quindi selezionare un'opzione di prezzo (il livello **Mercurio** è gratuito), quindi fare clic su **Seleziona**. 
+	- **Piano tariffario**: fare clic su **Piano tariffario**, quindi selezionare un'opzione di prezzo (il livello **Mercurio** è gratuito), quindi fare clic su **Seleziona**.
 	- **Note legali**: fare clic su **Note legali**, esaminare i dettagli dell'acquisto e fare clic su **Acquista**.
 	- **Aggiungi al dashboard**: selezionare se si desidera accedere al database direttamente dal dashboard. Questa opzione è particolarmente utile se ancora non si ha familiarità con la navigazione nel portale.
 	
@@ -139,4 +139,4 @@ Si supponga che sia stata completata l'esercitazione [Create, configure, and dep
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

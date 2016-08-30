@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # Errore durante il rilevamento dell'autenticazione
@@ -49,9 +49,9 @@ La procedura guidata cerca inoltre le impostazioni seguenti di un progetto API W
 
 La procedura guidata prova infine a rilevare le versioni del codice di autenticazione configurate con le versioni precedenti di Visual Studio. Se si riceve questo errore, significa che il progetto contiene un tipo di autenticazione non compatibile. La procedura guidata rileva i tipi seguenti di autenticazione dalle versioni precedenti di Visual Studio:
 
-* Autenticazione di Windows 
-* Account utente singoli 
-* Account dell'organizzazione 
+* Autenticazione di Windows
+* Account utente singoli
+* Account dell'organizzazione
  
 
 Per individuare Autenticazione di Windows in un progetto MVC, la procedura guidata cerca l'elemento `authentication` nel file **web.config**.
@@ -96,4 +96,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

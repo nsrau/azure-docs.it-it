@@ -33,14 +33,15 @@ Sono disponibili i ruoli di amministratore seguenti:
 	> [AZURE.NOTE] In Microsoft Graph API, Azure AD Graph API e Azure AD PowerShell, questo ruolo è identificato come "Amministratore supporto tecnico".
 
 - **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
-> [AZURE.NOTE]
-> Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
+
+	> [AZURE.NOTE]
+	> Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
 
 - **Amministratore utenti**: reimposta le password, monitora l'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. Alle autorizzazioni di un amministratore Gestione utenti si applicano alcune limitazioni. Ad esempio, non possono eliminare un amministratore globale o creare altri amministratori. Non possono inoltre reimpostare le password per gli amministratori fatturazione, globali e del servizio.
 
-- **Ruolo con autorizzazioni di lettura per la sicurezza**: accesso in sola lettura a numerose funzionalità di protezione di Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health (Monitora servizio di integrità di Office 365) e Centro di protezione di Office 365.
+- **Ruolo con autorizzazioni di lettura per la sicurezza**: accesso in sola lettura a numerose funzionalità di sicurezza di Identity Protection Center, Privileged Identity Management, Monitoraggio dell'integrità del servizio di Office 365 e Centro sicurezza e conformità di Office 365.
 
-- **Amministratore della sicurezza**: tutte le autorizzazioni di sola lettura del **ruolo con autorizzazioni di lettura per la sicurezza**, oltre ad alcune autorizzazioni amministrative aggiuntive per gli stessi servizi: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health (Monitora servizio di integrità di Office 365) e Centro di protezione di Office 365.
+- **Amministratore della sicurezza**: tutte le autorizzazioni di sola lettura del **ruolo con autorizzazioni di lettura per la sicurezza**, oltre ad alcune autorizzazioni amministrative aggiuntive per gli stessi servizi: Identity Protection Center, Privileged Identity Management, Monitoraggio dell'integrità del servizio di Office 365 e Centro sicurezza e conformità di Office 365..
 
 ## Autorizzazioni degli amministratori
 
@@ -80,7 +81,7 @@ In | Operazione consentita
 ------------- | -------------
 Centro di Identity Protection | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<ul><li>Anti-spam<li>Crittografia<li>Prevenzione della perdita di dati<li>Anti-malware<li>Protezione avanzata da minacce<li>Anti-phishing<li>Regole del flusso di posta
 Privileged Identity Management | <p>Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD PIM: criteri e report per le assegnazioni di ruoli in Azure AD, verifiche della sicurezza e in futuro accesso in lettura ai report e ai dati dei criteri per gli scenari in aggiunta all'assegnazione di ruoli in Azure AD.<p>**Non può** eseguire l'iscrizione ad Azure AD PIM o apportarvi modifiche. Nel portale di PIM o tramite PowerShell un utente in questo ruolo può attivare ruoli aggiuntivi, ad esempio amministratore globale o amministratore di ruoli con privilegi, se l'utente è candidato per questi ruoli.
-<p>Monitor Office 365 Service Health </p> (Monitora servizio di integrità di Office 365) <p>Centro protezione di Office 365</p> | <ul><li>Leggere e gestire gli avvisi<li>Leggere i criteri di sicurezza<li>Leggere le informazioni sulle minacce, Cloud App Discovery e sulla quarantena in Search and Investigate (Ricerca e Analisi)<li>Leggere tutti i report
+<p>Monitoraggio dell'integrità del servizio di Office 365</p><p>Centro sicurezza e conformità di Office 365</p> | <ul><li>Leggere e gestire gli avvisi<li>Leggere i criteri di sicurezza<li>Leggere le informazioni sulle minacce, Cloud App Discovery e sulla quarantena in Search and Investigate (Ricerca e Analisi)<li>Leggere tutti i report
 
 ### Amministratore della sicurezza
 
@@ -88,7 +89,7 @@ In | Operazione consentita
 ------------- | -------------
 Centro di Identity Protection | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>Inoltre, è possibile eseguire tutte le operazioni IPC, ad eccezione della reimpostazione delle password.
 Privileged Identity Management | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>**Non consente** di gestire le impostazioni o le appartenenze ai ruoli di Azure AD.
-<p>Monitor Office 365 Service Health) </p> (Monitora servizio di integrità di Office 365) <p>Centro di protezione di Office 365 | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>Consente di configurare tutte le impostazioni della funzionalità di protezione da minacce avanzate (protezione da malware e virus, configurazione URL dannosi, traccia di URL e così via).
+<p>Monitoraggio dell'integrità del servizio di Office 365</p><p>Centro sicurezza e conformità di Office 365 | <ul><li>Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza.<li>Consente di configurare tutte le impostazioni della funzionalità di protezione da minacce avanzate (protezione da malware e virus, configurazione URL dannosi, traccia di URL e così via).
 
 ## Dettagli sul ruolo di amministratore globale
 
@@ -124,4 +125,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

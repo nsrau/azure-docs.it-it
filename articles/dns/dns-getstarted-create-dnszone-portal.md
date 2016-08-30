@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creare una zona DNS nel portale di Azure
@@ -78,7 +78,7 @@ La creazione di una zona DNS comporta anche la creazione dei record seguenti:
 
 È possibile visualizzare i record dal portale di Azure
 
-1. Dal pannello **Zona DNS** fare clic su **Tutte le impostazioni** per aprire il **pannello Impostazioni** per la zona DNS. 
+1. Dal pannello **Zona DNS** fare clic su **Tutte le impostazioni** per aprire il **pannello Impostazioni** per la zona DNS.
 
 	![zona](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -126,4 +126,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 
 Dopo aver creato una zona DNS, creare [set di record e record](dns-getstarted-create-recordset-portal.md) per avviare la risoluzione dei nomi per il dominio Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

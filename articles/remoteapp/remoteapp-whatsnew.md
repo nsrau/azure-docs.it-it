@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Novità di RemoteApp di Azure
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Uno dei vantaggi di Azure RemoteApp è che viene costantemente migliorato. Ogni modifica apportata viene comunicata qui.
 
 ## Aggiornamenti futuri
-Il team di RemoteApp di Azure pubblica mensilmente aggiornamenti nel blog di Servizi Desktop remoto. In tale area è possibile trovare non solo le modifiche apportate a RemoteApp di Azure, ma anche altre informazioni sull'uso di Servizi Desktop remoto. Per informazioni, consultare i [blog di Servizi Desktop remoto](https://blogs.msdn.microsoft.com/rds/). Ad esempio, alcune settimane fa, è stata pubblicata una voce su [sollevamento e spostamento dei carichi di lavoro con RemoteApp di Azure e Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+Il team di RemoteApp di Azure pubblica mensilmente aggiornamenti nel blog di Servizi Desktop remoto. In tale area è possibile trovare non solo le modifiche apportate a RemoteApp di Azure, ma anche altre informazioni sull'uso di Servizi Desktop remoto. Per informazioni, consultare i [blog di Servizi Desktop remoto](https://blogs.msdn.microsoft.com/rds/). Ad esempio, alcune settimane fa, è stata pubblicata una voce su [sollevamento e spostamento dei carichi di lavoro con Azure RemoteApp e Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
 ## Settembre 2015
 - Aggiunta di Infopath all'immagine delle raccolte e dei modelli di Microsoft Office 365. Per condividere Infopath, assicurarsi di aggiornare le raccolte con l'immagine più recente.
@@ -38,7 +41,7 @@ Il team di RemoteApp di Azure pubblica mensilmente aggiornamenti nel blog di Ser
 In agosto sono state apportate notevoli modifiche, tra cui:
 
 - Possibilità di usare una rete virtuale di Azure con una raccolta nel cloud. Per la nuova procedura, vedere le [istruzioni per la creazione cloud](remoteapp-create-cloud-deployment.md).
-- Possibilità di aggiungere app al menu **Start ** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start ** di Windows.
+- Possibilità di aggiungere app al menu **Start** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start** di Windows.
 - Aggiunta di una nuova immagine alla raccolta di VM di Azure: Host sessione Desktop remoto di Windows Server con Microsoft Office 365 ProPlus.
 - Correzione del client Mac per evitare il blocco delle app con finestre modali.
 - Documentazione sull'uso della [sottoscrizione di Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.
@@ -69,7 +72,7 @@ Altre modifiche saranno distribuite nel mese di luglio, per cui sarà presto dis
 
 ## Maggio 2015
 
-Sono state introdotte diverse aggiunte e sono trascorsi diversi mesi dopo la creazione iniziale di questo argomento, pertanto questo elenco non è esaustivo. Provare queste nuove funzionalità:
+Questo elenco non è esaustivo perché sono state introdotte diverse aggiunte e sono trascorsi diversi mesi dopo la creazione iniziale di questo argomento. Provare queste nuove funzionalità:
 
 - Automatizzare tutto - RemoteApp di Azure ora ha [cmdlet nel modulo Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
 - [Creare un'immagine di RemoteApp di Azure da una macchina virtuale di Azure](remoteapp-image-on-azurevm.md). Consente di caricare l'immagine personalizzata in Azure molto più rapidamente.
@@ -87,4 +90,4 @@ Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese pr
 ### Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

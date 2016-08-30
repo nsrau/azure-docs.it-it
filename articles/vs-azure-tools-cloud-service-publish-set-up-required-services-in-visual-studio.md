@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio
 
-## Panoramica
+## Overview
 
 Per potere pubblicare un progetto di servizio cloud, è prima di tutto necessario configurare i servizi seguenti:
 
@@ -38,7 +38,7 @@ Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare u
 
     ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-1. Se non è ancora stato effettuato l'accesso, accedere con il nome utente e la password dell'account Microsoft o dell'account aziendale associato alla sottoscrizione di Azure.
+1. Se non è ancora stato fatto, accedere con il nome utente e la password dell'account Microsoft o dell'account aziendale associato alla sottoscrizione di Azure.
 
 1. Scegliere il pulsante **Avanti** per passare alle pagina **Impostazioni**.
 
@@ -116,7 +116,7 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 1. Nelle pagine delle proprietà per il ruolo scegliere **Impostazioni**.
 
-1. Nell'elenco **Configurazione del servizio** scegliere il nome della configurazione del servizio da modificare. Per apportare modifiche a tutte le configurazioni del servizio per questo ruolo, è possibile scegliere **Tutte le configurazioni**. Per ulteriori informazioni sull'aggiornamento delle configurazioni del servizio, vedere la sezione **Gestire le stringhe di connessione degli account di archiviazione** nell'argomento [Configurare i ruoli di un servizio Cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. Nell'elenco **Configurazione del servizio** scegliere il nome della configurazione del servizio da modificare. Per apportare modifiche a tutte le configurazioni del servizio per questo ruolo, è possibile scegliere **Tutte le configurazioni**. Per altre informazioni su come aggiornare le configurazioni del servizio, vedere la sezione **Gestire le stringhe di connessione per gli account di archiviazione** nell'argomento [Configurare i ruoli per un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 1. Per modificare un'impostazione della stringa di connessione, scegliere il pulsante **…** accanto all'impostazione. Verrà visualizzata la finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione**.
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio, vedere [Pubblicazione di un servizio Cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->
