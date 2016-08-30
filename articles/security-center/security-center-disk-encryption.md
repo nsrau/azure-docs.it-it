@@ -172,4 +172,4 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0601_2016-->
+<!-----HONumber=AcomDC_0601_2016-->

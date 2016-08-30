@@ -63,4 +63,4 @@ Eseguire l'installazione con le impostazioni personalizzate | [Installazione per
 Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Account usati per l'installazione | [Altre informazioni sugli account e le autorizzazioni di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!-----HONumber=AcomDC_0629_2016-->

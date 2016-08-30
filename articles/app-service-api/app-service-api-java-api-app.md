@@ -338,4 +338,4 @@ Per altre informazioni su come usare Java in Azure, vedere il [Centro per svilup
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->
