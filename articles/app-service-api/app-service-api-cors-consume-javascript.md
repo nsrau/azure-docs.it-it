@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/27/2016"
-	ms.author="rachelap"/>
+	ms.date="08/27/2016"
+	ms.author="rachelap"/>  
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
 
@@ -109,7 +109,7 @@ La procedura per creare una nuova app Web del servizio app e per distribuirvi un
 
 3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** immettere un valore in **Nome app Web** che sia univoco nel dominio *azurewebsites.net*.
 
-5. Scegliere la **Sottoscrizione** di Azure da usare.
+5. Scegliere la **Sottoscrizione** di Azure da utilizzare.
 
 6. Nell'elenco a discesa **Gruppo di risorse** selezionare il nome del gruppo di risorse creato in precedenza.
 
@@ -284,4 +284,4 @@ Per altre informazioni sulle funzionalità di Visual Studio che semplificano la 
 
 In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Per altre informazioni sulle app per le API, vedere l'[introduzione all'autenticazione nel servizio app](../app-service/app-service-authentication-overview.md), quindi passare all'esercitazione sull'[autenticazione utente per le app per le API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

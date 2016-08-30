@@ -52,6 +52,7 @@ In questo articolo viene illustrato come usare l'API REST di Data Factory per cr
 Creare i file JSON seguenti nella cartella che include curl.exe.
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] Il nome deve essere univoco a livello globale, quindi è consigliabile aggiungere un prefisso/suffisso ad ADFCopyTutorialDF per renderlo univoco.
 
 	{  
 	    "name": "FirstDataFactoryREST",  
@@ -98,11 +99,11 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 
 Tenere presente quanto segue:
 
-- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+- È possibile usare il **proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
 
-	Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+	Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
 Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -253,6 +254,8 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
+	Verificare che il nome della data factory specificato qui (ADFCopyTutorialDF) corrisponda al nome specificato in **datafactory.json**.
+
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. Eseguire il comando usando **Invoke-Command**.
 
@@ -263,7 +266,10 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
 
 Tenere presente quanto segue:
  
-- È necessario specificare un nome univoco globale per la Data factory di Azure. Se nei risultati viene visualizzato l'errore **Il nome "FirstDataFactoryREST" per la data factory non è disponibile**, cambiare il nome, ad esempio nomeutenteFirstDataFactoryREST, nel file JSON e nel comando precedente. Usare questo nome invece di **FirstDataFactoryREST** durante l'esecuzione dei passaggi nell'esercitazione. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md).
+- È necessario specificare un nome univoco globale per la Data factory di Azure. Se nei risultati viene visualizzato l'errore **Il nome "FirstDataFactoryREST" per la data factory non è disponibile**, seguire questa procedura:
+	1. Modificare il nome, ad esempio nomeutenteFirstDataFactoryREST, nel file **datafactory.json**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md).
+	2. Nel primo comando in cui viene assegnato un valore alla variabile **$cmd** sostituire FirstDataFactoryREST con il nuovo nome ed eseguire il comando.
+	3. Eseguire i due comandi seguenti per richiamare l'API REST per creare la data factory e stampare i risultati dell'operazione.
 - Per creare istanze di data factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 - Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
 - Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
@@ -369,7 +375,7 @@ In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare 
 
 Eseguire il comando Invoke e il comando successivo fino a quando la sezione non avrà stato **Pronta** o **Non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. Tenere presente che la creazione di un cluster HDInsight su richiesta di solito richiede tempo.
 
-![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png) 
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
 
@@ -399,4 +405,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Monitorare e gestire le pipeline con i pannelli del portale di Azure.](data-factory-monitor-manage-pipelines.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline con i pannelli del portale di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

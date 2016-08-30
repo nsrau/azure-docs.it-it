@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 # Definire la strategia di Mobile Engagement
 
@@ -51,7 +51,7 @@ In base al livello di integrazione, una volta pubblicate le applicazioni, come a
 1. Strategia di benvenuto: creare varie campagne di notifica push in base al comportamento degli utenti finali durante il lancio dell'applicazione, in modo da riprendere contatto con loro dopo 2, 5, 10 o 15 giorni dalla prima sessione e aumentare la fidelizzazione dopo il primo utilizzo.
 2. Promuovere un nuovo contenuto (funzionalità, articolo/video o prodotto) in base al comportamento dell'utente finale, in modo da inviare le informazioni solo agli utenti finali che con ogni probabilità saranno più interessati.
 3. Valutare l'applicazione: rivolgersi a meno dell'1% della propria base utenti che con maggiore probabilità valuterà l'app con cinque stelle nello store.
-4. Aumentare le sottoscrizioni: promuovere contenuti utili, ma non ancora disponibili, per gli utenti al fine di aumentare il numero di sottoscrizioni.
+4. Aumentare le sottoscrizioni: promuovere contenuti utili per utenti finali che ancora non li conoscono allo scopo di aumentare il numero di sottoscrizioni.
 5. Esercitazione: non più esercitazioni obbligatorie per tutti gli utenti. Meglio realizzare utili esercitazioni in-app attivabili tramite messaggi in-app solo quando l'utente non sembra fare uso dell'app o sembra avere problemi con una funzionalità.
 
 ## Importanza dei dati analitici per coinvolgere gli utenti
@@ -86,7 +86,7 @@ Raccogliere dati su prodotti o marche che un certo gruppo di destinatari potrebb
 
 #### Banking
 
-Raccogliere dati degli utenti finali che hanno creato un account al primo avvio dell'applicazione. Puntare all'implementazione di una strategia di benvenuto con una notifica push mirata e all'aumento del numero di sottoscrizioni o creazioni di account.
+Raccogliere dati degli utenti finali che hanno creato un account al primo avvio dell'applicazione. Puntare all'implementazione di una strategia di benvenuto con una notifica push mirata e all'aumento del numero di sottoscrizioni di account.
 
 ### Come creare un buon piano di tag
 
@@ -102,7 +102,7 @@ I `Jobs` sono azioni con una durata. Si tratta di elementi particolarmente utili
 
 Tutti questi tipi di dati possono essere estesi con parametri (*informazioni aggiuntive* in Mobile Engagement), in modo da raccogliere dati dinamici dall'applicazione. Si tratta di un aspetto importante per consentire una segmentazione con granularità fine. Gli addetti al marketing potrebbero ad esempio segmentare gli utenti in base al tipo di contenuto utilizzato. Il tipo di contenuto sarà costituito dalle informazioni dinamiche di un'attività o un evento.
 
-Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale lo stato dell'applicazione o dell'utente. Questi consentono anche di categorizzare una base di destinatari e di selezionarli velocemente. È ad esempio possibile usare uno stato true/false per indicare se l'utente esegue o meno l'accesso oppure la data di scadenza della sottoscrizione.
+Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale lo stato dell'applicazione o dell'utente. Questi consentono anche di categorizzare una base di destinatari e di selezionarli velocemente. Ad esempio, è possibile usare uno stato true/false per indicare se l'utente esegue o meno l'accesso oppure la data di scadenza della sottoscrizione.
 
 #### Esempio di tag
 
@@ -114,7 +114,7 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 	![][1]
 
 *Caso di utilizzo: dati dichiarativi*
-1.	Avvisi di novità da inviare ai segmenti: raccogliere dati dichiarativi per segmentare i destinatari in base alle loro preferenze. Consente di inviare notifiche push su un argomento specifico di particolare interesse per uno specifico gruppo di destinatari.
+1.	Avvisi di novità da inviare ai segmenti: raccogliere dati dichiarativi per segmentare i destinatari in base alle loro preferenze. Consente di inviare notifiche push su un argomento specifico di particolare interesse per un determinato gruppo di destinatari.
 2.	Segmentare i destinatari in base allo stato di accesso. Raccogliere dati per sapere se un utente è connesso o se ha creato un account. Consente di individuare gli utenti finali che non hanno ancora eseguito l'accesso e inviare loro una notifica push per convincerli a registrarsi. ![][2]
 
 ### Passaggi successivi
@@ -122,16 +122,16 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 - Per altre informazioni sui concetti di base di Mobile Engagement, vedere [Concetti relativi a Mobile Engagement].
 - Vedere [Creare un'app Azure Mobile Engagement](mobile-engagement-create.md) per creare una nuova Raccolta di app di Mobile Engagement in Azure e iniziare a gestire le app tramite il portale di Mobile Engagement.
 - Per altre informazioni, vedere [Procedure consigliate](mobile-engagement-getting-started-best-practices.md).
-- Per informazioni sull'implementazione di Mobile Engagement con un'app di gioco di esempio, vedere [uno scenario di app di gioco](mobile-engagement-gaming-scenario.md). 
-- Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md). 
+- Per informazioni sull'implementazione di Mobile Engagement con un'app di gioco di esempio, vedere [uno scenario di app di gioco](mobile-engagement-gaming-scenario.md).
+- Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md).
 - Per altre informazioni sull'implementazione, vedere la pagina [Esercitazioni].
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case1.png
 [2]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case2.png
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

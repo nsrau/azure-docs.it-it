@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 # Concetti relativi ad Azure Mobile Engagement
 
@@ -38,7 +38,7 @@ Un'attività è identificata da un nome (costituito da un massimo di 64 caratter
 
 Le sessioni vengono calcolate automaticamente dalla sequenza di attività eseguite dagli utenti. Una sessione inizia quando l'utente inizia la prima attività e si arresta quando l'utente avrà terminato l'ultima attività. Ciò significa che una sessione non deve necessariamente essere avviata o arrestata in modo esplicito, al contrario, le attività vengono avviate o arrestate in modo esplicito. Se non viene segnalata alcuna attività, non viene segnalata alcuna sessione.
 
-## Events
+## Eventi
 Gli eventi vengono usati per segnalare azioni istantanee (come la pressione di un pulsante o la lettura di articoli da parte di utenti).
 
 Un evento può essere correlato alla sessione corrente o a un processo in esecuzione oppure può essere autonomo.
@@ -85,4 +85,4 @@ L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tutt
 - [iOS SDK per Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 - [Android SDK per Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

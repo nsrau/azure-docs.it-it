@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
-    ms.author="jotaub;sethm"/>
+    ms.date="08/23/2016"
+    ms.author="jotaub;sethm"/>  
 
 # Introduzione alle code del bus di servizio
 
@@ -111,9 +111,9 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
     }
     ```
   
-3. Eseguire il programma e verificare il portale di Azure classico. Si noti che ora il valore in **Lunghezza coda** è 1.
+3. Eseguire il programma e verificare il portale di Azure. Fare clic sul nome della coda nel pannello **Panoramica** dello spazio dei nomi. Si noti che ora il valore di **Numero di messaggi attivi** è 1.
     
-      ![Lunghezza coda][queue-length-send]
+      ![Numero messaggi][queue-message]  
     
 ## 4\. Ricezione di messaggi dalla coda
 
@@ -173,7 +173,7 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
   
 4. Eseguire il programma e verificare il portale. Si noti che ora il valore in **Lunghezza coda** è 0.
 
-    ![Lunghezza coda][queue-length-receive]
+    ![Lunghezza coda][queue-message-receive]
   
 Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un messaggio.
 
@@ -181,15 +181,15 @@ Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un mess
 
 Vedere il [repository GitHub con esempi](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio di Azure.
 
-<!--Image references-->
+<!--Image references-->  
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

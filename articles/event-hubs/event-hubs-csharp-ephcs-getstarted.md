@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
-	ms.author="sethm"/>
+	ms.date="08/19/2016"
+	ms.author="sethm"/>  
 
 # Introduzione all'Hub eventi
 
@@ -22,15 +22,15 @@
 
 ## Introduzione
 
-Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e di raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui l’Internet delle cose (IoT).
+Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
 Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la [libreria dell'Host processore di eventi][] in C#.
 
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Un account Azure attivo. Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -48,7 +48,7 @@ A questo punto è possibile eseguire le applicazioni.
  
 3. Trovare il file Sender.csproj esistente e fare doppio clic su di esso per aggiungerlo alla soluzione.
  
-4. Fare nuovamente clic con il pulsante destro del mouse sulla soluzione **Receiver** e quindi scegliere **Proprietà**. Viene visualizzata la pagina delle proprietà di **Receiver**.
+4. Fare nuovamente clic con il pulsante destro del mouse sulla soluzione **Receiver** e quindi scegliere **Proprietà**. Viene visualizzata la pagina della proprietà **Receiver**.
 
 5. Fare clic su **Progetto di avvio** e quindi fare clic sul pulsante **Progetti di avvio multipli**. Impostare la casella **Azione** per i progetti **Receiver** e **Sender** su **Avvio**.
 
@@ -85,7 +85,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-<!-- Links -->
+<!-- Links -->  
 [Azure classic portal]: https://manage.windowsazure.com/
 [libreria dell'Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
@@ -94,4 +94,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

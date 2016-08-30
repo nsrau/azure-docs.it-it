@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/12/2016"
+   ms.date="08/18/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Archivio Azure Data Lake con Java
@@ -50,7 +50,7 @@ I collegamenti seguenti forniscono il percorso di download per Java SDK per Arch
 	* **Per l'autenticazione non interattiva** (usata in questo articolo): in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
 		- Ottenere l'**ID client**, il **segreto client** e l'**URI di reindirizzamento** per l'applicazione
 		- Impostare autorizzazioni delegate
-		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. 
+		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse.
 
 	Per istruzioni su come recuperare questi valori, impostare le autorizzazioni e assegnare i ruoli, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 
@@ -64,152 +64,104 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
 1. Aprire IntelliJ e creare un nuovo progetto Java usando il modello **Command Line App**. Completare la procedura guidata per creare il progetto.
 
-2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**. Scegliere **Maven** e fare clic su **OK**.
+2. Aprire **File** -> **Project Structure** (Struttura progetto) -> **Modules** (Moduli) in Project Settings (Impostazioni progetto) -> **Dependencies** (Dipendenze) -> **+** -> **Library** (Libreria) -> **From Maven** (Da Maven).
 
-3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **</version>** e il tag **</project>**:
+3. Cercare i pacchetti Maven seguenti e aggiungerli al progetto:
 
-    >[AZURE.NOTE] Questo passaggio è temporaneo e non sarà più necessario quando Azure Data Lake Store SDK sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
+    * com.microsoft.azure:azure-mgmt-datalake-store:1.0.0-beta1.2
+    * com.microsoft.azure:azure-mgmt-datalake-store-uploader:1.0.0-beta1.2
+    * com.microsoft.azure:azure-client-authentication:1.0.0-beta2
 
-        <repositories>
-        	<repository>
-	            <id>adx-snapshots</id>
-	            <name>Azure ADX Snapshots</name>
-	            <url>http://adxsnapshots.azurewebsites.net/</url>
-	            <layout>default</layout>
-	            <snapshots>
-                	<enabled>true</enabled>
-            	</snapshots>
-        	</repository>
-        	<repository>
-	            <id>oss-snapshots</id>
-	            <name>Open Source Snapshots</name>
-	            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-	            <layout>default</layout>
-	            <snapshots>
-	                <enabled>true</enabled>
-	                <updatePolicy>always</updatePolicy>
-	            </snapshots>
-        	</repository>
-    	</repositories>
-    	<dependencies>
-	        <dependency>
-	            <groupId>com.microsoft.azure</groupId>
-	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-20160513.000802-24</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>com.microsoft.azure</groupId>
-	            <artifactId>azure-client-runtime</artifactId>
-	            <version>1.0.0-20160513.000812-28</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>com.microsoft.rest</groupId>
-	            <artifactId>client-runtime</artifactId>
-	            <version>1.0.0-20160513.000825-29</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>com.microsoft.azure</groupId>
-	            <artifactId>azure-mgmt-datalake-store</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
-	        </dependency>
-    	</dependencies>
-
-
-4. Passare a **File**, quindi a **Settings** e infine a **Build, Execution, and Deployment**. Espandere **Build Tools**, **Maven**, quindi espandere **Importing**. Selezionare la casella di controllo **Import Maven projects automatically**. Fare clic su **Apply** e quindi su **OK**.
-
-5. Dal riquadro sinistro passare a **src**, **main**, **java**, **<nome pacchetto>**, quindi aprire il file **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
+4. Dal riquadro sinistro passare a **src**, **main**, **java**, **<nome pacchetto>**, quindi aprire il file **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **DATA-LAKE-STORE-NAME**, **RESOURCE-GROUP-NAME** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID** con informazioni sulla sottoscrizione e la relativa istanza di Azure Active Directory. Per sapere come trovare queste informazioni, vedere la [guida di Azure alla creazione di entità servizio](../resource-group-authenticate-service-principal.md).
 
     Il codice crea un account di Archivio Data Lake, crea cartelle nell'archivio, concatena i file, scarica un file e infine elimina l'account.
 
         package com.company;
-        
+
         import com.microsoft.azure.CloudException;
         import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-        import com.microsoft.azure.management.datalake.store.*;
+        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreAccountManagementClientImpl;
+        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreFileSystemManagementClientImpl;
         import com.microsoft.azure.management.datalake.store.models.*;
+        import com.microsoft.azure.management.datalake.store.uploader.*;
         import com.microsoft.rest.credentials.ServiceClientCredentials;
         import java.io.*;
         import java.nio.charset.Charset;
         import java.util.ArrayList;
         import java.util.List;
-        
+
         public class Main {
-            private static String _adlsAccountName;
-            private static String _resourceGroupName;
-            private static String _location;
-        
-            private static String _tenantId;
-            private static String _subId;
-            private static String _clientId;
-            private static String _clientSecret;
-        
-            private static DataLakeStoreAccountManagementClient _adlsClient;
-            private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-        
+            final static String ADLS_ACCOUNT_NAME = <DATA-LAKE-STORE-NAME>;
+            final static String RESOURCE_GROUP_NAME = "<RESOURCE-GROUP-NAME>";
+            final static String LOCATION = "East US 2";
+            final static String TENANT_ID = "<TENANT-ID>";
+            final static String SUBSCRIPTION_ID =  "<SUBSCRIPTION-ID>";
+            final static String CLIENT_ID = "<CLIENT-ID>";
+            final static String CLIENT_SECRET = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
+
+            private static DataLakeStoreAccountManagementClientImpl _adlsClient;
+            private static DataLakeStoreFileSystemManagementClientImpl _adlsFileSystemClient;
+
             public static void main(String[] args) throws Exception {
-                _adlsAccountName = "<DATA-LAKE-STORE-NAME>";
-                _resourceGroupName = "<RESOURCE-GROUP-NAME>";
-                _location = "East US 2";
-        
-                _tenantId = "<TENANT-ID>";
-                _subId =  "<SUBSCRIPTION-ID>";
-                _clientId = "<CLIENT-ID>";
-        
-                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
-        
                 String localFolderPath = "C:\\local_path\"; // TODO: Change this to any unused, new, empty folder on your local machine.
-        
+
                 // Authenticate
-                ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
+                ApplicationTokenCredentials creds = new ApplicationTokenCredentials(CLIENT_ID, TENANT_ID, CLIENT_SECRET, null);
                 SetupClients(creds);
-        
+
                 // Create Data Lake Store account
                 WaitForNewline("Authenticated.", "Creating NEW account.");
                 CreateAccount();
                 WaitForNewline("Account created.", "Displaying account(s).");
-        
+
                 // List Data Lake Store accounts that this app can access
-                System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", _subId));
-                List<DataLakeStoreAccount> adlsListResult = _adlsClient.getAccountOperations().list().getBody();
+                System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", SUBSCRIPTION_ID));
+                List<DataLakeStoreAccount> adlsListResult = _adlsClient.accounts().list().getBody();
                 for (DataLakeStoreAccount acct : adlsListResult) {
-                    System.out.println(acct.getName());
+                    System.out.println(acct.name());
                 }
-                WaitForNewline("Account(s) displayed.", "Creating files.");
-        
-                // Create two files in Data Lake Store: file1.csv and file2.csv
-                CreateFile("/file1.csv", "123,abc", true);
+                WaitForNewline("Account(s) displayed.", "Uploading file.");
+
+                // Upload a file to Data Lake Store: file1.csv
+                UploadFile(localFolderPath + "file1.csv", "/file1.csv");
+                WaitForNewline("File uploaded.", "Appending newline.");
+
+                // Append newline to file1.csv
+                AppendToFile("/file1.csv", "\r\n");
+                WaitForNewline("Newline appended.", "Creating file.");
+
+                // Create a new file in Data Lake Store: file2.csv
                 CreateFile("/file2.csv", "456,def", true);
-                WaitForNewline("Files created.", "Concatenating files.");
-        
+                WaitForNewline("File created.", "Concatenating files.");
+
                 // Concatenate two files in Data Lake Store
                 List<String> srcFilePaths = new ArrayList<String>();
                 srcFilePaths.add("/file1.csv");
                 srcFilePaths.add("/file2.csv");
                 ConcatenateFiles(srcFilePaths, "/input.csv");
                 WaitForNewline("Files concatenated.", "Downloading file.");
-        
+
                 // Download file from Data Lake Store
                 DownloadFile("/input.csv", localFolderPath + "input.csv");
                 WaitForNewline("File downloaded.", "Deleting file.");
-        
+
                 // Delete file from Data Lake Store
                 DeleteFile("/input.csv");
                 WaitForNewline("File deleted.", "Deleting account.");
-        
+
                 // Delete account
                 DeleteAccount();
                 WaitForNewline("Account deleted.", "DONE.");
             }
-        
+
             //Set up clients
             public static void SetupClients(ServiceClientCredentials creds)
             {
                 _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
                 _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClientImpl(creds);
-        
-                _adlsClient.setSubscriptionId(_subId);
+                _adlsClient.withSubscriptionId(SUBSCRIPTION_ID);
             }
-        
+
             // Helper function to show status and wait for user input
             public static void WaitForNewline(String reason, String nextAction)
             {
@@ -229,64 +181,72 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
                     catch(Exception e){}
                 }
             }
-        
+
             // Create Data Lake Store account
             public static void CreateAccount() throws InterruptedException, CloudException, IOException {
                 DataLakeStoreAccount adlsParameters = new DataLakeStoreAccount();
-                adlsParameters.setLocation(_location);
-        
-                _adlsClient.getAccountOperations().create(_resourceGroupName, _adlsAccountName, adlsParameters);
+                adlsParameters.withLocation(LOCATION);
+
+                _adlsClient.accounts().create(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME, adlsParameters);
             }
-        
+
             // Create file
-            public static void CreateFile(String path) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path);
+            public static void CreateFile(String path) throws IOException, AdlsErrorException {
+                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path);
             }
-        
+
             // Create file with contents
-            public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
+            public static void CreateFile(String path, String contents, boolean force) throws IOException, AdlsErrorException {
                 byte[] bytesContents = contents.getBytes();
-        
-                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path, bytesContents, force);
+
+                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path, bytesContents, force);
             }
-        
+
             // Append to file
-            public static void AppendToFile(String path, String contents) throws IOException, CloudException {
+            public static void AppendToFile(String path, String contents) throws IOException, AdlsErrorException {
                 byte[] bytesContents = contents.getBytes();
-        
-                _adlsFileSystemClient.getFileSystemOperations().append(_adlsAccountName, path, bytesContents);
+
+                _adlsFileSystemClient.fileSystems().append(ADLS_ACCOUNT_NAME, path, bytesContents);
             }
-        
+
             // Concatenate files
-            public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().concat(_adlsAccountName, destFilePath, srcFilePaths);
+            public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, AdlsErrorException {
+                _adlsFileSystemClient.fileSystems().concat(ADLS_ACCOUNT_NAME, destFilePath, srcFilePaths);
             }
-        
+
             // Delete concatenated file
-            public static void DeleteFile(String filePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().delete(_adlsAccountName, filePath);
+            public static void DeleteFile(String filePath) throws IOException, AdlsErrorException {
+                _adlsFileSystemClient.fileSystems().delete(ADLS_ACCOUNT_NAME, filePath);
             }
-        
+
             // Get file or directory info
-            public static FileStatusProperties GetItemInfo(String path) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(_adlsAccountName, path).getBody().getFileStatus();
+            public static FileStatusProperties GetItemInfo(String path) throws IOException, AdlsErrorException {
+                return _adlsFileSystemClient.fileSystems().getFileStatus(ADLS_ACCOUNT_NAME, path).getBody().fileStatus();
             }
-        
+
             // List files and directories
-            public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(_adlsAccountName, directoryPath).getBody().getFileStatuses().getFileStatus();
+            public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, AdlsErrorException {
+                return _adlsFileSystemClient.fileSystems().listFileStatus(ADLS_ACCOUNT_NAME, directoryPath).getBody().fileStatuses().fileStatus();
             }
-        
+
+            // Upload file
+            public static void UploadFile(String srcPath, String destPath) throws Exception {
+                UploadParameters parameters = new UploadParameters(srcPath, destPath, ADLS_ACCOUNT_NAME);
+                FrontEndAdapter frontend = new DataLakeStoreFrontEndAdapterImpl(ADLS_ACCOUNT_NAME, _adlsFileSystemClient);
+                DataLakeStoreUploader uploader = new DataLakeStoreUploader(parameters, frontend);
+                uploader.execute();
+            }
+
             // Download file
-            public static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException {
-                InputStream stream = _adlsFileSystemClient.getFileSystemOperations().open(_adlsAccountName, srcPath).getBody();
-        
+            public static void DownloadFile(String srcPath, String destPath) throws IOException, AdlsErrorException {
+                InputStream stream = _adlsFileSystemClient.fileSystems().open(ADLS_ACCOUNT_NAME, srcPath).getBody();
+
                 PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
-        
+
                 String fileContents = "";
                 if (stream != null) {
                     Writer writer = new StringWriter();
-        
+
                     char[] buffer = new char[1024];
                     try {
                         Reader reader = new BufferedReader(
@@ -300,14 +260,14 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
                     }
                     fileContents =  writer.toString();
                 }
-        
+
                 pWriter.println(fileContents);
                 pWriter.close();
             }
-        
+
             // Delete account
             public static void DeleteAccount() throws InterruptedException, CloudException, IOException {
-                _adlsClient.getAccountOperations().delete(_resourceGroupName, _adlsAccountName);
+                _adlsClient.accounts().delete(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME);
             }
         }
 
@@ -320,4 +280,4 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

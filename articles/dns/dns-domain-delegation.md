@@ -47,6 +47,10 @@ Esistono due tipi di server DNS:
 - Un server DNS _autorevole_ ospita le zone DNS e risponde alle query DNS solo per i record presenti in tali zone.
 - Un server DNS _ricorsivo_ non ospita zone DNS, ma risponde a tutte le query DNS, chiamando i server DNS autorevoli per raccogliere tutti i dati necessari.
 
+>[AZURE.NOTE] Il servizio DNS di Azure fornisce un servizio DNS autorevole. Non fornisce un servizio DNS ricorsivo.
+
+> I servizi cloud e le macchine virtuali in Azure vengono configurati automaticamente per l'uso di un servizio DNS ricorsivo fornito separatamente come parte dell'infrastruttura di Azure. Per informazioni su come modificare queste impostazioni DNS, vedere [Risoluzione dei nomi usando il server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 I client DNS nei computer o dispositivi mobili in genere chiamano un server DNS ricorsivo per eseguire tutte le query DNS necessarie per le applicazioni client.
 
 Quando un server DNS ricorsivo riceve una query per un record DNS, ad esempio "www.contoso.com", deve prima trovare il server dei nomi che ospita la zona per il dominio "contoso.com". A tale scopo, inizia dal server dei nomi radice e da lì rileva il server dei nomi che ospita la zona "com". Quindi, esegue la query sui server dei nomi "com" per trovare i server dei nomi che ospitano la zona "contoso.com". Sarà infine possibile eseguire la query su questi server dei nomi per "www.contoso.com".
@@ -56,7 +60,7 @@ Questa procedura è definita risoluzione del nome DNS. In modo più specifico, l
 In che modo una zona padre "punta" ai server dei nomi per una zona figlio? Usando un tipo speciale di record DNS, denominato record NS (Name Server, server dei nomi). Ad esempio, la zona radice contiene record NS per "com" e mostra i server dei nomi per la zona "com". A sua volta, la zona "com" contiene record NS per "contoso.com" che mostra i server dei nomi per la zona "'contoso.com". La configurazione di record NS per una zona figlio in una zona padre è definita delega del dominio.
 
 
-![Dns-nameserver](./media/dns-domain-delegation/image1.png)
+![Dns-nameserver](./media/dns-domain-delegation/image1.png)  
 
 Ogni delega include effettivamente due copie dei record NS, una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio. la zona "contoso.com" contiene i record NS per "contoso.com" (oltre ai record NS contenuti in "com"). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
 
@@ -75,7 +79,7 @@ Prima di poter delegare la zona DNS a DNS Azure è necessario conoscere i nomi d
 
 Il modo più semplice per visualizzare i server dei nomi assegnati alla zona è con il portale di Azure. In questo esempio, alla zona "contoso.net" sono stati assegnati i server dei nomi 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info'.
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)  
 
 DNS Azure crea automaticamente i record NS autorevoli nella zona con i server dei nomi assegnati. Per visualizzare i nomi dei server dei nomi con Azure PowerShell o l'interfaccia della riga di comando di Azure è sufficiente recuperare questi record.
 
@@ -201,4 +205,4 @@ Creare il set di record NS corrispondente nella zona padre per completare la del
 
 [Gestire i record DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

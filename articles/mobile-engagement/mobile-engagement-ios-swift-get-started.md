@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Swift
 
 [AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'utilizzo dell'app e inviare notifiche push a utenti segmentati di un'applicazione per iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS).
+Questo argomento descrive come usare Azure Mobile Engagement per comprendere l'utilizzo delle app e inviare notifiche push a utenti segmentati di un'applicazione iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS).
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -192,10 +192,10 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
@@ -203,4 +203,4 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

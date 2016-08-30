@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/15/2016"
-	ms.author="awills"/>
+	ms.author="awills"/> 
 
 # Application Insights per pagine Web
 
@@ -57,7 +57,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 ![Nel pannello di panoramica delle app, scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web. Copiare lo script.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Inserire lo script poco prima del tag `<head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. ad esempio:
+Inserire lo script poco prima del tag `</head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. ad esempio:
 
 * In un progetto ASP.NET MVC inserire lo script in `View\Shared\_Layout.cshtml`
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
@@ -138,13 +138,13 @@ Il caricamento lento delle pagine è tra le principali cause di insoddisfazione 
 
 Il grafico mostra la media di tutti i caricamenti di pagina nell'app. Per verificare se il problema è limitato a determinate pagine, vedere la griglia segmentata in base agli URL delle pagine più in basso nel pannello:
 
-![](./media/app-insights-javascript/09-page-perf.png)
+![](./media/app-insights-javascript/09-page-perf.png) 
 
 Si noti il conteggio delle visualizzazioni pagina e la deviazione standard. Se il conteggio delle pagine è molto basso, il problema non influisce molto sugli utenti. Una deviazione standard elevata, paragonabile alla media stessa, indica grandi differenze tra le singole misure.
 
 **Ingrandire un URL e una visualizzazione pagina.** Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
 
-![](./media/app-insights-javascript/35.png)
+![](./media/app-insights-javascript/35.png) 
 
 Fare clic su `...` per un elenco completo delle proprietà dell'evento oppure controllare le chiamate AJAX e gli eventi correlati. La lentezza delle chiamate AJAX influisce sul tempo di caricamento totale delle pagine se le chiamate sono sincrone. Gli eventi correlati includono le richieste server per lo stesso URL, se Application Insights è stato configurato nel server Web.
 
@@ -166,11 +166,11 @@ Le chiamate AJAX eseguite dalla pagina Web vengono visualizzate nel pannello Bro
 
 Sono disponibili grafici di riepilogo nella parte superiore del pannello:
 
-![](./media/app-insights-javascript/31.png)
+![](./media/app-insights-javascript/31.png) 
 
 e griglie dettagliate più in basso:
 
-![](./media/app-insights-javascript/33.png)
+![](./media/app-insights-javascript/33.png) 
 
 Fare clic su una riga per visualizzare i dettagli specifici.
 
@@ -179,7 +179,7 @@ Fare clic su una riga per visualizzare i dettagli specifici.
 
 **Per esaminare le chiamate AJAX non riuscite**, scorrere verso il basso fino alla griglia degli errori di dipendenza e quindi fare clic su una riga per visualizzare le istanze specifiche.
 
-![](./media/app-insights-javascript/37.png)
+![](./media/app-insights-javascript/37.png) 
 
 Fare clic su `...` per visualizzare i dati di telemetria completi per una chiamata AJAX.
 
@@ -201,7 +201,7 @@ In genere la telemetria delle visualizzazioni di pagina viene analizzata da Appl
 
 Nella falda di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
-![](./media/app-insights-javascript/12-search-pages.png)
+![](./media/app-insights-javascript/12-search-pages.png) 
 
 Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
@@ -249,4 +249,4 @@ Per sapere in che modo gli utenti usano l'app,
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

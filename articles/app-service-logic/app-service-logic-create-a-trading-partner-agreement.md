@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+   ms.date="08/23/2016"
+   ms.author="rajram"/>  
 
 # Creazione di un accordo tra partner commerciali   
 
@@ -73,10 +73,10 @@ Per creare accordi tra partner commerciali:
 
 ![][3]
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.png
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.png
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

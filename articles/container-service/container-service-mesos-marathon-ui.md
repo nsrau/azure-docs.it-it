@@ -73,9 +73,9 @@ Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato
 
 ![Interfaccia utente della pagina principale di Marathon--stato di distribuzione contenitore](media/dcos/dcos7.png)
 
-Quando si passa di nuovo all'interfaccia utente DC/OS (http://localhost/)) si noterà che nel cluster DC/OS è in esecuzione un'attività, in questo caso un contenitore in formato Docker.
+Quando si passa di nuovo all'interfaccia utente Web di DC/OS (http://localhost/) si noterà che nel cluster DC/OS è in esecuzione un'attività, in questo caso un contenitore in formato Docker.
 
-![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)
+![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)  
 
 Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
 
@@ -97,4 +97,8 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 - [Usare DC/OS e l'API Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Approfondimento sul servizio contenitore di Azure con Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

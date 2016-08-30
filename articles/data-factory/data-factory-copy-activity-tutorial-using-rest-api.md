@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST" 
+	pageTitle="Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST | Microsoft Azure" 
 	description="In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando l'API REST." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/17/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/> 
 
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST
 > [AZURE.SELECTOR]
@@ -23,6 +23,7 @@
 - [Tramite PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Con Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Uso dell'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Uso dell'API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 Questa esercitazione mostra come creare e monitorare una data factory di Azure con l'API REST. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
@@ -142,7 +143,7 @@ La definizione JSON precedente definisce un set di dati denominato **AzureBlobIn
 - **folderPath** è impostato sul contenitore **adftutorial** e **fileName** è impostato su **emp.txt**.
 - L'oggetto **type** di format è impostato su **TextFormat**.
 - Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).
-- L'oggetto **availability** è impostato su **hourly** (frequency è impostato su hour e interval è impostato su 1), in modo che il servizio Data Factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (**adftutorial**) specificato.
+- L'oggetto **availability** è impostato su **hourly**, frequency è impostato su hour e interval è impostato su 1. Quindi, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB **adftutorial** specificato.
 
 Se non si specifica un oggetto **fileName** per un set di dati di input, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName in JSON, solo il file/BLOB specificato viene considerato un input.
 
@@ -196,7 +197,7 @@ Tenere presente quanto segue:
 - il set di dati **type** è impostato su **AzureSqlTable**.
 - L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService**.
 - L'oggetto **tablename** è impostato su **emp**.
-- Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
+- La tabella emp del database include tre colonne: **ID**, **FirstName** e **LastName**. ID è una colonna Identity, quindi in questo caso è necessario specificare solo **FirstName** e **LastName**.
 - L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data Factory genera una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 ### pipeline.json
@@ -238,8 +239,8 @@ Tenere presente quanto segue:
 	        }
 	      }
 	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
+	    "start": "2016-08-12T00:00:00Z",
+	    "end": "2016-08-13T00:00:00Z"
 	  }
 	}
 
@@ -256,7 +257,7 @@ Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikip
 
 Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
 
-Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
+Nell'esempio sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
 	
 > [AZURE.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
 
@@ -285,7 +286,7 @@ Eseguire il comando seguente per l'autenticazione con Azure Active Directory (AA
 
 ## Creare un'istanza di Data Factory
 
-In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCopyTutorialDF**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. Eseguire i comandi seguenti per creare la data factory:
+In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCopyTutorialDF**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un'origine a un archivio dati di destinazione. Un'attività Hive di HDInsight per eseguire script Hive per trasformare i dati di input e produrre dati di output. Eseguire i comandi seguenti per creare la data factory:
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
@@ -320,7 +321,7 @@ Tenere presente quanto segue:
 			Get-AzureRmResourceProvider
 	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
 
-Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare gli archivi dati di origine e di destinazione all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati e quindi creare la pipeline con un'attività che usa questi set di dati.
+Prima di creare una pipeline è necessario creare alcune entità di Data factory. Prima di tutto, creare i servizi collegati per collegare gli archivi dati di origine e di destinazione al proprio archivio dati. Quindi, definire i set di dati di input e di output per rappresentare i dati in archivi dati collegati. Infine, creare la pipeline con un'attività che usa questi set di dati.
 
 ## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere una risorsa di archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale che include dati di input o archivia dati di output per una pipeline di Data Factory. Un servizio di calcolo è un servizio che elabora dati di input e produce dati di output.
@@ -357,7 +358,7 @@ In questo passaggio il database SQL di Azure viene collegato alla data factory. 
 
 Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFCopyTutorialDF**. In questo passaggio vengono creati set di dati che rappresentano i dati di input e di output per l'attività di copia nella pipeline che viene creata nel passaggio successivo.
 
-Il set di dati di input di questa esercitazione fa riferimento a un contenitore BLOB in Archiviazione di Azure a cui fa riferimento AzureStorageLinkedService e il set di dati di output fa riferimento a una tabella SQL nel database SQL di Azure a cui fa riferimento AzureSqlLinkedService.
+Il set di dati di input in questa esercitazione fa riferimento a un contenitore BLOB in Archiviazione di Azure a cui punta AzureStorageLinkedService. Il set di dati di output fa riferimento a una tabella SQL nel database SQL di Azure a cui punta AzureSqlLinkedService.
 
 ### Preparare l'archiviazione BLOB di Azure e il database SQL Azure per l'esercitazione
 Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il database SQL di Azure per questa esercitazione.
@@ -374,7 +375,7 @@ Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il databas
 				
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)  
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -390,7 +391,7 @@ Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il databas
 
 	Se nel computer è installato SQL Server 2014, seguire le istruzioni disponibili nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL.
 
-	Se nel computer è installato Visual Studio 2013, nel portale di Azure ([http://portal.azure.com](http://portal.sazure.com)) fare clic sull'hub **ESPLORA** a sinistra e quindi su **SQL Server**, selezionare il database e fare clic su **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server di Azure SQL ed eseguire lo script. Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
+	Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server Azure SQL, vedere [questo articolo](../sql-database/sql-database-configure-firewall-settings.md).
 		
 ### Creare set di dati di input 
 In questo passaggio viene creato un set di dati denominato **AzureBlobInput** che fa riferimento a un contenitore BLOB in Archiviazione di Azure rappresentato dal servizio collegato **AzureStorageLinkedService**. Questo contenitore BLOB (**adftutorial**) contiene i dati di input nel file: **emp.txt**.
@@ -406,7 +407,7 @@ In questo passaggio viene creato un set di dati denominato **AzureBlobInput** ch
 		$results
 
 ### Creare il set di dati di output
-In questa parte del passaggio viene creata una tabella di output denominata **AzureSqlOutput** che fa riferimento a una tabella SQL (**emp**) nel database SQL di Azure rappresentato dal servizio collegato **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
+In questo passaggio si crea una tabella di output denominata **AzureSqlOutput**. Questo set di dati punta a una tabella SQL (**emp**) nel database SQL di Azure rappresentato da **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
 
 1. Assegnare il comando alla variabile denominata **cmd**.
  
@@ -465,7 +466,7 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 4.	Creare una **pipeline** con un'attività di copia con BlobSource come origine e SqlSink come sink.
 
 ## Vedere anche
-| Argomento | Descrizione |
+| Argomento | Description |
 | :---- | :---- |
 | [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
@@ -492,4 +493,4 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

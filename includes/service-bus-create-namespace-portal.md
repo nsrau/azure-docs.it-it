@@ -1,52 +1,42 @@
-1. Accedere al portale di Azure classico.
+1. Accedere al [portale di Azure][].
 
-2. Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
+2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
 
-3. Nel riquadro inferiore del portale fare clic su **Crea**.
+4. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 
-    ![Selezionare Crea][select-create]
-   
-4. Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+5. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Basic, Standard o Premium.
 
-    ![Nome spazio dei nomi][namespace-name]
-  
-5. Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato.
+7. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 
-6. Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta OK. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+9. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.
+
+8. In **Località** scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
+
+	![Creare lo spazio dei nomi][create-namespace]  
+
+6. Selezionare il pulsante **Create**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
  
-    ![Creazione completata][created-successfully]
+### Ottenere le credenziali di gestione
 
-###Ottenere le credenziali
-1. Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus** per visualizzare l'elenco degli spazi dei nomi disponibili:
+1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
  
-    ![Selezionare il bus di servizio][select-service-bus]
-  
-2. Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:
- 
-    ![Selezionare lo spazio dei nomi][select-namespace]
- 
-3. Fare clic su **Connection Information**.
+3. Nel pannello **Spazio dei nomi del bus di servizio** fare clic su **Criteri di accesso condivisi**.
 
-    ![Informazioni di connessione][connection-information]
-  
-4. Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.
+4. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
 
-    ![Accedi a informazioni di connessione][access-connection-information]
-  
-5. Prendere nota del valore della chiave oppure copiarlo negli Appunti.
+	![connection-info][connection-info]  
+
+5. Nel pannello **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento.
+
+	![connection-string][connection-string]  
 
 <!--Image references-->
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
-
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

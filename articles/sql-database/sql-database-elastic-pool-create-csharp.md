@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
-    ms.author="sstein"/>
+    ms.date="08/18/2016"
+    ms.author="sstein"/>  
 
 # Creare un nuovo pool di database elastici con C&#x23;
 
@@ -28,11 +28,11 @@ Informazioni su come creare un [pool di database elastici](sql-database-elastic-
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-Gli esempi seguenti usano la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), quindi, se non è ancora installata, è necessario installarla per proseguire. È possibile installare la libreria con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
+Gli esempi usano la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), quindi, se non è ancora installata, è necessario installarla per proseguire. È possibile installare la libreria con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Creare un nuovo pool
+## Creare un pool
 
 Creare un'istanza di [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) con i valori di [Azure Active Directory](sql-database-client-id-keys.md). Creare un'istanza di [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) e chiamare il metodo [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). I valori per eDTU per pool, DTU min e max sono vincolati dal valore del livello di servizio (Basic, Standard o Premium). Vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -52,7 +52,7 @@ Creare un'istanza di [SqlManagementClient](https://msdn.microsoft.com/library/mi
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Creare un nuovo database in un pool
+## Creare un database in un pool
 
 Creare un'istanza di [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) e impostare le proprietà del nuovo database. Chiamare quindi il metodo CreateOrUpdate con il gruppo di risorse, il nome del server e un nuovo nome del database.
 
@@ -76,20 +76,20 @@ Per spostare un database esistente in un pool, vedere [Spostare un database in u
 
 ## Esempio: Creare un pool con C#
 
-Questo esempio crea un nuovo gruppo di risorse di Azure, una nuova istanza del server di Azure SQL e un nuovo pool elastico.
+Questo esempio crea un gruppo di risorse di Azure, un server di Azure SQL e un pool elastico.
  
 
 Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere la sezione di illustra come [registrare l'app e ottenere i valori client necessari per la connessione dell'app al database SQL](sql-database-client-id-keys.md). Usare il cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) per recuperare il valore per l'ID sottoscrizione.
+Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere l'articolo [Ottenere l'ID client e la chiave per la connessione al database SQL dal codice](sql-database-client-id-keys.md) per creare un'app nativa.
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -249,4 +249,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

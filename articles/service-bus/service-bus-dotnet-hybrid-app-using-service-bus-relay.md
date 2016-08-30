@@ -25,7 +25,7 @@ Questo articolo descrive come compilare un'applicazione cloud ibrida con Microso
 Si acquisiranno le nozioni seguenti:
 
 -   Creare o adattare un servizio Web esistente utilizzabile in una soluzione Web.
--   Usare Inoltro del bus di servizio per condividere dati tra un'applicazione Azure e un servizio Web ospitato altrove.
+-   Utilizzare Inoltro del bus di servizio per condividere dati tra un'applicazione Azure e un servizio Web ospitato altrove.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -41,7 +41,7 @@ Il servizio Inoltro del bus di servizio è progettato per i casi d'uso in cui se
 
 In questa esercitazione si creerà un sito Web ASP.NET che consente di visualizzare un elenco di prodotti nella pagina relativa all'inventario dei prodotti.
 
-![][0]
+![][0]  
 
 Ai fini dell'esercitazione si presuppone che le informazioni sui prodotti siano già disponibili in un sistema locale esistente e che per accedere a tale sistema venga usato Inoltro del bus di servizio. Tale operazione viene simulata da un servizio Web eseguito in una semplice applicazione console ed è supportata da un insieme di prodotti in memoria. Sarà quindi possibile eseguire questa applicazione console nel computer in uso e distribuire il ruolo Web in Azure. In tal modo sarà possibile osservare che il ruolo Web in esecuzione nel data center di Azure verrà effettivamente chiamato nel computer in uso, anche se quest'ultimo sarà quasi certamente protetto da almeno un firewall e un livello NAT (Network Address Translation).
 
@@ -67,43 +67,7 @@ Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli st
 
 Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-1.  Accedere al [portale di Azure classico][].
-
-2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
-
-3.  Nel riquadro inferiore del portale fare clic su **Crea**.
-
-    ![][5]
-
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][6]
-
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
-
-    > [AZURE.IMPORTANT] selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
-
-6.	Lasciare invariati i valori predefiniti negli altri campi della finestra di dialogo e quindi fare clic sul segno di spunta per confermare. Il sistema crea lo spazio dei nomi e lo abilita. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-Lo spazio dei nomi creato verrà quindi visualizzato nel portale, anche se l'attivazione potrebbe richiedere qualche istante. Prima di continuare, attendere che lo stato sia **Active**.
-
-## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
-
-Per eseguire operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare entità di messaggistica, è necessario ottenere le credenziali per lo spazio dei nomi.
-
-1.  Nella finestra principale fare clic sullo spazio dei nomi creato nel passaggio precedente.
-
-2.  Nella parte inferiore della pagina, fare clic su **Informazioni di connessione**.
-
-3.  Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.
-
-	![][45]
-
-4.  Copiare la stringa di connessione e incollarla in una posizione da cui recuperarla per usarla più avanti in questa esercitazione.
-
-5. Nella stessa pagina del portale fare clic sulla scheda **Configura** nella parte superiore della pagina.
-
-6. Copiare la chiave primaria per i criteri **RootManageSharedAccessKey** negli Appunti oppure incollarla nel Blocco note. Questo valore verrà usato più avanti nell'esercitazione.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Creare un server locale
 
@@ -119,7 +83,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
 
 3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione console**. Nella casella **Nome** digitare il nome **ProductsServer**:
 
-    ![][11]
+    ![][11]  
 
 4.  Fare clic su **OK** per creare il progetto **ProductsServer**.
 
@@ -129,7 +93,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
 
 8.  Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![][13]
+    ![][13]  
 
     I riferimenti agli assembly client necessari sono ora disponibili.
 
@@ -229,7 +193,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
 	}
 	```
 
-13. In Esplora soluzioni fare doppio clic sul file **App.config** per aprirlo nell'editor di Visual Studio. Nella parte inferiore dell'elemento **&lt;system.ServiceModel&gt;**, ma sempre all'interno di &lt;system.ServiceModel&gt;, aggiungere il codice XML seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi locale e *yourKey* con la chiave di firma di accesso condiviso recuperata in precedenza dal portale:
+13. In Esplora soluzioni fare doppio clic sul file **App.config** per aprirlo nell'editor di Visual Studio. Nella parte inferiore dell'elemento **&lt;system.ServiceModel&gt;**, ma sempre all'interno di &lt;system.ServiceModel&gt;, aggiungere il codice XML seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome del proprio spazio dei nomi e *yourKey* con la chiave di firma di accesso condiviso recuperata in precedenza dal portale:
 
     ```
     <system.serviceModel>
@@ -252,7 +216,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
       </behaviors>
     </system.serviceModel>
     ```
-14. Nell'elemento **&lt;appSettings&gt;**, sempre nel file App.config, sostituire il valore della stringa di connessione con la stringa di connessione ottenuta in precedenza dal portale. 
+14. Nell'elemento **&lt;appSettings&gt;**, sempre nel file App.config, sostituire il valore della stringa di connessione con la stringa di connessione ottenuta in precedenza dal portale.
 
 	```
 	<appSettings>
@@ -276,7 +240,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione Web ASP.NET**. Assegnare al progetto il nome **ProductsPortal**. Fare quindi clic su **OK**.
 
-    ![][15]
+    ![][15]  
 
 4.  Nell'elenco **Seleziona modello** fare clic su **MVC**.
 
@@ -286,19 +250,19 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 5. Fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
 
-	![][18]
+	![][18]  
 
 6. 	Nella sezione **Microsoft Azure** della finestra di dialogo **Nuovo progetto ASP.NET** assicurarsi che sia selezionata la casella **Ospita nel cloud** e che nell'elenco a discesa sia selezionato **Servizio app**.
 
-	![][19]
+	![][19]  
 
 7. Fare clic su **OK**.
 
 8. A questo punto è necessario configurare le risorse di Azure per una nuova app Web. Seguire tutti i passaggi nella sezione [Configurare le risorse di Azure per una nuova app Web](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Tornare quindi a questa esercitazione e procedere al passaggio successivo.
 
-5.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi** e infine **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
+5.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli**, scegliere **Aggiungi** e infine fare clic su **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
 
-    ![][17]
+    ![][17]  
 
 ### Modificare l'applicazione web
 
@@ -347,7 +311,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 6. Rimuovere i collegamenti **Home**, **About** e **Contact**. Nell'esempio seguente, eliminare il codice evidenziato.
 
-	![][41]
+	![][41]  
 
 7.  In Esplora soluzioni espandere la cartella Views\\Home e quindi fare doppio clic su **Index.cshtml** per aprirlo nell'editor di Visual Studio. Sostituire l'intero contenuto del file con il codice seguente.
 
@@ -396,7 +360,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 2.  In Visual Studio premere F5.
 3.  L'applicazione dovrebbe risultare in esecuzione in un browser.
 
-    ![][21]
+    ![][21]  
 
 ## Combinare i diversi componenti
 
@@ -406,13 +370,13 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 2.  Analogamente a quanto descritto nella sezione "Creazione di un server locale", aggiungere il pacchetto NuGet al progetto Riferimenti. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProductsPortal** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-3.  Cercare "Bus di servizio" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Completare quindi l'installazione e chiudere la finestra di dialogo.
+3.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Completare quindi l'installazione e chiudere la finestra di dialogo.
 
 4.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProductsPortal**, quindi scegliere **Aggiungi** e infine **Elemento esistente**.
 
 5.  Individuare il file **ProductsContract.cs** nel progetto console **ProductsServer**. Fare clic per evidenziare ProductsContract.cs. Fare clic sulla freccia rivolta verso il basso accanto ad **Aggiungi**, quindi fare clic su **Aggiungi come collegamento**.
 
-	![][24]
+	![][24]  
 
 6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi servizio e *yourKey* con la chiave SAS. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
 
@@ -456,7 +420,7 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 	}
 	```
 
-7.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal**, scegliere **Aggiungi** e quindi **Progetto esistente**.
+7.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal**, scegliere **Aggiungi** e quindi fare clic su **Progetto esistente**.
 
 8.  Individuare il progetto **ProductsServer**, quindi fare doppio clic sulla soluzione **ProductsServer.csproj** per aggiungerla.
 
@@ -464,11 +428,11 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 10. Sul lato sinistro fare clic su **Progetto di avvio**. Sul lato destro fare clic su **Progetti di avvio multipli**. Assicurarsi che **ProductsServer** e **ProductsPortal** siano visualizzati in questo ordine e che l'azione **Avvia** sia impostata per entrambi.
 
-      ![][25]
+      ![][25]  
 
 11. Sempre nella finestra di dialogo **Proprietà** fare clic su **Dipendenze progetto** sul lato sinistro.
 
-12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che **ProductsPortal** **non** sia selezionato.
+12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che ** ProductsPortal** **non** sia selezionato.
 
 14. Nell'elenco **Progetti** fare clic su **ProductsPortal**. Assicurarsi che **ProductsServer** sia selezionato.
 
@@ -486,26 +450,26 @@ Fare clic su **Aggiorna** nella pagina **ProductsPortal**. Ogni volta che si agg
 
 ## Distribuire il progetto ProductsPortal in un'app Web di Azure
 
-Nel passaggio successivo si convertirà il front-end **ProductsPortal** in un'app Web di Azure. Per iniziare, distribuire il progetto **ProductsPortal** seguendo tutti i passaggi nella sezione [Distribuire il progetto Web nell'app Web di Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Una volta completata la distribuzione, tornare a questa esercitazione e procedere al passaggio successivo.
+Nel passaggio successivo si convertirà il front-end **ProductsPortal** in un'app Web di Azure. Distribuire prima il progetto **ProductsPortal** seguendo tutti i passaggi nella sezione [Distribuire il progetto Web nell'app Web di Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Una volta completata la distribuzione, tornare a questa esercitazione e procedere al passaggio successivo.
 
 Copiare l'URL dell'app Web distribuita, perché sarà necessario nel passaggio successivo. È anche possibile ottenere l'URL dalla finestra Attività del servizio app di Azure in Visual Studio:
 
-![][9]
+![][9]  
    
 
 > [AZURE.NOTE] È possibile che nella finestra del browser venga visualizzato un messaggio di errore quando il progetto Web **ProductsPortal** viene avviato automaticamente dopo la distribuzione. Si tratta di un comportamento previsto che si verifica perché l'applicazione **ProductsServer** non è ancora in esecuzione.
 
 ### Impostare ProductsPortal come app Web
 
-Prima di eseguire l'applicazione nel cloud, è necessario assicurarsi che **ProductsPortal** venga avviato dall'interno di Visual Studio come un'app Web.
+Prima di eseguire l'applicazione nel cloud è necessario assicurarsi che **ProductsPortal** venga avviato dall'interno di Visual Studio come app Web.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **ProjectsPortal** e quindi scegliere **Proprietà**.
 
 3. Nella colonna sinistra fare clic su **Web**.
 
-5. Nella sezione **Azione di avvio** fare clic sul pulsante **Avvia URL** e nella casella di testo immettere l'URL dell'app Web distribuita in precedenza, ad esempio, `http://productsportal1234567890.azurewebsites.net/`.
+5. Nella sezione **Azione di avvio** fare clic sul pulsante **Avvia URL** e nella casella di testo immettere l'URL dell'app Web distribuita in precedenza, ad esempio `http://productsportal1234567890.azurewebsites.net/`.
 
-	![][27]
+	![][27]  
 
 6. Nel menu **File** di Visual Studio fare clic su **Salva tutto**.
 
@@ -513,24 +477,24 @@ Prima di eseguire l'applicazione nel cloud, è necessario assicurarsi che **Prod
 
 ## Eseguire l'applicazione
 
-2.  Premere F5 per compilare ed eseguire l'applicazione. Il server locale, ovvero l'applicazione console **ProductsServer**, verrà avviato per primo, quindi verrà avviata l'applicazione **ProductsPortal** in una finestra del browser, come illustrato nella schermata seguente. Si noterà di nuovo che nell'inventario dei prodotti sono elencati i dati recuperati dal sistema locale del servizio dei prodotti, che vengono visualizzati nell'app Web. Verificare l'URL per assicurarsi che **ProductsPortal** sia in esecuzione nel cloud come un'app Web di Azure. 
+2.  Premere F5 per compilare ed eseguire l'applicazione. Il server locale, ovvero l'applicazione console **ProductsServer**, verrà avviato per primo, quindi verrà avviata l'applicazione **ProductsPortal** in una finestra del browser, come illustrato nella schermata seguente. Si noterà di nuovo che nell'inventario dei prodotti sono elencati i dati recuperati dal sistema locale del servizio dei prodotti, che vengono visualizzati nell'app Web. Verificare l'URL per assicurarsi che **ProductsPortal** sia in esecuzione nel cloud come app Web di Azure.
 
-    ![][1]
+    ![][1]  
 
-	> [AZURE.IMPORTANT] L'applicazione console **ProductsServer** deve essere in esecuzione e in grado di fornire i dati all'applicazione **ProductsPortal**. Se nel browser viene visualizzato un errore, attendere alcuni secondi che **ProductsServer** venga caricato e visualizzi il messaggio seguente. Premere quindi **Aggiorna** nel browser.
+	> [AZURE.IMPORTANT] L'applicazione console **ProductsServer** deve essere in esecuzione e in grado di passare dati all'applicazione **ProductsPortal**. Se nel browser viene visualizzato un errore, attendere alcuni secondi che **ProductsServer** venga caricato e visualizzi il messaggio seguente. Fare quindi clic su **Aggiorna** nel browser.
 
 	![][37]
 
 3. Nel browser fare clic su **Aggiorna** nella pagina **ProductsPortal**. Ogni volta che si aggiorna la pagina, nell'app server viene visualizzato un messaggio quando si chiama `GetProducts()` da **ProductsServer**.
 
-	![][38]
+	![][38]  
 
 ## Passaggi successivi  
 
-Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
+Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:
 
-* [Bus di servizio di Azure][sbwacom]  
-* [Come usare le code del bus di servizio][sbwacomqhowto]  
+* [Bus di servizio di Azure][sbwacom]
+* [Come usare le code del bus di servizio][sbwacomqhowto]
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -538,11 +502,6 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [Ottieni strumenti ed SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [portale di Azure classico]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -564,10 +523,9 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

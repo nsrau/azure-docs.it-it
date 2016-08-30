@@ -3,7 +3,7 @@
    description="In questo articolo vengono fornite istruzioni per creare, disattivare, attivare, eliminare e visualizzare la cronologia di un profilo di Gestione traffico di Azure"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />  
 
 # Gestire un profilo di Gestione traffico di Azure
 
@@ -32,7 +32,7 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 4. **Selezionare la sottoscrizione.** Selezionare la sottoscrizione di Azure appropriata. Ogni profilo è associato a una singola sottoscrizione. Se è disponibile solo una sottoscrizione, questa opzione non è visibile.
 5. **Selezionare il metodo di routing del traffico.** Selezionare il metodo di routing del traffico in **criteri di routing del traffico**. Per altre informazioni sui metodi di routing del traffico, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
 6. **Fare clic su "Crea" per creare il nuovo profilo.** Dopo il completamento della configurazione del profilo, è possibile trovare il proprio profilo nel riquadro Gestione traffico nel portale di Azure classico.
-7. **Configurare endpoint, monitoraggio e impostazioni aggiuntive nel portale di Azure classico.** Poiché con Creazione rapida è possibile configurare solo impostazioni di base, per completare la configurazione desiderata, è necessario configurare impostazioni aggiuntive, ad esempio l'elenco degli endpoint e l'ordine di failover dell'endpoint. 
+7. **Configurare endpoint, monitoraggio e impostazioni aggiuntive nel portale di Azure classico.** Poiché con Creazione rapida è possibile configurare solo impostazioni di base, per completare la configurazione desiderata, è necessario configurare impostazioni aggiuntive, ad esempio l'elenco degli endpoint e l'ordine di failover dell'endpoint.
 
 
 ## Disabilitare, abilitare o eliminare un profilo
@@ -85,4 +85,4 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

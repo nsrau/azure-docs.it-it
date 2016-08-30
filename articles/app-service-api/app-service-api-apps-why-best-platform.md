@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="rachelap"/>
 
 # Panoramica delle app per le API
@@ -63,4 +63,4 @@ Per iniziare a usare le app per le API distribuendo il codice di esempio in una 
 
 Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

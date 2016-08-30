@@ -4,7 +4,7 @@
 	services="sql-database"
 	keywords="query di database in c#, query in c#, connettersi al database, SQL C#"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -15,7 +15,8 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="annemill"/>
+	ms.author="stevestein"/>
+
 
 
 # Connettersi a un database SQL con Visual Studio
@@ -30,73 +31,57 @@ Informazioni su come connettersi a un database SQL di Azure in Visual Studio.
 ## Prerequisiti
 
 
-Per connettersi a un database SQL usando Visual Studio, sono necessari gli elementi seguenti:
+Per connettersi a un database SQL usando Visual Studio sono necessari gli elementi seguenti:
 
 
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- Un database **AdventureWorksLT** dimostrativo nel servizio database SQL di Azure.
- - È possibile [crearne uno](sql-database-get-started.md) in pochi minuti.
+- Un database SQL cui connettersi. Questo articolo usa il database di esempio **AdventureWorks**. Per ottenere il database di esempio AdventureWorks, vedere [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md).
 
 
 - Visual Studio 2013 Update 4 o versioni successive. Ora Microsoft fornisce Visual Studio Community *gratuitamente*.
  - [Download di Visual Studio Community](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Altre opzioni per la versione gratuita di Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento, che descrive come installare Visual Studio dal [portale di Azure](https://portal.azure.com/).
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-& nbsp;
-
-## Passaggio 1: Installare Visual Studio Community gratuitamente
 
 
-Per installare Visual Studio, è possibile:
-
-- Installare Visual Studio Community gratuitamente passando alle pagine Web dedicate a Visual Studio in cui sono disponibili download gratuiti o altre opzioni.
-- Accedere al [portale di Azure](https://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
+## Aprire Visual Studio dal portale di Azure
 
 
-### Visual Studio tramite il portale di Azure
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
+
+2. Fare clic su **More Services** (Altri servizi) > **Database SQL**
+3. Aprire il pannello del database **AdventureWorks** individuando il database *AdventureWorks* e facendo clic su di esso.
+
+6. Nella parte superiore del pannello del database fare clic su **Strumenti**:
+
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Fare clic su **Apri in Visual Studio**. Se è necessario Visual Studio, fare clic sul collegamento per il download:
+
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)  
 
 
-1. Accedere al [portale di Azure](https://portal.azure.com/), http://portal.azure.com/.
-
-2. Fare clic su *ESPLORA* TUTTO** > **Database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
-
-3. Nella casella di testo del filtro in alto digitare il nome del database **AdventureWorksLT**.
-
-4. Quando viene visualizzata la riga corrispondente al database nel server, fare clic su di essa. Verrà visualizzato un pannello per il database.
-
-5. Per praticità, ridurre a icona i pannelli precedenti facendo clic sul controllo corrispondente.
-
-6. Fare clic sul pulsante **Apri in Visual Studio** in alto nel pannello del database. Verrà visualizzato un nuovo pannello per Visual Studio con i collegamenti alle pagine da cui è possibile eseguire l'installazione di Visual Studio.
-
-	![Pulsante Apri in Visual Studio][20-OpenInVisualStudioButton]
-
-7. Fare clic sul collegamento **Community (Gratuito)** o simile. Verrà aggiunta una nuova pagina Web.
-
-8. Per installare Visual Studio, usare i collegamenti disponibili nella nuova pagina Web.
-
-9. Al termine dell'installazione di Visual Studio, nel pannello **Apri in Visual Studio** fare clic sul pulsante **Apri in Visual Studio**. Verrà aperto Visual Studio.
-
-10. Visual Studio richiederà la compilazione dei campi relativi alla stringa di connessione in una finestra di dialogo.
- - Scegliere **Autenticazione di SQL Server**, non **Autenticazione di Windows**.
- - Ricordare di specificare il database **AdventureWorksLT** in **Opzioni** > **Proprietà connessione** nella finestra di dialogo.
-
-11. In **Esplora oggetti di SQL Server** espandere il nodo del database.
+8. Visual Studio si apre con la finestra **Connetti al server** già impostata per la connessione al server e al database selezionati nel portale. Fare clic su **Opzioni** per verificare che la connessione sia impostata sul database corretto. Digitare la password amministratore server e fare clic su **Connetti**.
 
 
-## Passaggio 2: Eseguire query di esempio
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)  
 
-Dopo la connessione al server logico, è possibile connettersi a un database ed eseguire una query di esempio.
 
-1. In **Esplora oggetti** passare a un database nel server per cui si ha l'autorizzazione, come il database di esempio **AdventureWorks**.
+8. Se non è stata configurata una regola del firewall per l'indirizzo IP del computer, verrà visualizzato il messaggio *Impossibile connettersi*. Per creare una regola del firewall, vedere [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md).
+
+
+9. Dopo aver stabilito la connessione si aprirà la finestra **Esplora oggetti di SQL Server** con una connessione al database.
+
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)  
+
+
+## Eseguire una query di esempio
+
+Ora che è stata stabilita la connessione al database, i passaggi seguenti illustrano come eseguire una query semplice:
+
 2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova query**.
 
-	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png) 
 
 3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
 
@@ -108,17 +93,13 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Fare clic sul pulsante **Esegui**. Nella schermata seguente viene illustrata una query con esito positivo.
+4. Fare clic sul pulsante **Esegui** per eseguire la query:
 
-	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Completamento della procedura. Connettersi al server di database SQL: SVisual Studio](./media/sql-database-connect-query/run-query.png)  
 
 ## Passaggi successivi
 
-[Connettersi al database SQL tramite .NET (C#)](sql-database-develop-dotnet-simple.md)
+- L'apertura dei database SQL in Visual Studio richiede SQL Server Data Tools. Per altri dettagli, vedere [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- Per connettersi a un database SQL tramite codice, vedere [Connettersi al database SQL tramite .NET (C#)](sql-database-develop-dotnet-simple.md).
 
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

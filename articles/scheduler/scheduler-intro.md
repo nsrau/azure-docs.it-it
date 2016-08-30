@@ -12,14 +12,14 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
- ms.author="krisragh"/>
+ ms.date="08/18/2016"
+ ms.author="krisragh"/>  
 
 # Che cos'è l'Utilità di pianificazione di Azure?
 
 L'Utilità di pianificazione di Azure consente di descrivere in modo dichiarativo le azioni da eseguire nel cloud e quindi pianifica ed esegue tali azioni automaticamente. A tale scopo, l'Utilità di pianificazione di Azure utilizza il [portale di Azure](scheduler-get-started-portal.md), il codice, l'[API REST](https://msdn.microsoft.com/library/mt629143.aspx) o Azure PowerShell.
 
-L’Utilità di pianificazione crea, gestisce e richiama il lavoro programmato. L’Utilità di pianificazione non ospita carichi di lavoro, né esegue codice. _Richiama_ soltanto codice ospitato altrove, ad esempio in Azure, in locale o presso un altro provider. Viene richiamato tramite HTTP, HTTPS, una coda di archiviazione, una coda del bus di servizio o un argomento del bus di servizio.
+L’Utilità di pianificazione crea, gestisce e richiama il lavoro programmato. L’Utilità di pianificazione non ospita carichi di lavoro, né esegue codice. _Richiama_ soltanto codice ospitato altrove, ad esempio in Azure, in locale o presso un altro provider. Richiama tramite HTTP, HTTPS, una coda di archiviazione, una coda del bus di servizio o un argomento del bus di servizio.
 
 L'Utilità di pianificazione pianifica i [processi](scheduler-concepts-terms.md), mantiene una cronologia dei risultati dell'esecuzione dei processi che è possibile esaminare e pianifica in modo deterministico e attendibile i carichi di lavoro da eseguire. Azure WebJobs (parte della funzionalità App Web in Servizio app di Azure) e altre funzionalità di programmazione di Azure utilizzano l’Utilità di pianificazione in background. L'[API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629143.aspx) consente di gestire le comunicazioni per queste azioni. Quindi, l’Utilità di pianificazione supporta facilmente [pianificazioni complesse e operazioni ricorrenti avanzate](scheduler-advanced-complexity.md).
 
@@ -50,4 +50,4 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

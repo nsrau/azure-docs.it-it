@@ -2,7 +2,7 @@
 
 [EventProcessorHost][] è una classe .NET che semplifica la ricezione di messaggi da Hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub. Usando [EventProcessorHost][], è possibile suddividere gli eventi tra più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost][] per un singolo ricevitore. L'esempio di [elaborazione di eventi scalata orizzontalmente][] mostra come usare [EventProcessorHost][] con più ricevitori.
 
-Per poter usare [EventProcessorHost][], è necessario avere un [account di Archiviazione di Azure][]\:
+Per usare [EventProcessorHost][] è necessario avere un [account di archiviazione di Azure][]\:
 
 1. Accedere al [portale di Azure classico][] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
@@ -24,9 +24,9 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 
 6. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Assicurarsi che il nome del progetto (**Receiver**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![][13]
+    ![][13]  
 
-	Viene scaricato, installato, il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con tutte le relative dipendenze, e viene aggiunto un riferimento a tale pacchetto.
+	Visual Studio scarica e installa il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) e aggiunge un riferimento al pacchetto con tutte le relative dipendenze.
 
 7. Fare clic con il pulsante destro del mouse sul progetto **Receiver**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla nuova classe il nome **SimpleEventProcessor** e quindi fare clic su **Aggiungi** per crearla.
 
@@ -121,11 +121,11 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 [Panoramica di Hub eventi di Azure]: event-hubs-overview.md
 [Guida alla programmazione di Hub eventi]: event-hubs-programming-guide.md
 [elaborazione di eventi scalata orizzontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[account di Archiviazione di Azure]: ../storage/storage-create-storage-account.md
+[account di archiviazione di Azure]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!-- Images -->
+<!-- Images -->  
 
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
@@ -133,3 +133,4 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
+<!---HONumber=AcomDC_0824_2016-->

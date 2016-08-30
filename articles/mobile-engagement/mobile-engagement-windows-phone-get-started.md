@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 # Introduzione ad Azure Mobile Engagement per app per Windows Phone Silverlight
 
 [AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'utilizzo dell'app e inviare notifiche push a utenti segmentati di un'applicazione per Windows Phone Silverlight. Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Windows Phone Silverlight vuota che raccoglie dati di base e riceve notifiche push tramite il Servizio notifica push Microsoft (MPNS).
+Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'uso dell'app e sull'invio di notifiche push a utenti segmentati di un'applicazione Silverlight per Windows Phone. Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Windows Phone Silverlight vuota che raccoglie dati di base e riceve notifiche push tramite il Servizio notifica push Microsoft (MPNS).
 
 > [AZURE.NOTE] Se si usa Windows Phone 8.1 (non Silverlight) come piattaforma di destinazione, fare riferimento all'[esercitazione per le app di Windows universali](mobile-engagement-windows-store-dotnet-get-started.md).
 
@@ -159,11 +159,11 @@ Si dovrebbe ora vedere una notifica sul dispositivo che verrà visualizzata come
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9874664
 [Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/mobile-engagement-windows-phone-get-started/project-properties.png
 [2]: ./media/mobile-engagement-windows-phone-get-started/wmappmanifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

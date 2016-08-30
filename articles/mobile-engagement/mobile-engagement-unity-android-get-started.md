@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-unity-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in Android
@@ -38,7 +38,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Importare il pacchetto Unity
 
-1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale. 
+1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale.
 
 2. Passare a **Assets -> Import Package -> Custom Package** e selezionare il pacchetto scaricato nel passaggio precedente.
 
@@ -54,7 +54,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Aggiornare EngagementConfiguration
 
-1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **ANDROID\_CONNECTION\_STRING** con la stringa di connessione ottenuta in precedenza dal portale di Azure.  
+1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **ANDROID\_CONNECTION\_STRING** con la stringa di connessione ottenuta in precedenza dal portale di Azure.
 
 	![][73]
 
@@ -68,7 +68,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Configurare l'app per il rilevamento di base
 
-1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica. 
+1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica.
 
 2. Aggiungere l'istruzione using seguente:
 
@@ -82,7 +82,7 @@ Per completare questa esercitazione, è necessario disporre di:
 ###Distribuire ed eseguire l'app
 Assicurarsi che Android SDK sia installato nel computer prima di provare a distribuire l'app Unity nel dispositivo.
 
-1. Connettere un dispositivo Android al computer. 
+1. Connettere un dispositivo Android al computer.
 
 2. Aprire **File -> Build Settings**.
 
@@ -116,7 +116,7 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 
 ###Aggiornare EngagementConfiguration
 
-1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **ANDROID\_GOOGLE\_NUMBER** con il **numero di progetto Google** ottenuto in precedenza dal portale per sviluppatori di Google Cloud. Si tratta di un valore stringa, assicurarsi quindi che sia racchiuso tra virgolette doppie. 
+1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **ANDROID\_GOOGLE\_NUMBER** con il **numero di progetto Google** ottenuto in precedenza dal portale per sviluppatori di Google Cloud. Si tratta di un valore stringa, assicurarsi quindi che sia racchiuso tra virgolette doppie.
 
 	![][75]
 
@@ -128,7 +128,7 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 
 ###Configurare l'app per la ricezione di notifiche
 
-1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica. 
+1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica.
 
 2. Aggiungere quanto segue al metodo `Start()`:
 
@@ -138,7 +138,7 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 
 [AZURE.INCLUDE [Inviare notifiche dal portale](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-<!-- Images -->
+<!-- Images -->  
 [40]: ./media/mobile-engagement-unity-android-get-started/40.png
 [70]: ./media/mobile-engagement-unity-android-get-started/70.png
 [71]: ./media/mobile-engagement-unity-android-get-started/71.png
@@ -151,4 +151,4 @@ Assicurarsi che Android SDK sia installato nel computer prima di provare a distr
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

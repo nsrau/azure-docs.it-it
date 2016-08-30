@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
-	ms.author="deonhe"/>
+	ms.date="08/23/2016"
+	ms.author="deonhe"/>  
 
 # Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 
@@ -42,4 +42,4 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

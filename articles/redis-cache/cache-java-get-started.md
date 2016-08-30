@@ -13,8 +13,8 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
-	ms.author="sdanie"/>
+	ms.date="08/24/2016"
+	ms.author="sdanie"/>  
 
 # Come usare Cache Redis di Azure con Java
 
@@ -79,4 +79,4 @@ Alcuni client Redis non supportano SSL e per impostazione predefinita la [porta 
 - [Abilitare la diagnostica della cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) per poter [monitorare](https://msdn.microsoft.com/library/azure/dn763945.aspx) l'integrità della cache.
 - Leggere la [documentazione ufficiale di Redis](http://redis.io/documentation).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

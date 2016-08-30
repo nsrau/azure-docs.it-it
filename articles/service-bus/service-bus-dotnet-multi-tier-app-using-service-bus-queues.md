@@ -43,7 +43,7 @@ Per inviare un ordine per l'elaborazione, è necessario che il componente dell'i
 
 L'uso della messaggistica negoziata tra il livello Web e il livello intermedio consente di disaccoppiare i due componenti. Invece di usare la messaggistica diretta, ovvero TCP o HTTP, il livello Web non si connette direttamente al livello intermedio, ma inserisce unità di lavoro, ad esempio messaggi, nel bus di servizio, che li conserva in modo affidabile fino a quando il livello intermedio non sarà pronto per usarli ed elaborarli.
 
-Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È inoltre possibile configurare le sottoscrizioni specificando regole per i filtri che consentono di limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. Nel seguente esempio vengono usate le code del bus di servizio.
+Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È anche possibile configurare le sottoscrizioni specificando regole di filtro per limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. Nel seguente esempio vengono usate le code del bus di servizio.
 
 ![][1]
 
@@ -73,45 +73,11 @@ Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli st
 
 6.  Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell’app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio. Se Visual Studio non è ancora installato, l'SDK installerà anche la versione gratuita di Visual Studio Express.
 
-## Creare uno spazio dei nomi del bus di servizio
+## Creare uno spazio dei nomi
 
-Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
+Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
-### Configurare lo spazio dei nomi tramite il portale di Azure classico
-
-1.  Accedere al [portale di Azure classico][].
-
-2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
-
-3.  Nel riquadro inferiore del portale fare clic su **Crea**.
-
-    ![][6]
-
-4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-
-    ![][7]
-
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo. Verificare anche di aver selezionato **Messaggistica** nel campo **Tipo** dello spazio dei nomi e **Standard** nel campo **Livello di messaggistica**.
-
-    > [AZURE.IMPORTANT] Selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
-
-6.  Fare clic sul segno di spunta accanto a OK. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-7.  Fare clic sullo spazio dei nomi servizio nella finestra principale.
-
-8. Fare clic su **Connection Information**.
-
-9.  Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.
-
-    ![][35]
-
-10.  Prendere nota di queste credenziali oppure copiarle negli Appunti.
-
-11. Nella stessa pagina del portale fare clic sulla scheda **Configura** visualizzata in alto.
-
-12. Copiare la chiave primaria per i criteri **RootManageSharedAccessKey** negli Appunti o incollarla nel Blocco note. Questo valore verrà usato più avanti nell'esercitazione.
-
-	![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Creare un ruolo web
 
@@ -125,23 +91,23 @@ Creare in questa sezione il front-end dell'applicazione. Creare prima di tutto l
 
 2.  Da **Modelli installati**, in **Visual C#**, fare clic su **Cloud** e quindi su **Servizio cloud Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
 
-    ![][9]
+    ![][9]  
 
 3.  Dai ruoli **.NET Framework 4.5** fare doppio clic su **Ruolo Web ASP.NET**.
 
-    ![][10]
+    ![][10]  
 
 4.  Passare il puntatore su **RuoloWeb1** in **Soluzione Servizio cloud Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Fare quindi clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
 
-    ![][11]
+    ![][11]  
 
 5.  Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **MVC** nell'elenco **Selezionare un modello**.
 
-    ![][12]
+    ![][12]  
 
 6. Sempre nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
 
-	![][16]
+	![][16]  
 
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK** per creare il progetto.
 
@@ -237,21 +203,21 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 
 5.  Creare quindi la visualizzazione per il metodo `Submit()` creato in precedenza. Fare clic con il pulsante destro del mouse all'interno del metodo `Submit()`, ovvero l'overload del metodo `Submit()` che non accetta parametri, e quindi scegliere **Aggiungi visualizzazione**.
 
-    ![][14]
+    ![][14]  
 
 6.  Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** scegliere la classe **OnlineOrder**.
 
-    ![][15]
+    ![][15]  
 
 7.  Fare clic su **Aggiungi**.
 
-8.  Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\\Shared\\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
+8.  Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\\Shared\\\\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
 
 9.  Sostituire tutte le occorrenze di **My ASP.NET Application** con **LITWARE'S Products**.
 
 10. Rimuovere i collegamenti **Home**, **About** e **Contact**. Eliminare il codice evidenziato:
 
-	![][28]
+	![][28]  
 
 11. Modificare infine la pagina di invio in modo da includere informazioni sulla coda. In **Esplora soluzioni** fare doppio clic sul file **Views\\Home\\Submit.cshtml** per aprirlo nell'editor di Visual Studio. Aggiungere la riga seguente dopo `<h2>Submit</h2>`. Per ora `ViewBag.MessageCount` non contiene valori. Il valore verrà inserito successivamente.
 
@@ -261,7 +227,7 @@ Creare prima di tutto in questa sezione le diverse pagine visualizzate dall'appl
 
 12. L'interfaccia utente è stata implementata. È possibile premere **F5** per eseguire l'applicazione e confermare che abbia l'aspetto previsto.
 
-    ![][17]
+    ![][17]  
 
 ### Scrivere codice per l'invio di elementi a una coda del bus di servizio
 
@@ -271,7 +237,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
 
 2.  Assegnare alla classe il nome **QueueConnector.cs**. Fare clic su **Aggiungi** per creare la classe.
 
-3.  Aggiungere ora codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. Sostituire l'intero contenuto di QueueConnector.cs con il codice seguente e immettere i valori per `your Service Bus namespace` (il nome dello spazio dei nomi) e `yourKey`, ovvero la **chiave primaria** ottenuta in precedenza dal [portale di Azure classico][] nel passaggio 12 della sezione "Creare uno spazio dei nomi bus di servizio".
+3.  Aggiungere ora codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. Sostituire l'intero contenuto di QueueConnector.cs con il codice seguente e immettere i valori per `your Service Bus namespace`, ovvero il nome dello spazio dei nomi, e `yourKey`, ovvero la **chiave primaria** ottenuta in precedenza dal portale di Azure.
 
 	```
 	using System;
@@ -360,7 +326,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
 	}
 	```
 
-8.  Aggiornare il metodo `Submit(OnlineOrder order)`, ovvero l'overload che non accetta parametri, come indicato di seguito per inviare alla coda le informazioni relative all'ordine.
+8.  Aggiornare il metodo `Submit(OnlineOrder order)`, ovvero l'overload che accetta un parametro, come indicato di seguito per inviare alla coda le informazioni relative all'ordine.
 
 	```
 	public ActionResult Submit(OnlineOrder order)
@@ -383,7 +349,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
 
 9.  È ora possibile eseguire di nuovo l'applicazione. Ogni volta che si invia un ordine, il conteggio dei messaggi aumenta.
 
-    ![][18]
+    ![][18]  
 
 ## Creare il ruolo di lavoro
 
@@ -395,11 +361,11 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 3.  Fare clic su **Aggiungi**, quindi su **Nuovo progetto di ruolo di lavoro**. Viene visualizzata la finestra di dialogo **Aggiungi nuovo progetto di ruolo**.
 
-	![][26]
+	![][26]  
 
 4.  Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** fare clic su **Ruolo di lavoro con coda del bus di servizio**.
 
-	![][23]
+	![][23]  
 
 5.  Nella casella **Name** assegnare il nome **OrderProcessingRole** al progetto. Fare quindi clic su **Aggiungi**.
 
@@ -409,9 +375,9 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 8.  Nella scheda **Impostazioni** della finestra di dialogo **Proprietà** posizionare il cursore all'interno della casella **Valore** per **Microsoft.ServiceBus.ConnectionString**, quindi incollare il valore dell'endpoint copiato al passaggio 6.
 
-	![][25]
+	![][25]  
 
-9.  Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla classe **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sull'icona della classe progetto, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
+9.  Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla classe **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sull'icona della classe, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
 
 10. Selezionare la sottocartella per **FrontendWebRole\\Models** e fare doppio clic su **OnlineOrder.cs** per aggiungerlo al progetto corrente.
 
@@ -440,21 +406,21 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 
 14. L'applicazione è stata completata. È possibile testare l'applicazione completa facendo clic con il pulsante destro del mouse sul progetto MultiTierApp in Esplora soluzioni. Selezionare quindi **Imposta come progetto di avvio** e premere F5. Il numero totale dei messaggi non aumenta perché il ruolo di lavoro elabora gli elementi dalla coda e li contrassegna come completati. È possibile verificare l'output di traccia del ruolo di lavoro visualizzando l'interfaccia utente dell'emulatore di calcolo di Azure. Per eseguire questa operazione, fare clic con il pulsante destro del mouse sull'icona dell'emulatore nell'area di notifica della barra delle applicazioni, quindi scegliere **Show Compute Emulator UI**.
 
-    ![][19]
+    ![][19]  
 
-    ![][20]
+    ![][20]  
 
 ## Passaggi successivi  
 
-Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
+Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:
 
-* [Bus di servizio di Azure][sbmsdn]  
-* [Pagina relativa al bus di servizio][sbwacom]  
-* [Come usare le code del bus di servizio][sbwacomqhowto]  
+* [Bus di servizio di Azure][sbmsdn]
+* [Pagina relativa al bus di servizio][sbwacom]
+* [Come usare le code del bus di servizio][sbwacomqhowto]
 
 Per altre informazioni sugli scenari multilivello, vedere:
 
-* [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage]  
+* [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage]
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -472,9 +438,6 @@ Per altre informazioni sugli scenari multilivello, vedere:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [portale di Azure classico]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -492,8 +455,6 @@ Per altre informazioni sugli scenari multilivello, vedere:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -501,4 +462,4 @@ Per altre informazioni sugli scenari multilivello, vedere:
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

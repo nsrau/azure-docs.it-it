@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-unity-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 # Introduzione ad Azure Mobile Engagement per la distribuzione di Unity in iOS
 
@@ -38,7 +38,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Importare il pacchetto Unity
 
-1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale. 
+1. Scaricare il [pacchetto Unity per Mobile Engagement](https://aka.ms/azmeunitysdk) e salvarlo nel computer locale.
 
 2. Passare a **Assets -> Import Package -> Custom Package** e selezionare il pacchetto scaricato nel passaggio precedente.
 
@@ -54,7 +54,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Aggiornare EngagementConfiguration
 
-1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **IOS\_CONNECTION\_STRING** con la stringa di connessione ottenuta in precedenza dal portale di Azure.  
+1. Aprire il file di script **EngagementConfiguration** dalla cartella dell'SDK e aggiornare **IOS\_CONNECTION\_STRING** con la stringa di connessione ottenuta in precedenza dal portale di Azure.
 
 	![][73]
 
@@ -62,7 +62,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Configurare l'app per il rilevamento di base
 
-1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica. 
+1. Aprire lo script **PlayerController** collegato all'oggetto Player per la modifica.
 
 2. Aggiungere l'istruzione using seguente:
 
@@ -75,7 +75,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ###Distribuire ed eseguire l'app
 
-1. Connettere un dispositivo iOS al computer. 
+1. Connettere un dispositivo iOS al computer.
 
 2. Aprire **File -> Build Settings**.
 
@@ -117,7 +117,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- Images. -->
+<!-- Images. -->  
 [40]: ./media/mobile-engagement-unity-ios-get-started/40.png
 [41]: ./media/mobile-engagement-unity-ios-get-started/41.png
 [42]: ./media/mobile-engagement-unity-ios-get-started/42.png
@@ -131,4 +131,4 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -6,7 +6,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="jdial"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -79,7 +79,7 @@ In questo scenario si apprenderà come:
 6. Controllare il contenuto in **resources** e prendere nota di quanto segue:
 
 	- **type**. Tipo di risorsa che sarà creato dal modello. In questo caso il tipo è **Microsoft.Network/applicationGateways**, che rappresenta un gateway applicazione.
-	- **name**. Nome della risorsa. Si noti l'uso di **[parameters('applicationGatewayName')]**, che indica che il nome viene specificato come input dall'utente o da un file di parametri durante la distribuzione.
+	- **name**. Nome della risorsa. Si noti l'uso di **[parameters('applicationGatewayName')]**, che indica che il nome viene specificato come input dell'utente o di un file di parametri durante la distribuzione.
 	- **properties**. Elenco di proprietà per la risorsa. Questo modello usa la rete virtuale e l'indirizzo IP pubblico durante la creazione del gateway applicazione.
 
 7. Tornare a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
@@ -121,7 +121,7 @@ Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e conf
 
 ### Passaggio 1
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -129,16 +129,16 @@ Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e conf
 
 Controllare le sottoscrizioni per l'account.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
 ### Passaggio 3
 
-Scegliere le sottoscrizioni di Azure da usare. <BR>
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
@@ -146,7 +146,7 @@ Scegliere le sottoscrizioni di Azure da usare. <BR>
 
 Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceGroup**. Nell'esempio seguente viene creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali.
 
-	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -163,29 +163,29 @@ Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceG
 
 Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
 
-		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+ 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 L'output generato dalla riga di comando è il seguente:
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+	DeploymentName    : testappgatewaydeployment
+	ResourceGroupName : appgatewayRG
+	ProvisioningState : Succeeded
+	Timestamp         : 9/19/2015 1:49:41 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+				Name             Type                       Value
+				===============  =========================  ==========
+				location         String                     East US
+				addressPrefix    String                     10.0.0.0/16
+				subnetPrefix     String                     10.0.0.0/24
+				skuName          String                     Standard_Small
+				capacity         Int                        2
+				backendIpAddress1  String                     10.0.1.10
+				backendIpAddress2  String                     10.0.1.11
 
-		Outputs           :
+	Outputs           :
 
 
 ## Distribuire il modello di Gestione risorse di Azure usando l'interfaccia della riga di comando di Azure
@@ -293,4 +293,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

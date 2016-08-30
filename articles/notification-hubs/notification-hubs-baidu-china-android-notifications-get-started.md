@@ -13,14 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica tramite Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Panoramica
+##Overview
 
 Baidu cloud push è un servizio cloud cinese che consente di inviare notifiche push ai dispositivi mobili. Questo servizio è particolarmente utile in Cina dove il recapito di notifiche push ad Android è complesso a causa della presenza di diversi Store per app e diversi servizi push, oltre alla disponibilità di dispositivi Android che non sono generalmente connessi a GCM (Google Cloud Messaging).
 
@@ -79,7 +79,7 @@ Dopo l'attivazione di un account Baidu, accedere al [portale di Baidu].
 
   	![][9]
 
-6. Si dovrebbe quindi ricevere un messaggio di testo con un numero di verifica, come illustrato nel seguente esempio:
+6. Si riceverà quindi un messaggio di testo con un numero di verifica, come mostrato nell'esempio seguente:
 
   	![][10]
 
@@ -91,7 +91,7 @@ Dopo l'attivazione di un account Baidu, accedere al [portale di Baidu].
 
 ##Creare un progetto di Baidu cloud push
 
-Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la chiave API e la chiave privata.
+Quando si crea un progetto push cloud Baidu, viene visualizzato l'ID dell'app, la chiave API e la chiave segreta.
 
 1. Dopo l'accesso al [portale di Baidu], fare clic su **更多>>** (**Altro**).
 
@@ -139,7 +139,7 @@ Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la ch
 
 Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!**).
 
-##Configurare l'hub di notifica
+##Configurazione dell'hub di notifica
 
 1. Accedere al [portale di Azure classico] e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
 
@@ -462,7 +462,7 @@ L'app recupera le proprietà 'userId' e 'channelId' dal servizio di notifiche pu
 Per inviare una notifica di prova, è possibile usare la scheda Debug del portale di Azure classico. Se è stata compilata l'applicazione console .NET per Visual Studio, è sufficiente premere F5 in Visual Studio per eseguirla. L'applicazione invierà una notifica, che verrà visualizzata nell'area di notifica principale del dispositivo o dell'emulatore.
 
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png
 [2]: ./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png
 [3]: ./media/notification-hubs-baidu-get-started/BaiduConfirmation.png
@@ -503,4 +503,4 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

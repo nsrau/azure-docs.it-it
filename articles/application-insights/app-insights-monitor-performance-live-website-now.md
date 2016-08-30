@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="08/24/2016"
 	ms.author="awills"/>
 
 
@@ -300,4 +300,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

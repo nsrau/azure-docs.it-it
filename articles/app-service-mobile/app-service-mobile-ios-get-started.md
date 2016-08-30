@@ -13,24 +13,19 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/30/2016"
-	ms.author="krisragh"/>
+	ms.date="08/17/2016"
+	ms.author="krisragh"/>  
 
 #Creare un'app iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Panoramica
+## Overview
 
 Questa esercitazione illustra come aggiungere [app per dispositivi mobili di Azure](app-service-mobile-value-prop.md), un servizio back-end cloud, a un'app per iOS. Per prima cosa si creerà un nuovo back-end mobile. Si userà quindi una semplice app per iOS _Todo list_ per archiviare i dati in Azure.
 
-## Prerequisiti
+Per completare l'esercitazione, è necessario un computer Mac e [un account Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
-
-* Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/)
-* Un PC con installato [Visual Studio Community 2013] o versione successiva
-* Un Mac con Xcode 7.3 o versione successiva
 
 ## Passaggio I: Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -47,9 +42,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 <!-- Images. -->
 
-<!-- URLs -->
+<!-- URLs -->  
 [Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,9 +4,9 @@
    description="Informazioni sul peering reti virtuali in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -88,4 +88,4 @@ Il peering reti virtuali è disponibile gratuitamente durante il periodo di veri
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 - Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK"
+	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite .NET | Azure"
 	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti su richiesta con Servizi multimediali di Azure tramite .NET."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="07/18/2016"
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@
 >[AZURE.NOTE]
 Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
-##Panoramica 
+##Overview 
 
 Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando l'SDK di Servizi multimediali di Azure per .NET.
 
@@ -443,14 +443,14 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 
 ### Se si è alla ricerca di qualcos’altro.
 
-Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
+Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

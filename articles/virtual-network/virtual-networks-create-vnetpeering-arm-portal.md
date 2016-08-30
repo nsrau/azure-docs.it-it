@@ -3,7 +3,7 @@
    description="Informazioni su come creare una rete virtuale con il portale di Azure in Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -130,4 +130,4 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 
 4. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->
