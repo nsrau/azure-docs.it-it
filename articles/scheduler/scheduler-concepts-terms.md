@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
@@ -23,7 +23,7 @@ Nella tabella seguente vengono descritte le risorse principali esposte o usate d
 
 |Risorsa | Descrizione |
 |---|---|
-|**Raccolta di processi**|Una raccolta di processi contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi all'interno della raccolta. Le raccolte di processi vengono create dal proprietario della sottoscrizione e raggruppano i processi in base ai limiti di utilizzo o di applicazione. È vincolata a un'area. Consente inoltre di applicare quote per vincolare l'uso di tutti i processi in tale raccolta. Le quote includono MaxJobs e MaxRecurrence.|
+|**Raccolta di processi**|Una raccolta di processi contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi all'interno della raccolta. Le raccolte di processi vengono create dal proprietario della sottoscrizione e raggruppano i processi in base ai limiti di utilizzo o dell'applicazione. È vincolata a un'area. Consente inoltre di applicare quote per vincolare l'uso di tutti i processi in tale raccolta. Le quote includono MaxJobs e MaxRecurrence.|
 |**Processo**|Un processo definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio.|
 |**Cronologia processi**|Una cronologia processi rappresenta i dettagli per l'esecuzione di un processo. Contiene esito positivo o negativo, nonché i dettagli della risposta.|
 
@@ -39,7 +39,7 @@ A un livello elevato, l'utilità di pianificazione e l'API di gestione servizio 
 
 ## Tipi di processo
 
-Sono disponibili più tipi di processi: processi HTTP (inclusi i processi HTTPS che supportano SSL), i processi della coda di archiviazione, processi della coda del bus di servizio e processi di argomenti del bus di servizio. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione. Analogamente, i processi del bus di servizio sono ideali per i carichi di lavoro che usano argomenti e code del bus di servizio.
+Sono disponibili più tipi di processi: processi HTTP, inclusi quelli che supportano SSL, processi della coda di archiviazione, processi della coda del bus di servizio e processi dell'argomento del bus di servizio. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione. Analogamente, i processi del bus di servizio sono ideali per carichi di lavoro che usano argomenti e code del bus di servizio.
 
 ## L'entità "processo" in dettaglio
 
@@ -129,7 +129,7 @@ Esaminiamo ciascuna in modo dettagliato:
 
 ## action ed errorAction
 
-"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'Utilità di pianificazione supporta azioni HTTP, coda di archiviazione, coda del bus di servizio e coda del bus di servizio.
+"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'Utilità di pianificazione supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP.
 
 L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un esempio di un'azione in coda di archiviazione:
 
@@ -145,7 +145,7 @@ L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un e
 			},
 	}
 
-Di seguito è riportato un esempio di azione di argomento del bus di servizio.
+Di seguito è riportato un esempio di azione dell'argomento del bus di servizio.
 
   "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
@@ -214,4 +214,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -5,14 +5,14 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace"/>
 
 
@@ -28,9 +28,9 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
 2. Creare una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
-3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
+3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
 ## Elementi necessari per creare un gateway applicazione
 
@@ -43,9 +43,9 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 
 
-## Creare un nuovo gateway applicazione
+## Creare un gateway applicazione
 
-La differenza tra l'uso di Azure classico e Gestione risorse di Azure sta nell'ordine in cui vengono creati il gateway applicazione e gli elementi da configurare. Con Gestione risorse tutti gli elementi che costituiscono un gateway applicazione saranno configurati singolarmente e poi combinati per creare la risorsa del gateway applicazione.
+La differenza tra l'uso di Azure classico e di Azure Resource Manager risiede nell'ordine in cui vengono creati il gateway applicazione e gli elementi da configurare. Con Resource Manager tutti gli elementi che costituiscono un gateway applicazione vengono configurati singolarmente e quindi combinati per creare la risorsa del gateway applicazione.
 
 
 Per creare un gateway applicazione, seguire questa procedura:
@@ -62,22 +62,22 @@ Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione 
 
 ### Passaggio 1
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 ### Passaggio 2
 
 Controllare le sottoscrizioni per l'account.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
 ### Passaggio 3
 
-Scegliere le sottoscrizioni Azure usare. <BR>
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
@@ -108,7 +108,7 @@ Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" p
 
 ### Passaggio 3
 
-	$subnet=$vnet.subnets[0]
+	$subnet = $vnet.subnets[0]
 
 Assegna l'oggetto subnet alla variabile $subnet per i passaggi successivi.
 
@@ -118,14 +118,14 @@ Assegna l'oggetto subnet alla variabile $subnet per i passaggi successivi.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Crea una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e indirizza il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Ogni istanza avrà un indirizzo IP.
+Crea una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
 
 ### Passaggio 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Configura il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
+Configura il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere gli endpoint di indirizzi IP dell'applicazione.
 
 ### Passaggio 3
 
@@ -237,4 +237,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

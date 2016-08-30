@@ -3,10 +3,10 @@
    description="Informazioni su come creare una rete virtuale con il portale di Azure in Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-network"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>  
+   ms.author="narayanannamalai"/>
 
 # Creare un peering reti virtuali usando i cmdlet di PowerShell
 
@@ -201,4 +201,4 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
 
 2. Dopo la rimozione di un collegamento in un peering reti virtuali, lo stato del collegamento peer sarà Disconnesso. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

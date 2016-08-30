@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="08/17/2016"
 	ms.author="sstein;carlrab" />
 
 # Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio
@@ -25,26 +25,23 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Questo articolo illustra come connettersi a un database SQL di Azure usando la versione più recente di SQL Server Management Studio (SSMS) ed eseguire una query semplice con istruzioni Transact-SQL (T-SQL).
-
-[AZURE.INCLUDE [Accesso](../../includes/azure-getting-started-portal-login.md)]
+Questo articolo illustra come connettersi a un database SQL di Azure usando SQL Server Management Studio (SSMS). Dopo aver stabilito la connessione verrà eseguita una semplice query Transact-SQL (T-SQL) per verificare la comunicazione con il database.
 
 [AZURE.INCLUDE [Installazione di SSMS](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [Connessione a SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Per informazioni sulle regole del firewall, vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ## Eseguire query di esempio
 
-Dopo la connessione al server logico, è possibile connettersi a un database ed eseguire una query di esempio.
+Dopo la connessione al server è possibile connettersi a un database ed eseguire una query di esempio. Se non si ha familiarità con la scrittura di query, vedere [Esercitazione: Scrittura di istruzioni Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx).
 
-1. In **Esplora oggetti** passare a un database sul server per cui si ha l'autorizzazione, ad esempio il database di esempio **AdventureWorks**.
-2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova query**.
+1. In **Esplora oggetti** passare a un database nel server, come il database di esempio **AdventureWorks**.
+2. Fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**:
 
 	![Nuova query. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
+3. Nella finestra della query copiare e incollare quanto segue:
 
 		SELECT
 		CustomerId
@@ -54,7 +51,7 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Fare clic sul pulsante **Esegui**. Nella schermata seguente viene illustrata una query con esito positivo.
+4. Fare clic sul pulsante **Esegui**:
 
 	![Completamento della procedura. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -64,6 +61,8 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 
 Se non si ha familiarità con T-SQL, vedere [Esercitazione: Scrittura di istruzioni Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e [Guida di riferimento a Transact-SQL (Motore di database)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-Per iniziare a creare gli utenti del database e gli amministratori degli utenti del database, vedere [Introduzione alla sicurezza del database SQL di Azure](sql-database-get-started-security.md)
+Per iniziare a creare gli utenti del database e gli amministratori degli utenti del database, vedere [Esercitazione sul database SQL: Creare account utente del database SQL per accedere a un database e gestirlo](sql-database-get-started-security.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+Per altre informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+
+<!---HONumber=AcomDC_0824_2016-->

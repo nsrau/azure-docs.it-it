@@ -47,6 +47,10 @@ Esistono due tipi di server DNS:
 - Un server DNS _autorevole_ ospita le zone DNS e risponde alle query DNS solo per i record presenti in tali zone.
 - Un server DNS _ricorsivo_ non ospita zone DNS, ma risponde a tutte le query DNS, chiamando i server DNS autorevoli per raccogliere tutti i dati necessari.
 
+>[AZURE.NOTE] Il servizio DNS di Azure fornisce un servizio DNS autorevole. Non fornisce un servizio DNS ricorsivo.
+
+> I servizi cloud e le macchine virtuali in Azure vengono configurati automaticamente per l'uso di un servizio DNS ricorsivo fornito separatamente come parte dell'infrastruttura di Azure. Per informazioni su come modificare queste impostazioni DNS, vedere [Risoluzione dei nomi usando il server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 I client DNS nei computer o dispositivi mobili in genere chiamano un server DNS ricorsivo per eseguire tutte le query DNS necessarie per le applicazioni client.
 
 Quando un server DNS ricorsivo riceve una query per un record DNS, ad esempio "www.contoso.com", deve prima trovare il server dei nomi che ospita la zona per il dominio "contoso.com". A tale scopo, inizia dal server dei nomi radice e da lì rileva il server dei nomi che ospita la zona "com". Quindi, esegue la query sui server dei nomi "com" per trovare i server dei nomi che ospitano la zona "contoso.com". Sarà infine possibile eseguire la query su questi server dei nomi per "www.contoso.com".
@@ -201,4 +205,4 @@ Creare il set di record NS corrispondente nella zona padre per completare la del
 
 [Gestire i record DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

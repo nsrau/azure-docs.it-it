@@ -68,6 +68,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 | [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Avvisi in tempo reale](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Per esaminare una funzionalità presente nella rete CDN di Azure, inviare [Commenti e suggerimenti](https://feedback.azure.com/forums/169397-cdn).
 
@@ -83,4 +84,4 @@ Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev
 
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="04/04/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
 
 [AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Questo argomento illustra come usare Azure Mobile Engagement per comprendere l'utilizzo dell'app e inviare notifiche push a utenti segmentati per un'applicazione mobile sviluppata con Cordova.
+Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'uso dell'app e sull'invio di notifiche push a utenti segmentati di un'applicazione mobile sviluppata con Cordova.
 
 In questa esercitazione verrà creata un'app Cordova vuota mediante Mac e quindi verrà eseguita l'integrazione di Mobile Engagement SDK. L'app raccoglierà dati analitici di base e riceverà notifiche push tramite Apple Push Notification System (APNS) per iOS e Google Cloud Messaging (GCM) per Android. L'app verrà distribuita in un dispositivo iOS o Android per il test.
 
@@ -48,7 +48,7 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 
 ###Creare un nuovo progetto Cordova
 
-1. Avviare la finestra *Terminal* nel computer Mac e digitare il codice seguente, per creare un nuovo progetto Cordova dal modello predefinito: Assicurarsi che il profilo di pubblicazione usato per la distribuzione dell'app iOS usi 'com.mycompany.myapp' come ID dell'app. 
+1. Avviare la finestra *Terminal* nel computer Mac e digitare il codice seguente, per creare un nuovo progetto Cordova dal modello predefinito: Assicurarsi che il profilo di pubblicazione usato per la distribuzione dell'app iOS usi 'com.mycompany.myapp' come ID dell'app.
 
 		$ cordova create azme-cordova com.mycompany.myapp
 		$ cd azme-cordova
@@ -167,7 +167,7 @@ Modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engage
 
 **[iOS]**
 
-1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\\platforms\\ios**. Aprire il file nativo con estensione xcodeproj file in XCode. 
+1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\\platforms\\ios**. Aprire il file nativo con estensione xcodeproj file in XCode.
 	
 2. Sviluppare e distribuire l'app Cordova nel dispositivo iOS usando l'account con il profilo di provisioning contenente il certificato appena caricato nel portale di Mobile Engagement e l'ID app corrispondente a quello specificato durante la creazione dell'app Cordova. È possibile verificare l'*identificatore di aggregazione* nel file **Resources*-info.plist** in XCode per individuare una corrispondenza.
 
@@ -191,20 +191,20 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 3. Specificare input per la creazione della campagna **[Android]**
 	
-	- Fornire un **Nome** per la campagna. 
+	- Fornire un **Nome** per la campagna.
 	- Selezionare come **Tipo di recapito** *Notifica di sistema* *Semplice*
 	- Selezionare come **Ora di recapito** *"In qualsiasi momento"*
 	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
-	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
+	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio.
 
 	![][11]
 
 4. Specificare input per la creazione della campagna **[iOS]**
 
-	- Fornire un **Nome** per la campagna. 
+	- Fornire un **Nome** per la campagna.
 	- Selezionare come **Ora di recapito** *"Solo all'esterno dell'app"*
 	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
-	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
+	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio.
  
 	![][12]
 
@@ -212,7 +212,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 	![][8]
 
-6. [Facoltativo] È anche possibile specificare un URL di azione. Verificare che usi uno schema URL fornito durante la configurazione della variabile **AZME\_REDIRECT\_URL** del plug-in, ad esempio **myapp://test*.
+6. [Facoltativo] È anche possibile specificare un URL di azione. Verificare che usi uno schema URL fornito durante la configurazione della variabile **AZME\_REDIRECT\_URL** del plug-in, ad esempio *myapp://test*.
 
 7. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
 
@@ -237,4 +237,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->
