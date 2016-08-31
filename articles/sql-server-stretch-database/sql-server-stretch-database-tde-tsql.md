@@ -65,12 +65,12 @@ FROM
 Il risultato ```1``` indica un database crittografato, ```0``` indica un database non crittografato.
 
 
-<!--Anchors-->  
+<!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
-<!--Link references-->  
+<!--Link references-->
 
 <!---HONumber=AcomDC_0810_2016-->

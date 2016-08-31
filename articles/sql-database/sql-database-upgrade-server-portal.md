@@ -160,7 +160,7 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 - [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-upgrade-server-portal/latest-sql-database-update.png
 [2]: ./media/sql-database-upgrade-server-portal/upgrade-server2.png
 [3]: ./media/sql-database-upgrade-server-portal/upgrade-server3.png

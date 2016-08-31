@@ -149,7 +149,7 @@ Per informazioni su come creare probe di integrità personalizzati, vedere [Crea
 
 Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
 [2]: ./media/application-gateway-create-gateway-portal/figure2.png
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png

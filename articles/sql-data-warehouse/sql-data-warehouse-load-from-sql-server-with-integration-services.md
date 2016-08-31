@@ -190,7 +190,7 @@ Congratulazioni. SQL Server Integration Services è stato usato correttamente pe
 - Informazioni su come eseguire il debug e risolvere i problemi relativi ai pacchetti direttamente nell'ambiente di progettazione. Iniziare da qui: [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti][].
 - Informazioni su come distribuire i progetti e i pacchetti SSIS nel server Integration Services o in un altro percorso di archiviazione. Iniziare da qui: [Distribuzione di progetti e pacchetti][].
 
-<!-- Image references -->  
+<!-- Image references -->
 [01]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
 [02]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
 [03]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
@@ -218,7 +218,7 @@ Congratulazioni. SQL Server Integration Services è stato usato correttamente pe
 [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti]: https://msdn.microsoft.com/library/ms137625.aspx
 [Distribuzione di progetti e pacchetti]: https://msdn.microsoft.com/library/hh213290.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
 [versioni di valutazione di SQL Server]: https://www.microsoft.com/it-IT/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/it-IT/products/visual-studio-community-vs.aspx

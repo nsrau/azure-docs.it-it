@@ -97,7 +97,7 @@ L'endpoint usato per ripetere il training del modello deve essere nel servizio W
 3.	Verificare la posizione dell'area di lavoro.
 
 
-<!-- Image Links -->  
+<!-- Image Links -->
 
 [image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png

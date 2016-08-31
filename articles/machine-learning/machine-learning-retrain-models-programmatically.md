@@ -165,7 +165,7 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 <!---HONumber=AcomDC_0810_2016-->

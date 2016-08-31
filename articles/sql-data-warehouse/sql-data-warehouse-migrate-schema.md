@@ -130,7 +130,7 @@ Dopo la migrazione dello schema del database in SQLDW, è possibile passare a un
 
 Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Eseguire la migrazione del codice]: sql-data-warehouse-migrate-code.md
@@ -140,6 +140,6 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0810_2016-->
