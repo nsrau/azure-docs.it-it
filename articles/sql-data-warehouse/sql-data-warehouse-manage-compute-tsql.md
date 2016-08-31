@@ -81,7 +81,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 Per altre attività di gestione, vedere [Panoramica della gestione][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
@@ -93,7 +93,7 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
 

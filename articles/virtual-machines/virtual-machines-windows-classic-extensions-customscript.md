@@ -88,7 +88,7 @@ L'estensione Script personalizzato può essere disinstallata dalla macchina virt
 
 Per ulteriori informazioni sull’utilizzo dell’estensione di script personalizzato con modelli di gestione risorse di Azure, vedere la documentazione [qui](virtual-machines-windows-extensions-customscript.md).
 
-<!--Image references-->  
+<!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_0810_2016-->

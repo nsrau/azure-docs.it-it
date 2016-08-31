@@ -231,7 +231,7 @@ Nel corpo della richiesta inviare un oggetto JSON che contiene il nuovo URL di f
 
 >[AZURE.NOTE] Per motivi di sicurezza, l'URL di firma di accesso condiviso associato a un backup non viene restituito quando si invia una richiesta GET per un backup specifico. Se si vuole visualizzare l'URL di firma di accesso condiviso associato a un backup, inviare una richiesta POST allo stesso URL precedente e includere semplicemente un oggetto JSON vuoto nel corpo della richiesta. La risposta dal server contiene tutte le informazioni del backup, incluso l'URL di firma di accesso condiviso.
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
 <!---HONumber=AcomDC_0810_2016-->

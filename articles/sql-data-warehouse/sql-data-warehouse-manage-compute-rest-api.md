@@ -85,7 +85,7 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 Per altre attività di gestione, vedere [Panoramica della gestione][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
@@ -96,7 +96,7 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 [Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
 [Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
 

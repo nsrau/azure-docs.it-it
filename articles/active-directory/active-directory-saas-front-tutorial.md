@@ -286,7 +286,7 @@ Quando si fa clic sul riquadro Front nel pannello di accesso, si accederà autom
 
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-front-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-front-tutorial/tutorial_general_02.png
