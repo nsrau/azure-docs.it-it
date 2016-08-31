@@ -386,7 +386,7 @@ A seconda dello scenario specifico, è possibile creare tabelle di utenti e ruol
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo relativo all'[aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md) Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
+A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo relativo all'[aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md) Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure]( ../notification-hubs/notification-hubs-overview.md).
 
 ##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare le notifiche push mirate
 
