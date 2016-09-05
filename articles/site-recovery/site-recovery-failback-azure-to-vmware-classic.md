@@ -39,7 +39,7 @@ Usare questa architettura quando il server di elaborazione è locale e si usa Ex
 
 Usare questa architettura quando il server di elaborazione è in Azure e si dispone di una rete VPN o di una connessione ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Per vedere l'elenco completo delle porte e il diagramma che illustra l'architettura di failback, fare riferimento all'immagine sotto
 
@@ -204,4 +204,4 @@ Al termine del failback i dati si trovano nuovamente nel sito locale, ma non son
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->
