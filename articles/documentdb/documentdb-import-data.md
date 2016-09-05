@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
-	ms.author="anhoh"/>
+	ms.date="08/23/2016"
+	ms.author="anhoh"/>  
 
 # Importare dati in DocumentDB con lo strumento di migrazione del database
 
@@ -490,4 +490,4 @@ Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nes
 
 - Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

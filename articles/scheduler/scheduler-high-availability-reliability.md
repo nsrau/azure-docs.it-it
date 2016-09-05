@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
- ms.author="krisragh"/>
+ ms.date="08/16/2016"
+ ms.author="krisragh"/>  
 
 
 # Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione
@@ -85,4 +85,4 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

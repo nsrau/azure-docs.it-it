@@ -88,7 +88,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
+	>[AZURE.TIP] Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
 
 4. Recuperare l'ID per l’NSG `NSG-RemoteAccess`. È necessario farlo poiché le schede di rete associate a tale NSG sono in un gruppo di risorse diverso.
 
@@ -330,4 +330,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

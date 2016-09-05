@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>  
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -47,8 +47,8 @@ Azure multi-Factor Authentication è una soluzione semplice da usare, scalabile 
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Facile da usare**|**Scalabile**|**Sempre protetti**|**Affidabile**
 
-- **Facile da usare**: Azure Multi-Factor Authenticaton è semplice da configurare e usare. La protezione aggiuntiva fornita con Azure Multi-Factor Authentication consente agli utenti di usare e gestire i propri dispositivi e, in molti casi, di configurare la soluzione con pochi semplici clic.
-- **Scalabile**: Azure Multi-Factor Authenticaton sfrutta le potenzialità del cloud e si integra con Active Directory locale e con le app personalizzate. Questa protezione viene estesa anche agli scenari di importanza strategica con volumi elevati.
+- **Facile da usare**: Azure Multi-Factor Authentication è semplice da configurare e usare. La protezione aggiuntiva fornita con Azure Multi-Factor Authentication consente agli utenti di usare e gestire i propri dispositivi e, in molti casi, di configurare la soluzione con pochi semplici clic.
+- **Scalabile**: Azure Multi-Factor Authentication sfrutta le potenzialità del cloud e si integra con Active Directory locale e con le app personalizzate. Questa protezione viene estesa anche agli scenari di importanza strategica con volumi elevati.
 - **Sempre protetti**: Azure multi-Factor Authentication fornisce autenticazione avanzata grazie all'uso dei più elevati standard di settore.
 - **Affidabile**: la disponibilità di Azure Multi-Factor Authentication è garantita al 99,9%. Il servizio viene considerato non disponibile quando non è in grado di ricevere o elaborare le richieste di autenticazione per l'autenticazione a più fattori.
 
@@ -73,7 +73,7 @@ Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati 
 - Codice di verifica dell'app per dispositivi mobili
 - Token OATH di terze parti
 
-Per ulteriori informazioni su come funziona, vedere il video seguente.
+Per altre informazioni su come funziona, vedere il video seguente.
 
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
@@ -84,8 +84,8 @@ Metodo di verifica | Descrizione
 ------------- | ------------- |
 Chiamata telefonica | Viene effettuata una chiamata allo smartphone dell'utente chiedendogli di verificare che sta effettuando l'accesso premendo il simbolo #. Questa operazione completerà il processo di verifica. Questa opzione è configurabile e può essere modificata con un codice specificato dall'utente.
 SMS | Verrà inviato un SMS allo smartphone dell'utente con un codice di 6 cifre. Immettere il codice per completare il processo di verifica.
-Notifica dell'app per dispositivi mobili | Una richiesta di verifica verrà inviata allo smartphone dell'utente chiedendogli di completare la verifica selezionando Verifica dall'app per dispositivi mobili. Ciò si verifica se la notifica dell'app è stata selezionata come metodo di verifica principale. Se l'utente riceve la richiesta quando non sta effettuando l'accesso, potrà scegliere di segnalare la frode.
-Codice di verifica dell'app per dispositivi mobili | Un codice di verifica verrà inviato all'app per dispositivi mobili in esecuzione sullo smartphone dell'utente. Ciò si verifica se il codice di verifica è stato selezionato come metodo di verifica principale.
+Notifica dell'app per dispositivi mobili | Una richiesta di verifica verrà inviata allo smartphone dell'utente chiedendogli di completare la verifica selezionando Verifica dall'app per dispositivi mobili. Ciò si verifica se la notifica dell'app è stata selezionata come metodo di verifica principale. Se l'utente riceve la richiesta quando non sta effettuando l'accesso, potrà scegliere di segnalare la frode.</li><br><p> L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Codice di verifica dell'app per dispositivi mobili | Un codice di verifica verrà inviato all'app per dispositivi mobili in esecuzione sullo smartphone dell'utente. Ciò si verifica se il codice di verifica è stato selezionato come metodo di verifica principale.</li><br><p> L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 
 ## Versioni disponibili di Azure Multi-Factor Authentication
@@ -134,8 +134,8 @@ Se si desiderano tutte le funzionalità offerte da Azure Multi-Factor Authentica
 Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure:
 
 
-- **Per utente**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
-- **Per autenticazione**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
+- **Per utente**. Per le aziende che vogliono abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
+- **Per autenticazione**. Per le aziende che vogliono abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
 
 Azure multi-Factor Authentication fornisce metodi di verifica selezionabili per cloud e server. Ciò significa che è possibile scegliere i metodi da rendere disponibili agli utenti per l'uso con l'autenticazione a più fattori. Questa funzionalità è attualmente in anteprima pubblica per la versione cloud dell'autenticazione a più fattori. Per altre informazioni vedere [Metodi di verifica selezionabili](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
@@ -147,12 +147,12 @@ Scegliere il modello per postazione o basato sul consumo più adatto per l'organ
 
 Poiché esistono diverse versioni di Azure Multi-Factor Authentication, è necessario stabilire un paio di aspetti per scoprire quale versione sia quella corretta da utilizzare. Aspetti da considerare:
 
--	<a href="#1">Cosa si sta tentando di proteggere?</a>
--	<a href="#2">Dove si trovano gli utenti?</a>
+-	[Cosa si sta tentando di proteggere?](#what-am-i-trying-to-secure)
+-	[Dove si trovano gli utenti?](#where-are-the-users-located)
 
 Nelle sezioni seguenti verranno fornite istruzioni su come determinare ciascun aspetto.
 
-<h3 id="1">Cosa si sta tentando di proteggere?</h3>
+### Cosa si sta tentando di proteggere?
 
 Per determinare la soluzione Multi-Factor Authentication corretta, innanzitutto è necessario stabilire ciò che si sta tentando di proteggere con un secondo metodo di autenticazione. Si tratta di un'applicazione in Azure? Oppure si tratta, ad esempio, di un sistema di accesso remoto? Durante la definizione degli elementi da proteggere, stabiliremo dove abilitare la modalità Multi-Factor Authentication.
 
@@ -168,7 +168,7 @@ Accesso remoto, ad esempio VPN, RDG| |* |
 
 
 
-<h3 id="2">Dove si trovano gli utenti?</h3>
+### Dove si trovano gli utenti?
 
 Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da utilizzare, ovvero Multi-Factor Authentication nel cloud o locale mediante Server MFA.
 
@@ -209,4 +209,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

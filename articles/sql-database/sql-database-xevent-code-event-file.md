@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -49,10 +49,9 @@ Questo argomento presenta un esempio di codice in due fasi:
  - Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
 
 
-- SQL Server Management Studio (ssms.exe), anteprima di agosto 2015 o versione successiva. È possibile scaricare la versione più recente di ssms.exe da:
+- SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. È possibile scaricare la versione più recente di ssms.exe da:
  - Argomento intitolato [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft consiglia di aggiornare periodicamente ssms.exe. In alcuni casi ssms.exe viene aggiornati ogni mese.
 
 
 - È necessario che i [moduli di Azure PowerShell](http://go.microsoft.com/?linkid=9811175) siano installati.
@@ -64,7 +63,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 
 Questo PowerShell è la fase 1 dell'esempio di codice in due fasi.
 
-Lo script inizia con comandi di pulitura dopo un’eventuale precedente esecuzione ed è progettato per essere nuovamente eseguibile.
+Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente ed è eseguibile di nuovo.
 
 
 
@@ -80,7 +79,7 @@ Lo script inizia con comandi di pulitura dopo un’eventuale precedente esecuzio
  - Se si esegue nuovamente lo script senza interrompere la sessione, è possibile pratico decommentare il comando **Add-AzureAccount**.
 
 
-![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]
+![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]  
 
 
 &nbsp;
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -270,7 +269,7 @@ Prendere nota dei valori nominati che lo script di PowerShell stampa alla fine. 
 - Successivamente nella fase 2, lo script Transact-SQL deve utilizzare il contenitore.
 
 
-Lo script inizia con comandi di pulitura dopo un’eventuale precedente esecuzione ed è progettato per essere nuovamente eseguibile.
+Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente ed è eseguibile di nuovo.
 
 
 Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È necessario modificare lo script di Transact-SQL per utilizzare tali valori. Trovare **TODO** nello script di Transact-SQL per individuare i punti di modifica.
@@ -289,13 +288,13 @@ Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È 
 6. Salvare e quindi eseguire lo script.
 
 
-& nbsp;
+&nbsp;
 
 
 > [AZURE.WARNING] Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"*. Le attività in caso contrario potrebbero essere bloccate dalla protezione.
 
 
-& nbsp;
+&nbsp;
 
 
 ```
@@ -559,7 +558,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
-& nbsp;
+&nbsp;
 
 
 Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event\_file:
@@ -571,7 +570,7 @@ Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustr
 
 - [Visualizzazione avanzata dei dati di destinazione da eventi estesi](http://msdn.microsoft.com/library/mt752502.aspx)
 
-& nbsp;
+&nbsp;
 
 
 ## Conversione dell’esempio di codice da eseguire in SQL Server
@@ -583,7 +582,7 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
 - Per semplicità si desidera sostituire completamente l'utilizzo del contenitore di Archiviazione di Azure con un semplice file, come **C:\\myeventdata.xel**. Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
 
 
-- Non è necessario alcun tipo di istruzioni di Transact-SQL per **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
+- Non è necessaria alcuna tipologia di istruzioni di Transact-SQL per **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
 
 
 - Nell’istruzione **CREATE EVENT SESSION**, nella relativa clausola **ADD TARGET**, sostituire il valore di Http assegnato a **filename =** con una stringa di percorso completo **C:\\myfile.xel**.
@@ -606,8 +605,8 @@ Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazi
 
 <!--
 Image references.
--->
+-->  
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

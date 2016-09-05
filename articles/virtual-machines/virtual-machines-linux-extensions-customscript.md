@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="03/29/2016"
-   ms.author="kundanap"/>
+   ms.author="kundanap"/>  
 
 # Utilizzo dell’estensione di script personalizzato per VM Linux con modelli di Azure Resource Manager
 
@@ -27,23 +27,7 @@ In questo articolo viene fornita una panoramica sulla scrittura di modelli di ge
 
 Definire la seguente risorsa di estensione nella sezione delle risorse del modello
 
-      {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "MyCustomScriptExtension",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-    "properties":
-    {
-      "publisher": "Microsoft.OSTCExtensions",
-      "type": "CustomScriptForLinux",
-      "typeHandlerVersion": "1.2",
-      "settings": {
-      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
-      "commandToExecute": "sh mongo-install-ubuntu.sh"
-      }
-    }
-    }
+   { "type": "Microsoft.Compute/virtualMachines/extensions", "name": "MyCustomScriptExtension", "apiVersion": "2015-05-01-preview", "location": "[parameters('location')]", "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"], "properties": { "publisher": "Microsoft.OSTCExtensions", "type": "CustomScriptForLinux", "typeHandlerVersion": "1.2", "autoUpgradeMinorVersion": true "settings": { "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh" ], "commandToExecute": "sh mongo-install-ubuntu.sh" }, "protectedSettings": {} } }
 
 Nell’esempio precedente, sostituire l'URL di file e il nome del file con le proprie impostazioni.
 
@@ -53,4 +37,4 @@ Consultare l’esempio seguente per configurare applicazioni in una macchina vir
 
 * [Estensione di script personalizzato in una VM Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

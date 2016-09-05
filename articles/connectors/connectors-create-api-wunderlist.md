@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
-ms.author="deonhe"/>
+ms.date="08/18/2016"
+ms.author="deonhe"/>  
 
 # Introduzione al connettore Wunderlist
 
-
-
-Il connettore Wunderlist può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flows.microsoft.com)
+Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare. Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l'accesso a tutte le attività da qualsiasi posizione.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -100,13 +94,13 @@ Si applica alla versione 1.0
 ## TriggerTaskDue
 Quando un'attività è in scadenza: attiva un nuovo flusso quando un'attività nell'elenco è in scadenza.
 
-```GET: /trigger/tasksdue```
+```GET: /trigger/tasksdue```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -116,13 +110,13 @@ Quando un'attività è in scadenza: attiva un nuovo flusso quando un'attività n
 ## TriggerTaskNew
 Quando viene creata una nuova attività: attiva un nuovo flusso quando viene creata una nuova attività nell'elenco.
 
-```GET: /trigger/tasksnew```
+```GET: /trigger/tasksnew```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -132,14 +126,14 @@ Quando viene creata una nuova attività: attiva un nuovo flusso quando viene cre
 ## TriggerReminder
 Quando si verifica un promemoria: attiva un nuovo flusso quando si verifica un promemoria.
 
-```GET: /trigger/reminders```
+```GET: /trigger/reminders```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -149,12 +143,12 @@ Quando si verifica un promemoria: attiva un nuovo flusso quando si verifica un p
 ## RetrieveLists
 Ottenere elenchi: recupera gli elenchi associati all'account.
 
-```GET: /lists```
+```GET: /lists```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -167,13 +161,13 @@ Ottenere elenchi: recupera gli elenchi associati all'account.
 ## CreateList
 Creare un elenco: crea un elenco.
 
-```POST: /lists```
+```POST: /lists```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuovo elenco da creare|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -184,14 +178,14 @@ Creare un elenco: crea un elenco.
 ## ListTasks
 Ottenere attività: recupera le attività da un elenco specifico.
 
-```GET: /tasks```
+```GET: /tasks```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 |Completata|boolean|no|query|nessuno|Completed|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -204,15 +198,15 @@ Ottenere attività: recupera le attività da un elenco specifico.
 ## CreateTask
 Creare un'attività: crea un'attività.
 
-```POST: /tasks```
+```POST: /tasks```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuova attività da creare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |201|Data di creazione|
 
@@ -220,15 +214,15 @@ Creare un'attività: crea un'attività.
 ## ListSubTasks
 Ottenere le sottoattività: recupera le sottoattività da un'attività o un elenco specifico.
 
-```GET: /subtasks```
+```GET: /subtasks```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 |Completata|boolean|no|query|nessuno|Completed|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -241,13 +235,13 @@ Ottenere le sottoattività: recupera le sottoattività da un'attività o un elen
 ## CreateSubTask
 Creare una sottoattività: crea una sottoattività all'interno di un'attività specifica.
 
-```POST: /subtasks```
+```POST: /subtasks```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuova sottoattività da creare|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -257,16 +251,16 @@ Creare una sottoattività: crea una sottoattività all'interno di un'attività s
 ## ListNotes
 Ottenere le note: recupera le note per un'attività o un elenco specifico.
 
-```GET: /notes```
+```GET: /notes```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|Bad Request|
@@ -277,15 +271,15 @@ Ottenere le note: recupera le note per un'attività o un elenco specifico.
 ## CreateNote
 Creare una nota: aggiunge una nota a un'attività specifica.
 
-```POST: /notes```
+```POST: /notes```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuova nota da creare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |201|Data di creazione|
 
@@ -293,14 +287,14 @@ Creare una nota: aggiunge una nota a un'attività specifica.
 ## ListComments
 Ottenere i commenti di un'attività: recupera i commenti per un'attività o un elenco specifico.
 
-```GET: /task_comments```
+```GET: /task_comments```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -313,13 +307,13 @@ Ottenere i commenti di un'attività: recupera i commenti per un'attività o un e
 ## CreateComment
 Aggiungere un commento a un'attività: aggiunge un commento a un'attività specifica.
 
-```POST: /task_comments```
+```POST: /task_comments```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuovo commento dell'attività da creare|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -329,14 +323,14 @@ Aggiungere un commento a un'attività: aggiunge un commento a un'attività speci
 ## RetrieveReminders
 Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specifico.
 
-```GET: /reminders```
+```GET: /reminders```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -349,13 +343,13 @@ Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specif
 ## CreateReminder
 Impostare un promemoria: imposta un promemoria.
 
-```POST: /reminders```
+```POST: /reminders```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |post| |sì|body|nessuno|Nuovo promemoria da creare|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -366,16 +360,16 @@ Impostare un promemoria: imposta un promemoria.
 ## RetrieveFiles
 Ottenere i file: recupera i file per un'attività o un elenco specifico.
 
-```GET: /files```
+```GET: /files```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
-|task\_id|numero intero|no|query|nessuno|ID attività|
+|list\_id|integer|sì|query|nessuno|ID elenco|
+|task\_id|integer|no|query|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|Bad Request|
@@ -392,9 +386,9 @@ Ottenere un elenco: recupera un elenco specifico.
 | ---|---|---|---|---|---|
 |id|string|yes|path|nessuno|ID elenco|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -402,16 +396,16 @@ Ottenere un elenco: recupera un elenco specifico.
 ## DeleteList
 Eliminare un elenco: elimina un elenco.
 
-```DELETE: /lists/{id}```
+```DELETE: /lists/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID elenco|
-|revision|numero intero|sì|query|nessuno|Revisione|
+|revision|integer|sì|query|nessuno|Revisione|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |204|Nessun contenuto|
 
@@ -419,16 +413,16 @@ Eliminare un elenco: elimina un elenco.
 ## UpdateList
 Aggiornare un elenco: aggiorna un elenco specifico.
 
-```PATCH: /lists/{id}```
+```PATCH: /lists/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID elenco|
 |post| |sì|body|nessuno|Dettagli elenco|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -436,16 +430,16 @@ Aggiornare un elenco: aggiorna un elenco specifico.
 ## GetTask
 Ottenere un'attività: recupera un'attività specifica.
 
-```GET: /tasks/{id}```
+```GET: /tasks/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 |id|integer|sì|path|nessuno|ID attività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -453,17 +447,17 @@ Ottenere un'attività: recupera un'attività specifica.
 ## UpdateTask
 Aggiornare un'attività: aggiorna un'attività specifica.
 
-```PATCH: /tasks/{id}```
+```PATCH: /tasks/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 |id|integer|sì|path|nessuno|ID attività|
 |post| |sì|body|nessuno|Dettagli dell'attività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -471,15 +465,15 @@ Aggiornare un'attività: aggiorna un'attività specifica.
 ## DeleteTask
 Eliminare un'attività: elimina un'attività specifica.
 
-```DELETE: /tasks/{id}```
+```DELETE: /tasks/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|numero intero|sì|query|nessuno|ID elenco|
+|list\_id|integer|sì|query|nessuno|ID elenco|
 |id|integer|sì|path|nessuno|ID attività|
-|revision|numero intero|sì|query|nessuno|Revisione|
+|revision|integer|sì|query|nessuno|Revisione|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -491,13 +485,13 @@ Ottenere una sottoattività: recupera una sottoattività specifica.
 
 ```GET: /subtasks/{id}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|nessuno|ID sottoattività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -507,14 +501,14 @@ Aggiornare una sottoattività: aggiorna una sottoattività specifica.
 
 ```PATCH: /subtasks/{id}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID sottoattività|
 |post| |sì|body|nessuno|Dettagli sottoattività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -522,16 +516,16 @@ Aggiornare una sottoattività: aggiorna una sottoattività specifica.
 ## DeleteSubTask
 Eliminare una sottoattività: elimina una sottoattività specifica.
 
-```DELETE: /subtasks/{id}```
+```DELETE: /subtasks/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID sottoattività|
-|revision|numero intero|sì|query|nessuno|Revisione|
+|revision|integer|sì|query|nessuno|Revisione|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |204|Nessun contenuto|
 
@@ -539,13 +533,13 @@ Eliminare una sottoattività: elimina una sottoattività specifica.
 ## GetNote
 Ottenere una nota: recupera una nota specifica.
 
-```GET: /notes/{id}```
+```GET: /notes/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|string|yes|path|nessuno|ID nota|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -555,14 +549,14 @@ Ottenere una nota: recupera una nota specifica.
 ## UpdateNote
 Aggiornare una nota: aggiorna una nota specifica.
 
-```PATCH: /notes/{id}```
+```PATCH: /notes/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID nota|
 |post| |sì|body|nessuno|Dettagli nota|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -572,14 +566,14 @@ Aggiornare una nota: aggiorna una nota specifica.
 ## DeleteNote
 Eliminare una nota: elimina una nota specifica.
 
-```DELETE: /notes/{id}```
+```DELETE: /notes/{id}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID nota|
-|revision|numero intero|sì|query|nessuno|Revisione|
+|revision|integer|sì|query|nessuno|Revisione|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -589,13 +583,13 @@ Eliminare una nota: elimina una nota specifica.
 ## GetComment
 Ottenere un commento di un'attività: recupera un commento specifico di un'attività.
 
-```GET: /task_comments/{id}```
+```GET: /task_comments/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|nessuno|ID commento|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -605,16 +599,16 @@ Ottenere un commento di un'attività: recupera un commento specifico di un'attiv
 ## UpdateReminder
 Aggiornare un promemoria: aggiorna un promemoria specifico.
 
-```PATCH: /reminders/{id}```
+```PATCH: /reminders/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID promemoria|
 |post| |sì|body|nessuno|Dettagli promemoria|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 
@@ -622,14 +616,14 @@ Aggiornare un promemoria: aggiorna un promemoria specifico.
 ## DeleteReminder
 Eliminare un promemoria: elimina un promemoria specifico.
 
-```DELETE: /reminders/{id}```
+```DELETE: /reminders/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |id|integer|sì|path|nessuno|ID del promemoria|
-|revision|numero intero|sì|query|nessuno|Revisione|
+|revision|integer|sì|query|nessuno|Revisione|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -643,12 +637,12 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|created\_at|string|No |
+|id|integer|No |
+|created\_at|stringa|No |
 |title|string|No |
 |list\_type|string|No |
-|type|string|No |
-|revision|numero intero|No |
+|type|stringa|No |
+|revision|integer|No |
 
 
 
@@ -657,11 +651,11 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|created\_at|string|No |
+|id|integer|No |
+|created\_at|stringa|No |
 |title|string|No |
-|revision|numero intero|No |
-|type|string|No |
+|revision|integer|No |
+|type|stringa|No |
 
 
 
@@ -670,14 +664,14 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|assignee\_id|numero intero|No |
-|assigner\_id|numero intero|No |
-|created\_at|string|No |
-|created\_by\_id|numero intero|No |
+|id|integer|No |
+|assignee\_id|integer|No |
+|assigner\_id|integer|No |
+|created\_at|stringa|No |
+|created\_by\_id|integer|No |
 |due\_date|string|No |
-|list\_id|numero intero|No |
-|revision|numero intero|No |
+|list\_id|integer|No |
+|revision|integer|No |
 |starred|boolean|No |
 |title|string|No |
 
@@ -688,11 +682,11 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|task\_id|numero intero|No |
-|created\_at|string|No |
-|created\_by\_id|numero intero|No |
-|revision|string|No |
+|id|integer|No |
+|task\_id|integer|No |
+|created\_at|stringa|No |
+|created\_by\_id|integer|No |
+|revision|stringa|No |
 |title|string|No |
 
 
@@ -702,12 +696,12 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|task\_id|numero intero|No |
-|content|string|No |
-|created\_at|string|No |
-|updated\_at|string|No |
-|revision|numero intero|No |
+|id|integer|No |
+|task\_id|integer|No |
+|content|stringa|No |
+|created\_at|stringa|No |
+|updated\_at|stringa|No |
+|revision|integer|No |
 
 
 
@@ -716,11 +710,11 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|task\_id|numero intero|No |
-|revision|numero intero|No |
-|text|string|No |
-|type|string|No |
+|id|integer|No |
+|task\_id|integer|No |
+|revision|integer|No |
+|text|stringa|No |
+|type|stringa|No |
 |created\_at|string|No |
 
 
@@ -730,13 +724,13 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
+|id|integer|No |
 |date|string|No |
-|task\_id|numero intero|No |
-|revision|numero intero|No |
-|type|string|No |
-|created\_at|string|No |
-|updated\_at|string|No |
+|task\_id|integer|No |
+|revision|integer|No |
+|type|stringa|No |
+|created\_at|stringa|No |
+|updated\_at|stringa|No |
 
 
 
@@ -745,11 +739,11 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|date|string|No |
-|task\_id|numero intero|No |
-|revision|numero intero|No |
-|created\_at|string|No |
+|id|integer|No |
+|date|stringa|No |
+|task\_id|integer|No |
+|revision|integer|No |
+|created\_at|stringa|No |
 |updated\_at|string|No |
 
 
@@ -759,19 +753,19 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|URL|string|No |
-|task\_id|numero intero|No |
-|list\_id|numero intero|No |
-|user\_id|numero intero|No |
+|id|integer|No |
+|URL|stringa|No |
+|task\_id|integer|No |
+|list\_id|integer|No |
+|user\_id|integer|No |
 |file\_name|string|No |
-|content\_type|string|No |
-|file\_size|numero intero|No |
+|content\_type|stringa|No |
+|file\_size|integer|No |
 |local\_created\_at|string|No |
-|created\_at|string|No |
+|created\_at|stringa|No |
 |updated\_at|string|No |
-|type|string|No |
-|revision|numero intero|No |
+|type|stringa|No |
+|revision|integer|No |
 
 
 
@@ -780,13 +774,13 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|numero intero|Sì |
-|title|string|Sì |
-|assignee\_id|numero intero|No |
+|list\_id|integer|Sì |
+|title|stringa|Sì |
+|assignee\_id|integer|No |
 |Completata|boolean|No |
-|recurrence\_type|string|No |
-|recurrence\_count|numero intero|No |
-|due\_date|string|No |
+|recurrence\_type|stringa|No |
+|recurrence\_count|integer|No |
+|due\_date|stringa|No |
 |starred|boolean|No |
 
 
@@ -796,7 +790,7 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|title|string|Sì |
+|title|stringa|Sì |
 
 
 
@@ -805,9 +799,9 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|numero intero|Sì |
-|task\_id|numero intero|Sì |
-|title|string|Sì |
+|list\_id|integer|Sì |
+|task\_id|integer|Sì |
+|title|stringa|Sì |
 |Completata|boolean|No |
 
 
@@ -817,8 +811,8 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|numero intero|Sì |
-|task\_id|numero intero|Sì |
+|list\_id|integer|Sì |
+|task\_id|integer|Sì |
 |content|string|Sì |
 
 
@@ -828,9 +822,9 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|numero intero|Sì |
-|task\_id|numero intero|Sì |
-|text|string|Sì |
+|list\_id|integer|Sì |
+|task\_id|integer|Sì |
+|text|stringa|Sì |
 
 
 
@@ -839,9 +833,9 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|numero intero|Sì |
-|task\_id|numero intero|Sì |
-|date|string|Sì |
+|list\_id|integer|Sì |
+|task\_id|integer|Sì |
+|date|stringa|Sì |
 
 
 
@@ -850,13 +844,13 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|revision|numero intero|No |
-|title|string|No |
-|assignee\_id|numero intero|No |
+|revision|integer|No |
+|title|stringa|No |
+|assignee\_id|integer|No |
 |Completata|boolean|No |
-|recurrence\_type|string|No |
-|recurrence\_count|numero intero|No |
-|due\_date|string|No |
+|recurrence\_type|stringa|No |
+|recurrence\_count|integer|No |
+|due\_date|stringa|No |
 |starred|boolean|No |
 
 
@@ -866,7 +860,7 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|revision|numero intero|No |
+|revision|integer|No |
 |title|string|No |
 
 
@@ -876,8 +870,8 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|revision|numero intero|No |
-|title|string|No |
+|revision|integer|No |
+|title|stringa|No |
 |Completata|boolean|No |
 
 
@@ -887,8 +881,8 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|revision|numero intero|No |
-|content|string|No |
+|revision|integer|No |
+|content|stringa|No |
 
 
 
@@ -897,11 +891,11 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|date|string|No |
-|revision|numero intero|No |
+|date|stringa|No |
+|revision|integer|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

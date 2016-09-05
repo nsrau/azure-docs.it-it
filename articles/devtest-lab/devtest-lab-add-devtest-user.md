@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Aggiungere proprietari e utenti a un lab | Microsoft Azure"
-	description="Aggiungere in modo sicuro un utente che non è incluso nella sottoscrizione del lab di sviluppo/test di Azure"
+	description="Aggiungere in modo sicuro un utente non incluso nella sottoscrizione in Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="tarcher"/>
+	ms.date="08/23/2016"
+	ms.author="tarcher"/>  
 
 # Aggiungere proprietari e utenti a un lab
 
@@ -26,9 +26,9 @@ L'accesso ai lab di sviluppo e test è controllato dal Controllo di accesso in b
 
 Per concedere l'accesso al lab, si possono usare due ruoli:
 
-- **Proprietario**: gli utenti assegnati al ruolo **proprietario** a livello di lab hanno accesso completo al lab, incluse le funzioni di gestione e monitoraggio. Il ruolo **proprietario** assegnato a livello di lab non concede agli utenti le autorizzazioni per accedere alle risorse nella sottoscrizione fuori dall'ambito del lab. Gli utenti assegnati al ruolo **Proprietario** a livello di sottoscrizione di Azure hanno automaticamente diritti di **Proprietario** per tutte le risorse create nella sottoscrizione, inclusi lab e macchine virtuali.
+- **Proprietario**: gli utenti assegnati al ruolo **proprietario** a livello di lab hanno accesso completo al lab, incluse le funzioni di gestione e monitoraggio. Il ruolo **Proprietario** assegnato a livello di lab non concede agli utenti le autorizzazioni per accedere alle risorse nella sottoscrizione fuori dall'ambito del lab. Gli utenti assegnati al ruolo **Proprietario** a livello di sottoscrizione di Azure hanno automaticamente diritti di **Proprietario** per tutte le risorse create nella sottoscrizione, inclusi lab e macchine virtuali.
 
--  **Utente DevTest Labs**: gli utenti assegnati al ruolo **Utente DevTest Labs** possono creare macchine virtuali nel lab specificato e visualizzare tutte le risorse lab, come macchine virtuali, criteri o reti virtuali. Gli utenti possono essere *interni* (un membro di Azure Active Directory per la sottoscrizione), o *esterni* (un utente che non è un membro di Azure AD, ad esempio un membro di un'organizzazione partner).
+-  **Utente DevTest Labs**: gli utenti assegnati al ruolo **Utente DevTest Labs** possono creare macchine virtuali nel lab specificato e visualizzare tutte le risorse lab, come macchine virtuali, criteri o reti virtuali. Gli utenti possono essere *interni*, ovvero un membro di Azure Active Directory per la sottoscrizione, o *esterni*, ovvero un utente che non è membro di Azure AD, ad esempio un membro di un'organizzazione partner.
 	-  Un ruolo **Utente DevTest Labs** deve essere assegnato tramite il riquadro **Aggiungi utenti** del lab.
 	-  Gli utenti con il ruolo **Utente DevTest Labs** possono eseguire queste operazioni solo all'interno del lab a cui sono assegnati. Ad esempio, un **Utente DevTest Labs** non può creare una macchina virtuale usando il servizio Macchina virtuale della sottoscrizione. La creazione di una macchina virtuale è consentita solo da account di lab di sviluppo e test.
 	- Gli utenti *esterni* sono utenti con un Account Microsoft (MSA).
@@ -37,17 +37,17 @@ Dopo aver creato una macchina virtuale, all'utente che l'ha creata viene assegna
 
 ## Aggiungere un proprietario al lab
 
-Dato il modo in cui le autorizzazioni vengono propagate dall'ambito padre all'ambito figlio in Azure, i proprietari di una sottoscrizione di Azure che contiene lab saranno automaticamente proprietari di tali lab nonché di tutte le macchine virtuali e le altre risorse che vengono create dagli utenti del lab e dal servizio Lab DevTest. È possibile aggiungere altri proprietari a un lab tramite il relativo pannello nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), ma il loro ambito di amministrazione sarà più limitato rispetto a quello dei proprietari di sottoscrizioni, perché non avranno accesso completo ad alcune delle risorse create nella sottoscrizione dal servizio DevTest Labs.
+Dato il modo in cui le autorizzazioni vengono propagate dall'ambito padre all'ambito figlio in Azure, i proprietari di una sottoscrizione di Azure che contiene lab saranno automaticamente proprietari di tali lab nonché di tutte le macchine virtuali e le altre risorse che vengono create dagli utenti del lab e dal servizio DevTest Labs. È possibile aggiungere altri proprietari a un lab tramite il relativo pannello nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), ma il loro ambito di amministrazione sarà più limitato rispetto a quello dei proprietari di sottoscrizioni, perché non avranno accesso completo ad alcune delle risorse create nella sottoscrizione dal servizio DevTest Labs.
 
-Per aggiungere un proprietario a una sottoscrizione di Azure in cui si dispone di lab già creati o in cui si creeranno nuovi lab, seguire questi passaggi:
+Per aggiungere un proprietario a una sottoscrizione di Azure in cui sono già stati creati o verranno creati lab, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Nella finestra di navigazione a sinistra selezionare **Sottoscrizioni**.
+1. Nella riquadro di spostamento a sinistra selezionare **Sottoscrizioni**.
 
-	![Collegamento a sottoscrizioni](./media/devtest-lab-add-devtest-user/subscriptions.png)
+	![Collegamento a Sottoscrizioni](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Selezionare la sottoscrizione che conterrà il lab.
+1. Selezionare la sottoscrizione che conterrà i lab.
 
 1. Selezionare l’icona **Accesso**.
 
@@ -67,7 +67,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure in cui si dispone d
 
 1. Selezionare **OK** per chiudere il pannello **Aggiungi accesso**.
 
-1. Quando si torna al pannello **Utenti**, si noterà che l'utente è stato aggiunto come proprietario. Questa persona sarà ora un proprietario di qualsiasi lab creato in questa sottoscrizione e pertanto sarà in grado di eseguire le attività del proprietario.
+1. Quando si torna al pannello **Utenti**, si noterà che l'utente è stato aggiunto come proprietario. Questa persona sarà ora un proprietario di qualsiasi lab creato in questa sottoscrizione e quindi sarà in grado di eseguire le attività del proprietario.
 
 ## Aggiungere un utente di lab di sviluppo e test al lab
 
@@ -103,4 +103,4 @@ Per aggiungere un utente di lab di sviluppo e test al lab, seguire questi passag
 
 1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

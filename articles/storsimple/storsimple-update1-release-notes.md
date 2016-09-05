@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
-   ms.author="alkohli" />
+   ms.date="08/18/2016"
+   ms.author="alkohli" />  
 
 # Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000  
 
-## Panoramica
+## Overview
 
 Nelle note sulla versione seguenti vengono descritte le nuove funzionalità e sono indicati i problemi critici non risolti relativi all'aggiornamento 1.2 di StorSimple serie 8000. Le note contengono inoltre un elenco degli aggiornamenti del firmware del software, del driver e del disco di StorSimple inclusi in questa versione.
 
@@ -35,7 +35,7 @@ Esaminare le informazioni contenute nelle note sulla versione prima di distribui
 
 >[AZURE.IMPORTANT]
 > 
-- Sono necessarie circa 5-10 ore per installare questo aggiornamento (inclusi gli aggiornamenti di Windows). 
+- Sono necessarie circa 5-10 ore per installare questo aggiornamento (inclusi gli aggiornamenti di Windows).
 - L’aggiornamento 1.2 dispone di aggiornamenti del software, del driver LSI e del firmware del disco. Per installarlo, seguire le istruzioni in [Installare l’aggiornamento 1.2 sul dispositivo StorSimple](storsimple-install-update-1.md).
 - Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Provare a cercare nuovamente gli aggiornamenti dopo qualche giorno perché verranno presto resi disponibili.
 
@@ -44,7 +44,7 @@ Esaminare le informazioni contenute nelle note sulla versione prima di distribui
 
 Queste funzionalità sono state rilasciate precedentemente con l'aggiornamento 1 che è stato reso disponibile per un numero limitato di utenti. Con l’aggiornamento versione 1.2, la maggior parte degli utenti StorSimple noterà i miglioramenti e le nuove funzionalità seguenti:
 
-- **Migrazione da dispositivi di serie 5000-7000 alla serie 8000** - Questa versione introduce una nuova funzionalità di migrazione che consente all'utente del dispositivo StorSimple serie 5000-7000 di migrare i dati a un dispositivo fisico StorSimple serie 8000 o a un'appliance virtuale 1100. La funzionalità di migrazione dispone di due proposte di valore principali:                                                                  
+- **Migrazione da dispositivi di serie 5000-7000 alla serie 8000** - Questa versione introduce una nuova funzionalità di migrazione che consente agli utenti del dispositivo StorSimple serie 5000-7000 di migrare i dati a un dispositivo fisico StorSimple serie 8000 o a un'appliance virtuale. La funzionalità di migrazione dispone di due proposte di valore principali:
 
     - **Continuità aziendale**, attivando la migrazione dei dati esistenti nei dispositivi di serie 5000-7000 ai dispositivi di serie 8000.
     - **Miglioramenti delle funzionalità offerte dalle appliance serie 8000**, come la gestione centralizzata efficiente di più appliance tramite il servizio StorSimple Manager, migliore classe di hardware e aggiornamento di firmware, appliance virtuali, mobilità dei dati e funzionalità nei piani d’azione futuri.
@@ -63,10 +63,10 @@ Queste funzionalità sono state rilasciate precedentemente con l'aggiornamento 1
 
 ## Problemi risolti nell'aggiornamento 1.2
 
-Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiornamento 1.2, 1.1 e 1.
+La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 1.2, 1.1 e 1.
 
 
-| No. | Funzionalità | Problema | Risolto nell'aggiornamento | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| di serie | Funzionalità | Problema | Risolto nell'aggiornamento | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |-----|---------|-------|-----------------|---------------------------------|--------------------------------|
 | 1 | Windows PowerShell per StorSimple | Quando un utente accede in remoto al dispositivo StorSimple tramite Windows PowerShell per StorSimple e poi avvia l'installazione guidata, si verifica un arresto anomalo non appena si inserisce l'IP Data 0. Nell'aggiornamento 1, questo bug è stato corretto. | Aggiornamento 1 | Sì | Sì |
 | 2 | Ripristino delle impostazioni predefinite | In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple si blocca e l’utente visualizza il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C durante l'esecuzione del cmdlet. Il bug è stato corretto.| Aggiornamento 1 | Sì | No |
@@ -77,8 +77,8 @@ Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiorna
 | 7 | LED di monitoraggio | In alcuni casi, i LED di monitoraggio posti nella parte posteriore dell’appliance non indicavano lo stato corretto. Il LED blu è stato disattivato. I LED DATA 0 e 1 lampeggiavano anche quando le interfacce non erano configurate. Il problema è stato risolto e i LED di monitoraggio indicano lo stato corretto. | Aggiornamento 1 | Sì | No |
 | 8 | LED di monitoraggio | In alcuni casi, dopo aver applicato l'aggiornamento 1, la luce blu sul controller attivo si disattiva rendendo difficile identificare il controller attivo. Questo problema è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | No |
 | 9 | Interfacce di rete | Nelle versioni precedenti, un dispositivo StorSimple configurato con un gateway non indirizzabile poteva disconnettersi. In questa versione, la metrica di routing per Data 0 è stata effettuata al minimo; pertanto, anche se altre interfacce di rete sono abilitate per il cloud, tutto il traffico cloud dal dispositivo verrà indirizzato tramite Data 0. | Aggiornamento 1 | Sì | Sì | 
-| 10 | Backups | Un bug nell'aggiornamento 1 che ha causato errori nei backup dopo 24 giorni è stato risolto nella versione patch dell’aggiornamento 1.1. | Aggiornamento 1.1 | Sì | Sì |
-| 11 | Backups | Un bug nelle versioni precedenti che comprometteva le prestazioni degli snapshot cloud con bassi tassi di cambio. Questo bug è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
+| 10 | Backup | Un bug nell'aggiornamento 1 che ha causato errori nei backup dopo 24 giorni è stato risolto nella versione patch dell’aggiornamento 1.1. | Aggiornamento 1.1 | Sì | Sì |
+| 11 | Backup | Un bug nelle versioni precedenti che comprometteva le prestazioni degli snapshot cloud con bassi tassi di cambio. Questo bug è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
 | 12 | Aggiornamenti | Un bug nell'aggiornamento 1 che segnalava un aggiornamento non riuscito e che ha determinato il passaggio dei controller alla modalità di ripristino, è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
 
 
@@ -86,17 +86,17 @@ Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiorna
 
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
-| No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| di serie | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Quorum disco | In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline e rimarrà in tale stato anche se i dischi vengono riconnessi. | Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. | Sì | No |
 | 2 | ID controller non corretto | Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. | Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller. | Sì | No |
 | 3 | Account di archiviazione | L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente. | Sì | Sì |
-| 4 | Failover del dispositivo | I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. Il failover da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico. | | Sì | No |
+| 4 | Failover del dispositivo | I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. Il failover del dispositivo da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico. | | Sì | No |
 | 5 | Installare | Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | | Sì | No |
 | 6 | Proxy Web | Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. | Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md). | Sì | No |
 | 7 | Proxy Web | Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | | Sì | No |
 | 8 | Elevata latenza del cloud ed elevato carico di lavoro I/O | Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". | In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere il problema. | Sì | No |
-| 9 | Azure PowerShell | Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poterne creare uno nuovo **VolumeContainer**, il cmdlet restituisce tutti gli oggetti. | Mettere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Sì | Sì |
+| 9 | Azure PowerShell | Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poterne creare uno nuovo **VolumeContainer**, il cmdlet restituisce tutti gli oggetti. | Mettere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Sì | Sì |
 | 10| Migrazione | Quando, per la migrazione, vengono passati più contenitori del volume, ETA per il backup più recente è accurato solo per il primo contenitore del volume. Inoltre, la migrazione parallela verrà avviata dopo la migrazione dei primi quattro backup nel primo contenitore del volume. | Si consiglia di migrare un contenitore del volume alla volta. | Sì | No |
 | 11| Migrazione | Dopo il ripristino, i volumi non vengono aggiunti ai criteri di backup o al gruppo di dischi virtuali. | È necessario aggiungerli a un criterio di backup per creare i backup. | Sì | Sì |
 | 12| Migrazione | Al termine della migrazione, il dispositivo di serie 5000/7000 non deve accedere ai contenitori di dati migrati. | Dopo il completamento e l'approvazione della migrazione, è consigliabile eliminare i contenitori di dati migrati. | Sì | No |
@@ -111,7 +111,7 @@ Se l’aggiornamento 1.2 della patch viene applicato a un dispositivo fisico (ch
 
 Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
  
-- Per altre informazioni sull'aggiornamento del controller SAS, vedere [Aggiornamento 1 per i controller SAS LSI nell’appliance Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005). 
+- Per altre informazioni sull'aggiornamento del controller SAS, vedere [Aggiornamento 1 per i controller SAS LSI nell’appliance Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005).
 
 - Per altre informazioni sull’aggiornamento del firmware del disco, vedere [Aggiornamento 1 del firmware del disco per l’appliance Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063416).
  
@@ -124,4 +124,4 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 - [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

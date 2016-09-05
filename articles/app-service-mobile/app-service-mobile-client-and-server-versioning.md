@@ -13,8 +13,8 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="05/10/2016"
-  ms.author="donnam"/>
+  ms.date="08/22/2016"
+  ms.author="donnam"/>  
 
 # Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 
@@ -30,7 +30,7 @@ Per ulteriori informazioni sulla migrazione al servizio app senza apportare modi
 
 La chiave `ZUMO-API-VERSION` può essere specificata nell'intestazione HTTP o nella stringa di query. Il valore è una stringa di versione nel formato **x.y.z**.
 
-Ad esempio:
+ad esempio:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -40,13 +40,13 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## Esclusione del controllo della versione
 
-È possibile rifiutare il controllo della versione impostando un valore **true** per l'impostazione dell’app **MS\_SkipVersionCheck**. Specificarlo nel file web.config o nella sezione Impostazioni dell'applicazione del portale di Azure.
+È possibile rifiutare il controllo della versione impostando un valore **true** per l'impostazione dell’app **MS\_SkipVersionCheck**. Specificarlo nel file web.config o nella sezione Impostazioni applicazione del portale di Azure.
 
-> [AZURE.NOTE] Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. Si consiglia di rifiutare il controllo della versione solo dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
+> [AZURE.NOTE] Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. È consigliabile rifiutare esplicitamente solo il controllo della versione dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
 
 ## Riepilogo della compatibilità per tutte le versioni
 
-Il grafico seguente illustra la compatibilità tra tutti i tipi di client e server. Un back-end viene classificato come **Servizi** mobili o **App** per dispositivi mobili in base allo SDK del server che viene utilizzato.
+Il grafico seguente illustra la compatibilità tra tutti i tipi di client e server. Un back-end viene classificato come **Servizi** mobili o **App** per dispositivi mobili in base all'SDK del server usato.
 
 | | Node.js o .NET di **Servizi mobili** | Node.js o .NET di **App per dispositivi mobili** |
 | ----------                | -----------------------             |   ----------------              |
@@ -70,19 +70,19 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 
 | Piattaforma client | Versione | Valore dell'intestazione della versione |
 | -------------------               | ------------------------                                                  | -------------------  |
-| Client gestito (Windows, Xamarin) | [1\.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | N/D |
-| iOS | [2\.2.2](http://aka.ms/gc6fex) | N/D |
-| Android | [2\.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) | N/D |
-| HTML | [1\.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | N/D |
+| Client gestito (Windows, Xamarin) | [1\.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | n/d |
+| iOS | [2\.2.2](http://aka.ms/gc6fex) | n/d |
+| Android | [2\.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) | n/d |
+| HTML | [1\.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/d |
 
 ### SDK del server di *Servizi* mobili
 
 | Piattaforma server | Versione | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
-| Node.js | (presto disponibile) | **Nessuna intestazione di versione** |
+| Node.js | (Presto disponibile) | **Nessuna intestazione di versione** |
 
-<!-- TODO: add Node npm version -->
+<!-- TODO: add Node npm version -->  
 
 ### Comportamento dei back-end di Servizi mobili
 
@@ -138,4 +138,4 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

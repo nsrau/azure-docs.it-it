@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="08/16/2016"
-   ms.author="jimpark;saurabhsensharma;nkolli;trinadhk"/>
+   ms.author="jimpark;saurabhsensharma;nkolli;trinadhk"/>  
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup "completi" iniziali dei dati in Azure. I backup "completi" iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono quindi una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Oltre a comprimere i backup iniziali, Backup di Azure offre con il processo di seeding online un meccanismo per caricare offline in Azure tramite dischi i dati compressi dei backup iniziali.
@@ -39,7 +39,7 @@ Al termine del caricamento dei dati di backup in Azure, i dati di backup vengono
 2. Prima di avviare il flusso di lavoro, verificare che sia stato creato un insieme di credenziali per Backup di Azure, che siano state scaricate le credenziali dell'insieme di credenziali, che l'agente di Backup di Azure sia stato installato in Windows Server, nel client Windows o nel server System Center Data Protection Manager (SCDPM) e che il computer sia registrato nell'insieme di credenziali per Backup di Azure.
 3. Scaricare il file di impostazioni di pubblicazione di Azure [da questa pagina](https://manage.windowsazure.com/publishsettings) sul computer da cui si prevede di eseguire il backup dei dati.
 4. Preparare una *posizione di staging*, che può essere una condivisione di rete o un'unità aggiuntiva nel computer. La posizione di staging è una risorsa di archiviazione temporanea usata durante il flusso di lavoro. Verificare che nel percorso di gestione temporanea sia disponibile spazio su disco sufficiente per contenere la copia iniziale. Se si prevede di eseguire il backup di un file server da 500 GB, ad esempio, verificare che l'area di staging sia di almeno 500 GB, anche se grazie alla compressione verrà usato uno spazio inferiore.
-5. Unità di scrittura SATA esterna e unità SATA esterna da 3,5 pollici. Con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. Non sono supportati dischi rigidi di dimensioni superiori a 8 TB. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III. Per informazioni sul set più recente di unità supportato dal servizio, vedere la documentazione di Importazione/Esportazione di Azure.
+5. Uno o più unità disco rigido interno SATA II/III 3,5 pollici. Con il servizio Importazione/Esportazione di Azure sono supportati per l'uso solo i dischi rigidi interni SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 10 TB non sono supportati. Questi dischi rigidi possono essere collegati internamente, usando un connettore SATA compatibile o esternamente con un adattatore USB SATA II/III. Per informazioni sul set più recente di dischi rigidi e adattatori USB SATA supportati dal servizio, vedere la [documentazione relativa al servizio Importazione/Esportazione di Azure](../storage/storage-import-export-service.md).
 6. Attivare BitLocker nel computer a cui è connessa l'unità di scrittura SATA.
 7. Scaricare lo strumento di importazione/esportazione di Azure da [questa pagina](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) nel computer a cui è connessa l'unità di scrittura SATA. Questo passaggio non è necessario se si è scaricato e installato l'aggiornamento di agosto 2016 di Backup di Azure (o una versione successiva).
 
@@ -70,11 +70,11 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 2. Completare il flusso di lavoro e selezionare **Esegui backup ora** nella console di gestione di Backup di Azure per avviare la copia di backup offline. Durante questo passaggio il backup iniziale viene scritto nell'area di gestione temporanea.
 
-    ![Esegui backup ora](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Esegui backup ora](./media/backup-azure-backup-import-export/backupnow.png)  
     
     Per abilitare il flusso di lavoro corrispondente in SCDPM, fare clic con il pulsante destro del mouse su **Gruppo protezione dati** e scegliere l'opzione **Crea punto di ripristino**. Questo passaggio viene eseguito scegliendo l'opzione **Protezione dati online**.
 
-    ![Esegui backup di DPM ora](./media/backup-azure-backup-import-export/dpmbackupnow.png)
+    ![Esegui backup di DPM ora](./media/backup-azure-backup-import-export/dpmbackupnow.png)  
 
     Al termine dell'operazione, la posizione di staging è pronta per essere usata per la preparazione dei dischi.
 
@@ -162,20 +162,20 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
 ### Creare un processo di importazione nel portale di Azure
 1. Passare all'account di archiviazione nel [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Importa/Esporta** e quindi su **Crea processo di importazione** nel riquadro attività.
 
-    ![di Microsoft Azure](./media/backup-azure-backup-import-export/azureportal.png)
+    ![di Microsoft Azure](./media/backup-azure-backup-import-export/azureportal.png)  
 
 2. Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile. Nel passaggio 2 della procedura guidata specificare le informazioni di contatto per la persona responsabile di questo processo di importazione.
 3. Nel passaggio 3 caricare i file journal dell'unità ottenuti nella sezione precedente.
 4. Nel passaggio 4 immettere un nome descrittivo per il processo di importazione come quello immesso durante la creazione del gruppo di criteri di backup/protezione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo che sono stati completati.
 5. Selezionare quindi l'area geografica del data center dall'elenco. L'area geografica del data center indica il data center e l'indirizzo per la spedizione del pacchetto.
 
-    ![DC](./media/backup-azure-backup-import-export/dc.png)
+    ![DC](./media/backup-azure-backup-import-export/dc.png)  
 
 6. Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Questo account viene usato da Microsoft per restituire le unità all'utente al termine del processo di importazione.
 
 7. Spedire il disco e immettere il numero di tracciabilità per tenere traccia dello stato della spedizione. Dopo l'arrivo nel data center, il disco viene copiato nell'account di archiviazione e lo stato viene aggiornato.
 
-    ![Stato completo](./media/backup-azure-backup-import-export/complete.png)
+    ![Stato completo](./media/backup-azure-backup-import-export/complete.png)  
 
 ### Completamento del flusso di lavoro
 Quando i dati del backup iniziale sono disponibili nell'account di archiviazione, l'agente di Servizi di ripristino di Microsoft Azure copia il contenuto dei dati dall'account all'insieme di credenziali per il backup o all'insieme di credenziali dei servizi di ripristino, a seconda di quale sia applicabile. Al successivo backup pianificato, l'agente Backup di Azure esegue il backup incrementale sulla copia di backup iniziale.
@@ -184,4 +184,4 @@ Quando i dati del backup iniziale sono disponibili nell'account di archiviazione
 - Per chiarimenti sul flusso di lavoro di Importazione/Esportazione di Azure, vedere questo [articolo](../storage/storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

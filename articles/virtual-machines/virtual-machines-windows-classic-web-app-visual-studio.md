@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="TomArcher"
-	manager="douge"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+	ms.author="tarcher"/>  
 
 # Creazione di una macchina virtuale per un’applicazione web con Visual Studio
 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

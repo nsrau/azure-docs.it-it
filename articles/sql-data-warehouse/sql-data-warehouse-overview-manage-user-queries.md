@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Monitorare le query utente in Azure SQL Data Warehouse
@@ -36,7 +36,7 @@ Panoramica delle considerazioni, delle procedure consigliate e delle attività p
 
 Per altri suggerimenti relativi alla gestione, andare alla [Panoramica della gestione][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Trovare query con esecuzione prolungata]: sql-data-warehouse-manage-monitor.md
@@ -48,4 +48,4 @@ Per altri suggerimenti relativi alla gestione, andare alla [Panoramica della ges
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

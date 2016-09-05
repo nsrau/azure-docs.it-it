@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
@@ -22,13 +22,13 @@
 
 Questo argomento descrive come configurare il servizio app di Azure per usare Google come provider di autenticazione.
 
-Per completare la procedura descritta in questo argomento, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+Per completare la procedura descritta in questo argomento, è necessario avere un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"> </a>Registrare l'applicazione con Google
 
-1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Google.
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**, che verrà usato in seguito per configurare l'app Google.
 
-2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), accedere con le credenziali dell'account Google, fare clic su **Create Project**, specificare un valore in **Project name**, quindi fare clic su **Create**.
+2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), accedere con le credenziali dell'account Google, fare clic su **Create Project** (Crea progetto), specificare un valore in **Project name** (Nome progetto), quindi fare clic su **Create** (Crea).
 
 3. In **Social APIs** fare clic su **Google+ API** e quindi su **Enable**.
 
@@ -68,7 +68,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 <!-- Images. -->
 
@@ -81,4 +81,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="mahthi"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -28,7 +28,7 @@ Nella tabella seguente è disponibile la rappresentazione classica e di Resource
 | Rappresentazione classica | Rappresentazione in Resource Manager | Note dettagliate | | |
 |--------------------------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | Nome del servizio cloud | Nome DNS | Durante la migrazione, viene creato un nuovo gruppo di risorse per ogni servizio cloud con il modello di denominazione `<cloudservicename>-migrated`. Questo gruppo di risorse conterrà tutte le risorse. Il nome del servizio cloud diventa un nome DNS associato all'indirizzo IP pubblico. | | |
-| Macchine virtuali | Macchine virtuali | Le proprietà specifiche della VM vengono migrate senza variazioni. Si noti che alcune informazioni su osProfile, come il nome del computer, non sono state archiviate nel modello di distribuzione classica e quindi rimarranno vuote dopo la migrazione. | | |
+| Macchina virtuale | Macchina virtuale | Le proprietà specifiche della VM vengono migrate senza variazioni. Si noti che alcune informazioni su osProfile, come il nome del computer, non sono state archiviate nel modello di distribuzione classica e quindi rimarranno vuote dopo la migrazione. | | |
 | Risorse del disco collegate alla VM | Dischi impliciti collegati alla VM | I dischi non vengono modellati come risorse di primo livello nel modello di distribuzione di Resource Manager. Ne verrà eseguita la migrazione come dischi impliciti della VM. Al momento sono supportati solo i dischi collegati a una VM. Per consentire la migrazione, le macchine virtuali di Resource Manager possono ora usare gli account di archiviazione classici. In questo modo è possibile eseguire facilmente la migrazione dei dischi al modello di Resource Manager senza aggiornamenti. | | |
 | Estensioni di VM | Estensioni di VM | Viene eseguita la migrazione dal modello di distribuzione classica di tutte le estensioni di risorse, a eccezione delle estensioni XML. | | |
 | Certificati di macchine virtuali | Certificati nell'insieme di credenziali delle chiavi di Azure | Se un servizio cloud contiene i certificati di servizio, la piattaforma crea un nuovo insieme di credenziali delle chiavi di Azure per ogni servizio cloud e sposta i certificati nell'insieme di credenziali delle chiavi. Le VM verranno aggiornate per fare riferimento ai certificati dell'insieme di credenziali delle chiavi. | | |
@@ -42,7 +42,7 @@ Nella tabella seguente è disponibile la rappresentazione classica e di Resource
 | Rete virtuale | Rete virtuale | Viene eseguita la migrazione della rete virtuale con tutte le relative proprietà nel modello di distribuzione di Resource Manager. Viene creato un nuovo gruppo di risorse con il nome `-migrated`. Consultare le [configurazioni non supportate](virtual-machines-windows-migration-classic-resource-manager.md). | | |
 | IP riservati | Indirizzo IP pubblico con allocationMethod statico | Gli indirizzi IP riservati associati al servizio di bilanciamento del carico vengono trasferiti con la migrazione del servizio cloud o della macchina virtuale. Al momento la migrazione di indirizzi IP riservati non associati non è supportata. | | |
 | Indirizzo IP pubblico per VM | Indirizzo IP pubblico con Allocationmethod dinamico | L'indirizzo IP pubblico associato alla VM viene convertito come risorsa indirizzo IP pubblico con il metodo di allocazione impostato su statico. | | |
-| NSG | NSG | I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Si noti che il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. | | |
+| Gruppi di sicurezza di rete | Gruppi di sicurezza di rete | I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Si noti che il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. | | |
 | Server DNS | Server DNS | Viene eseguita la migrazione dei server DNS associati a una rete virtuale o alla VM come parte della migrazione delle risorse corrispondenti insieme a tutte le proprietà. | | |
 | Route definite dall'utente | Route definite dall'utente | Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Si noti che la route definita dall'utente nel modello di distribuzione classica non viene rimossa durante la migrazione. Tuttavia, le operazioni del piano di gestione per la route definita dall'utente vengono bloccate mentre la migrazione è in corso. | | |
 | Proprietà di inoltro IP nella configurazione di rete di una VM | Proprietà di inoltro IP nella scheda di rete | La proprietà di IP in una VM viene convertita in una proprietà nell'interfaccia di rete durante la migrazione. | | |
@@ -64,4 +64,4 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 - [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

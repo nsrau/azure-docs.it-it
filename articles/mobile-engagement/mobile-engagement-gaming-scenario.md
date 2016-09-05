@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
-	ms.author="piyushjo"/>
+	ms.date="08/19/2016"
+	ms.author="piyushjo"/>  
 
 #Implementare Mobile Engagement con app di gioco
 
-## Panoramica
+## Overview
 
 Una startup del settore gaming ha lanciato una nuova app di gioco di ruolo e strategia ispirata al mondo della pesca. Il gioco è operativo da sei mesi. Sta registrando un grande successo, con milioni di download, e il tasso di conservazione è molto alto rispetto alle app di gioco di altre startup. Durante la riunione di revisione trimestrale, le parti interessate concordano sulla necessità di aumentare i ricavi medi per utente (ARPU). All'interno del gioco sono disponibili pacchetti Premium come offerte speciali. Questi pacchetti permettono agli utenti di migliorare l'aspetto e le prestazioni delle lenze, delle esche o dell'attrezzatura da pesca all'interno del gioco. Le vendite di pacchetti, però, sono molto basse. Si decide quindi di analizzare prima di tutto l'esperienza degli utenti con uno strumento di analisi e di sviluppare poi un programma di engagement per aumentare le vendite attraverso la segmentazione avanzata.
 
@@ -56,17 +56,17 @@ Prima di creare un programma di engagement avanzato, il Mobile Project Manager r
 
 Dopo 3 mesi, il Mobile Project Manager ha raccolto dati sufficienti per migliorare le vendite delle notifiche push all'interno dell'app. Informazioni raccolte:
 
-* Il primo acquisto si verifica in genere al livello 14 del gioco. Nel 90% dei casi, vengono acquistate nuove armi leggendarie da 3 dollari.
+* Il primo acquisto si verifica in genere al livello 14 del gioco. Nel 90% dei casi, vengono acquistate nuove armi leggendarie da 3 dollari.
 * Nell'80% dei casi, gli utenti che hanno fatto un acquisto continuano a usare il prodotto e fanno altri acquisti.
-* Gli utenti che hanno superato il livello 20 iniziano a spendere oltre 10 dollari alla settimana.
+* Gli utenti che hanno superato il livello 20 iniziano a spendere oltre 10 dollari alla settimana.
 * Gli utenti tendono ad acquistare pacchetti Premium ai livelli 16, 24 e 32.
 
 Grazie a questa analisi il Mobile Project Manager decide di creare sequenze di notifiche push specifiche per aumentare le vendite all'interno dell'app. Crea tre sequenze push denominate: programma di benvenuto, programma di vendita e programma utenti inattivi. Per altre informazioni, vedere la pagina relativa agli [schemi di progetto](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1].
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
-<!--Link references-->
+<!--Link references-->  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
 pageTitle="SendGrid | Microsoft Azure"
-description="Creare app per la logica con Servizio app di Azure. Il provider di connessione SendGrid consente di inviare messaggi di posta elettronica e gestire elenchi di destinatari."
+description="Creare app per la logica in Servizio app di Azure. Il provider di connessione SendGrid consente di inviare messaggi di posta elettronica e gestire elenchi di destinatari."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,28 +14,22 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
-ms.author="deonhe"/>
+ms.date="08/18/2016"
+ms.author="deonhe"/>  
 
 # Introduzione al connettore SendGrid
 
-
-
-Il connettore SendGrid può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flows.microsoft.com)
+Il provider di connessione SendGrid consente di inviare messaggi di posta elettronica e gestire elenchi di destinatari.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
 Il connettore SendGrid può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
 
- Nel connettore SendGrid sono disponibili le azioni e/o i trigger seguenti:
+ Nel connettore SendGrid sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 ### Azioni di SendGrid
 È possibile eseguire queste azioni:
@@ -44,11 +38,6 @@ Il connettore SendGrid può essere usato come azione e include trigger. Tutti i 
 |--- | ---|
 |[SendEmail](connectors-create-api-sendgrid.md#sendemail)|Invia un messaggio di posta elettronica tramite API SendGrid (limite di 10.000 destinatari)|
 |[AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist)|Aggiunge un unico destinatario a un elenco di destinatari|
-### Trigger di SendGrid
-È possibile ascoltare questi eventi:
-
-|Trigger | Descrizione|
-|--- | ---|
 
 
 ## Creare una connessione a SendGrid
@@ -66,20 +55,20 @@ Per creare app per la logica con SendGrid, è prima necessario creare una **conn
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
 ## Informazioni di riferimento per SendGrid
-Si applica alla versione: 1.0
+Si applica alla versione 1.0
 
 ## SendEmail
 Invio di posta elettronica: invia un messaggio di posta elettronica tramite API SendGrid (limite di 10.000 destinatari)
 
 ```POST: /api/mail.send.json```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |richiesta| |sì|body|nessuno|Messaggio di posta elettronica da inviare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -96,12 +85,12 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 
 ```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|listId|string|yes|path|nessuno|ID univoco dell'elenco di destinatari|
-|recipientId|string|yes|path|nessuno|ID univoco del destinatario|
+|listId|stringa|yes|path|nessuno|ID univoco dell'elenco di destinatari|
+|recipientId|stringa|yes|path|nessuno|ID univoco del destinatario|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -121,19 +110,19 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|from|string|Sì |
-|fromname|string|No |
+|from|stringa|Sì |
+|fromname|stringa|No |
 |to|string|Sì |
-|toname|string|No |
-|subject|string|Sì |
-|body|string|Sì |
+|toname|stringa|No |
+|subject|stringa|Sì |
+|body|stringa|Sì |
 |ishtml|boolean|No |
 |cc|string|No |
-|ccname|string|No |
-|bcc|string|No |
-|bccname|string|No |
-|replyto|string|No |
-|date|string|No |
+|ccname|stringa|No |
+|bcc|stringa|No |
+|bccname|stringa|No |
+|replyto|stringa|No |
+|date|stringa|No |
 |headers|string|No |
 |input|array|No |
 |filenames|array|No |
@@ -163,9 +152,9 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|numero intero|No |
-|name|string|No |
-|recipient\_count|numero intero|No |
+|id|integer|No |
+|name|stringa|No |
+|recipient\_count|integer|No |
 
 
 
@@ -183,13 +172,13 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|email|string|No |
+|email|stringa|No |
 |last\_name|string|No |
-|first\_name|string|No |
-|id|string|No |
+|first\_name|stringa|No |
+|id|stringa|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

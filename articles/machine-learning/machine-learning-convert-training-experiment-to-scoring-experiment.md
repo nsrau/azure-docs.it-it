@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
-	ms.author="garye"/>
+	ms.date="08/19/2016"
+	ms.author="garye"/>  
 
 # Convertire un esperimento di training di Machine Learning in un esperimento predittivo
 
@@ -37,7 +37,7 @@ Il processo di conversione di un esperimento di training in un esperimento predi
 Dopo avere eseguito l'esperimento (pulsante **RUN** nella parte inferiore dell'area di disegno dell'esperimento), il pulsante **Set Up Web Service** (selezionare l'opzione **Predictive Web Service**) eseguirà automaticamente i tre passaggi per la conversione dell'esperimento di training in un esperimento predittivo:
 
 1.	Salva il modello sottoposto a training come modulo nella sezione **Trained Models** della tavolozza del modulo (a sinistra dell'area di disegno dell'esperimento), quindi sostituisce l'algoritmo di Machine Learning e i moduli [Train Model][train-model] con il modello sottoposto a training salvato.
-2.	Rimuove i moduli chiaramente non necessari. L'esempio include i moduli [Split][split], secondo [Score Model][score-model] ed [Evaluate Model][evaluate-model].
+2.	Rimuove i moduli chiaramente non necessari. L'esempio include i moduli [Split Data][split], 2nd [Score Model][score-model] ed [Evaluate Model][evaluate-model].
 3.	Crea i moduli di input e output del servizio Web e li aggiunge alle posizioni predefinite nell'esperimento.
 
 Ad esempio, il seguente esperimento esegue il training di un modello di albero delle decisioni incrementato a due classi utilizzando dati di classificazione di esempio:
@@ -112,7 +112,7 @@ Per altre informazioni sul processo di distribuzione completo, vedere [Distribui
 [deploy]: machine-learning-publish-a-machine-learning-web-service.md
 
 
-<!-- Images -->
+<!-- Images -->  
 [figure1]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure1.png
 [figure2]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure2.png
 [figure3]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure3.png
@@ -131,4 +131,4 @@ Per altre informazioni sul processo di distribuzione completo, vedere [Distribui
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

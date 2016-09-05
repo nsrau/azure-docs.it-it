@@ -3,7 +3,7 @@
    description="Questo articolo descrive la funzionalità ";Profili nidificati"; di Gestione traffico di Azure"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Profili nidificati di Gestione traffico
 
@@ -149,7 +149,7 @@ Altre informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-
 
 Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
 [2]: ./media/traffic-manager-nested-profiles/figure-2.png
 [3]: ./media/traffic-manager-nested-profiles/figure-3.png
@@ -161,4 +161,4 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

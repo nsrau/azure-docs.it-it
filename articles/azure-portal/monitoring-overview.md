@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Panoramica sul monitoraggio in Microsoft Azure | Microsoft Azure"
-	description="Panoramica generale sul monitoraggio e la diagnostica negli avvisi di Azure rispetto ad altri sistemi non Azure."
+	description="Panoramica generale del monitoraggio e della diagnostica in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro."
 	authors="rboucher"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -138,4 +138,4 @@ Altre informazioni su:
 - [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md), utili per l'uso di BLOB di archiviazione, tabelle o code.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

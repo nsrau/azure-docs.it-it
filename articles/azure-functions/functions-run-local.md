@@ -4,7 +4,7 @@
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>  
 
 # Come scrivere codice per le funzioni di Azure e testarle in Visual Studio
 
-## Panoramica
+## Overview
 
 Questo articolo illustra come eseguire [Funzioni di Azure](functions-overview.md) localmente scaricando il repository [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) di GitHub ed eseguendo la soluzione di Visual Studio in esso contenuta.
 
@@ -222,4 +222,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

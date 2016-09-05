@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
-   ms.author="rasquill"/>
+   ms.date="08/23/2016"
+   ms.author="rasquill"/>  
 
 # Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando
 
-Questo argomento descrive come trovare immagini di macchine virtuali, editori, offerte, SKU e versioni per ogni località di distribuzione. Per fare un esempio, alcune immagini di macchina virtuale Windows usate comunemente sono:
+Questo argomento descrive come trovare editori, offerte, SKU e versioni di immagini di VM per ogni posizione di distribuzione. Per fare un esempio, alcune immagini di macchina virtuale Windows usate comunemente sono:
 
 ## Tabella delle immagini Windows usate comunemente
 
@@ -41,4 +41,4 @@ Questo argomento descrive come trovare immagini di macchine virtuali, editori, o
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

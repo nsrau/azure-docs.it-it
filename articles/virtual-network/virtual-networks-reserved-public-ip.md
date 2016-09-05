@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -20,7 +20,7 @@ Gli indirizzi IP in Azure rientrano in due categorie: indirizzi dinamici e indir
 
 Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizzi IP riservati possono essere usati solo come indirizzi VIP, pertanto assicurano che l'indirizzo IP per il servizio cloud resti invariato anche se con il passare del tempo le risorse vengono arrestate o deallocate. È inoltre possibile convertire in indirizzo IP riservato gli indirizzi IP dinamici esistenti usati come indirizzi VIP.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come riservare un indirizzo IP pubblico statico usando [il modello di distribuzione di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Verificare di conoscere il funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
 
@@ -33,7 +33,7 @@ Verificare di conoscere il funzionamento degli [indirizzi IP](virtual-network-ip
 1. È possibile usare un indirizzo IP riservato per tutti i servizi di Azure?
   - Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
 1. Di quanti indirizzi IP riservati è possibile disporre?
-  - Attualmente tutte le sottoscrizioni di Azure sono autorizzate a usare 20 indirizzi IP riservati. È tuttavia possibile richiedere altri indirizzi IP riservati. Per altre informazioni, vedere la pagina relativa ai [limiti per la sottoscrizione e i servizi](../azure-subscription-service-limits.md).
+  - Attualmente tutte le sottoscrizioni di Azure sono autorizzate a usare 20 indirizzi IP riservati. È tuttavia possibile richiedere altri indirizzi IP riservati. Per altre informazioni, vedere la pagina relativa ai [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md).
 1. È previsto un addebito per gli indirizzi IP riservati?
   - Per informazioni sui prezzi, vedere [Prezzi per gli indirizzi IP riservati](http://go.microsoft.com/fwlink/?LinkID=398482).
 1. Come è possibile riservare un indirizzo IP?
@@ -130,4 +130,4 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 - Informazioni su[indirizzo IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

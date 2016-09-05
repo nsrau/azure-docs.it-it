@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -66,7 +66,7 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 
 
 
-1. Quando viene inviata al telefono una verifica, fare clic su di essa per avviare l'app Azure Authenticator.
+1. Quando viene inviata una verifica al telefono, fare clic su di essa per avviare l'app Microsoft Authenticator.
 2. Per segnalare l'illecito, fare clic su Annulla e segnala illecito. Verrà visualizzata una finestra che indica che il personale del supporto tecnico dell'organizzazione riceverà una notifica.
 3. Fare clic su Segnala illecito.
 4. Nell'app fare clic su Chiudi.
@@ -362,8 +362,8 @@ Metodo|Descrizione
 :------------- | :------------- | 
 [Chiamata al telefono](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Invia una chiamata vocale automatizzata sul telefono predisposto all'autenticazione. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non verrà sincronizzato con Active Directory locale.
 [SMS al telefono](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Invia un messaggio di testo contenente un codice di verifica per l'utente. L'utente deve rispondere al messaggio con il codice di verifica o immettere il codice di verifica nell'interfaccia di accesso.
-[Notifica tramite app per dispositivi mobili](multi-factor-authentication-end-user-first-time-mobile-app.md)|In questa modalità l'app Azure Authenticator impedisce l'accesso agli account non autorizzati e arresta le transazioni illecite. L’avvertenza è una notifica push inviata sul telefono o sul dispositivo registrato. Visualizzare la notifica e, se del caso, selezionare Verifica. In caso contrario, è possibile scegliere Nega oppure Nega e segnala la notifica illecita. Per informazioni sulla segnalazione di notifiche illecite, vedere l'argomento relativo a come usare le funzionalità Nega e Segnala illecito per Multi-Factor Authentication.</br></br>L'app Azure Authenticator è disponibile per [Windows Phone](http://www.windowsphone.com/it-IT/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
-[Codice di verifica dall'app per dispositivi mobili](multi-factor-authentication-end-user-first-time-mobile-app.md)|In questa modalità, l'app Azure Authenticator può essere usata come token software per generare un codice di verifica OATH. Questo codice di verifica quindi può pertanto essere immesso con il nome utente e con la password come seconda modalità di autenticazione.</li><br><p> L'app Azure Authenticator è disponibile per [Windows Phone](http://www.windowsphone.com/it-IT/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Notifica tramite app per dispositivi mobili](multi-factor-authentication-end-user-first-time-mobile-app.md)|In questa modalità l'app Microsoft Authenticator impedisce l'accesso agli account non autorizzati e arresta le transazioni illecite. L’avvertenza è una notifica push inviata sul telefono o sul dispositivo registrato. Visualizzare la notifica e, se del caso, selezionare Verifica. In caso contrario, è possibile scegliere Nega oppure Nega e segnala la notifica illecita. Per informazioni sulla segnalazione di notifiche illecite, vedere l'argomento relativo a come usare le funzionalità Nega e Segnala illecito per Multi-Factor Authentication.</br></br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
+[Codice di verifica dall'app per dispositivi mobili](multi-factor-authentication-end-user-first-time-mobile-app.md)|In questa modalità l'app Microsoft Authenticator può essere usata come token software per generare un codice di verifica OATH. Questo codice di verifica quindi può pertanto essere immesso con il nome utente e con la password come seconda modalità di autenticazione.</li><br><p> L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ### Come abilitare o disabilitare i metodi di autenticazione
 
@@ -376,4 +376,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
-   ms.author="masnider"/>
+   ms.date="08/19/2016"
+   ms.author="masnider"/>  
 
 # Introduzione ai gruppi di applicazioni
 Cluster Resource Manager di Service Fabric gestisce le risorse cluster distribuendo il carico, rappresentato tramite metriche, in modo uniforme nell'intero cluster. Service Fabric gestisce anche la capacità dei nodi del cluster e il cluster nel suo complesso tramite il concetto di capacità. Si tratta di un'ottima soluzione per molti tipi di carichi di lavoro, ma i modelli che fanno largo uso di diverse istanze di applicazione di Service Fabric comportano a volte requisiti aggiuntivi. Alcuni requisiti aggiuntivi sono in genere i seguenti:
@@ -113,7 +113,7 @@ L'output della query conterrà le informazioni di base sulla capacità specifica
 -	Capacità dell'applicazione: valore massimo consentito di carico dell'applicazione.
 
 ## Rimozione della capacità dell'applicazione
-Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. Ad esempio:
+Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. ad esempio:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -168,4 +168,4 @@ Queste restrizioni vengono applicate affinché Cluster Resource Manager possa ap
 [Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

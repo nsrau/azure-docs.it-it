@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
-   ms.author="wesmc"/>
+   ms.date="08/19/2016"
+   ms.author="wesmc"/>  
 
 # Test di Funzioni di Azure
 
-## Panoramica
+## Overview
 
 In questa esercitazione si apprenderanno diversi approcci ai test delle funzioni. Verrà definita una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Il codice del modello predefinito di **funzione HttpTrigger Node.js** supporta il parametro della stringa di query `name`. Verrà anche aggiunto il codice per supportare tale parametro insieme a informazioni relative al parametro `address` per l'utente nel corpo della richiesta.
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderanno diversi approcci ai test delle funzioni
 
 Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di **funzione HttpTrigger Nodejs** disponibile quando si crea una nuova funzione. Se occorrono suggerimenti per la creazione di una nuova funzione, è possibile vedere l'esercitazione [Creare la prima funzione di Azure](functions-create-first-azure-function.md). Scegliere semplicemente il modello di **funzione HttpTrigger Nodejs** quando si crea la funzione di test nel [portale di Azure].
 
-Il modello di funzione predefinito è fondamentalmente una funzione hello world che restituisce il nome dal parametro della stringa query o del corpo della richiesta, `name=<your name>`. Il codice verrà aggiornato per consentire all'utente di fornire anche il nome e un indirizzo come contenuto JSON nel corpo della richiesta. La funzione restituirà quindi queste informazioni al client, se disponibile.
+Il modello di funzione predefinito è fondamentalmente una funzione Hello World che restituisce il nome dal parametro della stringa query o del corpo della richiesta, `name=<your name>`. Il codice verrà aggiornato per consentire all'utente di fornire anche il nome e un indirizzo come contenuto JSON nel corpo della richiesta. La funzione restituirà quindi queste informazioni al client, se disponibile.
 
 Aggiornare la funzione con il codice seguente che verrà usato per il test:
 
@@ -135,8 +135,8 @@ Postman è lo strumento consigliato per testare la maggior parte delle funzioni.
 
 > [AZURE.TIP] Usare il client REST preferito. Ecco alcune alternative a Postman:
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
 Per testare la funzione con un corpo della richiesta in Postman:
 
@@ -172,7 +172,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
 È possibile testare una funzione trigger del BLOB con [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. Ad esempio:
+1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
 
 		files
 
@@ -238,7 +238,7 @@ Per illustrare questo approccio, si creerà prima di tutto una funzione trigger 
 > [AZURE.NOTE] Se si usa un nome di coda diverso, assicurarsi che il nome usato sia conforme alle regole descritte in [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx). In caso contrario, si otterrà un codice di stato HTTP 400: Richiesta non valida.
 
 1. Nel [portale di Azure] fare clic su **Nuova funzione** > **QueueTrigger - C#** per l'app Funzioni.
-2. Immettere il nome della coda da monitorare tramite la funzione queue 
+2. Immettere il nome della coda da monitorare tramite la funzione queue
 
 		queue-newusers 
 
@@ -435,8 +435,8 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

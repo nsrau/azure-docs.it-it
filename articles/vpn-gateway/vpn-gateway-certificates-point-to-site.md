@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/15/2016"
-   ms.author="cherylmc" />
+   ms.author="cherylmc" />  
 
 # Usare i certificati autofirmati per le connessioni Point-to-Site
 
@@ -42,7 +42,7 @@ Makecert è un modo per creare un certificato autofirmato. La seguente procedura
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. Il certificato autofirmato viene utilizzato per creare i certificati client. Quando si carica il file .cer per il certificato autofirmato come parte della configurazione Point-to-Site, si indica ad Azure di ritenere attendibili i certificati client in uso sui computer.<br><br>Alla rete virtuale tramite Point-to-Site può connettersi qualsiasi computer con installato un certificato client anch'esso configurato con le impostazioni client VPN appropriate. Per questo motivo, è opportuno assicurarsi che i certificati client vengono generati e installati solo quando richiesto e che di tale certificato autofirmato è stata creata una copia di backup, archiviata in modo sicuro.
+4. Il certificato autofirmato viene utilizzato per creare i certificati client. Quando si carica il file .cer per il certificato autofirmato come parte della configurazione Point-to-Site, si indica ad Azure di ritenere attendibili i certificati client in uso sui computer.<br><br>Alla rete virtuale tramite Point-to-Site può connettersi qualsiasi computer con installato un certificato client anch'esso configurato con le impostazioni client VPN appropriate. Per questo motivo, è opportuno assicurarsi che i certificati client vengono generati e installati solo quando richiesto e che di tale certificato autofirmato è stata creata una copia di backup, archiviata in modo sicuro. Se necessario, in seguito è possibile installare questo certificato auto-firmato su un altro computer e generare più certificati client o esportare il file con estensione .cer.
  
 
 ## Creare e installare i certificati client
@@ -98,4 +98,4 @@ Continuare con la configurazione da punto a sito.
 - Per i passaggi del modello di distribuzione **Gestione risorse**, vedere l'articolo relativo a come [configurare una connessione da punto a sito a una rete virtuale con PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 - Per i passaggi del modello di distribuzione **classico**, vedere [Configurare una connessione VPN da punto a sito a una rete virtuale](vpn-gateway-point-to-site-create.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

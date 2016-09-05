@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/23/2016" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ Dopo aver creato il servizio BizTalk e aver distribuito l'applicazione, è possi
 
 Quando si apre il portale di Azure classico, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**. Per visualizzare il servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk.
 
-Verrà aperta una nuova finestra con le schede seguenti, che sono descritte in questo argomento.
+Verrà aperta una nuova finestra con le schede seguenti: In questo argomento vengono descritte queste schede.
 
 ## Avvio rapido (![Avvio rapido][QuickStart])
 A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili.
@@ -76,7 +76,7 @@ L'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=30365
 <td>Usare <strong>Chiavi di sincronizzazione</strong> nell'account di archiviazione</td>
 <td>Quando si crea un account di archiviazione, vengono create automaticamente una chiave primaria e una chiave secondaria. Queste chiavi di crittografia controllano l'accesso all'account di archiviazione. Il servizio BizTalk usa automaticamente la chiave primaria. L'opzione <strong>Chiavi di sincronizzazione</strong> consente agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.
 <br/><br/>
-Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, effettuare l'operazione seguente:
+Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, seguire questa procedura:
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
@@ -104,7 +104,7 @@ Quando si seleziona il nome del servizio BizTalk, viene visualizzata la scheda D
 Visualizza anche l'uso dei dati espresso in GB.
 
 ##### Grafico delle metriche: mostra un elenco fisso di metriche delle prestazioni
-Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È anche possibile specificare il valore **Relativo** o **Assoluto** e l'**Intervallo** di tempo delle metriche visualizzate nel grafico.
+Include i valori in tempo reale riguardo l'integrità del servizio BizTalk. È anche possibile specificare il valore **Relativo** o **Assoluto** e l'**Intervallo** di tempo delle metriche visualizzate nel grafico.
 
 Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metriche disponibili](#Metrics) in questo argomento.
 
@@ -135,7 +135,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 </tr>
 <tr>
 <td><strong>Indirizzo IP virtuale pubblico (VIP)</strong></td>
-<td>L'indirizzo IP assegnato al servizio BizTalk. È usato per tutti gli endpoint di input ed è l'indirizzo di origine per il traffico in uscita. Questo indirizzo IP appartiene al proprio servizio BizTalk, se viene creato. Se si elimina il servizio BizTalk, l'indirizzo IP viene assegnato a un altro servizio BizTalk.</td>
+<td>Questo indirizzo IP viene assegnato al servizio BizTalk, È usato per tutti gli endpoint di input ed è l'indirizzo di origine per il traffico in uscita. Questo indirizzo IP appartiene al proprio servizio BizTalk, se viene creato. Se si elimina il servizio BizTalk, l'indirizzo IP viene assegnato a un altro servizio BizTalk.</td>
 </tr>
 <tr>
 <td><strong>Spazio dei nomi ACS</strong></td>
@@ -171,7 +171,7 @@ Nella pagina relativa alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302
 </tr>
 <tr>
 <td><strong>ID sottoscrizione</strong></td>
-<td>Quando si crea una sottoscrizione viene generato automaticamente un ID sottoscrizione. Quando si usano le API REST può essere necessario immettere l'ID sottoscrizione.</td>
+<td>Quando si crea una sottoscrizione viene generato automaticamente un ID sottoscrizione. Quando si utilizzano le API REST può essere necessario immettere l'ID sottoscrizione.</td>
 </tr>
 </table>
 
@@ -202,7 +202,7 @@ L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gestione de
 <td>Usare <strong>Chiavi di sincronizzazione</strong> nell'account di archiviazione</td>
 <td>Quando si crea un account di archiviazione, vengono create automaticamente una chiave primaria e una chiave secondaria. Queste chiavi di crittografia controllano l'accesso all'account di archiviazione. Il servizio BizTalk usa automaticamente la chiave primaria. L'opzione <strong>Chiavi di sincronizzazione</strong> consente agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.
 <br/><br/>
-Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, effettuare l'operazione seguente:
+Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, seguire questa procedura:
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
@@ -227,25 +227,20 @@ Non si applica all'edizione gratuita.
 Quando si seleziona il nome del servizio BizTalk, la scheda Monitoraggio è disponibile e visualizza quanto indicato di seguito:
 
 ##### Grafico delle metriche: visualizza le metriche delle prestazioni selezionate
-Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È l'utente a scegliere quale metrica visualizzare. È possibile visualizzare fino a un massimo di sei metriche delle prestazioni simultaneamente.
+Include i valori in tempo reale riguardo l'integrità del servizio BizTalk. È l'utente a scegliere quali metriche visualizzare. È possibile visualizzare fino a un massimo di sei metriche delle prestazioni simultaneamente.
 
 È anche possibile specificare il valore **Relativo** o **Assoluto** e l'**Intervallo** di tempo delle metriche visualizzate.
 
 ##### Per rimuovere o visualizzare la metrica nel grafico
 1. Selezionare la scheda **Monitoraggio**.
-2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:  
-
-
-	![Fare clic su Aggiungi metriche][AddMetrics]
+2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni: ![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
-5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
+5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.
 
-	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico:  
-![Metrica Utilizzo CPU disabilitata][GrayedMetric]
+	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico: ![Metrica Utilizzo CPU disabilitata][GrayedMetric]
 
-	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico:  
-![Metrica Utilizzo CPU abilitata][EnabledMetric]  
+	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico: ![Metrica Utilizzo CPU abilitata][EnabledMetric]
 
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 
@@ -279,7 +274,7 @@ Questa metrica indica il risultato del calcolo seguente:
 </tr>
 <tr>
 <td><strong>Latenza di elaborazione</strong></td>
-<td>Visualizza il tempo medio, espresso in millisecondi (ms), impiegato per l'elaborazione di un messaggio da parte del servizio BizTalk attraverso tutti i bridge, escluso il tempo impiegato nelle destinazioni. Vengono conteggiati solo i messaggi correttamente elaborati.<br/><br/>
+<td>Visualizza il tempo medio, espresso in millisecondi (ms), impiegato per l'elaborazione di un messaggio da parte del servizio BizTalk attraverso tutti i bridge, esclusi il tempo impiegato nelle destinazioni. Vengono conteggiati solo i messaggi correttamente elaborati.<br/><br/>
 Quando si verifica uno degli eventi seguenti viene creato un timestamp:
 
 <ul>
@@ -316,11 +311,11 @@ In uno scenario di tipo richiesta-risposta, la metrica viene incrementata quando
 
 
 ## Scalabilità
-Nella scheda Scale è possibile aggiungere o sottrarre il numero di unità usate dal servizio BizTalk. Per impostazione predefinita è configurata una sola unità. È possibile aggiungere ulteriori unità per la scalabilità del servizio BizTalk. Quando si aumenta la scalabilità si aumenta anche la velocità effettiva. Aumenta inoltre la quantità di risorse, inclusi i bridge distribuiti, i contratti, le connessioni LOB e la potenza di elaborazione. Se ad esempio si aumenta la scalabilità da 1 unità a 2 unità, è possibile distribuire un numero doppio di bridge, di contratti e di connessioni LOB, oltre a una quantità doppia di potenza di elaborazione.
+Nella scheda Scale è possibile aggiungere o sottrarre il numero di unità utilizzate dal servizio BizTalk. Per impostazione predefinita è configurata una sola unità. È possibile aggiungere ulteriori unità per la scalabilità del servizio BizTalk. Quando si aumenta la scalabilità si aumenta anche la velocità effettiva. Aumenta inoltre la quantità di risorse, inclusi i bridge distribuiti, i contratti, le connessioni LOB e la potenza di elaborazione. Se ad esempio si aumenta la scalabilità da 1 unità a 2 unità, è possibile distribuire un numero doppio di bridge, di contratti e di connessioni LOB, oltre a una quantità doppia di potenza di elaborazione.
 
 Alcune edizioni di BizTalk non offrono un'opzione di scalabilità: in questo caso è consentita una sola unità. Per determinare il numero di unità in base al quale è possibile scalare l'edizione in uso, vedere l'articolo [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md).
 
-L'aumento del numero di unità può incidere sui prezzi. Se si aumentano le unità, quando si seleziona **Salva** verrà visualizzato un messaggio che informa dell'impatto sulla fatturazione. Sta all'utente sceglie se continuare. Quando si aumenta il numero di unità, lo stato del servizio BizTalk passa da Active ad Updating. Nello stato Aggiornamento l'esecuzione del servizio BizTalk non verrà interrotta.
+L'aumento del numero di unità può incidere sui prezzi. Se si aumentano le unità, quando si seleziona **Salva** verrà visualizzato un messaggio che informa dell'impatto sulla fatturazione. Sta all'utente sceglie se continuare. Quando si aumenta il numero di unità, lo stato del servizio BizTalk passa da Active ad Updating. Nello stato Updating l'esecuzione del servizio BizTalk non verrà interrotta.
 
 Nell'articolo [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md) viene definita una "Unità".
 
@@ -347,15 +342,15 @@ Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo 
 ## Avanti
 Ora che è stata acquisita familiarità con le diverse schede è possibile ottenere altre informazioni sulle funzionalità dei Servizi BizTalk di Azure:
 
-- [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)  
-- [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)  
+- [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)
+- [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)
 - [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)
 
 ## Vedere anche
-- [Connessioni ibride](integration-hybrid-connection-overview.md)  
-- [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-- [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](biztalk-provision-services.md)  
-- [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)  
+- [Connessioni ibride](integration-hybrid-connection-overview.md)
+- [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)
+- [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](biztalk-provision-services.md)
+- [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -364,4 +359,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

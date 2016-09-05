@@ -15,9 +15,9 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure"
-	ms.date="06/06/2016"
+	ms.date="08/23/2016"
 	ms.author="rasquill"
-/>
+/>  
 
 
 # Macchine virtuali e contenitori in Azure
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

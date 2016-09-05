@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Operazioni di controllo con Gestione risorse | Microsoft Azure"
-	description="Usare il log di controllo in Gestione risorse per esaminare le azioni degli utenti e gli errori. Mostra il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure e REST."
+	description="Usare il log attività in Resource Manager per esaminare le azioni degli utenti e gli errori. Mostra il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure e REST."
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
-	ms.author="tomfitz"/>
+	ms.date="08/22/2016"
+	ms.author="tomfitz"/>  
 
 # Operazioni di controllo con Gestione risorse
 
-Tramite i log di controllo, è possibile determinare:
+Con i log attività è possibile determinare:
 
-- le operazioni eseguite sulle risorse nella sottoscrizione;
+- le operazioni eseguite sulle risorse nella sottoscrizione
 - chi ha avviato l'operazione (anche se le operazioni avviate da un servizio back-end non restituiscono un utente come chiamante);
 - quando si è verificata l'operazione;
 - lo stato dell'operazione;
@@ -28,39 +28,35 @@ Tramite i log di controllo, è possibile determinare:
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Questo argomento riguarda in particolare le operazioni di controllo. Per informazioni sull'uso dei log di controllo per risolvere i problemi relativi a una distribuzione, vedere [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-portal.md) (Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure).
+Questo argomento riguarda in particolare le operazioni di controllo. Per informazioni sull'uso dei log attività per risolvere i problemi relativi a una distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-È possibile recuperare le informazioni dai log di controllo tramite il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Insights o la [libreria .NET di Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+È possibile recuperare le informazioni dai log attività tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Insights o la [libreria .NET di Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## Visualizzazione dei log di controllo tramite il portale
+## Portale per visualizzare log attività
 
-1. Per visualizzare i log di controllo tramite il portale, selezionare **Sfoglia** e **Log di controllo**.
+1. Per visualizzare i log attività dal portale, selezionare **Altri servizi** e **Log attività**.
 
-    ![selezionare i log di controllo](./media/resource-group-audit/select-audit-logs.png)
+    ![Selezionare i log di attività](./media/resource-group-audit/select-audit-logs.png)  
 
-2. Nel pannello **Log di controllo** verrà visualizzato un riepilogo delle operazioni recenti per tutti i gruppi di risorse nella sottoscrizione. Tale riepilogo include una rappresentazione grafica dell'ora e dello stato delle operazioni, nonché un elenco delle operazioni.
+2. Nel pannello **Log attività** viene visualizzato un riepilogo delle operazioni recenti per tutti i gruppi di risorse nella sottoscrizione, incluso un elenco delle operazioni recenti.
 
-    ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)
+    ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)  
 
-3. Per cercare un tipo di azione specifico, è possibile filtrare le operazioni che vengono visualizzate nel pannello Log di controllo. Selezionare **Filtro** nella parte superiore del pannello.
+3. Per limitare il numero di operazioni visualizzate, selezionare condizioni diverse. Ad esempio, l'immagine seguente mostra i campi **Intervallo di tempo** ed **Evento avviato da** modificati per poter visualizzare le azioni eseguite da un determinato utente o applicazione il mese scorso.
 
-    ![filtrare i log](./media/resource-group-audit/filter-logs.png)
+    ![impostare le opzioni di filtro](./media/resource-group-audit/set-filter.png)  
 
-4. Nel pannello **Filtro** è possibile selezionare molte condizioni diverse per limitare il numero di operazioni visualizzate. Ad esempio, è possibile visualizzare tutte le azioni eseguite da un utente specifico la settimana precedente.
+4. Selezionare **Applica** per visualizzare i risultati della query.
 
-    ![impostare le opzioni di filtro](./media/resource-group-audit/set-filter.png)
+5. Se è necessario eseguire ancora la query in un secondo momento, selezionare **Salva** e assegnare un nome alla query.
 
-Dopo l'aggiornamento della visualizzazione dei log di controllo, verranno visualizzate solo le operazioni che soddisfano la condizione specificata. Tali impostazioni vengono mantenute alla successiva visualizzazione dei log di controllo, quindi potrebbe essere necessario modificare tali valori per ampliare la visualizzazione delle operazioni.
+    ![Salvare la query](./media/resource-group-audit/save-query.png)  
 
-È anche possibile filtrare automaticamente per una risorsa specifica selezionando i log di controllo nel pannello di tale risorsa. Nel portale selezionare la risorsa da controllare, quindi **Log di controllo**.
+6. Per filtrare automaticamente una risorsa o un gruppo di risorse specifico, selezionare **Log attività** nel pannello di tale risorsa. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
 
-![controllare la risorsa](./media/resource-group-audit/audit-by-resource.png)
+    ![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)  
 
-Si noti che il log di controllo viene automaticamente filtrato in base alla risorsa selezionata per la settimana precedente.
-
-![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)
-
-## Visualizzazione dei log di controllo tramite PowerShell
+## PowerShell per visualizzare log attività
 
 1. Per recuperare le voci di log, eseguire il comando **Get-AzureRmLog**. Offrire parametri aggiuntivi per filtrare l'elenco di voci. Se non si specifica un'ora di inizio e fine, vengono restituite le voci per l'ultima ora. Ad esempio, per recuperare le operazioni per un gruppo di risorse durante l'ultima ora, eseguire:
 
@@ -78,7 +74,7 @@ Si noti che il log di controllo viene automaticamente filtrato in base alla riso
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
         
-    In questo esempio indica che illustrato che è stata eseguita un'azione di arresto da someone@contoso.com.
+    In questo esempio indica che è stata eseguita un'azione di arresto da someone@contoso.com.
         
         Authorization     :
         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -100,7 +96,7 @@ Si noti che il log di controllo viene automaticamente filtrato in base alla riso
 
         Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-## Visualizzazione dei log di controllo tramite l'interfaccia della riga di comando
+## Interfaccia della riga di comando di Azure per visualizzare log attività
 
 1. Per recuperare le voci di log, eseguire il comando **azure group log show**.
 
@@ -116,13 +112,13 @@ Si noti che il log di controllo viene automaticamente filtrato in base alla riso
 
 ## Visualizzazione dei log di controllo tramite l'API REST
 
-Le operazioni REST per l'utilizzo del log di controllo fanno parte delle [Informazioni di riferimento sulle API REST di Azure Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Per recuperare gli eventi del log di controllo, vedere [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni di riferimento sulle API REST di Azure Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Per recuperare gli eventi del log attività, vedere [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Passaggi successivi
 
-- I log di controllo di Azure possono essere usati con Power BI per ottenere altre informazioni sulle azioni nella sottoscrizione. Vedere l'articolo relativo alla [visualizzazione e analisi di log di controllo di Azure in Power BI e altri strumenti](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- I log attività di Azure possono essere usati con Power BI per ottenere altre informazioni sulle azioni nella sottoscrizione. Vedere [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizzare e analizzare i log attività di Azure in Power BI e altri strumenti).
 - Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo di accesso basato sul ruolo di Azure](./active-directory/role-based-access-control-configure.md).
-- Per informazioni sui comandi per la risoluzione dei problemi relativi alle distribuzioni, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Per informazioni sui comandi per la risoluzione dei problemi relativi alle distribuzioni, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

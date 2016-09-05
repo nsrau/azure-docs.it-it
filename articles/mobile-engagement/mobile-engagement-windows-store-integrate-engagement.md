@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="piyushjo" />
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />  
 
 # Integrazione di Engagement SDK per app universali di Windows
 
 > [AZURE.SELECTOR] 
-- [Windows universale](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Windows universale](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione universale di Windows.
 
@@ -65,7 +65,7 @@ Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare corre
 
 Aprire il file `Package.appxmanifest` e assicurarsi che le seguenti funzionalità siano dichiarate:
 
--   `Internet (Client)`
+-   `Internet (Client)`  
 
 ## Inizializzare Engagement SDK
 
@@ -283,4 +283,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

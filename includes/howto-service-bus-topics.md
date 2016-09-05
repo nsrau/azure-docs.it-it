@@ -1,14 +1,14 @@
-## Informazioni su argomenti e sottoscrizioni del bus di servizio
+## Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?
 
-Gli argomenti e le code del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione*. Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
+Gli argomenti e le sottoscrizioni del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione*. Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
 
 ![Concetti relativi agli argomenti](./media/howto-service-bus-topics/sb-topics-01.png)
 
 Diversamente dalle code del bus di servizio, in cui ogni messaggio viene elaborato da un unico consumer, gli argomenti e le sottoscrizioni offrono una forma di comunicazione "uno a molti" tramite un modello di pubblicazione-sottoscrizione. È possibile registrare più sottoscrizioni a un argomento. Quando un messaggio viene inviato a un argomento, viene reso disponibile affinché ogni sottoscrizione possa gestirlo o elaborarlo in modo indipendente.
 
-La sottoscrizione a un argomento è simile a una coda virtuale che riceve copie dei messaggi che sono stati inviati all'argomento. È possibile registrare regole di filtro per un argomento in base alla sottoscrizione, per poter filtrare o limitare quali messaggi relativi a un argomento vengono ricevuti da quali sottoscrizioni dell'argomento.
+La sottoscrizione a un argomento è simile a una coda virtuale che riceve copie dei messaggi che sono stati inviati all'argomento. È possibile registrare regole di filtro per un argomento in base alla sottoscrizione, per poter filtrare o limitare quali messaggi relativi a un argomento vengono ricevuti dalle diverse sottoscrizioni dell'argomento.
 
-Gli argomenti e le sottoscrizioni del bus di servizio consentono il ridimensionamento e l'elaborazione di grandi quantità di messaggi tra un numero elevato di utenti e applicazioni.
+Gli argomenti e le sottoscrizioni del bus di servizio consentono la scalabilità e l'elaborazione di grandi quantità di messaggi tra un numero elevato di utenti e applicazioni.
 
 ## Creare uno spazio dei nomi
 
@@ -16,42 +16,41 @@ Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Az
 
 Per creare uno spazio dei nomi:
 
-1.  Accedere al [portale di Azure classico][].
+1. Accedere al [portale di Azure][].
 
-2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
+2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale fare clic su **Crea**. ![][0]
+4. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][2]
+5. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Basic, Standard o Premium.
 
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
+7. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 
-	> [AZURE.IMPORTANT] selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+9. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.
 
-6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta OK. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+8. In **Località** scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
 
-	![][6]
+	![Creare lo spazio dei nomi][create-namespace]  
 
-## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
+6. Selezionare il pulsante **Create**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+ 
+### Ottenere le credenziali
 
-Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare un argomento o una sottoscrizione, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere queste credenziali dal portale.
+1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
+ 
+3. Nel pannello **Spazio dei nomi del bus di servizio** fare clic su **Criteri di accesso condivisi**.
 
-### Ottenere le credenziali di gestione dal portale
+4. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
 
-1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![][0]
+	![connection-info][connection-info]  
 
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato: ![][3]
+5. Nel pannello **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento.
 
-3.  Fare clic su **Informazioni di connessione**. ![][4]
+	![connection-string][connection-string]  
 
-4.  Nella finestra di dialogo **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave. Prendere nota di questi valori, in quanto dovranno essere usati in seguito per eseguire operazioni con lo spazio dei nomi.
+[portale di Azure]: https://portal.azure.com
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-  [portale di Azure classico]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
-
+<!---HONumber=AcomDC_0824_2016-->

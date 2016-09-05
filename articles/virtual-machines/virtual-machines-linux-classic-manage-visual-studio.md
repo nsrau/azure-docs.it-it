@@ -4,7 +4,7 @@
    services="visual-studio-online,virtual-machines-linux"
    documentationCenter="na"
    authors="TomArcher"
-   manager="douge"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="virtual-machines-linux"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
    ms.date="08/15/2016"
-   ms.author="tarcher" />
+   ms.author="tarcher" />  
 
 # Creare e gestire macchine virtuali Linux in Visual Studio
 
@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../includes/virtual-machines-common-classic-manage-visual-studio.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

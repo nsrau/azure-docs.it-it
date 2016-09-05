@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="cephalin"/>
+	ms.author="cephalin"/>  
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure (acquistato direttamente da GoDaddy)
 
@@ -58,16 +58,16 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 	Quindi, è necessario specificare l'**Host** (il dominio o il sottodominio personalizzato) e l'opzione **Punta a**.
 
-	![add zone record](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
+	![add zone record](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)  
 
-	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su ****@**** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** sull'indirizzo IP dell'app Web di Azure.
+	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** (Punta a) sull'indirizzo IP dell'app Web di Azure.
 
 	* Quando si aggiunge un **record CNAME (alias)**, è necessario impostare il campo **Host** sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Punta a** sul nome di dominio **.azurewebsites.net** dell'app Web di Azure. ad esempio **contoso.azurwebsites.net**.
 
 5. Fare clic su **Aggiungi utente**.
-6. Selezionare **CNAME** come tipo di record, quindi specificare un valore **Host** di **awverify** e un valore **Point to** di **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+6. Selezionare **TXT** come tipo di record, quindi specificare un valore **Host** di **@** e un valore **Point to** (Punta a) di **&lt;nomeappweb&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE] Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record CNAME. Una volta che il dominio è stato associato all'app web nel portale Azure la voce **awverify** può essere rimossa.
+	> [AZURE.NOTE] Questo record TXT viene usato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record TXT. Una volta eseguito il mapping del dominio all'app Web nel portale di Azure, questa voce del record TXT può essere rimossa.
 
 5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Fine** per salvare le modifiche.
 
@@ -76,9 +76,9 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

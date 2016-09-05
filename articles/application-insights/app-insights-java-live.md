@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
-	ms.author="awills"/>
+	ms.date="08/24/2016" 
+	ms.author="awills"/>  
  
 # Application Insights per le applicazioni web Java che sono già live
 
 *Application Insights è disponibile in Anteprima.*
 
-Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, è possibile avviare il monitoraggio con[Application Insight](app-insights-overview.md)senza la necessità di apportare modifiche al codice o ricompilare il progetto. Con questa opzione, è possibile ottenere informazioni sulle richieste HTTP inviate ai server, le eccezioni non gestite e i contatori delle prestazioni.
+Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è possibile avviare il monitoraggio con[Application Insights](app-insights-overview.md) senza dover apportare modifiche al codice o ricompilare il progetto. Con questa opzione è possibile ottenere informazioni sulle richieste HTTP inviate al server, le eccezioni non gestite e i contatori delle prestazioni.
 
 È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE] La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. Ciò è utile se non si desidera aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
+> [AZURE.NOTE] La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. La strumentazione del runtime è utile se non si vuole aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
 
 ## 1\. Ottenere una chiave di strumentazione di Application Insights
 
@@ -34,14 +34,14 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 3. Impostare il tipo di applicazione nell'applicazione Web Java.
 
     ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-live/02-create.png)
-4. Ottenere la chiave di strumentazione della nuova risorsa. Dopo poco sarà necessario incollarla in questo progetto del codice.
+4. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
 
-    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-live/03-key.png)
+    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-live/03-key.png) 
 
 ## 2\. Scaricare l'SDK
 
 1. Scaricare [Application Insights SDK per Java](https://aka.ms/aijavasdk).
-2. Sul server, estrarre i contenuti SDK nella directory da cui vengono caricati i file binari del progetto. Se si utilizza Tomcat, in genere il risultato sarà in`webapps<your_app_name>\WEB-INF\lib`
+2. Sul server, estrarre i contenuti SDK nella directory da cui vengono caricati i file binari del progetto. Se si usa Tomcat, la directory si trova in genere in`webapps<your_app_name>\WEB-INF\lib`
 
 
 ## 3\. Aggiungere un file XML di Application Insights
@@ -83,7 +83,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 
 * La chiave di strumentazione viene inviata insieme a tutti gli elementi di dati di telemetria e indica ad Application Insights di visualizzarla nella risorsa.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
-* La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica](app-insights-diagnostic-search.md).
+* La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà a ogni elemento di telemetria, come proprietà "Operation.Id". Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
 
 ## 4\. Aggiungere un filtro HTTP
@@ -103,13 +103,17 @@ Per ottenere risultati più accurati, il filtro deve essere mappato prima di tut
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+## 5\. Verificare le eccezioni del firewall
+
+Potrebbe essere necessario [impostare le eccezioni per l'invio dei dati in uscita](app-insights-ip-addresses.md).
+
 ## 5\. Riavviare la propria app web.
 
 ## 6\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
-Nel pannello Panoramica verranno visualizzati i dati delle richieste HTTP. Se non sono visualizzati, attendere alcuni secondi e quindi fare clic su Aggiorna.
+I dati di telemetria delle richieste HTTP vengono visualizzati nel pannello Panoramica. Se non sono visualizzati, attendere alcuni secondi e quindi fare clic su Aggiorna.
 
 ![dati di esempio](./media/app-insights-java-live/5-results.png)
  
@@ -139,4 +143,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

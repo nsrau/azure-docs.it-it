@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 #Come integrare il servizio di copertura di Engagement in Android
 
@@ -155,7 +155,7 @@ Sarà quindi possibile eseguire l'override dei callback `onDataPushStringReceive
 			  }
 			}
 
-### Category
+### Categoria
 
 Il parametro category è facoltativo quando si crea una campagna per il push dei dati e consente di filtrare i push dei dati. Questo parametro è utile se sono presenti diversi ricevitori di trasmissioni che gestiscono tipi diversi di push di dati o quando si vuole eseguire il push di vari tipi di dati `Base64` al fine di identificare il tipo prima dell'analisi.
 
@@ -425,7 +425,7 @@ Per apportare modifiche, è necessario ridefinire il metodo `EngagementDefaultNo
 
 L'estensione di `EngagementDefaultNotifier` permette di eseguire l'override di `onNotificationPrepared` per modificare la notifica preparata dall'implementazione predefinita.
 
-Ad esempio:
+ad esempio:
 
 			@Override
 			protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)
@@ -644,4 +644,4 @@ Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

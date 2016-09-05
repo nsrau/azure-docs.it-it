@@ -9,14 +9,14 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace" />  
 
 # Panoramica del monitoraggio dell'integrità del gateway applicazione
@@ -34,7 +34,7 @@ Ad esempio, si configura il gateway applicazione per usare i server back-end A, 
 
 Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server riprenderà.
 
-Il probe predefinito esamina solo http://127.0.0.1:<porta> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare un'altra impostazione, è necessario usare i probe personalizzati come descritto di seguito.
+Il probe predefinito esamina solo http://127.0.0.1:\<porta> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare un'altra impostazione, è necessario usare i probe personalizzati come descritto di seguito.
 
 ### Impostazioni del probe di integrità predefinito
 
@@ -67,4 +67,4 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 Dopo avere acquisito familiarità con il monitoraggio dell'integrità del gateway applicazione, è possibile configurare un [probe di integrità personalizzato](application-gateway-create-probe-ps.md) per Azure Resource Manager oppure un [probe di integrità personalizzato](application-gateway-create-probe-classic-ps.md) per il modello di distribuzione classica di Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	documentationCenter=""
 	description="Informazioni su come usare PowerShell per abilitare Diagnostica di Azure in una macchina virtuale che esegue Windows"
 	authors="sbtron"
-	manager=""
+ 	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="saurabh"/>
+	ms.author="saurabh"/>  
 
 
 # Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows
@@ -43,7 +43,7 @@ Se il file di configurazione di diagnostica specifica un elemento **StorageAccou
 
 Se nella configurazione di diagnostica non è specificato alcun elemento **StorageAccount**, è necessario passare il parametro *StorageAccountName* al cmdlet. Se il parametro *StorageAccountName* è specificato, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione della diagnostica.
 
-Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella della VM, è necessario passare in modo esplicito i parametri *StorageAccountName* e *StorageAccountKey* al cmdlet. Il parametro *StorageAccountKey* non è necessario se l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione, perché il cmdlet può eseguire automaticamente una query e impostare il valore della chiave al momento dell'abilitazione dell'estensione di diagnostica. Ma se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave. È quindi necessario specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey*.
+Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella della VM, è necessario passare in modo esplicito i parametri *StorageAccountName* e *StorageAccountKey* al cmdlet. Il parametro *StorageAccountKey* non è necessario se l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione, perché il cmdlet può eseguire automaticamente una query e impostare il valore della chiave al momento dell'abilitazione dell'estensione di diagnostica. Tuttavia, se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave. È quindi necessario specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey*.
 
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -82,8 +82,8 @@ Per la configurazione pubblica di diagnostica con gli script precedenti, è poss
 La configurazione deve essere aggiornata per includere gli elementi seguenti:
 
 - L'attributo *resourceID* dell'elemento **Metrics** deve essere aggiornato con l'ID risorsa per la VM.
-	- L'ID risorsa può essere creato usando il modello seguente: "/subscriptions/{*ID della sottoscrizione per la sottoscrizione con la VM*}/resourceGroups/{*Nome del gruppo di risorse per la VM*}/providers/Microsoft.Compute/virtualMachines/ {*Nome della VM*}".
-	- Ad esempio, se l'ID della sottoscrizione in cui è in esecuzione la VM è **11111111-1111-1111-1111-111111111111**, il nome del gruppo di risorse è **MyResourceGroup**, il nome della VM è **MyWindowsVM** e quindi il valore di *resourceID* sarà:
+	- L'ID risorsa può essere creato usando il modello seguente: "/subscriptions/{*ID della sottoscrizione con la VM*}/resourceGroups/{*Nome del gruppo di risorse per la VM*}/providers/Microsoft.Compute/virtualMachines/{*Nome della VM*}".
+	- Ad esempio, se l'ID della sottoscrizione in cui è in esecuzione la VM è **11111111-1111-1111-1111-111111111111**, il nome del gruppo di risorse è **MyResourceGroup** e il nome della VM è **MyWindowsVM**, allora il valore per *resourceID* sarà:
 
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
@@ -201,4 +201,4 @@ La configurazione deve essere aggiornata per includere gli elementi seguenti:
 - Per altre indicazioni sull'uso della funzionalità Diagnostica di Azure e altre tecniche per la risoluzione dei problemi, vedere [Abilitazione di Diagnostica in Servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 - Lo [schema di configurazioni di diagnostica](https://msdn.microsoft.com/library/azure/mt634524.aspx) illustra le varie opzioni di configurazione XML per l'estensione di diagnostica.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

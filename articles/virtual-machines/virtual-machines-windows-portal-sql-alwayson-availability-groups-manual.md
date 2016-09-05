@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-	manager="jeffreyg"
+	manager="timlt"
 	editor="monicar"
 	tags="azure-service-management" />
 <tags
@@ -24,7 +24,7 @@
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>
+<br/>  
 
 Questa esercitazione end-to-end mostra come implementare i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure Resource Manager.
 
@@ -125,7 +125,7 @@ Per creare la rete virtuale:
 | **Sottoscrizione** | Specificare la sottoscrizione da usare. Se è disponibile solo una sottoscrizione, questa opzione potrebbe essere vuota. |
 | **Posizione** | Specificare la località di Azure in cui si distribuirà il gruppo di disponibilità |
 
-    Si noti che lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione Azure specificherà automaticamente uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
+    Si noti che lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, Azure specificherà automaticamente uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
 1. Fare clic su **Crea**
 
@@ -310,7 +310,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -387,7 +387,7 @@ Successivamente, creare tre VM, tra cui due VM di SQL Server e un nodo del clust
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Selezionare l'elemento della raccolta appropriato|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 SP1 Enterprise in Windows Server 2012 R2**|**SQL Server 2014 SP1 Enterprise in Windows Server 2012 R2**|
-| Configurazione della macchina virtuale - **Nozioni di base** | **Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure | **Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = Sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = Posizione di Azure |
+| Configurazione della macchina virtuale - **Nozioni di base** | **Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure | **Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure | **Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione in uso<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |
 |Configurazione della macchina virtuale - **Dimensioni** |DS1 (1 core, 3,5 GB di memoria)|**DIMENSIONI** = DS 2 (2 core, 7 GB di memoria)|**DIMENSIONI** = DS 2 (2 core, 7 GB di memoria)|
 |Configurazione della macchina virtuale - **Impostazioni**|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>|**Archiviazione** = Premium (SSD)<br/>**SUBNET DI RETE** = autoHAVNET<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usare un account di archiviazione generato automaticamente<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Indirizzo IP pubblico** = Nessuno<br/>**Gruppo di sicurezza di rete** = Nessuno<br/>**Monitoraggio diagnostica** = Abilitato<br/>**Account di archiviazione di diagnostica** = Usare un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = sqlAvailabilitySet<br/>
 |Configurazione della macchina virtuale - **Impostazioni SQL Server**|Non applicabile|**Connettività SQL** = Privata (all'interno della rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = Disabilita<br/>**Configurazione dell'archiviazione** = Generale<br/>**Applicazione automatica delle patch** = Domenica alle 2:00<br/>**Backup automatizzato** = Disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata|**Connettività SQL** = Privata (all'interno della rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = Disabilita<br/>**Configurazione dell'archiviazione** = Generale<br/>**Applicazione automatica delle patch** = Domenica alle 2:00<br/>**Backup automatizzato** = Disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata|
@@ -427,7 +427,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -865,4 +865,4 @@ Per testare la connessione:
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

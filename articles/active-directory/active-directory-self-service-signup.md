@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -149,13 +149,13 @@ Sono disponibili alcune opzioni per la modalità di esecuzione della convalida d
 	Passaggio |	Cmdlet da usare
 	-------	| -------------
 	Creare un oggetto credential | Get-Credential
-	Connettersi ad Azure AD | Connect-MsolService
+	Connessione ad Azure AD | Connect-MsolService
 	Ottenere un elenco di domini | Get-MsolDomain
 	Creare una richiesta di verifica | Get-MsolDomainVerificationDns
 	Creare record DNS | Eseguire questa operazione sul server DNS
 	Verificare la richiesta di verifica | Confirm-MsolEmailVerifiedDomain
 
-Ad esempio:
+ad esempio:
 
 1. Connettersi ad Azure AD usando le credenziali usate per rispondere all'offerta self-service: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
 
@@ -167,13 +167,13 @@ Ad esempio:
 
 	Get-MsolDomainVerificationDns –DomainName *your\_domain\_name* –Mode DnsTxtRecord
 
-	Ad esempio:
+	ad esempio:
 
 	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
 4. Copiare il valore (la richiesta di verifica) restituita da questo comando.
 
-	Ad esempio:
+	ad esempio:
 
 	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
@@ -215,13 +215,13 @@ Questi due parametri possono essere usati insieme per definire un controllo più
 
 Il diagramma di flusso seguente illustra tutte le diverse combinazioni di questi parametri e le condizioni risultanti per la directory e l'iscrizione self-service.
 
-![][1]
+![][1]  
 
 Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
 ## Vedere anche
 
--  [Come installare e configurare Azure PowerShell](../powershell-install-configure/)
+-  [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -229,7 +229,7 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 
 -  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

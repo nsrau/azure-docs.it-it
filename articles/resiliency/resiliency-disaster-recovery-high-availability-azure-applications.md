@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure
@@ -44,7 +44,7 @@ Per comprendere questo aspetto correlato alla disponibilità elevata, è possibi
 
 La disponibilità elevata per i servizi cloud include alcune funzionalità chiave, ovvero disponibilità, scalabilità e tolleranza di errore. Anche se queste funzionalità sono correlate tra loro, è importante comprendere gli aspetti di ognuna e il modo in cui contribuiscono alla disponibilità generale della soluzione.
 
-###Availability
+###Disponibilità
 
 Un'applicazione disponibile tiene conto della disponibilità dell'infrastruttura sottostante e dei servizi dipendenti. Le applicazioni disponibili rimuovono i singoli punti di errore grazie alla ridondanza e a una progettazione resiliente. Quando si amplia l'ambito per includere la disponibilità in Azure, è importante comprendere il concetto di disponibilità effettiva della piattaforma. La disponibilità effettiva si basa sui contratti di servizio di ogni servizio dipendente e sul relativo effetto cumulativo rispetto alla disponibilità complessiva del sistema.
 
@@ -131,4 +131,4 @@ Quando si crea un piano di disponibilità e ripristino di emergenza dell'applica
 
 Questo articolo fa parte di una serie dedicata a ripristino di emergenza e disponibilità elevata per le applicazioni Azure. L'articolo successivo della serie riguarda [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -19,7 +19,7 @@
 
 #Introduzione a Linux in Azure
 
-In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'uso di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
+In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'utilizzo di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
 
 
 ## Autenticazione: nomi utente, password e chiavi SSH
@@ -28,7 +28,7 @@ Quando si crea una macchina virtuale Linux usando il portale di Azure classico v
 
 
  - Vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-quick-create-cli.md)
- - Vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md)
+ - Vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Ottenere privilegi utente avanzato tramite `sudo`
@@ -53,7 +53,7 @@ Le immagini Linux disponibili nella Raccolta di Azure non abilitano il firewall 
 
 ## Modifica del nome host
 
-Quando si distribuisce un'istanza di un'immagine Linux è necessario specificare un nome host per la macchina virtuale. Quando la macchina virtuale è in esecuzione, il nome host viene pubblicato nei server DNS della piattaforma, in modo che più macchine virtuali connesse tra loro possano eseguire ricerche di indirizzi IP usando i nomi host.
+Quando si distribuisce un'istanza di un'immagine Linux è necessario specificare un nome host per la macchina virtuale. Quando la macchina virtuale è in esecuzione, il nome host viene pubblicato nei server DNS della piattaforma, in modo che più macchine virtuali connesse tra loro possano eseguire ricerche di indirizzi IP utilizzando i nomi host.
 
 Se, dopo la distribuzione di una macchina virtuale, si vuole modificarne il nome host, usare il comando
 
@@ -98,4 +98,4 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

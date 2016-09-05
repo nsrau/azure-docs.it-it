@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="08/22/2016"
+   ms.author="barbkess;sonyama"/>  
 
 #Argomenti Transact-SQL
 
@@ -117,7 +117,7 @@
 ## Passaggi successivi
 Per altri esempi TSQL, vedere la [panoramica degli argomenti di riferimento per SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [panoramica degli argomenti di riferimento per SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
@@ -127,4 +127,4 @@ Per altri esempi TSQL, vedere la [panoramica degli argomenti di riferimento per 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

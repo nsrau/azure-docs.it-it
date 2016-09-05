@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Azure Data Factory
-Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da Archivio Azure Data Lake in un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da Azure Data Lake Store in un altro archivio dati e viceversa. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia e delle combinazioni di archivio dati supportate.
 
 > [AZURE.NOTE]
-È necessario creare un account Archivio Azure Data Lake prima di creare una pipeline con un'attività di copia per spostare i dati da e in Archivio Azure Data Lake. Per altre informazioni su Archivio Azure Data Lake, vedere [Introduzione ad Archivio Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
+Prima di creare una pipeline con un'attività di copia per spostare i dati da e in Azure Data Lake Store, creare un account Azure Data Lake Store. Per informazioni su Azure Data Lake Store, vedere [Introduzione ad Azure Data Lake Store con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
-> Per la procedura dettagliata relativa alla creazione di una data factory, dei servizi collegati, dei set di dati e di una pipeline, vedere l'esercitazione [Creare la prima pipeline](data-factory-build-your-first-pipeline.md). Usare i frammenti JSON con l'editor di Data Factory o Visual Studio o Azure PowerShell per creare le entità di Data Factory.
+> Per la procedura dettagliata per la creazione di una data factory, dei servizi collegati, dei set di dati e di una pipeline, vedere l'[Esercitazione: Creare la prima pipeline](data-factory-build-your-first-pipeline.md). Usare i frammenti JSON con l'editor di Data Factory o Visual Studio o Azure PowerShell per creare le entità di Data Factory.
 
 ## Copia di dati guidata
-Il modo più semplice di creare una pipeline in grado di copiare i dati da/in Azure Data Lake Store consiste nell’utilizzare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline che copia i dati in o da Azure Data Lake Store consiste nell'usare la Copia dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Gli esempi di seguito forniscono le definizioni JSON campione da utilizzare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da/in Azure Data Lake Store e Archiviazione BLOB di Azure. Tuttavia, i dati possono essere copiati**direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da/in Azure Data Lake Store e Archiviazione BLOB di Azure. Tuttavia, i dati possono essere copiati**direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
 
 
 ## Esempio: Copiare dati dal BLOB di Azure in Archivio Azure Data Lake
@@ -39,7 +39,7 @@ L'esempio seguente mostra:
 4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
 4.	Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [BlobSource](#azure-blob-copy-activity-type-properties) e [AzureDataLakeStoreSink](#azure-data-lake-copy-activity-type-properties).
 
-L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di Azure in Archivio Azure Data Lake ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia i dati di una serie temporale da un archivio BLOB di Azure in Azure Data Lake Store ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 
 **Servizio collegato Archiviazione di Azure:**
@@ -75,19 +75,19 @@ La procedura seguente descrive i passaggi per la creazione di un servizio colleg
 2. Nell'editor JSON per la proprietà **dataLakeStoreUri** immettere l'URI per il Data Lake.
 3. Fare clic sul pulsante **Autorizza** sulla barra dei comandi. Verrà visualizzata una finestra popup.
 
-	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)  
 
 4. Usare le credenziali per accedere. A questo punto alla proprietà **authorization** in JSON dovrebbe essere assegnato un valore.
 5. (Facoltativo) Specificare i valori per i parametri facoltativi, ad esempio **accountName**, **subscriptionID** e **resourceGroupName** in JSON oppure eliminare queste proprietà da JSON.
 6. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
-> [AZURE.IMPORTANT] Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Alla **scadenza del token** è necessario **ripetere l'autorizzazione** con il pulsante **Autorizza** e ridistribuire il servizio collegato. Per informazioni dettagliate, vedere la sezione [Proprietà del servizio collegato dell'Archivio Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Alla **scadenza del token**, **ripetere l'autorizzazione** con il pulsante **Autorizza** e ridistribuire il servizio collegato. Per informazioni dettagliate, vedere la sezione [Proprietà del servizio collegato dell'Archivio Azure Data Lake](#azure-data-lake-store-linked-service-properties).
 
 
 
 **Set di dati di input del BLOB di Azure:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa parte relativa all'ora dell'ora di inizio. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
 	{
 	  "name": "AzureBlobInput",
@@ -170,7 +170,7 @@ L'esempio copia i dati in un Archivio Azure Data Lake. Nuovi dati vengono copiat
 
 **Pipeline con un’attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **BlobSource** e il tipo **sink** è impostato su **AzureDataLakeStoreSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **BlobSource** e il tipo **sink** è impostato su **AzureDataLakeStoreSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -229,7 +229,7 @@ L'esempio seguente mostra:
 4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](#azure-blob-dataset-type-properties).
 5.	Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [AzureDataLakeStoreSource](#azure-data-lake-copy-activity-type-properties) e [BlobSink](#azure-blob-copy-activity-type-properties).
 
-L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure Data Lake in un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia i dati di una serie temporale da Azure Data Lake Store in un archivio BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 **Servizio collegato dell'Archivio Azure Data Lake:**
 
@@ -261,7 +261,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure D
 
 **Set di dati di input di Azure Data Lake:**
 
-Impostando **"external": "true"** e specificando i criteri **externalData**, si comunica al servizio Data factory di Azure che la tabella è esterna alla data factory e non è generata da un'attività della data factory.
+Impostando **"external" su "true"** si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
 	{
 		"name": "AzureDataLakeStoreInput",
@@ -353,7 +353,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con l’attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **AzureDataLakeStoreSource** e il tipo **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **AzureDataLakeStoreSource** e il tipo **sink** è impostato su **BlobSink**.
 
 
 	{  
@@ -409,24 +409,24 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | :-------- | :----------- | :-------- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
 | dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
-| authorization | Fare clic sul pulsante **Autorizza** nell'**Editor di Data factory** e immettere le credenziali, per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
-| sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID sessione è univoco e può essere usato solo una volta. Viene generato automaticamente quando si usa l'editor di Data Factory. | Sì |  
+| autorizzazione | Fare clic sul pulsante **Autorizza** nell'**editor di Data Factory** e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
+| sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |  
 | accountName | Nome dell'account Data Lake | No |
-| subscriptionId | ID sottoscrizione di Azure. | No (se non è specificato, viene usata la sottoscrizione di Data Factory). |
+| subscriptionId | ID sottoscrizione di Azure. | No (se non specificata, viene usata la sottoscrizione della Data factory). |
 | resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
 
 ## Scadenza del token 
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. (Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002:Errore durante la convalida delle credenziali). AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: "Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
 
 
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
-| Account utente NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
+| Account utente NON gestiti da Azure Active Directory, come @hotmail.com, @live.com e così via. | 12 ore |
 | Account utente gestiti da Azure Active Directory (AAD) | 14 giorni dopo l'esecuzione dell'ultima sezione. <br/><br/>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni. |
 
-Si noti che se si modifica la password prima dell'ora di scadenza del token, il token scade immediatamente e viene visualizzato l'errore indicato in precedenza.
+Se si modifica la password prima dell'ora di scadenza del token, il token scade immediatamente e viene visualizzato l'errore visto in questa sezione.
 
-Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+Per evitare/risolvere questo problema, alla **scadenza del token** ripetere l'autorizzazione usando il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
 ### Per generare valori sessionId e authorization a livello di codice 
 
@@ -453,27 +453,27 @@ Per evitare/risolvere questo problema, alla **scadenza del token** è necessario
         }
     }
 
-Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento alla versione **2.9.10826.1824** di **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** per la classe WindowsFormsWebAuthenticationDialog.usata nel codice.
+Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Aggiungere un riferimento alla versione **2.9.10826.1824** di **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** per la classe WindowsFormsWebAuthenticationDialog usata nel codice.
  
 
 ## Proprietà del tipo di set di dati di Azure Data Lake
 
-Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni su percorso, formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureDataLakeStore** include le proprietà seguenti.
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureDataLakeStore** include le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatorio |
 | :-------- | :----------- | :-------- |
 | folderPath | Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. | Sì |
-| fileName | Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. <br/><br/>Se si specifica un nome file, l'attività, inclusa la copia, funziona sul file specifico.<br/><br/>Quando il nome file non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.<br/><br/>Quando il nome file non è specificato per un set di dati di output, il formato del nome del file generato sarà il seguente: Data.<Guid>.txt, ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
-| partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione Uso della proprietà partitionedBy di seguito per informazioni dettagliate ed esempi. | No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. La proprietà **type** in format deve essere impostata su uno di tali valori. Per informazioni dettagliate, vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat), [Specifica di JsonFormat](#specifying-jsonformat) e [Specifica di OrcFormat](#specifying-orcformat). Se si desidera copiare i file così come sono tra archivi basati su file (copia binaria), è possibile saltare la sezione formato sia nella definizione del set di dati di output che in quella di input.| No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat** o **OrcFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| fileName | Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. <br/><br/>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.<br/><br/>Quando la proprietà fileName non è specificata, la copia include tutti i file nella proprietà folderPath per il set di dati di input.<br/><br/>Quando la proprietà fileName non è specificata per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt. Ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
+| partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Per informazioni dettagliate ed esempi, vedere la sezione [Uso della proprietà partitionedBy](#using-partitionedby-property). | No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per informazioni dettagliate, vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat), [Specifica di JsonFormat](#specifying-jsonformat) e [Specifica di OrcFormat](#specifying-orcformat). Se si desidera copiare i file così come sono tra archivi basati su file (copia binaria), è possibile saltare la sezione formato sia nella definizione del set di dati di output che in quella di input.| No
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat** o **OrcFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 ### Uso della proprietà partitionedBy
-Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data Factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
+È possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data Factory e le variabili di sistema SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
 
-Per altre informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md).
+Per altre informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati in Azure Data Factory](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md).
 
 #### Esempio 1
 
@@ -483,7 +483,7 @@ Per altre informazioni sui set di dati delle serie temporali, sulla pianificazio
 	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
 
-Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile di sistema SliceStart della data factory nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. La proprietà folderPath è diversa per ogni sezione. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104
+In questo esempio {Slice} viene sostituito con il valore della variabile di sistema SliceStart di Data Factory nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. La proprietà folderPath è diversa per ogni sezione. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104
 
 #### Esempio 2
 
@@ -497,7 +497,7 @@ Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile 
 	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 	],
 
-Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
+In questo esempio l'anno, il mese, il giorno e l'ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
 
 [AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
  
@@ -527,7 +527,7 @@ Per specificare la compressione per un set di dati, usare la proprietà **compre
 	  	}  
 	}  
  
-Tenere presente che la sezione **compression** dispone di due proprietà:
+La sezione **compression** ha due proprietà:
   
 - **Type:** il codec di compressione, che può essere **GZIP**, **Deflate** o **BZIP2**.
 - **Level:** il rapporto di compressione, che può essere **Optimal** o **Fastest**.
@@ -536,19 +536,19 @@ Tenere presente che la sezione **compression** dispone di due proprietà:
 	
 	Per altre informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
-Supponendo che il set di dati di esempio sopra riportato venga usato come output di un'attività di copia, l'attività di copia comprimerà i dati di output con il codec GZIP usando un rapporto ottimale e quindi scriverà i dati compressi in un file denominato pagecounts.csv.gz in Archvio Data Lake di Azure.
+Si supponga che il set di dati di esempio venga usato come output di un'attività di copia. L'attività di copia comprime i dati di output con il codec GZIP usando un rapporto ottimale e quindi scrive i dati compressi in un file denominato pagecounts.csv.gz in Azure Data Lake Store.
 
-Quando si specifica una proprietà di compressione in un set di dati di input JSON, la pipeline può leggere i dati compressi dall'origine. Quando si specifica la proprietà in un set di dati di output JSON, l'attività di copia può scrivere i dati compressi nella destinazione. Di seguito vengono forniti alcuni scenari di esempio:
+Quando si specifica la proprietà di compressione nel codice JSON di un set di dati di input, la pipeline legge i dati compressi dall'origine. Quando si specifica la proprietà nel codice JSON di un set di dati di output, l'attività di copia può scrivere i dati compressi nella destinazione. Di seguito vengono forniti alcuni scenari di esempio:
 
 - Leggere i dati compressi GZIP da Archivio Data Lake di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. In questo caso, definire il set di dati di input di Archivio Data Lake di Azure con la proprietà compression di JSON.
 - Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in Archivio Data Lake di Azure. In questo caso, definire il set di dati di output di Azure Data Lake con la proprietà compression di JSON.
-- Leggere i dati compressi GZIP da Archivio Data Lake di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in Archivio Data Lake di Azure. In questo caso, il set di dati di input di Archivio Data Lake di Azure viene definito con il tipo di compressione impostato su GZIP e il set di dati di output viene definito con il tipo di compressione impostato su BZIP2.
+- Leggere i dati compressi GZIP da Archivio Data Lake di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in Archivio Data Lake di Azure. Impostare il tipo di compressione su GZIP e BZIP2 rispettivamente per i set di dati di input e di output.
 
 
 ## Proprietà del tipo di attività di copia di tabelle di Azure Data Lake  
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano, invece, per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
 **AzureDataLakeStoreSource** supporta le proprietà seguenti della sezione **typeProperties**:
 
@@ -562,7 +562,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifica il comportamento di copia. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. In altri termini, il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I file di destinazione hanno un nome generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file della cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. | No |
+| copyBehavior | Specifica il comportamento di copia. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. I file di destinazione vengono creati con un nome generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file della cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -574,4 +574,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

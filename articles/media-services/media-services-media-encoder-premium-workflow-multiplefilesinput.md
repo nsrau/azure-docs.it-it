@@ -152,7 +152,7 @@ Connessioni nel flusso di lavoro:
 
 
 ### Personalizzazione di Clip List XML
-È possibile specificare contenuto Clip List XML nel flusso di lavoro, in fase di esecuzione, usando **sourceTranscode** nel codice XML della stringa di configurazione. Questa operazione richiede che il pin di Clip List XML sia collegato al componente Media Source nel flusso di lavoro.
+È possibile specificare contenuto Clip List XML nel flusso di lavoro, in fase di esecuzione, usando **transcodeSource** nel codice XML della stringa di configurazione. Questa operazione richiede che il pin di Clip List XML sia collegato al componente Media Source nel flusso di lavoro.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -432,4 +432,4 @@ Al termine del processo, il file MP4 nell'asset di output visualizzerà la sovri
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

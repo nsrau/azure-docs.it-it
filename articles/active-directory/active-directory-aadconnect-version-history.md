@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect: Cronologia delle versioni | Microsoft Azure"
-   description="Questo argomento elenca tutte le versioni di Azure AD Connect e Azure AD Sync."
+   description="Questo argomento elenca tutte le versioni di Azure AD Connect e Azure AD Sync"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
-   ms.author="andkjell"/>
+   ms.date="08/23/2016"
+   ms.author="andkjell"/>  
 
 # Azure AD Connect: Cronologia delle versioni
 
@@ -28,7 +28,7 @@ Argomento |
 --------- | --------- |
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
-Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+Scaricare| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.189.0
 Data di rilascio: giugno 2016
@@ -134,7 +134,7 @@ Data di rilascio: novembre 2015
 **Nuove funzionalità di anteprima:**
 
 - [Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md).
-- Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](active-directory-get-started.md)
+- Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
 
 **Nuovo scenario supportato:**
 
@@ -293,4 +293,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

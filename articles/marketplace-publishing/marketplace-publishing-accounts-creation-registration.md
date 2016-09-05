@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="hascipio"/>
+   ms.date="08/18/2016"
+   ms.author="hascipio"/>  
 
 # Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -44,7 +44,7 @@ L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed 
 5. A questo punto si è pronti per usare il nuovo account Microsoft nel Microsoft Developer Center.
 
 ## 2\. Creare l'account Microsoft Developer Center
-Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società **e questo account deve essere usato anche nel portale di pubblicazione di Azure**. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
+Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società ** e questo account deve essere usato anche nel portale di pubblicazione di Azure**. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
 
 > [AZURE.IMPORTANT] I seguenti componenti del profilo sviluppatore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell'offerta.
 
@@ -135,7 +135,7 @@ Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo mom
 
 1. Accedere a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 
-2. Fare clic su **Profilo fiscale** nel menu a sinistra.
+2. Fare clic su **Profilo fiscale ** nel menu a sinistra.
 
 3. Nella pagina **Configura modulo per la tassazione** selezionare il paese o l'area geografica in cui ha la residenza permanente, quindi selezionare il paese o l'area geografica della cittadinanza principale. Fare clic su **Avanti**.
 
@@ -172,7 +172,7 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 
   > [AZURE.TIP] I criteri di partecipazione sono descritti nel [sito Web di Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Passaggi per aggiungere un coamministratore nel portale di pubblicazione
+## 4\. Passaggi per aggiungere un coamministratore nel portale di pubblicazione
 **Come amministratore**, di seguito sono riportati i passaggi per aggiungere un coamministratore.
 
 >[AZURE.NOTE] **Per i nuovi utenti**, prima di aggiungere un coamministratore nel portale di pubblicazione, assicurarsi di avere creato almeno un'applicazione nel portale di pubblicazione. Questa operazione è necessaria in quanto la scheda **AUTORI** viene visualizzata solo dopo avere creato almeno un'applicazione nel portale di pubblicazione.
@@ -183,7 +183,16 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 4. Ora accedere al portale di pubblicazione con l'ID di posta elettronica di amministratore.
 5. Passare ad Autore -> selezionare l'account-> Amministratori -> Aggiungi il coamministratore (la schermata è riportata di seguito)
 
-  ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+  ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)  
+
+## 5\. Passaggi per eliminare un coamministratore nel portale di pubblicazione
+**Come amministratore**, di seguito sono riportati i passaggi per eliminare un coamministratore.
+
+1. Accedere al portale di pubblicazione con l'ID di posta elettronica di amministratore.
+2. Passare ad **Autori** -> selezionare il proprio account -> **Amministratori** -> **Coamministratori**.
+3. Fare sulla **X** accanto al co-amministratore da eliminare (schermata riportata di seguito).
+
+    ![disegno](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)  
 
 ## Passaggi successivi
 Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare tutti i prerequisiti non tecnici per pubblicare l'offerta verificando i [prerequisiti non tecnici](marketplace-publishing-pre-requisites.md).
@@ -218,4 +227,4 @@ Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

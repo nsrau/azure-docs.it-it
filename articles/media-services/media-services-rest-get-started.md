@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione alla distribuzione di contenuti su richiesta utilizzando l'API REST" 
+	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite REST| Microsoft Azure" 
 	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti su richiesta con Servizi multimediali di Azure tramite REST API." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="08/17/2016" 
+	ms.author="juliako"/>  
 
-#Introduzione alla distribuzione di contenuti su richiesta utilizzando l'API REST
+#Introduzione alla distribuzione di contenuti su richiesta usando REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -54,7 +54,7 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 
 2. In **NAME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
-3. In **REGION** selezionare l'area geografica che verrà utilizzata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
+3. In **REGION** selezionare l'area geografica utilizzata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
 
 4. In **STORAGE ACCOUNT** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica.
 
@@ -66,7 +66,7 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 
 	Dopo aver creato l'account, lo stato passa su Attivo.
 	
-	Nella parte inferiore della pagina viene visualizzato il pulsante **GESTISCI CHIAVI**. Quando si fa clic su questo pulsante, viene visualizzata una finestra di dialogo con il nome dell'account di Servizi multimediali e le chiavi primaria e secondaria. Per accedere a livello di codice all'account di Servizi multimediali è richiesto il nome dell'account e la chiave primaria.
+	Nella parte inferiore della pagina viene visualizzato il pulsante **GESTISCI CHIAVI**. Quando si fa clic su questo pulsante, viene visualizzata una finestra di dialogo con il nome dell'account di Servizi multimediali e le chiavi primaria e secondaria. Per accedere a livello di codice all'account Servizi multimediali, sono necessarie le informazioni relative al nome dell'account e alla chiave primaria.
 
 	
 	![Pagina Servizi multimediali](./media/media-services-rest-get-started/wams-mediaservices-page.png)
@@ -119,7 +119,7 @@ Si noti che il valore AccountKey per l'account di Servizi multimediali deve esse
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Ad esempio:
+ad esempio:
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -212,7 +212,7 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 	 
 
 
->[AZURE.NOTE] D'ora in poi, in questa esercitazione verrà usato il nuovo URI.
+>[AZURE.NOTE] D'ora in poi in questa esercitazione verrà usato il nuovo URI.
 
 ## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
@@ -346,7 +346,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 
 ### Creazione dell'entità AccessPolicy con autorizzazioni di scrittura 
 
-Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà un messaggio di errore interno del server 500 in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà il messaggio di errore interno 500 del server in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 Il seguente esempio mostra come creare un'entità AccessPolicy:
 		
@@ -497,8 +497,7 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
 
 **Risposta HTTP**
 
-Se l'esito è positivo, viene restituita la seguente risposta: 
-	HTTP/1.1 204 - Nessun contenuto
+Se l'esito è positivo, viene restituita la seguente risposta: HTTP/1.1 204 - Nessun contenuto
 
 ## Eliminare le entità Locator e AccessPolicy 
 
@@ -552,7 +551,7 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 - Ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione).
 - Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
 
-Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 
 >[AZURE.NOTE] Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -822,7 +821,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 È necessario tenere conto di alcuni aspetti importanti in una richiesta di processo:
 
-- Le proprietà TaskBody DEVONO usare codice XML letterale per definire il numero di asset di input o di output che verranno usati dall'attività. L'argomento Task contiene la definizione dello schema XML per il codice XML.
+- Le proprietà TaskBody DEVONO usare codice XML letterale per definire il numero di asset di input o di output che vengono usati dall'attività. L'argomento Task contiene la definizione dello schema XML per il codice XML.
 - Nella definizione TaskBody ogni valore interno per <inputAsset> e <outputAsset> deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
 - Un'attività può avere più asset di output. Un oggetto JobOutputAsset(x) può essere usato solo una volta come output di un'attività in un processo.
 - È possibile specificare JobInputAsset o JobOutputAsset come asset di input di un'attività.
@@ -841,7 +840,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 - Per abilitare il concatenamento di attività:
 
-	- Un processo deve avere almeno due attività.
+	- Un processo deve avere almeno due attività
 	- Deve essere presente almeno un'attività il cui input viene usato come output di un'altra attività nel processo.
 
 Per altre informazioni, vedere [Creazione di un processo di codifica con l'API REST di Servizi multimediali](http://msdn.microsoft.com/library/azure/jj129574.aspx).
@@ -884,7 +883,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 ### Annullare un processo
 
-Servizi multimediali consente di annullare i processi in esecuzione mediante la funzione CancelJob. Questa chiamata restituirà un codice di errore 400 se si tenta di annullare un processo il cui stato è annullato, in fase di annullamento, con errore o terminato.
+Servizi multimediali consente di annullare i processi in esecuzione mediante la funzione CancelJob. Questa chiamata restituisce un codice di errore 400 se si tenta di annullare un processo il cui stato è annullato, in fase di annullamento, con errore o terminato.
 
 Il seguente esempio mostra come chiamare la funzione CancelJob.
 
@@ -1008,7 +1007,7 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
 	
 	{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID di AccessPolicy insieme all'ID dell'asset in cui è contenuto il file che si desidera distribuire (ad esempio un asset di output) per creare l'entità Locator.
+Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID AccessPolicy insieme all'ID asset in cui è contenuto il file che si vuole distribuire (ad esempio un asset di output) per creare l'entità Locator.
 
 >[AZURE.NOTE]
 Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
@@ -1088,7 +1087,7 @@ Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i 
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:
+Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. ad esempio:
 	
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 	
@@ -1107,7 +1106,7 @@ Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a 
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Creazione di un URL di streaming per la trasmissione di contenuti in streaming
+### Creazione di un URL di streaming per la trasmissione di contenuti in streaming
 
 
 Il seguente codice mostra come creare un localizzatore URL di streaming:
@@ -1197,11 +1196,11 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 
 ## Se si è alla ricerca di qualcos’altro.
 
-Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
+Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
   [portale di Azure classico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

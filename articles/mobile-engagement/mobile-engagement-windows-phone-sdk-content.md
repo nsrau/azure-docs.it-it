@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016" 
-	ms.author="piyushjo" />
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />  
 	
 #Contenuto dell'SDK per Windows Phone Silverlight
 
@@ -37,4 +37,4 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 - `EngagementConfiguration.xml`: il file di configurazione di Mobile Engagement, in cui è possibile personalizzare le impostazioni di Engagement (stringa di connessione di Engagement, segnalazione di arresto anomalo e così via).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

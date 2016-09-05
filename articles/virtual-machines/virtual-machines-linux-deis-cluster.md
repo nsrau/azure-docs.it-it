@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter=""
    authors="HaishiBai"
-   manager="larar"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -183,7 +183,7 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
 
 4. Aggiungere id\_rsa.pub o la chiave pubblica di propria scelta su GitHub. È possibile eseguire questa operazione utilizzando il pulsante Aggiungi chiave SSH nella schermata di configurazione delle chiavi SSH:
 
-  ![Chiave GitHub](media/virtual-machines-linux-deis-cluster/github-key.png)
+  ![Chiave GitHub](media/virtual-machines-linux-deis-cluster/github-key.png)  
 <p />
 5. Per registrare un nuovo utente:
 
@@ -257,4 +257,4 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="05/05/2016"
-    ms.author="wesmc"/>
+	ms.date="08/19/2016"
+    ms.author="wesmc"/>  
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Panoramica
+## Overview
 
 Questa esercitazione descrive la funzionalità di sincronizzazione offline di App per dispositivi mobili di Azure per Xamarin.Android. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il servizio remoto.
 
@@ -96,7 +96,7 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
         const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
-	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È possibile anche illustrare il funzionamento offline disabilitando sul dispositivo le reti Wi-Fi e cellulare o impostando la modalità aereo.
+	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È anche possibile illustrare il comportamento offline disabilitando le reti Wi-Fi e cellulare sul dispositivo o impostando la modalità aereo.
 
 2. Aggiornare `ToDoActivity.SyncAsync` in modo che gli oggetti `MobileServicePushFailedException` vengano rilevati e semplicemente ignorati, presupponendo di trovarsi offline.
 
@@ -159,7 +159,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 <!-- Images -->
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Creare un'app Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: ../app-service-mobile-offline-data-sync.md
 
@@ -170,4 +170,4 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

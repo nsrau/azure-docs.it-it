@@ -3,7 +3,7 @@
    description="Questo articolo fornisce informazioni su Gestione traffico e permette di determinare se sia la scelta giusta per il routing del traffico dell'applicazione"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/09/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />  
 
 # Gestione traffico di Azure
 
@@ -33,7 +33,7 @@ Con Gestione traffico è possibile:
 - **Migliorare la velocità di risposta per applicazioni a prestazioni elevate**: Azure consente di eseguire servizi cloud o siti Web in data center dislocati in tutto il mondo. Gestione traffico può migliorare la velocità di risposta delle applicazioni indirizzando gli utenti finali agli endpoint con la minore latenza di rete dal client.
 - **Eseguire l'aggiornamento e la manutenzione dei servizi senza tempi di inattività**: usando Gestione traffico per indirizzare il traffico a endpoint alternativi durante la manutenzione, è possibile eseguire aggiornamenti e altre operazioni di manutenzione pianificate sulle applicazioni senza tempi di inattività per gli utenti finali.
 - **Combinare applicazioni locali e applicazioni basate sul cloud**: Gestione traffico supporta anche endpoint esterni, non di Azure, e può quindi essere usato con distribuzioni cloud ibride e locali, inclusi gli scenari di tipo "burst nel cloud", "migrazione nel cloud" o "failover nel cloud".
-- **Indirizzare il traffico per distribuzioni complesse di grandi dimensioni**: è possibile combinare i metodi di routing del traffico usando i [profili annidati di Gestione traffico](traffic-manager-nested-profiles.md) per creare configurazioni di routing del traffico avanzate e flessibili e soddisfare le esigenze di distribuzioni complesse di grandi dimensioni. 
+- **Indirizzare il traffico per distribuzioni complesse di grandi dimensioni**: è possibile combinare i metodi di routing del traffico usando i [profili annidati di Gestione traffico](traffic-manager-nested-profiles.md) per creare configurazioni di routing del traffico avanzate e flessibili e soddisfare le esigenze di distribuzioni complesse di grandi dimensioni.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -48,4 +48,4 @@ Con Gestione traffico è possibile:
 - [Creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md).
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

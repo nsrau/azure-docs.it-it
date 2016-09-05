@@ -146,7 +146,7 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
                               
-            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
+            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
@@ -159,26 +159,27 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 1.	Accedere al **[portale di Azure](https://portal.azure.com/)** dal browser.
 2.	Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
 3.	Fare clic sul nome dell'app a cui si desidera assegnare il certificato.
-4.	Nel pannello **Impostazioni**, fare clic su **Domini personalizzati ed SSL.**
-5.	Nella **sezione dei certificati** fare clic su **Importa certificato** e selezionare il certificato appena acquistato
+4.	In **Impostazioni** fare clic su **Certificati SSL**
+5.	Fare clic su **Importa il certificato del servizio app** e selezionare il certificato appena acquistato
 
-    ![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
+    ![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
+6. Nella sezione **Associazioni SSL** fare clic su **Add bindings** (Aggiungi associazioni)
+7. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
 
-    ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
+    ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)  
 
        • Il metodo SSL basato su IP associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato del server al nome di dominio. A tale scopo, è necessario che ogni nome di dominio (contoso.com, fabricam.com e così via) associato al servizio disponga di un indirizzo IP dedicato. Questo è il metodo tradizionale per l'associazione di certificati SSL a un server Web. •Il metodo SSL basato su SNI è un'estensione di SSL e **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS), che consente a più domini di condividere lo stesso indirizzo IP, con certificati di protezione distinti per ogni dominio. La maggior parte dei browser moderni, inclusi Internet Explorer, Chrome, Firefox e Opera, supporta SNI, ma è possibile che non sia supportato dai browser precedenti. Per altre informazioni su SNI, vedere l'articolo relativo all'**[Indicazione nome server](http://en.wikipedia.org/wiki/Server_Name_Indication)** su Wikipedia.
        
-7. Fare clic su *Save* per salvare le modifiche e abilitare SSL.
+7. Fare clic su **Aggiungi l'associazione** per salvare le modifiche e abilitare SSL.
 
 
 
 Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizzato è stato configurato usando un record A, sarà necessario eseguire i passaggi aggiuntivi seguenti:
 
-* Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare tale indirizzo IP nella pagina **Dashboard** dell'app, nella sezione **Riepilogo rapido**. Sarà elencato come **Indirizzo IP virtuale**:
+* Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare questo indirizzo IP nella pagina **Dominio personalizzato** nelle impostazioni dell'app, proprio sotto la sezione **Nomi host**. Sarà elencato come **Indirizzo IP esterno**
     
-    ![inserimento immagine di IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
+    ![inserimento immagine di IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
     Si noti che questo indirizzo IP sarà diverso rispetto all'indirizzo IP virtuale utilizzato in precedenza per la configurazione del record A per il dominio. Se è stato impostato l'uso del metodo SSL basato su SNI o se non è stato impostato l'uso del metodo SSL, per questa voce non verrà elencato alcun indirizzo.
     
@@ -208,4 +209,4 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

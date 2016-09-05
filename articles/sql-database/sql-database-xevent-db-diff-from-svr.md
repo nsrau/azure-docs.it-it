@@ -15,15 +15,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="genemi"/>
+	ms.date="08/23/2016"
+	ms.author="genemi"/>  
 
 
 # Eventi estesi nel database SQL
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-In questo argomento viene illustrato come l'implementazione di eventi estesi in Azure SQL Database è leggermente diversa rispetto agli eventi estesi in Microsoft SQL Server.
+In questo argomento viene illustrato come l'implementazione di eventi estesi nel database SQL di Azure è leggermente diversa rispetto agli eventi estesi in Microsoft SQL Server.
 
 
 - SQL Database V12 ha acquisito la funzionalità degli eventi estesi nella seconda metà del calendario 2015.
@@ -76,7 +76,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 
 - [Codice di destinazione del buffer circolare per eventi estesi nel database SQL](sql-database-xevent-code-ring-buffer.md)
  - Breve script Transact-SQL semplice.
- - Nell'argomento dell'esempio di codice si evidenzia che, una volta completata la destinazione del buffer circolare, è necessario rilasciarne le risorse tramite l'esecuzione di un’istruzione `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Successivamente è possibile aggiungere un'altra istanza del buffer circolare da `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+ - Nell'argomento dell'esempio di codice si evidenzia che, una volta completata la destinazione del buffer circolare, è necessario rilasciarne le risorse tramite l'esecuzione di un'istruzione `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Successivamente è possibile aggiungere un'altra istanza del buffer circolare da `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Codice di destinazione del file evento per eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
@@ -121,7 +121,7 @@ In Microsoft SQL Server, le viste del catalogo simili hanno nomi che includono *
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive*.
 
 
-| Nome della DMV | Descrizione |
+| Nome della DMV | Description |
 | :-- | :-- |
 | **sys.dm\_xe\_database\_session\_event\_actions** | Restituisce informazioni sulle azioni della sessione di eventi. |
 | **sys.dm\_xe\_database\_session\_events** | Restituisce informazioni sugli eventi della sessione. |
@@ -133,7 +133,7 @@ Il database SQL di Azure include [viste a gestione dinamica (DMV)](http://msdn.m
 In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome *\_database*, ad esempio:
 
 
-- **sys.dm\_xe\_sessions**, invece del nome <br/>**sys.dm\_xe\_database\_sessions**.
+- **sys.dm\_xe\_sessions**, instead of name<br/>**sys.dm\_xe\_database\_sessions**.
 
 
 ### DMV comuni a entrambi
@@ -217,7 +217,7 @@ Esistono un paio di differenze relative alla sicurezza adatte all'ambiente cloud
 ### Autorizzazioni del contenitore di archiviazione
 
 
-Il token della firma di accesso condiviso generato per il contenitore di Archiviazione di Azure deve specificare **rwl** per le autorizzazioni. Questo fornisce le autorizzazioni seguenti:
+Il token della firma di accesso condiviso generato per il contenitore di Archiviazione di Azure deve specificare **rwl** per le autorizzazioni. Questo valore **rwl** fornisce le autorizzazioni seguenti:
 
 
 - Lettura
@@ -274,6 +274,6 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
--->
+-->  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

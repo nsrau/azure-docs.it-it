@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 #Come integrare Engagement in Android
 
@@ -381,7 +381,7 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 			  android:summaryOn="Engagement is enabled."
 			  android:summaryOff="Engagement is disabled." />
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

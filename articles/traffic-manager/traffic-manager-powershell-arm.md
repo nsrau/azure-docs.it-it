@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Supporto di Azure Resource Manager per Gestione traffico | Microsoft Azure"
+   pageTitle="Supporto di Azure Resource Manager per Gestione traffico | Microsoft Azure "
    description="Uso di PowerShell per Gestione traffico con Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />  
 
 # Supporto di Azure Resource Manager per Gestione traffico di Azure
 Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. I profili di Gestione traffico di Azure possono ora essere gestiti utilizzando le API e gli strumenti basati su Gestione risorse di Azure.
@@ -62,7 +62,7 @@ Accedere all'account Azure.
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 ### Passaggio 3
-Scegliere le sottoscrizioni ad Azure da utilizzare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
 	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
@@ -70,7 +70,7 @@ Per visualizzare l'elenco delle sottoscrizioni disponibili, usare il cmdlet 'Get
 
 ### Passaggio 4
 
-Il servizio Gestione traffico di Azure viene gestito dal provider di risorse Microsoft.Network. Tale provider deve essere registrato nella sottoscrizione ad Azure prima di utilizzare Gestione traffico tramite Gestione risorse di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
+Il servizio Gestione traffico di Azure viene gestito dal provider di risorse Microsoft.Network. Tale provider deve essere registrato nella sottoscrizione ad Azure prima di utilizzare Gestione traffico tramite Gestione risorse di Azure. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
 
 	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
 
@@ -79,7 +79,7 @@ Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si usa un gruppo
 
 	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali (non locali), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali (non locali), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
 
 ## Creazione di un profilo di Gestione traffico
 
@@ -309,4 +309,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

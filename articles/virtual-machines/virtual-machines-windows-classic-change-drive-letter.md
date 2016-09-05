@@ -15,11 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/16/2016"
-	ms.author="cynthn"/>
+	ms.author="cynthn"/>  
 
 # Usare l'unità D come unità dati in una macchina virtuale Windows 
 
-Se l’applicazione deve usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
+Se l'applicazione deve usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
 
 Se si ridimensiona o si **Arresta (dealloca)** una macchina virtuale, potrebbe essere attivato il posizionamento della macchina virtuale su un nuovo hypervisor. Tale posizionamento può attivare un evento di manutenzione pianificato o non pianificato. In questo scenario il disco temporaneo sarà riassegnato alla prima lettera di unità disponibile. Se si dispone di un'applicazione che richiede specificamente l'unità D:, è necessario seguire questi passaggi per spostare temporaneamente pagefile.sys, collegare un nuovo disco dati e assegnargli la lettera D, quindi spostare di nuovo pagefile.sys nell’unità temporanea. Al termine, Azure non riprenderà D: se la VM viene spostata in un hypervisor diverso.
 
@@ -32,12 +32,12 @@ Per ulteriori informazioni sull'utilizzo del disco temporaneo in Azure, vedere [
 Per prima cosa è necessario collegare il disco dati alla macchina virtuale.
 
 - Per utilizzare il portale, vedere [Come collegare un disco dati nel portale di Azure](virtual-machines-windows-attach-disk-portal.md)
-- Per utilizzare il portale classico, vedere [Come collegare un disco dati a una macchina virtuale Windows](virtual-machines-windows-classic-attach-disk.md). 
+- Per utilizzare il portale classico, vedere [Come collegare un disco dati a una macchina virtuale Windows](virtual-machines-windows-classic-attach-disk.md).
 
 
 ## Spostare temporaneamente pagefile.sys nell'unità C
 
-1. Connettersi alla macchina virtuale. 
+1. Connettersi alla macchina virtuale.
 
 2. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
 
@@ -79,8 +79,8 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale.
 8. In Lettera unità selezionare l'unità **E** e quindi fare clic su **OK**.
 
 > [AZURE.NOTE] Se la macchina virtuale dispone di altri dischi o unità, usare lo stesso metodo per riassegnare le lettere di unità degli altri dischi e unità. Si desidera la configurazione seguente per il disco:
->- C: disco del sistema operativo  
->- D: disco dati  
+>- C: disco del sistema operativo
+>- D: disco dati
 >- E: disco temporaneo
 
 
@@ -111,4 +111,4 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale.
 ## Passaggi successivi
 - È possibile aumentare la memoria disponibile per la macchina virtuale [collegando un disco dati aggiuntivo](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà a disabilitare o abilitare gli endpoint del profilo di Gestione traffico."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />  
 
 # Disabilitare o abilitare un endpoint di Gestione traffico
 
@@ -24,7 +24,7 @@
 ## Per disabilitare un endpoint
 
 1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-1. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina. 
+1. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina.
 1. Fare clic sull'endpoint da disabilitare, quindi fare clic su **Disabilita** nella parte inferiore della pagina.
 1. Il traffico indirizzato all'endpoint verrà arrestato in base alla durata (TTL) del DNS configurato per il nome di dominio di Gestione traffico. È possibile modificare la durata (TTL) dalla pagina di configurazione del profilo di Gestione traffico.
 
@@ -44,4 +44,4 @@
 
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

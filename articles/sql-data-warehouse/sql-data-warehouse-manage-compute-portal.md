@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (portale di Azure)
@@ -52,7 +52,7 @@ Per modificare le risorse di calcolo:
 
     ![Spostare il dispositivo di scorrimento][2]
 
-1. Fare clic su **Save**. Verrà visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+1. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
     ![Fare clic su Salva.][3]
 
@@ -64,15 +64,15 @@ Per modificare le risorse di calcolo:
 
 Per sospende un database:
 
-1. Aprire il [portale di Azure][] e aprire il database. Si noti che lo stato è **Online**. 
+1. Aprire il [portale di Azure][] e aprire il database. Si noti che lo stato è **Online**.
 
-    ![Stato online][6]
+    ![Stato online][6]  
 
 1. Per sospendere il calcolo e le risorse di memoria, fare clic su **Sospendi**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
-    ![Conferma sospensione][7]
+    ![Conferma sospensione][7]  
 
-1. Durante l'avvio di SQL Data Warehouse lo stato del database sarà Sospensione in corso.
+1. Durante l'avvio di SQL Data Warehouse lo stato del database è **Sospensione in corso**.
 2. Quando lo stato diventa **Sospeso**, l'operazione di sospensione è completa e le DWU non vengono più addebitate.
 
     ![Stato di sospensione][4]
@@ -81,27 +81,27 @@ Per sospende un database:
 
 ## Riavviare le risorse di calcolo
 
-[AZURE.INCLUDE [Descrizione della riattivazione di SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]Per riattivare un database:
+[AZURE.INCLUDE [Descrizione della riattivazione di SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)] Per riattivare un database:
 
-1. Aprire il [portale di Azure][] e aprire il database. Si noti che lo stato è **Sospeso**. 
+1. Aprire il [portale di Azure][] e quindi il database. Si noti che lo stato è **Sospeso**.
 
-    ![Database in pausa][4]
+    ![Database in pausa][4]  
 
-1. Per riattivare il database fare clic su **Avvia**. Verrà visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+1. Per riattivare il database fare clic su **Avvia**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
-    ![Conferma riattivazione][5]
+    ![Conferma riattivazione][5]  
 
-1. Durante l'avvio di SQL Data Warehouse lo stato del database sarà Ripresa in corso.
+1. Durante l'avvio di SQL Data Warehouse lo stato del database è "Sospensione in corso".
 2. Quando lo stato diventa **Online** il database è pronto.
 
-    ![Stato online][6]
+    ![Stato online][6]  
 
 <a name="next-steps-bk"></a>
 
 ## Passaggi successivi
 Per altre informazioni, vedere [Panoramica della gestione][].
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
@@ -117,8 +117,8 @@ Per altre informazioni, vedere [Panoramica della gestione][].
 <!--MSDN references-->
 
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

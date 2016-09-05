@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/24/2016"
-   ms.author="golive"/>
+   ms.date="08/08/2016"
+   ms.author="golive"/>  
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
 
@@ -73,7 +73,9 @@ I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell D
 
 PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'account di Automazione di Azure. Passare alla risorsa desiderata e fare clic sul pulsante "Deploy to Azure Automation".
 
-![Esempio di PowerShell Gallery](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+![Esempio di PowerShell Gallery](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)  
+
+Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nuovi moduli o aggiornare quelli esistenti. Fare clic sulla risorsa Account di automazione, sul riquadro Asset e infine sul riquadro Moduli. L'icona Esplora raccolta consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down dei dettagli e infine di eseguire l'importazione in Account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
@@ -167,7 +169,7 @@ Per ogni pacchetto inserito nel repository di pacchetti, è necessario un Nuspec
 
 ## Passaggio 6: Verifica di tutti gli elementi
 
-Ogni volta che una versione passa il controllo di qualità e viene approvata per la distribuzione, viene creato il pacchetto e Nuspec e Nupkg vengono aggiornati e distribuiti nel server NuGet. Inoltre, la configurazione illustrata nel passaggio 4 deve essere aggiornata, per essere conforme al nuovo numero di versione, e deve essere inviata al server di pull per la compilazione. A questo punto, le macchine virtuali che dipendono da tale configurazione devono effettuare l'aggiornamento e installarlo. Questi aggiornamenti sono semplici: solo una o due righe di PowerShell. Nel caso di Visual Studio Team Services, alcuni aggiornamenti vengono incapsulati in attività di compilazione che possono essere concatenate in una compilazione. Per altre informazioni dettagliate, vedere questo [articolo](https://www.visualstudio.com/it-IT/get-started/build/build-your-app-vs). Questo [repository GitHub](https://github.com/Microsoft/vso-agent-tasks) descrive le varie attività di compilazione disponibili.
+Ogni volta che una versione passa il controllo di qualità e viene approvata per la distribuzione, viene creato il pacchetto e Nuspec e Nupkg vengono aggiornati e distribuiti nel server NuGet. Inoltre, la configurazione illustrata nel passaggio 4 deve essere aggiornata, per essere conforme al nuovo numero di versione, e deve essere inviata al server di pull per la compilazione. A questo punto, le macchine virtuali che dipendono da tale configurazione devono effettuare l'aggiornamento e installarlo. Questi aggiornamenti sono semplici: solo una o due righe di PowerShell. Nel caso di Visual Studio Team Services, alcuni aggiornamenti vengono incapsulati in attività di compilazione che possono essere concatenate in una compilazione. Per altre informazioni dettagliate, vedere questo [articolo](https://www.visualstudio.com/it-IT/docs/alm-devops-feature-index#continuous-delivery). Questo [repository GitHub](https://github.com/Microsoft/vso-agent-tasks) descrive le varie attività di compilazione disponibili.
 
 ## Note
 
@@ -185,4 +187,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

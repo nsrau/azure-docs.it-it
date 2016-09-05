@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
-	ms.author="stbaro"/>
+	ms.date="08/23/2016" 
+	ms.author="stbaro"/>  
 
 # Visualizzare l'anteprima delle linee guida sullo sviluppo per account DocumentDB con supporto del protocollo per MongoDB
 
@@ -63,16 +63,16 @@ Aggiornamento della matrice| |-tutto-|
 Bit per bit| |-tutto-| 
 Isolamento| |-tutto-| 
 Replace|ReplaceOne| |
-Delete|DeleteOne | |
+Elimina|DeleteOne | |
  |DeleteMany| | 
  |Rimuovere| | 
 BulkWrite| |bulkWrite()| 
 Confronto|-tutto-| | 
 Logico|-tutto-| | 
 Query sugli elementi| |-tutto-| 
-Versione di valutazione|$mod|$regex, $text, $where| 
+Versione di valutazione|$mod, $regex |$text, $where| 
 GeoSpatial|2dsphere, 2d, polygon|Tutti gli altri elementi| 
-Array|$all, $size|$elemMatch| 
+Array|$all, $size, $elemMatch|| 
 Bit per bit| |-tutto-| 
 Commento|-tutto-| | 
 Proiezione| |-tutto-| 
@@ -100,4 +100,4 @@ Diagnostic|listDatabases, collStats, dbStats| |Tutti gli altri elementi
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

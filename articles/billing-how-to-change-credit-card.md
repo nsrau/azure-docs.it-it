@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="08/24/2016"
+	ms.author="genli"/>  
 
 # Come modificare la carta di credito usata per pagare una sottoscrizione di Azure
 
@@ -26,7 +26,7 @@ Se la carta di credito viene rinnovata e il numero rimane invariato, è possibil
 
 Se il numero della carta di credito dovesse cambiare per smarrimento, furto o scadenza, è necessario aggiungere la nuova carta di credito all'account. Questa operazione è necessaria perché il codice di sicurezza CVV cambia insieme al numero della carta di credito.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## Modificare le informazioni di pagamento per una carta di credito esistente
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account. Nel [portale di Azure](https://portal.azure.com) è possibile accedere al Centro account selezionando **Sottoscrizione** > *nome della sottoscrizione* > **Gestisci**.
@@ -53,6 +53,9 @@ Se il numero della carta di credito dovesse cambiare per smarrimento, furto o sc
 3. Sul lato destro della pagina selezionare **Modifica il metodo di pagamento**.
 4. Nella pagina **Scegli il metodo di pagamento** selezionare la freccia a discesa accanto alla carta di credito, selezionare la carta di credito che si vuole usare e quindi fare clic su ![checkButton](./media/billing-how-to-change-credit-card/checkbutton.png) per chiudere la finestra.
 
-> [AZURE.NOTE] Per rimuovere una carta di credito che non viene più usata come metodo di pagamento per Azure, è necessario inviare un ticket di supporto per richiedere assistenza. Per creare un ticket di supporto per rimuovere una carta di credito, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
+## Rimozione di una carta di credito dall'account
+Non è possibile rimuovere una carta di credito dall'account manualmente. Per rimuovere una carta di credito che non viene più usata come metodo di pagamento per Azure, è necessario [contattore il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per richiedere assistenza.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

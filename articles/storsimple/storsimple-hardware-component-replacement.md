@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
-   ms.author="alkohli" />
+   ms.date="08/22/2016"
+   ms.author="alkohli" />  
 
 # Sostituzione di componenti hardware di StorSimple
 
-## Panoramica
+## Overview
 
 Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple serie 8000 e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
 
@@ -88,7 +88,7 @@ I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anterio
 
 **Figura 1** Parte anteriore del dispositivo
 
-|Etichetta|Descrizione|
+|Etichetta|Description|
 |:----|:----------|
 |0 - 11|Unità di dischi (totale pari a 12)|
 
@@ -142,4 +142,4 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 Rivedere tutte le[informazioni sulla sicurezza](storsimple-safety.md)prima di tentare di sostituire un componente hardware StorSimple.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

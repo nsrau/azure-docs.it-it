@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kmouss"
-	manager="drewm"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/16/2016"
-	ms.author="kmouss;aglick"/>
+	ms.author="kmouss;aglick"/>  
 
 #Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 
@@ -62,4 +62,4 @@ Per informazioni su come usare Azure Site Recovery per orchestrare e automatizza
 
 Per chiarimenti sulle istruzioni o per chiedere a Microsoft di eseguire le operazioni per proprio conto, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

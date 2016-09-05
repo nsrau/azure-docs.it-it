@@ -44,7 +44,7 @@ In questa esercitazione si segue questa procedura:
 
 La prima pipeline, denominata **MyFirstPipeline**, usa un'attività Hive per trasformare e analizzare un log Web che viene caricato nella cartella **inputdata** presente nel contenitore **adfgetstarted** (adfgetstarted/inputdata) nell'archivio BLOB di Azure.
  
-![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)  
 
 
 In questa esercitazione, adfgetstarted (contenitore) = > inputdata (cartella) contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2014. Ecco le righe di esempio per ogni mese nel file di input.
@@ -204,7 +204,7 @@ Questa sezione fornisce istruzioni sull'uso dello strumento **AzCopy** per copia
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] Il comando precedente crea un contenitore denominato **adfgetstarted** nell'archivio BLOB di Azure e copia il file **partitionweblogs.hql** dall'unità locale alla cartella **inputdata** nel contenitore.
+		> [AZURE.NOTE] Il comando precedente crea un contenitore denominato **adfgetstarted** nell'archivio BLOB di Azure e copia il file **input.log** dall'unità locale alla cartella **inputdata** nel contenitore.
 	
 	5. Al termine del caricamento del file, viene visualizzato un output simile al seguente da AzCopy.
 	
@@ -228,4 +228,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

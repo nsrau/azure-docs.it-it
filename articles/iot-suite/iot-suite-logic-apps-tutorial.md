@@ -15,7 +15,7 @@
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="08/16/2016"
-  ms.author="araguila"/>
+  ms.author="araguila"/>  
   
 # Esercitazione: Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite
 
@@ -31,7 +31,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 Supponendo di avere già eseguito il provisioning della soluzione preconfigurata per il monitoraggio remoto, passare al gruppo di risorse per la soluzione nel [portale di Azure][lnk-azureportal]. Il nome del gruppo di risorse coincide con quello assegnato alla soluzione per il monitoraggio remoto al momento del provisioning. Nel gruppo di risorse è possibile visualizzare tutte le risorse di Azure con provisioning per la soluzione, ad eccezione dell'applicazione Azure Active Directory disponibile nel portale di Azure classico. La schermata seguente mostra un pannello **Gruppo di risorse** di esempio per una soluzione preconfigurata per il monitoraggio remoto:
 
-![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)
+![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)  
 
 Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigurata.
 
@@ -43,13 +43,13 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
 
 3. Compilare il campo __Nome__ e immettere le stesse informazioni relative ai campi **Sottoscrizione**e **Gruppo di risorse** e usate al momento del provisioning della soluzione per il monitoraggio remoto. Fare clic su __Create__.
 
-    ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
+    ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)  
 
 4. Dopo il completamento della distribuzione, l'app per la logica viene elencata come risorsa nel gruppo di risorse.
 
 5. Fare clic su App per la logica per passare al pannello App per la logica, selezionare il modello **Blank Logic App** (App per la logica vuota) per aprire **Progettazione app per la logica**.
 
-    ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
+    ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)  
 
 6. Selezionare __Richiesta__. Questa azione specifica che una richiesta HTTP in ingresso con uno specifico payload in formato JSON agisce come trigger.
 
@@ -82,23 +82,23 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
     }
     ```
     
-    Nota: è possibile copiare l'URL per il post HTTP dopo aver salvato l'app per la logica. È tuttavia necessario aggiungere prima un'azione.
+    > [AZURE.NOTE] È possibile copiare l'URL per il post HTTP dopo aver salvato l'app per la logica. È tuttavia necessario aggiungere prima un'azione.
 
 8. Fare clic su __+ Nuovo passaggio__ sotto il trigger manuale. Fare quindi clic su **Aggiungi un'azione**.
 
-    ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
+    ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)  
 
 9. Cercare **SendGrid - Send email** (SendGrid - Invia messaggio di posta elettronica) e fare clic.
 
-    ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
+    ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)  
 
 10. Immettere un nome per la connessione, ad esempio **SendGridConnection**, immettere la **chiave API SendGrid** creata durante l'impostazione dell'account SendGrid e fare clic su **Crea**.
 
-    ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
+    ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)  
 
 11. Aggiungere i propri indirizzi di posta elettronica nei campi **From** (Da) e **To** (A). Aggiungere **Remote monitoring alert [DeviceId]** (Avviso di monitoraggio remoto [IDdispositivo]) al campo **Subject** (Oggetto). Nel campo **Email Body** (Corpo messaggio di posta elettronica) aggiungere **Device [DeviceId] has reported [measurementName] with value [measuredValue]** (Il dispositivo [IDdispositivo] ha riportato [nomeMisurazione] con valore [valoreMisurato]). È possibile aggiungere **[DeviceId]** ([IDdispositivo]), **[measurementName]** (nomeMisurazione) e **[measuredValue]** ([valoreMisurato]) facendo clic nella sezione **You can insert data from previous steps** (È possibile aggiungere dati dei passaggi precedenti).
 
-    ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
+    ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)  
 
 12. Fare clic su __Save__ (Salva) nel menu in alto.
 
@@ -144,7 +144,7 @@ In questa sezione verrà distribuita la versione aggiornata della soluzione per 
 
     ``
     build.cmd cloud release demologicapp
-    ``
+    ``  
     
     Quando si esegue lo script di compilazione, assicurarsi di usare gli stessi account, sottoscrizione e area di Azure nonché la stessa istanza di Active Directory usati per il provisioning della soluzione.
 
@@ -182,4 +182,4 @@ Dopo aver usato un'app per la logica per connettere la soluzione preconfigurata 
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

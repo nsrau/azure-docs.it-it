@@ -13,8 +13,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="08/01/2016"
-  ms.author="hascipio"/>
+  ms.date="08/18/2016"
+  ms.author="hascipio"/>  
 
 # Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
 Informazioni sui prerequisiti generali e relativi ai processi aziendali necessari per procedere con il processo di creazione dell'offerta.
@@ -42,6 +42,15 @@ Gli amministratori del portale di pubblicazione possono aggiungere in un secondo
 7. Per la registrazione in Dev Center, evitare di usare un account associato a una singola persona. Si consiglia di procedere in questo modo per eliminare la dipendenza da una singola persona.
 8. In caso di problemi durante la registrazione in Dev Center, creare un ticket mediante questo [collegamento](https://developer.microsoft.com/it-IT/windows/support).
 
+## Passaggi per eliminare un coamministratore nel portale di pubblicazione
+**Come amministratore**, di seguito sono riportati i passaggi per eliminare un coamministratore.
+
+1. Accedere al portale di pubblicazione con l'ID di posta elettronica di amministratore.
+2. Passare ad **Autori** -> selezionare il proprio account -> **Amministratori** -> **Coamministratori**.
+3. Fare sulla **X** accanto al co-amministratore da eliminare (schermata riportata di seguito).
+
+    ![disegno](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
+
 > [AZURE.IMPORTANT] Non è necessario inserire le informazioni fiscali e bancarie dell'azienda se si intende pubblicare solo offerte gratuite (o Bring Your Own License).
 
 > Per iniziare, è necessario completare la registrazione dell'azienda. Tuttavia, mentre la società si occupa delle informazioni fiscali e bancarie nell'account Dev Center, gli sviluppatori possono iniziare a lavorare alla creazione dell'immagine di macchina virtuale nel [portale di pubblicazione](https://publish.windowsazure.com), ottenere la certificazione ed eseguire il testing nell'ambiente di gestione temporanea di Azure. L'approvazione completa dell'account venditore è necessaria solo per il passaggio finale di pubblicazione dell'offerta in Azure Marketplace.
@@ -62,4 +71,4 @@ Quando vengono rispettati i prerequisiti non tecnici, occorre passare ai prerequ
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

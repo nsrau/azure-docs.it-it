@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
-	ms.author="awills"/>
+	ms.date="08/24/2016" 
+	ms.author="awills"/>  
  
 # Domande su Application Insights per ASP.NET
 
@@ -27,6 +27,12 @@
 * [App Web Java](app-insights-java-troubleshoot.md)
 * [Altre piattaforme](app-insights-platforms.md)
 
+*Non sono disponibili dati dal server*
+
+* [Impostare le eccezioni del firewall](app-insights-ip-addresses.md)
+* [Configurare un server ASP.NET](app-insights-monitor-performance-live-website-now.md)
+* [Configurare un server Java](app-insights-java-agent.md)
+
 
 ## Si può usare Application Insights con ...?
 
@@ -35,7 +41,7 @@
 
 ## È gratuito?
 
-* Sì, se si sceglie il [piano tariffario](app-insights-pricing.md) gratuito. In tal modo, è possibile ottenere la maggior parte delle funzionalità e una quota dati soddisfacente. 
+* Sì, se si sceglie il [piano tariffario](app-insights-pricing.md) gratuito. In tal modo, è possibile ottenere la maggior parte delle funzionalità e una quota dati soddisfacente.
 * Per registrarsi in Microsoft Azure è necessario fornire i dati della propria carta di credito, ma verranno addebitati costi solo se si usa un altro servizio di Azure a pagamento o si effettua esplicitamente l'aggiornamento a un livello non gratuito.
 * Se la propria app invia una quantità di dati superiore a quella consentita dalla quota mensile, la registrazione si interrompe. In tal caso, è possibile scegliere di pagare o attendere che la quota venga reimpostata alla fine del mese.
 * I dati relativi alla sessione e all'utilizzo di base non sono soggetti a una quota.
@@ -145,4 +151,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure | Microsoft Azure"
+   pageTitle="Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure | Microsoft Azure "
    description="Come creare regole di bilanciamento del carico, regole NAT e probe per Gestione risorse di Azure. Procedura dettagliata che illustra il processo end-to-end per creare una risorsa di bilanciamento del carico."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure
 
@@ -71,11 +71,11 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 ### Passaggio 3
 
-Scegliere le sottoscrizioni ad Azure da utilizzare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
     PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
-Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
+Per visualizzare un elenco di sottoscrizioni disponibili, usare il cmdlet 'Get-AzureSubscription'.
 
 
 ### Passaggio 4
@@ -84,7 +84,7 @@ Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo
 
     PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente sono stati creare un gruppo di risorse denominato "NRP-RG" e la località "West US".
 
@@ -281,4 +281,4 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

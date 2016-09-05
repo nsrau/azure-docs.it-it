@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
-   ms.author="alkohli" />
+   ms.date="08/18/2016"
+   ms.author="alkohli" />  
 
 # Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 
-## Panoramica
+## Overview
 
 I record di controllo di accesso (ACR) consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple. I record di controllo di accesso vengono impostati su un volume specifico e contengono i nomi completi iSCSI (IQN) degli host. Quando un host prova a connettersi a un volume, il dispositivo controlla il record di controllo di accesso associato a tale volume per l'IQN e, se esiste una corrispondenza, viene stabilita la connessione. Nella sezione dei record di controllo di accesso nella pagina **Configura** vengono visualizzati tutti i record di controllo di accesso insieme agli IQN degli host.
 
 In questa esercitazione vengono illustrate le seguenti attività comuni correlate ai record di controllo di accesso:
 
-- Aggiungere un record di controllo di accesso 
-- Modificare un record di controllo di accesso 
-- Eliminare un record di controllo di accesso 
+- Aggiungere un record di controllo di accesso
+- Modificare un record di controllo di accesso
+- Eliminare un record di controllo di accesso
 
 > [AZURE.IMPORTANT] 
 > 
-> - Quando si assegna un record di controllo di accesso a un volume, fare attenzione che nel volume non abbiano effettuato l'accesso più di un host non cluster perché ciò potrebbe danneggiare il volume. 
+> - Quando si assegna un record di controllo di accesso a un volume, fare attenzione che nel volume non abbiano effettuato l'accesso più di un host non cluster perché ciò potrebbe danneggiare il volume.
 > - Quando si elimina un record di controllo di accesso da un volume, assicurarsi che l'host corrispondente non acceda al volume perché l'eliminazione potrebbe comportare un'interruzione di lettura/scrittura.
 
 ## Aggiungere un record di controllo di accesso
@@ -95,4 +95,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

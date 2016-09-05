@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/13/2016"
-    ms.author="markusvi"/>
+    ms.date="08/23/2016"
+    ms.author="markusvi"/>  
 
 
 # Informazioni su Azure Active Directory
@@ -39,7 +39,7 @@ Se si è clienti di Office365, Azure o Dynamics CRM Online, è possibile che si 
 
 
 
-<center>![Stack di Azure AD Connect](./media/active-directory-whatis/Azure_Active_Directory.png) </center>
+![Stack di Azure AD Connect](./media/active-directory-whatis/Azure_Active_Directory.png)  
 
 
 ## Affidabilità di Azure AD
@@ -104,4 +104,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

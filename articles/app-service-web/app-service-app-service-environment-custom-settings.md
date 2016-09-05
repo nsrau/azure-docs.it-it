@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="stefsch"/>
+	ms.date="08/22/2016"
+	ms.author="stefsch"/>  
 
 # Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 
 ## Overview ##
 Gli ambienti del servizio app sono specifici di un singolo cliente. Per questo motivo alcune impostazioni di configurazione possono essere applicate esclusivamente ad ambienti del servizio app. Questo articolo descrive le diverse personalizzazioni disponibili per gli ambienti del servizio app.
+
+Se non è disponibile un ambiente del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 È possibile archiviare le personalizzazioni dell'ambiente del servizio app tramite una matrice nel nuovo attributo **clusterSettings**. Questo attributo si trova nel dizionario "Properties" dell'entità di Azure Resource Manager *hostingEnvironments*.
 
@@ -91,8 +93,8 @@ Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco del
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
-<!-- LINKS -->
+<!-- LINKS -->  
 
-<!-- IMAGES -->
+<!-- IMAGES -->  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

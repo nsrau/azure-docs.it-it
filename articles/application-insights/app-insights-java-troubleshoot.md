@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/01/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
  
 # Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 
@@ -24,7 +24,7 @@ Domande o problemi relativi ad [Application Insights per Visual Studio in Java][
 
 *Quando si aggiunge Application Insights SDK in Eclipse tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a compilazione o checksum.*
 
-* Se l'elemento di dipendenza <version> usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[1.0,)</version>` o (Gradle) `version:'1.0.+'`, provare a indicare una versione specifica, come `1.0.2`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) per la versione più recente.
+* Se l'elemento <versione> della dipendenza usa criteri di ricerca con caratteri jolly, ad esempio (Maven) `<version>[1.0,)</version>`o (Gradle) `version:'1.0.+'`, provare a indicare una versione specifica, come `1.0.2`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) per la versione più recente.
 
 ## Dati non presenti 
 
@@ -33,7 +33,7 @@ Domande o problemi relativi ad [Application Insights per Visual Studio in Java][
 * Attendere un minuto, quindi fare clic su Aggiorna. I grafici si aggiornano autonomamente periodicamente, ma è anche possibile aggiornare manualmente. L'intervallo di aggiornamento dipende dall'intervallo di tempo del grafico.
 * Verificare di disporre di una chiave di strumentazione definita nel file ApplicationInsights.xml (presente nella cartella resources del progetto).
 * Verificare che non vi siano nodi `<DisableTelemetry>true</DisableTelemetry>` nel file XML.
-* Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com.
+* Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com. Vedere l'[elenco completo delle eccezioni del firewall](app-insights-ip-addresses.md)
 * Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
 * Attivare la registrazione nella finestra della console IDE aggiungendo un elemento `<SDKLogger />` sotto il nodo radice nel file ApplicationInsights.xml (nella cartella resources del progetto) e verificare la presenza di voci con prefisso [Error].
 * Per verificare che Java SDK abbia caricato il file ApplicationInsights.xml corretto, esaminare i messaggi di output della console e cercare il messaggio "Configuration file has been successfully found".
@@ -48,7 +48,7 @@ Domande o problemi relativi ad [Application Insights per Visual Studio in Java][
 
 #### Non sono presenti tutti i dati previsti
 
-* Aprire il pannello Quota + prezzi e verificare se il [campionamento](app-insights-sampling.md) è abilitato. La trasmissione al 100% indica che il campionamento non è abilitato. È possibile impostare il servizio Application Insights in modo che vengano accettati soltanto i dati di telemetria provenienti dall'app. Ciò permette di evitare il superamento della quota mensile. 
+* Aprire il pannello Quota + prezzi e verificare se il [campionamento](app-insights-sampling.md) è abilitato. La trasmissione al 100% indica che il campionamento non è abilitato. È possibile impostare il servizio Application Insights in modo che vengano accettati soltanto i dati di telemetria provenienti dall'app. Ciò permette di evitare il superamento della quota mensile.
 
 ## Dati di utilizzo non presenti
 
@@ -128,7 +128,7 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-<!--Link references-->
+<!--Link references-->  
 
 [availability]: app-insights-monitor-web-app-availability.md
 [data]: app-insights-data-retention-privacy.md
@@ -140,4 +140,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -26,7 +26,7 @@ SQL Data Warehouse consente un massimo di 1.024 connessioni simultanee. Tutte le
 
 I limiti di concorrenza sono regolati da due concetti, *query simultanee* e *slot di concorrenza*. Perché una query venga eseguita, è necessario che rientri nel limite di concorrenza delle query e nell'allocazione di slot di concorrenza.
 
-- Le query simultanee sono le query in esecuzione contemporaneamente. SQL Data Warehouse supporta fino a 32 query simultanee.
+- Le query simultanee sono le query in esecuzione contemporaneamente. SQL Data Warehouse supporta fino a 32 query simultanee nelle DWU di dimensioni maggiori.
 - In base alle Unità Data Warehouse (DWU), vengono allocati slot di concorrenza. Ogni 100 DWU, vengono forniti 4 slot di concorrenza. Ad esempio, per DW100 vengono allocati 4 slot di concorrenza e per DW1000 ne vengono allocati 40. Ogni query utilizza uno o più slot di concorrenza, a seconda della [classe di risorse](#resource-classes) della query. Le query in esecuzione nella classe di risorse smallrc utilizzano uno slot di concorrenza. Le query in esecuzione in una classe di risorse superiore utilizzeranno più slot di concorrenza.
 
 La tabella seguente descrive i limiti sia per le query simultanee che per gli slot di concorrenza a seconda delle dimensioni della DWU.
@@ -241,7 +241,7 @@ Le istruzioni seguenti rispettano le classi di risorse:
 
 ## Eccezioni query ai limiti di concorrenza
 
-Alcune query non rispettano la classe di risorse alla quale è assegnato l'utente. Queste eccezioni ai limiti di concorrenza vengono effettuate quando le risorse di memoria necessarie per un particolare comando sono basse, spesso perché il comando è un'operazione dei metadati. Con queste eccezioni, si intende evitare l'allocazione di più memoria alle query che non ne hanno bisogno. In questi casi, viene sempre usata la classe di risorse piccola predefinita (smallrc), indipendentemente dalla classe di risorse effettivamente assegnata all'utente. Ad esempio, in smallrc verrà sempre eseguita `CREATE LOGIN`. Le risorse necessarie per svolgere questa operazione sono molto bassa e pertanto non avrebbe senso di includere la query nel modello di slot della concorrenza. Sarebbe uno spreco di pre-allocare grandi quantità di memoria per questa azione. Escludendo `CREATE LOGIN` dal modello slot concorrenza SQL Data Warehouse può essere molto più efficiente.
+Alcune query non rispettano la classe di risorse alla quale è assegnato l'utente. Queste eccezioni ai limiti di concorrenza vengono effettuate quando le risorse di memoria necessarie per un particolare comando sono basse, spesso perché il comando è un'operazione dei metadati. Con queste eccezioni, si intende evitare l'allocazione di più memoria alle query che non ne hanno bisogno. In questi casi, viene sempre usata la classe di risorse piccola predefinita (smallrc), indipendentemente dalla classe di risorse effettivamente assegnata all'utente. Ad esempio, in smallrc verrà sempre eseguita `CREATE LOGIN`. Le risorse necessarie per svolgere questa operazione sono molto ridotte e non avrebbe senso includere la query nel modello di slot di concorrenza. Per queste query non è previsto il limite di 32 utenti simultanei; è possibile eseguire un numero illimitato di queste query fino al limite di 1.024 sessioni.
 
 Le istruzioni seguenti non rispettano le classi di risorse:
 
@@ -266,7 +266,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
--->
+-->  
 
 ## Esempio di modifica della classe di risorse di un utente
 
@@ -417,7 +417,7 @@ FROM	sys.dm_pdw_wait_stats w;
 
 Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
@@ -428,4 +428,4 @@ Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del dat
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

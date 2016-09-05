@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="05/25/2016"
-   ms.author="alkohli" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />  
 
 # Configurare CHAP per il dispositivo StorSimple
 
@@ -85,7 +85,7 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
 
 	4. Fare clic su **OK**.
 
-		![Impostazioni avanzate - generale](./media/storsimple-configure-chap/IC740946.png)
+		![Impostazioni avanzate - Generale](./media/storsimple-configure-chap/IC740946.png)
 
 5. Nella scheda **Destinazioni** della finestra **Proprietà iniziatore iSCSI**, lo stato del dispositivo deve essere visualizzato come **Connesso**. Se si usa un dispositivo StorSimple 1200, ogni volume verrà montato come destinazione iSCSI, come illustrato di seguito. Di conseguenza, i passaggi 3 e 4 dovranno essere ripetuti per ogni volume.
 
@@ -162,7 +162,7 @@ Nell'autenticazione bidirezionale la destinazione autentica l'iniziatore e poi l
 	 
 Per ulteriori informazioni sulla configurazione di CHAP nel server host di Windows, andare a [Ulteriori considerazioni](#additional-considerations).
 
-## Considerazione aggiuntive
+## Considerazioni aggiuntive
 
 La funzionalità **Connessione rapida** non supporta le connessioni con CHAP attivato. Quando CHAP è attivato, assicurarsi di utilizzare il pulsante **Connetti** disponibile nella scheda **Destinazioni** per la connessione a una destinazione.
 
@@ -198,4 +198,4 @@ Se la configurazione di CHAP non è corretta, è probabile che venga visualizzat
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

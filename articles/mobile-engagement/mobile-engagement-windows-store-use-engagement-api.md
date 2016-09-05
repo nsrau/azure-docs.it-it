@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in un'app di Windows universale
@@ -36,13 +36,13 @@ Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Conce
 
 Un'*attività* è in genere associata a una pagina dell'applicazione, ovvero l'*attività* inizia quando la pagina viene visualizzata e si arresta quando la pagina viene chiusa. Questo avviene quando l'SDK di Engagement è integrato mediante la classe `EngagementPage`.
 
-Le *attività* possono tuttavia essere controllate anche manualmente usando l'API di Engagement. Ciò consente di dividere una determinata pagina in più sottoparti per ottenere maggiori dettagli sull'utilizzo della pagina (ad esempio per conoscere la frequenza e la durata dell'uso delle finestre di dialogo all'interno della pagina).
+Le *attività* possono tuttavia essere controllate anche manualmente usando l'API di Engagement. Ciò consente di dividere una determinata pagina in più sottoparti per ottenere maggiori dettagli sull'uso della pagina (ad esempio per conoscere la frequenza e la durata dell'uso delle finestre di dialogo all'interno della pagina).
 
 ##Segnalazione di attività
 
 ### L'utente inizia una nuova attività
 
-#### Riferimento
+#### riferimento
 
 			void StartActivity(string name, Dictionary<object, object> extras = null)
 
@@ -56,7 +56,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ### L'utente termina l'attività corrente
 
-#### Riferimento
+#### riferimento
 
 			void EndActivity()
 
@@ -70,7 +70,7 @@ Vengono terminate l'attività e la sessione. Chiamare questo metodo solo se si �
 
 ### Avviare un processo
 
-#### Riferimento
+#### riferimento
 
 			void StartJob(string name, Dictionary<object, object> extras = null)
 
@@ -89,7 +89,7 @@ Vengono terminate l'attività e la sessione. Chiamare questo metodo solo se si �
 
 ### Terminare un processo
 
-#### Riferimento
+#### riferimento
 
 			void EndJob(string name)
 
@@ -112,7 +112,7 @@ Esistono tre tipi di eventi:
 
 ### Eventi autonomi
 
-#### Riferimento
+#### riferimento
 
 			void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -124,7 +124,7 @@ Gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione
 
 ### Eventi di sessione
 
-#### Riferimento
+#### riferimento
 
 			void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
@@ -148,7 +148,7 @@ Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite 
 
 ### Eventi di processo
 
-#### Riferimento
+#### riferimento
 
 			void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
@@ -160,7 +160,7 @@ Gli eventi di processo in genere vengono utilizzati per segnalare le azioni eseg
 
 ##Segnalazione di errori
 
-Esistono tre tipi di errori:
+Esistono tre tipi di errore:
 
 -   Errori autonomi
 -   Errori di sessione
@@ -168,7 +168,7 @@ Esistono tre tipi di errori:
 
 ### Errori autonomi
 
-#### Riferimento
+#### riferimento
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -180,7 +180,7 @@ Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi a
 
 ### Errori di sessione
 
-#### Riferimento
+#### riferimento
 
 			void SendSessionError(string name, Dictionary<object, object> extras = null)
 
@@ -192,7 +192,7 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
 
 ### Errori di processo
 
-#### Riferimento
+#### riferimento
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
@@ -208,7 +208,7 @@ L'agente fornisce due metodi per gestire gli arresti anomali.
 
 ### Inviare un'eccezione
 
-#### Riferimento
+#### riferimento
 
 			void SendCrash(Exception e, bool terminateSession = false)
 
@@ -226,7 +226,7 @@ In questo caso la sessione e i processi verranno chiusi solo dopo l'invio dell'a
 
 ### Inviare un'eccezione non gestita
 
-#### Riferimento
+#### riferimento
 
 			void SendCrash(Exception e)
 
@@ -329,7 +329,7 @@ I dati aggiuntivi sono limitati a **1024** caratteri per chiamata.
 
 È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione SendAppInfo().
 
-Queste informazioni possono essere inviate in modo incrementale: viene mantenuto solo l'ultimo valore per una determinata chiave per ogni dispositivo specifico. Come per i dati aggiuntivi degli eventi, usare Dictionary<object, object> per allegare informazioni.
+Questi dati possono essere inviati in modo incrementale: viene mantenuto solo l'ultimo valore per una determinata chiave per ogni dispositivo specifico. Come per le informazioni aggiuntive degli eventi, usare Dictionary<object, object> per allegare dati.
 
 ### Esempio
 
@@ -368,4 +368,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

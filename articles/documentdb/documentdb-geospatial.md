@@ -13,8 +13,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/16/2016" 
-    ms.author="arramac"/>
+    ms.date="08/08/2016" 
+    ms.author="arramac"/>  
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
 
@@ -276,6 +276,8 @@ In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D,
 
 Se si specifica un criterio di indicizzazione che include un indice spaziale per /* (tutti i percorsi), tutti i punti trovati all'interno dell'insieme vengono indicizzati per query spaziali efficienti (ST\_WITHIN e ST\_DISTANCE). Gli indici spaziali non hanno un valore di precisione e utilizzano sempre un valore di precisione predefinito.
 
+>[AZURE.NOTE] DocumentDB supporta l'indicizzazione automatica di tipi di dati Point, Polygon (anteprima privata) e LineString (anteprima privata). Per l'accesso all'anteprima, inviare un messaggio all'indirizzo askdocdb@microsoft.com oppure contattare Microsoft tramite il supporto di Azure.
+
 Il seguente frammento JSON mostra un criterio di indicizzazione con indicizzazione spaziale abilitata, ossia indicizza qualsiasi punto GeoJSON trovato all'interno di documenti per le query spaziali. Se si modifica il criterio di indicizzazione tramite il portale di Azure, è possibile specificare il seguente JSON come criterio di indicizzazione per abilitare l’indicizzazione spaziale nella raccolta.
 
 **JSON criterio di indicizzazione della raccolta con Spatial abilitato**
@@ -346,4 +348,4 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

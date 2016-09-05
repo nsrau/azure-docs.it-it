@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
-	ms.author="piyushjo"/>
+	ms.date="08/19/2016"
+	ms.author="piyushjo"/>  
 
 #Implementare Mobile Engagement con app multimediali
 
-## Panoramica
+## Overview
 
 Mattia è un project manager impegnato in progetti per dispositivi mobili per una grande società di servizi multimediali. Ha recentemente lanciato una nuova app che sta registrando un numero molto elevato di download. Ha raggiunto i suoi obiettivi di download, ma il ritorno sugli investimenti (ROI) per utente non soddisfa ancora i requisiti stabiliti.
 
@@ -94,11 +94,11 @@ Dopo alcuni test, Mattia si ritiene soddisfatto. Grazie a questa API, i giornali
 
 Dopo questi primi quattro mesi, i risultati riflettono buone prestazioni generali e rassicurano Mattia e il consiglio di amministrazione, il ROI per utente è aumentato del 15% e le vendite da dispositivi mobili rappresentano il 17,5% delle vendite totali. Un aumento del 7,5% in soli quattro mesi.
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/mobile-engagement-media-scenario/engagement-strategy.png
 [2]: ./media/mobile-engagement-media-scenario/push-scenarios.png
 
-<!--Link references-->
+<!--Link references-->  
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

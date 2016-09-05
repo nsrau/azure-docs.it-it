@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
 
 #  Diagnostica proattiva in Application Insights
 
@@ -29,13 +29,13 @@
 
 * **Viene visualizzato un messaggio di posta elettronica** da Application Insights. Ecco un esempio tipico:
 
-    ![Avviso di posta elettronica](./media/app-insights-proactive-diagnostics/03.png)
+    ![Avviso di posta elettronica](./media/app-insights-proactive-diagnostics/03.png)  
 
     Fare clic sul pulsante grande per visualizzare altri dettagli nel portale.
 
 * Il **riquadro Rilevamento proattivo** nel pannello della panoramica dell'app visualizza il numero di avvisi recenti. Fare clic sul riquadro per visualizzare un elenco degli avvisi recenti.
 
-![Visualizzare rilevamenti recenti](./media/app-insights-proactive-diagnostics/04.png)
+![Visualizzare rilevamenti recenti](./media/app-insights-proactive-diagnostics/04.png)  
 
 Selezionare un avviso per visualizzarne i dettagli.
 
@@ -58,4 +58,4 @@ Diagnostica proattiva è completamente automatica, tuttavia è possibile configu
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

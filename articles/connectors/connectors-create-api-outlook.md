@@ -1,6 +1,6 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
-description="Creare app per la logica con Servizio app di Azure. Il connettore Outlook.com consente di gestire la posta elettronica, i calendari e i contatti. Consente anche di eseguire diverse azioni, ad esempio inviare messaggi, pianificare riunioni, aggiungere contatti e così via."
+description="Creare app per la logica in Servizio app di Azure. Il connettore Outlook.com consente di gestire la posta elettronica, i calendari e i contatti. Consente anche di eseguire diverse azioni, ad esempio inviare messaggi, pianificare riunioni, aggiungere contatti e così via."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore Outlook.com
 
 Il connettore Outlook.com consente di gestire la posta elettronica, i calendari e i contatti. Consente anche di eseguire diverse azioni, ad esempio inviare messaggi, pianificare riunioni, aggiungere contatti e così via.
 
-Il connettore Outlook.com può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flow.microsoft.com)
-
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare con la creazione di un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -65,7 +59,7 @@ Il connettore Outlook.com può essere usato come azione e include trigger. Tutti
 ### Trigger di Outlook.com
 È possibile ascoltare questi eventi:
 
-|Trigger | Descrizione|
+|Trigger | Description|
 |--- | ---|
 |All'avvio imminente di un evento|Attiva un flusso all'avvio di un prossimo evento del calendario.|
 |All'arrivo di un nuovo messaggio di posta elettronica|Attiva un flusso quando arriva un nuovo messaggio di posta elettronica.|
@@ -86,21 +80,21 @@ Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e re
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
 ## Informazioni di riferimento per Outlook.com
-Si applica alla versione: 1.0
+Si applica alla versione 1.0
 
 ## OnUpcomingEvents
 All'avvio imminente di un evento: attiva un flusso all'avvio di un evento imminente del calendario
 
-```GET: /Events/OnUpcomingEvents```
+```GET: /Events/OnUpcomingEvents```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|query|nessuno|Identificatore univoco del calendario.|
 |lookAheadTimeInMinutes|integer|no|query|15|Tempo di attesa (in minuti) per eventi imminenti|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |202|Operazione riuscita|
@@ -128,7 +122,7 @@ Recupero messaggi di posta elettronica: recupera i messaggi di posta elettronica
 
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|RichiestaNonValida|
@@ -141,15 +135,15 @@ Recupero messaggi di posta elettronica: recupera i messaggi di posta elettronica
 ## SendEmail
 Invio di posta elettronica: invia un messaggio di posta elettronica
 
-```POST: /Mail```
+```POST: /Mail```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|emailMessage| |yes|body|nessuno|Email|
+|emailMessage| |sì|body|nessuno|Email|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|RichiestaNonValida|
@@ -164,13 +158,13 @@ Eliminazione messaggio: elimina un messaggio di posta elettronica in base all'ID
 
 ```DELETE: /Mail/{messageId}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|nessuno|ID del messaggio di posta elettronica da eliminare|
+|messageId|stringa|yes|path|nessuno|ID del messaggio di posta elettronica da eliminare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|RichiestaNonValida|
@@ -183,13 +177,13 @@ Eliminazione messaggio: elimina un messaggio di posta elettronica in base all'ID
 ## MarkAsRead
 Segna come già letto: segna un messaggio di posta elettronica come già letto
 
-```POST: /Mail/MarkAsRead/{messageId}```
+```POST: /Mail/MarkAsRead/{messageId}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|nessuno|ID del messaggio da segnare come già letto|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -204,17 +198,17 @@ Segna come già letto: segna un messaggio di posta elettronica come già letto
 ## ReplyTo
 Risposta al messaggio: risponde a un messaggio di posta elettronica
 
-```POST: /Mail/ReplyTo/{messageId}```
+```POST: /Mail/ReplyTo/{messageId}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|nessuno|ID del messaggio di posta elettronica a cui rispondere|
+|messageId|stringa|yes|path|nessuno|ID del messaggio di posta elettronica a cui rispondere|
 |comment|string|yes|query|nessuno|Commento nella risposta|
 |replyAll|boolean|no|query|false|Rispondere a tutti i destinatari.|
 
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|RichiestaNonValida|
@@ -227,16 +221,16 @@ Risposta al messaggio: risponde a un messaggio di posta elettronica
 ## GetAttachment
 Recupero allegato: recupera l'allegato al messaggio in base all'ID
 
-```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|nessuno|ID del messaggio di posta elettronica|
-|attachmentId|string|yes|path|nessuno|ID dell'allegato d scaricare.|
+|attachmentId|stringa|yes|path|nessuno|ID dell'allegato d scaricare.|
 
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|Operazione riuscita|
 |400|RichiestaNonValida|
@@ -249,19 +243,19 @@ Recupero allegato: recupera l'allegato al messaggio in base all'ID
 ## OnNewEmail
 All'arrivo di un nuovo messaggio di posta elettronica: attiva un flusso quando arriva un nuovo messaggio di posta elettronica
 
-```GET: /Mail/OnNewEmail```
+```GET: /Mail/OnNewEmail```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|no|query|Posta in arrivo|Cartella di posta elettronica da recuperare (impostazione predefinita: Posta in arrivo).|
+|folderPath|stringa|no|query|Posta in arrivo|Cartella di posta elettronica da recuperare (impostazione predefinita: Posta in arrivo).|
 |to|string|no|query|nessuno|Indirizzi di posta elettronica dei destinatari.|
-|from|string|no|query|nessuno|Indirizzo del mittente.|
-|importance|string|no|query|Normal|Importanza del messaggio di posta elettronica (Alta, Normale, Bassa) (impostazione predefinita: Normale).|
+|from|stringa|no|query|nessuno|Indirizzo del mittente.|
+|importance|string|no|query|Normale|Importanza del messaggio di posta elettronica (Alta, Normale, Bassa) (impostazione predefinita: Normale).|
 |fetchOnlyWithAttachment|boolean|no|query|false|Recuperare solo i messaggi di posta elettronica con un allegato.|
 |includeAttachments|boolean|no|query|false|Includere gli allegati.|
 |subjectFilter|string|no|query|nessuno|Stringa da cercare nell'oggetto|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -277,13 +271,13 @@ All'arrivo di un nuovo messaggio di posta elettronica: attiva un flusso quando a
 ## SendMailWithOptions
 Invio messaggio con opzioni: invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni
 
-```POST: /mailwithoptions/$subscriptions```
+```POST: /mailwithoptions/$subscriptions```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|nessuno|Richiesta di sottoscrizione per i messaggi di posta elettronica con opzioni|
+|optionsEmailSubscription| |sì|body|nessuno|Richiesta di sottoscrizione per i messaggi di posta elettronica con opzioni|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -299,13 +293,13 @@ Invio messaggio con opzioni: invia un messaggio di posta elettronica con più op
 ## SendApprovalMail
 Invio messaggio di approvazione: invia un messaggio di approvazione e attende una risposta dal destinatario
 
-```POST: /approvalmail/$subscriptions```
+```POST: /approvalmail/$subscriptions```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|nessuno|Richiesta di sottoscrizione per i messaggi di posta elettronica di approvazione|
+|approvalEmailSubscription| |sì|body|nessuno|Richiesta di sottoscrizione per i messaggi di posta elettronica di approvazione|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -321,7 +315,7 @@ Invio messaggio di approvazione: invia un messaggio di approvazione e attende un
 ## CalendarGetTables
 Recupero calendari: recupera calendari
 
-```GET: /datasets/calendars/tables```
+```GET: /datasets/calendars/tables```  
 
 Non sono disponibili parametri per questa chiamata
 #### Response
@@ -335,9 +329,9 @@ Non sono disponibili parametri per questa chiamata
 ## CalendarGetItems
 Recupero eventi: recupera gli elementi da un calendario
 
-```GET: /datasets/calendars/tables/{table}/items```
+```GET: /datasets/calendars/tables/{table}/items```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco del calendario da recuperare.|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -345,7 +339,7 @@ Recupero eventi: recupera gli elementi da un calendario
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -365,7 +359,7 @@ Creazione evento: crea un nuovo evento
 
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
@@ -374,9 +368,9 @@ Creazione evento: crea un nuovo evento
 ## CalendarGetItem
 Recupero evento: recupera un elemento specifico da un calendario
 
-```GET: /datasets/calendars/tables/{table}/items/{id}```
+```GET: /datasets/calendars/tables/{table}/items/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |id|string|yes|path|nessuno|Identificatore univoco di un elemento del calendario da recuperare.|
@@ -394,14 +388,14 @@ Eliminazione evento: elimina un elemento del calendario
 
 ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |id|string|yes|path|nessuno|Identificatore univoco dell'elemento del calendario da eliminare.|
 
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
@@ -410,9 +404,9 @@ Eliminazione evento: elimina un elemento del calendario
 ## CalendarPatchItem
 Aggiornamento evento: aggiorna parzialmente un elemento del calendario
 
-```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |id|string|yes|path|nessuno|Identificatore univoco dell'elemento del calendario da aggiornare.|
@@ -429,9 +423,9 @@ Aggiornamento evento: aggiorna parzialmente un elemento del calendario
 ## CalendarGetOnNewItems
 In presenza di nuovi elementi: si attiva quando viene creato un nuovo elemento del calendario
 
-```GET: /datasets/calendars/tables/{table}/onnewitems```
+```GET: /datasets/calendars/tables/{table}/onnewitems```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -439,9 +433,9 @@ In presenza di nuovi elementi: si attiva quando viene creato un nuovo elemento d
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
@@ -450,9 +444,9 @@ In presenza di nuovi elementi: si attiva quando viene creato un nuovo elemento d
 ## CalendarGetOnUpdatedItems
 In presenza di elementi aggiornati: si attiva quando viene modificato un elemento del calendario
 
-```GET: /datasets/calendars/tables/{table}/onupdateditems```
+```GET: /datasets/calendars/tables/{table}/onupdateditems```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -460,7 +454,7 @@ In presenza di elementi aggiornati: si attiva quando viene modificato un element
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -471,12 +465,12 @@ In presenza di elementi aggiornati: si attiva quando viene modificato un element
 ## ContactGetTables
 Recupero cartelle contatti: recupera cartelle di contatti
 
-```GET: /datasets/contacts/tables```
+```GET: /datasets/contacts/tables```  
 
 Non sono disponibili parametri per questa chiamata
 #### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
@@ -485,9 +479,9 @@ Non sono disponibili parametri per questa chiamata
 ## ContactGetItems
 Recupero contatti: recupera i contatti da una cartella di contatti
 
-```GET: /datasets/contacts/tables/{table}/items```
+```GET: /datasets/contacts/tables/{table}/items```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco della cartella Contatti da recuperare.|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
@@ -495,7 +489,7 @@ Recupero contatti: recupera i contatti da una cartella di contatti
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -506,9 +500,9 @@ Recupero contatti: recupera i contatti da una cartella di contatti
 ## ContactPostItem
 Creazione contatto: crea un nuovo contatto
 
-```POST: /datasets/contacts/tables/{table}/items```
+```POST: /datasets/contacts/tables/{table}/items```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |item| |yes|body|nessuno|Contatto da creare.|
@@ -524,9 +518,9 @@ Creazione contatto: crea un nuovo contatto
 ## ContactGetItem
 Recupero contatto: recupera un contatto specifico da una cartella di contatti
 
-```GET: /datasets/contacts/tables/{table}/items/{id}```
+```GET: /datasets/contacts/tables/{table}/items/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |id|string|yes|path|nessuno|Identificatore univoco di un contatto da recuperare.|
@@ -542,9 +536,9 @@ Recupero contatto: recupera un contatto specifico da una cartella di contatti
 ## ContactDeleteItem
 Eliminazione contatto: elimina un contatto
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |id|string|yes|path|nessuno|Identificatore univoco del contatto da eliminare.|
@@ -562,7 +556,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |id|string|yes|path|nessuno|Identificatore univoco del contatto da aggiornare.|
@@ -576,7 +570,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 |default|Operazione non riuscita.|
 
 
-## Definizioni degli oggetti 
+## Definizioni oggetti 
 
 ### TriggerBatchResponse[IDictionary[String,Object]]
 
@@ -602,13 +596,13 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 |---|---|---|
 |Attachments|array|No |
 |Da|string|No |
-|Cc|string|No |
-|Bcc|string|No |
-|Oggetto|string|Sì |
-|Corpo|string|Sì |
-|Importance|string|No |
+|Cc|stringa|No |
+|Bcc|stringa|No |
+|Oggetto|stringa|Sì |
+|Corpo|stringa|Sì |
+|Importance|stringa|No |
 |IsHtml|boolean|No |
-|To|string|Sì |
+|To|stringa|Sì |
 
 
 
@@ -618,7 +612,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |@odata.type|string|No |
-|Nome|string|Sì |
+|Name|stringa|Sì |
 |ContentBytes|string|Sì |
 
 
@@ -628,19 +622,19 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ID|string|No |
+|ID|stringa|No |
 |IsRead|boolean|No |
 |HasAttachment|boolean|No |
 |DateTimeReceived|string|No |
 |Attachments|array|No |
-|Da|string|No |
+|Da|stringa|No |
 |Cc|string|No |
-|Bcc|string|No |
+|Bcc|stringa|No |
 |Oggetto|string|Sì |
 |Corpo|string|Sì |
-|Importance|string|No |
+|Importance|stringa|No |
 |IsHtml|boolean|No |
-|To|string|Sì |
+|To|stringa|Sì |
 
 
 
@@ -650,10 +644,10 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |ID|string|Sì |
-|ContentType|string|Sì |
-|@odata.type|string|No |
-|Nome|string|Sì |
-|ContentBytes|string|Sì |
+|ContentType|stringa|Sì |
+|@odata.type|stringa|No |
+|Name|stringa|Sì |
+|ContentBytes|stringa|Sì |
 
 
 
@@ -662,12 +656,12 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Oggetto|string|Sì |
-|Corpo|string|No |
-|Importance|string|No |
+|Oggetto|stringa|Sì |
+|Corpo|stringa|No |
+|Importance|stringa|No |
 |Digest|array|Sì |
 |Attachments|array|No |
-|To|string|Sì |
+|To|stringa|Sì |
 
 
 
@@ -696,10 +690,10 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |una sezione source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
-|tableDisplayName|string|No |
-|tablePluralName|string|No |
+|displayName|stringa|No |
+|urlEncoding|stringa|No |
+|tableDisplayName|stringa|No |
+|tablePluralName|stringa|No |
 
 
 
@@ -708,9 +702,9 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|una sezione source|string|No |
+|una sezione source|stringa|No |
 |displayName|string|No |
-|urlEncoding|string|No |
+|urlEncoding|stringa|No |
 
 
 
@@ -719,9 +713,9 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|name|string|No |
-|title|string|No |
-|x-ms-permission|string|No |
+|name|stringa|No |
+|title|stringa|No |
+|x-ms-permission|stringa|No |
 |x-ms-capabilitiesx-ms-capabilities|non definito|No |
 |schema|non definito|No |
 
@@ -765,7 +759,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|NotificationUrl|string|No |
+|NotificationUrl|stringa|No |
 |Message|non definito|No |
 
 
@@ -775,12 +769,12 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Oggetto|string|Sì |
-|Opzioni|string|Sì |
-|Corpo|string|No |
-|Importance|string|No |
+|Oggetto|stringa|Sì |
+|Opzioni|stringa|Sì |
+|Corpo|stringa|No |
+|Importance|stringa|No |
 |Attachments|array|No |
-|To|string|Sì |
+|To|stringa|Sì |
 
 
 
@@ -790,9 +784,9 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|No |
-|resource|string|No |
-|notificationType|string|No |
-|notificationUrl|string|No |
+|resource|stringa|No |
+|notificationType|stringa|No |
+|notificationUrl|stringa|No |
 
 
 
@@ -801,7 +795,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|NotificationUrl|string|No |
+|NotificationUrl|stringa|No |
 |Message|non definito|No |
 
 
@@ -811,10 +805,10 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Oggetto|string|Sì |
-|Opzioni|string|Sì |
-|Corpo|string|No |
-|Importance|string|No |
+|Oggetto|stringa|Sì |
+|Opzioni|stringa|Sì |
+|Corpo|stringa|No |
+|Importance|stringa|No |
 |Attachments|array|No |
 |To|string|Sì |
 
@@ -825,7 +819,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|SelectedOption|string|No |
+|SelectedOption|stringa|No |
 
 
 
@@ -844,16 +838,16 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |Nome|string|No |
-|DisplayName|string|No |
+|DisplayName|stringa|No |
 
 
 
-### Elemento
+### Item
 
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ItemInternalId|string|No |
+|ItemInternalId|stringa|No |
 
 
 
@@ -889,7 +883,7 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ItemInternalId|string|No |
+|ItemInternalId|stringa|No |
 
 
 
@@ -907,11 +901,11 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Nome|string|No |
+|Name|stringa|No |
 |DisplayName|string|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

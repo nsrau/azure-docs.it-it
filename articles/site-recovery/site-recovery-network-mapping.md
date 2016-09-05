@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="07/06/2016"
-	ms.author="raynew"/>
+	ms.author="raynew"/>  
 
 
 # Preparare il mapping di rete per la protezione delle macchine virtuali Hyper-V con VMM in Azure Site Recovery
@@ -26,7 +26,7 @@ Questo articolo descrive il mapping di rete, che consente di configurare le impo
 Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Panoramica
+## Overview
 
 Si ricorre al mapping di rete quando si distribuisce Azure Site Recovery per replicare macchine virtuali Hyper-V in Azure o in un data center secondario usando la replica Hyper-V o SAN.
 
@@ -55,7 +55,7 @@ Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda c
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
  | | VMNetwork2-NewYork | Non mappata
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappata a VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Non mappata
+ | | VMNetwork2-Chicago | Non mappato
 
 Con questo esempio:
 
@@ -123,4 +123,4 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 
 Dopo aver acquisito familiarità con il mapping di rete, è ora possibile [prepararsi alla distribuzione di Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

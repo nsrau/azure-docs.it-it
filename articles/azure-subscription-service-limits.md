@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Limiti quote e vincoli delle sottoscrizioni e dei servizi di Azure"
+	pageTitle="Limiti, quote e vincoli relativi alle sottoscrizioni e ai servizi di Microsoft Azure"
 	description="Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi."
 	services=""
 	documentationCenter=""
@@ -10,19 +10,19 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="btardif"/>
+	ms.date="08/18/2016"
+	ms.author="btardif"/>  
 
 # Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
-## Panoramica
+## Overview
 
-Questo documento illustra alcuni dei limiti più comuni di Microsoft Azure. Si noti che nel documento non vengono trattati tutti i servizi di Azure. Nel tempo questi limiti verranno ampliati e aggiornati in modo da coprire un maggior numero di servizi della piattaforma.
+Questo documento illustra alcuni dei limiti più comuni di Microsoft Azure. Attualmente non tratta tutti i servizi di Azure. Nel tempo questi limiti verranno ampliati e aggiornati in modo da coprire un maggior numero di servizi della piattaforma.
 
 > [AZURE.NOTE] Per aumentare il limite oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
 
@@ -30,10 +30,10 @@ Questo documento illustra alcuni dei limiti più comuni di Microsoft Azure. Si n
 
 È ora possibile combinare più risorse di Azure in un singolo gruppo di risorse di Azure. Quando si usano i gruppi di risorse, i limiti in precedenza globali vengono gestiti a livello di area con Gestione risorse di Azure. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
-Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica eventuali differenze applicate quando si usa Gestione risorse di Azure. Sono ad esempio presenti una tabella **Limiti relativi alle sottoscrizioni** e una tabella **Limiti relativi alle sottoscrizioni - Gestione risorse di Azure**. Quando un limite si applica a entrambi gli scenari, viene indicato solo nella prima tabella. Se non diversamente indicato, i limiti sono globali in tutte le aree.
+Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica eventuali differenze applicate quando si usa Gestione risorse di Azure. Sono ad esempio presenti una tabella **Limiti delle sottoscrizioni ** e una tabella **Limiti delle sottoscrizioni - Azure Resource Manager**. Quando un limite si applica a entrambi gli scenari, viene indicato solo nella prima tabella. Se non diversamente indicato, i limiti sono globali in tutte le aree.
 
 > [AZURE.NOTE] È importante sottolineare che le quote per le risorse nei gruppi di risorse di Azure sono da intendersi per ogni area accessibile dalla sottoscrizione e non per ogni sottoscrizione, come nel caso delle quote di gestione del servizio. Si considerino, ad esempio. le quote relative ai core. Se è necessario richiedere un aumento della quota con supporto per i core, è necessario stabilire quanti core si desidera usare e in quali aree e quindi effettuare una richiesta specifica per le quote di core del gruppo di risorse di Azure per le quantità e le aree desiderate. Pertanto, se è necessario usare 30 core in Europa occidentale per eseguire l'applicazione, è necessario richiedere in modo specifico 30 core in Europa occidentale. La quota di core per le altre aree non verrà tuttavia aumentata, ma sarà disponibile una quota di 30 core solo in Europa occidentale.
-<!-- -->
+<!-- -->  
 Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](./resource-manager-common-deployment-errors.md).
 
 
@@ -80,11 +80,11 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Set di scalabilità di macchine virtuali](#virtual-machine-scale-sets-limits)
 
 
-### Limiti relativi alle sottoscrizioni
-#### Limiti relativi alle sottoscrizioni
+### Limiti delle sottoscrizioni
+#### Limiti delle sottoscrizioni
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### Limiti relativi alle sottoscrizioni - Gestione risorse di Azure
+#### Limiti delle sottoscrizioni - Azure Resource Manager
 
 I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gruppi di risorse di Azure. I limiti che non cambiano in caso di uso di Gestione risorse di Azure non sono elencati di seguito. Per tali limiti, fare riferimento alla tabella precedente.
 
@@ -192,10 +192,10 @@ Le quote elencate con un asterisco (*) [possono essere modificate contattando il
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
 - *Gratuito*, offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
-- *Basic* fornisce risorse di calcolo dedicate per i carchi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query da alta disponibilità.
+- *Basic* fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query a disponibilità elevata.
 - *Standard (S1, S2, S3, S3 ad alta densità)* è per i carichi di lavoro di produzione più consistenti. All’interno del livello standard esistono più livelli per consentire di scegliere una configurazione delle risorse per scenari specifici.
 
-**Limiti per sottoscrizione**
+**Limiti per ogni sottoscrizione**
 
 [AZURE.INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
 
@@ -303,5 +303,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
-
+<!---HONumber=AcomDC_0824_2016-->

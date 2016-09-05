@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come gestire l'applicazione e i progetti esistenti
@@ -42,7 +42,7 @@ Tra le altre cose, la panoramica delle applicazioni include:
 - **Sessioni**: una sessione indica un uso dell'applicazione da parte di un utente, dal momento in cui inizia a usarla fino a quando finisce.
 - **Tendenze della sessione**: evoluzione delle sessioni nelle ultime due settimane.
 
-Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. Ad esempio:
+Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. ad esempio:
 
 - [Monitorare in tempo reale i dati relativi all'applicazione](mobile-engagement-user-interface-monitor.md)
 - [Analizzare i dati cronologici sull'applicazione](mobile-engagement-user-interface-analytics.md)
@@ -73,7 +73,7 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 - [Concetti][Link 6]
 - [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-<!--Image references-->
+<!--Image references-->  
 [0]: ./media/mobile-engagement-user-interface-home/home0.png
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
@@ -135,7 +135,7 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->
+<!--Link references-->  
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md
@@ -170,4 +170,4 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

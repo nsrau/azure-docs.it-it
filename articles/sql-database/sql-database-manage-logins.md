@@ -15,8 +15,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/06/2016"
-   ms.author="rickbyh"/>
+   ms.date="08/24/2016"
+   ms.author="rickbyh"/>  
 
 # Autenticazione e autorizzazione per database SQL: concessione dell'accesso 
 
@@ -37,7 +37,7 @@ Esistono due possibili account amministrativi con autorizzazioni senza restrizio
 Quando viene creata un'istanza logica di SQL, viene creato un singolo account di accesso, denominato account sottoscrittore del database SQL. Tale account, che effettua la connessione con l'autenticazione di SQL Server (nome utente e password), è un amministratore nell'istanza logica del server e in tutti i database utente collegati a tale istanza. Le autorizzazioni dell'account sottoscrittore non possono essere soggette a restrizioni. Può esistere un solo account di questo tipo.
 
 ### Amministratore di Azure Active Directory
-È possibile configurare come amministratore anche un account di Azure Active Directory. Tale account può essere un singolo utente di Azure AD oppure un gruppo di Azure AD contenente diversi utenti di Azure AD. La configurazione di un amministratore di Azure AD è facoltativa, ma è necessaria se si vuole usare l'autenticazione di Windows per gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso con Azure Active Directory, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
+È possibile configurare come amministratore anche un account di Azure Active Directory. Tale account può essere un singolo utente di Azure AD oppure un gruppo di Azure AD contenente diversi utenti di Azure AD. La configurazione di un amministratore di Azure AD è facoltativa, ma è necessaria se si vuole usare l'autenticazione di Windows per gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso con Azure Active Directory, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) e [Supporto di SSMS per l'autenticazione MFA di Azure AD con database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 ### Configurazione del firewall
 Quando è configurato un firewall a livello di server, l'account sottoscrittore del database SQL di Azure e l'account di Azure Active Directory possono connettersi al database master virtuale e a tutti i database utente. Il firewall a livello di server può essere configurato con il portale. Dopo che è stata stabilita una connessione, è possibile configurare anche regole aggiuntive del firewall a livello di server con l'istruzione Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Per altre informazioni sulla configurazione del firewall, vedere [Procedura: Configurare un firewall del database SQL di Azure con il portale di Azure](sql-database-configure-firewall-settings.md).
@@ -68,7 +68,7 @@ Gli account amministrativi possono creare nuovi database. Per creare un account 
      CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
      ```
 
-     > [AZURE.NOTE] Quando si crea un account di accesso o un utente di database indipendente, è necessario usare una password complessa. Per ulteriori informazioni, vedere [Password complesse](https://msdn.microsoft.com/library/ms161962.aspx).
+     > [AZURE.NOTE] Quando si crea un account di accesso o un utente di database indipendente, usare una password complessa. Per ulteriori informazioni, vedere [Password complesse](https://msdn.microsoft.com/library/ms161962.aspx).
 
 3.	Nel database master virtuale creare un utente con l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Istruzioni di esempio:
 
@@ -93,13 +93,13 @@ L'utente potrà così connettersi al database master virtuale e creare nuovi dat
 
 ### Gestione degli account di accesso
 
-Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel master virtuale. Nella maggior parte dei casi non è necessario, perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
+Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel master virtuale. Di solito non è necessario, perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Utenti non amministratori
 
 In genere, per gli account non amministratore non è necessario l'accesso al database master virtuale. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
-Per creare utenti, connettersi al database ed eseguire istruzioni simili alle seguenti:
+Per creare utenti, connettersi al database ed eseguire istruzioni simili ai seguenti esempi:
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
@@ -133,7 +133,7 @@ Se viene usata l'autenticazione di SQL Server:
 
 - Creare utenti di database indipendente nel database. Inserire uno o più utenti di database in un ruolo del database. Assegnare quindi le autorizzazioni al ruolo del database.
 
-I ruoli del database possono essere ruoli predefiniti come **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter** e **db\_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db\_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente database semplici nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Il ruolo predefinito del database **db\_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
+I ruoli del database possono essere ruoli predefiniti come **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter** e **db\_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db\_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Il ruolo predefinito del database **db\_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
 
 ## Autorizzazioni
 
@@ -161,4 +161,4 @@ Nel database SQL possono essere concesse o negate singolarmente oltre 100 autori
 
 [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

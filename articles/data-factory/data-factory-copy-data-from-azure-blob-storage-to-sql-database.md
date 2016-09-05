@@ -24,6 +24,7 @@
 - [Tramite PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Con Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Uso dell'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Uso dell'API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 In questa esercitazione si crea una data factory con una pipeline per copiare i dati dall'archivio BLOB al database SQL.
@@ -41,7 +42,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **SQL Server 2012/2014 o Visual Studio 2013**. Per creare un database di esempio e per visualizzare i dati risultanti in tale database, viene usato SQL Server Management Studio o Visual Studio.
 
 ## Raccogliere il nome dell'account e la chiave dell'archivio BLOB 
-Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'account di archiviazione di Azure. Annotare il **nome** e la **chiave** per l'account di archiviazione di Azure seguendo queste istruzioni:
+Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'account di archiviazione di Azure. Prendere nota del **nome** e della **chiave** per l'account di archiviazione di Azure.
 
 1. Accedere al [Portale di Azure][azure-portal].
 2. Fare clic sull'hub **SFOGLIA** a sinistra e selezionare **Account di archiviazione**.
@@ -52,7 +53,7 @@ Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'accou
 7. Fare clic su **X** per chiudere tutti i pannelli.
 
 ## Raccogliere i nomi del server, del database e dell'utente per il database SQL
-Per eseguire questa esercitazione, sono necessari i nomi del server, del database e dell'utente di Azure SQL. Annotare i nomi di **server**, **database** e **utente** per il database SQL di Azure seguendo queste istruzioni:
+Per eseguire questa esercitazione, sono necessari i nomi del server, del database e dell'utente di Azure SQL. Annotare i nomi di **server**, **database** e **utente** per il database SQL di Azure.
 
 1. Nel **portale di Azure** fare clic su **SFOGLIA** a sinistra e quindi selezionare **Database SQL**.
 2. Nel pannello **Database SQL** selezionare il **database** da usare nell'esercitazione. Annotare il **nome database**.
@@ -61,7 +62,7 @@ Per eseguire questa esercitazione, sono necessari i nomi del server, del databas
 5. Fare clic su **X** per chiudere tutti i pannelli.
 
 ## Consentire ai servizi di Azure di accedere a SQL Server 
-Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **ATTIVA** per il server di Azure SQL, in modo che il servizio Data factory possa accedere al server di Azure SQL. Per verificare e attivare l'impostazione, eseguire le operazioni seguenti:
+Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **ATTIVA** per il server di Azure SQL, in modo che il servizio Data factory possa accedere al server di Azure SQL. Per verificare e abilitare l'impostazione, seguire questa procedura:
 
 1. Fare clic sull'hub **SFOGLIA** a sinistra, quindi su **Server SQL**.
 2. Selezionare il **server** e quindi fare clic su **IMPOSTAZIONI** nel pannello **SERVER SQL**.
@@ -79,7 +80,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)  
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -93,9 +94,9 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Si noti che, per configurare il firewall per un server di Azure SQL, questo articolo usa il [portale di Azure classico](http://manage.windowsazure.com), non il [portale di Azure](https://portal.azure.com).
+	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Per configurare il firewall per un server di Azure SQL, questo articolo usa il [portale di Azure classico](http://manage.windowsazure.com) anziché il [portale di Azure](https://portal.azure.com).
 
-	**Se nel computer è installato Visual Studio 2013:** nel [portale di Azure](https://portal.azure.com) fare clic sull'hub **SFOGLIA** a sinistra, fare clic su **Server SQL**, selezionare il database e quindi fare clic sul pulsante **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server di Azure SQL ed eseguire lo script. Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
+	Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server di Azure SQL, vedere [questo articolo](../sql-database/sql-database-configure-firewall-settings.md).
 
 
 Eseguire le operazioni seguenti:
@@ -117,4 +118,4 @@ Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

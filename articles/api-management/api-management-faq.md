@@ -38,6 +38,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 -	[È possibile creare un'istanza del servizio Gestione API usando un modello ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[È possibile usare un certificato SSL autofirmato per un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Perché si ottiene un errore di autenticazione quando si cerca di clonare il repository GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[Gestione API funziona con Express Route?](#does-api-management-work-with-express-route)
 
 
 ### Come porre una domanda al team di Gestione API?
@@ -89,14 +90,14 @@ Al termine dell'operazione, il collaboratore appena aggiunto può usare i [cmdle
 
 ### Perché il criterio da aggiungere non è abilitato nell'editor dei criteri?
 
-Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio nelle [informazioni di riferimento al criterio](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vederr la sezione relativa all'**utilizzo** del criterio nelle [Informazioni di riferimento sui criteri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
 ### Come si ottiene il controllo delle versioni API con Gestione API?
 
--	Gestione API consente di configurare separatamente le API che rappresentano diverse versioni. È ad esempio possibile configurare `MyAPI v1` e `MyAPI v2` come due API distinte e gli sviluppatori possono scegliere la versione da usare.
--	È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio: `https://my.api`. È quindi possibile configurare un segmento di versione per il modello [Riscrittura URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Si può avere ad esempio un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) `/resource` e un modello [Riscrittura URL](api-management-howto-add-operations.md#rewrite-url-template) `/v1/Resource`. In questo modo è possibile modificare il valore del segmento di versione in ogni operazione separatamente.
--	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa il criterio [Imposta servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
+-	Gestione API consente di configurare separatamente le API che rappresentano diverse versioni. Ad esempio, possono essere disponibili `MyAPI v1` e `MyAPI v2` come due API distinte e gli sviluppatori possono scegliere la versione da usare.
+-	È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio: `https://my.api`. È quindi possibile configurare un segmento di versione per il modello di [URL di riscrittura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Si può avere ad esempio un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) `/resource` e un modello di [riscrittura URL](api-management-howto-add-operations.md#rewrite-url-template) `/v1/Resource`. In questo modo è possibile modificare il valore del segmento di versione in ogni operazione separatamente.
+-	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
 
 ### Come si configurano più ambienti di API, ad esempio sandbox e produzione?
 
@@ -132,17 +133,17 @@ Per informazioni sulla configurazione di questo scenario, vedere [Using ADFS in 
 
 ### Quale metodo di routing usa Gestione API quando è distribuita in più posizioni geografiche? 
 
-Gestione API usa il [metodo di routing del traffico delle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing del traffico di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
+Gestione API usa il [Metodo di routing del traffico Prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing del traffico di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### È possibile creare un'istanza del servizio Gestione API usando un modello ARM?
 
-Sì, vedere i modelli di avvio rapido del [servizio Gestione API di Azure](http://aka.ms/apimtemplate).
+Sì, vedere i modelli di avvio rapido di [Azure API Management Service](http://aka.ms/apimtemplate) (Servizio Gestione API di Azure).
 
 ### È possibile usare un certificato SSL autofirmato per un back-end?
 
 Sì. Eseguire questi passaggi:
 
-1. Creare una entità [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) con l'API Gestione
+1. Creare un'entità [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) con l'API Gestione
 2. Impostare la proprietà skipCertificateChainValidation su true
 3. Se non si vuole più consentire il certificato autofirmato è possibile eliminare l'entità di back-end o impostare la proprietà skipCertificateChainValidation su false
 
@@ -150,4 +151,8 @@ Sì. Eseguire questi passaggi:
 
 Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual Studio, potrebbe verificarsi un problema noto con la finestra di dialogo Credenziale Windows che limita la lunghezza della password a solo 127 caratteri e quindi tronca la password generata. Microsoft sta lavorando per abbreviare la password. Per ora usare GIT Bash per la clonazione.
 
-<!---HONumber=AcomDC_0810_2016-->
+### Gestione API funziona con Express Route?
+
+È possibile usarlo.
+
+<!---HONumber=AcomDC_0824_2016-->

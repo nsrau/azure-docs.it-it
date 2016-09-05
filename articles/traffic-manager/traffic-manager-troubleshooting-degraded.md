@@ -3,7 +3,7 @@
    description="Come risolvere i problemi relativi ai profili di Gestione traffico quando risulta uno stato Danneggiato."
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -80,4 +80,4 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

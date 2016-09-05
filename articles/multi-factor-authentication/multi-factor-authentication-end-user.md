@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
-	editor="curtland"/>  
+	editor="curtland"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+	ms.date="08/22/2016" 
+	ms.author="billmath"/>  
 
 
 
@@ -45,8 +45,8 @@ Argomento|Descrizione
 [Esperienza d’accesso](multi-factor-authentication-end-user-signin.md)|Illustra i passaggi dell'accesso tramite i diversi metodi, come telefono o app.
 [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md)|Descrive come modificare le impostazioni quali il numero di telefono o il metodo di registrazione preferito.
 [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md)| Informazioni sulla creazione e sull’utilizzo delle password per le app.
-[Utilizzo dell’app per dispositivi mobili](multi-factor-authentication-azure-authenticator.md)|L’app Azure Authenticator è disponibile per [Windows Phone](http://www.windowsphone.com/it-IT/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Utilizzo dell’app per dispositivi mobili](multi-factor-authentication-microsoft-authenticator.md)|L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

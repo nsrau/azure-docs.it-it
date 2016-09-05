@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>  
 
 # Eseguire la migrazione dello schema in SQL Data Warehouse#
@@ -107,8 +107,8 @@ Invece di:
 - **image**, **text**, **ntext**, usare varchar/nvarchar (il valore inferiore offre prestazioni migliori).
 - **sql\_variant**, dividere la colonna in più colonne fortemente tipizzate.
 - **table**, convertire in tabelle temporanee.
-- **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current\_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare binary(8) o varbinary(8) per i valori di versione di riga NOT NULL o NULL.
-- **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile.
+- **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Si noti che è possibile usare current\_timestamp come vincolo di default. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare binary(8) o varbinary(8) per i valori di versione di riga NOT NULL o NULL.
+- **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile
 - **xml**, usare varchar(max) o un valore inferiore per prestazioni migliori. Suddividere in colonne, se necessario.
 
 Per ottenere prestazioni migliori, invece di:
@@ -120,17 +120,17 @@ Supporto parziale:
 
 - I vincoli predefiniti supportano solo valori letterali e costanti. Le espressioni o le funzioni non deterministiche, ad esempio `GETDATE()` o `CURRENT_TIMESTAMP`, non sono supportate.
 
-> [AZURE.NOTE] Se si usa Polybase per caricare le tabelle, definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra e caricare righe con BCP, non è ancora possibile usare PolyBase per caricare i dati. Presto verrà ampliato il supporto di PolyBase per righe ampie. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
+> [AZURE.NOTE] Definire le tabelle in modo che le dimensioni massime delle righe non superino 32.767 byte quando si usa PolyBase per eseguire il caricamento. È importante ricordare che le dimensioni massime delle righe includono la lunghezza completa di tutte le colonne di lunghezza variabile. Sebbene sia possibile definire una riga con i dati di lunghezza variabile con un valore superiore, al momento non è possibile usare PolyBase per caricare questi dati. Come misura temporanea, usare BCP per caricare le righe di grandi dimensioni. Provare infine a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
 
 ## Passaggi successivi
-Dopo la migrazione dello schema del database in SQLDW, è possibile passare a uno degli articoli seguenti:
+Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno degli articoli seguenti:
 
 - [Eseguire la migrazione dei dati][]
 - [Eseguire la migrazione del codice][]
 
 Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Eseguire la migrazione del codice]: sql-data-warehouse-migrate-code.md
@@ -140,6 +140,6 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--MSDN references-->
 
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

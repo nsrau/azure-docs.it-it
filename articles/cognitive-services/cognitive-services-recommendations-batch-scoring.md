@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
-	ms.author="luisca"/>
+	ms.date="08/17/2016"
+	ms.author="luisca"/>  
 
 # Ottenere consigli in batch
 
@@ -198,4 +198,4 @@ L'esempio seguente illustra come potrebbe essere l'output. Questo esempio descri
 -	È possibile chiamare un solo processo batch per sottoscrizione alla volta.
 -	Un file di input del processo batch non può essere di dimensioni superiori a 2 MB.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

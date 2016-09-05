@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="08/17/2016"
+	ms.author="genli"/>  
 
 # Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 
@@ -26,6 +26,8 @@ Un importante messaggio di posta elettronica da Azure non è stato ricevuto? Si 
 
 -	[Come modificare le informazioni sul profilo](#how-to-change-your-profile-information)
 -	[Risposte a domande e problemi comuni](#frequently-asked-questions)
+
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## Informazioni importanti sull'indirizzo di posta elettronica del profilo
 
@@ -61,4 +63,6 @@ A causa di limiti tecnici non è possibile modificare il paese di un account esi
 
 Se si effettua l'iscrizione alla nuova funzione di anteprima degli avvisi di fatturazione di Azure, si riceverà un messaggio di posta elettronica da parte di avvisi di fatturazione di Azure all'indirizzo specificato, indipendentemente dall'eventuale modifica dell'indirizzo di posta elettronica dell'amministratore account.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

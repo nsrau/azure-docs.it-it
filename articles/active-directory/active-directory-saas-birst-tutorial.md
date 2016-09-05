@@ -62,17 +62,17 @@ Per configurare l'integrazione di Birst Agile Business Analytics in Azure AD, è
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -96,7 +96,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Birst Agile Business Analytics, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creazione di un utente test di Birst Agile Business Analytics](#creating-a-birst-agile-business-analytics-test-user)**: per avere una controparte di Britta Simon in Birst Agile Business Analytics collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -120,37 +120,37 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png)  
 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Birst Agile Business Analytics adottando il modello seguente: **"https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID"**.
+    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Birst Agile Business Analytics adottando il modello seguente: **"https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**. L'URL è dipendente dal data center in cui si trova l'account Birst. Per i data center degli Stati Uniti, usare **"https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"** e per i data center in Europa usare **"https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**
 
 	b. Fare clic su **Avanti**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Birst Agile Business Analytics** seguire questa procedura:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png)  
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 5. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di Birst Agile Business Analytics all'indirizzo [info@birst.com](emailTo:info@birst.com) allegando al messaggio di posta elettronica il file del certificato scaricato. Inoltre fornire URL SSO SAML, URL di disconnessione e URL dell’autorità di certificazione in modo da configurarli per l'integrazione SSO.
 
 
-> [AZURE.NOTE] Segnalare al team Birst che questa integrazione richiede l'algoritmo SHA256 (SHA1 non sarà supportato), in modo che il team possa impostare l'accesso Single Sign-On sul server appropriato, ad esempio **app2101** e così via.
+> [AZURE.NOTE] Segnalare al team Birst che questa integrazione richiede l'algoritmo SHA256 (SHA1 non sarà supportato), in modo che il team possa impostare l'accesso Single Sign-On nel server appropriato, ad esempio **app2101** e così via.
 
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
 	
-	![Accesso Single Sign-On di Azure AD][10]
+	![Accesso Single Sign-On di Azure AD][10]  
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
   
-	![Accesso Single Sign-On di Azure AD][11]
+	![Accesso Single Sign-On di Azure AD][11]  
 
 
 
@@ -165,19 +165,19 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_09.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_09.png)  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_03.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_03.png)  
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_04.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_04.png)  
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_05.png)
 
@@ -185,11 +185,11 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_06.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_06.png)  
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -203,15 +203,15 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_07.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_07.png)  
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_08.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_08.png)  
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Complete**.
+    b. Fare clic su **Completa**.
 
 
 
@@ -227,7 +227,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Birst Agi
 
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Birst Agile Business Analytics.
 
-![Assegna utente][200]
+![Assegna utente][200]  
 
 **Per assegnare Britta Simon a Birst Agile Business Analytics, seguire questa procedura:**
 
@@ -237,17 +237,17 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 2. Nell'elenco di applicazioni selezionare **Birst Agile Business Analytics**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_50.png)
+	![Configura accesso Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_50.png)  
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]
+	![Assegna utente][203]  
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]
+	![Assegna utente][205]  
 
 
 
@@ -264,7 +264,7 @@ Quando si fa clic sul riquadro Birst Agile Business Analytics nel pannello di ac
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/active-directory-saas-birst-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-birst-tutorial/tutorial_general_02.png
@@ -282,4 +282,4 @@ Quando si fa clic sul riquadro Birst Agile Business Analytics nel pannello di ac
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

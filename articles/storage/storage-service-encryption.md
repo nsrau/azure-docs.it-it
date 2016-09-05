@@ -29,7 +29,7 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 
 Questa schermata mostra dove trovare l'impostazione relativa a Crittografia del servizio di archiviazione usando il [portale di Azure](https://azure.portal.com). In questa schermata occorre fare clic su Crittografia per continuare.
 
-![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)
+![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)  
 
 Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o disabilitare Crittografia del servizio di archiviazione.
 
@@ -37,11 +37,7 @@ Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o dis
 
 ##Disponibilità
 
-Per l'archiviazione Standard, questa funzionalità è attualmente disponibile nelle seguenti aree: Australia sud-orientale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Europa occidentale e Stati Uniti occidentali.
-
-Per l'archiviazione Premium, questa funzionalità è attualmente disponibile nelle seguenti aree: Australia sud-orientale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale e Stati Uniti occidentali.
-
-Questo documento verrà aggiornato nel corso della distribuzione della funzionalità in altre aree.
+Questa funzionalità è attualmente disponibile in tutte le aree dell'archiviazione Standard e Premium.
 
 ##Scenari di crittografia
 
@@ -61,7 +57,7 @@ L'anteprima pubblica presenta le limitazioni seguenti:
 
 -   Dati esistenti: Crittografia del servizio di archiviazione crittografa solo i dati appena creati dopo l'abilitazione della crittografia. Se ad esempio si crea un nuovo account di archiviazione di Resource Manager ma non si attiva la crittografia e quindi si caricano BLOB o VHD archiviati nell'account di archiviazione e in seguito si attiva Crittografia del servizio di archiviazione, questi BLOB non verranno crittografati, a meno che non vengano riscritti o copiati.
 
--   Supporto per il Marketplace: è possibile abilitare la crittografia di VM create dal Marketplace usando il portale di Azure [https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure. L'immagine di base del VHD rimarrà non crittografata. Eventuali operazioni di scrittura eseguite dopo la creazione della macchina virtuale, tuttavia, verranno crittografate.
+-   Supporto per il Marketplace: è possibile abilitare la crittografia di VM create dal Marketplace usando il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure. L'immagine di base del VHD rimarrà non crittografata. Eventuali operazioni di scrittura eseguite dopo la creazione della macchina virtuale, tuttavia, verranno crittografate.
 
 -   Le tabelle, le code e i dati dei file non verranno crittografati.
 
@@ -229,4 +225,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

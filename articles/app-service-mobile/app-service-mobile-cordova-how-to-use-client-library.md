@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="ggailey"/>
+	ms.date="08/22/2016"
+	ms.author="ggailey"/>  
 
 # Come usare la libreria client Apache Cordova per le app per dispositivi mobili di Azure
 
@@ -55,7 +55,7 @@ Molti tipi di applicazioni Apache Cordova usano una funzionalità di loopback pe
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome dell'app per dispositivi mobili.
 3. Fare clic su **Strumenti**
 4. Fare clic su **Esplora risorse** nel menu OBSERVE, quindi fare clic su **Vai**. Si aprirà una nuova finestra o una nuova scheda.
-5. Espandere i nodi **config**, **authsettings** del sito nel riquadro di navigazione a sinistra.
+5. Espandere i nodi **config**, **authsettings** del sito nel riquadro di spostamento a sinistra.
 6. Fare clic su **Modifica**.
 7. Cercare l’elemento "allowedExternalRedirectUrls". Sarà impostato su null. Modificarlo come segue:
 
@@ -123,11 +123,11 @@ pushHandler.on('error', function (error) {
 
 Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare mai le notifiche push direttamente dai client, perché potrebbero essere usate per attivare un attacco Denial of Service nei confronti di Hub di notifica o PNS.
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [portale di Azure]: https://portal.azure.com
 [esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [prima app Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -135,6 +135,6 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

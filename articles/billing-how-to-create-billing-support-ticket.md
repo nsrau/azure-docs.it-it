@@ -15,11 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="genli"/>
+	ms.date="08/24/2016"
+	ms.author="genli"/>  
 
 # Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure
-
 Questo articolo fornisce le informazioni necessarie per aprire un ticket con il supporto di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Selezionare **Guida e supporto**>**Nuova richiesta di supporto**.
@@ -44,4 +43,4 @@ Si verrà contattati da un rappresentante del supporto tecnico di Azure secondo 
 
  >[AZURE.NOTE]Le autorizzazioni per accedere al Centro account sono concesse solo all'amministratore dell'account Azure. Per altre informazioni su come individuare l'amministratore account della sottoscrizione, vedere [Domande frequenti](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

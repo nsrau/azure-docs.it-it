@@ -1,10 +1,10 @@
 <properties
    pageTitle="Ridimensionare una VM Linux | Microsoft Azure"
-   description="Scalare in verticale o orizzontale una macchina virtuale di Linux, modificando le dimensioni della VM."
+   description="Come ridimensionare una macchina virtuale di Linux, modificando le dimensioni della VM."
    services="virtual-machines-linux"
    documentationCenter="na"
    authors="mikewasson"
-   manager="roshar"
+   manager="timlt"
    editor=""
    tags=""/>
 
@@ -20,20 +20,20 @@
 
 # Come ridimensionare una VM di Linux
 
-## Panoramica 
+## Overview 
 
 Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Questa situazione può verificarsi se le nuove dimensioni non sono disponibili nel cluster hardware che ospita la VM.
 
-In questo articolo viene illustrato come ridimensionare una VM Linux mediante l'[Interfaccia della riga di comando di Azure][azure-cli].
+Questo articolo illustra come ridimensionare una VM Linux mediante l'[interfaccia della riga di comando di Azure][azure-cli].
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
 
 
 ## Ridimensionare una VM di Linux 
 
-Per ridimensionare una VM, eseguire la procedura seguente.
+Per ridimensionare una VM, seguire questa procedura.
 
-1. Eseguire il comando dell'Interfaccia della riga di comando seguente. Questo comando elenca le dimensioni delle VM che sono disponibili nel cluster hardware in cui è ospitata la VM.
+1. Eseguire il comando dell'interfaccia della riga di comando seguente. Questo comando elenca le dimensioni delle VM che sono disponibili nel cluster hardware in cui è ospitata la VM.
 
     ```
     azure vm sizes -g <resource-group> --vm-name <vm-name>
@@ -67,11 +67,11 @@ Per ridimensionare una VM, eseguire la procedura seguente.
 
 Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità orizzontale. Per altre informazioni, vedere [Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali][scale-set].
 
-<!-- links -->
+<!-- links -->  
    
 [azure-cli]: ../xplat-cli-install.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md
 [vm-sizes]: virtual-machines-linux-sizes.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

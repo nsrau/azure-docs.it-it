@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="johnkem"/>
+	ms.author="johnkem"/>  
 
 # Panoramica del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione e di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET)
@@ -29,7 +29,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 - Eseguire query e visualizzarlo nel **portale di Azure**.
 - Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
 - [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](./insights-auditlog-to-webhook-email.md)
-- Salvarlo in un **account di archiviazione** per l'ispezione manuale o di archiviazione. È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
+- [Salvarlo in un **account di archiviazione** per l'ispezione manuale o di archiviazione](./monitoring-archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
 - Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Trasmetterlo a un **hub eventi**](./monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 
@@ -48,13 +48,13 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" del p
 
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
 
-    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)  
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
 
-    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)  
 3. Nel pannello visualizzato è possibile selezionare le aree per cui esportare gli eventi, l'account di archiviazione in cui salvarli, il tempo di conservazione degli eventi nel servizio di archiviazione, espresso in giorni, e lo spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione degli eventi.
 
-    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)  
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 ### Configurare i profili di log tramite i cmdlet di Azure PowerShell
@@ -223,4 +223,4 @@ Per ogni evento nel log attività esiste un BLOB JSON simile al seguente:
 - [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
 - [Trasmettere il log attività di Azure a Hub eventi](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

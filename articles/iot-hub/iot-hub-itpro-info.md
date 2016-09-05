@@ -22,7 +22,7 @@ In questo articolo vengono fornite informazioni che aiutano i professionisti del
 
 ## Connettività di rete
 
-I dispositivi possono comunicare con l'hub IoT in Azure tramite una varietà di protocolli. In genere, la scelta del protocollo è determinata dai requisiti specifici della soluzione. Nella tabella seguente sono elencate le porte in uscita che devono essere aperte affinché un dispositivo possa utilizzare un protocollo specifico:
+I dispositivi possono comunicare con l'hub IoT in Azure tramite una serie di protocolli. In genere, la scelta del protocollo è determinata dai requisiti specifici della soluzione. Nella tabella seguente sono elencate le porte in uscita che devono essere aperte affinché un dispositivo possa utilizzare un protocollo specifico:
 
 | Protocol | Porte |
 | -------- | ------- |
@@ -32,11 +32,11 @@ I dispositivi possono comunicare con l'hub IoT in Azure tramite una varietà di 
 | MQTT | 8883 |
 | LWM2M (gestione dei dispositivi) | 5684 |
 
-Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indirizzo IP per la durata di tale hub. Tuttavia, per mantenere la qualità del servizio, se Microsoft sposta l'hub IoT su un'unità di scala diversa, verrà assegnato ad esso un nuovo indirizzo IP.
+Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indirizzo IP per la durata di tale hub. Per mantenere tuttavia la qualità del servizio, se Microsoft sposta l'hub IoT su un'unità di scala diversa, verrà assegnato ad esso un nuovo indirizzo IP.
 
 ## Hub IoT e sicurezza
 
-Solo i dispositivi registrati con un hub IoT possono comunicare con tale hub IoT. Un dispositivo registrato deve disporre dell’autorizzazione *DeviceConnect*. Un dispositivo si identifica includendo un token che incapsula l'ID univoco del dispositivo in ogni richiesta effettuata e l'hub controlla la validità del token e che il dispositivo non sia bloccato (autorizzazione *DeviceConnect* revocata). Per informazioni sui token supportati dall'hub IoT, vedere [Usare i token di sicurezza hub IoT e i certificati X.509][lnk-tokens]
+Solo i dispositivi registrati con un hub IoT possono comunicare con tale hub IoT. Un dispositivo registrato deve disporre dell’autorizzazione *DeviceConnect*. Un dispositivo si identifica includendo un token che incapsula l'ID univoco del dispositivo in ogni richiesta eseguita. L'hub controlla quindi la validità del token e che il dispositivo non sia presente in un elenco di dispositivi rifiutati (autorizzazione *DeviceConnect* revocata). Per informazioni sui token supportati dall'hub IoT, vedere [Usare i token di sicurezza hub IoT e i certificati X.509][lnk-tokens]
 
 L'accesso ad altri endpoint di gestione in un hub IoT viene controllato anche tramite un set di autorizzazioni: *iothubowner*, *servizio*, *registryRead* e *registryReadWrite*. Qualsiasi applicazione di gestione di client che si connette a un hub IoT deve includere un token con le autorizzazioni appropriate.
 
@@ -48,7 +48,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
-- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 
 [lnk-devguide]: iot-hub-devguide.md#security
@@ -59,4 +59,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

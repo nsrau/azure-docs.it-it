@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Che cosa occorre fare se la sottoscrizione di Azure viene disabilitata?
 
-Se la sottoscrizione di Azure viene disabilitata, seguire la procedura in questo articolo per riattivarla. È possibile che la sottoscrizione di Azure venga disabilitata per i motivi seguenti:
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+Se la sottoscrizione di Azure viene disabilitata, seguire la procedura in questo articolo per riattivarla. È possibile che la sottoscrizione di Azure venga disabilitata per i motivi seguenti.
 
 ## È stato raggiunto il limite di spesa
 
@@ -35,9 +37,9 @@ Di seguito viene illustrato come eliminare il limite di spesa:
 3. Selezionare una sottoscrizione.
 
 4. Se viene visualizzato il messaggio *La sottoscrizione ha raggiunto un limite di spesa ed è stata disabilitata per impedire addebiti*, fare clic su di esso.
-	
+
 	In alternativa, fare clic su **Rimuovere il limite di spesa** nell'area **Stato sottoscrizione**.
-	
+
 5. Selezionare l'opzione che si ritiene più appropriata:
 
 |Opzione|Effetto|
@@ -71,4 +73,6 @@ Se non è possibile accedere al portale, inviare la richiesta di supporto dal si
 
 Per altre informazioni, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

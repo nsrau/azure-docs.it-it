@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande"/>  
 
 # Trigger e associazioni di Archiviazione di Azure in Funzioni di Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice per trigger e associazioni di Archiviazione di Azure in Funzioni di Azure
 
@@ -30,11 +32,11 @@ Questo articolo illustra come configurare e scrivere il codice per trigger e ass
 
 Il file *function.json* specifica le proprietà seguenti.
 
-- `name` : nome della variabile usato nel codice della funzione per la coda o il messaggio della coda. 
+- `name`: nome della variabile usato nel codice della funzione per la coda o il messaggio della coda.
 - `queueName`: nome della coda sulla quale eseguire il polling. Per le regole di denominazione della coda, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection` : nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger usa la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
-- `type` : deve essere impostato su *queueTrigger*.
-- `direction` : deve essere impostato su *in*. 
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger userà la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *queueTrigger*.
+- `direction`: deve essere impostato su *in*.
 
 Esempio di *function.json* per un trigger della coda di archiviazione:
 
@@ -58,9 +60,9 @@ Esempio di *function.json* per un trigger della coda di archiviazione:
 Il messaggio della coda può essere deserializzato in uno qualsiasi dei seguenti tipi:
 
 * Object (da JSON)
-* Stringa
-* Matrice di byte 
-* `CloudQueueMessage` (C#) 
+* String
+* Matrice di byte
+* `CloudQueueMessage` (C#)
 
 #### Metadati del trigger della coda
 
@@ -114,11 +116,11 @@ Per gestire manualmente i messaggi non elaborabili, è possibile verificare in `
 
 Il file *function.json* specifica le proprietà seguenti.
 
-- `name` : nome della variabile usato nel codice della funzione per la coda o il messaggio della coda. 
-- `queueName` : nome della coda. Per le regole di denominazione della coda, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection` : nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger usa la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
-- `type` : deve essere impostato su *queue*.
-- `direction` : deve essere impostato su *out*. 
+- `name`: nome della variabile usato nel codice della funzione per la coda o il messaggio della coda.
+- `queueName`: nome della coda. Per le regole di denominazione della coda, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger userà la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *queue*.
+- `direction`: deve essere impostato su *out*.
 
 Esempio di *function.json* per un'associazione di output della coda di archiviazione che usa il trigger della coda e scrive un messaggio della coda:
 
@@ -150,8 +152,8 @@ L'associazione `queue` può serializzare i tipi seguenti in un messaggio della c
 
 * Object (`out T` in C#, crea un messaggio con un oggetto Null se il parametro è Null quando termina la funzione)
 * String (`out string` in C#, crea un messaggio della coda se il valore del parametro è diverso da Null quando termina la funzione)
-* Matrice di byte (`out byte[]` in C#, funziona come string) 
-* `out CloudQueueMessage` (C#, funziona come string) 
+* Matrice di byte (`out byte[]` in C#, funziona come string)
+* `out CloudQueueMessage` (C#, funziona come string)
 
 In C# è anche possibile definire l'associazione a `ICollector<T>` o `IAsyncCollector<T>` dove `T` è uno dei tipi supportati.
 
@@ -176,17 +178,17 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## <a id="storageblobtrigger"></a> Trigger di BLOB di Archiviazione di Azure
+## <a id="storageblobtrigger"></a> Trigger di BLOB del servizio di archiviazione di Azure
 
 #### function.json per trigger di BLOB di archiviazione
 
 Il file *function.json* specifica le proprietà seguenti.
 
-- `name` : nome della variabile usato nel codice della funzione per il BLOB. 
-- `path` : percorso che specifica il contenitore da monitorare e facoltativamente un modello di nome per il BLOB.
-- `connection` : nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger usa la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
-- `type` : deve essere impostato su *blobTrigger*.
-- `direction` : deve essere impostato su *in*.
+- `name`: nome della variabile usato nel codice della funzione per il BLOB.
+- `path`: percorso che specifica il contenitore da monitorare e facoltativamente un modello di nome per il BLOB.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, il trigger userà la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *blobTrigger*.
+- `direction`: deve essere impostato su *in*.
 
 Esempio di *function.json* per un trigger di BLOB di archiviazione che monitora i BLOB aggiunti al contenitore samples-workitems:
 
@@ -210,11 +212,11 @@ Esempio di *function.json* per un trigger di BLOB di archiviazione che monitora 
 Il BLOB può essere deserializzato in uno dei seguenti tipi in funzioni Node o C#:
 
 * Object (da JSON)
-* Stringa
+* String
 
 Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti tipi:
 
-* `TextReader`
+* `TextReader`  
 * `Stream`
 * `ICloudBlob`
 * `CloudBlockBlob`
@@ -222,8 +224,8 @@ Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti 
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Altri tipi deserializzati da [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+* `IEnumerable<CloudPageBlob>`  
+* Altri tipi deserializzati da [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
 
 #### Esempio di codice C# del trigger dei BLOB
 
@@ -294,21 +296,21 @@ Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene 
 
 #### Polling dei BLOB per contenitori di grandi dimensioni
 
-Se il contenitore BLOB monitorato dal trigger contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. I [log di archiviazione vengono creati nel modo più accurato possibile](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è tuttavia garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB per i contenitori di grandi dimensioni non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare un trigger della coda invece di un trigger di BLOB per elaborare il BLOB.
+Se il contenitore BLOB monitorato dal trigger contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. I [log di archiviazione vengono creati in base al principio del "massimo sforzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB per i contenitori di grandi dimensioni non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare un trigger della coda invece di un trigger di BLOB per elaborare il BLOB.
  
-## <a id="storageblobbindings"></a> Associazioni di input e di output dei BLOB di Archiviazione di Azure
+## <a id="storageblobbindings"></a> Associazioni di input e di output dei BLOB del servizio di archiviazione di Azure
 
 #### function.json per un'associazione di input o output dei BLOB di archiviazione
 
 Il file *function.json* specifica le proprietà seguenti.
 
-- `name` : nome della variabile usato nel codice della funzione per il BLOB. 
-- `path` : percorso che specifica il contenitore dal quale leggere o nel quale scrivere il BLOB e facoltativamente un modello di nome di BLOB.
-- `connection` : nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, l'associazione usa la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
-- `type` : deve essere impostato su *blob*.
-- `direction` : deve essere impostato su *in* o *out*. 
+- `name`: nome della variabile usato nel codice della funzione per il BLOB.
+- `path`: percorso che specifica il contenitore dal quale leggere o nel quale scrivere il BLOB e facoltativamente un modello di nome di BLOB.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, l'associazione userà la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *blob*.
+- `direction`: deve essere impostato su *in* o *out*.
 
-Esempio di *function.json* per un'associazione di input o di output dei BLOB di archiviazione usando un trigger di coda per copiare un BLOB:
+Esempio di *function.json* per un'associazione di input o di output dei BLOB di archiviazione con un trigger di coda per copiare un BLOB:
 
 ```json
 {
@@ -350,11 +352,11 @@ Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
 
 * `TextReader` (solo input)
 * `TextWriter` (solo output)
-* `Stream`
+* `Stream`  
 * `CloudBlobStream` (solo output)
 * `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `CloudBlockBlob`
+* `CloudPageBlob`  
 
 #### Esempio di codice C# di output di BLOB
 
@@ -374,14 +376,14 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 Il file *function.json* specifica le proprietà seguenti.
 
-- `name` : nome della variabile usato nel codice della funzione per l'associazione delle tabelle. 
-- `tableName` : nome della tabella.
+- `name`: nome della variabile usato nel codice della funzione per l'associazione delle tabelle.
+- `tableName`: nome della tabella.
 - `partitionKey` e `rowKey`: usati insieme per leggere una singola entità in una funzione C# o Node oppure per scrivere una singola entità in una funzione Node.
 - `take`: numero massimo di righe da leggere per l'input della tabella in una funzione Node.
-- `filter` : espressione di filtro OData per l'input della tabella in una funzione Node.
-- `connection` : nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, l'associazione usa la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
-- `type` : deve essere impostato su *table*.
-- `direction` : deve essere impostato su *in* o *out*. 
+- `filter`: espressione di filtro OData per l'input della tabella in una funzione Node.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia vuota la proprietà `connection`, l'associazione userà la stringa di connessione di archiviazione predefinita per l'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *table*.
+- `direction`: deve essere impostato su *in* o *out*.
 
 Nell'esempio seguente *function.json* usa un trigger della coda per leggere una riga della tabella. JSON indica il valore di una chiave della partizione hardcoded e specifica che la chiave della riga è recuperata dal messaggio della coda.
 
@@ -495,7 +497,7 @@ Il codice di esempio di *function.json* e di C# seguente legge le entità per un
 }
 ```
 
-Il codice C# aggiunge un riferimento all'SDK di Archiviazione di Azure in modo che il tipo di entità possa derivare da `TableEntity`.
+Il codice C# aggiunge un riferimento ad Azure Storage SDK in modo che il tipo di entità possa derivare da `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -518,7 +520,7 @@ public class Person : TableEntity
 
 #### Esempio di tabelle di archiviazione: creazione di più entità di tabella in C# 
 
-L'esempio di *function.json* e *run.csx* seguente illustra come scrivere entità tabella in C#.
+L'esempio di *function.json* e *run.csx* seguente illustra come scrivere entità di tabella in C#.
 
 ```json
 {
@@ -567,7 +569,7 @@ public class Person
 
 #### Esempio di tabelle di archiviazione: creazione un'entità di tabella in Node
 
-L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'entità tabella in Node.
+L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'entità di tabella in Node.
 
 ```json
 {
@@ -605,4 +607,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

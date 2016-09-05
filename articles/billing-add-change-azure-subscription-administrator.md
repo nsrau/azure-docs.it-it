@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="genli"/>
+	ms.date="08/17/2016"
+	ms.author="genli"/>  
 
 # Come aggiungere o modificare i ruoli di amministratore di Azure
 
@@ -24,10 +24,12 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 | Ruolo amministrativo | Limite | Descrizione
 | ------------- | ------------- |---------------|
 |Amministratore dell'account | 1 per ogni account di Azure |Indica la persona che si è iscritta o ha acquistato le sottoscrizioni di Azure ed è autorizzata ad accedere al [Centro account](https://account.windowsazure.com/Home/Index) ed eseguire diverse attività di gestione. Queste includono la possibilità di creare sottoscrizioni, annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione e modificare l'amministratore del servizio.
-| Amministratore del servizio | 1 per ogni sottoscrizione di Azure |Questo ruolo è autorizzato a gestire i servizi nel [portale di Azure](https://portal.azure.com). Per impostazione predefinita, per una nuova sottoscrizione, l'amministratore dell'account è anche amministratore del servizio.|
-|Coamministratore (CA) del [portale di Azure classico](https://manage.windowsazure.com)|200 per ogni sottoscrizione| Questo ruolo dispone degli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure. |
+| Amministratore del servizio | 1 per ogni sottoscrizione di Azure |Questo ruolo è autorizzato a gestire i servizi nel [portale di Azure](https://portal.azure.com). Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.|
+|Coamministratore (CA) del [portale di Azure classico](https://manage.windowsazure.com)|200 per ogni sottoscrizione| Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure. |
 
 > [AZURE.NOTE] Il controllo degli accessi in base al ruolo di Azure Active Directory consente di aggiungere gli utenti a più ruoli. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## Procedura: aggiungere un amministratore per una sottoscrizione
 
@@ -35,22 +37,22 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel menu Hub, selezionare **Sottoscrizione** > *la sottoscrizione per cui si desidera concedere l'accesso all'amministratore*.
+2. Nel menu Hub selezionare **Sottoscrizione** > *la sottoscrizione per cui si vuole concedere l'accesso all'amministratore*.
 
-	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
+	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)  
 
-3. Nel pannello della sottoscrizione, selezionare **Impostazioni**> **Utenti**.
+3. Nel pannello della sottoscrizione selezionare **Impostazioni**> **Utenti**.
 
-	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Nel pannello Utenti, selezionare **Aggiungi**>**Selezionare un ruolo** > **Proprietario**.
+	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)  
+4. Nel pannello Utenti selezionare **Aggiungi**>**Selezionare un ruolo** > **Proprietario**.
 
-	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)  
 
 	**Nota**
-	- Il ruolo di proprietario dispone degli stessi privilegi di accesso del coamministratore. Questo ruolo non dispone dei privilegi di accesso per il [Centro Account di Azure](https://account.windowsazure.com/subscriptions).
+	- Il ruolo di proprietario dispone degli stessi privilegi di accesso del coamministratore. Questo ruolo non ha i privilegi di accesso per il [Centro Account di Azure](https://account.windowsazure.com/subscriptions).
 	- I proprietari aggiunti tramite il [portale di Azure](https://portal.azure.com) non possono gestire i servizi nel [portale di Azure classico](https://manage.windowsazure.com).
 
-5. Immettere l'indirizzo di posta elettronica dell'utente che si desidera aggiungere, fare clic sull'utente e quindi su **Seleziona**.
+5. Immettere l'indirizzo di posta elettronica dell'utente che si vuole aggiungere, fare clic sull'utente e quindi su **Seleziona**.
 
 	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
 
@@ -60,7 +62,7 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 2. Nel riquadro di spostamento selezionare **Impostazioni**> **Amministratori**> **Aggiungi**. </br>
 
-	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
+	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)  
 
 3. Digitare l'indirizzo di posta elettronica della persona che si vuole aggiungere come coamministratore e quindi selezionare la sottoscrizione a cui il coamministratore potrà accedere.</br>
 
@@ -88,7 +90,7 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 
 ## Come modificare l'amministratore del servizio per una sottoscrizione
 
-Solo l'amministratore dell'account può modificare l'amministratore del servizio per una sottoscrizione.
+Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione.
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account.
 
@@ -96,11 +98,11 @@ Solo l'amministratore dell'account può modificare l'amministratore del servizio
 
 3. Sul lato destro fare clic sui dettagli di **Modifica sottoscrizione**. </br>
 
-	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)  
 
 4. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica del nuovo amministratore del servizio. </br>
 
-	![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+	![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)  
 
 ## Come modificare l'amministratore dell'account
 
@@ -114,4 +116,6 @@ Per trasferire la proprietà dell'account Azure a un altro account, vedere [Tras
 
 * Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

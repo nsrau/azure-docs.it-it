@@ -228,13 +228,13 @@ A questo punto è possibile testare le notifiche push. Eseguire l'applicazione e
 
 	Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google API impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android (AVD).
 
-	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
+	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)  
 
 	Se si vuole usare un emulatore x86 più veloce, [installare il driver HAXM](https://taco.visualstudio.com/it-IT/docs/run-app-apache/#HAXM) e configurare l'emulatore per usarlo.
 
 	Aggiungere un account Google nel dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiungi account**, quindi seguire le istruzioni per aggiungere un account Google esistente nel dispositivo. È consigliabile usare un account esistente piuttosto che crearne uno nuovo.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)  
 
 	Eseguire l'app todolist come fatto in precedenza e inserire un nuovo elemento todo. Questa volta, viene visualizzata un'icona di notifica nell'area di notifica. È possibile aprire la cassetta della notifica per visualizzare il testo completo della notifica.
 
@@ -249,6 +249,8 @@ Questa sezione illustra l'esecuzione del progetto Cordova in dispositivi iOS. Se
 Prima di eseguire un'app Cordova in iOS usando Visual Studio, seguire i passaggi nella [guida alla configurazione per iOS](http://taco.visualstudio.com/it-IT/docs/ios-guide/) per installare ed eseguire l'agente remotebuild.
 
 Verificare che sia possibile compilare l'app per iOS. I passaggi indicati nella guida alla configurazione sono necessari per la compilazione per iOS da Visual Studio. Se non è disponibile un computer Mac, è possibile eseguire la compilazione per iOS usando l'agente remotebuild in un servizio come MacInCloud. Per altre informazioni, vedere [Build and simulate a Cordova iOS app in the cloud](http://taco.visualstudio.com/it-IT/docs/build_ios_cloud/) (Compilare e simulare un'app Cordova per iOS nel cloud).
+
+>[AZURE.NOTE] XCode 7 o versione successiva è necessario per usare il plug-in di push in iOS.
 
 ####Trovare l'ID da usare come ID app
 
@@ -320,7 +322,7 @@ Per usare le opzioni di Store in Visual Studio, selezionare una destinazione Win
 
 Aprire Progettazione configurazione facendo clic con il pulsante destro del mouse sul file config.xml e scegliendo **Visualizza finestra di progettazione**. Selezionare quindi la scheda **Windows** e scegliere **Windows 10** in **Versione Windows di destinazione**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Se si usa una versione di Cordova precedente a Cordova 5.1.1 (6.1.1 consigliata), è necessario impostare anche il flag Popup supportati su true nel file config.xml.
 
 Per supportare le notifiche push nelle compilazioni predefinite (debug), aprire il file build.json. Copiare la configurazione "release" nella configurazione di debug.
 
@@ -367,7 +369,7 @@ Informazioni su come usare gli SDK.
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
-<!-- URLs -->
+<!-- URLs -->  
 [aggiungendo l'autenticazione]: app-service-mobile-cordova-get-started-users.md
 [avvio rapido di Apache Cordova]: app-service-mobile-cordova-get-started.md
 [avvio rapido di Apache Cordova ]: app-service-mobile-cordova-get-started.md
@@ -384,4 +386,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

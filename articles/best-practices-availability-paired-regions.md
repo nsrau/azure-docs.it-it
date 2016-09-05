@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/20/2016"
-    ms.author="raynew"/>
+    ms.date="08/23/2016"
+    ms.author="raynew"/>  
 
 # Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -22,17 +22,17 @@
 
 Azure è disponibile in più aree geografiche del mondo. Un'area geografica di Azure è un'area definita del mondo che include almeno un'area di Azure. Un'area di Azure all'interno di un'area geografica include uno o più data center.
 
-Ogni area di Azure è abbinata a un'altra area all'interno della stessa area geografica (con l'eccezione del Brasile meridionale), che insieme creano una coppia di aree.
+Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica.
 
 
-![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
+![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)  
 
 Figura 1: Diagramma di una coppia di aree di Azure
 
 
 
 | Area geografica | Aree abbinate | |
-| :-------------| :-------------   | :-------------   |
+| :-------------| :-------------   | :-------------      |
 | America del Nord | Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
 | America del Nord | Stati Uniti orientali | Stati Uniti occidentali |
 | America del Nord | Stati Uniti orientali 2 | Stati Uniti centrali |
@@ -42,7 +42,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Cina | Cina orientale | Cina settentrionale |
 | Giappone | Giappone orientale | Giappone occidentale |
 | Brasile | Brasile meridionale (1) | Stati Uniti centro-meridionali |
-| Australia | Australia orientale | Australia sudorientale|
+| Australia | Australia orientale | Australia sudorientale |
 | Governo degli Stati Uniti | Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
 | India | India centrale | India meridionale |
 | Canada | Canada centrale | Canada orientale |
@@ -50,7 +50,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
-> (1) L'area Brasile meridionale è unica, perché è abbinata a un'area esterna alla propria area geografica. L'area secondaria del Brasile meridionale è Stati Uniti centro-meridionali, ma l'area secondaria di Stati Uniti centro-meridionali non è il Brasile meridionale.
+> (1) L'area Brasile meridionale è unica, perché è abbinata a un'area esterna alla propria area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
 
 È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.
 
@@ -88,4 +88,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

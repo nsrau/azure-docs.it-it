@@ -27,15 +27,16 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 ### <a id="general_issues"></a>Problemi generali di Servizi multimediali
 
-Problema|Descrizione
+Problema|Description
 ---|---
 Nell'API REST non sono fornite alcune intestazioni HTTP comuni.|Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento.
-La codifica di un asset con un nome di file contenente caratteri di escape, (ad esempio %20), genera un errore simile al seguente "MediaProcessor: File non trovato.”|I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.
+La codifica percentuale non è consentita.|Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
 Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio di .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming.|Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione.
 Gli oggetti nel modulo .NET SDK di Servizi multimediali di Azure non possono essere serializzati e di conseguenza non funzionano con Caching di Azure.|Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione.
+I processi di codifica hanno esito negativo e viene mostrata la stringa messaggio "Stage: DownloadFile. Code: System.NullReferenceException".|Il flusso di lavoro di codifica tipico consiste nel caricare i file video di input in un asset di input e inviare uno o più processi di codifica per tale asset di input, senza altre modifiche all'asset di input. Se invece si modifica l'asset di input (ad esempio aggiungendo, eliminando o rinominando i file all'interno dell'asset), i processi successivi potrebbero non riuscire e mostrare l'errore DownloadFile. La soluzione alternativa consiste nell'eliminare l'asset di input e caricare di nuovo i file di input in un nuovo asset. 
 
 ##<a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 
@@ -45,7 +46,7 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 
 ###Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
 
-Quando viene inviata a Media Encoder Standard o ad Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
+Quando viene inviata a Media Encoder Standard o ad Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione .ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
 
 >[AZURE.NOTE]La sintassi del file manifesto di streaming (con estensione ism) è riservata per l'uso interno ed è soggetta a modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
 
@@ -130,11 +131,11 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 	- È ora possibile utilizzare il formato Apple HTTP Live Streaming (HLS) con il filtro solo audio. Questo aggiornamento consente di rimuovere solo la traccia audio specificando (solo audio = false) nell'URL.
 	- Quando si definiscono i filtri per gli asset, ora è possibile combinare più filtri (fino a 3) in un singolo URL.
 
-	Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+	Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 - AMS supporta ora gli I-Frames in HLS v4. Il supporto I-Frame consente di ottimizzare le operazioni di avanzamento veloce e riavvolgimento. Per impostazione predefinita, tutti gli output v4 HLS includono le playlist I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+	Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ##<a id="august_changes_15"></a>Versione di agosto 2015
 
@@ -273,7 +274,7 @@ In questa versione il costruttore Microsoft.WindowsAzure.MediaServices.Client.Co
 
 ### <a id="oct_sdk"></a>SDK di Servizi multimediali per .NET 
 
-Le estensioni dell'SDK di Servizi multimediali per .NET sono ora disponibili nella versione 2.0.0.3.
+Media Services .NET SDK Extensions è ora alla versione 2.0.0.3.
 
 L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.0.0.8.
 
@@ -295,7 +296,7 @@ Gli esempi si trovano nel [repository GitHub degli esempi di Servizi multimedial
 
 È ora disponibile la versione 2.7 dei metadati di REST di Servizi multimediali. Per altre informazioni sugli ultimi aggiornamenti di REST, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
-L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.0.0.7.
+Media Services SDK per .NET è ora alla versione 3.0.0.7.
  
 ### <a id="sept_14_breaking_changes"></a>Modifiche di rilievo
 
@@ -369,7 +370,7 @@ La funzionalità Dynamic Packaging supporta attualmente la distribuzione di HTTP
 
 ### <a name="may_14_donnet_changes"></a>Aggiornamenti dell'SDK di Servizi multimediali per .NET
 
-Nell'SDK di Servizi multimediali per .NET versione 3.0.0.5 sono stati introdotti i seguenti aggiornamenti:
+In Media Services .NET SDK versione 3.0.0.5 sono stati introdotti i seguenti aggiornamenti:
 
 * Velocità e resilienza maggiori per il caricamento e il download di asset di file multimediali.
 
@@ -402,7 +403,7 @@ Per altre informazioni, vedere [Logica di retry in Media Services SDK for .NET].
 
 Le modifiche apportate alle versioni 3.0.0.1 e 3.0.0.2 includono:
 
-* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
+* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
 
 * Soluzioni di test in [GitHub] divise in test basati su unità e test basati su scenario.
 
@@ -427,13 +428,13 @@ A partire da Media Services SDK versione 3.0.0.0, è possibile usare nuovamente 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Estensioni dell'SDK di Servizi multimediali di Azure per .NET versione 2.0.0.0
 
-Le estensioni dell'SDK di Servizi multimediali di Azure per .NET sono un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali di Azure. È possibile ottenere i bit più recenti sul sito Web relativo a [Azure Media Services .NET SDK Extensions].
+Azure Media Services .NET SDK Extensions è il nome di un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali di Azure. È possibile ottenere i bit più recenti sul sito Web relativo a [Azure Media Services .NET SDK Extensions].
 
 ##<a id="november_changes_13"></a>Versione di novembre 2013
 
 ### <a name="nov_13_donnet_changes"></a>Modifiche apportate all'SDK di Servizi multimediali di Azure per .NET
 
-A partire da questa versione, l'SDK di Servizi multimediali per .NET gestisce gli errori temporanei che possono verificarsi quando si effettuano chiamate a livello API REST di Servizi multimediali.
+A partire da questa versione, Media Services SDK per .NET gestisce gli errori temporanei che possono verificarsi quando si effettuano chiamate a livello API REST di Servizi multimediali.
 
 ##<a id="august_changes_13"></a>Versione di agosto 2013
 
@@ -447,15 +448,15 @@ I seguenti cmdlet di PowerShell per Servizi multimediali sono stati inclusi in [
 
 * New-AzureMediaServicesAccount
 
-	ad esempio `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`.
+	Ad esempio, `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`.
 
 * New-AzureMediaServicesKey
 
-	ad esempio `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`.
+	Ad esempio, `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`.
 
 * Remove-AzureMediaServicesAccount
 
-	ad esempio `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`.
+	Ad esempio, `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`.
 
 ##<a id="june_changes_13"></a>Versione di giugno 2013
 
@@ -477,7 +478,7 @@ Le modifiche citate in questa sezione sono aggiornamenti inclusi nelle versioni 
 	
 	NotificationEndPoint
 	
-	Job
+	Processo
 
 * Asset.Uri
 
@@ -598,7 +599,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 	A tutti i metodi è stato aggiunto il supporto asincrono.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -607,7 +608,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 <!-- Images. -->
 
@@ -645,4 +646,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

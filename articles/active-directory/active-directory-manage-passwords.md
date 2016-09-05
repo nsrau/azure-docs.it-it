@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="curtand"/>
+	ms.date="08/23/2016"
+	ms.author="curtand"/>  
 
 # Gestire password in Azure Active Directory
 
 Gli amministratori possono reimpostare le password degli utenti in Azure Active Directory (Azure AD) nel portale di Azure classico. Fare clic sul nome della directory, quindi nella pagina Utenti fare clic sul nome dell'utente e su **Reimposta password** nella parte inferiore del portale.
 
-La parte rimanente di questo argomento descrive il set di funzionalità di gestione delle password completo supportato da Azure AD tra cui:
+La parte rimanente di questo argomento descrive il set completo di funzionalità di gestione delle password supportato da Azure AD tra cui:
 
 - La modifica delle **password self-service** consente agli utenti o agli amministratori di cambiare le password scadute o non scadute senza dover chiamare un amministratore o rivolgersi al Supporto tecnico.
 - La reimpostazione delle **password self-service** consente agli utenti o agli amministratori di reimpostare automaticamente le password senza dover chiamare un amministratore o rivolgersi al Supporto tecnico. La reimpostazione delle password self-service è disponibile solo in Azure AD Premium o Basic. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
@@ -49,4 +49,4 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 - [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

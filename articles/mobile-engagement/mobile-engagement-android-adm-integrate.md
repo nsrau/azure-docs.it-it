@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="piyushjo" />
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />  
 
 
 #Come integrare ADM con Mobile Engagement
@@ -109,4 +109,4 @@ Inviare le credenziali OAuth (ID client e Segreto client) al portale di Engageme
 [integrato ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0824_2016-->

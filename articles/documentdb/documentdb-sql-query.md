@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Query q sintassi SQL per DocumentDB | Microsoft Azure" 
 	description="Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per DocumentDB, un database NoSQL. SQL può essere usato come linguaggio di query JSON in DocumentDB." 
-	keywords="sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql"
+	keywords="sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="arramac"/>
+	ms.date="08/22/2016" 
+	ms.author="arramac"/>  
 
 # Query e sintassi SQL in DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
@@ -864,8 +864,7 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
 	]
 
 
-###Operatore *
-L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
+###Operatore * L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
 
 **Query**
 
@@ -1552,7 +1551,7 @@ Usando queste funzioni, è ora possibile eseguire query come le seguenti:
 ### Funzioni stringa
 Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano. Ecco una tabella di funzioni per stringhe:
 
-Uso|Descrizione
+Uso|Description
 ---|---
 [LUNGHEZZA (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Restituisce il numero di caratteri dell'espressione stringa specificata
 [CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa.
@@ -2356,6 +2355,18 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 	        });
 	}
 
+## Funzioni di aggregazione
+
+Il supporto nativo per le funzioni di aggregazione è in fase di sviluppo, ma se nel frattempo è necessaria la funzionalità di conteggio o somma, è possibile ottenere lo stesso risultato usando metodi diversi.
+
+Nel percorso di lettura:
+
+- È possibile eseguire le funzioni di aggregazione recuperando i dati ed eseguendo un conteggio in locale. È consigliabile usare una proiezione di query semplice come `SELECT VALUE 1` anziché un documento completo come `SELECT * FROM c`. Ciò consente di aumentare al massimo il numero di documenti elaborati in ogni pagina dei risultati, evitando così round trip aggiuntivi al servizio, se necessario.
+- È anche possibile usare una stored procedure per ridurre al minimo la latenza di rete su round trip ripetuti. Per un esempio di stored procedure che calcola il conteggio per una query di filtro, vedere [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). La stored procedure consente agli utenti di combinare la logica di business avanzata con l'esecuzione di aggregazioni in modo efficiente.
+
+Nel percorso di scrittura:
+
+- Un altro modello comune consiste nella preaggregazione dei risultati nel percorso di "scrittura". Questa opzione è particolarmente interessante quando il volume di richieste di "lettura" è superiore a quello delle richieste di "scrittura". Una volta preaggregati, i risultati sono disponibili con una richiesta di lettura in un singolo punto. Il modo migliore per eseguire la preaggregazione in DocumentDB è impostare un trigger che viene chiamato con ogni "scrittura" e aggiornare un documento di metadati contenente i risultati più recenti per la query materializzata. Vedere l'esempio [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), che aggiorna minSize, maxSize e totalSize del documento di metadati per la raccolta. L'esempio può essere esteso per aggiornare un contatore, una somma e così via.
 
 ##Riferimenti
 1.	[Introduzione ad Azure DocumentDB][introduction]
@@ -2378,4 +2389,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

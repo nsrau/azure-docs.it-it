@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
-   ms.author="seanmck"/>
+   ms.date="08/22/2016"
+   ms.author="seanmck"/>  
 
 # Visualizzare il cluster con Service Fabric Explorer
 
@@ -24,7 +24,7 @@ Service Fabric Explorer è uno strumento basato sul web per analizzare e gestire
 
 Se si sono seguite le istruzioni per [preparare l'ambiente di sviluppo](service-fabric-get-started.md), è possibile avviare Service Fabric Explorer nel cluster locale, passando a http://localhost:19080/Explorer.
 
->[AZURE.NOTE] Se si utilizza Internet Explorer con Service Fabric Explorer per gestire un cluster remoto, è necessario configurare alcune impostazioni di Internet Explorer. Passare a **Strumenti** > **Impostazioni Visualizzazione Compatibilità** e deselezionare **Visualizza siti Intranet in Visualizzazione Compatibilità** per garantire il caricamento corretto di tutte le informazioni.
+>[AZURE.NOTE] Se si utilizza Internet Explorer con Service Fabric Explorer per gestire un cluster remoto, è necessario configurare alcune impostazioni di Internet Explorer. Passare a **Strumenti** > **Impostazioni Visualizzazione Compatibilità** e deselezionare **Visualizza siti Intranet in Visualizzazione Compatibilità**.
 
 ## Comprendere il layout di Service Fabric Explorer
 
@@ -62,20 +62,20 @@ Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, a
 
 Ad esempio, per eliminare un'istanza dell'applicazione, è sufficiente scegliere l'applicazione dall'albero a sinistra, quindi scegliere **Azioni** > **Elimina applicazione**.
 
-![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
+![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]  
 
->[AZURE.TIP] Le stesse azioni possono essere eseguite dalla visualizzazione albero facendo clic sui puntini di sospensione accanto a ogni elemento.
+>[AZURE.TIP] È possibile eseguire le stesse azioni facendo clic sui puntini di sospensione accanto a ogni elemento.
 
 La tabella seguente elenca le azioni disponibili per ogni entità:
 
 | **Entità** | **Azione** | **Descrizione** |
 | ------ | ------ | ----------- |
 | Tipo di applicazione | Annullare il provisioning del tipo | Rimuove il pacchetto dell'applicazione dall'archivio immagini del cluster. È necessario rimuovere prima tutte le applicazioni di quel tipo. |
-| Applicazione | Eliminare l'applicazione | Eliminare l'applicazione, inclusi tutti i servizi correlati e il relativo stato (se presente). |
-| Servizio | Eliminare il servizio | Eliminare il servizio e il relativo stato (se presente). |
+| Applicazione | Eliminare l'applicazione | Eliminare l'applicazione, inclusi tutti i servizi correlati e il relativo stato, se presente. |
+| Service | Eliminare il servizio | Eliminare il servizio e il relativo stato (se presente). |
 | Nodo | Activate | Attivare il nodo. |
 || Disattivare (sospendere) | Sospendere il nodo nello stato corrente. I servizi continueranno a essere eseguiti, tuttavia Service Fabric non sposterà in modo proattivo alcun elemento a meno che non sia necessario per impedire un'interruzione o un caso di incoerenza di dati. Questa azione viene in genere usata per abilitare i servizi di debug in un nodo specifico in modo da garantire che non si spostino durante l'ispezione. |
-|| Disattivare (riavviare) | Spostare tutti i servizi in memoria all'esterno di un nodo e chiudere servizi permanenti in modo sicuro. Questa azione viene in genere usata quando i processi host o i computer devono essere riavviati. |
+|| Disattivare (riavviare) | Spostare tutti i servizi in memoria all'esterno di un nodo e chiudere i servizi permanenti in modo sicuro. Questa azione viene in genere usata quando i processi host o i computer devono essere riavviati. |
 || Disattivare (rimuovere i dati) | Chiudere in modo sicuro tutti i servizi in esecuzione sul nodo dopo la creazione di un numero sufficiente di repliche riserva. Questa azione viene in genere usata quando un nodo (o almeno lo spazio di archiviazione correlato) viene reso improduttivo in modo permanente. |
 || Rimuovere lo stato del nodo | Rimuovere le repliche di un nodo dal cluster. Questa azione viene in genere usata quando un nodo che ha già avuto esito negativo viene ritenuto non recuperabile. |
 
@@ -83,7 +83,11 @@ Poiché molte azioni sono distruttive, viene richiesto di confermare la finalit�
 
 >[AZURE.TIP] Ogni azione eseguibile con Service Fabric Explorer può essere eseguita anche tramite PowerShell o un'API REST per abilitare l'automazione.
 
+È inoltre possibile usare Service Fabric Explorer per creare nuove istanze per un determinato tipo e versione di applicazione. Scegliere il tipo di applicazione nella visualizzazione albero, quindi fare clic sul collegamento **Create app instance** (Crea un'istanza dell'app).
 
+![Creazione di un'istanza dell'applicazione in Service Fabric Explorer][sfx-create-app-instance]  
+
+>[AZURE.NOTE] Non è attualmente possibile impostare parametri per le istanze dell'applicazione create mediante Service Fabric Explorer, per le quali vengono usati valori di parametro predefiniti.
 
 ## Connettersi a un cluster di Service Fabric remoto
 
@@ -93,15 +97,15 @@ Poiché Service Fabric Explorer è basato sul web e viene eseguito all'interno d
 
 Per raggiungere Service Fabric Explorer per un determinato cluster, è sufficiente inserire nel browser l'indirizzo seguente:
 
-http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer  
 
 L'URL completo è disponibile anche nel riquadro essentials del cluster del portale di Azure.
 
 ### Connettersi a un cluster sicuro
 
-È possibile controllare l'accesso al cluster di Service Fabric con [certificati](service-fabric-cluster-security.md) oppure usando [Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
+È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
-Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seconda del tipo di sicurezza configurato per gli endpoint di gestione del cluster sarà necessario presentare un certificato client oppure eseguire l'accesso con AAD.
+Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seconda del della configurazione del cluster, sarà necessario presentare un certificato client oppure eseguire l'accesso con AAD.
 
 ## Passaggi successivi
 
@@ -109,11 +113,12 @@ Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seco
 - [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)
 
-<!--Image references-->
+<!--Image references-->  
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
 [sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

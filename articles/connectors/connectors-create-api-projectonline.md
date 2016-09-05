@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/16/2016"
-ms.author="deonhe"/>
+ms.date="08/18/2016"
+ms.author="deonhe"/>  
 
 # Introduzione al connettore ProjectOnline
 
 Project Online è una soluzione flessibile online per la gestione del portfolio dei progetti (PPM) e per il lavoro di tutti i giorni offerta da Microsoft. Distribuito tramite Office 365, Project Online consente alle organizzazioni di iniziare a usare da subito potenti funzionalità di gestione per pianificare, classificare in ordine di priorità e gestire progetti e investimenti del portfolio di progetti praticamente ovunque e da qualsiasi dispositivo.
 
-Il connettore ProjectOnline può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flow.microsoft.com)
-
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare con la creazione di un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -60,7 +54,7 @@ Il connettore ProjectOnline può essere usato come un'azione e dispone di trigge
 
 
 ## Creare una connessione a ProjectOnline
-Per creare app per la logica con ProjectOnline, è necessario creare innanzitutto una **connessione**, quindi fornire i dettagli per le proprietà seguenti:
+Per creare app per la logica con ProjectOnline, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
@@ -71,18 +65,18 @@ Per creare app per la logica con ProjectOnline, è necessario creare innanzitutt
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
 ## Riferimento per ProjectOnline
-Si applica alla versione: 1.0
+Si applica alla versione 1.0
 
 ## OnNewProject
 Quando viene creato un nuovo progetto: attiva un flusso ogni volta che viene creato un nuovo progetto
 
-```GET: /trigger/_api/ProjectData/Projects```
+```GET: /trigger/_api/ProjectData/Projects```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|string|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -98,13 +92,13 @@ Quando viene creato un nuovo progetto: attiva un flusso ogni volta che viene cre
 ## OnNewResource
 Quando viene creata una nuova risorsa: attiva un nuovo flusso quando viene creata una nuova risorsa
 
-```GET: /trigger/_api/ProjectData/Resources```
+```GET: /trigger/_api/ProjectData/Resources```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|string|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -120,13 +114,13 @@ Quando viene creata una nuova risorsa: attiva un nuovo flusso quando viene creat
 ## OnNewTask
 Quando viene creata una nuova attività: attiva un flusso quando viene creata una nuova attività
 
-```GET: /trigger/_api/ProjectData/Tasks```
+```GET: /trigger/_api/ProjectData/Tasks```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -142,13 +136,13 @@ Quando viene creata una nuova attività: attiva un flusso quando viene creata un
 ## ListProjects
 Elenco dei progetti: elenca i progetti nel sito del progetto online
 
-```GET: /_api/ProjectServer/Projects```
+```GET: /_api/ProjectServer/Projects```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -166,14 +160,14 @@ Crea nuovo progetto: crea un nuovo progetto nel sito del progetto online
 
 ```POST: /_api/ProjectServer/Projects```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |proj| |sì|body|nessuno|Nuovo progetto da creare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -187,15 +181,15 @@ Crea nuovo progetto: crea un nuovo progetto nel sito del progetto online
 ## CreateTask
 Crea una nuova attività: crea una nuova attività nel progetto
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```  
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
-|project\_id|string|yes|path|nessuno|ID univoco del progetto a cui aggiungere l'attività|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|project\_id|stringa|yes|path|nessuno|ID univoco del progetto a cui aggiungere l'attività|
 |attività| |sì|body|nessuno|Nuova attività da aggiungere al progetto|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -211,14 +205,14 @@ Crea una nuova attività: crea una nuova attività nel progetto
 ## CreateResource
 Crea una nuova risorsa: crea risorse per l'organizzazione nel sito del progetto online
 
-```POST: /_api/ProjectServer/EnterpriseResources```
+```POST: /_api/ProjectServer/EnterpriseResources```  
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|string|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |resource| |sì|body|nessuno|Nuova risorsa per l'organizzazione da aggiungere al progetto|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -236,12 +230,12 @@ Elenca le attività: elenca le attività pubblicate in un progetto
 
 ```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|string|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto per recuperare le attività|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -259,14 +253,14 @@ Estrae un progetto: consente di estrarre un progetto nel sito
 
 ```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto a cui aggiungere l'attività|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -284,12 +278,12 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
-|project\_id|string|yes|path|nessuno|ID univoco del progetto da registrare|
+|siteUrl|stringa|yes|query|nessuno|URL del sito radice del sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
+|project\_id|stringa|yes|path|nessuno|ID univoco del progetto da registrare|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -316,12 +310,12 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ProjectStartDate|string|No |
+|ProjectStartDate|stringa|No |
 |ProjectFinishDate|string|No |
-|ProjectCreatedDate|string|No |
+|ProjectCreatedDate|stringa|No |
 |ProjectId|string|No |
 |ProjectModifiedDate|string|No |
-|ProjectType|numero intero|No |
+|ProjectType|integer|No |
 |ProjectName|string|No |
 
 
@@ -341,23 +335,23 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |ResourceId|string|No |
-|ResourceBaseCalendar|string|No |
-|ResourceBookingType|numero intero|No |
+|ResourceBaseCalendar|stringa|No |
+|ResourceBookingType|integer|No |
 |ResourceCanLevel|boolean|No |
 |ResourceCostPerUse|number|No |
-|ResourceCreatedDate|string|No |
-|ResourceEarliestAvailableFrom|string|No |
+|ResourceCreatedDate|stringa|No |
+|ResourceEarliestAvailableFrom|stringa|No |
 |ResourceEmail|string|No |
-|ResourceInitials|string|No |
+|ResourceInitials|stringa|No |
 |ResourceIsActive|boolean|No |
 |ResourceIsGeneric|boolean|No |
-|ResourceLatestAvailableTo|string|No |
+|ResourceLatestAvailableTo|stringa|No |
 |ResourceModifiedDate|string|No |
-|ResourceName|string|No |
-|ResourceStatsuName|string|No |
-|ResourceType|numero intero|No |
+|ResourceName|stringa|No |
+|ResourceStatsuName|stringa|No |
+|ResourceType|integer|No |
 |TypeDescription|string|No |
-|TypeName|string|No |
+|TypeName|stringa|No |
 
 
 
@@ -375,15 +369,15 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ProjectId|string|No |
-|TaskId|string|No |
-|ProjectName|string|No |
+|ProjectId|stringa|No |
+|TaskId|stringa|No |
+|ProjectName|stringa|No |
 |TaskName|string|No |
-|TaskCreatedDate|string|No |
-|TaskModifieddate|string|No |
+|TaskCreatedDate|stringa|No |
+|TaskModifieddate|stringa|No |
 |TaskStartDate|string|No |
 |TaskFinishDate|string|No |
-|TaskPriority|numero intero|No |
+|TaskPriority|integer|No |
 |TaskIsActive|boolean|No |
 
 
@@ -393,9 +387,9 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Nome|string|Sì |
-|Descrizione|string|No |
-|Inizia|string|No |
+|Name|string|Sì |
+|Descrizione|stringa|No |
+|Inizia|stringa|No |
 
 
 
@@ -404,7 +398,7 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Nome|string|Sì |
+|Name|string|Sì |
 |IsBudget|boolean|No |
 |IsGeneric|boolean|No |
 |IsInactive|boolean|No |
@@ -416,20 +410,20 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|ApprovedStart|string|No |
-|ApprovedEnd|string|No |
+|ApprovedStart|stringa|No |
+|ApprovedEnd|stringa|No |
 |CheckedOutDate|string|No |
-|CheckOutDescription|string|No |
-|CheckOutId|string|No |
+|CheckOutDescription|stringa|No |
+|CheckOutId|stringa|No |
 |CreatedDate|string|No |
 |ID|string|No |
 |IsCheckedOut|boolean|No |
 |LastPublishedDate|string|No |
-|LastSavedDate|string|No |
-|OptimizerDecision|numero intero|No |
-|PlannerDecision|numero intero|No |
-|ProjectType|numero intero|No |
-|Nome|string|No |
+|LastSavedDate|stringa|No |
+|OptimizerDecision|integer|No |
+|PlannerDecision|integer|No |
+|ProjectType|integer|No |
+|Nome|stringa|No |
 |WinprojVersion|string|No |
 
 
@@ -457,10 +451,10 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|Nome|string|Sì |
-|Note|string|No |
+|Nome|stringa|Sì |
+|Note|stringa|No |
 |Inizia|string|No |
-|Durata|string|No |
+|Durata|stringa|No |
 
 
 
@@ -470,28 +464,28 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |CanLevel|boolean|No |
-|Codice|string|No |
-|CostAccrual|numero intero|No |
-|CostCenter|string|No |
-|Data di creazione|string|No |
-|DefaultBookingType|numero intero|No |
+|Codice|stringa|No |
+|CostAccrual|integer|No |
+|CostCenter|stringa|No |
+|Data di creazione|stringa|No |
+|DefaultBookingType|integer|No |
 |Email|string|No |
-|ExternalId|string|No |
-|Group|string|No |
+|ExternalId|stringa|No |
+|Gruppo|stringa|No |
 |HireDate|string|No |
-|ID|string|No |
-|Initials|string|No |
+|ID|stringa|No |
+|Initials|stringa|No |
 |IsActive|boolean|No |
 |IsBudget|boolean|No |
 |IsCheckedOut|boolean|No |
 |IsGeneric|boolean|No |
 |IsTeam|boolean|No |
-|MaterialLabel|string|No |
-|Data modifica|string|No |
-|Nome|string|No |
+|MaterialLabel|stringa|No |
+|Data modifica|stringa|No |
+|Name|stringa|No |
 |Phonetics|string|No |
-|ResourceType|numero intero|No |
-|TerminationDate|string|No |
+|ResourceType|integer|No |
+|TerminationDate|stringa|No |
 
 
 
@@ -510,18 +504,18 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |Data di creazione|string|No |
-|Data modifica|string|No |
-|Inizia|string|No |
-|Fine|string|No |
-|Nome|string|No |
-|ID|string|No |
-|Priorità|numero intero|No |
-|PercentComplete|numero intero|No |
-|Note|string|No |
-|Contatto|string|No |
+|Data modifica|stringa|No |
+|Inizia|stringa|No |
+|Fine|stringa|No |
+|Nome|stringa|No |
+|ID|stringa|No |
+|Priorità|integer|No |
+|PercentComplete|integer|No |
+|Note|stringa|No |
+|Contatto|stringa|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

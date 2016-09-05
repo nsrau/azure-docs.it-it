@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="DouglasL"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>  
 
 
@@ -60,8 +60,8 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 | &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
-| 12 | [Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure](sql-server-stretch-database-encryption-tde.md) | Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure |
-| 13 | [Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure](sql-server-stretch-database-tde-tsql.md) | Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure TSQL |
+| 12 | [Abilitare Transparent Data Encryption (TDE) per Estensione database su Azure](sql-server-stretch-database-encryption-tde.md) | Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure |
+| 13 | [Abilitare Transparent Data Encryption (TDE) per Estensione database su Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure TSQL |
 
 
 
@@ -72,4 +72,4 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 14 | [Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) | Informazioni su come eseguire il backup di database con estensione abilitata. |
 | 15 | [Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md) | Informazioni su come eseguire il ripristino di database con estensione abilitata. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

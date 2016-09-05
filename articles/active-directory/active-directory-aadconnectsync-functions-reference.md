@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
-	ms.author="andkjell;markvi"/>
+	ms.date="08/23/2016"
+	ms.author="andkjell;markvi"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
@@ -34,10 +34,12 @@ I tipi vengono espressi con la sintassi seguente:
 - **mvstr**: stringa multivalore
 - **mvref**: riferimento multivalore
 - **num**: numerico
-- **ref**: riferimento a valore singolo
-- **str**: stringa a valore singolo
+- **ref**: riferimento
+- **str**: stringa
 - **var**: variante di (quasi) tutti gli altri tipi
 - **void**: non restituisce un valore
+
+Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono funzionare solo con gli attributi multivalore. Le funzioni con **bin**, **str** e **ref** funzionano con gli attributi a valore singolo e multivalore.
 
 ## Riferimento alle funzioni
 
@@ -86,7 +88,7 @@ Elenco di funzioni | | | | |
 
 In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondenti di entrambi i parametri sono pari a 1.
 
-**Esempio:** `BitAnd(&HF, &HF7)` Restituisce 7 perché gli esadecimali "F" E "F7" restituiscono questo valore.
+**Esempio:** `BitAnd(&HF, &HF7)` Restituisce 7 perché i valori esadecimali "F" E "F7" restituiscono questo valore.
 
 ----------
 ### BitOr
@@ -102,11 +104,11 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 ----------
 ### CBool
 
-**Descrizione:** La funzione CBool restituisce un valore booleano basato sull'espressione valutata
+**Descrizione:** La funzione CBool restituisce un valore booleano basato sull'espressione valutata.
 
 **Sintassi:** `bool CBool(exp Expression)`
 
-**Osservazioni:** Se l'espressione restituisce un valore diverso da zero, CBool restituisce True. In caso contrario restituisce False.
+**Osservazioni:** Se l'espressione restituisce un valore diverso da zero, CBool restituisce True. In caso contrario, restituisce False.
 
 **Esempio:** `CBool([attrib1] = [attrib2])`
 
@@ -139,26 +141,26 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 ----------
 ### Contiene
 
-**Descrizione:** La funzione Contains trova una stringa all'interno di un attributo multivalore
+**Descrizione:** La funzione Contains trova una stringa all'interno di un attributo multivalore.
 
-**Sintassi:** `num Contains (mvstring attribute, str search)` (distinzione maiuscole/minuscole) `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` (distinzione maiuscole/minuscole)
+**Sintassi:**`num Contains (mvstring attribute, str search)` - distinzione maiuscole/minuscole`num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - distinzione maiuscole/minuscole
 
-- attribute: l'attributo multivalore da cercare.<br>
-- search: stringa da trovare nell'attributo.<br>
-- Casetype: CaseInsensitive o CaseSensitive.<br>
+- attribute: l'attributo multivalore da cercare.
+- search: stringa da trovare nell'attributo.
+- Casetype: CaseInsensitive o CaseSensitive.
 
 Restituisce l'indice nell'attributo multivalore in cui è stata trovata la stringa. Se la stringa non viene trovata, restituisce 0.
 
 **Osservazioni:** Per gli attributi stringa multivalore, viene effettuata la ricerca di sottostringhe nei valori. Per gli attributi di riferimento, la stringa cercata deve corrispondere esattamente al valore per essere considerata una corrispondenza.
 
-**Esempio:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` Se l'attributo proxyAddresses include un indirizzo di posta elettronica primario (indicato da "SMTP:") viene restituito l'attributo proxyAddress. In caso contrario viene restituito un errore.
+**Esempio:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` Se l'attributo proxyAddresses include un indirizzo di posta elettronica primario (indicato da "SMTP:") viene restituito l'attributo proxyAddress. In caso contrario, viene restituito un errore.
 
 ----------
 ### ConvertFromBase64
 
 **Descrizione:** La funzione ConvertFromBase64 converte il valore con codifica Base 64 specificato in una stringa normale.
 
-**Sintassi:** `str ConvertFromBase64(str source)`. Presuppone Unicode per la codifica <br> `str ConvertFromBase64(str source, enum Encoding)`
+**Sintassi:** `str ConvertFromBase64(str source)` - presuppone Unicode per la codifica `str ConvertFromBase64(str source, enum Encoding)`
 
 - source: stringa con codifica Base 64
 - Encoding: Unicode, ASCII, UTF8
@@ -170,13 +172,13 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### ConvertFromUTF8Hex
 
-**Descrizione:** la funzione ConvertFromUTF8Hex converte il valore con codifica hex UTF8 specificato in una stringa.
+**Descrizione:** La funzione ConvertFromUTF8Hex converte il valore con codifica esadecimale UTF8 specificato in una stringa.
 
 **Sintassi:** `str ConvertFromUTF8Hex(str source)`
 
 - source: stringa con codifica a 2 byte UTF8
 
-**Osservazioni:** La differenza tra questa funzione e ConvertFromBase64(,UTF8) consiste nel fatto che il risultato può essere usato per l'attributo DN. Questo formato viene utilizzato da Azure Active Directory come DN.
+**Osservazioni:** La differenza tra questa funzione e ConvertFromBase64(,UTF8) è che il risultato può essere usato per l'attributo DN. Questo formato viene utilizzato da Azure Active Directory come DN.
 
 **Esempio:** `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")` Restituisce "*Hello world!*"
 
@@ -192,7 +194,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### ConvertToUTF8Hex
 
-**Descrizione:** La funzione ConvertToUTF8Hex converte una stringa in un valore con codifica hex UTF8.
+**Descrizione:** La funzione ConvertToUTF8Hex converte una stringa in un valore con codifica esadecimale UTF8.
 
 **Sintassi:** `str ConvertToUTF8Hex(str source)`
 
@@ -203,7 +205,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### Conteggio
 
-**Descrizione:** La funzione Count restituisce il numero di elementi in un attributo multivalore
+**Descrizione:** La funzione Count restituisce il numero di elementi in un attributo multivalore.
 
 **Sintassi:** `num Count(mvstr attribute)`
 
@@ -217,7 +219,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### CRef
 
-**Descrizione:** Converte una stringa in un attributo di riferimento
+**Descrizione:** Converte una stringa in un attributo di riferimento.
 
 **Sintassi:** `ref CRef(str value)`
 
@@ -312,7 +314,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### FormatDateTime
 
-**Descrizione:** La funzione FormatDateTime viene usata per formattare un valore di data/ora in una stringa con un formato specificato
+**Descrizione:** La funzione FormatDateTime viene usata per formattare un valore di data/ora in una stringa con un formato specificato.
 
 **Sintassi:** `str FormatDateTime(dt value, str format)`
 
@@ -330,7 +332,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### GUID
 
-**Descrizione:** La funzione GUID genera un nuovo GUID casuale
+**Descrizione:** La funzione GUID genera un nuovo GUID casuale.
 
 **Sintassi:** `str GUID()`
 
@@ -342,15 +344,15 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 **Sintassi:** `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition: qualsiasi valore o espressione che possa restituire true o false.
-- valueIfTrue: valore che verrà restituito se la condizione restituisce true.
-- valueIfFalse: valore che verrà restituito se la condizione restituisce false.
+- valueIfTrue: se la condizione restituisce true, il valore restituito.
+- valueIfFalse: se la condizione restituisce false, il valore restituito.
 
-**Esempio:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è uno stagista. In caso contrario restituisce l'alias dell'utente invariato.
+**Esempio:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Se l'utente è uno stagista, restituisce l'alias di un utente, aggiungendo "t-" all'inizio. In caso contrario. restituisce l'alias dell'utente invariato.
 
 ----------
 ### InStr
 
-**Descrizione:** La funzione InStr trova la prima occorrenza di una sottostringa in una stringa
+**Descrizione:** La funzione InStr trova la prima occorrenza di una sottostringa in una stringa.
 
 **Sintassi:**
 
@@ -370,7 +372,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### InStrRev
 
-**Descrizione:** La funzione InStrRev trova l'ultima occorrenza di una sottostringa in una stringa
+**Descrizione:** La funzione InStrRev trova l'ultima occorrenza di una sottostringa in una stringa.
 
 **Sintassi:** `num InstrRev(str stringcheck, str stringmatch)` `num InstrRev(str stringcheck, str stringmatch, num start)` `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
@@ -386,7 +388,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### IsBitSet
 
-**Descrizione:** La funzione IsBitSet verifica se un bit è o non è impostato
+**Descrizione:** La funzione IsBitSet verifica se un bit è o non è impostato.
 
 **Sintassi:** `bool IsBitSet(num value, num flag)`
 
@@ -397,23 +399,23 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### IsDate
 
-**Descrizione:** La funzione IsDate restituisce True se l'espressione può essere valutata come tipo di data/ora.
+**Descrizione:** Se l'espressione può essere valutata come tipo di data/ora, la funzione IsDate restituisce True.
 
 **Sintassi:** `bool IsDate(var Expression)`
 
-**Osservazioni:** Usata per determinare se CDate() avrà esito positivo.
+**Osservazioni:** Usata per determinare se CDate() riuscirà.
 
 ----------
 ### IsEmpty
 
-**Descrizione:** La funzione IsEmpty restituisce True se l'attributo è presente in CS o MV, ma restituisce una stringa vuota.
+**Descrizione:** Se l'attributo è presente in CS o MV, ma restituisce una stringa vuota, la funzione IsEmpty restituisce True.
 
 **Sintassi:** `bool IsEmpty(var Expression)`
 
 ----------
 ### IsGuid
 
-**Descrizione:** La funzione IsGuid restituisce True se la stringa può essere convertita in un GUID.
+**Descrizione:** Se la stringa può essere convertita in un GUID, la funzione IsGuid restituisce True.
 
 **Sintassi:** `bool IsGuid(str GUID)`
 
@@ -421,12 +423,12 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 Usata per determinare se CGuid() riuscirà.
 
-**Esempio:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` Se StrAttribute ha un formato GUID, restituisce una rappresentazione binaria. In caso contrario restituisce Null.
+**Esempio:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` Se StrAttribute ha un formato GUID, restituisce una rappresentazione binaria. In caso contrario, restituisce Null.
 
 ----------
 ### IsNull
 
-**Descrizione:** La funzione IsNull restituisce True se l'espressione restituisce Null.
+**Descrizione:** Se l'espressione restituisce Null, la funzione IsNull restituisce True.
 
 **Sintassi:** `bool IsNull(var Expression)`
 
@@ -437,11 +439,11 @@ Usata per determinare se CGuid() riuscirà.
 ----------
 ### IsNullOrEmpty
 
-**Descrizione:** La funzione IsNullOrEmpty restituisce True se l'espressione è Null o una stringa vuota.
+**Descrizione:** Se l'espressione è Null o una stringa vuota, la funzione IsNullOrEmpty restituisce True.
 
 **Sintassi:** `bool IsNullOrEmpty(var Expression)`
 
-**Osservazioni:** Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota.<br> La funzione inversa di questa funzione è denominata IsPresent.
+**Osservazioni:** Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota. La funzione inversa di questa funzione è denominata IsPresent.
 
 **Esempio:** `IsNullOrEmpty([displayName])` Restituisce True se l'attributo non è presente oppure è una stringa vuota in CS o MV.
 
@@ -457,7 +459,7 @@ Usata per determinare se CGuid() riuscirà.
 ----------
 ### IsString
 
-**Descrizione:** La funzione IsString restituisce True se l'espressione può essere valutata come tipo stringa.
+**Descrizione:** Se l'espressione può essere valutata come tipo stringa, la funzione IsString restituisce True.
 
 **Sintassi:** `bool IsString(var expression)`
 
@@ -466,7 +468,7 @@ Usata per determinare se CGuid() riuscirà.
 ----------
 ### IsPresent
 
-**Descrizione:** La funzione IsPresent restituisce True se l'espressione restituisce una stringa non Null e non vuota.
+**Descrizione:** Se l'espressione restituisce una stringa non Null e non vuota, la funzione IsPresent restituisce True.
 
 **Sintassi:** `bool IsPresent(var expression)`
 
@@ -484,11 +486,11 @@ Usata per determinare se CGuid() riuscirà.
 - attribute: attributo multivalore
 - index: indice di un elemento nella stringa multivalore.
 
-**Osservazioni:** La funzione Item usata con la funzione Contains è utile perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
+**Osservazioni:** La funzione Item usata con la funzione Contains è utile, perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
 
 Genera un errore se l'indice non è compreso nell'intervallo.
 
-**Esempio:** `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` Restituisce l'indirizzo di posta elettronica principale.
+**Esempio:** `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` Restituisce l'indirizzo di posta elettronica primario.
 
 ----------
 ### ItemOrNull
@@ -500,9 +502,9 @@ Genera un errore se l'indice non è compreso nell'intervallo.
 - attribute: attributo multivalore
 - index: indice di un elemento nella stringa multivalore.
 
-**Osservazioni:** La funzione ItemOrNull usata con la funzione Contains è utile perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
+**Osservazioni:** La funzione ItemOrNull usata con la funzione Contains è utile, perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
 
-Restituisce un valore Null se l'indice non è compreso nell'intervallo.
+Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
 
 ----------
 ### Join
@@ -537,7 +539,7 @@ Restituisce un valore Null se l'indice non è compreso nell'intervallo.
 - string: stringa dalla quale restituire i caratteri
 - NumChars: numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa
 
-**Osservazioni:** Una stringa contenente i primi caratteri numChars nella stringa:
+**Osservazioni:** Una stringa contenente i primi caratteri numChars della stringa:
 
 - Se numChars = 0, restituisce una stringa vuota.
 - Se numChars < 0, restituisce una stringa di input.
@@ -663,7 +665,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 **Esempio:** `PCase("TEsT")` Restituisce "Test".
 
-`PCase(LCase("TEST"))` Restituisce "Test".
+`PCase(LCase("TEST"))` Restituisce "Test"
 
 ----------
 ### RandomNum
@@ -763,7 +765,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 
 **Sintassi:** `str RTrim(str value)`
 
-**Esempio:** `RTrim(" Test ")` Restituisce "Test".
+**Esempio:** `RTrim(" Test ")` Restituisce "test".
 
 ----------
 ### Split
@@ -788,9 +790,9 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 ----------
 ### StringFromSid
 
-**Descrizione:** La funzione StringFromSid converte una matrice di byte o una matrice di byte multivalore contenente un ID di sicurezza in una stringa o una stringa multivalore.
+**Descrizione:** La funzione StringFromSid converte una matrice di byte contenente un ID di sicurezza in una stringa.
 
-**Sintassi:** `str StringFromSid(bin ObjectSID)` `mvstr StringFromSid(mvbin ObjectSID)`
+**Sintassi:** `str StringFromSid(bin ObjectSID)`
 
 ----------
 ### Switch
@@ -815,14 +817,14 @@ Switch valuta tutte le espressioni, anche se ne restituisce una sola. Per questo
 
 Value può anche essere la funzione Error che restituirà una stringa personalizzata.
 
-**Esempio:** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` Restituisce la lingua parlata in alcune città importanti. In caso contrario restituisce un errore.
+**Esempio:** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` Restituisce la lingua parlata in alcune città importanti. In caso contrario, restituisce un errore.
 
 ----------
 ### Trim
 
 **Descrizione:** La funzione Trim rimuove gli spazi vuoti iniziali e finali da una stringa.
 
-**Sintassi:** `str Trim(str value)` `mvstr Trim(mvstr value)`
+**Sintassi:** `str Trim(str value)`
 
 **Esempio:** `Trim(" Test ")` Restituisce "Test".
 
@@ -853,7 +855,7 @@ Value può anche essere la funzione Error che restituirà una stringa personaliz
 - Se number è < 1, restituisce una stringa vuota.
 - Se string è Null, restituisce una stringa vuota.
 
-Se la stringa contiene meno delle parole specificate in number o se non contiene alcuna parola identificata da delimeters, viene restituita una stringa vuota.
+Se la stringa contiene meno delle parole specificate in number o se non contiene alcuna parola identificata da delimiters, viene restituita una stringa vuota.
 
 **Esempio:** `Word("The quick brown fox",3," ")` Restituisce "brown"
 
@@ -865,4 +867,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

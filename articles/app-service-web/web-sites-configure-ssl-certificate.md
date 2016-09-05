@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor="jimbe"
-	tags="top-support-issue"/>  
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service"
@@ -27,7 +27,7 @@
 
 Questo articolo illustra come abilitare HTTP per un'app Web, un back-end dell'app per dispositivi mobili o un'app per le API che usa un nome di dominio personalizzato nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Viene illustrata l'autenticazione solo server. Per l'autenticazione reciproca, inclusa l'autenticazione del client, vedere [Come configurare l'autenticazione reciproca TLS per il servizio app](app-service-web-configure-tls-mutual-auth.md).
 
-Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e **\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
+Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly ***.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e ***.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
 
 >[AZURE.NOTE] È possibile ottenere assistenza dagli esperti di Azure in qualsiasi momento nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un supporto più personalizzato, passare a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
@@ -342,7 +342,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 7. Per esportare il certificato dall'archivio certificati, premere `Win`+`R` ed eseguire **certmgr.msc** per avviare il gestore di certificati. Selezionare **Personale** > **Certificati**. Nella colonna **Rilasciato a** dovrebbe essere presente una voce con il nome di dominio personalizzato e l'autorità di certificazione usata per generare il certificato nella colonna **Rilasciato da**.
 
-	![Inserimento immagine di Gestione certificati][certmgr]
+	![Inserimento immagine di Gestione certificati][certmgr]  
 
 9. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Tutte le attività** > **Esporta**. In **Esportazione guidata certificati** fare clic su **Avanti**, quindi selezionare **Sì, Esporta la chiave privata** e fare di nuovo clic su **Avanti**.
 
@@ -423,26 +423,22 @@ Prima di procedere, esaminare la sezione [Elementi necessari](#bkmk_domainname) 
 - è disponibile un dominio personalizzato che esegue il mapping all'app Azure,
 - l'app è in esecuzione nel piano **Basic** o superiore ed
 - è disponibile un certificato SSL per il dominio personalizzato da un'autorità di certificazione.
- 
-1.	Nel [portale di Azure](https://portal.azure.com) passare al pannello **Domini personalizzati ed SSL** dell'app.
 
-7.	Fare clic su **Altro** > **Carica certificati**.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)  
+1. Accedere al **[portale di Azure](https://portal.azure.com/)** dal browser.
+2.	Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
+3.	Fare clic sul nome dell'app a cui si desidera assegnare il certificato.
+4.	In **Impostazioni** fare clic su **Certificati SSL**
+5.	Fare clic su **Carica certificato**.
+6.	Selezionare il file PFX esportato nel [Passaggio 1](#bkmk_getcert) e specificare la password creata in precedenza. Fare quindi clic su **Carica** per caricare il certificato. A questo punto, il certificato caricato dovrebbe essere visualizzato nuovamente nel pannello **Certificato SSL**.
+7. Nella sezione **Associazioni SSL** fare clic su **Add bindings** (Aggiungi associazioni)
+8. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
 
-8.	Selezionare il file PFX esportato nel [Passaggio 1](#bkmk_getcert) e specificare la password creata in precedenza. Fare quindi clic su **Salva** per caricare il certificato. A questo punto, il certificato caricato dovrebbe essere visualizzato nuovamente nel pannello **Domini personalizzati ed SSL**.
+    ![inserimento immagine di associazioni SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)  
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
-
-9. Nella sezione **Associazioni SSL** selezionare il nome di dominio e il certificato SSL da associare. È anche possibile selezionare se usare il metodo SNI SSL o SSL basato su IP.
-
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)  
-
-	* **SSL basato su IP** associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato dell'app al nome di dominio. Si tratta del metodo tradizionale delle associazioni SSL e il servizio app crea un indirizzo IP dedicato per l'associazione.
-
-	* [**SNI SSL**](https://en.wikipedia.org/wiki/Server_Name_Indication) consente di associare più certificati a più domini. È supportato dalla maggior parte dei browser moderni, ad esempio Internet Explorer, Chrome, Firefox e Safari, ma i browser meno recenti potrebbero non supportarlo.
- 
-10. Fare clic su **Salva** per completare la procedura.
+       • Il metodo SSL basato su IP associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato del server al nome di dominio. A tale scopo, è necessario che ogni nome di dominio (contoso.com, fabricam.com e così via) associato al servizio disponga di un indirizzo IP dedicato. Questo è il metodo tradizionale per l'associazione di certificati SSL a un server Web. •Il metodo SSL basato su SNI è un'estensione di SSL e **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS), che consente a più domini di condividere lo stesso indirizzo IP, con certificati di protezione distinti per ogni dominio. La maggior parte dei browser moderni, inclusi Internet Explorer, Chrome, Firefox e Opera, supporta SNI, ma è possibile che non sia supportato dai browser precedenti. Per altre informazioni su SNI, vedere l'articolo relativo all'**[Indicazione nome server](http://en.wikipedia.org/wiki/Server_Name_Indication)** su Wikipedia.
+     
+9. Fare clic su **Aggiungi l'associazione** per salvare le modifiche e abilitare SSL.
 
 ## Passaggio 3. Modificare il mapping del nome di dominio (solo per il metodo SSL basato su IP)
 
@@ -450,9 +446,9 @@ Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più
 
 - È stato [usato un record A per il mapping del dominio personalizzato](web-sites-custom-domain-name.md#a) all'app Azure e si è appena aggiunta un'associazione di tipo **SSL basato su IP**. In questo scenario, è necessario modificare il mapping esistente del record A in modo che punti all'indirizzo IP dedicato. A tale scopo, seguire questa procedura:
 
-	1. Dopo aver configurato un'associazione di tipo SSL basato su IP, individuare il nuovo indirizzo IP nel pannello **Impostazioni** > **Proprietà** dell'app. L'indirizzo IP virtuale nel pannello **Porta domini esterni** potrebbe non essere aggiornato:
+	1. Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare questo indirizzo IP nella pagina **Dominio personalizzato** nelle impostazioni dell'app, proprio sotto la sezione **Nomi host**. Sarà elencato come **Indirizzo IP esterno**
     
-	    ![Indirizzo IP virtuale](./media/web-sites-configure-ssl-certificate/staticip.png)  
+	    ![Indirizzo IP virtuale](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)  
 
 	2. [Eseguire di nuovo il mapping del record A per il nome di dominio personalizzato al nuovo indirizzo IP](web-sites-custom-domain-name.md#a).
 
@@ -551,4 +547,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/15/2016"
-	ms.author="ashwink"/>
+	ms.author="ashwink"/>  
 
 # Procedure consigliate per la scalabilità automatica in Azure Insights
 
@@ -127,4 +127,4 @@ La scalabilità automatica invia una notifica tramite posta elettronica agli amm
 - Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 - Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità. Oltre alle condizioni precedenti, è possibile configurare notifiche di posta elettronica o webhook per ricevere notifiche relative alle azioni di scalabilità riuscite.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->
