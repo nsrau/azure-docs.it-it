@@ -3,7 +3,7 @@
    description="Panoramica delle opzioni di ripristino del database per ripristinare un database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/28/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (panoramica)
@@ -72,4 +72,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

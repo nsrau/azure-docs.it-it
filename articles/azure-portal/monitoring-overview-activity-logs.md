@@ -29,7 +29,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 - Eseguire query e visualizzarlo nel **portale di Azure**.
 - Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
 - [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](./insights-auditlog-to-webhook-email.md)
-- Salvarlo in un **account di archiviazione** per l'ispezione manuale o di archiviazione. È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
+- [Salvarlo in un **account di archiviazione** per l'ispezione manuale o di archiviazione](./monitoring-archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
 - Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Trasmetterlo a un **hub eventi**](./monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 
@@ -223,4 +223,4 @@ Per ogni evento nel log attività esiste un BLOB JSON simile al seguente:
 - [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
 - [Trasmettere il log attività di Azure a Hub eventi](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

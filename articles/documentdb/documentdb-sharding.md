@@ -164,4 +164,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

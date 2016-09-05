@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Anteprima del supporto di Gestione risorse di Azure per il bilanciamento del carico | Microsoft Azure"
+   pageTitle="Anteprima del supporto di Gestione risorse di Azure per il bilanciamento del carico | Microsoft Azure "
    description="Uso di PowerShell per il bilanciamento del carico con la versione di anteprima di Gestione risorse di Azure. Uso di modelli per il bilanciamento del carico"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
-# Supporto di Gestione risorse di Azure per il bilanciamento del carico 
+# Supporto di Gestione risorse di Azure per il bilanciamento del carico
 
 Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. È ora possibile gestire il bilanciamento del carico di Azure con API e strumenti basati su Gestione risorse di Azure.
 
@@ -40,13 +40,14 @@ Con Gestione risorse di Azure, il bilanciamento del carico di Azure contiene le 
 
 
 ## Modelli di Guida introduttiva
+
 Gestione risorse di Azure consente di effettuare il provisioning delle applicazioni usando un modello dichiarativo. In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione
 
 I modelli includono macchine virtuali, reti virtuali, set di disponibilità, interfacce di rete, account di archiviazione, bilanciamenti del carico, gruppi di sicurezza di rete e IP pubblici. Con i modelli è possibile creare tutto ciò che serve per un'applicazione complessa usando un semplice file che si può archiviare e a cui si può collaborare.
 
 [Altre informazioni sui modelli](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Altre informazioni sulle risorse di rete](../virtual-network/resource-groups-networking)
+[Altre informazioni sulle risorse di rete](../virtual-network/resource-groups-networking.md)
 
 I modelli che usano il bilanciamento del carico di Azure sono disponibili in un [repository GitHub](https://github.com/Azure/azure-quickstart-templates) che ospita un set di modelli generati dalla community.
 
@@ -76,4 +77,4 @@ I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.as
 
 Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, vedere altre informazioni sulle [impostazioni del timeout di inattività delle connessioni TCP per il servizio di bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

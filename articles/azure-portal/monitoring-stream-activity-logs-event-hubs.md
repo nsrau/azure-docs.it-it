@@ -23,7 +23,7 @@ Il [**log attività di Azure**](./monitoring-overview-activity-logs.md) può ess
 Ecco alcuni esempi di come è possibile usare la funzionalità di trasmissione per il log attività:
 
 - **Trasmettere a sistemi di telemetria e registrazione di terze parti**: in futuro, la funzionalità di trasmissione di Hub eventi diventerà il meccanismo di invio del log attività a soluzioni di analisi di log e SIEM di terze parti.
-- **Compilare una piattaforma di registrazione e telemetria personalizzata**: se è disponibile una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi offrono grande flessibilità per l'inserimento del log attività. [Vedere la guida all'uso di Hub eventi in una piattaforma di telemetria su scala globale di Dan Rosanova](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+- **Compilare una piattaforma di registrazione e telemetria personalizzata**: se è disponibile una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi offrono grande flessibilità per l'inserimento del log attività. [Vedere la guida all'uso di Hub eventi in una piattaforma di telemetria su scala globale di Dan Rosanova.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## Abilitare la trasmissione del log attività
 È possibile abilitare la trasmissione del log attività a livello di codice o tramite il portale. In entrambi i casi, si sceglie uno spazio dei nomi del bus di servizio. Se non esiste, crearne uno. Se si trasmette il log attività per la prima volta, nello spazio dei nomi selezionato viene creato l'hub eventi. Se il log attività è già stato trasmesso a questo spazio dei nomi, l'hub eventi vi viene trasmesso. I criteri definiscono le autorizzazioni del meccanismo di trasmissione. Al momento, per trasmettere a un hub eventi sono necessarie autorizzazioni di **gestione**, **lettura** e **invio**. Per creare o modificare i criteri di accesso condiviso dello spazio dei nomi del bus di servizio nel portale classico è possibile usare la scheda "Configura" dello spazio dei nomi del bus di servizio. Per aggiornare il profilo di log del log attività e includere la trasmissione, il client deve avere l'autorizzazione ListKey nella regola di autorizzazione del bus di servizio.
@@ -71,7 +71,8 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 [Lo schema per il log attività è disponibile qui](./monitoring-overview-activity-logs.md). Ogni evento si trova in una matrice di BLOB JSON denominati "record".
 
 ## Passaggi successivi
+- [Archive the Activity Log to a storage account](./monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 - [Vedere la panoramica del log attività di Azure](./monitoring-overview-activity-logs.md)
 - [Impostare un avviso in base a un evento del log attività](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

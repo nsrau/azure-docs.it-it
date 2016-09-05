@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/17/2016"
 	ms.author="danlep"/>
     
 # Installare l'interfaccia della riga di comando di Azure
@@ -23,16 +23,21 @@
 - [PowerShell](powershell-install-configure.md)
 - [Interfaccia della riga di comando di Azure](xplat-cli-install.md)
 
-Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Sono disponibili diverse opzioni di installazione: usare un pacchetto npm (richiede Node.js e npm), usare uno dei pacchetti di installazione specificati per i vari sistemi operativi oppure installare l'interfaccia della riga di comando di Azure come contenitore in un host Docker. Per altre opzioni e informazioni, vedere il repository dei progetti in [GitHub](https://github.com/azure/azure-xplat-cli).
+Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. È possibile scegliere tra diversi modi per installare la versione più recente:
 
+* Eseguire l'installazione da un pacchetto npm (sono necessari Node.js e npm)
+* Usare uno dei pacchetti di installazione forniti per i diversi sistemi operativi
+* Installare l'interfaccia della riga di comando di Azure come contenitore in un host Docker
+    
+Per altre opzioni e informazioni, vedere il repository dei progetti in [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
+Dopo l'installazione dell'interfaccia della riga di comando di Azure, [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
 
 
 
 ## Installare un pacchetto npm
 
-Per installare l'interfaccia della riga di comando da un pacchetto npm è necessario che nel sistema siano installati npm e la versione più recente di Node.js. Quindi, eseguire il comando seguente per installare il pacchetto dell'interfaccia della riga di comando di Azure. Nelle distribuzioni di Linux potrebbe essere necessario usare **sudo** per la corretta esecuzione del comando __npm__.
+Per installare l'interfaccia della riga di comando da un pacchetto npm, è necessario che nel sistema siano installati npm e la versione più recente di Node.js. Quindi, eseguire il comando seguente per installare il pacchetto dell'interfaccia della riga di comando di Azure. Nelle distribuzioni di Linux potrebbe essere necessario usare **sudo** per la corretta esecuzione del comando __npm__.
 
 	npm install azure-cli -g
 
@@ -40,14 +45,14 @@ Per installare l'interfaccia della riga di comando da un pacchetto npm è necess
 
 ## Usare un programma di installazione
 
-Sono disponibili anche i pacchetti di programmi di installazione seguenti:
+Sono disponibili anche i pacchetti di programmi di installazione dell'interfaccia della riga di comando seguenti:
 
 
 * [Programma di installazione di OS X][mac-installer]
 
 * [Windows installer][windows-installer]
 
-* [File tar per Linux][linux-installer] (richiede Node.js e npm), installare eseguendo `sudo npm install -g <path to downloaded tar file>`
+* [File tar per Linux][linux-installer] \(richiede Node.js e npm): installare eseguendo `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Usare un contenitore Docker
@@ -59,12 +64,12 @@ docker run -it microsoft/azure-cli
 ```
 
 ## Eseguire i comandi dell'interfaccia della riga di comando di Azure
-Una volta installata l'interfaccia della riga di comando di Azure, sarà possibile eseguire il comando **azure** dall'interfaccia (Bash, terminale, prompt dei comandi e così via). Ad esempio, per eseguire il comando della Guida, digitare quanto segue:
+Una volta installata l'interfaccia della riga di comando di Azure, eseguire il comando **azure** dall'interfaccia (Bash, terminale, prompt dei comandi e così via). Ad esempio, per eseguire il comando della Guida, digitare quanto segue:
 
 ```
 azure help
 ```
-> [AZURE.NOTE]In alcune distribuzioni di Linux è possibile che si verifichi un errore, /usr/bin/env: "nodo": Impossibile trovare il file o la directory. Questo errore deriva dalle installazioni recenti di nodejs in /usr/bin/nodejs. Per correggere l'errore creare un collegamento simbolico per /usr/bin/node eseguendo il comando seguente
+> [AZURE.NOTE]In alcune distribuzioni di Linux potrebbe essere visualizzato un errore simile a `/usr/bin/env: ‘node’: No such file or directory`. Questo errore proviene dalle installazioni recenti di nodejs che vengono installate in /usr/bin/nodejs. Per correggerlo, creare un collegamento simbolico per /usr/bin/node eseguendo questo comando:
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -83,7 +88,7 @@ azure --version
 
 ## Aggiornare l'interfaccia della riga di comando
 
-Microsoft rilascia di frequente versioni aggiornate dell'interfaccia della riga di comando di Azure. Reinstallare l'interfaccia della riga di comando con il programma di installazione del sistema operativo oppure, se sono installati npm e la versione più recente di Node.js, eseguire l'aggiornamento digitando quanto riportato di seguito. Nelle distribuzioni Linux potrebbe essere necessario usare **sudo**.
+Microsoft rilascia di frequente versioni aggiornate dell'interfaccia della riga di comando di Azure. Reinstallare l'interfaccia della riga di comando per il sistema operativo o eseguire il contenitore Docker più recente. Oppure, se sono installati npm e la versione più recente di Node.js, eseguire l'aggiornamento digitando quanto riportato di seguito. Nelle distribuzioni di Linux potrebbe essere necessario usare **sudo**.
 
 ```
 npm update -g azure-cli
@@ -109,7 +114,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 ## Passaggi successivi 
 
-* [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) per creare e gestire le risorse di Azure.
+* [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) per creare e gestire le risorse di Azure.
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 
@@ -118,9 +123,9 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * Per i sistemi Linux, è inoltre possibile installare l'interfaccia della riga di comando di Azure generandola dal [codice sorgente](http://aka.ms/linux-azure-cli). Per altre informazioni sulla compilazione da codice sorgente, vedere il file INSTALL incluso nell'archivio di codici sorgente.
 
 [mac-installer]: http://aka.ms/mac-azure-cli
-[windows-installer]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=windowsazurexplatcli&mode=new
+[windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

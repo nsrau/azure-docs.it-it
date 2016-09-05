@@ -4,7 +4,7 @@
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
- manager="kateh"
+ manager="timlt"
  editor=""
  tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
@@ -345,4 +345,4 @@ Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

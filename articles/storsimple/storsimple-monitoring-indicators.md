@@ -12,20 +12,20 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/24/2016"
+    ms.date="08/18/2016"
     ms.author="alkohli" />
 
 # Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
 
-## Panoramica
+## Overview
 
 Il dispositivo StorSimple include diodi a emissione luminosa (LED) e allarmi che possono essere utilizzati per monitorare i moduli e lo stato generale del dispositivo StorSimple. Gli indicatori di monitoraggio possono trovarsi in componenti hardware dello chassis principale e dello chassis EBOD del dispositivo. Gli indicatori di monitoraggio possono essere LED o allarmi acustici.
 
 Vengono utilizzate tre condizioni dei LED per indicare lo stato di un modulo: verde, intermittente da verde a rosso-ambra o rosso-ambra.
 
-- I LED verdi indicano uno stato operativo integro.  
-- I LED intermittenti da verde a rosso-ambra indicano la presenza di condizioni non critiche che potrebbero richiedere l'intervento dell'utente.  
-- I LED rosso-ambra indicano la presenza di un errore critico all'interno del modulo.  
+- I LED verdi indicano uno stato operativo integro.
+- I LED intermittenti da verde a rosso-ambra indicano la presenza di condizioni non critiche che potrebbero richiedere l'intervento dell'utente.
+- I LED rosso-ambra indicano la presenza di un errore critico all'interno del modulo.
 
 Nel promemoria del presente articolo vengono descritti i vari indicatori LED di monitoraggio, le posizioni sul dispositivo StorSimple, lo stato del dispositivo in base alle condizioni dei LED ed eventuali allarmi acustici associati.
 
@@ -41,7 +41,7 @@ Il pannello anteriore include i seguenti indicatori:
 2. Indicatore LED (verde/rosso-ambra) di alimentazione
 3. Indicatore LED di errore nel modulo (ACCESO rosso-ambra/SPENTO)
 4. Indicatore LED di errore logico (ACCESO rosso-ambra/SPENTO)
-5. Display ID unità  
+5. Display ID unità
 
 La differenza principale tra i LED del pannello anteriore del dispositivo e quelli dello chassis EBOD è il **Numero identificativo dell'unità di sistema** visualizzato sul display a LED. L’ID unità predefinito visualizzato sul dispositivo è **00**, mentre l'ID unità predefinito visualizzato sullo chassis EBOD è **01**. In questo modo è possibile distinguere rapidamente tra il dispositivo e lo chassis EBOD quando il dispositivo è acceso. Se il dispositivo è disattivato, utilizzare le informazioni fornite in [Accensione di un nuovo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) per differenziarlo dallo chassis EBOD.
 
@@ -79,9 +79,9 @@ Legenda dei LED:
 3. Guasto alla batteria
 4. PCM OK
 5. Guasto CC
-6. Batteria integra  
+6. Batteria integra
 
-Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del dispositivo dispone di sei LED. Quattro di tali LED visualizzano lo stato dell’alimentatore e della ventola. Gli altri due LED indicano lo stato del modulo della batteria di backup nel PCM. È possibile utilizzare le tabelle seguenti per determinare lo stato del PCM.
+Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del dispositivo dispone di sei LED. Quattro di tali LED visualizzano lo stato dell’alimentatore e della ventola. Idue LED restanti indicano lo stato del modulo della batteria di backup nel PCM. È possibile utilizzare le tabelle riportate di seguito per determinare lo stato del PCM.
 
 ### Indicatori LED del PCM per l'alimentatore e la ventola
 | Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
@@ -184,9 +184,9 @@ Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che
 
 | Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 |-------|--------------------------|----------------------|-------------------------|
-| Nessuna unità installata | DISATTIVA | DISATTIVA | Nessuno |
-| Unità installata e operativa | Intermittente acceso/spento in base all’attività | X | Nessuno |
-| Set di identità del dispositivo servizi chassis SCSI (SES) | ATTIVA | Intermittenza 1 secondo accesa/1 secondo spenta | Nessuno |
+| Nessuna unità installata | DISATTIVA | DISATTIVA | None |
+| Unità installata e operativa | Intermittente acceso/spento in base all’attività | X | None |
+| Set di identità del dispositivo servizi chassis SCSI (SES) | ATTIVA | Intermittenza 1 secondo accesa/1 secondo spenta | None |
 | Set bit errore dispositivo SES | ATTIVA | ATTIVA | Errore logico (rosso) |
 | Errore circuito di controllo alimentazione | DISATTIVA | ATTIVA | Errore del modulo (rosso) |
 
@@ -201,7 +201,7 @@ Un dispositivo StorSimple contiene allarmi acustici associati sia allo chassis p
 - Errore di sistema
 - Errore logico
 - Errore di alimentazione
-- Rimozione di un modulo di alimentazione e raffreddamento (PCM)  
+- Rimozione di un modulo di alimentazione e raffreddamento (PCM)
 
 Nella tabella seguente vengono descritti i vari stati di allarme.
 
@@ -211,15 +211,15 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 |------------|---------|---------------------------------|
 | S0 | Modalità normale: invisibile all'utente | Doppio segnale acustico |
 | S1 | Modalità errore: 1 secondo accesa/1 secondo spenta | Passaggio da S2 a S3 (vedere le note) |
-| S2 | Modalità promemoria: segnale acustico intermittente | Nessuno |
-| S3 | Modalità disattivato: invisibile all'utente | Nessuno |
+| S2 | Modalità promemoria: segnale acustico intermittente | None |
+| S3 | Modalità disattivato: invisibile all'utente | None |
 | S4 | Modalità errore critico: allarme continuo | Non disponibile: disattivazione non attiva |
 
 > [AZURE.NOTE] 
 
->  - Nello stato di allarme S1, se non si preme Disattiva entro 2 minuti, lo stato passa automaticamente da S2 a S3.  
->  - Dopo la risoluzione della condizione di errore, gli stati di allarme da S1 a S4 tornano a S0.  
->  - Lo stato di errore critico S4 può essere immesso da qualunque altro stato.  
+>  - Nello stato di allarme S1, se non si preme Disattiva entro 2 minuti, lo stato passa automaticamente da S2 a S3.
+>  - Dopo la risoluzione della condizione di errore, gli stati di allarme da S1 a S4 tornano a S0.
+>  - Lo stato di errore critico S4 può essere immesso da qualunque altro stato.
 
 È possibile disattivare l'allarme acustico premendo l'apposito pulsante sul pannello delle operazioni. Se, dopo due minuti il commutatore di disattivazione non viene azionato manualmente, la disattivazione avviene in modo automatico. Quando l'allarme viene disattivato, continuerà a emettere brevi segnali acustici intermittenti per indicare che il problema ancora persiste. L’allarme non emetterà segnali acustici quando tutti i problemi vengono risolti.
 
@@ -233,21 +233,21 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 |Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM | Errore – Perdita di ridondanza | S1 | Errore del modulo |
 | Guasto ventola del PCM | Errore – Perdita di ridondanza | S1 | Errore del modulo |
 | Errore PCM rilevato dal modulo SBB | Errore | S1 | Errore del modulo |
-| PCM rimosso | Errore di configurazione | Nessuno | Errore del modulo |
+| PCM rimosso | Errore di configurazione | None | Errore del modulo |
 | Errore di configurazione dello chassis | Errore - Critico | S1 | Errore del modulo |
-| Allerta temperatura di avviso bassa | Warning | S1 | Errore del modulo |
-| Allerta temperatura di avviso alta | Warning | S1 | Errore del modulo |
+| Allerta temperatura di avviso bassa | Avviso | S1 | Errore del modulo |
+| Allerta temperatura di avviso alta | Avviso | S1 | Errore del modulo |
 | Allarme sovratemperatura | Errore - Critico | S1 | Errore del modulo |
 | Errore del bus I2C | Errore – Perdita di ridondanza | S1 | Errore del modulo |
 | Errore di comunicazione (I2C) del pannello delle operazioni | Errore - Critico | S1 | Errore del modulo |
 | Errore del controller | Errore - Critico | S1 | Errore del modulo |
 | Errore del modulo di interfaccia SBB | Errore - Critico | S1 | Errore del modulo |
 | Errore del modulo di interfaccia SBB - Moduli funzionanti rimanenti non presenti | Errore - Critico | S4 | Errore del modulo |
-| Modulo interfaccia SBB rimosso | Warning | Nessuno | Errore del modulo |
+| Modulo interfaccia SBB rimosso | Avviso | None | Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità | Avviso - Interruzione dell'alimentazione dell’unità assente | S1 | Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità | Errore - Critico; interruzione dell'alimentazione unità | S1 | Errore del modulo |
-| Unità rimossa | Warning | Nessuno | Errore del modulo |
-| Disponibilità alimentazione insufficiente | Warning | nessuno | Errore del modulo |
+| Unità rimossa | Avviso | None | Errore del modulo |
+| Disponibilità alimentazione insufficiente | Avviso | nessuno | Errore del modulo |
 
 ## Passaggi successivi
 
@@ -262,4 +262,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

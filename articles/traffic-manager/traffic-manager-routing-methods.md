@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Metodi di routing del traffico di Gestione traffico
 
@@ -126,4 +126,4 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

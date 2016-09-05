@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Panoramica sul monitoraggio in Microsoft Azure | Microsoft Azure"
-	description="Panoramica generale sul monitoraggio e la diagnostica negli avvisi di Azure rispetto ad altri sistemi non Azure."
+	description="Panoramica generale del monitoraggio e della diagnostica in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro."
 	authors="rboucher"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Panoramica sul monitoraggio in Microsoft Azure
 
@@ -24,13 +24,13 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 
 Il diagramma seguente mostra una visualizzazione logica del monitoraggio in Azure. L'implementazione sottostante è più complessa. La figura mostra il tipo di log che è possibile raccogliere e cosa fare con i dati.
 
-![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)  
+![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
 
 Figura 1: Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo
 
-<br/>  
+<br/>
 
-![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/monitoring-azure-resources-compute.png)  
+![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/monitoring-azure-resources-compute.png)
 
 Figura 2: Modello logico per il monitoraggio e la diagnostica per risorse di calcolo
 
@@ -138,4 +138,4 @@ Altre informazioni su:
 - [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md), utili per l'uso di BLOB di archiviazione, tabelle o code.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

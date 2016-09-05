@@ -50,7 +50,7 @@ info:    vm disk attach-new command OK
 
 ## Connettersi alla VM Linux per montare il nuovo disco
 
-> [AZURE.NOTE] In questo argomento la connessione a una VM viene effettuata con nomi utente e password. Per usare coppie di chiavi pubbliche e private per comunicare con la VM, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md). È possibile modificare la connettività **SSH** delle macchine virtuali create con il comando `azure vm quick-create` usando il comando `azure vm reset-access` per reimpostare completamente l'accesso **SSH**, aggiungere o rimuovere utenti o aggiungere file di chiave pubblica per proteggere l'accesso.
+> [AZURE.NOTE] In questo argomento la connessione a una VM viene effettuata con nomi utente e password. Per usare coppie di chiavi pubbliche e private per comunicare con la VM, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md). È possibile modificare la connettività **SSH** delle macchine virtuali create con il comando `azure vm quick-create` usando il comando `azure vm reset-access` per reimpostare completamente l'accesso **SSH**, aggiungere o rimuovere utenti o aggiungere file di chiave pubblica per proteggere l'accesso.
 
 È necessario SSH nella VM di Azure per partizionare, formattare e montare il nuovo disco in modo che la VM di Linux possa usarlo. Se non si ha familiarità con la connessione a **ssh**, il comando assume il formato `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` e ha l'aspetto seguente:
 
@@ -277,4 +277,4 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 - Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](virtual-machines-linux-optimization.md).
 - Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

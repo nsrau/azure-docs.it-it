@@ -88,11 +88,11 @@ Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i 
 		Login-AzureRmAccount #-Credential $Cred 
 	
 
-2. Ottenere un elenco delle sottoscrizioni. Verranno elencati anche i valori subscriptionID per ogni sottoscrizione. Annotare il valore subscriptionID della sottoscrizione in cui si vuole creare l'insieme di credenziali dei Servizi di ripristino.
+2. Ottenere un elenco delle sottoscrizioni. Verranno elencati anche i valori subscriptionID per ogni sottoscrizione. Annotare il valore subscriptionID della sottoscrizione in cui si vuole creare l'insieme di credenziali dei Servizi di ripristino
 
 		Get-AzureRmSubscription 
 
-3. Configurare la sottoscrizione in cui deve essere creato l'insieme di credenziali dei Servizi di ripristino, indicando l'ID della sottoscrizione.
+3. Configurare la sottoscrizione in cui deve essere creato l'insieme di credenziali dei Servizi di ripristino, indicando l'ID della sottoscrizione
 
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
@@ -214,7 +214,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 2. I comandi seguenti consentono di ottenere la rete di ripristino del sito per il server VMM di origine e il server VMM di destinazione.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Passaggio 6: Abilitare la protezione per le macchine virtuali
+## Passaggio 6: configurare il mapping di archiviazione
+
+1. Il comando seguente ottiene l'elenco di classificazioni di archiviazione nella variabile $storageclassifications.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. I comandi seguenti ottengono la classificazione di origine nella variabile $SourceClassificaion e la classificazione di destinazione nella variabile $TargetClassification.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] Le classificazioni di origine e di destinazione possono essere qualsiasi elemento nella matrice. Fare riferimento all'output del comando seguente per individuare l'indice delle classificazioni di origine e di destinazione nella matrice $storageclassifications.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. Il cmdlet seguente crea un mapping tra la classificazione di origine e quella di destinazione.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Passaggio 7: Abilitare la protezione per le macchine virtuali
 
 Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilitare la protezione per le macchine virtuali sul cloud.
 
@@ -329,6 +352,6 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 ## Passaggi successivi
 
-[Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
+[Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

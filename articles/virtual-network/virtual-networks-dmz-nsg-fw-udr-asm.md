@@ -76,7 +76,7 @@ Se la destinazione non fosse applicabile ad alcun prefisso Null o ai prefissi VN
 
 Se nella tabella di route sono presenti due prefissi identici, di seguito è riportato l'ordine di precedenza basato sull'attributo "source" delle route:
 
-1.	<blank> = route definita dall'utente aggiunta manualmente alla tabella
+1.	"VirtualAppliance" = route definita dall'utente aggiunta manualmente alla tabella
 2.	"VPNGateway" = route dinamica, o BGP quando viene usata con reti ibride, aggiunta da un protocollo di rete dinamico. Queste route possono cambiare con il tempo, perché il protocollo dinamico riflette automaticamente le modifiche nella rete con peering.
 3.	"Default" = route di sistema. La rete virtuale locale e le voci statiche sono quelle visualizzate nella tabella di route precedente.
 
@@ -530,7 +530,7 @@ Salvare lo script completo in un file di script PowerShell. Salvare la configura
 #### Script completo
 In base alle variabili definite dall'utente, lo script consente di:
 
-1.	Connettersi a una sottoscrizione di Azure.
+1.	Connettersi a una sottoscrizione di Azure
 2.	Creare un nuovo account di archiviazione.
 3.	Creare una nuova rete virtuale e tre subnet, come definito nel file di configurazione di rete.
 4.	Compilare cinque macchine virtuali, 1 firewall e 4 VM Windows Server.
@@ -941,4 +941,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

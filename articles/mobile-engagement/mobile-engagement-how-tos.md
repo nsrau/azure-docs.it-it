@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
@@ -21,7 +21,7 @@
 Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la sezione Reach dell'interfaccia utente per inviare notifiche push agli utenti dell'app.
 
 ## Creare la prima campagna di notifica push
--    Verificare che Reach sia integrato nell'app con l'SDK. 
+-    Verificare che Reach sia integrato nell'app con l'SDK.
 -    Selezionare l'applicazione.
  
 ![First1][1]
@@ -112,7 +112,7 @@ La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info,
 La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push quando l'applicazione è chiusa. Questa è la notifica push standard. Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
 
 ### Vedere anche
--  [Apple Push Notification Service - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html) 
+-  [Apple Push Notification Service - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html)
 
 ### Modalità di recapito "Solo in-app"
 ![Differentiate3][17]
@@ -127,7 +127,7 @@ La modalità di recapito "Solo in-app" fornisce la notifica push quando l'applic
 ![Shedule1][18]
 
 È il 21 marzo e si vuole diffondere un annuncio alla mezzanotte del 22 marzo. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui le notifiche verranno inviate.
--    Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio 
+-    Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio
 -    Scegliere la data e ora in cui avviare la campagna push.
 
 ### Pianificare la fine di una campagna
@@ -297,4 +297,4 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

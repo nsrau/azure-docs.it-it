@@ -1,7 +1,7 @@
 ## Prerequisito: installare l'interfaccia della riga di comando di Azure
 
-Per eseguire i passaggi in questo articolo, sarà necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (Azure CLI)](..\articles\xplat-cli-install.md) e sarà necessario [accedere a Azure](..\articles\xplat-cli-connect.md).
+Per eseguire i passaggi in questo articolo, è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure CLI)](../articles/xplat-cli-install.md) ed è necessario [accedere a Azure](../articles/xplat-cli-connect.md).
 
-> [AZURE.NOTE] Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](..\articles\active-directory\sign-up-organization.md). Inoltre, per completare l’operazione è necessario disporre di uno [jq](https://stedolan.github.io/jq/) o altri strumenti di analisi o librerie installate JSON.
+> [AZURE.NOTE] Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../articles/active-directory/sign-up-organization.md). Inoltre, per completare l'operazione è necessario aver installato una libreria o uno strumento di analisi [jq](https://stedolan.github.io/jq/) o JSON di altro tipo.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

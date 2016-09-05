@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="App Azure Authenticator per telefoni cellulari" 
+	pageTitle="App Microsoft Authenticator per telefoni cellulari" 
 	description="Informazioni su come effettuare l'aggiornamento alla versione più recente di Azure Authenticator." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
 <tags 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+	ms.date="08/22/2016" 
+	ms.author="billmath"/>
+
+# Microsoft Authenticator
+
+L'app Microsoft Authenticator fornisce un livello di sicurezza aggiuntivo che può essere usato con l'account Azure (ad es. bsimon@contoso.onmicrosoft.com), l'account di lavoro locale (ad es. bsimon@contoso.com) o l'account Microsoft (ad es. bsimon@outlook.com).
+
+## Scaricare l'app Microsoft Authenticator
+
+L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+## Funzionamento dell'app Microsoft Authenticator
+L'app funziona inviando una notifica all'app Microsoft Authenticator sul tablet o sullo smartphone dell'utente. L'utente deve solo toccare "Verifica" all'interno dell'applicazione.
+
+In alternativa l'app può essere usata anche con un codice di verifica. È sufficiente inserire il codice fornito dall'app nella schermata di accesso quando richiesto.
+
+Queste due modalità sono le seguenti:
+
+**Notifica** - In questa modalità l'app Microsoft Authenticator impedisce l'accesso agli account non autorizzati e arresta le transazioni illecite. L’avvertenza è una notifica push inviata sul telefono o sul dispositivo registrato. Visualizzare la notifica e, se del caso, selezionare Autentica. In caso contrario, è possibile scegliere Nega oppure Nega e segnala la notifica illecita. Per informazioni sulla segnalazione di notifiche illecite, vedere l'argomento relativo a come usare le funzionalità Nega e Segnala illecito per Multi-Factor Authentication.
+
+**One-Time Password** - In questa modalità, l'app Microsoft Authenticator può essere usata come token software per generare un codice di verifica OATH. Questo codice di verifica quindi può pertanto essere immesso con il nome utente e con la password come seconda modalità di autenticazione.
+
+## Aggiungere un account all'app Microsoft Authenticator
+
+## Passaggio alla nuova app Microsoft Authenticator
+
+Con il rilascio di Microsoft Authenticator, viene sostituita l'app Azure Authenticator precedente. L'app Azure Authenticator continuerà a funzionare, ma questo articolo offre informazioni utili per chi decide di passare alla nuova app Microsoft Authenticator.
 
 
+## Informazioni su come passare alla nuova app Microsoft Authenticator 
 
-# Passaggio alla nuova app Azure Authenticator
-
-L'app Azure Authenticator appena rilasciata, disponibile per [Windows Phone](http://www.windowsphone.com/it-IT/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458), sostituirà l'app Multi-Factor Authentication precedente. L'app Multi-Factor Authentication continuerà a funzionare, ma questo articolo offre informazioni utili per chi decide di passare alla nuova app Azure Authenticator.
-
-
-## Come passare alla nuova app Azure Authenticator 
-
-**Passaggio 1:** Installare Azure Authenticator.
+**Passaggio 1:** Installare Microsoft Authenticator.
 
 ![Cloud](./media/multi-factor-authentication-azure-authenticator/home.png)
 
@@ -73,7 +92,7 @@ Dopo avere aggiunto tutti gli account alla nuova app, disinstallare l'app preced
   
 ![Scansione di un codice a barre](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Aprire ora l'app Azure Authenticator per essere reindirizzati alla pagina degli account, contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
+- Aprire ora l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -102,7 +121,7 @@ Se si desidera aggiungere manualmente un account, seguire questa procedura.
   
 ![Scansione di un codice a barre](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Aprire ora l'app Azure Authenticator per essere reindirizzati alla pagina degli account, contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
+- Aprire ora l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -131,7 +150,7 @@ Se si desidera aggiungere manualmente un account non Azure, ad esempio il propri
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
-- Aprire l'app Azure Authenticator per essere reindirizzati alla pagina degli account, contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
+- Aprire l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -152,9 +171,9 @@ Se si desidera aggiungere manualmente un account non Azure, ad esempio il propri
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
 ## Come aggiungere un account mediante Touch ID
-In iOS, l'app per dispositivi mobili Azure Authenticator supporta ID Touch. Azure Multi-Factor Authentication consente alle organizzazioni di richiedere un PIN per i propri dispositivi registrati. Con questa nuova funzionalità, gli utenti di iOS con dispositivi abilitati per Touch ID non dovranno più immettere il PIN. Una volta configurata, gli utenti dovranno semplicemente eseguire la scansione della propria impronta digitale anziché immettere il PIN e toccare Approva.
+In iOS, l'app per dispositivi mobili Microsoft Authenticator supporta ID Touch. Azure Multi-Factor Authentication consente alle organizzazioni di richiedere un PIN per i propri dispositivi registrati. Con questa nuova funzionalità, gli utenti di iOS con dispositivi abilitati per Touch ID non dovranno più immettere il PIN. Una volta configurata, gli utenti dovranno semplicemente eseguire la scansione della propria impronta digitale anziché immettere il PIN e toccare Approva.
 
-La procedura di configurazione di ID Touch con Azure Authenticator è molto semplice. È sufficiente completare una normale richiesta di verifica con il PIN e, se il dispositivo supporta ID Touch, questo verrà configurato automaticamente.
+La procedura di configurazione di ID Touch con Microsoft Authenticator è molto semplice. È sufficiente completare una normale richiesta di verifica con il PIN e, se il dispositivo supporta ID Touch, questo verrà configurato automaticamente.
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
@@ -164,8 +183,8 @@ In questo modo, ogni volta che viene richiesto di verificare i propri dettagli d
 
 ## Come eliminare un account
 
-Per eliminare account singoli dall'app Azure Authenticator è sufficiente selezionare l'account. Verrà visualizzata l'opzione per l'eliminazione.
+Per eliminare account singoli dall'app Microsoft Authenticator è sufficiente selezionare l'account. Verrà visualizzata l'opzione per l'eliminazione.
 
 ![Rimozione di un account](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

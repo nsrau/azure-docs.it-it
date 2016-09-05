@@ -3,7 +3,7 @@
    description="Questo articolo illustra tipi diversi di endpoint che è possibile usare con Gestione traffico di Azure"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Endpoint di Gestione traffico
 
@@ -144,4 +144,4 @@ Per quanto riguarda le app Web, gli endpoint di Azure di Gestione traffico non p
 
 - Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) di Gestione traffico.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

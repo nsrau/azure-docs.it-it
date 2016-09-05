@@ -3,7 +3,7 @@
    description="Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/01/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Monitoraggio e failover degli endpoint di Gestione traffico
 
@@ -175,4 +175,4 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 
 [Risoluzione dei problemi relativi allo stato Degraded](traffic-manager-troubleshooting-degraded.md) di un endpoint di Gestione traffico
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

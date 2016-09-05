@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/01/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
    
 # Esplorare le esercitazioni sul database SQL di Azure
@@ -74,7 +74,7 @@ Le esercitazioni seguenti mostrano come eseguire le [query elastiche](sql-databa
 
 Le esercitazioni seguenti mostrano come ottimizzare le [prestazioni di singoli database](sql-database-performance-guidance.md). Per ottimizzare le prestazioni di più database, vedere [Pool elastici](#elastic-pools).
 
-| Esercitazione | Descrizione |
+| Esercitazione | Description |
 |---|---|---|
 | [Modificare il livello di servizio e il livello delle prestazioni del database](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | Questa esercitazione mostra come aumentare o ridurre le prestazioni di un database SQL di Azure usando i livelli di servizio. |
 | [Informazioni dettagliate prestazioni query di SQL Database Advisor](sql-database-performance.md#performance-overview) | Questa esercitazione mostra come aprire e usare la funzionalità Informazioni dettagliate prestazioni query di SQL Database Advisor.|
@@ -87,7 +87,7 @@ Le esercitazioni seguenti mostrano come ottimizzare le [prestazioni di singoli d
 
 Le esercitazioni seguenti mostrano come [eseguire la migrazione di un database SQL Server esistente nel database SQL di Azure](sql-database-cloud-migrate.md).
 
-| Esercitazione | Descrizione |
+| Esercitazione | Description |
 |---|---|---|
 | [Rilevamento di problemi di compatibilità con SQL Server Data Tools per Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#detecting-compatibility-issues-using-sql-server-data-tools-for-visual-studio) | Questa esercitazione mostra come usare SQL Server Data Tools per Visual Studio per determinare la compatibilità del database SQL di Azure. |
 | [Correzione di problemi di compatibilità con SQL Server Data Tools per Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt#fixing-compatibility-issues-using-sql-server-data-tools-for-visual-studio) | Questa esercitazione mostra come usare SQL Server Data Tools per Visual Studio per correggere i problemi di compatibilità del database SQL di Azure. |
@@ -144,7 +144,7 @@ Le esercitazioni seguenti mostrano come [creare e gestire account di accesso e u
 
 Le esercitazioni seguenti mostrano come [proteggere i dati del database SQL di Azure](sql-database-security.md).
 
-| Esercitazione | Descrizione |
+| Esercitazione | Description |
 |---|---|---|
 | [Abilitare il rilevamento delle minacce per il database tramite il portale di Azure](sql-database-threat-detection-get-started.md#set-up-threat-detection-for-your-database) | Questa esercitazione mostra come configurare il rilevamento delle minacce per il database tramite il portale di Azure.|
 | [Proteggere i dati sensibili tramite la procedura guidata Crittografia sempre attiva ](sql-database-always-encrypted-azure-key-vault.md) | Questa esercitazione mostra come usare la procedura guidata Crittografia sempre attiva per proteggere i dati sensibili in un database SQL di Azure.|
@@ -157,7 +157,7 @@ Le esercitazioni seguenti mostrano come [proteggere i dati del database SQL di A
 
 Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino geografico e replica geografica attiva](sql-database-business-continuity.md) per eseguire operazioni di ripristino a seguito di errori, per la continuità aziendale e per la scalabilità orizzontale delle query.
 
-| Esercitazione | Descrizione |
+| Esercitazione | Description |
 |---|---|---|
 | [Ripristinare un database SQL di Azure a un momento precedente con il portale di Azure](sql-database-point-in-time-restore-portal.md)| Questa esercitazione mostra come ripristinare un database a un momento precedente tramite il portale di Azure.|
 | [Ripristinare un database SQL di Azure a un momento precedente con PowerShell](sql-database-point-in-time-restore-powershell.md) | Questa esercitazione mostra come ripristinare un database a un momento precedente tramite PowerShell|
@@ -184,4 +184,4 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 
 [Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

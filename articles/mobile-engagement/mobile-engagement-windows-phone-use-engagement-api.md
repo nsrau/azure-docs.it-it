@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in Windows Phone Silverlight
@@ -42,7 +42,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ### L'utente inizia una nuova attività
 
-#### Riferimento
+#### riferimento
 
 			void StartActivity(string name, Dictionary<object, object> extras = null)
 
@@ -56,7 +56,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ### L'utente termina l'attività corrente
 
-#### Riferimento
+#### riferimento
 
 			void EndActivity()
 
@@ -70,7 +70,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ### Avviare un processo
 
-#### Riferimento
+#### riferimento
 
 			void StartJob(string name, Dictionary<object, object> extras = null)
 
@@ -89,7 +89,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ### Terminare un processo
 
-#### Riferimento
+#### riferimento
 
 			void EndJob(string name)
 
@@ -112,7 +112,7 @@ Esistono tre tipi di eventi:
 
 ### Eventi autonomi
 
-#### Riferimento
+#### riferimento
 
 			void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -124,7 +124,7 @@ Gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione
 
 ### Eventi di sessione
 
-#### Riferimento
+#### riferimento
 
 			void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
@@ -148,7 +148,7 @@ Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite 
 
 ### Eventi di processo
 
-#### Riferimento
+#### riferimento
 
 			void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
@@ -168,7 +168,7 @@ Esistono tre tipi di errori:
 
 ### Errori autonomi
 
-#### Riferimento
+#### riferimento
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -180,7 +180,7 @@ Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi a
 
 ### Errori di sessione
 
-#### Riferimento
+#### riferimento
 
 			void SendSessionError(string name, Dictionary<object, object> extras = null)
 
@@ -192,7 +192,7 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
 
 ### Errori di processo
 
-#### Riferimento
+#### riferimento
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
@@ -208,7 +208,7 @@ L'agente fornisce due metodi per gestire gli arresti anomali.
 
 ### Inviare un'eccezione
 
-#### Riferimento
+#### riferimento
 
 			void SendCrash(Exception e, bool terminateSession = false)
 
@@ -226,7 +226,7 @@ In questo caso la sessione e i processi verranno chiusi solo dopo l'invio dell'a
 
 ### Inviare un'eccezione non gestita
 
-#### Riferimento
+#### riferimento
 
 			void SendCrash(ApplicationUnhandledExceptionEventArgs e)
 
@@ -250,7 +250,7 @@ Questo metodo terminerà **SEMPRE** la sessione di Engagement e i processi dopo 
 
 ##OnActivated
 
-### Riferimento
+### riferimento
 
 			void OnActivated(ActivatedEventArgs e)
 
@@ -386,4 +386,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
 			EngagementAgent.Instance.Init();
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

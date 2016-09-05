@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,15 +32,15 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 1. Crea una tabella con i dati a scopo dimostrativo.
 
 2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql\_statement\_starting**.
- - L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
- - Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring\_buffer**.
+	- L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
+	- Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring\_buffer**.
 
 3. Avvia la sessione dell'evento.
 
 4. Esegue un paio di semplici istruzioni SQL UPDATE.
 
 5. Esegue un'istruzione SQL SELECT per recuperare l'output dell'evento dal buffer circolare.
- - **sys.dm\_xe\_database\_session\_targets** e altre viste a gestione dinamica (DMV) sono unite.
+	- **sys.dm\_xe\_database\_session\_targets** e altre viste a gestione dinamica (DMV) sono unite.
 
 6. Arresta la sessione dell'evento.
 
@@ -59,16 +59,15 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
  - Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
 
 
-- SQL Server Management Studio (ssms.exe), anteprima di agosto 2015 o versione successiva. È possibile scaricare la versione più recente di ssms.exe da:
- - [Un collegamento nell'argomento.](http://msdn.microsoft.com/library/mt238290.aspx)
+- SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile. È possibile scaricare la versione più recente di ssms.exe da:
+ - Argomento intitolato [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft consiglia di aggiornare periodicamente ssms.exe, ad esempio una volta al mese.
 
 
 ## Esempio di codice
 
 
-Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '\_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. Ad esempio:
+Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '\_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. ad esempio:
 
 - sys.dm\_xe**\_database**\_session\_targets
 - sys.dm\_xe\_session\_targets
@@ -239,7 +238,7 @@ GO
 
 Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target\_data\_XML**.
 
-Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target\_data\_XML**. In questo modo è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
+Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target\_data\_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
 
 L'output è illustrato nella sezione seguente. Sembra lungo, ma è composto solo da due elementi **<event>**.
@@ -386,4 +385,4 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

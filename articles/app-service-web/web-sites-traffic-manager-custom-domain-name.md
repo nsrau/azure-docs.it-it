@@ -39,11 +39,11 @@ Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio per
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
-## Aggiungere un record DNS per il dominio personalizzato
+## Aggiunta di un record DNS per il dominio personalizzato
 
 > [AZURE.NOTE] Se si è acquistato un dominio tramite App Web del servizio app di Azure, ignorare i passaggi seguenti e fare riferimento all'ultimo passaggio dell'articolo [Acquistare un dominio per app Web](custom-dns-web-site-buydomains-web-app.md).
 
-Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti dal registrar da cui è stato acquistato il nome di dominio. Per individuare e usare gli strumenti DNS, attenersi alla procedura seguente.
+Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti dal registrar da cui è stato acquistato il nome di dominio. Per individuare e utilizzare gli strumenti DNS, attenersi alla procedura seguente.
 
 1. Accedere all'account presso il registrar e cercare la pagina in cui gestire i record DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**. Un collegamento a questa pagina è spesso disponibile nelle informazioni dell'account, cercando una voce simile a **My domains**.
 
@@ -55,7 +55,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 
 1. Anche se le specifiche di ogni registrar possono variare, in genere viene eseguito il mapping *dal* nome di dominio personalizzato, ad esempio **contoso.com**, *al* nome di dominio di Gestione traffico (**contoso.trafficmanager.net**) usato per l'app Web.
 
-> [AZURE.NOTE] In alternativa, se un record è già in uso ed è necessario associare le app in modalità preemptive, eseguire il mapping di **awverify.contoso.com** a **contoso.trafficmanager.net**.
+> [AZURE.NOTE] In alternativa, se un record è già in uso ed è necessario associare le app in modalità preemptive, creare un record TXT per **awverify.contoso.com** a **contoso.trafficmanager.net**.
 
 1. Dopo aver completato l'aggiunta o la modifica di record DNS presso il registrar, salvare le modifiche.
 
@@ -72,4 +72,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

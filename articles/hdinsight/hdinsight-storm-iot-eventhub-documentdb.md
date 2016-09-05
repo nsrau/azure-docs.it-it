@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/06/2016"
+ms.date="08/23/2016"
 ms.author="larryfr"/>
 
 #Elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight
@@ -22,7 +22,7 @@ Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi di Az
 
 ![HDInsight e il diagramma dell'architettura IoT (Internet of Things)](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
-##Panoramica
+##Overview
 
 L'aggiunta di sensori ai veicoli consente di prevedere problemi alle apparecchiature in base alle tendenze dei dati cronologici, nonché di apportare miglioramenti a future versioni basate sull'analisi dei modelli di utilizzo. Sebbene sia possibile usare l'elaborazione batch MapReduce tradizionale per questa analisi, è necessario poter caricare i dati da tutti i veicoli in Hadoop in modo rapido ed efficiente prima di eseguire l'elaborazione MapReduce. Inoltre, può essere utile eseguire analisi in tempo reale per i percorsi di errore critico, quali temperatura del motore, freni e così via.
 
@@ -58,4 +58,4 @@ Una soluzione completa e automatizzata per questo scenario è disponibile nel re
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

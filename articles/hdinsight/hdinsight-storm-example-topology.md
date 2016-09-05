@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/06/2016"
+ ms.date="08/23/2016"
  ms.author="larryfr"/>
 
 # Esempi di topologie e componenti Storm per Apache Storm in HDInsight
 
-Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'uso con Apache Storm in HDInsight. Questi esempi coprono un'ampia gamma di argomenti, dalla creazione di codice C# di base e topologie Java all'uso dei servizi di Azure come hub di eventi, DocumentDB, Power BI, Database SQL, HBase in HDInsight e archiviazione di Azure. Alcuni esempi illustrano anche come usare le tecnologie non Azure o addirittura non Microsoft, quali SignalR e Socket.IO
+Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'uso con Apache Storm in HDInsight. Questi esempi coprono un'ampia gamma di argomenti, dalla creazione di codice C# di base e topologie Java all'uso dei servizi di Azure come Hub eventi, DocumentDB, Power BI, Database SQL, HBase in HDInsight e Archiviazione di Azure. Alcuni esempi illustrano anche come usare le tecnologie non Azure o addirittura non Microsoft, quali SignalR e Socket.IO
 
 | Descrizione | Dimostra | Linguaggio/framework |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
@@ -28,7 +28,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 | [Sviluppo di topologie basate su Java per Apache Storm in HDInsight][5797064f] | Maven | Java |
 | [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] | HDInsight Tools per Visual Studio | C#, Java |
 | [Creare più flussi di dati in una topologia Storm C#][ec5a4064] | Più flussi | C# |
-| [Temi di tendenza Twitter con Apache Storm in HDInsight][3c86c7c8] | Trident | Java, Trident |
+| [Determinare i temi di tendenza Twitter con Apache Storm in HDInsight][3c86c7c8] | Trident | Java, Trident |
 | [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)][844d1d81] | Hub eventi | C# e Java |
 | [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Hub eventi | Java |
 | [Usare Power BI per visualizzare i dati dalla topologia Storm][94d15238] | Power BI | C# |
@@ -61,4 +61,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

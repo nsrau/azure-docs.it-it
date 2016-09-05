@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="08/18/2016"
    ms.author="allclark" />
 
 # Risoluzione dei problemi di sviluppo di Docker in Visual Studio
@@ -21,7 +21,7 @@ Quando si usa l'anteprima degli Strumenti di Visual Studio per Docker, si posson
 
 ##Configurazione di Program.cs per il supporto di Docker non riuscita
 
-Quando si aggiunge il supporto di Docker, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` deve essere aggiunto a WebHostBuilder(). Se per Program.cs non è stata trovata la funzione `Main()` o una nuova classe WebHostBuilder, viene visualizzato un avviso. `.UseUrls()` è necessario per abilitare Kestrel all'ascolto del traffico in ingresso, oltre il localhost, quando l'esecuzione avviene in un contenitore Docker. Al termine, il codice avrà un aspetto simile al seguente:
+Quando si aggiunge il supporto di Docker, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` deve essere aggiunto a WebHostBuilder(). Se non è stata trovata la funzione `Main()` o una nuova classe WebHostBuilder in `Program.cs`, viene visualizzato un avviso. `.UseUrls()` è necessario per abilitare Kestrel all'ascolto del traffico in ingresso, oltre il localhost, quando l'esecuzione avviene in un contenitore Docker. Al termine, il codice ha un aspetto simile al seguente:
 
 ```
 public class Program
@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() ha configurato WebHost per l’ascolto del traffico URL in ingresso. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurerà la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
+UseUrls() ha configurato WebHost per l’ascolto del traffico URL in ingresso.[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configura la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
 
 ```
 # Configure the listening port to 80
@@ -83,19 +83,19 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Nota:** *quando si usano le macchine virtuali Linux, il file system del contenitore fa distinzione tra maiuscole e minuscole.*
+> [AZURE.NOTE] Quando si usano le macchine virtuali Linux, il file system del contenitore fa distinzione tra maiuscole e minuscole.
 
 Se non si riesce a visualizzare il contenuto, procedere come segue:
 
 **Docker per la versione beta di Windows**
-- Verificare che Docker per l'applicazione desktop di Windows sia in esecuzione controllando la presenza dell'icona del dispositivo mobile nella barra delle applicazioni e verificare che sia bianca e attiva.
-- Verificare che il mapping del volume sia configurato facendo clic con il pulsante destro del mouse sull'icona del dispositivo mobile nella barra delle applicazioni, selezionando le impostazioni e facendo clic su **Manage shared drives** (Gestisci unità condivise)
+- Verificare che Docker per l'app desktop di Windows sia in esecuzione controllando la presenza dell'icona `moby` nell'area di notifica e verificando che sia bianca e attiva.
+- Verificare che il mapping del volume sia configurato facendo clic con il pulsante destro del mouse sull'icona `moby` nell'area di notifica, scegliendo le impostazioni e facendo clic su **Manage shared drives** (Gestisci unità condivise).
 
 **Casella degli strumenti di Docker con VirtualBox**
 
 Per impostazione predefinita, VirtualBox condivide `C:\Users` come `c:/Users`. Se possibile, spostare il progetto sotto questa directory. In alternativa, aggiungerlo manualmente alle [cartelle condivise](https://www.virtualbox.org/manual/ch04.html#sharedfolders) di VirtualBox.
 	
-##Compilazione: non è possibile compilare l'immagine. Errore durante il controllo della connessione TLS: l'host non è in esecuzione.
+##Compilazione: non è stato possibile compilare l'immagine. Errore durante il controllo della connessione TLS: l'host non è in esecuzione.
 
 - Verificare che l'host Docker predefinito sia in esecuzione. Vedere l'articolo [Configurare un Host Docker con VirtualBox](./vs-azure-tools-docker-setup.md).
 
@@ -112,16 +112,16 @@ Se si usa il browser Microsoft Edge, è possibile che il sito non si apra perch�
 1. Selezionare **Siti**.
 1. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco.
 1. Aggiornare la pagina in Edge per visualizzare il sito come operativo.
-1. Per altre informazioni su questo problema, vedere il post nel blog di Scott Hanselman relativo a [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox).
+1. Per altre informazioni su questo problema, vedere il post nel blog di Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox).
 
 ##Risoluzione dei problemi relativi alla versione 0.15 o versioni precedenti
 
 
 ###Quando si esegue l'app, PowerShell si apre, visualizza un errore e poi si chiude. La pagina del browser non si apre.
 
-Ciò potrebbe essere dovuto a un errore durante l'esecuzione di `docker-compose-up`. Per visualizzare l'errore, eseguire questi passaggi:
+Il problema di apertura del browser potrebbe essere causato da un errore durante `docker-compose-up`. Per visualizzare l'errore, eseguire questi passaggi:
 
-1. Aprire il file `Properties\launchSettings.json`
+1. Aprire il file `Properties\launchSettings.json`.
 1. Individuare la voce Docker.
 1. Individuare la riga che inizia come segue:
 
@@ -129,10 +129,10 @@ Ciò potrebbe essere dovuto a un errore durante l'esecuzione di `docker-compose-
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
     ```
 	
-1. Aggiungere il parametro `-noexit` in modo che la riga sia simile alla seguente. In questo modo PowerShell rimarrà aperto e sarà possibile visualizzare l'errore.
+1. Aggiungere il parametro `-noexit` in modo che la riga sia simile alla seguente. Questo codice tiene aperto PowerShell ed è possibile visualizzare l'errore.
 
     ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

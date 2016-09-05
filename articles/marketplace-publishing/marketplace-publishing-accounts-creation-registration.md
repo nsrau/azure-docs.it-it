@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="hascipio"/>
 
 # Creare un account di Microsoft Developer
@@ -172,7 +172,7 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 
   > [AZURE.TIP] I criteri di partecipazione sono descritti nel [sito Web di Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Passaggi per aggiungere un coamministratore nel portale di pubblicazione
+## 4\. Passaggi per aggiungere un coamministratore nel portale di pubblicazione
 **Come amministratore**, di seguito sono riportati i passaggi per aggiungere un coamministratore.
 
 >[AZURE.NOTE] **Per i nuovi utenti**, prima di aggiungere un coamministratore nel portale di pubblicazione, assicurarsi di avere creato almeno un'applicazione nel portale di pubblicazione. Questa operazione è necessaria in quanto la scheda **AUTORI** viene visualizzata solo dopo avere creato almeno un'applicazione nel portale di pubblicazione.
@@ -184,6 +184,15 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 5. Passare ad Autore -> selezionare l'account-> Amministratori -> Aggiungi il coamministratore (la schermata è riportata di seguito)
 
   ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+
+## 5\. Passaggi per eliminare un coamministratore nel portale di pubblicazione
+**Come amministratore**, di seguito sono riportati i passaggi per eliminare un coamministratore.
+
+1. Accedere al portale di pubblicazione con l'ID di posta elettronica di amministratore.
+2. Passare ad **Autori** -> selezionare il proprio account -> **Amministratori** -> **Coamministratori**.
+3. Fare sulla **X** accanto al co-amministratore da eliminare (schermata riportata di seguito).
+
+    ![disegno](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## Passaggi successivi
 Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare tutti i prerequisiti non tecnici per pubblicare l'offerta verificando i [prerequisiti non tecnici](marketplace-publishing-pre-requisites.md).
@@ -218,4 +227,4 @@ Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

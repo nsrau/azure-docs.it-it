@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure: ripristino dal danneggiamento o dall'eliminazione accidentale dei dati
@@ -45,7 +45,7 @@ Sono disponibili alcune opzioni per la [continuità aziendale](../sql-database/s
 
 ###Backup del database SQL
 
-I backup temporizzati per il database SQL di Microsoft Azure vengono creati tramite la [copia del database SQL di Azure](../sql-database/sql-database-copy.md). È possibile usare questo comando per creare una copia coerente dal punto di vista transazionale di un database nello stesso server di database logico o in un server diverso. In entrambi i casi, la copia del database è completamente funzionale e indipendente dal database di origine. Ogni copia creata rappresenta un'opzione di recupero temporizzato. È possibile recuperare completamente lo stato del database rinominando il nuovo database con il nome del database di origine. In alternativa, è possibile recuperare un subset specifico di dati dal nuovo database usando query Transact-SQL. Per altre informazioni dettagliate sul database SQL, vedere [Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md).
+I backup temporizzati per il database SQL di Microsoft Azure vengono creati tramite la [copia del database SQL di Azure](../sql-database/sql-database-copy.md). È possibile usare questo comando per creare una copia coerente dal punto di vista transazionale di un database nello stesso server di database logico o in un server diverso. In entrambi i casi, la copia del database è completamente funzionale e indipendente dal database di origine. Ogni copia creata rappresenta un'opzione di recupero temporizzato. È possibile recuperare completamente lo stato del database rinominando il nuovo database con il nome del database di origine. In alternativa, è possibile recuperare un subset specifico di dati dal nuovo database usando query Transact-SQL. Per altre informazioni sul database SQL, vedere [Panoramica della continuità aziendale del database SQL di Azure](../sql-database/sql-database-business-continuity.md).
 
 ###Backup di SQL Server nelle macchine virtuali
 
@@ -60,27 +60,33 @@ Per i siti Web di Azure e i servizi mobili di Azure è necessario eseguire il ba
 ##Elenchi di controllo per il danneggiamento o l'eliminazione accidentale dei dati
 
 ##Elenco di controllo per le macchine virtuali
-  1. Esaminare la sezione [Macchine virtuali](#virtual-machines) di questo documento.
+
+  1. Vedere la sezione Macchine virtuali di questo documento.
   2. Eseguire il backup e gestire i dischi delle VM con Backup di Azure oppure nel proprio sistema mediante il servizio di archiviazione BLOB di Azure e gli snapshot VHD.
 
 ##Elenco di controllo per l'archiviazione
-  1. Esaminare la sezione [Archiviazione](#storage) di questo documento.
+
+  1. Vedere la sezione Archiviazione di questo documento.
   2. Eseguire regolarmente il backup delle risorse di archiviazione essenziali.
   3. Prendere in considerazione l'uso della funzionalità snapshot per i BLOB.
 
 ##Elenco di controllo per database
-  1. Esaminare la sezione [Database](#database) di questo documento.
+
+  1. Vedere la sezione Database di questo documento.
   2. Creare backup temporizzati usando il comando per la copia del database.
 
 ##Elenco di controllo per il backup di SQL Server nelle macchine virtuali
-  1. Esaminare la sezione [Backup di SQL Server nelle macchine virtuali](#sql-server-on-virtual-machines-backup) di questo documento.
+
+  1. Vedere la sezione Backup di SQL Server nelle macchine virtuali di questo documento.
   2. Usare le tecniche tradizionali di backup e ripristino.
   3. Creare una sessione di log shipping ritardata.
 
 ##Elenco di controllo per app Web
+
   1. Eseguire il backup e gestire l'eventuale database associato.
 
 ##Elenco di controllo per Servizi multimediali
+
   1. Eseguire il backup e gestire le risorse di archiviazione associate.
 
 ##Altre informazioni
@@ -89,6 +95,6 @@ Per altre informazioni sulle funzionalità di backup e ripristino di Azure, vede
 
 ##Passaggi successivi
 
-Questo articolo fa parte di una serie relativa alle [indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). Per altre informazioni su resilienza, ripristino di emergenza e risorse a disponibilità elevata, vedere le [risorse aggiuntive](./resiliency-technical-guidance.md#additional-resources) per le informazioni tecniche sulla resilienza di Azure.
+Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). Per altre informazioni su resilienza, ripristino di emergenza e risorse a disponibilità elevata, vedere le [risorse aggiuntive](./resiliency-technical-guidance.md#additional-resources) per le informazioni tecniche sulla resilienza di Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

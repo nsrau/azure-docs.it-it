@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure  
@@ -197,4 +197,4 @@ Le pianificazioni di seguito assumono che l’_intervallo_ sia impostato su 1. I
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

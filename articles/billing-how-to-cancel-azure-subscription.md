@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Come annullare la sottoscrizione di Azure
 
->[AZURE.NOTE] Un piano di supporto di Azure prevede un periodo di validità di 6 mesi e Microsoft richiede un impegno monetario continuo per tutta la durata di tale periodo. L'annullamento prima della scadenza del periodo di validità non esonera dal pagamento dell'impegno rimanente né dà diritto al rimborso di un eventuale importo prepagato. Se la sottoscrizione è stata annullata per errore ed è necessario riattivarla, è possibile contattare il [supporto di Azure](billing-how-to-create-billing-support-ticket.md) per ricevere assistenza.
+>[AZURE.NOTE] Un piano di supporto di Azure prevede un periodo di validità di 6 mesi e Microsoft richiede un impegno monetario continuo per tutta la durata di tale periodo. L'annullamento prima della scadenza del periodo di validità non esonera dal pagamento dell'impegno rimanente né dà diritto al rimborso di un eventuale importo prepagato. Se la sottoscrizione è stata annullata per errore ed è necessario riattivarla, è possibile contattare il [supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza.
+
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 Se si annulla la sottoscrizione, tutti i servizi verranno eliminati immediatamente. Assicurarsi di eseguire il backup dei dati che si desidera salvare prima di annullare.
 
@@ -30,4 +32,6 @@ Se si annulla la sottoscrizione, tutti i servizi verranno eliminati immediatamen
 4. Selezionare **Sì, annullare la sottoscrizione**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Fare clic su ![checkButton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) per chiudere la finestra di dialogo e tornare alla pagina di sottoscrizione.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

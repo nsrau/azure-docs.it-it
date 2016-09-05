@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Creare un servizio di bilanciamento del carico interno usando l’interfaccia della riga di comando di Azure nel modello di distribuzione classica | Microsoft Azure"
    description="Informazioni su come creare un servizio di bilanciamento del carico interno usando l’interfaccia della riga di comando di Azure nel modello di distribuzione classica"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite l’interfaccia di riga di comando di Azure
 
@@ -42,7 +42,7 @@ Per creare un set con servizio di bilanciamento del carico e i server che invier
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico interno in base allo scenario precedente.
 
-1. Se non è mai stata usata l'infrastruttura CLI di Azure, vedere [Installare e configurare l'infrastruttura CLI di Azure](../../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
@@ -53,7 +53,7 @@ In questa guida viene illustrato come creare un servizio di bilanciamento del ca
 		info:    New mode is asm
 
 
-## Creazione dell’endpoint e del set del servizio di bilanciamento del carico 
+## Creazione dell’endpoint e del set del servizio di bilanciamento del carico
 
 Lo scenario presuppone le macchine virtuali "DB1" e "DB2" in un servizio cloud denominato "mytestcloud". Entrambe le macchine virtuali utilizzano una rete virtuale denominata "my testvnet" con subnet "subnet-1".
 
@@ -62,7 +62,7 @@ In questa guida verrà creato un set del servizio di bilanciamento del carico in
 Si tratta di uno scenario comune in cui si dispone di macchine virtuali di SQL nel back-end che utilizzano un servizio di bilanciamento del carico interno per garantire che i server di database non siano esposti direttamente tramite un indirizzo IP pubblico.
 
 
-### Passaggio 1 
+### Passaggio 1
 
 Creare un set di bilanciamento del carico interno utilizzando `azure network service internal-load-balancer add`.
 
@@ -73,7 +73,7 @@ Parametri utilizzati:
 **- r** -nome del servizio cloud<BR> **- n** -nome del servizio di bilanciamento del carico interno<BR> **-t** -nome della subnet (stessa subnet per le macchine virtuali che verranno aggiunti al servizio di bilanciamento del carico interno)<BR> **-** (facoltativo) aggiungere un indirizzo IP privato statico<BR>
 
 Per ulteriori informazioni, vedere `azure service internal-load-balancer --help`.
- 
+
 È possibile controllare le proprietà del servizio di bilanciamento del carico interno utilizzando il comando `azure service internal-load-balancer list` *nome del servizio cloud*.
 
 Qui di seguito un esempio di output:
@@ -87,7 +87,7 @@ Qui di seguito un esempio di output:
 	info:    service internal-load-balancer list command OK
 
 
-## Passaggio 2 
+## Passaggio 2
 
 Configurare il set di bilanciamento del carico interno quando si aggiunge il primo endpoint. Associare l'endpoint, la macchina virtuale e la porta probe per il set di bilanciamento del carico interno in questo passaggio.
 
@@ -98,11 +98,11 @@ Parametri utilizzati:
 **-k** - porta della macchina virtuale locale<BR> **-t** - porta probe<BR> **- r** - protocollo probe<BR> **-e** -intervallo di probe in secondi<BR> **-f** - intervallo di timeout in secondi <BR> **-i** -nome del servizio di bilanciamento del carico interno <BR>
 
 
-## Passaggio 3 
+## Passaggio 3
 
 Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show` *nome macchina virtuale*.
 
-	azure vm show DB1 
+	azure vm show DB1
 
 L'output sarà:
 
@@ -132,7 +132,7 @@ L'output sarà:
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@ L'output sarà:
 
 È possibile creare un endpoint di desktop remoto per inoltrare il traffico di rete da una porta pubblica a una porta locale per una macchina virtuale specifica utilizzando `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Rimuovere la macchina virtuale dal servizio di bilanciamento del carico
@@ -179,4 +179,4 @@ Per ulteriori informazioni, vedere `azure vm endpoint --help`.
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Aggiungere e gestire più directory di Azure Active Directory
@@ -41,8 +41,8 @@ Se un utente non amministratore della directory "Contoso" crea una directory di 
 
 Per aggiungere una directory di Azure AD nel portale di Azure classico, selezionare l'estensione di Azure Active Directory a sinistra e toccare **Aggiungi**.
 
-> [AZURE.NOTE]   Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se pertanto si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory mediante Azure AD PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
+> [AZURE.NOTE]   A differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory tramite Azure PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
 
 Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e le procedure consigliate, vedere[che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

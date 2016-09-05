@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 #  Domande frequenti su fatturazione e sottoscrizione di Azure
 
 Questo articolo risponde ad alcune delle domande più frequenti relative alla fatturazione e alla sottoscrizione di Azure.
+
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## Account Administration
 
@@ -134,7 +136,7 @@ Per le configurazioni a istanze singole e istanze multiple, Azure invia in antic
 
 >[AZURE.NOTE] Per altre informazioni specifiche delle macchine virtuali, vedere [Manutenzione pianificata per macchine virtuali Linux in Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-#### Manutenzione non pianificata 
+#### Manutenzione non pianificata
 
 In caso di interruzione imprevista di un servizio nella piattaforma Azure, gli aggiornamenti dello stato saranno visualizzati nel [dashboard del servizio](http://status.azure.com/) e i clienti riceveranno anche una notifica nel [portale di Azure classico](https://manage.windowsazure.com/).
 
@@ -210,7 +212,7 @@ Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione
 
 ### Come si trasferisce la proprietà delle sottoscrizioni?
 
-Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile cambiare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari. Si noti che l'account utente del destinatario deve essere nello stesso paese e che non è possibile trasferire le sottoscrizioni associate a un acquisto sul Marketplace. Per informazioni dettagliate, vedere [Trasferimento di proprietà di una sottoscrizione di Azure](billing-subscription-transfer.md).
+Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile cambiare l'amministratore account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari. Si noti che l'account utente del destinatario deve essere nello stesso paese e che non è possibile trasferire le sottoscrizioni associate a un acquisto sul Marketplace. Per informazioni dettagliate, vedere [Trasferimento di proprietà di una sottoscrizione di Azure](billing-subscription-transfer.md).
 
 ### È possibile usare licenze di Windows esistenti acquistate all'esterno di Azure?
 
@@ -282,7 +284,7 @@ Sì.
 
 Attualmente non si prevede di offrire Azure o il database SQL tramite SPLA.
 
-### Che cos'è una sottoscrizione di valutazione e per quanto tempo è valida?
+### Che cos'è una sottoscrizione della versione di valutazione e per quanto tempo è valida?
 
 Una sottoscrizione di valutazione gratuita è una versione valida un mese per tutti i nuovi clienti e include crediti di Azure pari a USD 200 senza costi aggiuntivi. Per visualizzare i servizi coperti o meno dalla versione di valutazione gratuita, vedere la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
@@ -310,4 +312,6 @@ Le sottoscrizioni di valutazione gratuita non sono idonee per aumenti della quot
 
 Visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) e vedere le [Domande frequenti sulla versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

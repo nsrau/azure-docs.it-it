@@ -3,7 +3,7 @@
    description="Informazioni sulle prestazioni in Gestione traffico e su come testare le prestazioni in un sito Web quando si usa Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Considerazioni sulle prestazioni per Gestione traffico
@@ -84,4 +84,4 @@ http://www.digwebinterface.com - Analogo al sito Watchmouse, ma con informazioni
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

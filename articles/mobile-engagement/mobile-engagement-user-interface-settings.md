@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come gestire le impostazioni globali dell'applicazione
@@ -21,7 +21,7 @@
 Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo).
 
 
->[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+>[AZURE.NOTE] Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Dettagli
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere:
  
 ### Amazon Device Messaging for Android (ADM)
 
-Per abilitare il push nativo mediante ADM, è necessario specificare le <OAuth credentials> Amazon costituite da ID e segreto client (è necessaria l'integrazione con l'SDK per Android v2.1.0+).
+Per abilitare il push nativo mediante ADM, è necessario specificare le <credenziali OAuth> di Amazon costituite da ID e segreto client (è necessaria l'integrazione con l'SDK per Android v2.1.0+).
 
 Per altre informazioni, vedere:
 
@@ -202,4 +202,4 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0824_2016-->

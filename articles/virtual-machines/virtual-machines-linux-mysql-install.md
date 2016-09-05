@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Impostare MySQL su una macchina virtuale Linux | Microsoft Azure"
+	pageTitle="Impostare MySQL su una macchina virtuale Linux | Microsoft Azure "
 	description="Informazioni su come installare lo stack MySQL in una macchina virtuale Linux (Ubuntu o famiglia RedHat OS) in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -32,7 +32,7 @@ In questo articolo verrà illustrato come installare e configurare MySQL in una 
 
 [In questo caso, usare la porta 3306 come porta di MySQL].
 
-Connettersi tramite putty alla macchina virtuale Linux creata. Se è la prima volta che si usa una macchina virtuale Linux di Azure, vedere come usare putty per connettersi a una macchina virtuale Linux facendo clic [qui](virtual-machines-linux-ssh-from-linux.md).
+Connettersi tramite putty alla macchina virtuale Linux creata. Se è la prima volta che si usa una macchina virtuale Linux di Azure, vedere come usare putty per connettersi a una macchina virtuale Linux facendo clic [qui](virtual-machines-linux-mac-create-ssh-keys.md).
 
 In questo articolo, come esempio, per installare MySQL5.6 verrà utilizzato il pacchetto repository. In realtà, MySQL5.6 presenta maggiori miglioramenti in termini di prestazioni rispetto a MySQL5.5. Ulteriori informazioni sono disponibili [qui](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
@@ -185,4 +185,4 @@ In questa circostanza si utilizzerà una VM Linux con OpenSUSE.
 ###Passaggio successivo
 Ulteriori utilizzi e informazioni su MySQL sono disponibili [qui](https://www.mysql.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

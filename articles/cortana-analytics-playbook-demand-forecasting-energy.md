@@ -26,12 +26,12 @@ Questo studio sintetizza le linee guida aziendali e analitiche per sviluppare e 
 
 >[AZURE.TIP] Per scaricare un diagramma che offre una panoramica dell'architettura del modello, vedere [Architettura del modello di soluzione di Cortana Intelligence per la previsione della domanda di energia](cortana-analytics-architecture-demand-forecasting-energy.md).
 
-## Panoramica  
+## Overview  
 
 Questo documento illustra gli aspetti tecnici, commerciali e relativi ai dati legati all'uso di Cortana Intelligence e, in particolare, di Azure Machine Learning (Azure ML) per l'implementazione e la distribuzione di soluzioni di previsione energetica. Il documento è costituito da tre parti principali:
 
-1. Informazioni commerciali  
-2. Informazioni sui dati  
+1. Informazioni commerciali
+2. Informazioni sui dati
 3. Implementazione tecnica
 
 La parte relativa alle **informazioni commerciali** descrive l'aspetto legato alle esigenze aziendali che è necessario comprendere ed esaminare prima di prendere una decisione di investimento. Illustra come qualificare il problema aziendale per assicurarsi che analisi predittiva e apprendimento automatico siano davvero efficaci e applicabili. Il documento approfondisce le nozioni di base sull'apprendimento automatico e come viene usato per risolvere i problemi di previsione energetica. Descrive i prerequisiti e i criteri di qualificazione di un caso d'uso. Fornisce anche alcuni casi d'uso di esempio e scenari di casi aziendali.
@@ -85,7 +85,7 @@ Nel contesto della domanda di energia, la previsione di carico a breve termine �
 -   Bilanciamento del carico e prevenzione del sovraccarico.
 -   Previsione di carico a lungo termine.
 -   Rilevamento di guasti e anomalie.
--   Riduzione e livellamento dei picchi. 
+-   Riduzione e livellamento dei picchi.
 
 I modelli di previsione di carico a breve termine sono basati principalmente sui dati relativi al consumo del giorno o della settimana precedente e usano le temperature previste come un predittore importante. Ottenere previsioni accurate sulle temperature da un'ora a 24 ore dopo sta diventando sempre meno difficile. Questi modelli sono meno sensibili agli schemi stagionali o alle tendenze di consumo a lungo termine.
 
@@ -259,7 +259,7 @@ Le tabelle seguenti illustrano esempi di dati sul consumo e sulla temperatura in
 Come illustrato sopra, questo esempio include tre valori diversi per il consumo associati a tre fasi di alimentazione. I campi di data e ora sono separati, ma possono anche essere combinati in un'unica colonna. In questo caso la colonna della posizione è rappresentata nel formato CAP a cinque cifre e la temperatura è espressa in gradi Celsius.
 
 ### Formato dati
-La suite Cortana Intelligence supporta i formati di dati più comuni come CSV, TSV, JSON *e così via*. È importante che il formato dati rimanga coerente per l'intero ciclo di vita del progetto.
+Cortana Intelligence Suite supporta i formati di dati più comuni come CSV, TSV, JSON *e così via*. È importante che il formato dati rimanga coerente per l'intero ciclo di vita del progetto.
 
 ### Inserimento di dati
 Dal momento che la previsione della domanda di energia viene eseguita in modo frequente e costante, è necessario garantire il flusso dei dati non elaborati attraverso un processo di inserimento dati solido e affidabile. Il processo di inserimento deve garantire la disponibilità dei dati non elaborati per la previsione quando richiesto. Ciò significa che la frequenza di inserimento dati deve essere maggiore della frequenza di previsione.
@@ -384,4 +384,4 @@ Il diagramma seguente illustra una tipica architettura basata su Cortana Intelli
 
 Per altre informazioni su ognuno dei componenti e sull'intera architettura, vedere il modello di soluzione energetica.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

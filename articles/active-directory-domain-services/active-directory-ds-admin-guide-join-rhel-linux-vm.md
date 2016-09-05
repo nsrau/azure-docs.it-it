@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Servizi di dominio Azure Active Directory: Guida all'amministrazione | Microsoft Azure"
+	pageTitle="Anteprima di Servizi di dominio Active Directory di Azure: Guida all'amministrazione | Microsoft Azure"
 	description="Aggiungere una macchina virtuale Red Hat Enterprise Linux a Servizi di dominio Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -71,7 +71,7 @@ Completare la procedura seguente per eseguire il provisioning di una macchina vi
 ## Connettersi in remoto alla macchina virtuale Linux di cui è stato appena effettuato il provisioning
 Il provisioning della macchina virtuale RHEL 7.2 è stato eseguito in Azure. L'attività successiva prevede la connessione remota alla macchina virtuale.
 
-**Connettersi alla macchina virtuale RHEL 7.2** Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+**Connettersi alla macchina virtuale RHEL 7.2** Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 Il resto dei passaggi riportati di seguito presuppongono l'utilizzo di PuTTY come client SSH per connettersi alla macchina virtuale RHEL. Per altre informazioni, vedere la [pagina di download di PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -173,8 +173,8 @@ Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-d
 
 
 ## Altre informazioni
-- [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Installazione di Kerberos](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

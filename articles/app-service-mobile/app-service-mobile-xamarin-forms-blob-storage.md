@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Connettersi ad Archiviazione di Azure nell'app Xamarin.Forms
 
-## Panoramica
+## Overview
 
 Azure Mobile Apps SDK per client e server supporta la sincronizzazione offline di dati strutturati con operazioni CRUD sull'endpoint /tables. In genere questi dati vengono archiviati in un database o in un archivio simile e di solito questi archivi dati non possono archiviare in modo efficiente dati binari di grandi dimensioni. Alcune applicazioni hanno anche dati correlati archiviati altrove, ad esempio archivi BLOB, condivisioni file, ed è utile poter creare associazioni tra i record nell'endpoint /tables e altri dati.
 
-Questo argomento illustra come aggiungere il supporto per le immagini al progetto di avvio rapido "todo list" per App per dispositivi mobili. Prima di tutto è necessario completare l'esercitazione [Creare un'app Xamarin.Forms].
+Questo argomento illustra come aggiungere il supporto per le immagini al progetto di avvio rapido "todo list" per le app per dispositivi mobili. Prima di tutto è necessario completare l'esercitazione [Creare un'app Xamarin.Forms].
 
 In questa esercitazione si creerà un account di archiviazione e si aggiungerà una stringa di connessione al back-end di App per dispositivi mobili. Si aggiungerà quindi un nuovo controller, che eredita dal nuovo tipo di App per dispositivi mobili `StorageController<T>`, al progetto server.
 
@@ -36,7 +36,7 @@ In questa esercitazione si creerà un account di archiviazione e si aggiungerà 
 
 ## Creare un account di archiviazione
 
-1. Creare un account di archiviazione seguendo le istruzioni nella sezione [Creare un account di archiviazione di Azure] dell'esercitazione. 
+1. Creare un account di archiviazione seguendo le istruzioni nella sezione [Creare un account di archiviazione di Azure] dell'esercitazione.
 
 2. Nel portale di Azure passare all'account di archiviazione appena creato e fare clic sull'icona **Chiavi**. Copiare la **Stringa di connessione primaria**.
 
@@ -622,7 +622,7 @@ Aggiungere codice specifico della piattaforma al progetto iOS.
 
 ###<a name="update-windows"></a>Aggiornare il progetto Windows
 
-1. Installare l'estensione di Visual Studio [SQLite per Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Per altre informazioni, vedere l'esercitazione [Abilitare la sincronizzazione offline per l'app di Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Installare l'estensione di Visual Studio [SQLite per Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Per altre informazioni, vedere l'esercitazione [Abilitare la sincronizzazione offline per l'app di Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md).
 
 2. Modificare **Package.appxmanifest** e selezionare la funzionalità **Webcam**.
 
@@ -734,4 +734,4 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 [Informazioni sulle firme di accesso condiviso]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Creare un account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

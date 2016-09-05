@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -91,13 +91,13 @@ I processi di migrazione automatica vengono eseguiti tra le 18.00 e le 06.00 (or
 | Giappone orientale | 10 agosto 2016 | 24 agosto 2016 |
 | Giappone occidentale | Non ancora determinata | Non ancora determinata |
 | Stati Uniti centro-settentrionali | Non ancora determinata | Non ancora determinata |
-| Europa settentrionale | 10 agosto 2016 | 24 agosto 2016 |
+| Europa settentrionale | 10 agosto 2016 | 31 agosto 2016 |
 | Stati Uniti centro-meridionali | 23 giugno 2016 | 2 luglio 2016 |
 | Asia sudorientale | 23 giugno 2016 | 1 luglio 2016 |
 | Europa occidentale | 23 giugno 2016 | 8 luglio 2016 |
-| Stati Uniti centro-occidentali | 14 agosto 2016 | 28 agosto 2016 |
+| Stati Uniti centro-occidentali | 14 agosto 2016 | 31 agosto 2016 |
 | Stati Uniti occidentali | 23 giugno 2016 | 7 luglio 2016 |
-| Stati Uniti occidentali 2 | 14 agosto 2016 | 28 agosto 2016 |
+| Stati Uniti occidentali 2 | 14 agosto 2016 | 31 agosto 2016 |
 
 ## Migrazione self-service ad Archiviazione Premium
 Se si preferisce mantenere il controllo sui tempi di inattività, è possibile attenersi alla procedura seguente per eseguire la migrazione di un Data Warehouse esistente da Archiviazione Standard in Archiviazione Premium. Se si sceglie di eseguire la migrazione self-service, è necessario completarla prima dell'inizio della migrazione automatica nella stessa area, per evitare il rischio di conflitti dovuti alla migrazione automatica. Vedere in proposito la [pianificazione della migrazione automatica][].
@@ -147,42 +147,19 @@ Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database n
 -- Passaggio 1: creare una tabella per controllare la ricompilazione degli indici
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- Passaggio 2: eseguire le ricompilazioni degli indici Se si verifica un errore di script, il codice riportato di seguito può essere eseguito nuovamente per riavviare il processo dal punto in cui si è interrotto.
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -- Passaggio 3: tabella di pulizia creata nel passaggio 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
@@ -207,4 +184,4 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 [Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

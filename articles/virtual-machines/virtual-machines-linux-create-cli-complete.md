@@ -7,7 +7,7 @@
    authors="iainfoulds"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,14 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/10/2016"
+   ms.date="08/23/2016"
    ms.author="iainfou"/>
 
 # Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure
 
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
 
-Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
+Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
 
 Nell'ambiente sono presenti:
 
@@ -200,7 +200,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -218,7 +218,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -307,7 +307,7 @@ data:
 info:    group show command OK
 ```
 
-Utilizzare lo strumento [jq](https://stedolan.github.io/jq/) con l'interfaccia della riga di comando di Azure `--json` per esaminare il gruppo di risorse con il comando `azure group show`. È possibile utilizzare **jsawk** o qualsiasi altra libreria di linguaggio per l'analisi del JSON.
+Per esaminare il gruppo di risorse con il comando `azure group show`, usare lo strumento [jq](https://stedolan.github.io/jq/) insieme all'opzione `--json` dell'interfaccia della riga di comando di Azure. È possibile utilizzare **jsawk** o qualsiasi altra libreria di linguaggio per l'analisi del JSON.
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
@@ -439,7 +439,7 @@ Output:
 }
 ```
 
-Viene quindi creata una subnet all'interno della rete virtuale `TestVnet` in cui verranno distribuite le macchine virtuali. Utilizzare il comando `azure network vnet subnet create` insieme alle risorse create in precedenza: il gruppo di risorse `TestRG` e la rete virtuale `TestVNet`. Aggiungere il nome della subnet `FrontEnd` e il prefisso dell'indirizzo subnet `192.168.1.0/24`, come descritto di seguito:
+Viene quindi creata una subnet all'interno della rete virtuale `TestVnet` in cui vengono distribuite le VM. Usare il comando `azure network vnet subnet create` insieme alle risorse create in precedenza: il gruppo di risorse `TestRG` e la rete virtuale `TestVNet`. Aggiungere il nome della subnet `FrontEnd` e il prefisso dell'indirizzo subnet `192.168.1.0/24`, come descritto di seguito:
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
@@ -461,7 +461,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Dato che la subnet è logicamente all'interno della rete virtuale, le informazioni relative alla subnet vengono cercate con un comando leggermente diverso. Il comando utilizzato sarà `azure network vnet show`, ma si continuerà a esaminare l'output JSON mediante lo strumento **jq**.
+Dato che la subnet è logicamente all'interno della rete virtuale, le informazioni relative alla subnet vengono cercate con un comando leggermente diverso. Il comando usato è `azure network vnet show`, ma si continua a esaminare l'output JSON mediante lo strumento **jq**.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -500,7 +500,7 @@ Output:
 
 ## Creare un indirizzo IP pubblico (PIP)
 
-A questo punto, creare l'indirizzo IP pubblico (PIP) che verrà assegnato al bilanciamento del carico. Consente di connettersi alle VM da Internet tramite il comando `azure network public-ip create`. Dato che l'indirizzo predefinito è dinamico, si creerà una voce DNS denominata nel dominio **cloudapp.azure.com** usando l'opzione `-d testsubdomain`.
+A questo punto, creare l'indirizzo IP pubblico (PIP) che viene assegnato al bilanciamento del carico. Consente di connettersi alle VM da Internet tramite il comando `azure network public-ip create`. Dato che l'indirizzo predefinito è dinamico, si crea una voce DNS denominata nel dominio **cloudapp.azure.com** usando l'opzione `-d testsubdomain`.
 
 ```bash
 azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
@@ -525,7 +525,7 @@ data:    FQDN                            : testsubdomain.westeurope.cloudapp.azu
 info:    network public-ip create command OK
 ```
 
-Anche questa è una risorsa di primo livello che può essere visualizzata con `azure group show`.
+Anche l'indirizzo IP pubblico è una risorsa di primo livello che può essere visualizzata con `azure group show`.
 
 ```bash
 azure group show TestRG --json | jq '.'
@@ -584,7 +584,7 @@ Output:
 }
 ```
 
-È possibile esaminare altri dettagli relativi alla risorsa, incluso il nome di dominio completo (FQDN) del sottodominio, usando il comando `azure network public-ip show` più completo. Si noti che la risorsa indirizzo IP pubblico è stata allocata in modo logico, ma non è ancora stato assegnato un indirizzo specifico. A questo scopo sarà necessario un servizio di bilanciamento del carico, che non è ancora stato creato.
+È possibile esaminare altri dettagli relativi alla risorsa, incluso il nome di dominio completo (FQDN) del sottodominio, usando il comando `azure network public-ip show` completo. La risorsa indirizzo IP pubblico è stata allocata in modo logico, ma non è ancora stato assegnato un indirizzo specifico. Per ottenere un indirizzo IP, sarà necessario un servizio di bilanciamento del carico, che non è ancora stato creato.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
@@ -610,7 +610,7 @@ Output:
 ```
 
 ## Creare un servizio di bilanciamento del carico e i pool di indirizzi IP
-Quando si crea un bilanciamento del carico, questo consente di distribuire il traffico tra più VM. Tale operazione può essere effettuata quando si eseguono le applicazioni web, ad esempio. Fornisce anche ridondanza all'applicazione grazie all'esecuzione di più VM che rispondono alle richieste degli utenti in caso di manutenzione o carichi elevati.
+Quando si crea un bilanciamento del carico, questo consente di distribuire il traffico tra più VM. Fornisce anche ridondanza all'applicazione grazie all'esecuzione di più VM che rispondono alle richieste degli utenti in caso di manutenzione o carichi elevati.
 
 Il servizio di bilanciamento del carico viene creato con:
 
@@ -635,7 +635,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Il servizio di bilanciamento del carico è piuttosto vuoto, per cui si creeranno alcuni pool di indirizzi IP. Si creeranno due pool di indirizzi IP per il servizio di bilanciamento del carico, uno per il front-end e uno per il back-end. Il pool di IP front-end sarà visibile pubblicamente. Rappresenta anche il percorso a cui si assegneranno i PIP creati in precedenza. Dopodiché, si utilizzerà il pool di back-end come un percorso per le VM a cui connettersi. In questo modo, il traffico può fluire attraverso il bilanciamento del carico verso le VM.
+Il servizio di bilanciamento del carico è piuttosto vuoto, per cui si creeranno alcuni pool di indirizzi IP. Si creeranno due pool di indirizzi IP per il servizio di bilanciamento del carico, uno per il front-end e uno per il back-end. Il pool di IP front-end è visibile pubblicamente. Rappresenta anche il percorso a cui si assegnano i PIP creati in precedenza. Dopodiché, si usa il pool di back-end come un percorso per le VM a cui connettersi. In questo modo, il traffico può fluire attraverso il bilanciamento del carico verso le VM.
 
 Prima di tutto si creerà il pool di indirizzi IP front-end:
 
@@ -657,7 +657,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-Si noti che è stata usata l'opzione `--public-ip-name` per passare il TestLBPIP creato in precedenza. In questo modo l'indirizzo IP pubblico viene assegnato al servizio di bilanciamento del carico affinché le VM siano raggiungibili su Internet.
+Si noti che è stata usata l'opzione `--public-ip-name` per passare il TestLBPIP creato in precedenza. L'assegnazione dell'indirizzo IP pubblico al servizio di bilanciamento del carico consente di raggiungere le VM su Internet.
 
 Quindi si creerà il secondo pool di indirizzi IP, questa volta per il traffico back-end:
 
@@ -722,7 +722,7 @@ Output:
 ```
 
 ## Creare le regole NAT per il servizio di bilanciamento del carico
-Affinché il traffico attraversi il servizio di bilanciamento del carico, è necessario creare le regole NAT che specificano le azioni in ingresso o in uscita. È possibile specificare il protocollo da usare, quindi eseguire il mapping delle porte esterne alle porte interne desiderate. Per questo ambiente si creeranno alcune regole che consentono il passaggio di SSH attraverso il servizio di bilanciamento del carico fino alle VM. Le porte TCP 4222 e 4223 vengono configurate in modo da puntare alla porta TCP 22 nelle VM, che verranno create successivamente:
+Affinché il traffico attraversi il servizio di bilanciamento del carico, è necessario creare le regole NAT che specificano le azioni in ingresso o in uscita. È possibile specificare il protocollo da usare, quindi eseguire il mapping delle porte esterne alle porte interne desiderate. Per questo ambiente si creeranno alcune regole che consentono il passaggio di SSH attraverso il servizio di bilanciamento del carico fino alle VM. Le porte TCP 4222 e 4223 vengono configurate in modo da puntare alla porta TCP 22 nelle VM, che vengono create successivamente:
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
@@ -754,7 +754,7 @@ Ripetere la procedura per la seconda regola NAT per SSH:
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Verrà anche creata una regola NAT per la porta TCP 80, associando la regola ai pool di indirizzi IP. Se si esegue questa operazione, anziché collegare singolarmente la regola alle VM, è possibile aggiungere o rimuovere semplicemente le VM dal pool IP. A quel punto, il bilanciamento del carico regola automaticamente il flusso del traffico:
+Verrà anche creata una regola NAT per la porta TCP 80, associando la regola ai pool di indirizzi IP. Se la regola viene collegata al pool IP, anziché essere collegata singolarmente alle VM, è possibile aggiungere o rimuovere semplicemente le VM dal pool IP. A quel punto, il bilanciamento del carico regola automaticamente il flusso del traffico:
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -807,7 +807,7 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-In questo caso è stato specificato un intervallo di 15 secondi per i controlli di integrità ed è consentito un massimo di quattro probe mancati (un minuto) prima che il bilanciamento del carico consideri l'host come non più funzionante.
+In questo caso è stato specificato un intervallo di 15 secondi per i controlli di integrità. È consentito un massimo di quattro probe mancati (un minuto) prima che il bilanciamento del carico consideri l'host come non più funzionante.
 
 ## Verificare il bilanciamento del carico
 La configurazione del bilanciamento del carico è completa. Ecco i passaggi effettuati:
@@ -816,7 +816,7 @@ La configurazione del bilanciamento del carico è completa. Ecco i passaggi effe
 2. Poi si è creato un pool IP front-end a cui è stato assegnato un indirizzo IP pubblico.
 3. Successivamente è stato creato un pool IP back-end a cui possono connettersi le VM.
 4. Dopodiché, sono state create le regole NAT che consentono SSH alle VM per la gestione, oltre a una regola che consente la porta TCP 80 per l'app Web.
-5. Infine è stato aggiunto un probe di integrità per verificare periodicamente lo stato delle VM. Ciò garantisce agli utenti di accedere solo alle VM funzionanti o ai contenuti disponibili.
+5. Infine è stato aggiunto un probe di integrità per verificare periodicamente lo stato delle VM. Questo probe di integrità garantisce agli utenti di accedere solo alle VM non più funzionanti o con contenuti non più disponibili.
 
 Ecco il bilanciamento del carico risultante:
 
@@ -943,7 +943,7 @@ Output:
 
 ## Creare una scheda di interfaccia di rete da usare con la VM di Linux
 
- Le schede di interfaccia di rete sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di utilizzo. È inoltre possibile averne più di una. Si noti che nel comando `azure network nic create` seguente la scheda di interfaccia di rete viene associata al pool di indirizzi IP back-end del carico e alla regola NAT per consentire il traffico SSH. A questo scopo occorre specificare l'ID della sottoscrizione di Azure al posto di `<GUID>`:
+ Le schede di interfaccia di rete sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di utilizzo. È inoltre possibile averne più di una. Nel comando `azure network nic create` seguente la scheda di interfaccia di rete viene associata al pool di indirizzi IP back-end del carico e alla regola NAT per consentire il traffico SSH. A questo scopo occorre specificare l'ID della sottoscrizione di Azure al posto di `<GUID>`:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -978,7 +978,7 @@ data:
 info:    network nic create command OK
 ```
 
-È possibile visualizzare i dettagli esaminando la risorsa direttamente. A tale scopo è possibile usare il comando `azure network nic show`:
+È possibile visualizzare i dettagli esaminando la risorsa direttamente. La risorsa viene esaminata con il comando `azure network nic show`:
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
@@ -1054,7 +1054,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] La regola in ingresso è un filtro per le connessioni di rete in ingresso. In questo esempio il gruppo di sicurezza di rete viene associato alla scheda di rete virtuale delle VM, di conseguenza qualsiasi richiesta per la porta 22 verrà passata alla scheda di rete nella VM. È una regola relativa alla connessione di rete anziché all'endpoint, come invece sarebbe nelle distribuzioni classiche. Ciò significa che per aprire una porta, è necessario lasciare `--source-port-range` impostato su '*' (valore predefinito) per accettare le richieste in ingresso da **qualsiasi** porta richiedente. Le porte sono solitamente dinamiche.
+> [AZURE.NOTE] La regola in ingresso è un filtro per le connessioni di rete in ingresso. In questo esempio il gruppo di sicurezza di rete viene associato alla scheda di rete virtuale delle VM, di conseguenza qualsiasi richiesta per la porta 22 viene passata alla scheda di rete nella VM. Questa regola è relativa alla connessione di rete anziché all'endpoint, come invece sarebbe nelle distribuzioni classiche. Per aprire una porta, è necessario lasciare `--source-port-range` impostato su '*' (valore predefinito) per accettare le richieste in ingresso da **qualsiasi** porta richiedente. Le porte sono solitamente dinamiche.
 
 ## Associare alla scheda di rete
 
@@ -1083,14 +1083,14 @@ Per altre informazioni, leggere l'articolo relativo alla [gestione della disponi
 
 ## Creare le VM di Linux
 
-Sono state create le risorse di archiviazione e di rete per supportare le VM accessibili tramite Internet. Ora è possibile creare quelle VM e proteggerle con una chiave SSH priva di password. In questo caso, si vuole creare una VM Ubuntu basata sull'LTS più recente. Per trovare le informazioni sull'immagine si utilizza `azure vm image list`, come descritto nell'articolo relativo alla [ricerca di immagini di VM di Azure](virtual-machines-linux-cli-ps-findimage.md).
+Sono state create le risorse di archiviazione e di rete per supportare le VM accessibili tramite Internet. Ora è possibile creare quelle VM e proteggerle con una chiave SSH priva di password. In questo caso, si vuole creare una VM Ubuntu basata sull'LTS più recente. Per trovare le informazioni sull'immagine si usa `azure vm image list`, come descritto nell'articolo relativo alla [ricerca di immagini di VM di Azure](virtual-machines-linux-cli-ps-findimage.md).
 
-È stata selezionata un'immagine utilizzando il comando `azure vm image list westeurope canonical | grep LTS`. In questo caso, si userà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`. Per l'ultimo campo si passa a `latest` così che in futuro si otterrà sempre la build più recente. La stringa utilizzata sarà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`.
+È stata selezionata un'immagine utilizzando il comando `azure vm image list westeurope canonical | grep LTS`. In questo caso, si usa `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Per l'ultimo campo si passa a `latest` così che in futuro si ottenga sempre la build più recente. La stringa usata è `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`.
 
 Il passaggio successivo è già noto a chiunque abbia già creato una coppia di chiavi ssh-rsa pubblica e privata in Linux o Mac usando **ssh-keygen -t rsa -b 2048**. Se non si dispone di alcuna coppia di chiavi del certificato nella directory `~/.ssh`, è possibile crearle:
 
 - Automaticamente, utilizzando l'opzione `azure vm create --generate-ssh-keys`.
-- Manualmente, utilizzando [le istruzioni per crearle autonomamente](virtual-machines-linux-ssh-from-linux.md).
+- Manualmente, utilizzando [le istruzioni per crearle autonomamente](virtual-machines-linux-mac-create-ssh-keys.md).
 
 In alternativa, è possibile utilizzare il metodo con password amministratore per autenticare le connessioni SSH dopo aver creato la VM. Di solito, questo metodo risulta essere meno sicuro.
 
@@ -1107,7 +1107,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -1117,8 +1117,8 @@ Output:
 ```bash
 info:    Executing command vm create
 + Looking up the VM "TestVM1"
-info:    Verifying the public key SSH file: /home/ifoulds/.ssh/id_rsa.pub
-info:    Using the VM Size "Standard_A1"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
+info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account computeteststore
 + Looking up the availability set "TestAvailSet"
@@ -1144,17 +1144,11 @@ The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '[testlb.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
- * Documentation:  https://help.ubuntu.com/
-
-  System information as of Wed Apr 27 23:44:06 UTC 2016
-
-  System load: 0.37              Memory usage: 5%   Processes:       81
-  Usage of /:  37.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-
-  Graph this data and manage this system at:
-    https://landscape.canonical.com/
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
     http://www.ubuntu.com/business/services/cloud
@@ -1163,13 +1157,15 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
 0 updates are security updates.
 
 
-
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
 
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 
 ops@TestVM1:~$
 ```
@@ -1187,7 +1183,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -1204,29 +1200,29 @@ Output:
 info:    Executing command vm show
 + Looking up the VM "TestVM1"
 + Looking up the NIC "LB-NIC1"
-data:    Id                              :/subscriptions/8fa5cd83-7fbb-431a-af16-4a20dede8802/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/TestVM1
+data:    Id                              :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/TestVM1
 data:    ProvisioningState               :Succeeded
 data:    Name                            :TestVM1
 data:    Location                        :westeurope
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
 data:    Hardware Profile:
-data:      Size                          :Standard_A1
+data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
 data:        Publisher                   :canonical
 data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.4-LTS
+data:        Sku                         :16.04.0-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli1cca1d20a1dcf56c-os-1461800591317
+data:        Name                        :clib45a8b650f4428a1-os-1471973896525
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/cli1cca1d20a1dcf56c-os-1461800591317.vhd
+data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/clib45a8b650f4428a1-os-1471973896525.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :TestVM1
@@ -1238,13 +1234,13 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-20-F8-8B
+data:          MAC Address               :00-0D-3A-24-D4-AA
 data:          Provisioning State        :Succeeded
 data:          Name                      :LB-NIC1
 data:          Location                  :westeurope
 data:
 data:    AvailabilitySet:
-data:      Id                            :/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
+data:      Id                            :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
@@ -1252,19 +1248,20 @@ data:      BootDiagnostics StorageUri    :https://computeteststore.blob.core.win
 data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
+
 ```
 
 
 ## Esportare l'ambiente come modello
-Dopo aver creato questo ambiente, è possibile creare un ambiente di sviluppo aggiuntivo utilizzando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. Ciò significa che è possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../resource-group-authoring-templates.md) o semplicemente esportare un ambiente esistente per creare il modello JSON desiderato.
+Dopo aver creato questo ambiente, è possibile creare un ambiente di sviluppo aggiuntivo utilizzando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. È possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../resource-group-authoring-templates.md) o semplicemente esportare un ambiente esistente per creare il modello JSON desiderato.
 
 ```bash
 azure group export TestRG
 ```
 
-In tal modo, verrà creato il file `TestRG.json` nella directory di lavoro corrente. Quando si crea un nuovo ambiente da questo modello, verranno richiesti i nomi di tutte le risorse, tra cui quelli del bilanciamento del carico, delle interfacce di rete, delle VM e così via. È possibile popolare questi elementi nel file del modello aggiungendo `-p` o `--includeParameterDefaultValue` al comando `azure group export` (descritto in precedenza). Modificare il modello JSON per specificare i nomi delle risorse, o [creare un file parameters.json](../resource-group-authoring-templates.md#parameters) nel quale vengono specificati i nomi delle risorse.
+Questo comando crea il file `TestRG.json` nella directory di lavoro corrente. Quando si crea un ambiente da questo modello, vengono richiesti i nomi di tutte le risorse, tra cui quelli del servizio di bilanciamento del carico, delle interfacce di rete o delle VM. È possibile popolare questi nomi nel file del modello aggiungendo i parametri `-p` o `--includeParameterDefaultValue` al comando `azure group export` descritto in precedenza. Modificare il modello JSON per specificare i nomi delle risorse, o [creare un file parameters.json](../resource-group-authoring-templates.md#parameters) nel quale vengono specificati i nomi delle risorse.
 
-Per creare un nuovo ambiente in base al modello:
+Per creare un ambiente in base al modello:
 
 ```bash
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
@@ -1276,4 +1273,4 @@ Se lo si desidera, è possibile consultare [ulteriori informazioni su come esegu
 
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

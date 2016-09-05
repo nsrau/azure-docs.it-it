@@ -3,14 +3,17 @@
    description="Questo articolo illustrerà l'uso dei profili di Gestione traffico."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Disabilitare, abilitare o eliminare un profilo
 
@@ -35,7 +38,7 @@
 
 
 1. Assicurarsi che il record di risorse DNS sul server DNS Internet non usi più un record di risorse CNAME che punta al nome di dominio del profilo di Gestione traffico.
-1. Selezionare il profilo da eliminare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo 
+1. Selezionare il profilo da eliminare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo
 1. facendo clic sulla colonna accanto al profilo. Non fare clic sul nome del profilo o sulla freccia accanto al nome, altrimenti verrà visualizzata la pagina delle impostazioni del profilo.
 1. Dopo aver selezionato il profilo, fare clic su Elimina nella parte inferiore della pagina.
 
@@ -51,4 +54,4 @@
 
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

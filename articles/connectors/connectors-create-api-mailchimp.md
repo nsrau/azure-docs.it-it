@@ -1,6 +1,6 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
-description="Creare app per la logica con Servizio app di Azure. MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizzare le attività di marketing via posta elettronica, tra cui l'invio di messaggi di posta elettronica e di messaggi automatizzati, nonché la diffusione di campagne mirate."
+description="Creare app per la logica in Servizio app di Azure. MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizzare le attività di marketing via posta elettronica, tra cui l'invio di messaggi di posta elettronica e di messaggi automatizzati, nonché la diffusione di campagne mirate."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,17 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore MailChimp
 
+MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizzare le attività di marketing via posta elettronica, tra cui l'invio di messaggi di posta elettronica e di messaggi automatizzati, nonché la diffusione di campagne mirate.
 
-
-Il connettore MailChimp può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -68,7 +63,7 @@ Per creare app per la logica con MailChimp, è prima necessario creare una **con
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
 ## Informazioni di riferimento per MailChimp
-Si applica alla versione: 1.0
+Si applica alla versione 1.0
 
 ## newcampaign
 Nuova campagna: crea una nuova campagna basata su tipo di campagna, elenco di destinatari e impostazioni della campagna (subject\_line, title, from\_name e reply\_to)
@@ -79,9 +74,9 @@ Nuova campagna: crea una nuova campagna basata su tipo di campagna, elenco di de
 | ---|---|---|---|---|---|
 |newCampaignRequest| |sì|body|nessuno|Oggetto JSON da inviare all'interno del corpo con i parametri della richiesta di una nuova campagna|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -97,11 +92,11 @@ Nuovo elenco: crea un nuovo elenco nell'account di MailChimp
 
 ```POST: /lists```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |newListRequest| |sì|body|nessuno|Oggetto JSON da inviare all'interno del corpo con i parametri della richiesta di una nuova campagna|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -119,12 +114,12 @@ Aggiunta di membri all'elenco: aggiunge un membro all'elenco o ne aggiorna uno g
 
 ```POST: /lists/{list_id}/members```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|string|yes|path|nessuno|ID univoco per l'elenco|
+|list\_id|stringa|yes|path|nessuno|ID univoco per l'elenco|
 |newMemberInList| |sì|body|nessuno|Oggetto JSON da inviare nel corpo con le informazioni del nuovo membro|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -145,9 +140,9 @@ Rimozione di un membro dall'elenco: elimina un membro da un elenco.
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |list\_id|string|yes|path|nessuno|ID univoco per l'elenco|
-|member\_email|string|yes|path|nessuno|Indirizzo di posta elettronica del membro da eliminare|
+|member\_email|stringa|yes|path|nessuno|Indirizzo di posta elettronica del membro da eliminare|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -167,13 +162,13 @@ Aggiornamento delle informazioni di un membro: aggiorna le informazioni per un m
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|list\_id|string|yes|path|nessuno|ID univoco per l'elenco|
+|list\_id|stringa|yes|path|nessuno|ID univoco per l'elenco|
 |member\_email|string|yes|path|nessuno|Indirizzo di posta elettronica univoco del membro da aggiornare|
 |updateMemberInListRequest| |sì|body|nessuno|Oggetto JSON da inviare all'interno del corpo con le informazioni del membro aggiornato|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -193,7 +188,7 @@ Quando un membro viene aggiunto a un elenco: attiva un flusso di lavoro quando v
 | ---|---|---|---|---|---|
 |list\_id|string|yes|path|nessuno|ID univoco per l'elenco|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -234,7 +229,7 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|type|string|Sì |
+|type|stringa|Sì |
 |recipients|non definito|Sì |
 |Scheda Impostazioni|non definito|Sì |
 |variate\_settings|non definito|No |
@@ -249,7 +244,7 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|list\_id|string|Sì |
+|list\_id|stringa|Sì |
 |segment\_opts|non definito|No |
 
 
@@ -259,13 +254,13 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|subject\_line|string|Sì |
+|subject\_line|stringa|Sì |
 |title|string|No |
-|from\_name|string|Sì |
-|reply\_to|string|Sì |
+|from\_name|stringa|Sì |
+|reply\_to|stringa|Sì |
 |use\_conversation|boolean|No |
-|to\_name|string|No |
-|folder\_id|numero intero|No |
+|to\_name|stringa|No |
+|folder\_id|integer|No |
 |authenticate|boolean|No |
 |auto\_footer|boolean|No |
 |inline\_css|boolean|No |
@@ -281,8 +276,8 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |winner\_criteria|string|No |
-|wait\_time|numero intero|No |
-|test\_size|numero intero|No |
+|wait\_time|integer|No |
+|test\_size|integer|No |
 |subject\_lines|array|No |
 |send\_times|array|No |
 |from\_names|array|No |
@@ -300,7 +295,7 @@ Non sono disponibili parametri per questa chiamata
 |text\_clicks|boolean|No |
 |goal\_tracking|boolean|No |
 |ecomm360|boolean|No |
-|google\_analytics|string|No |
+|google\_analytics|stringa|No |
 |clicktale|string|No |
 |salesforce|non definito|No |
 |highrise|non definito|No |
@@ -313,8 +308,8 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|feed\_url|string|No |
-|frequency|string|No |
+|feed\_url|stringa|No |
+|frequency|stringa|No |
 |constrain\_rss\_img|string|No |
 |schedule|non definito|No |
 
@@ -325,8 +320,8 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|image\_url|string|No |
-|description|string|No |
+|image\_url|stringa|No |
+|description|stringa|No |
 |title|string|No |
 
 
@@ -336,8 +331,8 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|saved\_segment\_id|numero intero|No |
-|match|string|No |
+|saved\_segment\_id|integer|No |
+|match|stringa|No |
 
 
 
@@ -375,7 +370,7 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|hour|numero intero|No |
+|hour|integer|No |
 |daily\_send|non definito|No |
 |weekly\_send\_day|string|No |
 |monthly\_send\_date|number|No |
@@ -403,13 +398,13 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|No |
-|type|string|No |
-|create\_time|string|No |
-|archive\_url|string|No |
-|status|string|No |
-|emails\_sent|numero intero|No |
-|send\_time|string|No |
-|content\_type|string|No |
+|type|stringa|No |
+|create\_time|stringa|No |
+|archive\_url|stringa|No |
+|status|stringa|No |
+|emails\_sent|integer|No |
+|send\_time|stringa|No |
+|content\_type|stringa|No |
 |recipient|array|No |
 |Scheda Impostazioni|non definito|No |
 |variate\_settings|non definito|No |
@@ -430,18 +425,18 @@ Non sono disponibili parametri per questa chiamata
 |---|---|---|
 |split\_test|string|No |
 |pick\_winner|string|No |
-|wait\_units|string|No |
-|wait\_time|numero intero|No |
-|split\_size|numero intero|No |
-|from\_name\_a|string|No |
-|from\_name\_b|string|No |
+|wait\_units|stringa|No |
+|wait\_time|integer|No |
+|split\_size|integer|No |
+|from\_name\_a|stringa|No |
+|from\_name\_b|stringa|No |
 |reply\_email\_a|string|No |
-|reply\_email\_b|string|No |
+|reply\_email\_b|stringa|No |
 |subject\_a|string|No |
-|subject\_b|string|No |
-|send\_time\_a|string|No |
-|send\_time\_b|string|No |
-|send\_time\_winner|string|No |
+|subject\_b|stringa|No |
+|send\_time\_a|stringa|No |
+|send\_time\_b|stringa|No |
+|send\_time\_winner|stringa|No |
 
 
 
@@ -450,10 +445,10 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|opens|numero intero|No |
-|unique\_opens|numero intero|No |
+|opens|integer|No |
+|unique\_opens|integer|No |
 |open\_rate|number|No |
-|clicks|numero intero|No |
+|clicks|integer|No |
 |subscriber\_clicks|number|No |
 |click\_rate|number|No |
 
@@ -467,8 +462,8 @@ Non sono disponibili parametri per questa chiamata
 |enabled|boolean|No |
 |can\_cancel|boolean|No |
 |status|string|No |
-|emails\_sent|numero intero|No |
-|emails\_canceled|numero intero|No |
+|emails\_sent|integer|No |
+|emails\_canceled|integer|No |
 
 
 
@@ -479,9 +474,9 @@ Non sono disponibili parametri per questa chiamata
 |---|---|---|
 |rel|string|No |
 |href|string|No |
-|statico|string|No |
-|targetSchema|string|No |
-|schema|string|No |
+|statico|stringa|No |
+|targetSchema|stringa|No |
+|schema|stringa|No |
 
 
 
@@ -490,15 +485,15 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|name|string|Sì |
+|name|stringa|Sì |
 |contact|non definito|Sì |
-|permission\_reminder|string|Sì |
+|permission\_reminder|stringa|Sì |
 |use\_archive\_bar|boolean|No |
 |campaign\_defaults|non definito|Sì |
-|notify\_on\_subscribe|string|No |
+|notify\_on\_subscribe|stringa|No |
 |notify\_on\_unsubscribe|string|No |
 |email\_type\_option|boolean|Sì |
-|visibility|string|No |
+|visibility|stringa|No |
 
 
 
@@ -508,13 +503,13 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |company|string|Sì |
-|address1|string|Sì |
+|address1|stringa|Sì |
 |address2|string|No |
 |city|string|Sì |
 |state|string|Sì |
 |zip|string|Sì |
-|country|string|Sì |
-|phone|string|Sì |
+|country|stringa|Sì |
+|phone|stringa|Sì |
 
 
 
@@ -523,10 +518,10 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|from\_name|string|Sì |
-|from\_email|string|Sì |
+|from\_name|stringa|Sì |
+|from\_email|stringa|Sì |
 |subject|string|No |
-|Lingua|string|Sì |
+|Lingua|stringa|Sì |
 
 
 
@@ -536,20 +531,20 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|Sì |
-|name|string|Sì |
+|name|stringa|Sì |
 |contact|non definito|Sì |
 |permission\_reminder|string|Sì |
 |use\_archive\_bar|boolean|No |
 |campaign\_defaults|non definito|Sì |
-|notify\_on\_subscribe|string|No |
+|notify\_on\_subscribe|stringa|No |
 |notify\_on\_unsubscribe|string|No |
-|date\_created|string|No |
-|list\_rating|numero intero|No |
+|date\_created|stringa|No |
+|list\_rating|integer|No |
 |email\_type\_option|boolean|Sì |
-|subscribe\_url\_short|string|No |
+|subscribe\_url\_short|stringa|No |
 |subscribe\_url\_long|string|No |
 |beamer\_address|string|No |
-|visibility|string|No |
+|visibility|stringa|No |
 |modules|array|No |
 |Statistiche|non definito|No |
 |\_links|array|No |
@@ -561,21 +556,21 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|member\_count|numero intero|No |
-|unsubscribe\_count|numero intero|No |
-|cleaned\_count|numero intero|No |
-|member\_count\_since\_send|numero intero|No |
+|member\_count|integer|No |
+|unsubscribe\_count|integer|No |
+|cleaned\_count|integer|No |
+|member\_count\_since\_send|integer|No |
 |unsubscribe\_count\_since\_send|numero intero|No |
-|cleaned\_count\_since\_send|numero intero|No |
-|campaign\_count|numero intero|No |
-|campaign\_last\_sent|numero intero|No |
-|merge\_field\_count|numero intero|No |
+|cleaned\_count\_since\_send|integer|No |
+|campaign\_count|integer|No |
+|campaign\_last\_sent|integer|No |
+|merge\_field\_count|integer|No |
 |avg\_sub\_rate|number|No |
 |avg\_unsub\_rate|number|No |
 |target\_sub\_rate|number|No |
 |open\_rate|number|No |
 |click\_rate|number|No |
-|last\_sub\_date|string|No |
+|last\_sub\_date|stringa|No |
 |last\_unsub\_date|string|No |
 
 
@@ -586,7 +581,7 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |lists|array|No |
-|total\_items|numero intero|No |
+|total\_items|integer|No |
 
 
 
@@ -595,14 +590,14 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|email\_type|string|No |
+|email\_type|stringa|No |
 |status|string|Sì |
 |merge\_fields|non definito|No |
 |interests|string|No |
-|Lingua|string|No |
+|Lingua|stringa|No |
 |vip|boolean|No |
 |location|non definito|No |
-|email\_address|string|Sì |
+|email\_address|stringa|Sì |
 
 
 
@@ -612,7 +607,7 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |FNAME|string|No |
-|LNAME|string|No |
+|LNAME|stringa|No |
 
 
 
@@ -632,25 +627,25 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |id|string|No |
-|email\_address|string|No |
-|unique\_email\_id|string|No |
+|email\_address|stringa|No |
+|unique\_email\_id|stringa|No |
 |email\_type|string|No |
 |status|string|No |
 |merge\_fields|non definito|No |
-|interests|string|No |
+|interests|stringa|No |
 |Statistiche|non definito|No |
-|ip\_signup|string|No |
-|timestamp\_signup|string|No |
-|ip\_opt|string|No |
-|timestamp\_opt|string|No |
-|member\_rating|numero intero|No |
+|ip\_signup|stringa|No |
+|timestamp\_signup|stringa|No |
+|ip\_opt|stringa|No |
+|timestamp\_opt|stringa|No |
+|member\_rating|integer|No |
 |last\_changed|string|No |
 |Lingua|string|No |
 |vip|boolean|No |
-|email\_client|string|No |
+|email\_client|stringa|No |
 |location|non definito|No |
 |last\_note|non definito|No |
-|list\_id|string|No |
+|list\_id|stringa|No |
 |\_links|array|No |
 
 
@@ -660,10 +655,10 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|note\_id|numero intero|No |
+|note\_id|integer|No |
 |created\_at|string|No |
 |created\_by|string|No |
-|note|string|No |
+|note|stringa|No |
 
 
 
@@ -673,8 +668,8 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |Membri di|array|No |
-|list\_id|string|No |
-|total\_items|numero intero|No |
+|list\_id|stringa|No |
+|total\_items|integer|No |
 
 
 
@@ -692,10 +687,10 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |email\_address|string|No |
-|email\_type|string|No |
-|status|string|Sì |
+|email\_type|stringa|No |
+|status|stringa|Sì |
 |merge\_fields|non definito|No |
-|interests|string|No |
+|interests|stringa|No |
 |Lingua|string|No |
 |vip|boolean|No |
 |location|non definito|No |
@@ -709,7 +704,7 @@ Non sono disponibili parametri per questa chiamata
 |---|---|---|
 |Membri di|array|No |
 |list\_id|string|No |
-|total\_items|numero intero|No |
+|total\_items|integer|No |
 
 
 
@@ -718,30 +713,30 @@ Non sono disponibili parametri per questa chiamata
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|id|string|Sì |
-|email\_address|string|Sì |
-|unique\_email\_id|string|No |
-|email\_type|string|No |
-|status|string|No |
+|id|stringa|Sì |
+|email\_address|stringa|Sì |
+|unique\_email\_id|stringa|No |
+|email\_type|stringa|No |
+|status|stringa|No |
 |merge\_fields|non definito|Sì |
-|interests|string|No |
+|interests|stringa|No |
 |Statistiche|non definito|No |
 |ip\_signup|string|No |
-|timestamp\_signup|string|No |
-|ip\_opt|string|No |
+|timestamp\_signup|stringa|No |
+|ip\_opt|stringa|No |
 |timestamp\_opt|string|No |
-|member\_rating|numero intero|No |
-|last\_changed|string|No |
-|Lingua|string|No |
+|member\_rating|integer|No |
+|last\_changed|stringa|No |
+|Lingua|stringa|No |
 |vip|boolean|No |
-|email\_client|string|No |
+|email\_client|stringa|No |
 |location|non definito|No |
 |last\_note|non definito|No |
-|list\_id|string|No |
+|list\_id|stringa|No |
 |\_links|array|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

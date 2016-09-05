@@ -130,7 +130,7 @@ Per risolvere il problema, salvare una copia locale del file RDP dal portale e a
 
 Se in realtà non sono necessarie più di due connessioni di desktop remoto contemporanee nella VM, è possibile usare Gestione server per rimuovere il ruolo server desktop remoto.
 
-Per altre informazioni, vedere il post di blog relativo all'[errore della VM di Azure "Non sono disponibili server licenze di Desktop remoto"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
+Per altre informazioni, vedere il post di blog relativo all'[errore della VM di Azure "Non sono disponibili server licenze di Desktop remoto"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
 <a id="rdpname"></a>
 ### Desktop remoto: impossibile rilevare il "nome" del computer.
@@ -156,7 +156,7 @@ La parte dell'indirizzo del file RDP contiene:
 
 Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *AutoritàSicurezza*\*NomeUtente* (esempio: CORP\\Utente1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *AutoritàSicurezza*\\*NomeUtente* (esempio: CORP\\Utente1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
 
 Possibili soluzioni:
 
@@ -173,8 +173,8 @@ Causa: la macchina virtuale di destinazione non può convalidare il nome e la pa
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\\Admin4798).
-- Per gli account di dominio usare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
+- Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio usare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 
@@ -210,4 +210,4 @@ Se non si è verificato alcuno di questi errori e non è ancora possibile connet
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

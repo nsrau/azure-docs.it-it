@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Creare un bridge tra WebView di Android e Mobile Engagement SDK per Android nativo
@@ -24,7 +24,7 @@
 
 Alcune app per dispositivi mobili vengono progettate come app ibride dove l'app stessa è sviluppata con Android nativo, ma le schermate vengono restituite, totalmente o in parte, in WebView di Android. È comunque possibile usare Mobile Engagement SDK per Android all'interno di tali app e questa esercitazione illustra come farlo. Il codice di esempio riportato sotto si basa sulla documentazione Android disponibile [qui](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Si descrive come usare questo approccio documentato per implementare gli stessi metodi comunemente usati per Mobile Engagement SDK per Android in modo che WebView possa avviare richieste da un'app ibrida per tenere traccia di eventi, processi, errori e informazioni app durante il piping via SDK per Android.
 
-1. Prima di tutto, è necessario verificare di aver terminato l'[esercitazione introduttiva](mobile-engagement-android-get-started.md) per integrare Mobile Engagement SDK per Android nell'app ibrida. Al termine dell'operazione, il metodo `OnCreate` avrà un aspetto simile al seguente.  
+1. Prima di tutto, è necessario verificare di aver terminato l'[esercitazione introduttiva](mobile-engagement-android-get-started.md) per integrare Mobile Engagement SDK per Android nell'app ibrida. Al termine dell'operazione, il metodo `OnCreate` avrà un aspetto simile al seguente.
     
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -200,10 +200,10 @@ Alcune app per dispositivi mobili vengono progettate come app ibride dove l'app 
 
 8. Notare i punti seguenti riguardanti il file HTML indicato sopra:
 
-	- 	Contiene un set di caselle di input in cui è possibile fornire i dati da usare come nomi per Event, Job, Error e AppInfo. Quando si fa clic sul pulsante accanto, viene eseguita una chiamata a JavaScript che a sua volta chiama i metodi dal file bridge per passare la chiamata a Mobile Engagement SDK per Android. 
-	- 	Vengono aggiunte alcune informazioni statiche extra agli eventi, ai processi e anche agli errori per mostrare come eseguire questa operazione. Queste informazioni aggiuntive vengono inviate come stringa JSON che, guardando il file `WebAppInterface`, viene analizzata e inserita in un `Bundle` Android, quindi passata con l'invio di Events, Jobs ed Errors. 
-	- 	Un processo di Mobile Engagement viene avviato con il nome specificato nella casella di input, viene eseguito per 10 secondi, quindi arrestato. 
-	- 	Un appinfo o tag Mobile Engagement viene passato con 'customer\_name' come chiave statica e con il valore immesso nell'input come valore del tag. 
+	- 	Contiene un set di caselle di input in cui è possibile fornire i dati da usare come nomi per Event, Job, Error e AppInfo. Quando si fa clic sul pulsante accanto, viene eseguita una chiamata a JavaScript che a sua volta chiama i metodi dal file bridge per passare la chiamata a Mobile Engagement SDK per Android.
+	- 	Vengono aggiunte alcune informazioni statiche extra agli eventi, ai processi e anche agli errori per mostrare come eseguire questa operazione. Queste informazioni aggiuntive vengono inviate come stringa JSON che, guardando il file `WebAppInterface`, viene analizzata e inserita in un `Bundle` Android, quindi passata con l'invio di Events, Jobs ed Errors.
+	- 	Un processo di Mobile Engagement viene avviato con il nome specificato nella casella di input, viene eseguito per 10 secondi, quindi arrestato.
+	- 	Un appinfo o tag Mobile Engagement viene passato con 'customer\_name' come chiave statica e con il valore immesso nell'input come valore del tag.
  
 9. Eseguire l'app per visualizzare quanto segue. Assegnare un nome a un evento test simile a quello seguente, quindi fare clic su **Send** sotto.
 
@@ -217,4 +217,4 @@ Alcune app per dispositivi mobili vengono progettate come app ibride dove l'app 
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

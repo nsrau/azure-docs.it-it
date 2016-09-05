@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -134,4 +134,4 @@ Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name
 -   Per altre informazioni sull'automazione di DNS, vedere [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md).
 -   Per altre informazioni sui record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

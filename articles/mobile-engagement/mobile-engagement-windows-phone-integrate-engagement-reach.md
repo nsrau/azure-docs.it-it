@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Integrazione dell'SDK di Reach per Windows Phone Silverlight
@@ -24,7 +24,7 @@ Prima di usare questa guida, è necessario eseguire la procedura di integrazione
 
 Nessun elemento da aggiungere. Risorse e riferimenti di `EngagementReach` sono già presenti nel progetto.
 
-> [AZURE.TIP]È possibile personalizzare le immagini incluse nella cartella `Resources` del progetto, soprattutto l'icona del marchio, che per impostazione predefinita è l'icona di Engagement.
+> [AZURE.TIP]  È possibile personalizzare le immagini incluse nella cartella `Resources` del progetto, soprattutto l'icona del marchio, che per impostazione predefinita è l'icona di Engagement.
 
 ##Aggiungere le funzionalità
 
@@ -73,7 +73,7 @@ Se si desidera specificarlo in fase di esecuzione, è possibile chiamare il meto
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-> [AZURE.TIP]È possibile specificare il nome del canale di push MPNS dell'applicazione. Per impostazione predefinita, Engagement crea un nome basato su appId. Non è necessario specificare il nome manualmente, a meno che non si preveda di utilizzare il canale di push fuori da Engagement.
+> [AZURE.TIP] È possibile specificare il nome del canale di push MPNS dell'applicazione. Per impostazione predefinita, Engagement crea un nome basato su appId. Non è necessario specificare il nome manualmente, a meno che non si preveda di utilizzare il canale di push fuori da Engagement.
 
 ### Inizializzazione di Engagement
 
@@ -99,7 +99,7 @@ Modificare il file `App.xaml.cs`:
 		   EngagementReach.Instance.OnActivated(e);
 		}
 
-> [AZURE.IMPORTANT]`EngagementReach.Instance.Init` viene eseguito in un thread dedicato. Non è necessario eseguirlo manualmente.
+> [AZURE.IMPORTANT] `EngagementReach.Instance.Init` viene eseguito in un thread dedicato. Non è necessario eseguirlo manualmente.
 
 ##Considerazioni sull'invio di notifiche di App Store
 
@@ -144,7 +144,7 @@ Se si desidera che l'applicazione sia in grado di ricevere push di dati Reach, �
 
 È possibile notare che il callback di ogni metodo restituisce un valore booleano. Engagement invia un feedback per il back-end dopo l'invio del push di dati. Se il callback restituisce false, verrà inviato il feedback `exit`. In caso contrario, il feedback sarà `action`. Se non è impostato alcun callback per gli eventi, il feedback `drop` verrà restituito a Engagement.
 
-> [AZURE.WARNING]Engagement non è in grado di ricevere più feedback per un push di dati. Se si prevede di impostare diversi gestori su un evento, tenere presente che il feedback corrisponderà all'ultimo inviato. In questo caso, è consigliabile restituire sempre lo stesso valore per evitare confusione di feedback sul front-end.
+> [AZURE.WARNING] Engagement non è in grado di ricevere più feedback per un push di dati. Se si prevede di impostare diversi gestori su un evento, tenere presente che il feedback corrisponderà all'ultimo inviato. In questo caso, è consigliabile restituire sempre lo stesso valore per evitare confusione di feedback sul front-end.
 
 ##Personalizzare l'interfaccia utente (facoltativo)
 
@@ -177,7 +177,7 @@ Impostare quindi il contenuto del campo `EngagementReach.Instance.Handler` con l
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]Per impostazione predefinita, Engagement usa una specifica implementazione di `EngagementReachHandler`. Non è necessario crearne di proprie e, se ne viene creata una, non è necessario eseguire l'override di ogni metodo. Il comportamento predefinito consiste nel selezionare l'oggetto di base di Engagement.
+> [AZURE.NOTE] Per impostazione predefinita, Engagement usa una specifica implementazione di `EngagementReachHandler`. Non è necessario crearne di proprie e, se ne viene creata una, non è necessario eseguire l'override di ogni metodo. Il comportamento predefinito consiste nel selezionare l'oggetto di base di Engagement.
 
 ### Layout
 
@@ -211,11 +211,11 @@ Tuttavia, è possibile decidere di utilizzare le proprie risorse in modo da rifl
 	   // return a new instance of your own notification
 	}
 
-> [AZURE.TIP]Il metodo `CreateNotification` può restituire null. La notifica non verrà visualizzata e la campagna Reach verrà eliminata.
+> [AZURE.TIP] Il metodo `CreateNotification` può restituire null. La notifica non verrà visualizzata e la campagna Reach verrà eliminata.
 
 Per semplificare l'implementazione di layout, viene fornito anche un xaml che può essere utilizzato come base per il codice. Tale elemento si trova nell'archivio dell'SDK di Engagement (/src/reach/).
 
-> [AZURE.WARNING]Le origini fornite da Microsoft sono le stesse. Pertanto, se si desidera modificarle direttamente, non dimenticare di modificare lo spazio dei nomi e il nome.
+> [AZURE.WARNING] Le origini fornite da Microsoft sono le stesse. Pertanto, se si desidera modificarle direttamente, non dimenticare di modificare lo spazio dei nomi e il nome.
 
 ### Posizione di notifica
 
@@ -259,11 +259,11 @@ Per implementare il callback:
 
 È possibile impostare il callback nel metodo `Application_Launching` del file `App.xaml.cs`, preferibilmente prima della chiamata `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]Ogni gestore viene chiamato dal thread dell'interfaccia utente. Non è necessario preoccuparsi quando si utilizza MessageBox o un elemento correlato all'interfaccia utente.
+> [AZURE.TIP] Ogni gestore viene chiamato dal thread dell'interfaccia utente. Non è necessario preoccuparsi quando si utilizza MessageBox o un elemento correlato all'interfaccia utente.
 
 [criteri relativi alle applicazioni]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [requisiti aggiuntivi per tipi specifici di applicazioni]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0824_2016-->

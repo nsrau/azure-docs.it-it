@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Passaggio di credenziali al gestore estensione DSC di Azure #
@@ -56,7 +56,7 @@ configuration Main
 } 
 ```
 
-È importante includere *node localhost* come parte della configurazione. Il gestore estensione cerca specificamente l'istruzione node localhost e non funzionerà senza questa istruzione. È anche importante includere il cast di tipo *[PsCredential]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale come descritto di seguito.
+È importante includere *node localhost* come parte della configurazione. Se l'istruzione manca, la successiva non funzionerà dal momento che il gestore dell'estensione cerca specificamente l'istruzione node localhost. È importante anche includere il cast di tipo *[PsCredential]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale.
 
 Pubblicare questo script nell'archivio BLOB:
 
@@ -76,17 +76,17 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-Durante l'esecuzione del codice verrà chiesta una credenziale. Una volta fornita, viene archiviata nella memoria per breve tempo. Quando viene pubblicata con il cmdlet `Set-AzureVmDscExtension`, viene trasmessa tramite HTTPS alla VM, dove Azure la archivia crittografata su disco, usando il certificato della VM locale. Viene quindi brevemente decrittografata nella memoria e nuovamente crittografata per passarla a DSC.
+Durante l'esecuzione del codice viene chiesta una credenziale. Una volta fornita, viene archiviata nella memoria per breve tempo. Quando viene pubblicata con il cmdlet `Set-AzureVmDscExtension`, viene trasmessa tramite HTTPS alla VM, dove Azure la archivia crittografata su disco, usando il certificato della VM locale. Viene quindi brevemente decrittografata nella memoria e nuovamente crittografata per passarla a DSC.
 
-Questa procedura è diversa dall'uso di configurazioni sicure senza il gestore estensione. Poiché l'ambiente di Azure consente di trasmettere i dati di configurazione in modo sicuro tramite certificati, quando si usa il gestore estensione DSC, non è necessario specificare una voce $CertificatePath o $CertificateID/$Thumbprint in ConfigurationData.
+Questo comportamento è diverso dall'[uso di configurazioni sicure senza il gestore dell'estensione](https://msdn.microsoft.com/powershell/dsc/securemof). L'ambiente di Azure offre un modo per trasmettere i dati di configurazione in maniera sicura tramite certificati. Quando si usa il gestore dell'estensione DSC, non è necessario fornire $CertificatePath o una voce $CertificateID/$Thumbprint in ConfigurationData.
 
 
 ## Passaggi successivi ##
 
-Per altre informazioni sul gestore estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
+Per altre informazioni sul gestore dell'estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
-Per altre informazioni su PowerShell DSC, vedere il [centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
 Per trovare altre funzionalità che è possibile gestire con PowerShell DSC, [cercare in PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) altre risorse DSC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

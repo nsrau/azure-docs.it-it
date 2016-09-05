@@ -6,7 +6,7 @@
 
      ![Assegnare tag a risorse con coppie nome-valore](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. Per visualizzare la tassonomia dei tag nel portale, selezionare **Esplora** e **Tag**.
+1. Per visualizzare la tassonomia dei tag nel portale, selezionare **Altri servizi** e **Tag**.
 
      ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)
 
@@ -23,4 +23,4 @@
      ![Aggiungere tag alla Schermata iniziale  
 ](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Installare l'aggiornamento 1.2 nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questa esercitazione viene illustrato come installare l'aggiornamento 1.2 in un dispositivo StorSimple in cui è in esecuzione una versione del software prima dell'aggiornamento 1. L'esercitazione illustra anche le ulteriori procedure richieste per l'aggiornamento quando un gateway è configurato su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple.
 
@@ -125,4 +125,4 @@ Seguire la procedura seguente per disabilitare l'interfaccia di rete con il gate
 
 Altre informazioni sulla [versione dell'aggiornamento 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

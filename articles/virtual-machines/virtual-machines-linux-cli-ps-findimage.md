@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
 # Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure
 
-Questo argomento descrive come trovare editori, offerte, SKU e versioni per ciascuna località di distribuzione. Per fare un esempio, alcune immagini di macchine virtuali Linux usate comunemente sono:
+Questo argomento descrive come trovare editori, offerte, SKU e versioni per ciascuna posizione di distribuzione. Per fare un esempio, alcune immagini di macchine virtuali Linux usate comunemente sono:
 
 **Tabella delle immagini Linux di uso comune**
 
@@ -38,4 +38,4 @@ Questo argomento descrive come trovare editori, offerte, SKU e versioni per cias
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

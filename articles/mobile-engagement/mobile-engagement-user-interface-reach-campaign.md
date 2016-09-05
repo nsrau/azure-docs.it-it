@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -46,44 +46,44 @@
 - Test: può essere inviato a tutte le lingue contemporaneamente
  
 ### Lingue supportate:
-- Arabo (ar) 
-- Bulgaro (bg) 
-- Catalano (ca) 
-- Cinese (zh) 
-- Croato (h) 
-- Ceco (cs) 
-- Danese (da) 
-- Olandese (nl) 
-- Inglese (en) 
-- Finlandese (fi) 
-- Francese (fr) 
-- Tedesco (de) 
-- Greco (el) 
-- Ebraico (he) 
-- Hindi (hi) 
-- Ungherese (hu) 
-- Indonesiano (id) 
-- Italiano (it) 
-- Giapponese (ja) 
-- Coreano (ko) 
-- Lettone (lv) 
-- Lituano (lt) 
-- Malese (macrolanguage) (ms) 
-- Norvegese Bokmål (nb) 
-- Polacco (pl) 
-- Portoghese (pt) 
-- Romeno (ro) 
-- Russo (ru) 
-- Serbo (sr) 
-- Slovacco (sk) 
-- Sloveno (sl) 
-- Spagnolo (es) 
-- Svedese (sv) 
-- Tagalog (tl) 
-- Tailandese (th) 
-- Turco (tr) 
-- Ucraino (Regno Unito) 
-- Vietnamita (vi) 
+- Arabo (ar)
+- Bulgaro (bg)
+- Catalano (ca)
+- Cinese (zh)
+- Croato (h)
+- Ceco (cs)
+- Danese (da)
+- Olandese (nl)
+- Inglese (en)
+- Finlandese (fi)
+- Francese (fr)
+- Tedesco (de)
+- Greco (el)
+- Ebraico (he)
+- Hindi (hi)
+- Ungherese (hu)
+- Indonesiano (id)
+- Italiano (it)
+- Giapponese (ja)
+- Coreano (ko)
+- Lettone (lv)
+- Lituano (lt)
+- Malese (macrolanguage) (ms)
+- Norvegese Bokmål (nb)
+- Polacco (pl)
+- Portoghese (pt)
+- Romeno (ro)
+- Russo (ru)
+- Serbo (sr)
+- Slovacco (sk)
+- Sloveno (sl)
+- Spagnolo (es)
+- Svedese (sv)
+- Tagalog (tl)
+- Tailandese (th)
+- Turco (tr)
+- Ucraino (Regno Unito)
+- Vietnamita (vi)
  
 ## Campagna
 È possibile usare la sezione Campagna per impostare il nome e la categoria della campagna nonché, se si intende ignorare la sezione dei destinatari di una campagna di push, inviare invece la campagna tramite l'API Reach (e alcuni elementi con l'API Push di basso livello). Le categorie possono essere usate con un modello di notifica personalizzato per controllare le notifiche in-app in base alle impostazioni predefinite. È possibile ottenere un elenco di "Categorie" esistenti tramite l'API Reach.
@@ -113,7 +113,7 @@
 ### L'opzione si applica a:
 - Notifica: annunci e sondaggi
  
-## Contenuto
+## Content
 È possibile usare la sezione Contenuto per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
 
 ### Vedere anche
@@ -152,7 +152,7 @@
 > Nota: quando le campagne non hanno data di fine, i push possono essere memorizzati nella cache locale ed essere ancora visualizzati dopo aver completato manualmente la campagna. Per evitare questo comportamento, specificare un'ora di fine per le campagne.
 
 ### Vedere anche
-- [Reach - Procedure – Pianificazione][Link 3] 
+- [Reach - Procedure – Pianificazione][Link 3]
  
 ![Reach-Campaign8][27]
 
@@ -260,4 +260,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

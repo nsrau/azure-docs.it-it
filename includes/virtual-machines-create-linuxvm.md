@@ -1,7 +1,7 @@
 
-1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in[Connettersi ad Azure da CLI Azure](../articles/xplat-cli-connect.md).
+1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure](../articles/xplat-cli-connect.md).
 
-2. Assicurarsi che sia attiva la modalità Gestione dei servizi utilizzando:
+2. Assicurarsi che sia attiva la modalità di distribuzione classica usando:
 
         azure config mode asm
 
@@ -11,26 +11,23 @@
 
    In una finestra del prompt dei comandi di Windows usare **find** anziché grep.
 
-4. Utilizzare`azure vm create`per creare una nuova macchina virtuale con l'immagine di Linux dall'elenco precedente. Questo passaggio crea un nuovo servizio cloud, nonché un nuovo account di archiviazione. È inoltre possibile connettere questa macchina virtuale a un servizio cloud esistente con un’opzione `-c`. Viene inoltre creato un endpoint SSH per l'accesso alla macchina virtuale Linux con l’opzione`-e`.
+4. Usare `azure vm create` per creare una nuova macchina virtuale con l'immagine di Linux dall'elenco precedente. Questo passaggio crea un nuovo servizio cloud, nonché un nuovo account di archiviazione. È inoltre possibile connettere questa macchina virtuale a un servizio cloud esistente con un’opzione `-c`. Viene inoltre creato un endpoint SSH per l'accesso alla macchina virtuale Linux con l'opzione `-e`.
 
-        ~$ azure vm create "MyTestVM" b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-it-IT-30GB "adminUser" -z "Small" -e -l "West US"
+        ~$ azure vm create "MyTestVM" b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-it-IT-30GB -g adminUser -p P@ssw0rd! -z "Small" -e -l "West US"
         info:    Executing command vm create
         + Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-it-IT-30GB
-        Enter VM 'adminUser' password:*********
-        Confirm password: *********
         + Looking up cloud service
         info:    cloud service MyTestVM not found.
         + Creating cloud service
         + Retrieving storage accounts
-        + Creating a new storage account 'mytestvm1437604756125'
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] Per una macchina virtuale Linux, è necessario fornire l’opzione`-e`in `vm create`; non è possibile abilitare SSH dopo aver creato la macchina virtuale. Per altre informazioni su SSH, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md).
+    >[AZURE.NOTE] Per una macchina virtuale Linux, è necessario fornire l'opzione `-e` in `vm create`. Non è possibile abilitare SSH dopo la creazione della macchina virtuale. Per altre informazioni su SSH, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md).
 
-    Si noti che l'immagine*b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* è quella che abbiamo scelto dall'elenco di immagini nel passaggio precedente. *MyTestVM* è il nome della nostra nuova macchina virtuale, e *adminUser* è il nome utente che verrà utilizzato per SSH nella macchina virtuale. È possibile sostituire queste variabili in base alle proprie esigenze. Per altre informazioni su questo comando, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione servizi di Azure](virtual-machines-command-line-tools.md).
+    L'immagine *b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-it-IT-30GB* è quella selezionata dall'elenco delle immagini nel passaggio precedente. *MyTestVM* è il nome della nuova macchina virtuale, mentre *adminUser* è il nome utente usato per SSH nella macchina virtuale. È possibile sostituire queste variabili in base alle proprie esigenze. Per altre informazioni su questo comando, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](virtual-machines-command-line-tools.md).
 
-5. La macchina virtuale Linux appena creata verrà visualizzata nell'elenco specificato da:
+5. La macchina virtuale Linux appena creata viene visualizzata nell'elenco specificato da:
 
         azure vm list
 
@@ -41,6 +38,6 @@
 7. La macchina virtuale appena creata è pronta per iniziare con il comando `azure vm start`.
 
 ## Passaggi successivi
-Per informazioni dettagliate su tutti i comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con l'API di Gestione dei servizi](../articles/virtual-machines-command-line-tools.md).
+Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere [Uso dell'interfaccia della riga di comando di Azure con l'API di distribuzione classica](../articles/virtual-machines-command-line-tools.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->
