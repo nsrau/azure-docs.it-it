@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Usare la Migrazione guidata database SQL di Azure per risolvere i problemi di compatibilità dei database di SQL Server prima di eseguire la migrazione al database SQL di Azure
 
@@ -29,7 +29,7 @@ Questo articolo illustra come individuare e risolvere i problemi di compatibilit
 
 Usare lo strumento CodePlex [Migrazione guidata SQL Azure](http://sqlazuremw.codeplex.com/) per generare uno script T-SQL da un database di origine non compatibile. Questo script viene quindi trasformato dalla procedura guidata in modo da renderlo compatibile con il database SQL. È quindi possibile connettersi al database SQL di Azure per eseguire lo script. Questo strumento analizza anche i file di traccia per determinare i problemi di compatibilità. Lo script può essere generato solo con lo schema o può includere dati in formato BCP. Per una documentazione aggiuntiva, incluse indicazioni dettagliate, vedere la [Migrazione guidata di SQL Azure](http://sqlazuremw.codeplex.com/) su CodePlex.
 
- ![Diagramma di migrazione di SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)  
+ ![Diagramma di migrazione di SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
   > [AZURE.NOTE] Si noti che non tutti gli schemi incompatibili rilevati dalla procedura guidata possono essere risolti dalla relativa funzionalità di trasformazione incorporata. Gli script incompatibili che non possono essere corretti verranno segnalati come errori con i commenti inseriti nello script generato. Se vengono rilevati molti errori, usare Visual Studio o SQL Server Management Studio per esaminare e risolvere ogni errore che non è stato risolto mediante la migrazione guidata di SQL Server.
 

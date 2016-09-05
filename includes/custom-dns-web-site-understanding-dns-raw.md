@@ -44,11 +44,11 @@ Questo record TXT viene usato per verificare la proprietà del dominio che si st
 
 2. Nel pannello **App Web** fare clic sul nome dell'app Web e selezionare **Domini personalizzati** nella parte inferiore della pagina.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)  
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
 3. Nel pannello **Domini personalizzati** verrà visualizzato l'indirizzo IP virtuale. Salvare queste informazioni perché verranno usate durante la creazione dei record DNS
 
-	![](./media/custom-dns-web-site/virtual-ip-address.png)  
+	![](./media/custom-dns-web-site/virtual-ip-address.png)
 
 	> [AZURE.NOTE] Non è possibile usare nomi di dominio personalizzati con un'app Web in modalità **Gratuito** ed è necessario eseguire l'aggiornamento del piano di servizio app alla modalità di livello **Condiviso**, **Basic**, **Standard**, o **Premium**. Per altre informazioni sui livelli di prezzo dei piani di servizio app e su come modificare il livello di prezzo dell’app web, vedere [Come ridimensionare un'app Web](../articles/web-sites-scale.md).
 

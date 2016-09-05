@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
-   ms.author="rclaus" />  
+   ms.author="rclaus" />
 
 # Comandi comuni dell'interfaccia della riga di comando di Azure per Linux e Mac
 

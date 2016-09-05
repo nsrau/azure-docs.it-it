@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Integrazione di API
 
@@ -197,7 +197,7 @@ Questa esercitazione illustra uno scenario di questo tipo, in cui un utente azie
 
 Questo esempio ha creato una semplice campagna di tipo annuncio, specificando principalmente le proprietà necessarie. È possibile personalizzare come si desidera l'esempio nel portale, usando le informazioni disponibili [qui](https://msdn.microsoft.com/library/azure/mt683751.aspx).
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png
 [2]: ./media/mobile-engagement-sample-backend-integration-sharepoint/properties.png
 [3]: ./media/mobile-engagement-sample-backend-integration-sharepoint/new-announcement.png

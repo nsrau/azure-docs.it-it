@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Introduzione ai gruppi di applicazioni
 Cluster Resource Manager di Service Fabric gestisce le risorse cluster distribuendo il carico, rappresentato tramite metriche, in modo uniforme nell'intero cluster. Service Fabric gestisce anche la capacità dei nodi del cluster e il cluster nel suo complesso tramite il concetto di capacità. Si tratta di un'ottima soluzione per molti tipi di carichi di lavoro, ma i modelli che fanno largo uso di diverse istanze di applicazione di Service Fabric comportano a volte requisiti aggiuntivi. Alcuni requisiti aggiuntivi sono in genere i seguenti:

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 

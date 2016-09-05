@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Introduzione su come creare un servizio di bilanciamento del carico per Internet in Gestione risorse con PowerShell.
 
@@ -308,4 +308,4 @@ Usare il comando `Remove-AzureLoadBalancer` per eliminare un bilanciamento del c
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

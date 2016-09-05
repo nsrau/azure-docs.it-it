@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
 	ms.date="08/19/2016"
-	ms.author="piyushjo"/>  
+	ms.author="piyushjo"/>
 
 #Implementare Mobile Engagement con app multimediali
 
@@ -94,11 +94,11 @@ Dopo alcuni test, Mattia si ritiene soddisfatto. Grazie a questa API, i giornali
 
 Dopo questi primi quattro mesi, i risultati riflettono buone prestazioni generali e rassicurano Mattia e il consiglio di amministrazione, il ROI per utente è aumentato del 15% e le vendite da dispositivi mobili rappresentano il 17,5% delle vendite totali. Un aumento del 7,5% in soli quattro mesi.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-media-scenario/engagement-strategy.png
 [2]: ./media/mobile-engagement-media-scenario/push-scenarios.png
 
-<!--Link references-->  
+<!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 <!---HONumber=AcomDC_0824_2016-->

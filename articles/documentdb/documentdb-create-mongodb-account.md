@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>  
+	ms.author="stbaro"/>
 
 # Procedura di creazione di un account DocumentDB con supporto del protocollo per MongoDB usando il portale di Azure
 
@@ -62,7 +62,7 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
 	o dall'Hub di notifica.
 
-	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png) 
+	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
 
 	![Schermata dell'hub Notifiche, che mostra che l'account DocumentDB è stato creato correttamente e distribuito a un gruppo di risorse - Creatore di database online](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 

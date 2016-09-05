@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/18/2016"
-   ms.author="allclark" />  
+   ms.author="allclark" />
 
 # Risoluzione dei problemi di sviluppo di Docker in Visual Studio
 
@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configured the WebHost to listen to incoming URL traffic. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configura la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
+UseUrls() ha configurato WebHost per l’ascolto del traffico URL in ingresso.[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configura la variabile di ambiente in modalità dockerfile.debug/release come indicato di seguito:
 
 ```
 # Configure the listening port to 80

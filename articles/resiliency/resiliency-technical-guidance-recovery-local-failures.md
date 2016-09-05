@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="aglick"/>  
+   ms.author="aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
 

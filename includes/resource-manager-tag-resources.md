@@ -8,7 +8,7 @@
 
 1. Per visualizzare la tassonomia dei tag nel portale, selezionare **Altri servizi** e **Tag**.
 
-     ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)  
+     ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)
 
 1. Nella sottoscrizione viene visualizzato un riepilogo dei tag.
 

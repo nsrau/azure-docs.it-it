@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/24/2016"
-   ms.author="rickbyh"/>  
+   ms.author="rickbyh"/>
 
 # Autenticazione e autorizzazione per database SQL: concessione dell'accesso 
 

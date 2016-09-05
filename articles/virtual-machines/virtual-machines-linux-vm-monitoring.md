@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/08/2016"
-   ms.author="kmouss"/>  
+   ms.author="kmouss"/>
    
 # Abilitare o disabilitare il monitoraggio delle VM di Azure
 
@@ -54,7 +54,7 @@ Per abilitare il monitoraggio per una VM di Azure.
 
 Per altri dettagli sulla configurazione della metrica di monitoraggio ed esempi, vedere il documento **[Uso dell'estensione di diagnostica Linux per monitorare le prestazioni delle VM Linux e i dati di diagnostica](virtual-machines-linux-classic-diagnostic-extension.md).
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 

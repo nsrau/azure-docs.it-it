@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Decode AS2 Message
 
@@ -38,7 +38,7 @@ Connettersi a Decode AS2 Message per stabilire affidabilità e sicurezza durante
 
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 
-	![Create una connessione di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage2.png)  
+	![Create una connessione di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage2.png)
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
 
@@ -49,7 +49,7 @@ Connettersi a Decode AS2 Message per stabilire affidabilità e sicurezza durante
 
   	Al termine, i dettagli della connessione saranno simili ai seguenti:
 
-  	![connessione di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage3.png)  
+  	![connessione di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage3.png)
 
 5. Selezionare **Crea**.
 	

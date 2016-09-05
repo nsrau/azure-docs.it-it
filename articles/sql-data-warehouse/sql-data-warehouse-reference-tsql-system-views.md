@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/22/2016"
-   ms.author="barbkess;sonyama"/>  
+   ms.author="barbkess;sonyama"/>
 
 # Viste di sistema
 
@@ -241,6 +241,6 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0824_2016-->

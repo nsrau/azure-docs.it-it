@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Encode EDIFACT Message
 
@@ -34,11 +34,11 @@ Convalida le proprietà EDI e specifiche del partner.
 
 2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta. Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione. Selezionare Mostra API gestite da Microsoft nell'elenco a discesa, quindi immettere "EDIFACT" nella casella di ricerca. Selezionare Encode EDIFACT Message by agreement name o Encode to EDIFACT message by identities.
 
-	![ricerca di EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
+	![ricerca di EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
 
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 
-	![creare connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)  
+	![creare connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
 
@@ -49,25 +49,25 @@ Convalida le proprietà EDI e specifiche del partner.
 
 	Al termine, i dettagli della connessione saranno simili ai seguenti:
 
-	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)  
+	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)
 	
 5. Selezionare **Crea**.
 	
 6. La connessione è stata creata.
 
-	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)  
+	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
 	
 #### Encode EDIFACT Message by agreement name
 
 7.	Fornire il nome del contratto EDIFACT e un messaggio XML da codificare.
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
 	
 #### Encode EDIFACT Message by identities
 
 7. Fornire identificatore del mittente e qualificatore del mittente, identificatore del ricevitore e qualificatore del ricevitore come configurati nel contratto EDIFACT. Selezionare il messaggio XML da codificare.
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
 	
 ## EDIFACT Encode esegue queste operazioni
 

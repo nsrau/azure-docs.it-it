@@ -23,7 +23,7 @@
  - [PowerShell](virtual-machines-windows-ps-manage.md)
  - [CLI](virtual-machines-windows-cli-deploy-templates.md)
 
-</br>  
+</br>
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 

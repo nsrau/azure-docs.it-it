@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 
 # Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric

@@ -31,15 +31,15 @@ Con Azure Mobile Engagement è possibile personalizzare le notifiche seguendo la
 
 1) Registrare prima di tutto le info app o i tag nel portale di Azure. Passare a **Impostazioni** -> **Tag (info app)**.
 
-![][1]  
+![][1]
 
 2) Fare clic su **Nuovo tag (info app)** e specificare il nome come *user\_name* e il tipo come *Stringa* e fare clic su **Invia**.
 
-![][2]  
+![][2]
 
 3) Le info app registrate verranno visualizzate come segue:
 
-![][3]  
+![][3]
 
 ##Inviare info app dall'SDK del client
 
@@ -63,9 +63,9 @@ A questo punto è possibile inviare notifiche usando questo **user\_name**.
 
 2) Quando Mobile Engagement seleziona un dispositivo per l'invio della notifica, esamina questa info app e sostituisce il valore del segnaposto. Se, ad esempio, è stato impostato `str = "Scott"` per un utente, la registrazione del dispositivo verrà associata all'info app **user\_name = SCOTT** per l'utente e questi visualizzerà una notifica push fuori dall'app nel formato seguente:
 
-![][5]  
+![][5]
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-send-personalized-notifications/app-info.png
 [2]: ./media/mobile-engagement-send-personalized-notifications/create-app-info.png
 [3]: ./media/mobile-engagement-send-personalized-notifications/app-info-user-name.png

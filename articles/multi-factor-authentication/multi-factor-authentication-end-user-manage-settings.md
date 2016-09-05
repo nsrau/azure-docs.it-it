@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/22/2016" 
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Problemi di Azure Multi-Factor Authentication
 >[AZURE.IMPORTANT]
@@ -45,7 +45,7 @@ Quando si contatta il personale di supporto, è consigliabile includere le infor
  - **ID correlazione**: il codice ID di correlazione generato quando è stato visualizzato l'errore.
  - **Data e ora**: la data e l'ora in cui è stato visualizzato l'errore (includere il fuso orario).
  
-![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)  
+![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **ID utente**: l'ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com.
  - **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud, nonché se l'utente dispone di una licenza Azure AD Premium, Enterprise Mobility o Azure AD Basic e se usa Office 365.

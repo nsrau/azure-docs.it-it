@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/19/2016"
-   ms.author="wesmc"/>  
+   ms.author="wesmc"/>
 
 # Test di Funzioni di Azure
 
@@ -435,7 +435,7 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
 [portale di Azure]: https://portal.azure.com
 

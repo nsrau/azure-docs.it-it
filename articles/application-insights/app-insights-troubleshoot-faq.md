@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Domande su Application Insights per ASP.NET
 

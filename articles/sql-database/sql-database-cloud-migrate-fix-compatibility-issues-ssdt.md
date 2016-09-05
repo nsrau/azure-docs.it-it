@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Eseguire la migrazione di un database di SQL Server a un database SQL di Azure usando SQL Server Data Tools per Visual Studio 
 
@@ -39,15 +39,15 @@ Utilizzare SQL Server Data Tools per Visual Studio ("SSDT") per importare lo sch
    
 1.	Aprire **Esplora oggetti di SQL Server** in Visual Studio. Utilizzare **Aggiungi SQL Server** per connettersi all'istanza di SQL Server contenente il database in corso di migrazione. Individuare il database in Esplora risorse, fare clic su di esso con il pulsante destro del mouse e selezionare **Crea nuovo progetto...**
     
-	![Nuovo progetto](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)  
+	![Nuovo progetto](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
    
 2.	Configurare le impostazioni di importazione su **Importa solo oggetti con ambito applicazione**. Deselezionare le opzioni per importare gli account di accesso, le autorizzazioni e le impostazioni del database.
 
-    ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)  
+    ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
 3.	Fare clic su **Avvia** per importare il database e creare il progetto che contiene un file di script T-SQL per ogni oggetto nel database. I file di script vengono nidificati nelle cartelle all'interno del progetto.
 
-    ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/04MigrateSSDT.png)  
+    ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/04MigrateSSDT.png)
 
 4.	In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto di database e scegliere Proprietà. Viene aperta la pagina **Impostazioni progetto** in cui è necessario configurare la piattaforma di destinazione sul database SQL di Microsoft Azure V12.
     
@@ -85,7 +85,7 @@ Utilizzare SQL Server Data Tools per Visual Studio ("SSDT") per importare lo sch
     
 5.	Esaminare le differenze rilevate e quindi fare clic su **Aggiorna destinazione** per la migrazione dei dati dal database di origine al database di Azure SQL V12.
     
-	![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)  
+	![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)
     
 6.	Scegliere un metodo di distribuzione. Vedere [Eseguire la migrazione di un database di SQL Server compatibile al database SQL](sql-database-cloud-migrate.md).
 

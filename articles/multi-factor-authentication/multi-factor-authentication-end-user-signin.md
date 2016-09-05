@@ -33,7 +33,7 @@ Cosa si farà?|Descrizione
 [Accesso con l'app Microsoft Authenticator mediante il codice di verifica](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Ecco cosa aspettarsi quando si usa l'app Microsoft Authenticator con un codice di verifica.
 [Accesso con un metodo alternativo](#signing-in-with-an-alternate-method)|Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
 
-## Accesso con telefono cellulare o dell'ufficio
+<h2 id="1">Accesso con telefono cellulare o dell'ufficio</h2>
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
 
@@ -83,12 +83,12 @@ Le informazioni seguenti descrivono l'esperienza di utilizzo dell'autenticazione
 
 - Aprire l'app Microsoft Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l'accesso.
 
-![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)  
+![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-## Accesso con un metodo alternativo
+<h2 id="4">Accesso con un metodo alternativo</h2>
 
 
 Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.

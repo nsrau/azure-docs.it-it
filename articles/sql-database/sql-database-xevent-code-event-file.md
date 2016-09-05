@@ -79,7 +79,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
  - Se si esegue nuovamente lo script senza interrompere la sessione, è possibile pratico decommentare il comando **Add-AzureAccount**.
 
 
-![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]  
+![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]
 
 
 &nbsp;
@@ -605,7 +605,7 @@ Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazi
 
 <!--
 Image references.
--->  
+-->
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 

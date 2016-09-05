@@ -608,7 +608,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 <!-- Images. -->
 

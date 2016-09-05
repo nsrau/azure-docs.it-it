@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Costo dello spostamento del servizio per influenzare le scelte di Resource Manager
 Un altro fattore importante da prendere in considerazione durante l'identificazione delle modifiche da apportare a un cluster e il punteggio di una determinata soluzione è il costo complessivo del raggiungimento di tale soluzione.

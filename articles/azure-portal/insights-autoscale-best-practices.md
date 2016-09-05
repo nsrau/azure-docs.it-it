@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/15/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Procedure consigliate per la scalabilità automatica in Azure Insights
 

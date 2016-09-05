@@ -14,13 +14,13 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Overview
+## Panoramica
 
 Questa esercitazione illustra come aggiungere il supporto offline a un'app UWP (Universal Windows Platform) tramite un back-end di App per dispositivi mobili di Azure. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il back-end remoto.
 
@@ -162,11 +162,14 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 Per supportare le funzionalità offline di Servizi mobili, è stata usata l'interfaccia [IMobileServiceSyncTable] ed è stato inizializzato [MobileServiceClient.SyncContext][synccontext] con un database SQLite locale. In una situazione offline le normali operazioni CRUD per App per dispositivi mobili funzionano come se l'app fosse ancora connessa, mentre tutte le operazioni interessano l'archivio locale. Per sincronizzare l'archivio locale con il server vengono usati i metodi seguenti:
 
-*  **[PushAsync]** Poiché questo metodo è un membro di [IMobileServicesSyncContext], viene effettuato il push al back-end delle modifiche in tutte le tabelle. Solo i record con modifiche locali vengono inviati al server.
+*  **[PushAsync]**  
+   Poiché questo metodo è un membro di [IMobileServicesSyncContext], viene effettuato il push al back-end delle modifiche in tutte le tabelle. Solo i record con modifiche locali vengono inviati al server.
 
-* **[PullAsync]** un pull viene avviato da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene effettuato il push implicito di altre tabelle nel contesto. Il parametro *query* riceve una stringa [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o una stringa di query OData per filtrare i dati restituiti. Il parametro *queryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PullAsync]**   
+   un pull viene avviato da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene effettuato il push implicito di altre tabelle nel contesto. Il parametro *query* riceve una stringa [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o una stringa di query OData per filtrare i dati restituiti. Il parametro *queryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 
-* **[PurgeAsync]** L'app deve chiamare periodicamente questo metodo per ripulire l'archivio locale dai dati non aggiornati. Usare il parametro *force* quando è necessario ripulire tutte le modifiche non ancora sincronizzate.
+* **[PurgeAsync]**  
+   L'app deve chiamare periodicamente questo metodo per ripulire l'archivio locale dai dati non aggiornati. Usare il parametro *force* quando è necessario ripulire tutte le modifiche non ancora sincronizzate.
 
 Per altre informazioni su questi concetti, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 
@@ -175,10 +178,10 @@ Per altre informazioni su questi concetti, vedere [Sincronizzazione di dati offl
 Gli argomenti seguenti forniscono altre informazioni in background sulla funzionalità di sincronizzazione offline delle app per dispositivi mobili:
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Cloud Cover: Offline Sync in Azure Mobile Services] (Cloud Cover: sincronizzazione offline nei servizi mobili di Azure). Si noti che il video è relativo ai servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure.
+* [Cloud Cover: Offline Sync in Azure Mobile Services] \(Cloud Cover: sincronizzazione offline nei servizi mobili di Azure). Si noti che il video è relativo ai servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure.
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
 [Update the sync behavior of the app]: #update-sync
 [Update the app to reconnect your Mobile Apps backend]: #update-online-app

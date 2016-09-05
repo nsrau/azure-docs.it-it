@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/16/2016"
-	ms.author="kmouss;aglick"/>  
+	ms.author="kmouss;aglick"/>
 
 #Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 

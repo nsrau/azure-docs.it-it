@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
   ms.date="08/18/2016"
-  ms.author="hascipio"/>  
+  ms.author="hascipio"/>
 
 # Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
 Informazioni sui prerequisiti generali e relativi ai processi aziendali necessari per procedere con il processo di creazione dell'offerta.

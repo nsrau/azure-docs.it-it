@@ -14,7 +14,7 @@
     ms.devlang="dotnet"
     ms.topic="article"
     ms.date="08/22/2016"
-    ms.author="donnam"/>  
+    ms.author="donnam"/>
 
 #Connettersi ad Archiviazione di Azure nell'app Xamarin.Forms
 
@@ -107,7 +107,7 @@ Il nuovo `TodoItemStorageController` espone due sottorisorse nel record gestito:
 
     + HTTP POST: crea un token di archiviazione
     
-        `/tables/TodoItem/{id}/MobileServiceFiles`  
+        `/tables/TodoItem/{id}/MobileServiceFiles`
     
 - MobileServiceFiles
 

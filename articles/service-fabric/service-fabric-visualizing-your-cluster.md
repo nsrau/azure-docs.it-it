@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/22/2016"
-   ms.author="seanmck"/>  
+   ms.author="seanmck"/>
 
 # Visualizzare il cluster con Service Fabric Explorer
 
@@ -62,7 +62,7 @@ Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, a
 
 Ad esempio, per eliminare un'istanza dell'applicazione, è sufficiente scegliere l'applicazione dall'albero a sinistra, quindi scegliere **Azioni** > **Elimina applicazione**.
 
-![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]  
+![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
 
 >[AZURE.TIP] È possibile eseguire le stesse azioni facendo clic sui puntini di sospensione accanto a ogni elemento.
 
@@ -85,7 +85,7 @@ Poiché molte azioni sono distruttive, viene richiesto di confermare la finalit�
 
 È inoltre possibile usare Service Fabric Explorer per creare nuove istanze per un determinato tipo e versione di applicazione. Scegliere il tipo di applicazione nella visualizzazione albero, quindi fare clic sul collegamento **Create app instance** (Crea un'istanza dell'app).
 
-![Creazione di un'istanza dell'applicazione in Service Fabric Explorer][sfx-create-app-instance]  
+![Creazione di un'istanza dell'applicazione in Service Fabric Explorer][sfx-create-app-instance]
 
 >[AZURE.NOTE] Non è attualmente possibile impostare parametri per le istanze dell'applicazione create mediante Service Fabric Explorer, per le quali vengono usati valori di parametro predefiniti.
 
@@ -97,7 +97,7 @@ Poiché Service Fabric Explorer è basato sul web e viene eseguito all'interno d
 
 Per raggiungere Service Fabric Explorer per un determinato cluster, è sufficiente inserire nel browser l'indirizzo seguente:
 
-http://&lt;your-cluster-endpoint&gt;:19080/Explorer  
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
 L'URL completo è disponibile anche nel riquadro essentials del cluster del portale di Azure.
 
@@ -113,7 +113,7 @@ Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seco
 - [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)
 
-<!--Image references-->  
+<!--Image references-->
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
 [sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png

@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />  
+	ms.author="MehrdadMzfr" />
 
 #Come integrare il servizio Reach di Engagement in iOS
 

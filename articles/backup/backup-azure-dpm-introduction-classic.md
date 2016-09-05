@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/21/2016"
-	ms.author="trinadhk;giridham;jimpark;markgal"/>  
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Preparazione del backup dei carichi di lavoro in Azure con DPM
 

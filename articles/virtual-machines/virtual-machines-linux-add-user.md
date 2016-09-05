@@ -17,7 +17,7 @@
 		ms.topic="article"
 		ms.date="08/18/2016"
 		ms.author="v-livech"
-/>  
+/>
 
 # Aggiungere un utente a una macchina virtuale di Azure
 

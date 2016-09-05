@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore MailChimp
 
@@ -68,7 +68,7 @@ Si applica alla versione 1.0
 ## newcampaign
 Nuova campagna: crea una nuova campagna basata su tipo di campagna, elenco di destinatari e impostazioni della campagna (subject\_line, title, from\_name e reply\_to)
 
-```POST: /campaigns```  
+```POST: /campaigns```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -90,7 +90,7 @@ Nuova campagna: crea una nuova campagna basata su tipo di campagna, elenco di de
 ## newlist
 Nuovo elenco: crea un nuovo elenco nell'account di MailChimp
 
-```POST: /lists```  
+```POST: /lists```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -135,7 +135,7 @@ Aggiunta di membri all'elenco: aggiunge un membro all'elenco o ne aggiorna uno g
 ## removemember
 Rimozione di un membro dall'elenco: elimina un membro da un elenco.
 
-```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```  
+```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -158,7 +158,7 @@ Rimozione di un membro dall'elenco: elimina un membro da un elenco.
 ## updatemember
 Aggiornamento delle informazioni di un membro: aggiorna le informazioni per un membro specifico dell'elenco
 
-```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```  
+```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -205,7 +205,7 @@ Quando un membro viene aggiunto a un elenco: attiva un flusso di lavoro quando v
 ## OnCreateList
 Quando viene creato un nuovo elenco: attiva un flusso di lavoro quando viene creato un nuovo elenco
 
-```GET: /trigger/lists```  
+```GET: /trigger/lists```
 
 Non sono disponibili parametri per questa chiamata
 #### Response

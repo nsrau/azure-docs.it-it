@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/16/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Usare l'unità D come unità dati in una macchina virtuale Windows 
 

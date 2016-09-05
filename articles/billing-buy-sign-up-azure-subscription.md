@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come iscriversi, acquistare, aggiornare o attivare Azure
 
@@ -54,7 +54,7 @@ In caso di problemi, vedere [Risoluzione dei problemi relativi all'iscrizione ad
 
 3. Nella sezione **Informazioni personali** immettere le informazioni personali. [Altre informazioni](billing-troubleshoot-azure-sign-up-issues.md#i-am-getting-an-error-when-entering-my-information-to-sign-up) sulla corretta immissione delle informazioni personali.
 
-    ![Immettere qui le informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)  
+    ![Immettere qui le informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
     >[AZURE.NOTE] L'indirizzo di posta elettronica e le informazioni relative al paese specificati al momento dell'iscrizione a una sottoscrizione di Azure saranno sempre associati alla sottoscrizione e non potranno essere modificati in seguito.
 
@@ -64,7 +64,7 @@ In caso di problemi, vedere [Risoluzione dei problemi relativi all'iscrizione ad
 
     >[AZURE.NOTE] Non è possibile usare un numero di telefono VoIP per il processo di verifica tramite telefono.
 
-    ![Immettere un numero di telefono valido per verificare il telefono](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)  
+    ![Immettere un numero di telefono valido per verificare il telefono](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
 
     Se non si riceve un messaggio di testo o una chiamata, provare a usare un altro numero di telefono o contattare il [supporto tecnico di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -76,7 +76,7 @@ In caso di problemi, vedere [Risoluzione dei problemi relativi all'iscrizione ad
 
 6. Nella sezione **Contratto** selezionare la casella corrispondente se si accettano il contratto di sottoscrizione, i dettagli dell'offerta e l'informativa sulla privacy. Selezionare quindi **Iscrizione**. Il modulo di contratto può variare in base al paese.
 
-    ![Versione italiana del contratto. Il modulo di contratto può variare in base al paese.](./media/billing-buy-sign-up-azure-subscription/Signup.png)  
+    ![Versione italiana del contratto. Il modulo di contratto può variare in base al paese.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
 
     La configurazione della sottoscrizione può richiedere alcuni minuti. Se la configurazione della sottoscrizione non viene completata entro 15 minuti, contattare il [supporto tecnico di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza.
 
@@ -88,7 +88,7 @@ In caso di problemi, vedere [Risoluzione dei problemi relativi all'iscrizione ad
 
 7. Quando la sottoscrizione è pronta, selezionare **Inizia a gestire il servizio** per iniziare.
 
-    ![Pagina iniziale della sottoscrizione di Azure](./media/billing-buy-sign-up-azure-subscription/startservice.png)  
+    ![Pagina iniziale della sottoscrizione di Azure](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 ### Risorse aggiuntive
 
@@ -102,7 +102,7 @@ In caso di problemi, vedere [Risoluzione dei problemi relativi all'iscrizione ad
 
 2. Selezionare la sottoscrizione e quindi **Aggiorna**
 
-    ![Avviso per l'aggiornamento dalla versione di valutazione gratuita alla versione con pagamento in base al consumo](./media/billing-buy-sign-up-azure-subscription/billpage.png)  
+    ![Avviso per l'aggiornamento dalla versione di valutazione gratuita alla versione con pagamento in base al consumo](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 
 3. Selezionare **Sì** e quindi **Aggiorna ora**.
 

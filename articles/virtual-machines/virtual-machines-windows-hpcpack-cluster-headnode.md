@@ -30,7 +30,7 @@ Usare un'[immagine di macchina virtuale Microsoft HPC Pack](https://azure.micros
 
 Come illustrato nella figura riportata di seguito, il nodo head HPC Pack viene distribuito in un dominio di Active Directory in una rete virtuale di Azure.
 
-![Nodo head HPC Pack][headnode]  
+![Nodo head HPC Pack][headnode]
 
 * **Dominio di Active Directory** - Il nodo head di HPC Pack deve essere aggiunto a un dominio di Active Directory in Azure prima dell'avvio dei servizi HPC nella VM. Come illustrato in questo articolo, per una distribuzione basata sul modello di verifica, è possibile alzare di livello la macchina virtuale creata per il nodo head a controller di dominio prima di avviare i servizi HPC. In alternativa è possibile distribuire un controller di dominio e una foresta separati in Azure a cui aggiungere la VM del nodo head.
 
@@ -48,7 +48,7 @@ Di seguito sono indicati i principali passaggi per usare il portale di Azure per
 
 3. Nel portale, alla pagina **HPC Pack 2012 R2 su Windows Server 2012 R2** selezionare il modello di distribuzione di **Resource Manager** e fare clic su **Crea**.
 
-    ![Immagine di HPC Pack][marketplace]  
+    ![Immagine di HPC Pack][marketplace]
 
 4. Usare il portale per configurare le impostazioni e creare la macchina virtuale. Chi non conosce Azure può seguire l'esercitazione [Creare la prima macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md). Per una distribuzione con modello di verifica è in genere possibile accettare le impostazioni predefinite o consigliate.
 
@@ -84,7 +84,7 @@ Di seguito sono indicati i principali passaggi per usare il portale di Azure per
 
 * Provare a eseguire un carico di lavoro di test nel cluster. Per un esempio vedere la [guida introduttiva](https://technet.microsoft.com/library/jj884144) a HPC Pack.
 
-<!--Image references-->  
+<!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
 

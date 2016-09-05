@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="08/23/2016"
-ms.author="larryfr"/>  
+ms.author="larryfr"/>
 
 #Utilizzare DataFu con pig in HDInsight
 
@@ -57,7 +57,7 @@ I passaggi in questa sezione presuppongono che si abbia familiarità con l'utili
 
 > [AZURE.IMPORTANT] Quando si utilizza DataFu da Pig in un cluster HDInsight basato su Linux, è innanzitutto necessario registrare il file jar utilizzando la seguente istruzione Pig Latin:
 >
-> ```register wasbs:///example/jars/datafu-1.2.0.jar```  
+> ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
 > DataFu è registrato per impostazione predefinita nei cluster HDInsight basati su Windows.
 

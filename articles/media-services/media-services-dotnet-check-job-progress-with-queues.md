@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016"   
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
 

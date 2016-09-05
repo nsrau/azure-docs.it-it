@@ -32,7 +32,7 @@ L'SDK del servizio Reach di Engagement richiede alcune funzionalità aggiuntive.
 
 Aprire il file `WMAppManifest.xml` e assicurarsi che le seguenti funzionalità siano dichiarate:
 
--   `ID_CAP_PUSH_NOTIFICATION`  
+-   `ID_CAP_PUSH_NOTIFICATION`
 -   `ID_CAP_WEBBROWSERCOMPONENT`
 
 La prima viene usata dal servizio MPNS per consentire la visualizzazione di notifiche popup. La seconda viene usata per incorporare un'attività del browser nell'SDK.

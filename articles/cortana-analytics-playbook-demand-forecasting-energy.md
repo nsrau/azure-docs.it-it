@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="ilanr9;yijichen;garye"/>  
+	ms.author="ilanr9;yijichen;garye"/>
 
 # Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia  
 
@@ -354,7 +354,7 @@ Nel contesto della previsione della domanda di energia, l'obiettivo è richiamar
 ### Distribuzione di servizi Web
 Il principale blocco predefinito distribuibile in Azure ML è il servizio Web. Si tratta del modo più efficace per consentire l'utilizzo di un modello predittivo nel cloud. Il servizio Web incapsula il modello e lo include in un'API [RESTful](http://www.restapitutorial.com/). L'API (Application Programming Interface) può essere usata in qualsiasi codice client, come illustrato nel diagramma seguente.
 
-![Distribuzione del servizio e consumo](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)  
+![Distribuzione del servizio e consumo](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
 Come si può notare, il servizio Web viene distribuito nel cloud della suite Cortana Intelligence e può essere richiamato sul relativo endpoint API REST esposto. Il servizio può essere richiamato contemporaneamente da diversi tipi di client in domini differenti tramite l'API Web. La scalabilità del servizio Web permette di supportare migliaia di chiamate simultanee.
 

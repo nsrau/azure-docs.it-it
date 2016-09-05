@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come scaricare la fattura e i dati di utilizzo giornalieri di Azure
 

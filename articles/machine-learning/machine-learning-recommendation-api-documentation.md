@@ -96,7 +96,7 @@ Crea una richiesta di tipo "crea modello".
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -588,8 +588,8 @@ Codice stato HTTP: 200
 
 I dati vengono restituiti come una raccolta di proprietà.
 
-- `feed/entry/id/content/properties/key`  
-- `feed/entry/id/content/properties/value`  
+- `feed/entry/id/content/properties/key`
+- `feed/entry/id/content/properties/value`
 
 
 La tabella seguente illustra il valore rappresentato da ogni chiave.
@@ -882,15 +882,16 @@ XML OData
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/AddRule?apiVersion=%271.0%27`  |
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | 
-<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br> <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br>
+ <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Risposta**:
@@ -937,7 +938,7 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -954,7 +955,7 @@ Codice stato HTTP: 200
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -990,13 +991,13 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 | Metodo HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Esempio (con funzionalità):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
@@ -1042,7 +1043,7 @@ Recupera tutti gli elementi del catalogo. Il catalogo verrà recuperato una pagi
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1202,7 +1203,7 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>ID utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [\_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Lineetta&#41;<br> Lunghezza massima consentita: 255 </td><td>Identificatore univoco di un utente.</td></tr><tr><td>ID elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carattere di sottolineatura&#41;, [-] &#40;Lineetta&#41;<br> Lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No. Se fornito, è necessario inserire anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
@@ -1245,7 +1246,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 | Metodo HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -1364,7 +1365,7 @@ Recupera i metadati di tutti i file di dati di utilizzo del modello. Il file di 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1431,7 +1432,7 @@ Ottiene le statistiche di utilizzo.
 | startDate |	Data di inizio. Formato: aaaa/MM/ggTHH:mm:ss |
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1514,7 +1515,7 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di dati di utilizzo del modello. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1554,7 +1555,7 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 | mid |	Identificatore univoco del modello. |
 | fid |	Identificatore univoco del file di dati di utilizzo del modello. |
 | download | 1 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1610,7 +1611,7 @@ Elimina il file di dati di utilizzo del modello specificato.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1629,7 +1630,7 @@ Elimina tutti i file di dati di utilizzo del modello.
 | Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1651,7 +1652,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'u
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo. <br/>I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1734,7 +1735,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per una
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo.<br/> I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
 |rankBuildId| Identificatore univoco per la compilazione della classifica o -1 per l'ultima compilazione della classifica.|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1896,7 +1897,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli in formato XML nel corpo come nell'esempio seguente. Per una spiegazione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
@@ -3004,7 +3005,7 @@ Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Parametro facoltativo. Se omesso, vengono restituite tutte le notifiche relative a tutti i modelli. <br>Valore valido: identificatore univoco del modello.|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -3056,7 +3057,7 @@ Elimina tutte le notifiche di lettura relative a un modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -3069,12 +3070,12 @@ Elimina tutte le notifiche relative a tutti i modelli.
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|DELETE |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27`  |
+|DELETE |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27`|
 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 

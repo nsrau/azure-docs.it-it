@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Introduzione alla distribuzione di contenuti su richiesta usando REST 
 
@@ -497,7 +497,8 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
 
 **Risposta HTTP**
 
-Se l'esito è positivo, viene restituita la seguente risposta: HTTP/1.1 204 - Nessun contenuto
+Se l'esito è positivo, viene restituita la seguente risposta: 
+	HTTP/1.1 204 - Nessun contenuto
 
 ## Eliminare le entità Locator e AccessPolicy 
 
@@ -1200,7 +1201,7 @@ Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro m
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
   [portale di Azure classico]: http://manage.windowsazure.com/
 
 <!---HONumber=AcomDC_0824_2016-->

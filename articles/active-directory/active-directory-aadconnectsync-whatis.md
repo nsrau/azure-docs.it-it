@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="markusvi;andkjell"/>  
+	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/04/2016"
-	ms.author="mahthi"/>  
+	ms.author="mahthi"/>
 
 # Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell
 

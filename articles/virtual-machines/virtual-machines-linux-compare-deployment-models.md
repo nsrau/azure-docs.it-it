@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="08/19/2015"
-   ms.author="tomfitz"/>  
+   ms.author="tomfitz"/>
 
 # Provider di calcolo, rete e archiviazione di Azure per applicazioni Linux nel modello di distribuzione Azure Resource Manager
 

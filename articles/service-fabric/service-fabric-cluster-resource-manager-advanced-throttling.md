@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 
 # Limitazione del comportamento di Cluster Resource Manager di Service Fabric

@@ -36,7 +36,7 @@ Panoramica delle considerazioni, delle procedure consigliate e delle attività p
 
 Per altri suggerimenti relativi alla gestione, andare alla [Panoramica della gestione][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Trovare query con esecuzione prolungata]: sql-data-warehouse-manage-monitor.md

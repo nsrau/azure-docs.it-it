@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>  
+ ms.author="krisragh"/>
 
 # Limiti e impostazioni predefinite dell'Utilità di pianificazione
 

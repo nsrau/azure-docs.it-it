@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="zachal"/>  
+   ms.author="zachal"/>
 
 # Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure #
 

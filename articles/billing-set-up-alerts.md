@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/18/2016"
-	ms.author="vikdesai"/>  
+	ms.author="vikdesai"/>
 
 # Impostare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure
 
@@ -28,7 +28,7 @@ Questo servizio è disponibile in anteprima, quindi è necessario innanzitutto e
 
 Dopo aver ricevuto tramite posta elettronica la conferma dell'attivazione del servizio di fatturazione per la sottoscrizione, visitare la [pagina relativa alle sottoscrizioni](https://account.windowsazure.com/Subscriptions) nel portale degli account. Fare clic sulla sottoscrizione che si desidera monitorare, quindi selezionare **Avvisi**.
 
-![][Image1]  
+![][Image1]
 
 Fare clic su **Aggiungi avviso** per creare il primo avviso. È possibile impostare un totale di cinque avvisi di fatturazione per sottoscrizione, con una soglia diversa e un massimo di due destinatari di posta elettronica per ciascun avviso.
 

@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Come integrare GCM con Mobile Engagement
 

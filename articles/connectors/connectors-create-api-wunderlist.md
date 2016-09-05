@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore Wunderlist
 
@@ -94,7 +94,7 @@ Si applica alla versione 1.0
 ## TriggerTaskDue
 Quando un'attività è in scadenza: attiva un nuovo flusso quando un'attività nell'elenco è in scadenza.
 
-```GET: /trigger/tasksdue```  
+```GET: /trigger/tasksdue```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -110,7 +110,7 @@ Quando un'attività è in scadenza: attiva un nuovo flusso quando un'attività n
 ## TriggerTaskNew
 Quando viene creata una nuova attività: attiva un nuovo flusso quando viene creata una nuova attività nell'elenco.
 
-```GET: /trigger/tasksnew```  
+```GET: /trigger/tasksnew```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -126,7 +126,7 @@ Quando viene creata una nuova attività: attiva un nuovo flusso quando viene cre
 ## TriggerReminder
 Quando si verifica un promemoria: attiva un nuovo flusso quando si verifica un promemoria.
 
-```GET: /trigger/reminders```  
+```GET: /trigger/reminders```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -143,7 +143,7 @@ Quando si verifica un promemoria: attiva un nuovo flusso quando si verifica un p
 ## RetrieveLists
 Ottenere elenchi: recupera gli elenchi associati all'account.
 
-```GET: /lists```  
+```GET: /lists```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -161,7 +161,7 @@ Ottenere elenchi: recupera gli elenchi associati all'account.
 ## CreateList
 Creare un elenco: crea un elenco.
 
-```POST: /lists```  
+```POST: /lists```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -178,7 +178,7 @@ Creare un elenco: crea un elenco.
 ## ListTasks
 Ottenere attività: recupera le attività da un elenco specifico.
 
-```GET: /tasks```  
+```GET: /tasks```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -198,7 +198,7 @@ Ottenere attività: recupera le attività da un elenco specifico.
 ## CreateTask
 Creare un'attività: crea un'attività.
 
-```POST: /tasks```  
+```POST: /tasks```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -214,7 +214,7 @@ Creare un'attività: crea un'attività.
 ## ListSubTasks
 Ottenere le sottoattività: recupera le sottoattività da un'attività o un elenco specifico.
 
-```GET: /subtasks```  
+```GET: /subtasks```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -235,7 +235,7 @@ Ottenere le sottoattività: recupera le sottoattività da un'attività o un elen
 ## CreateSubTask
 Creare una sottoattività: crea una sottoattività all'interno di un'attività specifica.
 
-```POST: /subtasks```  
+```POST: /subtasks```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -251,7 +251,7 @@ Creare una sottoattività: crea una sottoattività all'interno di un'attività s
 ## ListNotes
 Ottenere le note: recupera le note per un'attività o un elenco specifico.
 
-```GET: /notes```  
+```GET: /notes```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -271,7 +271,7 @@ Ottenere le note: recupera le note per un'attività o un elenco specifico.
 ## CreateNote
 Creare una nota: aggiunge una nota a un'attività specifica.
 
-```POST: /notes```  
+```POST: /notes```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -287,7 +287,7 @@ Creare una nota: aggiunge una nota a un'attività specifica.
 ## ListComments
 Ottenere i commenti di un'attività: recupera i commenti per un'attività o un elenco specifico.
 
-```GET: /task_comments```  
+```GET: /task_comments```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -307,7 +307,7 @@ Ottenere i commenti di un'attività: recupera i commenti per un'attività o un e
 ## CreateComment
 Aggiungere un commento a un'attività: aggiunge un commento a un'attività specifica.
 
-```POST: /task_comments```  
+```POST: /task_comments```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -323,7 +323,7 @@ Aggiungere un commento a un'attività: aggiunge un commento a un'attività speci
 ## RetrieveReminders
 Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specifico.
 
-```GET: /reminders```  
+```GET: /reminders```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -343,7 +343,7 @@ Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specif
 ## CreateReminder
 Impostare un promemoria: imposta un promemoria.
 
-```POST: /reminders```  
+```POST: /reminders```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -360,7 +360,7 @@ Impostare un promemoria: imposta un promemoria.
 ## RetrieveFiles
 Ottenere i file: recupera i file per un'attività o un elenco specifico.
 
-```GET: /files```  
+```GET: /files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -396,7 +396,7 @@ Ottenere un elenco: recupera un elenco specifico.
 ## DeleteList
 Eliminare un elenco: elimina un elenco.
 
-```DELETE: /lists/{id}```  
+```DELETE: /lists/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -413,7 +413,7 @@ Eliminare un elenco: elimina un elenco.
 ## UpdateList
 Aggiornare un elenco: aggiorna un elenco specifico.
 
-```PATCH: /lists/{id}```  
+```PATCH: /lists/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -430,7 +430,7 @@ Aggiornare un elenco: aggiorna un elenco specifico.
 ## GetTask
 Ottenere un'attività: recupera un'attività specifica.
 
-```GET: /tasks/{id}```  
+```GET: /tasks/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -447,7 +447,7 @@ Ottenere un'attività: recupera un'attività specifica.
 ## UpdateTask
 Aggiornare un'attività: aggiorna un'attività specifica.
 
-```PATCH: /tasks/{id}```  
+```PATCH: /tasks/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -465,7 +465,7 @@ Aggiornare un'attività: aggiorna un'attività specifica.
 ## DeleteTask
 Eliminare un'attività: elimina un'attività specifica.
 
-```DELETE: /tasks/{id}```  
+```DELETE: /tasks/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -516,7 +516,7 @@ Aggiornare una sottoattività: aggiorna una sottoattività specifica.
 ## DeleteSubTask
 Eliminare una sottoattività: elimina una sottoattività specifica.
 
-```DELETE: /subtasks/{id}```  
+```DELETE: /subtasks/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -533,7 +533,7 @@ Eliminare una sottoattività: elimina una sottoattività specifica.
 ## GetNote
 Ottenere una nota: recupera una nota specifica.
 
-```GET: /notes/{id}```  
+```GET: /notes/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -549,7 +549,7 @@ Ottenere una nota: recupera una nota specifica.
 ## UpdateNote
 Aggiornare una nota: aggiorna una nota specifica.
 
-```PATCH: /notes/{id}```  
+```PATCH: /notes/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -566,7 +566,7 @@ Aggiornare una nota: aggiorna una nota specifica.
 ## DeleteNote
 Eliminare una nota: elimina una nota specifica.
 
-```DELETE: /notes/{id}```  
+```DELETE: /notes/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -583,7 +583,7 @@ Eliminare una nota: elimina una nota specifica.
 ## GetComment
 Ottenere un commento di un'attività: recupera un commento specifico di un'attività.
 
-```GET: /task_comments/{id}```  
+```GET: /task_comments/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -599,7 +599,7 @@ Ottenere un commento di un'attività: recupera un commento specifico di un'attiv
 ## UpdateReminder
 Aggiornare un promemoria: aggiorna un promemoria specifico.
 
-```PATCH: /reminders/{id}```  
+```PATCH: /reminders/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -616,7 +616,7 @@ Aggiornare un promemoria: aggiorna un promemoria specifico.
 ## DeleteReminder
 Eliminare un promemoria: elimina un promemoria specifico.
 
-```DELETE: /reminders/{id}```  
+```DELETE: /reminders/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|

@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore Trello
 
@@ -72,7 +72,7 @@ Si applica alla versione 1.0
 ## OnNewCardInBoard
 Quando una nuova scheda viene aggiunta a una bacheca: attiva un flusso quando una nuova scheda viene aggiunta una bacheca
 
-```GET: /trigger/boards/{board_id}/cards```  
+```GET: /trigger/boards/{board_id}/cards```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -94,7 +94,7 @@ Quando una nuova scheda viene aggiunta a una bacheca: attiva un flusso quando un
 ## OnNewCardInList
 Quando una nuova scheda viene aggiunta a un elenco: attiva un flusso quando una scheda viene aggiunta a un elenco
 
-```GET: /trigger/lists/{list_id}/cards```  
+```GET: /trigger/lists/{list_id}/cards```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -152,7 +152,7 @@ Elenca le schede nella bacheca: elenca le schede nella bacheca
 ## GetCard
 Ottiene la scheda in base all'ID: ottiene la scheda in base all'ID
 
-```GET: /cards/{card_id}```  
+```GET: /cards/{card_id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -198,7 +198,7 @@ Ottiene la scheda in base all'ID: ottiene la scheda in base all'ID
 ## UpdateCard
 Aggiorna la scheda: aggiorna la scheda
 
-```PUT: /cards/{card_id}```  
+```PUT: /cards/{card_id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -222,7 +222,7 @@ Aggiorna la scheda: aggiorna la scheda
 ## DeleteCard
 Elimina la scheda: elimina la scheda
 
-```DELETE: /cards/{card_id}```  
+```DELETE: /cards/{card_id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -245,7 +245,7 @@ Elimina la scheda: elimina la scheda
 ## CreateCard
 Crea una scheda: crea una nuova scheda nell'account Trello
 
-```POST: /cards```  
+```POST: /cards```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -301,7 +301,7 @@ Elenca le bacheche: elenca le bacheche
 ## GetBoard
 Ottiene la bacheca in base all'ID: ottiene la bacheca in base all'ID
 
-```GET: /boards/{board_id}```  
+```GET: /boards/{board_id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -360,7 +360,7 @@ Ottiene la bacheca in base all'ID: ottiene la bacheca in base all'ID
 ## ListLists
 Elenca gli elenchi di schede nella bacheca: elenca gli elenchi di schede nella bacheca
 
-```GET: /boards/{board_id}/lists```  
+```GET: /boards/{board_id}/lists```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -386,7 +386,7 @@ Elenca gli elenchi di schede nella bacheca: elenca gli elenchi di schede nella b
 ## GetList
 Ottiene l'elenco in base all'ID: ottiene l'elenco in base all'ID
 
-```GET: /lists/{list_id}```  
+```GET: /lists/{list_id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|

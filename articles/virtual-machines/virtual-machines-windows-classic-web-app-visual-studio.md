@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/15/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Creazione di una macchina virtuale per un’applicazione web con Visual Studio
 

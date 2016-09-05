@@ -75,7 +75,7 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 - [Concetti][Link 6]
 - [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -135,7 +135,7 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

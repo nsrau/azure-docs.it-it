@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Procedure di aggiornamento di Windows Universal Apps SDK
 

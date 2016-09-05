@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 
 # Come raggiungere gli utenti dell'applicazione con le notifiche push
@@ -85,7 +85,7 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 - [Concetti][Link 6]
 - [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -145,7 +145,7 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

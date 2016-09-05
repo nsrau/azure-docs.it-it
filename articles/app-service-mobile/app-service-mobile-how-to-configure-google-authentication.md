@@ -68,7 +68,7 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 <!-- Images. -->
 

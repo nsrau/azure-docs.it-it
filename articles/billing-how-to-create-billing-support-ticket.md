@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure
 Questo articolo fornisce le informazioni necessarie per aprire un ticket con il supporto di Azure.

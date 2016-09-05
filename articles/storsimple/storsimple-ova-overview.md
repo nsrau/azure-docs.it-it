@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/19/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Introduzione a StorSimple Virtual Array
 
@@ -156,7 +156,7 @@ Il Virtual Array si serve di un meccanismo di suddivisione in livelli nuovo per 
 
 Ai dati di una particolare condivisione o di un particolare volume a livelli viene garantito un proprio spazio a livello locale (circa il 10% dello spazio totale sottoposto a provisioning per quella condivisione o quel volume). Anche se così si riduce la memoria disponibile nel dispositivo virtuale per quella condivisione o quel volume, si garantisce che la suddivisione in livelli di una condivisione o di un volume non sia interessata dalle esigenze di suddivisione in livelli di altre condivisioni o altri volumi. Pertanto, un carico di lavoro molto pesante in una condivisione o in un volume non può forzare tutti gli altri carichi di lavoro nel cloud.
 
-![suddivisione automatica in livelli dell'archiviazione](./media/storsimple-ova-overview/automatic-storage-tiering.png)  
+![suddivisione automatica in livelli dell'archiviazione](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 >[AZURE.NOTE] È possibile specificare un volume come aggiunto in locale e in questo caso i dati rimangono nel Virtual Array e non vengono mai caricati nel cloud. Per altre informazioni, vedere [Condivisioni e volumi aggiunti in locale](#locally-pinned-shares-and-volumes).
 

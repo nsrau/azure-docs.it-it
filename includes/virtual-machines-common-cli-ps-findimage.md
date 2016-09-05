@@ -207,7 +207,7 @@ Windows-Server-Technical-Preview
 In questo elenco, copiare il nome della SKU scelta per disporre di tutte le informazioni per il cmdlet di PowerShell `Set-AzureRMVMSourceImage` o per un modello di gruppo di risorse.
 
 
-<!--Image references-->  
+<!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png

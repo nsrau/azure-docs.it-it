@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore ProjectOnline
 
@@ -70,7 +70,7 @@ Si applica alla versione 1.0
 ## OnNewProject
 Quando viene creato un nuovo progetto: attiva un flusso ogni volta che viene creato un nuovo progetto
 
-```GET: /trigger/_api/ProjectData/Projects```  
+```GET: /trigger/_api/ProjectData/Projects```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -92,7 +92,7 @@ Quando viene creato un nuovo progetto: attiva un flusso ogni volta che viene cre
 ## OnNewResource
 Quando viene creata una nuova risorsa: attiva un nuovo flusso quando viene creata una nuova risorsa
 
-```GET: /trigger/_api/ProjectData/Resources```  
+```GET: /trigger/_api/ProjectData/Resources```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -114,7 +114,7 @@ Quando viene creata una nuova risorsa: attiva un nuovo flusso quando viene creat
 ## OnNewTask
 Quando viene creata una nuova attività: attiva un flusso quando viene creata una nuova attività
 
-```GET: /trigger/_api/ProjectData/Tasks```  
+```GET: /trigger/_api/ProjectData/Tasks```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -136,7 +136,7 @@ Quando viene creata una nuova attività: attiva un flusso quando viene creata un
 ## ListProjects
 Elenco dei progetti: elenca i progetti nel sito del progetto online
 
-```GET: /_api/ProjectServer/Projects```  
+```GET: /_api/ProjectServer/Projects```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -181,7 +181,7 @@ Crea nuovo progetto: crea un nuovo progetto nel sito del progetto online
 ## CreateTask
 Crea una nuova attività: crea una nuova attività nel progetto
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```  
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -205,7 +205,7 @@ Crea una nuova attività: crea una nuova attività nel progetto
 ## CreateResource
 Crea una nuova risorsa: crea risorse per l'organizzazione nel sito del progetto online
 
-```POST: /_api/ProjectServer/EnterpriseResources```  
+```POST: /_api/ProjectServer/EnterpriseResources```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
 
@@ -38,7 +38,7 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 2. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**
 
-	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)  
+	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 3. Nel pannello **Domini personalizzati** fare clic su **Acquista domini**.
 
@@ -50,7 +50,7 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 5. Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di contatto del dominio.
 
-  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)  
+  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
 
     > [AZURE.NOTE] It is very important that you fill out all required fields with as much accuracy as possible, especially the email address. In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active. In some cases, incorrect data for contact information will result in failure to purchase domains. 
 
@@ -62,7 +62,7 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 	
 	c) Assegnare nomi host predefiniti per domini WWW e radice all'app Web corrente
 
-  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)  
+  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
     >

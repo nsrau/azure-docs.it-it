@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/18/2016"
-	ms.author="sstein"/>  
+	ms.author="sstein"/>
 
 # Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
@@ -62,7 +62,7 @@ La stringa di connessione sarà necessaria più avanti nell'esercitazione. Dopo 
 1. Fare clic su **Database SQL** > **Clinic** > **Mostra stringhe di connessione del database**.
 2. Copiare la stringa di connessione per **ADO.NET**.
 
-	![Copia della stringa di connessione](./media/sql-database-always-encrypted/connection-strings.png)  
+	![Copia della stringa di connessione](./media/sql-database-always-encrypted/connection-strings.png)
 
 
 ## Connettersi al database con SSMS
@@ -73,7 +73,7 @@ Aprire SSMS e connettersi al server con il database Clinic.
 1. Aprire SQL Server Management Studio. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server**, se non è già aperta.
 2. Immettere il nome e le credenziali del server. Il nome del server è disponibile nel pannello del database SQL e nella stringa di connessione copiata in precedenza. Digitare il nome completo del server, compreso *database.windows.net*.
 
-	![Copia della stringa di connessione](./media/sql-database-always-encrypted/ssms-connect.png)  
+	![Copia della stringa di connessione](./media/sql-database-always-encrypted/ssms-connect.png)
 
 Se viene visualizzata la finestra **Nuova regola firewall**, accedere ad Azure e lasciare che SSMS crei una nuova regola firewall per l'utente.
 
@@ -109,7 +109,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
 1. Espandere **Database** > **Clinic** > **Tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata per la crittografia sempre attiva:
 
-    ![Crittografia delle colonne](./media/sql-database-always-encrypted/encrypt-columns.png)  
+    ![Crittografia delle colonne](./media/sql-database-always-encrypted/encrypt-columns.png)
 
 La procedura guidata per la crittografia sempre attiva include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
 
@@ -121,7 +121,7 @@ Crittografare il **CF** e la **data di nascita** per ogni paziente. La colonna r
 
 Impostare il **Tipo di crittografia** per la colonna **CF** su **Deterministica** e la colonna **Data di nascita** su **Casuale**. Fare clic su **Avanti**.
 
-![Crittografia delle colonne](./media/sql-database-always-encrypted/column-selection.png)  
+![Crittografia delle colonne](./media/sql-database-always-encrypted/column-selection.png)
 
 ### Configurazione della chiave master###
 
@@ -129,7 +129,7 @@ La pagina **Configurazione della chiave master** consente di impostare la CMK e 
 
 Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic su **Avanti**.
 
-![Configurazione della chiave master](./media/sql-database-always-encrypted/master-key-configuration.png)  
+![Configurazione della chiave master](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 
 ### Convalida###
@@ -140,7 +140,7 @@ Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Riepilogo](./media/sql-database-always-encrypted/summary.png)  
+![Riepilogo](./media/sql-database-always-encrypted/summary.png)
 
 
 ### Confermare le azioni della procedura guidata
@@ -164,7 +164,7 @@ Ora che la crittografia sempre attiva è configurata, è possibile creare un'app
 1. Aprire Visual Studio e creare un'applicazione console C#. Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
 2. Denominare il progetto **AlwaysEncryptedConsoleApp** e fare clic su **OK**.
 
-![Nuova applicazione console](./media/sql-database-always-encrypted/console-app.png)  
+![Nuova applicazione console](./media/sql-database-always-encrypted/console-app.png)
 
 
 
@@ -503,7 +503,7 @@ Eseguire la query seguente nel database Clinic.
 
 È possibile osservare che le colonne crittografate non contengono dati di testo non crittografato.
 
-   ![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-encrypted.png)  
+   ![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
 
 Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro **Column Encryption Setting=Enabled** alla connessione.
@@ -512,7 +512,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
 2. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.
 3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
-	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-connection-parameter.png)  
+	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 
 4. Eseguire la query seguente nel database **Clinic**.
 
@@ -521,7 +521,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
      È ora possibile visualizzare i dati non crittografati nelle colonne crittografate.
 
 
-	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-plaintext.png)  
+	![Nuova applicazione console](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
 
 

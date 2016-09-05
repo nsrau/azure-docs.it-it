@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Funzionalità principali di Azure Mobile Engagement
 
@@ -134,7 +134,7 @@ L'articolo fornisce una panoramica generale sulle funzionalità principali della
 
 	![][28]
 
-<!-- Images -->  
+<!-- Images -->
 [1]: ./media/mobile-engagement-key-features/monitor1.png
 [2]: ./media/mobile-engagement-key-features/monitor2.png
 [3]: ./media/mobile-engagement-key-features/analytics-filter.png

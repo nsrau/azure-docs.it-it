@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Panoramica dell'architettura di Cluster Resource Manager
 Per gestire le risorse del cluster, Cluster Resource Manager di Service Fabric deve disporre di varie informazioni. Deve conoscere i servizi esistenti e la relativa quantità attuale (o predefinita) di risorse che tali servizi stanno usando. Deve conoscere la capacità effettiva dei nodi nel cluster e, di conseguenza, la quantità di risorse disponibili sia nel cluster intero sia in un nodo specifico. L'uso di risorse di un determinato servizio può cambiare nel tempo e che i servizi, in realtà, sono in genere interessati da più di una risorsa. In molti servizi diversi potrebbero essere presenti entrambe le risorse fisiche reali, misurate e segnalate come metriche quali consumo della memoria e del disco, nonché come (e in realtà più comunemente) metriche logiche, ad esempio "WorkQueueDepth" o "TotalRequests". Le metriche logiche e fisiche possono essere usate in molti tipi diversi di servizi oppure essere specifiche di un paio di servizi.

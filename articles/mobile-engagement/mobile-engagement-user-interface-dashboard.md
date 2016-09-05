@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come visualizzare e gestire i grafici dei dati relativi all'applicazione
 La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafici personalizzati. In questo modo, potranno sfruttare al meglio il tempo fornendo informazioni precise, invece di cercarle nella sezione delle analisi. Nel dashboard vengono visualizzate le tendenze dell'applicazione e il conteggio degli utenti attivi, suddivisi in base alle differenti versioni dell'applicazione e per un determinato periodo di tempo (ora, giorno, settimana, mese, personalizzato). Le tendenze visualizzate sono basate sugli ultimi 7 giorni.
@@ -93,7 +93,7 @@ La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafi
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

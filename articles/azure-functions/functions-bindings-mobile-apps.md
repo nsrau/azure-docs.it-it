@@ -42,7 +42,7 @@ Per impostare questo URL come variabile di ambiente nell'app per le funzioni:
 
 2. Nell'app per le funzioni fare clic su **Tutte le impostazioni**, scorrere verso il basso fino a **Impostazioni dell'applicazione**, quindi in **Impostazioni app** digitare un nuovo **Nome** per la variabile di ambiente, incollare l'URL nel campo **Valore** assicurandosi di usare lo schema HTTPS, quindi fare clic su **Salva** e chiudere il pannello dell'app per le funzioni per tornare al portale Funzioni.
 
-	![Aggiungere una variabile di ambiente come impostazione dell'app](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)  
+	![Aggiungere una variabile di ambiente come impostazione dell'app](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
 
 È ora possibile impostare la nuova variabile di ambiente come campo *connection* delle associazioni.
 

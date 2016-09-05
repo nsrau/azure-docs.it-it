@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Come creare una macchina virtuale Linux personalizzata
 
@@ -35,4 +35,4 @@ Questo argomento descrive come creare una macchina virtuale (VM) personalizzata 
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

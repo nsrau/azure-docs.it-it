@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
@@ -116,7 +116,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Guida alla risoluzione dei problemi relativi all’API
 
@@ -98,7 +98,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 
 - [Guida alla risoluzione dei problemi - SDK][Link 25]
  
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

@@ -69,7 +69,7 @@ Un modello definisce le risorse di Azure create e i parametri con cui è possibi
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Stati Uniti centrali*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *sostituire con la propria password*
+ - **administratorLoginPassword**: * sostituire con la propria password*
  - **databaseName**: *testapp1devdb*
 
 4. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di test creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
@@ -296,8 +296,8 @@ I file modello e di parametri possono essere sottoposti al controllo delle versi
 ## Gestire gli ambienti
 Durante lo sviluppo, la configurazione delle risorse di Azure nei diversi ambienti può essere resa incoerente in modo intenzionale o accidentale. Ciò può provocare attività superflue di risoluzione dei problemi durante il ciclo di sviluppo dell'applicazione.
 
-1. Modificare gli ambienti aprendo il [portale di Azure](https://portal.azure.com).
-2. Accedere al portale con lo stesso account usato per completare i passaggi precedenti.
+1. Modificare gli ambienti aprendo il [portale di Azure](https://portal.azure.com). 
+2. Accedere al portale con lo stesso account usato per completare i passaggi precedenti. 
 3. Come illustrato nella figura seguente, fare clic su Esplora--> Gruppi di risorse. Potrebbe essere necessario scorrere verso il basso per visualizzare Gruppi di risorse. ![di Microsoft Azure](./media/solution-dev-test-environments/rgbrowse.png)
 4. Dopo aver fatto clic su Gruppi di risorse nell'immagine precedente, verrà visualizzato il pannello Gruppi di risorse e i tre gruppi di risorse creati in un passaggio precedente, come illustrato nell'immagine seguente. Fare clic sul gruppo di risorse TestApp1-Development. Verrà visualizzato il pannello con l'elenco delle risorse create dal modello nella distribuzione del gruppo di risorse TestApp1-Development completata in un passaggio precedente. Eliminare la risorsa app Web TestApp1DevApp facendo clic su TestApp1DevApp nel pannello del gruppo di risorse TestApp1-Development e quindi facendo clic su Elimina nel pannello dell'app Web TestApp1DevApp. ![di Microsoft Azure](./media/solution-dev-test-environments/portal2.png)
 5. Fare clic su "Sì" quando il portale richiede di confermare l'eliminazione della risorsa. Chiudendo il pannello del gruppo di risorse TestApp1-Development e riaprendolo, l'app Web appena eliminata non sarà più visibile. I contenuti del gruppo di risorse sono ora diversi da quanto previsto. È possibile eseguire altre prove eliminando più risorse da più gruppi di risorse o addirittura modificando le impostazioni di configurazione per alcune risorse. Invece di usare il portale di Azure per eliminare una risorsa da un gruppo di risorse, è possibile usare il comando di PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) o il comando "azure resource delete" dall'interfaccia della riga di comando per eseguire la stessa attività.

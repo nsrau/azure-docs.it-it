@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Importare da BACPAC al database SQL tramite SSMS
 
@@ -34,7 +34,7 @@ In questo articolo viene illustrato come importare da un file [BACPAC](https://m
 
 2. Connettersi al server del database SQL di Azure, fare clic con il pulsante destro del mouse sulla cartella **Database** e quindi scegliere **Importa applicazione livello dati...**
 
-    ![Importare la voce di menu dell’applicazione livello dati](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)  
+    ![Importare la voce di menu dell’applicazione livello dati](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
 3.	Importare il file BACPAC dal disco locale o selezionare l'account di archiviazione di Azure e il contenitore in cui è stato caricato il file BACPAC per creare il database nel database SQL di Azure.
 
@@ -44,7 +44,7 @@ In questo articolo viene illustrato come importare da un file [BACPAC](https://m
 
 4.	Specificare il **Nome nuovo database** nel database SQL di Azure, impostare **Edizione del database SQL di Microsoft Azure** (livello del servizio), **Dimensioni massime database** e **Obiettivo servizio** (livello di prestazioni).
 
-    ![Impostazioni database](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)  
+    ![Impostazioni database](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
 5.	Fare clic su **Avanti** e quindi su **Fine** per importare il file BACPAC in un nuovo database nel server del database SQL di Azure.
 

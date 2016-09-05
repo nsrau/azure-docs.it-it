@@ -64,7 +64,7 @@ Per risolvere questo problema, scegliere una delle alternative seguenti:
 
 Per abilitare di nuovo una sottoscrizione disabilitata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)  
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
 Se non è possibile accedere al portale, inviare la richiesta di supporto dal sito Web del supporto tecnico di Azure o dal Centro account di Azure:
 

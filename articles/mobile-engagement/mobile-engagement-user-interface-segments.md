@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come creare e gestire segmenti di utenti per identificare modelli di utilizzo
 
@@ -101,7 +101,7 @@ Al termine dell'impostazione, il criterio viene visualizzato nel grafico del seg
 - [Concetti][Link 6]
 - [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -161,7 +161,7 @@ Al termine dell'impostazione, il criterio viene visualizzato nel grafico del seg
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

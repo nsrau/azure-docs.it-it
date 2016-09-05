@@ -215,7 +215,7 @@ Questi due parametri possono essere usati insieme per definire un controllo più
 
 Il diagramma di flusso seguente illustra tutte le diverse combinazioni di questi parametri e le condizioni risultanti per la directory e l'iscrizione self-service.
 
-![][1]  
+![][1]
 
 Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
@@ -229,7 +229,7 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 
 -  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
 <!---HONumber=AcomDC_0824_2016-->

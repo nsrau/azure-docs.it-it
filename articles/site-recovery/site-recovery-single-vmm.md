@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
 	ms.date="08/24/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 #  Replicare macchine virtuali Hyper-V su un singolo server VMM
 
@@ -38,7 +38,7 @@ Si consiglia di eseguire la replica in Azure perché il failover e il ripristino
 
 ## Replicare tra siti con un singolo server VMM autonomo
 
-![Server VMM virtuale autonomo](./media/site-recovery-single-vmm/single-vmm-standalone.png)  
+![Server VMM virtuale autonomo](./media/site-recovery-single-vmm/single-vmm-standalone.png)
 
 In questo scenario distribuire il singolo server VMM come macchina virtuale nel sito primario e replicare questa VM in un sito secondario con Site Recovery e Hyper-V Replica.
 
@@ -77,7 +77,7 @@ Quando il sito primario torna a funzionare, eseguire le operazioni seguenti:
 
 ## Replicare tra siti con un singolo server VMM in un cluster esteso
 
-![Server VMM virtuale cluster](./media/site-recovery-single-vmm/single-vmm-cluster.png)  
+![Server VMM virtuale cluster](./media/site-recovery-single-vmm/single-vmm-cluster.png)
 
 Anziché distribuire un server VMM autonomo come VM che replica in un sito secondario, è possibile garantire la disponibilità elevata di VMM distribuendolo come VM in un cluster di failover di Windows, assicurando così flessibilità al carico di lavoro e protezione da errori hardware. Per effettuare la distribuzione usando Site Recovery, la macchina virtuale di VMM deve essere distribuita in un cluster esteso in siti geograficamente separati. A tale scopo, seguire questa procedura:
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="saurabh"/>  
+	ms.author="saurabh"/>
 
 
 # Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows

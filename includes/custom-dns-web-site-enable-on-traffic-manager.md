@@ -10,13 +10,13 @@ Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è nece
 
 1. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)  
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
 1. Nel pannello **Domini personalizzati** fare clic su **Aggiungi il nome host**.
 	
 1. Usare le caselle di testo **Nome host** per immettere il nome di dominio di Gestione traffico per l'associazione con questa app Web.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-8.png)  
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
 1. Fare clic su **Convalida** per salvare la configurazione del nome di dominio.
 

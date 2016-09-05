@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na" 
    ms.date="08/18/2016"
-   ms.author="mandia"/>  
+   ms.author="mandia"/>
 
 # Introduzione al connettore Box
 Connettersi a Box per creare ed eliminare file e così via.

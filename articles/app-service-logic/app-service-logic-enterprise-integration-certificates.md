@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="deonhe"/>  
+	ms.author="deonhe"/>
 
 # Informazioni sui certificati ed Enterprise Integration Pack
 

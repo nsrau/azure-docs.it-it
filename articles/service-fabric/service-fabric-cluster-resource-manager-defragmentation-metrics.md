@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Deframmentazione delle metriche e del carico in Service Fabric
 Cluster Resource Manager di Service Fabric si occupa principalmente del bilanciamento del carico in termini di distribuzione del carico stesso, assicurandosi che tutti i nodi del cluster vengano usati allo stesso modo. Si tratta in genere del layout più intelligente e sicuro per la sopravvivenza agli errori perché garantisce che qualsiasi anomalia non interessi gran parte di un carico di lavoro. Cluster Resource Manager di Service Fabric supporta anche una strategia diversa, ovvero la deframmentazione. La deframmentazione in genere implica che invece di tentare di distribuire l'utilizzo di una metrica all'interno del cluster, si cerca di favorirne un consolidamento effettivo. Si tratta di una fortunata inversione della nostra strategia normale: invece di ottimizzare il cluster riducendo al minimo la deviazione media standard della metrica del carico per una determinata metrica, si inizia l'ottimizzazione dagli incrementi della deviazione. Ma perché si dovrebbe desiderare questa strategia?

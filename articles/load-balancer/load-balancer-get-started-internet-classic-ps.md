@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) in PowerShell
 

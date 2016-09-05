@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2016"
-	ms.author="jroth" />  
+	ms.author="jroth" />
 
 # Backup e ripristino per SQL Server in Macchine virtuali di Azure
 

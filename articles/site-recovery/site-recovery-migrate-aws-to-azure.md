@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
 	ms.date="08/22/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 #  Eseguire la migrazione delle macchine virtuali di Amazon Web Services (AWS) in Azure con Azure Site Recovery
 

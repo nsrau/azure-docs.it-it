@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/19/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/>
 
 # Scenari di sicurezza di un cluster di Service Fabric
 
@@ -101,14 +101,14 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 
 >[AZURE.NOTE] Tutte le operazioni di gestione in un cluster di Service Fabric richiedono certificati server. I certificati client non possono essere usati per la gestione.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Passaggi successivi
 
 Questo articolo contiene informazioni di carattere generale sulla protezione del cluster. Successivamente, [configurare un cluster di Service Fabric usando un modello di Resource Manager](service-fabric-cluster-creation-via-arm.md) o tramite il [portale di Azure](service-fabric-cluster-creation-via-portal.md).
 
-<!--Image references-->  
+<!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 

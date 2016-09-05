@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="08/23/2016"
-    ms.author="raynew"/>  
+    ms.author="raynew"/>
 
 # Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -25,7 +25,7 @@ Azure è disponibile in più aree geografiche del mondo. Un'area geografica di A
 Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica.
 
 
-![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)  
+![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
 Figura 1: Diagramma di una coppia di aree di Azure
 

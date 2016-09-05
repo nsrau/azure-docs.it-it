@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/19/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Associazione di output di Hub di notifica in Funzioni di Azure
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 # Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario usando il portale di Azure
 
@@ -173,7 +173,7 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 3. In **Obiettivo di protezione** selezionare **Nel sito di ripristino** e quindi **Yes, with Hyper-V** (Sì, con Hyper-V).
 4. Selezionare **Sì** per indicare che si sta usando VMM per gestire gli host Hyper-V e quindi **Sì** se si ha un server VMM secondario. Se si distribuisce la replica tra cloud in un unico server VMM, fare clic su **No**. Fare quindi clic su **OK**.
 
-	![Scegliere gli obiettivi](./media/site-recovery-vmm-to-vmm/choose-goals.png)  
+	![Scegliere gli obiettivi](./media/site-recovery-vmm-to-vmm/choose-goals.png)
 
 
 ## Passaggio 2: Configurare l'ambiente di origine
@@ -243,7 +243,7 @@ Installare il provider di Azure Site Recovery nei server VMM e registrare il ser
 
 13.  Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda **Server VMM** della pagina **Server** nell'insieme di credenziali.
 
-	![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)  
+	![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 11. Quando il server sarà disponibile nella console di Site Recovery, in **Origine** > **Prepara origine** selezionare il server VMM e quindi il cloud in cui si trova l'host Hyper-V. Fare quindi clic su **OK**.
 

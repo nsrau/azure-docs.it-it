@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="rasquill"/>  
+	ms.author="rasquill"/>
 
 #Inserimento di dati personalizzati in una macchina virtuale di Azure
 

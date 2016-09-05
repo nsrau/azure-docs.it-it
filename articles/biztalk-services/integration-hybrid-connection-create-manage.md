@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 # Creare e gestire connessioni ibride

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Importare dati in DocumentDB con lo strumento di migrazione del database
 
@@ -138,8 +138,21 @@ Che restituisce i risultati (parziali) seguenti:
 
 Si notino gli alias come Address.AddressType e Address.Location.StateProvinceName. Specificando un separatore di annidamento ".", lo strumento di importazione crea i documenti secondari Address e Address.Location durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
-
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
+ 
 Ecco alcuni esempi di riga di comando per importare da SQL Server:
 
 	#Import records from SQL which match a query
@@ -158,9 +171,20 @@ Come per l'origine SQL, la proprietà del separatore di annidamento può essere 
 
 ![Schermata dei record di esempio CSV - Da CSV a JSON](./media/documentdb-import-data/csvsample.png)
 
-Si notino gli alias come DomainInfo.Domain\_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento ".", lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
+Si notino gli alias come DomainInfo.Domain_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento ".", lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 Lo strumento di importazione proverà a dedurre le informazioni sul tipo per i valori non racchiusi tra virgolette nei file CSV (i valori tra virgolette vengono sempre considerati come stringhe). I tipi vengono identificati nell'ordine seguente: tipo numerico, datetime, booleano.
 
@@ -307,7 +331,7 @@ La stringa di connessione dell'account DocumentDB può essere recuperata dal pan
 
 > [AZURE.NOTE] Usare il comando Verify per assicurarsi che l'istanza di DocumentDB specificata nel campo della stringa di connessione sia accessibile.
 
-Per importare in un'unica raccolta, immettere il nome della raccolta in cui verranno importati i dati e fare clic sul pulsante Aggiungi. Per importare in più raccolte, immettere il nome di ogni raccolta singolarmente o usare la sintassi seguente per specificare più raccolte: *prefisso\_raccolta*[indice iniziale - indice finale]. Quando si specificano più raccolte tramite la sintassi menzionata in precedenza, tenere presente quanto segue:
+Per importare in un'unica raccolta, immettere il nome della raccolta in cui verranno importati i dati e fare clic sul pulsante Aggiungi. Per importare in più raccolte, immettere il nome di ogni raccolta singolarmente o usare la sintassi seguente per specificare più raccolte: *prefisso_raccolta*[indice iniziale - indice finale]. Quando si specificano più raccolte tramite la sintassi menzionata in precedenza, tenere presente quanto segue:
 
 1. Sono supportati solo criteri di denominazione con intervalli interi. Ad esempio, se si specifica collection[0-3], verranno restituite le raccolte seguenti: collection0, collection1, collection2, collection3.
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
@@ -468,7 +492,7 @@ Nella schermata Configurazione avanzata specificare il percorso del file di log 
 
 Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nessuno. Infine, definire la frequenza con cui il messaggio di trasferimento su schermo verrà aggiornato con lo stato di avanzamento.
 
-	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
+	![Schermata della pagina Configurazione avanzata](./media/documentdb-import-data/AdvancedConfiguration.png)
 
 ## Confermare le impostazioni di importazione e visualizzare la riga di comando
 

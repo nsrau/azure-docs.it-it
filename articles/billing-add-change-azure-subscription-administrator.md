@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come aggiungere o modificare i ruoli di amministratore di Azure
 
@@ -39,14 +39,14 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 2. Nel menu Hub selezionare **Sottoscrizione** > *la sottoscrizione per cui si vuole concedere l'accesso all'amministratore*.
 
-	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)  
+	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
 3. Nel pannello della sottoscrizione selezionare **Impostazioni**> **Utenti**.
 
-	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)  
+	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
 4. Nel pannello Utenti selezionare **Aggiungi**>**Selezionare un ruolo** > **Proprietario**.
 
-	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)  
+	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 
 	**Nota**
 	- Il ruolo di proprietario dispone degli stessi privilegi di accesso del coamministratore. Questo ruolo non ha i privilegi di accesso per il [Centro Account di Azure](https://account.windowsazure.com/subscriptions).
@@ -62,7 +62,7 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 2. Nel riquadro di spostamento selezionare **Impostazioni**> **Amministratori**> **Aggiungi**. </br>
 
-	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)  
+	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 
 3. Digitare l'indirizzo di posta elettronica della persona che si vuole aggiungere come coamministratore e quindi selezionare la sottoscrizione a cui il coamministratore potrà accedere.</br>
 
@@ -98,11 +98,11 @@ Solo l'amministratore account può modificare l'amministratore del servizio per 
 
 3. Sul lato destro fare clic sui dettagli di **Modifica sottoscrizione**. </br>
 
-	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)  
+	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
 4. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica del nuovo amministratore del servizio. </br>
 
-	![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)  
+	![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
 ## Come modificare l'amministratore dell'account
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="casoper"/>  
+	ms.author="casoper"/>
 
 # Avvisi in tempo reale nella rete CDN di Microsoft Azure
 
@@ -34,27 +34,27 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo della rete CDN.
 
-	![Pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)  
+	![Pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 
 2. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci**.
 
-	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)  
+	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
 
 	Si aprirà il portale di gestione della rete CDN.
 
 3. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Statistiche in tempo reale**. Fare clic su **Real-Time Alerts** (Avvisi in tempo reale).
 
-	![Portale di gestione della rete CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)  
+	![Portale di gestione della rete CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)
 
 	Verrà visualizzato l'elenco delle configurazioni di avviso esistenti (se presenti).
 
 4. Fare clic sul pulsante **Add Alert** (Aggiungi avviso).
 
-	![Pulsante Add Alert (Aggiungi avviso)](./media/cdn-real-time-alerts/cdn-add-alert.png)  
+	![Pulsante Add Alert (Aggiungi avviso)](./media/cdn-real-time-alerts/cdn-add-alert.png)
 
 	Verrà visualizzato un form per la creazione di un nuovo avviso.
 
-	![Form New Alert (Nuovo avviso)](./media/cdn-real-time-alerts/cdn-new-alert.png)  
+	![Form New Alert (Nuovo avviso)](./media/cdn-real-time-alerts/cdn-new-alert.png)
 
 5. Per attivare l'avviso quando si fa clic su **Save** (Salva), selezionare la casella di controllo **Alert Enabled** (Avviso abilitato).
 
@@ -62,7 +62,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 
 7. Nell'elenco a discesa **Media Type** (Tipo di supporto) selezionare **HTTP Large Object** (LOB HTTP).
 
-	![Tipo di supporto con LOB HTTP selezionato](./media/cdn-real-time-alerts/cdn-http-large.png)  
+	![Tipo di supporto con LOB HTTP selezionato](./media/cdn-real-time-alerts/cdn-http-large.png)
 
 	> [AZURE.IMPORTANT] È necessario selezionare **HTTP Large Object** (LOB HTTP) come **Media Type** (Tipo di supporto). Le altre opzioni non vengono usate dalla **rete CDN di Azure di Verizon**. Se non si seleziona **HTTP Large Object** (LOB HTTP), l'avviso non verrà mai attivato.
 
@@ -74,7 +74,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 
 	Nell'esempio seguente l'espressione creata indica che si vuole ricevere una notifica quando il numero di codici di stato 404 è maggiore di 25.
 
-	![Espressione di esempio di avviso in tempo reale](./media/cdn-real-time-alerts/cdn-expression.png)  
+	![Espressione di esempio di avviso in tempo reale](./media/cdn-real-time-alerts/cdn-expression.png)
 
 9. Per **Interval** (Intervallo), immettere la frequenza con cui l'espressione deve essere valutata.
 
@@ -95,7 +95,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 
 12. Per pubblicare le notifiche in un server Web, selezionare la casella di controllo **Notify by HTTP Post** (Notifica tramite HTTP Post).
 
-	![Form per la notifica tramite HTTP Post](./media/cdn-real-time-alerts/cdn-notify-http.png)  
+	![Form per la notifica tramite HTTP Post](./media/cdn-real-time-alerts/cdn-notify-http.png)
 
 	Nel campo **Url** immettere l'URL in cui deve essere pubblicato il messaggio HTTP. Nella casella di testo **Headers** (Intestazioni) immettere le intestazioni HTTP da inviare nella richiesta. Per **Body** (Corpo), è possibile personalizzare il messaggio usando l'elenco **Available keywords** (Parole chiave disponibili) per inserire in modo dinamico i dati dell'avviso quando il messaggio viene inviato. L'impostazione predefinita per **Headers** (Intestazioni) e **Body** (Corpo) è un payload XML simile all'esempio seguente.
 

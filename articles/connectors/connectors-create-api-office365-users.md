@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore Office 365 Users
 
@@ -182,7 +182,7 @@ Recupera i risultati della ricerca di profili utente. ```GET: /users```
 
 Tornare all'[elenco di API](apis-list.md).
 
-<!--References-->  
+<!--References-->
 [5]: https://portal.azure.com
 [7]: ./media/connectors-create-api-office365-users/aad-tenant-applications.PNG
 [8]: ./media/connectors-create-api-office365-users/aad-tenant-applications-add-appinfo.PNG

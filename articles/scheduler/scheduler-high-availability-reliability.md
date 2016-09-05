@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/16/2016"
- ms.author="krisragh"/>  
+ ms.author="krisragh"/>
 
 
 # Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione

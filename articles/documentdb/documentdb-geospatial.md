@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="08/08/2016" 
-    ms.author="arramac"/>  
+    ms.author="arramac"/>
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
 

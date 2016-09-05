@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Associazioni di Hub eventi di Funzioni di Azure
 

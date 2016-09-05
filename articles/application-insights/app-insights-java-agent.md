@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
 
@@ -40,7 +40,7 @@ Per usare l'agente Java, installarlo nel server. Le app Web devono essere strume
 
     Ad esempio, in Tomcat su un computer Linux:
 
-    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`  
+    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 
 
 3. Riavviare il server applicazioni.
@@ -109,7 +109,7 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception

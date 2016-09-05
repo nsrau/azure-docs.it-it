@@ -206,9 +206,9 @@ Configurazione, gestione del cluster e orchestrazione del contenitore:
 
 Vedere [Docker](https://www.docker.com) e [Contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-<!--Anchors-->  
+<!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
-<!--Image references-->  
+<!--Image references-->
 
 <!---HONumber=AcomDC_0824_2016-->

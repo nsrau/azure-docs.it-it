@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
  
@@ -130,7 +130,7 @@ Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È poss
 - [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
 
 ## Contenuto dei riquadri (solo per Windows Phone)
-![Reach-Content4][33]  
+![Reach-Content4][33]
 
 ### Definire il contenuto del riquadro
 Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone. Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri.
@@ -138,7 +138,7 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 ### Vedere anche
 - [Documentazione dell'API - API Reach - Push nativo][Link 4]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -198,7 +198,7 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

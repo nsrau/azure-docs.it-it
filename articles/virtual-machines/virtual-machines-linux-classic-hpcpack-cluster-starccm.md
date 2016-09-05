@@ -341,7 +341,7 @@ Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 * [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 

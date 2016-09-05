@@ -15,7 +15,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/17/2016"
-   ms.author="genli"/>  
+   ms.author="genli"/>
 
 # Trasferimento di proprietà di una sottoscrizione di Azure
 
@@ -44,7 +44,7 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 3.  Fare clic sull'opzione **Trasferisci sottoscrizione**.
 
-    ![Scheda delle sottoscrizioni dell'account Azure](./media/billing-subscription-transfer/image1.png)  
+    ![Scheda delle sottoscrizioni dell'account Azure](./media/billing-subscription-transfer/image1.png)
 
 4.  Seguire le istruzioni per specificare il destinatario.
 
@@ -56,9 +56,9 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 6.  Il destinatario dovrà fare clic sul collegamento e seguire le istruzioni, inclusa l'immissione delle informazioni sul pagamento.
 
-    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.PNG)  
+    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.PNG)  
+    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.PNG)
 
 7. Completamento della procedura La sottoscrizione è stata trasferita.
 
@@ -78,7 +78,8 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     Il trasferimento non incide in alcun modo sul servizio. Viene annullata la sottoscrizione dell'attuale amministratore dell'account e ne viene creata una nuova per l'account del destinatario, associando però i servizi di Azure sottostanti alla nuova sottoscrizione. L'ID sottoscrizione rimane invariato.
 
--   **Come è possibile usare questo meccanismo per cambiare la directory della sottoscrizione?** Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Per modificare la directory, è quindi sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente avrà completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
+-   **Come è possibile usare questo meccanismo per cambiare la directory della sottoscrizione?**
+ Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Per modificare la directory, è quindi sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente avrà completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
 
 -   **Se si rileva la proprietà della fatturazione di una sottoscrizione da un'altra organizzazione, quest'ultima continuerà ad avere accesso alle risorse del nuovo proprietario?**
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Disabilitare, abilitare o eliminare un profilo
 

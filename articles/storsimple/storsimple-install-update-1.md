@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/22/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Installare l'aggiornamento 1.2 nel dispositivo StorSimple
 

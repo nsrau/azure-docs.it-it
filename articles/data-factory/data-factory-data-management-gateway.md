@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Gateway di gestione dati
 Il Gateway di gestione dati è un agente client che deve essere installato nell'ambiente locale per consentire il trasferimento dei dati tra gli archivi cloud e locali [supportati dall'attività di copia](data-factory-data-movement-activities.md##supported-data-stores).
@@ -96,19 +96,19 @@ Seguire i passaggi della procedura dettagliata dell'articolo [Spostare dati tra 
 #### Se è già stato creato un gateway logico nel portale
 1. Nel portale di Azure passare al pannello **Data Factory** e fare clic sul riquadro **Servizi collegati**.
 
-	![Pannello Data factory](media/data-factory-data-management-gateway/data-factory-blade.png)  
+	![Pannello Data factory](media/data-factory-data-management-gateway/data-factory-blade.png)
 2. Nel pannello **Servizi collegati**, selezionare il **gateway** logico creato nel portale.
 
-	![gateway logico](media/data-factory-data-management-gateway/data-factory-select-gateway.png)  
+	![gateway logico](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
 2. Nel pannello **Gateway dati** fare clic su **Scaricare e installare il gateway dati**.
 
-	![Link di download nel portale](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)  
+	![Link di download nel portale](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 3. Nel pannello **Configura**, fare clic su **Ricrea chiave**. Fare clic su Sì nel messaggio di avviso dopo averlo letto con attenzione.
 
-	![Ricrea chiave](media/data-factory-data-management-gateway/recreate-key-button.png)  
+	![Ricrea chiave](media/data-factory-data-management-gateway/recreate-key-button.png)
 4. Fare clic sul pulsante Copia accanto alla chiave per copiarla negli Appunti.
 	
-	![Copiare la chiave](media/data-factory-data-management-gateway/copy-gateway-key.png)  
+	![Copiare la chiave](media/data-factory-data-management-gateway/copy-gateway-key.png)
 
 ### Notifiche/icone nell'area di notifica
 L'immagine seguente mostra alcune delle icone visualizzate nell'area di notifica.
@@ -120,7 +120,7 @@ Spostando il cursore sul messaggio di notifica o sull'icona nell'area di notific
 ### Porte e firewall
 È necessario considerare due firewall, ovvero il **firewall aziendale** in esecuzione nel router centrale dell'organizzazione e **Windows Firewall**, configurato come servizio daemon nel computer locale in cui è installato il gateway.
 
-![firewall](./media/data-factory-data-management-gateway/firewalls.png)  
+![firewall](./media/data-factory-data-management-gateway/firewalls.png)
 
 A livello di firewall aziendale è necessario configurare le porte in uscita e i domini seguenti:
 
@@ -194,11 +194,11 @@ La scheda Home di Gestione configurazione di Gateway di gestione dati mostra la 
 
 È disponibile un'opzione per installare l'aggiornamento immediatamente o attendere che il gateway venga aggiornato automaticamente all'ora pianificata. Ad esempio, la schermata seguente mostra il messaggio di notifica in Gestione configurazione di Gateway di gestione dati con il pulsante Aggiorna su cui si fa clic per avviare immediatamente l'installazione.
 
-![Aggiorna in Gestione configurazione di Gateway di gestione dati](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)  
+![Aggiorna in Gestione configurazione di Gateway di gestione dati](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
 
 Il messaggio di notifica nell'area di notifica sarà simile al seguente:
 
-![Messaggio nell'area di notifica](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)  
+![Messaggio nell'area di notifica](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
 
 Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizzato nell'area di notifica. Alla successiva apertura di Gestione configurazione di Gateway di gestione dati verrà visualizzato un messaggio sulla barra di notifica per indicare che il gateway è stato aggiornato, insieme a un collegamento [all'argomento Novità](data-factory-gateway-release-notes.md).
 
@@ -258,14 +258,14 @@ La Pagina della guida consente di eseguire le operazioni seguenti:
 - Se l'applicazione **Gestione credenziali** non riesce a **crittografare** le credenziali quando si fa clic sul pulsante Crittografa nell'editor di Data Factory, verificare che l'applicazione sia in esecuzione nel computer in cui è installato il gateway. In caso contrario, eseguire l'applicazione nel computer gateway e provare a crittografare le credenziali.
 - Se vengono visualizzati errori di connessione all'archivio dati o relativi al driver, avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway, passare alla scheda **Diagnostica**, selezionare o immettere i valori appropriati per i campi nel gruppo **Esegui il test della connessione a un'origine dati locale con questo gateway** e fare clic su **Test connessione** per verificare se è possibile connettersi all'origine dati locale dal computer gateway usando le informazioni e le credenziali di connessione. Se il test della connessione non riesce dopo aver installato un driver, riavviare il gateway in modo che rilevi la modifica più recente.
 
-	![Test di connessione](./media/data-factory-data-management-gateway/TestConnection.png)  
+	![Test di connessione](./media/data-factory-data-management-gateway/TestConnection.png)
 
 ### Inviare i log del gateway a Microsoft
 Se si verificano problemi con il gateway ed è necessario contattare il supporto Microsoft, all'utente potrebbe essere richiesto di condividere i log del gateway. La versione del gateway consente di condividere facilmente i log necessari con pochi clic in Gestione configurazione di Gateway di gestione dati.
 
 1. Passare alla scheda **Diagnostica** di Gestione configurazione gateway.
  
-	![Gateway di gestione dati - scheda Diagnostica](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)  
+	![Gateway di gestione dati - scheda Diagnostica](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
 2. Fare clic sul collegamento **Invia log** per aprire la finestra di dialogo seguente.
 
 	![Gateway di gestione dati - Invia log](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
@@ -276,7 +276,7 @@ Se si verificano problemi con il gateway ed è necessario contattare il supporto
 	![Gateway di gestione dati - stato dell’operazione Invia log](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
 4. Al termine dell'operazione viene visualizzata una finestra di dialogo simile alla seguente.
 	
-	![Gateway di gestione dati - stato dell’operazione Invia log](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)  
+	![Gateway di gestione dati - stato dell’operazione Invia log](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)
 5. Annotare l'**ID report** e condividerlo con il supporto Microsoft. L'ID report serve per individuare i log del gateway caricati per la risoluzione dei problemi. L'ID report viene salvato anche nel visualizzatore eventi come riferimento. È possibile trovarlo cercando l'ID evento "25" e verificando la data e l’ora.
 	
 	![Gateway di gestione dati - ID report dell’operazione Invia log](media/data-factory-data-management-gateway/data-management-gateway-send-logs-report-id.png)
@@ -305,27 +305,27 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 	![Collegamento Gateway dati](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 3. Selezionare il gateway nella sezione **GATEWAY DATI** nel pannello **Servizi collegati**.
 	
-	![Pannello Servizi collegati con gateway selezionato](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)  
+	![Pannello Servizi collegati con gateway selezionato](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
 4. Nel pannello **Gateway dati** fare clic su **Scaricare e installare il gateway dati**.
 	
-	![Collegamento di download del gateway](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)  
+	![Collegamento di download del gateway](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
 5. Nel pannello **Configura** fare clic su **Scaricare e installare il gateway dati** e seguire le istruzioni per installare il gateway dati nel computer.
 
 	![Pannello Configura](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 6. Tenere aperto **Gestione configurazione di Gateway di gestione dati di Microsoft**.
  
-	![Gestione configurazione](./media/data-factory-data-management-gateway/ConfigurationManager.png)  
+	![Gestione configurazione](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 7. Nel pannello **Configura** del portale fare clic su **Ricrea chiave** nella barra dei comandi e su **Sì** per il messaggio di avviso. Fare clic sul **pulsante Copia** accanto al testo della chiave per copiare la chiave negli Appunti. Il gateway nel computer precedente smette di funzionare non appena si ricrea la chiave.
 	
-	![Ricrea chiave](./media/data-factory-data-management-gateway/RecreateKey.png)  
+	![Ricrea chiave](./media/data-factory-data-management-gateway/RecreateKey.png)
 	 
 8. Incollare la **Chiave** nella casella di testo della pagina **Registra gateway** in **Gestione configurazione di Gateway di gestione dati** nel computer. (Facoltativo) Selezionare la casella di controllo **Mostra chiave del gateway** per visualizzare il testo della chiave.
  
-	![Copia della chiave e registrazione](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)  
+	![Copia della chiave e registrazione](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
 9. Fare clic su **Registra** per registrare il gateway con il servizio cloud.
 10. Nella scheda **Impostazioni**, fare clic su **Modifica** per selezionare lo stesso certificato usato con il gateway precedente, immettere la **password** e fare clic su **Fine**.
  
-	![Specificare un certificato](./media/data-factory-data-management-gateway/SpecifyCertificate.png)  
+	![Specificare un certificato](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
 	È possibile esportare un certificato dal gateway precedente seguendo questa procedura: avviare Gestione configurazione di Gateway di gestione dati nel computer precedente, passare alla scheda **Certificato**, fare clic su **Esporta** e seguire le istruzioni.
 10. Dopo la registrazione del gateway, nella home page di Gestione configurazione di Gateway di gestione dati verranno visualizzati **Registrazione** impostato su **Registrato** e **Stato** impostato su **Avviato**.

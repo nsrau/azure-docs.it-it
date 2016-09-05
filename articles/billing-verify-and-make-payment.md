@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come verificare il metodo di pagamento ed effettuare pagamenti per una sottoscrizione di Azure
 

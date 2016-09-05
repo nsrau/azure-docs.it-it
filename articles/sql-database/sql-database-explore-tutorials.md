@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
    
 # Esplorare le esercitazioni sul database SQL di Azure
 

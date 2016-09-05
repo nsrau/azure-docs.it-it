@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Supporto di Azure Resource Manager per Gestione traffico di Azure
 Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. I profili di Gestione traffico di Azure possono ora essere gestiti utilizzando le API e gli strumenti basati su Gestione risorse di Azure.

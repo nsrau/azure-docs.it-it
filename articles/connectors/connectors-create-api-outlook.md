@@ -85,7 +85,7 @@ Si applica alla versione 1.0
 ## OnUpcomingEvents
 All'avvio imminente di un evento: attiva un flusso all'avvio di un evento imminente del calendario
 
-```GET: /Events/OnUpcomingEvents```  
+```GET: /Events/OnUpcomingEvents```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -135,7 +135,7 @@ Recupero messaggi di posta elettronica: recupera i messaggi di posta elettronica
 ## SendEmail
 Invio di posta elettronica: invia un messaggio di posta elettronica
 
-```POST: /Mail```  
+```POST: /Mail```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -177,7 +177,7 @@ Eliminazione messaggio: elimina un messaggio di posta elettronica in base all'ID
 ## MarkAsRead
 Segna come già letto: segna un messaggio di posta elettronica come già letto
 
-```POST: /Mail/MarkAsRead/{messageId}```  
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -198,7 +198,7 @@ Segna come già letto: segna un messaggio di posta elettronica come già letto
 ## ReplyTo
 Risposta al messaggio: risponde a un messaggio di posta elettronica
 
-```POST: /Mail/ReplyTo/{messageId}```  
+```POST: /Mail/ReplyTo/{messageId}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -221,7 +221,7 @@ Risposta al messaggio: risponde a un messaggio di posta elettronica
 ## GetAttachment
 Recupero allegato: recupera l'allegato al messaggio in base all'ID
 
-```GET: /Mail/{messageId}/Attachments/{attachmentId}```  
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -243,7 +243,7 @@ Recupero allegato: recupera l'allegato al messaggio in base all'ID
 ## OnNewEmail
 All'arrivo di un nuovo messaggio di posta elettronica: attiva un flusso quando arriva un nuovo messaggio di posta elettronica
 
-```GET: /Mail/OnNewEmail```  
+```GET: /Mail/OnNewEmail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -271,7 +271,7 @@ All'arrivo di un nuovo messaggio di posta elettronica: attiva un flusso quando a
 ## SendMailWithOptions
 Invio messaggio con opzioni: invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni
 
-```POST: /mailwithoptions/$subscriptions```  
+```POST: /mailwithoptions/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -293,7 +293,7 @@ Invio messaggio con opzioni: invia un messaggio di posta elettronica con più op
 ## SendApprovalMail
 Invio messaggio di approvazione: invia un messaggio di approvazione e attende una risposta dal destinatario
 
-```POST: /approvalmail/$subscriptions```  
+```POST: /approvalmail/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -315,7 +315,7 @@ Invio messaggio di approvazione: invia un messaggio di approvazione e attende un
 ## CalendarGetTables
 Recupero calendari: recupera calendari
 
-```GET: /datasets/calendars/tables```  
+```GET: /datasets/calendars/tables```
 
 Non sono disponibili parametri per questa chiamata
 #### Response
@@ -329,7 +329,7 @@ Non sono disponibili parametri per questa chiamata
 ## CalendarGetItems
 Recupero eventi: recupera gli elementi da un calendario
 
-```GET: /datasets/calendars/tables/{table}/items```  
+```GET: /datasets/calendars/tables/{table}/items```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -368,7 +368,7 @@ Creazione evento: crea un nuovo evento
 ## CalendarGetItem
 Recupero evento: recupera un elemento specifico da un calendario
 
-```GET: /datasets/calendars/tables/{table}/items/{id}```  
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -404,7 +404,7 @@ Eliminazione evento: elimina un elemento del calendario
 ## CalendarPatchItem
 Aggiornamento evento: aggiorna parzialmente un elemento del calendario
 
-```PATCH: /datasets/calendars/tables/{table}/items/{id}```  
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -423,7 +423,7 @@ Aggiornamento evento: aggiorna parzialmente un elemento del calendario
 ## CalendarGetOnNewItems
 In presenza di nuovi elementi: si attiva quando viene creato un nuovo elemento del calendario
 
-```GET: /datasets/calendars/tables/{table}/onnewitems```  
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -444,7 +444,7 @@ In presenza di nuovi elementi: si attiva quando viene creato un nuovo elemento d
 ## CalendarGetOnUpdatedItems
 In presenza di elementi aggiornati: si attiva quando viene modificato un elemento del calendario
 
-```GET: /datasets/calendars/tables/{table}/onupdateditems```  
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -465,7 +465,7 @@ In presenza di elementi aggiornati: si attiva quando viene modificato un element
 ## ContactGetTables
 Recupero cartelle contatti: recupera cartelle di contatti
 
-```GET: /datasets/contacts/tables```  
+```GET: /datasets/contacts/tables```
 
 Non sono disponibili parametri per questa chiamata
 #### Response
@@ -479,7 +479,7 @@ Non sono disponibili parametri per questa chiamata
 ## ContactGetItems
 Recupero contatti: recupera i contatti da una cartella di contatti
 
-```GET: /datasets/contacts/tables/{table}/items```  
+```GET: /datasets/contacts/tables/{table}/items```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -500,7 +500,7 @@ Recupero contatti: recupera i contatti da una cartella di contatti
 ## ContactPostItem
 Creazione contatto: crea un nuovo contatto
 
-```POST: /datasets/contacts/tables/{table}/items```  
+```POST: /datasets/contacts/tables/{table}/items```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -518,7 +518,7 @@ Creazione contatto: crea un nuovo contatto
 ## ContactGetItem
 Recupero contatto: recupera un contatto specifico da una cartella di contatti
 
-```GET: /datasets/contacts/tables/{table}/items/{id}```  
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -536,7 +536,7 @@ Recupero contatto: recupera un contatto specifico da una cartella di contatti
 ## ContactDeleteItem
 Eliminazione contatto: elimina un contatto
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}```  
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|

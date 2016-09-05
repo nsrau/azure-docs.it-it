@@ -54,7 +54,7 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 - Fare clic su Done.
 
 
-## Aggiunta manuale di un account
+<h2 id="compte">Aggiunta manuale di un account</h2>
 Per aggiungere un account manualmente, selezionare il pulsante Immetti manualmente.
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
@@ -68,7 +68,7 @@ Al termine, fare clic su Contatti. Verrà inviata una notifica o un codice di ve
 Se si usa un account di terze parti con l'app per dispositivi mobili, immettere il nome dell'account e la chiave di sicurezza nelle apposite caselle e quindi attivare l'account. Dopo aver completato la procedura e verificato l'account, seguire i passaggi precedenti a partire dal numero 6.
 
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
 
  

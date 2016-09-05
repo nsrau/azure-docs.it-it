@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/18/2016"
-   ms.author="alkohli@microsoft.com" />  
+   ms.author="alkohli@microsoft.com" />
 
 # Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -106,7 +106,7 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
 
 2. **Accedere al controller peer con accesso completo**questa opzione equivale all'opzione 1, è la differenza che è possibile connettersi (con le credenziali appropriate) il**SSAdminConsole**spazio di esecuzione del controller peer. Poiché il dispositivo StorSimple è un dispositivo a elevata disponibilità con due controller in una configurazione attiva-passiva, peer fa riferimento all'altro controller del dispositivo a cui si accede tramite la console seriale). Simile all'opzione 1, questa opzione può inoltre essere utilizzata per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza restrizioni su un controller peer.
 
-3. **Connetti con accesso limitato** Questa opzione viene utilizzata per accedere all'interfaccia Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2. Alcune delle attività disponibili tramite l'opzione 1 che **non possono* essere eseguite in questo spazio di esecuzione sono:
+3. **Connetti con accesso limitato** Questa opzione viene utilizzata per accedere all'interfaccia Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2. Alcune delle attività disponibili tramite l'opzione 1 che **non possono** essere eseguite in questo spazio di esecuzione sono:
 
 	- Ripristino alle impostazioni di fabbrica
 	- Modifica della password

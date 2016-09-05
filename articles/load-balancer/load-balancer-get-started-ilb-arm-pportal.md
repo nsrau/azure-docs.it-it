@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno nel portale di Azure
 

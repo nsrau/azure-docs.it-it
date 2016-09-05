@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016"  
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Gestire i contenuti con Servizi multimediali di Azure tramite il portale di Azure classico
@@ -53,7 +53,7 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 
 Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco dei contenuti. Per convenzione, al nome viene aggiunto il suffisso "**-Source**" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
 
-![ContentPage][contentpage]  
+![ContentPage][contentpage]
 
 Se il valore delle dimensioni del file non viene aggiornato al termine del processo di caricamento, premere il pulsante **Sync Metadata**. Le dimensioni del file di asset verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina dei contenuti.
 
@@ -186,7 +186,7 @@ Per pubblicare un asset tramite il portale, seguire questa procedura:
 1. Selezionare l'asset.
 2. Quindi, fare clic sul pulsante Pubblica.
 	
- ![Contenuto pubblicato][publishedcontent]  
+ ![Contenuto pubblicato][publishedcontent]
 
 
 ## Procedura: Riprodurre contenuti dal portale
@@ -200,7 +200,7 @@ Considerazioni applicabili:
 - Verificare che il video sia stato pubblicato.
 - Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-![AMSPlayer][AMSPlayer]  
+![AMSPlayer][AMSPlayer]
 
 ##Percorsi di apprendimento di Servizi multimediali
 
@@ -213,7 +213,7 @@ Considerazioni applicabili:
 
 
 
-<!-- Images -->  
+<!-- Images -->
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
 [publishedcontent]: ./media/media-services-manage-content/media-services-upload-content-published.png
 [uploadcontent]: ./media/media-services-manage-content/UploadContent.png

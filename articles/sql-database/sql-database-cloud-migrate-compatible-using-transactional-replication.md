@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/23/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Eseguire la migrazione del database di SQL Server al database SQL di Azure tramite la replica transazionale
 

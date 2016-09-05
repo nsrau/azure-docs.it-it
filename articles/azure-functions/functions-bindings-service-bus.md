@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>  
+	ms.author="chrande; glenga"/>
 
 # Trigger e associazioni del bus di servizio per code e argomenti in Funzioni di Azure
 

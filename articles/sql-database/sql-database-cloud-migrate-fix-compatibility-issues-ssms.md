@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Risolvere i problemi di compatibilità del database del server SQL, usando SQL Server Management Studio, prima di effettuare la migrazione al database SQL
 

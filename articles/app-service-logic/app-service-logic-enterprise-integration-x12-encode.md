@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Encode X12 Message
 
@@ -34,11 +34,11 @@ Convalida le proprietà EDI e specifiche del partner, converte i messaggi con co
 
 2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta. Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione. Selezionare Mostra API gestite da Microsoft nell'elenco a discesa, quindi immettere "x12" nella casella di ricerca. Selezionare X12 - Encode X12 Message by agreement name o X12 - Encode to X 12 message by identities.
 
-	![ricerca x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
+	![ricerca x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)
 
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 
-	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png)  
+	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png)
 
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
@@ -50,7 +50,7 @@ Convalida le proprietà EDI e specifiche del partner, converte i messaggi con co
 
 	Al termine, i dettagli della connessione saranno simili ai seguenti:
 
-	![connessione all'account di integrazione creata](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png)  
+	![connessione all'account di integrazione creata](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png)
 
 
 5. Selezionare **Crea**.
@@ -63,13 +63,13 @@ Convalida le proprietà EDI e specifiche del partner, converte i messaggi con co
 
 7. Selezionare il contratto X12 dall'elenco a discesa e il messaggio MXL da codificare.
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png)
 
 #### X12 - Encode X12 Message by identities
 
 7.	Fornire identificatore del mittente e qualificatore del mittente, identificatore del ricevitore e qualificatore del ricevitore come configurati nel contratto X12. Selezionare il messaggio XML da codificare.
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png)
 
 ## X12 Encode esegue queste operazioni
 

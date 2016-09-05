@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 # Integrazione di Engagement SDK per app universali di Windows
 
@@ -65,7 +65,7 @@ Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare corre
 
 Aprire il file `Package.appxmanifest` e assicurarsi che le seguenti funzionalità siano dichiarate:
 
--   `Internet (Client)`  
+-   `Internet (Client)`
 
 ## Inizializzare Engagement SDK
 

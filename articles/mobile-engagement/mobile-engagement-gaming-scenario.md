@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
 	ms.date="08/19/2016"
-	ms.author="piyushjo"/>  
+	ms.author="piyushjo"/>
 
 #Implementare Mobile Engagement con app di gioco
 
@@ -63,10 +63,10 @@ Dopo 3 mesi, il Mobile Project Manager ha raccolto dati sufficienti per migliora
 
 Grazie a questa analisi il Mobile Project Manager decide di creare sequenze di notifiche push specifiche per aumentare le vendite all'interno dell'app. Crea tre sequenze push denominate: programma di benvenuto, programma di vendita e programma utenti inattivi. Per altre informazioni, vedere la pagina relativa agli [schemi di progetto](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1].
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
-<!--Link references-->  
+<!--Link references-->
 
 <!---HONumber=AcomDC_0824_2016-->

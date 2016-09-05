@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="garye" />  
+	ms.author="garye" />
 
 
 # Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi

@@ -149,7 +149,7 @@ Altre informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-
 
 Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
 [2]: ./media/traffic-manager-nested-profiles/figure-2.png
 [3]: ./media/traffic-manager-nested-profiles/figure-3.png

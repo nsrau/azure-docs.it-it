@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
    ms.date="08/23/2016"
-   ms.author="rasquill"/>  
+   ms.author="rasquill"/>
 
 # Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando
 

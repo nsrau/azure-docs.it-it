@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="vturecek"/>  
+   ms.author="vturecek"/>
 
 # Gestione dei segreti nelle applicazioni di Service Fabric
 
@@ -29,7 +29,7 @@ Il metodo consigliato per gestire le impostazioni di configurazione del servizio
 
 Il diagramma seguente illustra il flusso di base per la gestione dei segreti in un'applicazione di Service Fabric:
 
-![panoramica della gestione dei segreti][overview]  
+![panoramica della gestione dei segreti][overview]
 
 In questo flusso sono presenti quattro passaggi principali:
 
@@ -188,7 +188,7 @@ Altre informazioni sull'[esecuzione di applicazioni con autorizzazioni di sicure
 [config-package]: service-fabric-application-model.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
-<!-- Images -->  
+<!-- Images -->
 [overview]: ./media/service-fabric-application-secret-management/overview.png
 
 <!---HONumber=AcomDC_0824_2016-->

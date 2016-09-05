@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 
 
@@ -87,7 +87,7 @@ Se la registrazione non riesce durante l'installazione guidata del connettore, e
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 

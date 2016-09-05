@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/18/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Informazioni sull'archiviazione e sul provisioning con prestazioni stimabili in DocumentDB
 Azure DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e completamente gestito per i documenti in formato JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software o monitorare database. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.

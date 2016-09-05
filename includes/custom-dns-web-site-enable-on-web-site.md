@@ -8,7 +8,7 @@ Dopo aver propagato i record per il nome di dominio, è necessario associarli al
 
 2. Nella scheda **App Web** fare clic sul nome dell'app Web e selezionare **Domini personalizzati**
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)  
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
 3. Nel pannello **Domini personalizzati** fare clic su **Aggiungi il nome host**.
 	

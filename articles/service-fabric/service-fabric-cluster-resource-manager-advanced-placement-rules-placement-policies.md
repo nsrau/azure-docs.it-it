@@ -22,7 +22,7 @@ Esistono numerose e diverse regole aggiuntive di cui potrebbe essere necessario 
 ## Specifica di domini non validi
 Il criterio di posizionamento InvalidDomain consente di specificare che un particolare dominio di errore non è valido per il carico di lavoro interessato. Questo criterio garantisce che un particolare servizio non sia mai eseguito in una determinata area, ad esempio per motivi geopolitici o criteri aziendali. È possibile specificare più domini non validi tramite criteri separati.
 
-![Invalid Domain Example][Image1]  
+![Invalid Domain Example][Image1]
 
 Codice:
 
@@ -40,7 +40,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Specifica dei domini obbligatori
 Il criterio di posizionamento del dominio obbligatorio prevede che tutte le repliche con stato o le istanze del servizio senza stato per il servizio siano presenti nel dominio specificato. È possibile specificare più domini richiesti tramite criteri separati.
 
-![Required Domain Example][Image2]  
+![Required Domain Example][Image2]
 
 Codice:
 
@@ -59,7 +59,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Specifica di un dominio preferito per le repliche primarie
 Il dominio primario preferito è un controllo interessante che consente di selezionare il dominio di errore in cui deve essere presente il primario, se possibile. Quando tutto è integro, il primario finirà in questo dominio. In caso di anomalia del dominio o della replica primaria, oppure di arresto inaspettato, il primario verrà migrato in un'altra posizione. Se questa posizione non si trova nel dominio preferito, se possibile Cluster Resource Manager lo riporterà nel dominio preferito. Naturalmente questa impostazione è adatta solo ai servizi con stati. Questo criterio è particolarmente utile nei cluster distribuiti tra aree di Azure o più data center. In queste situazioni si stanno usando tutte le posizioni per la ridondanza ma si preferirebbe inserire le repliche primarie in una determinata posizione per ridurre la latenza delle operazioni verso il primario. Per impostazione predefinita le scritture e anche tutte le letture vengono servite dal primario.
 
-![Preferred Primary Domains and Failover][Image3]  
+![Preferred Primary Domains and Failover][Image3]
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();

@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>  
+ ms.author="krisragh"/>
 
 # Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
 

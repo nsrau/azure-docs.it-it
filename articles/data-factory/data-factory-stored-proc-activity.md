@@ -177,7 +177,7 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
 8. In Vista diagramma fare doppio clic sul set di dati **sprocsampleout**. Verranno visualizzate le sezioni con stato pronto. Dovrebbero essere presenti cinque sezioni perché dal JSON viene generata una sezione ogni ora tra l'ora di inizio e l'ora di fine.
 10. Quando lo stato di una sezione è **Ready**, eseguire una query **select * from sampletable** sul database SQL di Azure per verificare che la stored procedure abbia inserito i dati nella tabella.
 
-	![Dati di output](./media/data-factory-stored-proc-activity/output.png)  
+	![Dati di output](./media/data-factory-stored-proc-activity/output.png)
 
 	Vedere [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) per informazioni dettagliate sul monitoraggio delle pipeline di Data Factory di Azure.
 
@@ -186,7 +186,7 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
 ## Passaggio di un valore statico 
 A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario' nella tabella contenente un valore statico denominato 'Document sample'.
 
-![Dati di esempio 2](./media/data-factory-stored-proc-activity/sample-data-2.png)  
+![Dati di esempio 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
 	CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
 	

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Trasferire la sottoscrizione di Azure a un'altra offerta
 
@@ -34,7 +34,7 @@
 2.	Selezionare la sottoscrizione da modificare.
 3.	Fare clic su **Passa a un'altra offerta**.
 
-	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)  
+	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
 4.	Verranno visualizzate tutte le offerte a cui può essere trasferita la propria sottoscrizione. L'elenco varia in base agli abbonamenti a cui è associato l'account, nonché in base all'offerta corrente. Per informazioni dettagliate, fare clic sul collegamento "Altre informazioni" sotto ogni offerta. Per procedere al passaggio successivo, fare clic sull'offerta desiderata.
 
 	![selectoffer](.\media\billing-how-to-switch-azure-offer\selectoffer.png)
@@ -43,7 +43,7 @@
 	![thingstonote](.\media\billing-how-to-switch-azure-offer\thingstonote.png)
 6.	È possibile rinominare la sottoscrizione. Per impostazione predefinita, viene impostata sul nuovo nome dell'offerta. Fare clic su Cambia offerta per completare il processo.
 
-	![confirmpage](.\media\billing-how-to-switch-azure-offer\confirmpage.png)  
+	![confirmpage](.\media\billing-how-to-switch-azure-offer\confirmpage.png)
 7.	Completamento della procedura La sottoscrizione viene ora trasferita alla nuova offerta.
 
 ## Domande frequenti (FAQ)

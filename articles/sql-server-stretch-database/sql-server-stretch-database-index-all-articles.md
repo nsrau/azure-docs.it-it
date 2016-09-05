@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/21/2016"
-	ms.author="DouglasL"/>  
+	ms.author="DouglasL"/>
 
 
 # Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure

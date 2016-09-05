@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # Risoluzione dei problemi relativi all'iscrizione ad Azure
 Questo articolo descrive come risolvere le cause più comuni dei problemi che possono verificarsi durante l'iscrizione ad Azure.

@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
 
@@ -210,7 +210,7 @@ Per informazioni dettagliate:
 
 > [AZURE.NOTE] Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di Azure classico.
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
 [1]: ./media/notification-hubs-diagnosing/GCMConfigure.png
 [2]: ./media/notification-hubs-diagnosing/GCMEnable.png
@@ -223,7 +223,7 @@ Per informazioni dettagliate:
 [9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
-<!-- LINKS -->  
+<!-- LINKS -->
 [Panoramica dell'Hub di notifica]: notification-hubs-overview.md
 [Esercitazioni introduttive]: notification-hubs-windows-store-dotnet-get-started.md
 [esercitazione introduttiva]: notification-hubs-windows-store-dotnet-get-started.md

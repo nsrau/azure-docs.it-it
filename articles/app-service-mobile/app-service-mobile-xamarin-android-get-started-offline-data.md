@@ -14,13 +14,13 @@
     ms.devlang="dotnet"
     ms.topic="article"
 	ms.date="08/19/2016"
-    ms.author="wesmc"/>  
+    ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Overview
+## Panoramica
 
 Questa esercitazione descrive la funzionalità di sincronizzazione offline di App per dispositivi mobili di Azure per Xamarin.Android. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il servizio remoto.
 
@@ -144,7 +144,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- ##Summary
 
@@ -159,7 +159,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 <!-- Images -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Creare un'app Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: ../app-service-mobile-offline-data-sync.md
 

@@ -14,7 +14,7 @@
     ms.devlang="dotnet"
     ms.topic="article"
 	ms.date="08/19/2016"
-    ms.author="wesmc"/>  
+    ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.iOS
 
@@ -135,7 +135,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- ##Summary
 
@@ -150,7 +150,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 <!-- Images -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Creare un'app Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md

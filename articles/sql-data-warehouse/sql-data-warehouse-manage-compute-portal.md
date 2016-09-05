@@ -66,11 +66,11 @@ Per sospende un database:
 
 1. Aprire il [portale di Azure][] e aprire il database. Si noti che lo stato è **Online**.
 
-    ![Stato online][6]  
+    ![Stato online][6]
 
 1. Per sospendere il calcolo e le risorse di memoria, fare clic su **Sospendi**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
-    ![Conferma sospensione][7]  
+    ![Conferma sospensione][7]
 
 1. Durante l'avvio di SQL Data Warehouse lo stato del database è **Sospensione in corso**.
 2. Quando lo stato diventa **Sospeso**, l'operazione di sospensione è completa e le DWU non vengono più addebitate.
@@ -85,23 +85,23 @@ Per sospende un database:
 
 1. Aprire il [portale di Azure][] e quindi il database. Si noti che lo stato è **Sospeso**.
 
-    ![Database in pausa][4]  
+    ![Database in pausa][4]
 
 1. Per riattivare il database fare clic su **Avvia**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
-    ![Conferma riattivazione][5]  
+    ![Conferma riattivazione][5]
 
 1. Durante l'avvio di SQL Data Warehouse lo stato del database è "Sospensione in corso".
 2. Quando lo stato diventa **Online** il database è pronto.
 
-    ![Stato online][6]  
+    ![Stato online][6]
 
 <a name="next-steps-bk"></a>
 
 ## Passaggi successivi
 Per altre informazioni, vedere [Panoramica della gestione][].
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
@@ -117,7 +117,7 @@ Per altre informazioni, vedere [Panoramica della gestione][].
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 [portale di Azure]: http://portal.azure.com/
 

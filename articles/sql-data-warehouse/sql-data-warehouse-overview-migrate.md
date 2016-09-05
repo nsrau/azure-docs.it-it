@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/17/2016"
-   ms.author="barbkess;jrj;sonyama"/>  
+   ms.author="barbkess;jrj;sonyama"/>
 
 # Eseguire la migrazione della soluzione in SQL Data Warehouse
 
@@ -36,7 +36,7 @@ Per informazioni ancora più specifiche, è anche possibile vedere la [guida di 
 
 Infine, vedere la [panoramica sul caricamento][]. Questo articolo illustra diverse opzioni di caricamento dei dati e fornisce istruzioni dettagliate.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Eseguire la migrazione dello schema]: sql-data-warehouse-migrate-schema.md
@@ -50,6 +50,6 @@ Infine, vedere la [panoramica sul caricamento][]. Questo articolo illustra diver
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -78,7 +78,7 @@ La passphrase ottenuta quando si distribuisce il server di gestione può essere 
 
 Inserire sia la cartella compressa sia la passphrase in un contenitore dedicato nell'account di archiviazione di Azure
 
-![percorso della cartella](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)  
+![percorso della cartella](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
 Se si preferisce, è possibile mantenere questi file in una condivisione all'interno della rete. È sufficiente garantire che la risorsa DSC che useremo in un secondo momento abbia effettivamente accesso e possa usare la configurazione e la passphrase.
 
@@ -146,7 +146,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -204,7 +204,7 @@ Accedere all'account di automazione, passare ad Asset > Moduli e fare clic su Es
 
 Qui è possibile cercare il modulo e importarlo nel proprio account.
 
-![importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)  
+![importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 Al termine passare al computer in cui sono installati i moduli di Azure RM e continuare a importare la configurazione DSC appena creata.
 
@@ -240,7 +240,7 @@ Questa operazione può richiedere alcuni minuti poiché si sta distribuendo la c
 
 Al termine è possibile recuperare le informazioni sul processo tramite PowerShell (Get-AzureRmAutomationDscCompilationJob) o usare portal.azure.com
 
-![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)  
+![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
 La configurazione DSC in OMS Automation DSC è stata ora pubblicata e caricata correttamente.
 
@@ -251,7 +251,7 @@ Si creerà ora una metaconfig per DSC che sarà applicata ai nodi. Per un risult
 
 Questi valori si trovano in "Chiavi" nel pannello "Tutte le impostazioni" dell'account di automazione.
 
-![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)  
+![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 In questo esempio è presente un server fisico Windows Server 2012 R2 che si desidera proteggere con OMS Site Recovery.
 
@@ -311,7 +311,7 @@ Questa configurazione eseguirà la gestione della configurazione locale per la r
 
 Al termine di queste operazioni il nodo dovrebbe iniziare la registrazione ad Automation DSC
 
-![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/register-node.png)  
+![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
 Se si torna a portal.azure.com, si noterà che il nodo appena registrato è ora presente nel portale.
 
@@ -331,7 +331,7 @@ Get-DscConfigurationStatus
 
 L'output mostra che il server ha eseguito correttamente il pull della configurazione:
 
-![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)  
+![Registrare il nodo](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 Inoltre, la configurazione del servizio Mobility dispone di un proprio log in "<UnitàSistema>\\ProgramData\\ASRSetupLogs".
 
@@ -367,7 +367,7 @@ Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 
 Anche per WMF 4.0, verificare che l'aggiornamento seguente venga installato sui computer:
 
-https://www.microsoft.com/download/details.aspx?id=40749  
+https://www.microsoft.com/download/details.aspx?id=40749
 
 È possibile eseguire il push della configurazione seguente verso i computer Windows con la soluzione WMF 5.0 e 4.0
 
@@ -434,7 +434,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -495,7 +495,7 @@ Tutti i passaggi precedenti verranno eseguiti nell'ordine corretto in modo che s
 
 Il modello con le istruzioni per la distribuzione si trova in:
 
-https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC  
+https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
 
 Distribuire tramite PowerShell:
 

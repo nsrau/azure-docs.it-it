@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Usare .NET SDK per accedere alle API del servizio Azure Mobile Engagement
 
@@ -47,7 +47,7 @@ In questo esempio viene eseguita la serie di passaggi necessari per usare .NET S
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/it-IT/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations
@@ -118,7 +118,7 @@ In questo esempio viene eseguita la serie di passaggi necessari per usare .NET S
 
 	**Campaign Id '159' was created successfully and it is in 'draft' state**
 
-<!-- Images. -->  
+<!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/21/2016"
-	ms.author="asteen"/>  
+	ms.author="asteen"/>
 
 # Mantenere l'accesso all'account
 
@@ -35,7 +35,7 @@ Il modo più rapido per registrarsi per la reimpostazione della password è visi
 
  5. Selezionare una opzione tra **Invia messaggio di testo** e **Chiama**. In questo caso viene selezionato **Invia messaggio di testo**. In questo modo verrà inviato un codice di 6 cifre al numero di telefono indicato. Attendere la ricezione del codice sul telefono.
 
-    ![][014]  
+    ![][014]
 
  6. Immettere il codice ricevuto nella casella di input e fare clic su "Verifica".
  7. Quando viene visualizzato il messaggio **Grazie**, l'operazione è terminata. Ora è possibile usare i dati ottenuti con la registrazione per reimpostare la password in qualsiasi momento, visitando il sito [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).

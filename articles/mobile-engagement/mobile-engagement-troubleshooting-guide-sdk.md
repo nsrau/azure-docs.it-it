@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Guida alla risoluzione dei problemi relativi all'integrazione dell'SDK
 
@@ -115,7 +115,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 - Talvolta, gli store di app bloccano quelle sulle quali sono attivate determinate funzioni. Ad esempio, in Apple Store non è possibile utilizzare IDFV nelle app, mentre in Google Play non è possibile condividere informazioni sulle applicazioni tra le app.
 - Consultare le note di rilascio sulla propria piattaforma e sulla versione corrente dell'SDK, in caso di problemi durante il caricamento di un'app nello store.
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

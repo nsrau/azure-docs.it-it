@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric consente di segnalare il carico dinamico, di reagire alle modifiche nel cluster, di correggere le violazioni alle limitazioni e di ribilanciare il carico, se necessario. Ma qual è la frequenza di queste operazioni e come si attiva? Sono previsti diversi controlli per questa situazione.
@@ -74,7 +74,7 @@ A volte, sebbene i nodi siano relativamente sbilanciati, la quantità *totale* d
 
 Come esempio, si supponga di avere dei rapporti con i seguenti totali di consumo su questi nodi. Supponiamo anche di mantenere la nostra soglia di bilanciamento del carico a 3 per questa metrica, ma aggiungendo una soglia di attività di 1536. Nel primo caso, mentre il cluster è sbilanciato in base alla soglia di bilanciamento, nessun nodo raggiunge la soglia minima di attività, pertanto il cluster non viene toccato. Nell'esempio in basso, Node1 supera la soglia di attività, pertanto, verrà eseguito il bilanciamento, poiché vengono superate sia la soglia di bilanciamento del carico che la soglia di attività per la metrica
 
-![Esempio di soglia di attività][Image3]  
+![Esempio di soglia di attività][Image3]
 
 Proprio come le soglie di bilanciamento del carico, le soglie di attività sono definite sulla base di singoli metriche tramite la definizione del cluster:
 
@@ -101,7 +101,7 @@ Per questo motivo, è possibile che uno squilibrio in Metric1 provochi lo sposta
 
 Cluster Resource Manager determina automaticamente quali servizi sono correlati tra loro, perché i servizi potrebbero essere stati aggiunti, rimossi o modificati in termini di configurazione delle metriche. Ad esempio, tra due esecuzioni di bilanciamento del carico, Metric2 potrebbe essere stata rimossa da Service2. Questa operazione interrompe la catena tra Service1 e Service2. Ora, invece di due gruppi di servizi ce ne sono tre:
 
-![Bilanciamento composto dei servizi][Image5]  
+![Bilanciamento composto dei servizi][Image5]
 
 ## Passaggi successivi
 - Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)

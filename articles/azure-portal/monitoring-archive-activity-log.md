@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**log attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -28,13 +28,13 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
 ## Archiviare il log attività con il portale
 1. Nel portale fare clic sul collegamento **Log attività** a sinistra. Se il collegamento Log attività non è visualizzato, fare prima clic sul collegamento **Altri servizi**.
 
-    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/act-log-portal-navigate.png)  
+    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. Nella parte superiore del pannello fare clic su **Esporta**.
 
     ![Fare clic sul pulsante Esporta](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
 3. Nel pannello visualizzato selezionare la casella **Esporta in un account di archiviazione** e selezionare un account di archiviazione.
 
-    ![Impostare un account di archiviazione](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)  
+    ![Impostare un account di archiviazione](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
 4. Usando il dispositivo di scorrimento o la casella di testo, definire un numero di giorni per cui gli eventi del log attività devono essere conservati nell'account di archiviazione. Se si preferisce che i dati rimangano nell'account di archiviazione a tempo indeterminato, impostare questo numero su zero.
 5. Fare clic su **Save**.
 
@@ -46,7 +46,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Proprietà | Obbligatorio | Description |
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | No | ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| Località | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/it-IT/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| Località | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | RetentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
 | Categorie | Sì | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 ## Archiviare il log attività con l'interfaccia della riga di comando
@@ -58,7 +58,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | Sì | Nome del profilo di log. |
 | storageId | No | ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| locations | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/it-IT/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| locations | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | retentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
 | categories | Sì | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 

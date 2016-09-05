@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="genemi"/>  
+	ms.author="genemi"/>
 
 
 # Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL

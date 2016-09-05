@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 
 # Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico
@@ -27,7 +27,7 @@
 
 Questo articolo illustra la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come Service Management). Nella procedura seguente viene usato il portale di Azure classico per creare gateway e reti virtuali, mentre PowerShell viene usato per configurare la connessione da rete virtuale a rete virtuale. Non è possibile configurare una connessione nel portale.
 
-![Diagramma di connettività tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)  
+![Diagramma di connettività tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
 
 ### Strumenti e modelli di distribuzione per la connessione tra reti virtuali
@@ -111,7 +111,7 @@ In questo passaggio viene creata la rete virtuale VNet1. Quando si utilizza un e
 
 Nella pagina Dettagli della rete virtuale immettere le seguenti informazioni:
 
-  ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)  
+  ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Name -** assegnare un nome alla rete virtuale. Ad esempio, VNet1:
   - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (area). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
@@ -120,7 +120,7 @@ Nella pagina Dettagli della rete virtuale immettere le seguenti informazioni:
 
 Nella pagina DNS Servers and VPN Connectivity immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra.
 
-  ![Server DNS e connettività VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
+  ![Server DNS e connettività VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
 - **Server DNS**: immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non comporta la creazione di un server DNS. Consente di specificare i server DNS da usare per la risoluzione dei nomi per la rete virtuale. Se si desidera disporre di risoluzione dei nomi tra le reti virtuali, è necessario configurare il server DNS, anziché usare la risoluzione dei nomi fornita da Azure.
 - Non selezionare nessuna delle caselle di controllo relative alla connettività S2S o P2S. Fare clic sulla freccia in basso a destra per passare alla schermata successiva.
@@ -131,7 +131,7 @@ Nella pagina Spazi di indirizzi della rete virtuale è possibile immettere lo sp
 
 Se si sta creando una rete virtuale che si connetterà anche alla rete locale, è particolarmente importante selezionare un intervallo che non vada a sovrapporsi agli intervalli usati per la rete locale. In questo caso è necessario coordinarsi con l'amministratore di rete. L'amministratore di rete dovrà selezionare un intervallo di indirizzi IP dallo spazio di indirizzi della rete locale da usare per la rete virtuale.
 
-  ![Spazi di indirizzi della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)  
+  ![Spazi di indirizzi della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
   - **Spazio degli indirizzi** inclusi IP iniziale e conteggio indirizzi. Verificare che gli spazi degli indirizzi specificati non si sovrappongano agli spazi degli indirizzi presenti nella rete locale. In questo esempio usiamo 10.1.0.0/16 per VNet1.
   - **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP statici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
@@ -190,7 +190,7 @@ Configurare un gateway di routing dinamico per ogni rete virtuale. Questa config
 
 4. Nella parte inferiore della pagina fare clic su **Crea gateway** e **Routing dinamico**. Quando viene richiesto di confermare che si desidera procedere con la creazione del gateway, fare clic su Sì.
 
-  	![Tipo gateway](./media/virtual-networks-configure-vnet-to-vnet-connection/IC717026.png)  
+  	![Tipo gateway](./media/virtual-networks-configure-vnet-to-vnet-connection/IC717026.png)
 
 5. Durante la creazione del gateway la relativa rappresentazione grafica nella pagina diventa gialla e viene visualizzato il testo "Creazione del gateway". La creazione del gateway richiede in genere circa 30 minuti.
 
@@ -230,7 +230,7 @@ Quando tutti i passaggi precedenti sono stati completati, impostare le chiavi gi
 
 4. Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, l'aspetto del gateway è quello mostrato nella figura seguente.
 
-	![Stato del gateway - connesso](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
+	![Stato del gateway - connesso](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
 
 	[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 

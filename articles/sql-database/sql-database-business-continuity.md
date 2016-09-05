@@ -93,7 +93,7 @@ Se si è verificata la perdita di dati fuori dal periodo di memorizzazione corre
 
 ## Ripristinare un database in un'altra area da un'interruzione del data center regionale di Azure
 
-<!-- Explain this scenario -->  
+<!-- Explain this scenario -->
 
 Anche se raramente, un data center di Azure può subire un'interruzione del servizio. Quando si verifica un'interruzione, viene generata un'interruzione delle attività che potrebbe durare solo pochi minuti oppure ore.
 

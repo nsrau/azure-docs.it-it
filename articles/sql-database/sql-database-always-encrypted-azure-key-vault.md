@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/18/2016"
-	ms.author="sstein"/>  
+	ms.author="sstein"/>
 
 # Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
 
@@ -107,14 +107,14 @@ Quando l'app client è configurata e si dispone dell'ID client, è necessario cr
 2. Passare a **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
 3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate su come creare un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-get-started.md).
 
-	![Creazione di un database vuoto](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)  
+	![Creazione di un database vuoto](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
 La stringa di connessione sarà necessaria più avanti nell'esercitazione; dopo avere creato il database selezionare quindi il nuovo database Clinic e copiare la stringa di connessione. È possibile ottenere la stringa di connessione in qualsiasi momento, ma è facile copiarla nel portale di Azure.
 
 1. Passare a **Database SQL** > **Clinic** > **Mostra stringhe di connessione del database**.
 2. Copiare la stringa di connessione per **ADO.NET**.
 
-	![Copia della stringa di connessione](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)  
+	![Copia della stringa di connessione](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
 
 ## Connettersi al database con SSMS
@@ -161,7 +161,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
 1. Espandere **Database** > **Clinic** > **Tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata per la crittografia sempre attiva:
 
-    ![Crittografia delle colonne](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)  
+    ![Crittografia delle colonne](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
 La procedura guidata per la crittografia sempre attiva include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master**, **Convalida** e **Riepilogo**.
 
@@ -173,7 +173,7 @@ Crittografare il **CF** e la **data di nascita** per ogni paziente. La colonna r
 
 Impostare il **Tipo di crittografia** per la colonna CF su **Deterministica** e la colonna Data di nascita su **Casuale**. Fare clic su **Avanti**.
 
-![Crittografia delle colonne](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)  
+![Crittografia delle colonne](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
 ### Configurazione della chiave master###
 
@@ -197,7 +197,7 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
 
-![Riepilogo](./media/sql-database-always-encrypted-azure-key-vault/summary.png)  
+![Riepilogo](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 
 ### Confermare le azioni della procedura guidata
@@ -645,7 +645,7 @@ Eseguire la query seguente nel database Clinic.
 
 È possibile osservare che le colonne crittografate non contengono dati di testo non crittografato.
 
-   ![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)  
+   ![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
 
 Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro *Column Encryption Setting=Enabled* alla connessione.
@@ -654,7 +654,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
 2. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.
 3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
-	![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)  
+	![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 
 4. Eseguire la query seguente nel database Clinic.
 
@@ -663,7 +663,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
      È ora possibile visualizzare i dati non crittografati nelle colonne crittografate.
 
 
-	![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)  
+	![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## Passaggi successivi

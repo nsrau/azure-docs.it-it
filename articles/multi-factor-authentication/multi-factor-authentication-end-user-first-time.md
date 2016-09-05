@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/22/2016" 
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 # Esperienza di installazione per Azure multi-Factor Authentication
 
  Le impostazioni per la verifica aggiuntiva di sicurezza vengono utilizzate quando un amministratore ha configurato l'account in modo tale che la verifica dell’identità dell’utente avvenga tramite password e risposta sul telefono dello stesso. Se un amministratore ha configurato l'account per richiedere la verifica aggiuntiva di sicurezza, **non sarà possibile effettuare l'accesso fino a quando non si completa il processo di autoregistrazione**.

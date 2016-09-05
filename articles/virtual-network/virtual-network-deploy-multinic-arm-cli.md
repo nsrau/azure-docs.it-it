@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 #Distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure
 

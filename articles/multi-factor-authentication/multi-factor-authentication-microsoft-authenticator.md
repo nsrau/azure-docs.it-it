@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/22/2016" 
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Microsoft Authenticator
 
@@ -61,7 +61,7 @@ Assicurarsi prima di tutto di avere a disposizione il codice QR o il codice e l'
 Quando il codice QR è disponibile, avviare l'app. Fare clic su +.
 
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount.png)
 
 Verrà avviata la fotocamera per la scansione del codice QR. Se non è possibile eseguire la scansione del codice QR, è sempre disponibile l'opzione per l'immissione manuale.
 
@@ -86,7 +86,7 @@ Dopo avere aggiunto tutti gli account alla nuova app, disinstallare l'app preced
 
 - Fare clic sul pulsante Configura.
  
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
 - Verrà visualizzata una schermata contenente un codice a barre.
   
@@ -94,17 +94,17 @@ Dopo avere aggiunto tutti gli account alla nuova app, disinstallare l'app preced
 
 - Aprire ora l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
 - Eseguire la scansione del codice a barre.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/scan.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
 - Attendere che l'account venga attivato.
 
 - L'operazione è terminata. Nella pagina degli account verrà visualizzato anche il nuovo account.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
 
 
 ## Come aggiungere manualmente un account Azure
@@ -115,29 +115,29 @@ Se si desidera aggiungere manualmente un account, seguire questa procedura.
 
 - Fare clic sul pulsante Configura.
  
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
 - Verrà visualizzata una schermata contenente un codice a barre. Annotare il codice e l'URL riportati sotto il codice a barre.
   
-![Scansione di un codice a barre](./media/multi-factor-authentication-azure-authenticator/barcode2.png)  
+![Scansione di un codice a barre](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
 - Aprire ora l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
 - Fare clic sul pulsante Immetti manualmente nella parte inferiore della pagina.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/scan.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
 - Immettere il codice e l'URL riportati nella stessa pagina in cui era contenuto il codice a barre. Le informazioni devono essere inserite nelle caselle del codice e dell'URL dell'app per dispositivi mobili. Viene avviata l'attivazione.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/manual.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
 - Attendere che l'account venga attivato.
 
 - L'operazione è terminata. Nella pagina degli account verrà visualizzato anche il nuovo account.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
 
 ## Come aggiungere manualmente un account non Azure
 
@@ -148,11 +148,11 @@ Se si desidera aggiungere manualmente un account non Azure, ad esempio il propri
 - Se si immette manualmente la chiave privata, è possibile ottenere la chiave privata dal sito associato all'account. In Outlook.com, ad esempio, accedere alle impostazioni dell'account, passare alle impostazioni di sicurezza e selezionare l'opzione per la configurazione di un'app di autenticazione. Per ottenere la chiave privata, è necessario selezionare l'opzione in cui si dichiara di non riuscire a eseguire la scansione del codice a barre.
 - 
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
 - Aprire l'app Microsoft Authenticator per essere reindirizzati alla pagina degli account. contenente l'elenco di tutti gli account configurati. Per aggiungere un nuovo account, fare clic sul segno +. Verrà aperto lo scanner.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
 - Analizzare il codice QR oppure fare clic sul pulsante Immetti manualmente nella parte inferiore della pagina. Se si esegue l'analisi del codice QR ignorare il passaggio successivo, poiché l'attivazione inizierà immediatamente.
 
@@ -160,22 +160,22 @@ Se si desidera aggiungere manualmente un account non Azure, ad esempio il propri
 
 - Se si inserisce manualmente la chiave privata, inserire il nome dell’account e la chiave privata riportati nella stessa pagina in cui era contenuto il codice a barre. Le informazioni devono essere inserite nelle caselle del codice e dell'URL dell'app per dispositivi mobili. Viene avviata l'attivazione.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/manual.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
 - Attendere che l'account venga attivato. Dovrebbe essere visualizzato anche il nuovo account.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/msaccount.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/msaccount.png)
 
 - Completare il processo immettendo il codice riportato sotto il nome dell'account (in questo caso 875 756) nell'apposito campo della pagina da cui è stata ricevuta la chiave privata e fare clic su Avanti.
 
-![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/verify.png)  
+![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
 ## Come aggiungere un account mediante Touch ID
 In iOS, l'app per dispositivi mobili Microsoft Authenticator supporta ID Touch. Azure Multi-Factor Authentication consente alle organizzazioni di richiedere un PIN per i propri dispositivi registrati. Con questa nuova funzionalità, gli utenti di iOS con dispositivi abilitati per Touch ID non dovranno più immettere il PIN. Una volta configurata, gli utenti dovranno semplicemente eseguire la scansione della propria impronta digitale anziché immettere il PIN e toccare Approva.
 
 La procedura di configurazione di ID Touch con Microsoft Authenticator è molto semplice. È sufficiente completare una normale richiesta di verifica con il PIN e, se il dispositivo supporta ID Touch, questo verrà configurato automaticamente.
 
-![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)  
+![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
 In questo modo, ogni volta che viene richiesto di verificare i propri dettagli di accesso, sarà sufficiente toccare la notifica push ricevuta ed eseguire la scansione della propria impronta digitale anziché immettere il PIN.
 
@@ -185,6 +185,6 @@ In questo modo, ogni volta che viene richiesto di verificare i propri dettagli d
 
 Per eliminare account singoli dall'app Microsoft Authenticator è sufficiente selezionare l'account. Verrà visualizzata l'opzione per l'eliminazione.
 
-![Rimozione di un account](./media/multi-factor-authentication-azure-authenticator/remove.png)  
+![Rimozione di un account](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 <!---HONumber=AcomDC_0824_2016-->

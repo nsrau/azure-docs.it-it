@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="08/19/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)
 

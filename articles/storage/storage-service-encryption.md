@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>  
+	ms.author="robinsh"/>
 
 # Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)
 
@@ -29,7 +29,7 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 
 Questa schermata mostra dove trovare l'impostazione relativa a Crittografia del servizio di archiviazione usando il [portale di Azure](https://azure.portal.com). In questa schermata occorre fare clic su Crittografia per continuare.
 
-![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)  
+![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)
 
 Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o disabilitare Crittografia del servizio di archiviazione.
 

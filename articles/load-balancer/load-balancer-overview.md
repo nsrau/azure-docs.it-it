@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/19/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 
 # Panoramica di Azure Load Balancer
@@ -38,7 +38,7 @@ La conversione delle porte viene eseguita tramite gli endpoint con una relazione
 
 L'etichetta del dominio per l'indirizzo IP pubblico usato dal servizio di bilanciamento del carico in questo modello di distribuzione è <nome servizio cloud>.cloudapp.net. Il grafico seguente mostra Azure Load Balancer in questo modello.
 
-![Azure Load Balancer nel modello di distribuzione classica](./media/load-balancer-overview/asm-lb.png)  
+![Azure Load Balancer nel modello di distribuzione classica](./media/load-balancer-overview/asm-lb.png)
 
 ### Modello di distribuzione di Azure Resource Manager
 
@@ -50,7 +50,7 @@ Un indirizzo IP privato o pubblico viene assegnato alla risorsa di interfaccia d
 
 Il grafico seguente mostra Azure Load Balancer in questo modello:
 
-![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)  
+![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
 
 ## Funzionalità del servizio di bilanciamento del carico
 
@@ -60,7 +60,7 @@ Il servizio di bilanciamento del carico usa un algoritmo di distribuzione basato
 
 Per altre informazioni dettagliate, vedere [Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)](load-balancer-distribution-mode.md). Il grafico seguente illustra la distribuzione basata su hash:
 
-![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)  
+![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
 ### Port forwarding
 

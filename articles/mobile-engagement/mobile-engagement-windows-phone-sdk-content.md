@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 	
 #Contenuto dell'SDK per Windows Phone Silverlight
 

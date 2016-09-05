@@ -213,7 +213,7 @@ Alcune app per dispositivi mobili vengono progettate come app ibride dove l'app 
 
 	![][2]
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
 

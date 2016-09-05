@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="dineshm"/>  
+	ms.author="dineshm"/>
 
 
 # Crittografia lato client con Java per Archiviazione di Microsoft Azure   
@@ -35,7 +35,8 @@ La crittografia tramite la tecnica basata su envelope funziona nel modo seguente
 
 2.	I dati utente vengono crittografati con questa chiave CEK.
 
-3.	Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure. La libreria del client Archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Gli utenti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi, se lo desiderano.
+3.	Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure.
+	La libreria del client Archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Gli utenti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi, se lo desiderano.
 
 4.	I dati crittografati vengono quindi caricati nel servizio Archiviazione di Azure. La chiave con wrapping assieme ad alcuni metadati di crittografia aggiuntivi viene archiviata come metadati (su un BLOB) o interpolata con i dati crittografati (entità della tabella e messaggi in coda).
 
@@ -92,7 +93,7 @@ La crittografia dei dati della tabella funziona nel modo seguente:
 
 	Si noti che solo le proprietà di stringa possono essere crittografate. Se devono essere crittografati altri tipi di proprietà, essi devono essere convertiti in stringhe. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.
 
-	Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] (per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
+	Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
 
 ### Operazioni batch  
 Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell’operazione batch, perché la libreria client consente un solo oggetto options (e pertanto un criterio/KEK) per ogni operazione batch. Tuttavia, la libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.
@@ -118,7 +119,8 @@ Esistono tre pacchetti insieme di credenziali chiave:
 
 2.	Utilizzare l’identificatore di base del segreto come parametro per risolvere la versione corrente del segreto per la crittografia e memorizzare nella cache queste informazioni in locale. Utilizzare CachingKeyResolver per la memorizzazione nella cache; non è previsto che gli utenti implementino la propria logica di memorizzazione nella cache.
 
-3.	Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia. Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
+3.	Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia.
+Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
 
 ## Procedure consigliate  
 Il supporto della crittografia è disponibile solo nella libreria client di archiviazione per Java.

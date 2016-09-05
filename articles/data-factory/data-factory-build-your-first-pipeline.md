@@ -44,7 +44,7 @@ In questa esercitazione si segue questa procedura:
 
 La prima pipeline, denominata **MyFirstPipeline**, usa un'attività Hive per trasformare e analizzare un log Web che viene caricato nella cartella **inputdata** presente nel contenitore **adfgetstarted** (adfgetstarted/inputdata) nell'archivio BLOB di Azure.
  
-![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)  
+![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 In questa esercitazione, adfgetstarted (contenitore) = > inputdata (cartella) contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2014. Ecco le righe di esempio per ogni mese nel file di input.

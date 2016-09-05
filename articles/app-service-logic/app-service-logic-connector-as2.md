@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="08/23/2016"
-   ms.author="rajram"/>  
+   ms.author="rajram"/>
 
 # Uso del connettore AS2 e aggiunta all'app per la logica
 
@@ -110,7 +110,7 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
-<!--References -->  
+<!--References -->
 [1]: app-service-logic-connector-tpm.md
 [2]: app-service-logic-create-a-trading-partner-agreement.md
 [3]: ./media/app-service-logic-connector-as2/TriggerSettings.PNG

@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="genemi"/>  
+	ms.author="genemi"/>
 
 
 # Eventi estesi nel database SQL
@@ -274,6 +274,6 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
--->  
+-->
 
 <!---HONumber=AcomDC_0824_2016-->

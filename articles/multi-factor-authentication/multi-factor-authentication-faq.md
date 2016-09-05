@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Domande frequenti su Azure Multi-Factor Authentication
 

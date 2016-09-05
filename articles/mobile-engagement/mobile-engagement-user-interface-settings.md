@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come gestire le impostazioni globali dell'applicazione
 
@@ -29,7 +29,7 @@ Consente di modificare il nome e la descrizione dell'applicazione e di visualizz
 
 La configurazione di Analytics consente di visualizzare o modificare il giorno da cui iniziano le settimane e il tempo di conservazione in giorni.
  
-  ![settings1][46]  
+  ![settings1][46]
  
 ## Progetti
 
@@ -39,7 +39,7 @@ Consente di selezionare tutti i progetti in cui deve essere visualizzata l'appli
 
 Per altre informazioni, vedere: [Documentazione UI - Home][Link 13].
  
-  ![settings3][48]  
+  ![settings3][48]
 
 ## Push nativo
 
@@ -55,13 +55,13 @@ Per abilitare il push nativo tramite Apple Push Notification Service è necessar
 
 Per ulteriori informazioni, vedere: [Documentazione SDK - iOS - Come preparare l'applicazione per le notifiche push Apple][Link 5]
  
-![settings4][49]  
+![settings4][49]
  
 ### Servizio notifica Push Windows (WPNS)
 
 Per abilitare il push nativo tramite il Servizio notifica Push Windows, è necessario fornire le credenziali dell'applicazione. Sono necessari l'identificatore di sicurezza del pacchetto (SID) e la chiave segreta.
  
-![settings5][50]  
+![settings5][50]
  
 ### Google Cloud Messaging per Android (GCM)
 
@@ -87,7 +87,7 @@ Per altre informazioni, vedere:
 
 Mostra la velocità di push corrente dell'applicazione e consente di definire la velocità di push dell'applicazione.
  
-  ![settings7][52]  
+  ![settings7][52]
 
 ## Tag (info app)
 
@@ -96,7 +96,7 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 ## Pressione commerciale
 
 
-![settings12][57]  
+![settings12][57]
 
 
 ## Vedere anche
@@ -106,7 +106,7 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 
  
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -166,7 +166,7 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

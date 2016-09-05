@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Le metriche sono il termine generico usato in Service Fabric per le risorse rilevanti per i servizi e sono fornite dai nodi nel cluster. In genere, una metrica è un qualsiasi elemento che si vuole controllare per gestire le prestazioni dei servizi.
@@ -147,7 +147,7 @@ Questa sintassi è stata illustrata in precedenza (MetricName, MetricWeight, Pri
 
 Un layout di cluster può avere un aspetto analogo al seguente:
 
-![Cluster bilanciato con le metriche predefinite e personalizzate][Image2]  
+![Cluster bilanciato con le metriche predefinite e personalizzate][Image2]
 
 Occorre notare alcuni aspetti:
 
@@ -170,7 +170,7 @@ L'impatto effettivo di diversi pesi per le metriche nel cluster consiste nel fat
 
 Ecco un semplice esempio di alcuni report sul carico e del modo in cui diversi pesi per le metriche possono comportare diverse allocazioni nel cluster. In questo esempio si può notare che la modifica del peso relativo delle metriche fa in modo che Resource Manager preferisca alcune soluzioni, creando diverse disposizioni dei servizi.
 
-![Esempio di peso delle metriche e del rispettivo impatto sulle soluzioni di bilanciamento][Image3]  
+![Esempio di peso delle metriche e del rispettivo impatto sulle soluzioni di bilanciamento][Image3]
 
 In questo esempio sono presenti quattro servizi diversi, ognuno dei quali segnala valori diversi per due metriche diverse, A e B. In un caso definito da tutti i servizi, MetricA è la più importante (Weight = High) e MetricB è relativamente poco importante (Weight = Low). Cluster Resource Manager posiziona i servizi in modo che il bilanciamento di MetricA sia migliore (deviazione standard minore) rispetto a MetricB. Nel secondo caso vengono invertiti i pesi delle metriche e si può notare che Cluster Resource Manager probabilmente scambierà i servizi A e B, in modo da ottenere un'allocazione in cui il bilanciamento di MetricB è migliore rispetto a MetricA.
 

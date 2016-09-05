@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="markusvi;andkjell"/>  
+	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -39,7 +39,7 @@ Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi
 ### Funzioni
 Il provisioning dichiarativo usa molte funzioni per rendere possibile la trasformazione dei valori dell'attributo. Queste funzioni possono essere annidate, in modo che il risultato di una funzione venga passato a un'altra.
 
-`Function1(Function2(Function3()))`  
+`Function1(Function2(Function3()))`
 
 L'elenco completo delle funzioni è disponibile nel [riferimento di funzione](active-directory-aadconnectsync-functions-reference.md).
 
@@ -82,7 +82,7 @@ Ad esempio `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attri
 ### Unione di valori degli attributi
 Nei flussi di attributi è disponibile un'impostazione per stabilire se gli attributi multivalore devono essere uniti da molti connettori diversi. Il valore predefinito è **Update** (Aggiorna) e indica che la regola di sincronizzazione con precedenza più alta avrà la priorità.
 
-![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)  
+![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
 
 Sono disponibili anche **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole). Queste opzioni consentono di unire i valori da diverse origini. Ad esempio, possono essere usate per unire l'attributo proxyAddresses o membro di più foreste diverse. Quando si usano queste opzioni, tutte le regole di sincronizzazione nell'ambito per un oggetto devono usare lo stesso tipo di unione. Non è possibile definire **Update** (Aggiorna) da un connettore e **Merge** (Unisci) da un altro. In questo caso, viene visualizzato un errore.
 

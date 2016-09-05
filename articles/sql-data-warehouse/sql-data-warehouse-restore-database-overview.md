@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/28/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>  
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (panoramica)
@@ -70,6 +70,6 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Usare emoticon Emoji nelle notifiche push
 
@@ -40,9 +40,11 @@
 
 7. Quando si esegue un test o si attiva l'annuncio, verrà visualizzata una notifica con l'emoticon, in base a quanto specificato.
 
-	![][3] ![][4] ![][5]
+	![][3] 
+	![][4]
+	![][5]
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
 [3]: ./media/mobile-engagement-use-emoji-with-push/iOS_Emoji.png
 [4]: ./media/mobile-engagement-use-emoji-with-push/Android_Emoji.png

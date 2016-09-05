@@ -24,7 +24,7 @@ La probabilità di rimanere bloccati e non poter portare a termine il proprio la
 
 La sincronizzazione password è una funzionalità che permette di sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud. Questa funzionalità consente di accedere ai servizi Azure Active Directory, come Office 365, Microsoft Intune, CRM Online e Servizi di dominio Azure AD, usando la stessa password che si usa per accedere all'istanza locale di Active Directory.
 
-![Cos'è Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)  
+![Cos'è Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
 Poiché riduce il numero di password necessarie agli utenti a una sola, la sincronizzazione password consente di:
 
@@ -72,11 +72,13 @@ L'abilitazione della sincronizzazione password influisce su due tipi di criteri 
 1. Criteri di complessità delle password
 2. Criteri di scadenza delle password
 
-**Criteri di complessità delle password** Quando si abilita la sincronizzazione password, i criteri di complessità delle password presenti nell'istanza locale di Active Directory sostituiscono i criteri di complessità definiti nel cloud per gli utenti sincronizzati. È possibile usare tutte le password valide di Active Directory locale per accedere ai servizi Azure AD.
+**Criteri di complessità delle password**
+Quando si abilita la sincronizzazione password, i criteri di complessità delle password presenti nell'istanza locale di Active Directory sostituiscono i criteri di complessità definiti nel cloud per gli utenti sincronizzati. È possibile usare tutte le password valide di Active Directory locale per accedere ai servizi Azure AD.
 
 > [AZURE.NOTE] Le password degli utenti create direttamente nel cloud restano soggette ai criteri password definiti nel cloud.
 
-**Criteri di scadenza delle password** Se un utente è incluso nell'ambito della sincronizzazione password, la password dell'account cloud viene impostata su "*Non scade mai*". È possibile continuare ad accedere ai servizi cloud usando una password sincronizzata che è in realtà scaduta nell'ambiente locale. La password cloud viene aggiornata alla modifica successiva della password nell'ambiente locale.
+**Criteri di scadenza delle password**
+Se un utente è incluso nell'ambito della sincronizzazione password, la password dell'account cloud viene impostata su "*Non scade mai*". È possibile continuare ad accedere ai servizi cloud usando una password sincronizzata che è in realtà scaduta nell'ambiente locale. La password cloud viene aggiornata alla modifica successiva della password nell'ambiente locale.
 
 ### Sostituzione delle password sincronizzate
 Un amministratore può reimpostare manualmente la password usando Windows PowerShell.
@@ -90,7 +92,7 @@ Se si usano le **Impostazioni rapide** quando si installa Azure AD Connect, la s
 
 Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
-![Abilitazione della sincronizzazione password](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)  
+![Abilitazione della sincronizzazione password](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 ### Sincronizzazione password e FIPS
 Se il server è stato bloccato in conformità allo standard FIPS (Federal Information Processing Standard), MD5 è stato disabilitato.
@@ -158,7 +160,7 @@ Se lo script indica che non sono stati ricevuti heartbeat, eseguire lo script di
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Microsoft Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {

@@ -14,14 +14,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 
 ## Avvisi di sicurezza
 Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
-![Schermata Avvisi di sicurezza del dashboard di PIM][1]  
+![Schermata Avvisi di sicurezza del dashboard di PIM][1]
 
 
 
@@ -65,12 +65,12 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 
 - **Numero di giorni**: specificare il numero di giorni, da 0 a 100, per cui un utente può non attivare un ruolo.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

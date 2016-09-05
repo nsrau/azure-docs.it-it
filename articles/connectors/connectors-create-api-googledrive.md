@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na" 
    ms.date="08/18/2016"
-   ms.author="mandia"/>  
+   ms.author="mandia"/>
 
 # Introduzione all'API Google Drive
 Connettersi a Google Drive per creare file, recuperare righe e così via. Con Google Drive è possibile:
@@ -333,7 +333,7 @@ Aggiorna una riga in Fogli Google. ```PATCH: /datasets/{dataset}/tables/{table}/
 Tornare all'[elenco di API](apis-list.md).
 
 
-<!--References-->  
+<!--References-->
 [5]: https://console.developers.google.com/
 [6]: ./media/connectors-create-api-googledrive/google-developers-console.png
 [8]: ./media/connectors-create-api-googledrive/use-google-apis.png

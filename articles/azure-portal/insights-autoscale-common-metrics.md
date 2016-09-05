@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/02/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Metriche comuni per la scalabilità automatica di Azure Insights
 

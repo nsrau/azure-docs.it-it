@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Decode X12 Message
 
@@ -34,11 +34,11 @@ Convalida le proprietà EDI e specifiche del partner, genera un documento XML pe
 
 2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta. Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione. Selezionare Mostra API gestite da Microsoft nell'elenco a discesa, quindi immettere "x12" nella casella di ricerca. Selezionare X12 – Decode X12 Message
 
-	![ricerca x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
+	![ricerca x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)
 
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 
-	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png)  
+	![connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png)
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
 
@@ -49,17 +49,17 @@ Convalida le proprietà EDI e specifiche del partner, genera un documento XML pe
 
 	Al termine, i dettagli della connessione saranno simili ai seguenti:
 	
-	![connessione all'account di integrazione creata](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png)  
+	![connessione all'account di integrazione creata](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png)
 
 5. Selezionare **Crea**.
 	
 6. La connessione è stata creata.
 
-	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png)  
+	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png)
 
 7. Selezionare il messaggio con il file flat X12 da decodificare
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png)
 
 ## X12 Decode esegue queste operazioni
 

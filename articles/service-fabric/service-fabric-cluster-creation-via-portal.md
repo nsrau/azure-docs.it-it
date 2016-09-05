@@ -57,7 +57,7 @@ Per la protezione del cluster, Service Fabric usa certificati X.509. L'insieme d
 
 Nel diagramma seguente viene illustrata la relazione tra l'insieme di credenziali delle chiavi, un cluster di Service Fabric e il provider di risorse di Azure che usa i certificati archiviati nell'insieme di credenziali delle chiavi durante la creazione di un cluster:
 
-![Installazione del certificato][cluster-security-cert-installation]  
+![Installazione del certificato][cluster-security-cert-installation]
 
 ### Creare un gruppo di risorse
 
@@ -213,7 +213,7 @@ Questi sono tutti i prerequisiti dell'insieme di credenziali delle chiavi per la
 
 #### 1\. Nozioni di base
 
-![Schermata della creazione di un nuovo gruppo di risorse.][CreateRG]  
+![Schermata della creazione di un nuovo gruppo di risorse.][CreateRG]
 
 Nel pannello Informazioni di base è necessario fornire i dettagli di base per il cluster.
 
@@ -231,7 +231,7 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
 
 #### 2\. Configurazione del cluster
 
-![Creare un tipo di nodo][CreateNodeType]  
+![Creare un tipo di nodo][CreateNodeType]
 
 Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario, ovvero il primo che si definisce nel portale, deve essere costituito da almeno cinque macchine virtuali, poiché in questo tipo di nodo si trovano i servizi di sistema di Service Fabric. Non è necessario configurare le **proprietà di selezione host**, perché una proprietà di selezione host predefinita di "NodeTypeName" viene aggiunta in automatico.
 
@@ -254,7 +254,7 @@ Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il n
 
 #### 3\. Sicurezza
 
-![Schermata delle configurazioni di sicurezza nel portale di Azure.][SecurityConfigs]  
+![Schermata delle configurazioni di sicurezza nel portale di Azure.][SecurityConfigs]
 
 Il passaggio finale consiste nel fornire informazioni sul certificato per proteggere il cluster tramite l'insieme di credenziali delle chiavi e il certificato creato in precedenza.
 
@@ -276,7 +276,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 #### 4\. Riepilogo
 
-![Schermata iniziale con la voce "Distribuzione di un cluster di Service Fabric" visualizzata.][Notifications]  
+![Schermata iniziale con la voce "Distribuzione di un cluster di Service Fabric" visualizzata.][Notifications]
 
 Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni fornite oppure scaricare il modello di Azure Resource Manager da usare per distribuire il cluster. Dopo aver specificato le impostazioni obbligatorie, verrà abilitato il pulsante **OK**, che permette di avviare il processo di creazione del cluster.
 
@@ -321,7 +321,7 @@ A questo punto, è stato creato un cluster protetto tramite i certificati per l'
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
 [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node
 
-<!--Image references-->  
+<!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png

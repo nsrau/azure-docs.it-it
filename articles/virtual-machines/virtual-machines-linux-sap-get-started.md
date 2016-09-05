@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
    ms.date="08/02/2016"
-   ms.author="sedusch"/>  
+   ms.author="sedusch"/>
 
 # Uso di SAP in macchine virtuali (VM) Linux
 

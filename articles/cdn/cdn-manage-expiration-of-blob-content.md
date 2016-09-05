@@ -13,7 +13,7 @@
  ms.devlang="multiple"
  ms.topic="article"
  ms.date="08/24/2016"
- ms.author="casoper"/>  
+ ms.author="casoper"/>
 
 
 # Gestire la scadenza del contenuto di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure

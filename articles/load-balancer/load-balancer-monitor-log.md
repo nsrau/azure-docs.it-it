@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.

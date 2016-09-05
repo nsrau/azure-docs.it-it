@@ -87,7 +87,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 4. Riconnettere i cavi. Utilizzare la configurazione esatta presente prima della sostituzione. Vedere il diagramma e la tabella seguenti per informazioni dettagliate su come connettere i cavi.
 
-    ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)  
+    ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
     **Figura 4**. Ricollegamento dei cavi
 

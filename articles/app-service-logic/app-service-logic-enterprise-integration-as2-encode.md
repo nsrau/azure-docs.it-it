@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Encode AS2 Message
 
@@ -34,11 +34,11 @@ Connettersi a Encode AS2 Message per stabilire affidabilità e sicurezza durante
 
 2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta. Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione. Selezionare Mostra API gestite da Microsoft nell'elenco a discesa e quindi immettere "AS2" nella casella di ricerca. Selezionare AS2 - Encode AS2 Message.
 
-	![Ricerca di AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)  
+	![Ricerca di AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 	
-	![creare una connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)  
+	![creare una connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
 
@@ -49,13 +49,13 @@ Connettersi a Encode AS2 Message per stabilire affidabilità e sicurezza durante
 
   	Al termine, i dettagli della connessione saranno simili ai seguenti:
 
-  	![connessione di integrazione stabilita](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)  
+  	![connessione di integrazione stabilita](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)
 
 5. Selezionare **Crea**.
 
 6. La connessione è stata creata. Fornire gli identificatori per AS2-From, AS2-To (come configurato nel contratto) e i dettagli del corpo (il payload del messaggio).
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)
 
 ## AS2 Encode esegue queste operazioni
 

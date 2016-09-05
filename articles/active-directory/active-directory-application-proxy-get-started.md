@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
 
@@ -55,7 +55,7 @@ Il proxy dell'applicazione funziona installando nella rete un servizio slim di W
 
 Quando gli utenti accedono alle applicazioni in remoto, si connettono all'endpoint pubblicato. Gli utenti si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.
 
- ![Diagramma del proxy dell'applicazione di AzureAD](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)  
+ ![Diagramma del proxy dell'applicazione di AzureAD](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
 
 1. L'utente accede all'applicazione tramite il proxy dell'applicazione e viene reindirizzato alla pagina di accesso di Azure AD per l'autenticazione.
 2. Una volta riuscito l'accesso, un token viene generato e inviato all'utente.

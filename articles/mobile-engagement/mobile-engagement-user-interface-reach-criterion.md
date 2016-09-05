@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 
 # Come usare criteri di definizione dei destinatari per inviare campagne di push a un sottoinsieme selezionato di utenti
@@ -26,7 +26,7 @@ La possibilità di definire i destinatari tramite criteri specifici con il pulsa
 - [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
 
 ## I criteri dei destinatari possono includere:
-- **Informazioni tecniche: ** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16]
+- **Informazioni tecniche:** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16]
 - **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari (queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK). **Vedere anche:** [Documentazione dell'SDK - iOS - Integrazione][Link 5], [Documentazione dell'SDK - Android - Integrazione][Link 5]
 - **Feedback di copertura:** è possibile definire i destinatari sulla base del loro feedback sulle precedenti notifiche di copertura usando il feedback di copertura derivante da annunci, sondaggi e push di dati. In questo modo, dopo due o tre campagne di copertura è possibile definire meglio i destinatari rispetto alla prima campagna. Il feedback può inoltre essere usato per filtrare gli utenti che hanno già ricevuto una notifica con contenuto simile, impostando una campagna che NON deve essere inviata agli utenti che hanno già ricevuto una specifica campagna precedente. È anche possibile escludere gli utenti inclusi in una campagna specifica ancora attiva in modo che non ricevano nuove notifiche push. **Vedere anche:** [Documentazione dell'interfaccia utente - Reach - Contenuti del push][Link 29]
 - **Rilevamento installazione:** è possibile rilevare le informazioni in base alla posizione in cui gli utenti hanno installato l'app. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
@@ -45,7 +45,7 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
  
 > Note: per la definizione dei destinatari in base a criteri diversi dai tag delle informazioni sulle app, è necessario che Azure Mobile Engagement raccolga informazioni dai dispositivi degli utenti prima che il push venga inviato, con conseguente possibile ritardo. Anche le opzioni di configurazione push complesse (ad esempio l'aggiornamento dei badge) possono determinare ritardi dei push. L'uso di una campagna "one-shot" dall'API Push è in assoluto il metodo di push più veloce offerto da Azure Mobile Engagement. L'uso dei soli tag delle informazioni sulle app come criteri di push per una campagna di copertura (dall'API Copertura o dall'interfaccia utente) è il secondo metodo più rapido, perché i tag delle informazioni sulle app vengono memorizzati nel server. L'uso di altri criteri di definizione dei destinatari per una campagna push è il metodo di push più flessibile ma più lento, poiché Azure Mobile Engagement deve interrogare i dispositivi per inviare la campagna.
  
-![Reach-Criterion1][29]  
+![Reach-Criterion1][29]
 
 ## Le opzioni dei criteri si applicano a:
 - **Informazioni tecniche**
@@ -82,7 +82,7 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
 - **Segmento**
 - Nome di segmenti (dall'elenco a discesa), esclusione (utenti di destinazione che non fanno parte del segmento).
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -142,7 +142,7 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

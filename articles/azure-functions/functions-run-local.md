@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="glenga"/>  
+	ms.author="glenga"/>
 
 # Come scrivere codice per le funzioni di Azure e testarle in Visual Studio
 

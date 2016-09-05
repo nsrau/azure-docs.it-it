@@ -17,7 +17,7 @@
 	ms.workload="infrastructure"
 	ms.date="08/23/2016"
 	ms.author="rasquill"
-/>  
+/>
 
 
 # Macchine virtuali e contenitori in Azure

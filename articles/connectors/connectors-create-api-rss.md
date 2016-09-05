@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore RSS
 RSS è un formato di diffusione nel Web molto usato per la pubblicazione di contenuti aggiornati di frequente, come post di blog e notizie. Molti autori di contenuti offrono feed RSS per consentire agli utenti di eseguire la sottoscrizione. È possibile usare il connettore RSS per recuperare informazioni sui feed e attivare flussi quando vengono pubblicati nuovi elementi in un feed RSS.
@@ -56,7 +56,7 @@ Si applica alla versione 1.0
 ## OnNewFeed
 Quando viene pubblicato un nuovo elemento di feed: attiva un flusso di lavoro quando viene pubblicato un nuovo feed
 
-```GET: /OnNewFeed```  
+```GET: /OnNewFeed```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -79,7 +79,7 @@ Quando viene pubblicato un nuovo elemento di feed: attiva un flusso di lavoro qu
 ## ListFeedItems
 Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed RSS.
 
-```GET: /ListFeedItems```  
+```GET: /ListFeedItems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|

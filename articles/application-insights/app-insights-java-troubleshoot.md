@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/01/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 
@@ -128,7 +128,7 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-<!--Link references-->  
+<!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
 [data]: app-insights-data-retention-privacy.md

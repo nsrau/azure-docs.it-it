@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
    ms.date="08/23/2016"
-   ms.author="rasquill"/>  
+   ms.author="rasquill"/>
 
 # Creazione di un'identità di lavoro o scuola in Azure Active Directory da usare con macchine virtuali Windows
 

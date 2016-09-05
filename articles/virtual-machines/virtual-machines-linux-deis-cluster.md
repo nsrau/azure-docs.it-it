@@ -183,7 +183,7 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
 
 4. Aggiungere id\_rsa.pub o la chiave pubblica di propria scelta su GitHub. È possibile eseguire questa operazione utilizzando il pulsante Aggiungi chiave SSH nella schermata di configurazione delle chiavi SSH:
 
-  ![Chiave GitHub](media/virtual-machines-linux-deis-cluster/github-key.png)  
+  ![Chiave GitHub](media/virtual-machines-linux-deis-cluster/github-key.png)
 <p />
 5. Per registrare un nuovo utente:
 

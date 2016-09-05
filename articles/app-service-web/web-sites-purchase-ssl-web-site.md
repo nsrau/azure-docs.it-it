@@ -146,7 +146,7 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
                               
-            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
+            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
@@ -167,7 +167,7 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 6. Nella sezione **Associazioni SSL** fare clic su **Add bindings** (Aggiungi associazioni)
 7. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
 
-    ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)  
+    ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
        • Il metodo SSL basato su IP associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato del server al nome di dominio. A tale scopo, è necessario che ogni nome di dominio (contoso.com, fabricam.com e così via) associato al servizio disponga di un indirizzo IP dedicato. Questo è il metodo tradizionale per l'associazione di certificati SSL a un server Web. •Il metodo SSL basato su SNI è un'estensione di SSL e **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS), che consente a più domini di condividere lo stesso indirizzo IP, con certificati di protezione distinti per ogni dominio. La maggior parte dei browser moderni, inclusi Internet Explorer, Chrome, Firefox e Opera, supporta SNI, ma è possibile che non sia supportato dai browser precedenti. Per altre informazioni su SNI, vedere l'articolo relativo all'**[Indicazione nome server](http://en.wikipedia.org/wiki/Server_Name_Indication)** su Wikipedia.
        

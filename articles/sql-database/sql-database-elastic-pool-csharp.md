@@ -63,11 +63,11 @@ Per creare un'applicazione e registrarla nell'Active Directory corrente proceder
 
 2. Selezionare la directory per l'autenticazione dell'applicazione e fare clic sul relativo **nome**.
 
-    ![Selezionare una directory.][4]  
+    ![Selezionare una directory.][4]
 
 3. Nella pagina della directory fare clic su **APPLICAZIONI**.
 
-    ![Fare clic su Applicazioni.][5]  
+    ![Fare clic su Applicazioni.][5]
 
 4. Fare clic su **AGGIUNGI** per creare un'applicazione.
 
@@ -81,11 +81,11 @@ Per creare un'applicazione e registrarla nell'Active Directory corrente proceder
 
 6. Specificare un **URI DI REINDIRIZZAMENTO**. Non è necessario che sia un endpoint effettivo, è sufficiente un URI valido.
 
-    ![Aggiunta di un'applicazione][8]  
+    ![Aggiunta di un'applicazione][8]
 
 7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client è necessario nel codice).
 
-    ![Acquisire l'ID client][9]  
+    ![Acquisire l'ID client][9]
 
 
 1. Nella parte inferiore della pagina fare clic su **Aggiungi applicazione**.
@@ -106,7 +106,7 @@ Il nome di dominio è obbligatorio per il codice. Un modo semplice per identific
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup. Sostituire **domain.onmicrosoft.com** nel frammento di codice con il valore per l'account.
 
-    ![Identificare il nome di dominio][3]  
+    ![Identificare il nome di dominio][3]
 
 
 
@@ -562,7 +562,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
 [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png
 [3]: ./media/sql-database-elastic-pool-csharp/getdomain.png

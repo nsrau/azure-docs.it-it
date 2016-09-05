@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahender"/>  
+	ms.author="mahender"/>
 
 # Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory
 
@@ -117,14 +117,14 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
-<!-- Images. -->  
+<!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-express-settings.png
 [1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-advanced-settings.png
 [2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-navigate-aad.png
 [3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-configure.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
 [portale di Azure]: https://portal.azure.com/
 [portale di Azure classico]: https://manage.windowsazure.com/

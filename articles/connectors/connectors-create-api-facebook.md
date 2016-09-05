@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na" 
    ms.date="08/18/2016"
-   ms.author="mandia"/>  
+   ms.author="mandia"/>
 
 # Introduzione al connettore Facebook
 Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via.

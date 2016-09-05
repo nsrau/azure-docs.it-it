@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 # Informazioni sui connettori SaaS di sicurezza OAUTH
@@ -44,7 +44,7 @@ A questo punto sarà possibile usare il connettore dalle app per la logica. Quan
 > [AZURE.NOTE] Se si è autorizzato un'app in precedenza, potrebbe essere necessario autorizzare l'app.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/app-service-logic-oauth-security/TwitterConnector.png
 [2]: ./media/app-service-logic-oauth-security/Authentication.png
 [3]: ./media/app-service-logic-oauth-security/RedirectURI.png

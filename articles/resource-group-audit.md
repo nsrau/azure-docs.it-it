@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="tomfitz"/>  
+	ms.author="tomfitz"/>
 
 # Operazioni di controllo con Gestione risorse
 
@@ -36,25 +36,25 @@ Questo argomento riguarda in particolare le operazioni di controllo. Per informa
 
 1. Per visualizzare i log attività dal portale, selezionare **Altri servizi** e **Log attività**.
 
-    ![Selezionare i log di attività](./media/resource-group-audit/select-audit-logs.png)  
+    ![Selezionare i log di attività](./media/resource-group-audit/select-audit-logs.png)
 
 2. Nel pannello **Log attività** viene visualizzato un riepilogo delle operazioni recenti per tutti i gruppi di risorse nella sottoscrizione, incluso un elenco delle operazioni recenti.
 
-    ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)  
+    ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)
 
 3. Per limitare il numero di operazioni visualizzate, selezionare condizioni diverse. Ad esempio, l'immagine seguente mostra i campi **Intervallo di tempo** ed **Evento avviato da** modificati per poter visualizzare le azioni eseguite da un determinato utente o applicazione il mese scorso.
 
-    ![impostare le opzioni di filtro](./media/resource-group-audit/set-filter.png)  
+    ![impostare le opzioni di filtro](./media/resource-group-audit/set-filter.png)
 
 4. Selezionare **Applica** per visualizzare i risultati della query.
 
 5. Se è necessario eseguire ancora la query in un secondo momento, selezionare **Salva** e assegnare un nome alla query.
 
-    ![Salvare la query](./media/resource-group-audit/save-query.png)  
+    ![Salvare la query](./media/resource-group-audit/save-query.png)
 
 6. Per filtrare automaticamente una risorsa o un gruppo di risorse specifico, selezionare **Log attività** nel pannello di tale risorsa. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
 
-    ![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)  
+    ![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)
 
 ## PowerShell per visualizzare log attività
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/22/2016"
-   ms.author="hascipio" />  
+   ms.author="hascipio" />
 
 # Come pubblicare e gestire un'offerta in Azure Marketplace
 Questo articolo viene fornito per aiutare uno sviluppatore a creare e distribuire e gestire le proprie soluzioni disponibili in Azure Marketplace che altri clienti e partner di Azure possono acquistare e usare.

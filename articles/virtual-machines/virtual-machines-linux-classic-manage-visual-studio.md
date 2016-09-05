@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
    ms.date="08/15/2016"
-   ms.author="tarcher" />  
+   ms.author="tarcher" />
 
 # Creare e gestire macchine virtuali Linux in Visual Studio
 

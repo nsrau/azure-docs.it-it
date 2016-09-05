@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #<a id="unity-roll-a-ball"></a>Creare il gioco Roll a Ball di Unity
 
@@ -318,7 +318,7 @@ Aprire lo script **PlayerController** per la modifica e aggiornare il metodo **F
 
 Con questa esercitazione termina la creazione di un gioco di base con Unity, che può essere distribuito e usato sul dispositivo preferito.
 
-<!-- Images -->  
+<!-- Images -->
 [1]: ./media/mobile-engagement-unity-roll-a-ball/1.png
 [2]: ./media/mobile-engagement-unity-roll-a-ball/2.png
 [3]: ./media/mobile-engagement-unity-roll-a-ball/3.png

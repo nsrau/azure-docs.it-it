@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="zachal"/>  
+   ms.author="zachal"/>
 
 # Passaggio di credenziali al gestore estensione DSC di Azure #
 

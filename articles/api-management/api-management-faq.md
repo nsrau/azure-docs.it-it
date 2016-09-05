@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Domande frequenti su Gestione API di Azure
 

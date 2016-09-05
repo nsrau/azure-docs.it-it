@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="TomSh"/>  
+   ms.author="TomSh"/>
 
 # Introduzione all'integrazione dei log di Azure (Anteprima)
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
 	ms.date="08/19/2016"
-	ms.author="piyushjo"/>  
+	ms.author="piyushjo"/>
 
 # Eseguire l'autenticazione con le API REST di Mobile Engagement - installazione manuale
 
@@ -121,7 +121,7 @@ Questo è un documento in appendice per [eseguire l'autenticazione con le API RE
 
 Ora la configurazione di AAD necessaria è terminata e tutto è pronto per le chiamate API.
 
-<!-- Images -->  
+<!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png
 [2]: ./media/mobile-engagement-api-authentication-manual/active-directory-details.png
 [3]: ./media/mobile-engagement-api-authentication-manual/view-applications.png

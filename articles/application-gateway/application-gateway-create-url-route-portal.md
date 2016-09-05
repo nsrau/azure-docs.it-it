@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/18/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare una regola basata sul percorso per un gateway applicazione usando il portale
 
@@ -43,7 +43,7 @@ Una regola basata sul percorso richiede un proprio listener. Prima di creare la 
 
 Passare a http://portal.azure.com e selezionare un gateway applicazione esistente. Fare clic su **Regole**.
 
-![Panoramica del gateway applicazione][1]  
+![Panoramica del gateway applicazione][1]
 
 ### Passaggio 2
 
@@ -51,7 +51,7 @@ Fare clic sul pulsante**Basata sul percorso** per aggiungere una nuova regola di
 
 ### Passaggio 3
 
-Il pannello **Add path-based rule ** (Aggiungi regola basata sul percorso) contiene due sezioni. La prima è la sezione in cui sono stati definiti il listener, il nome della regola e le impostazioni del percorso predefinito. Le impostazioni del percorso predefinite sono per le route che non rientrano nella route personalizzata basata sul percorso. La seconda sezione dl pannello **Add path-based rule** (Aggiungi regola basata sul percorso) viene usata per definire le regole stesse basate sul percorso.
+Il pannello **Add path-based rule** (Aggiungi regola basata sul percorso) contiene due sezioni. La prima è la sezione in cui sono stati definiti il listener, il nome della regola e le impostazioni del percorso predefinito. Le impostazioni del percorso predefinite sono per le route che non rientrano nella route personalizzata basata sul percorso. La seconda sezione dl pannello **Add path-based rule** (Aggiungi regola basata sul percorso) viene usata per definire le regole stesse basate sul percorso.
 
 **Basic Settings**
 
@@ -69,7 +69,7 @@ Il pannello **Add path-based rule ** (Aggiungi regola basata sul percorso) conti
 
 >[AZURE.IMPORTANT] Percorsi: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "*" è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*.
 
-![Pannello Add path-based rule (Aggiungi regola basata sul percorso)][2]  
+![Pannello Add path-based rule (Aggiungi regola basata sul percorso)][2]
 
 L'aggiunta di una regola basata sul percorso a un gateway applicazione esistente è un processo semplice con il portale. Dopo aver creato una regola basata sul percorso, è possibile modificarla per aggiungere facilmente altre regole.
 

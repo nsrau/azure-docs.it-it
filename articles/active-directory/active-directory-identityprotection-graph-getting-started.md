@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 # Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph
 

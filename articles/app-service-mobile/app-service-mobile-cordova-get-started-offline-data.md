@@ -198,7 +198,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 * [Visual Studio Tools per Apache Cordova]
 
@@ -207,11 +207,11 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 * Funzionalità di sincronizzazione offline più avanzate, ad esempio la risoluzione dei conflitti, sono disponibili nell'[esempio di sincronizzazione offline]
 * Esaminare il riferimento API di sincronizzazione offline nel file [README]
 
-<!-- ##Summary -->  
+<!-- ##Summary -->
 
 <!-- Images -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [avvio rapido di Apache Cordova]: app-service-mobile-cordova-get-started.md
 [README]: https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview
 [esempio di sincronizzazione offline]: https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME

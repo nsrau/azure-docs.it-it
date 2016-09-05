@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/05/2016"
-	ms.author="v-donglo"/>  
+	ms.author="v-donglo"/>
 
 #Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning
 
@@ -30,7 +30,7 @@ Quando è necessario ripetere il training del servizio Web, si devono aggiungere
 
 * Un servizio Web distribuito dall'esperimento di training. L'esperimento deve avere un modulo **Web service output** (Output servizio Web) collegato all'output del modulo **Train Model** (Training modello).
 
-	![Collegare l'output del servizio Web al modello di training.][image1]  
+	![Collegare l'output del servizio Web al modello di training.][image1]
 
 * Un nuovo endpoint aggiunto al servizio Web di assegnazione dei punteggi. È possibile aggiungere l'endpoint a livello di codice usando il codice di esempio a cui si fa riferimento nell'argomento Ripetere il training dei modelli di Machine Learning a livello di codice o tramite il portale di Azure classico.
 
@@ -55,7 +55,7 @@ Per ottenere l'URL PATCH corretto:
 1.	Eseguire il codice di esempio [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 2.	Dall'output di AddEndpoint, trovare il valore *HelpLocation* e copiare l'URL.
 
-	![HelpLocation nell'output dell'esempio addEndpoint.][image2]  
+	![HelpLocation nell'output dell'esempio addEndpoint.][image2]
 
 3.	Incollare l'URL in un browser per passare a una pagina contenente i collegamenti della guida per il servizio Web.
 4.	Fare clic sul collegamento **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
@@ -71,11 +71,11 @@ Per ottenere l'URL PATCH corretto:
 
 >[AZURE.NOTE] Se è stato aggiunto l'endpoint al servizio Web di training anziché al servizio Web predittivo, si riceverà l'errore seguente quando si fa clic sul collegamento **Aggiorna risorsa**: Siamo spiacenti, ma questa funzionalità non è supportata o disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
 
-![Dashboard del nuovo endpoint.][image3]  
+![Dashboard del nuovo endpoint.][image3]
 
 La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codice di esempio che è possibile usare per chiamarlo.
 
-![URL della patch.][image5]  
+![URL della patch.][image5]
 
 ### Verificare di aggiornare l'endpoint di assegnazione dei punteggi corretto
 
@@ -99,7 +99,7 @@ Per verificare in quale servizio Web si trova l'endpoint, visitare il portale di
 2.	Scegliere Machine Learning dal menu. ![Interfaccia utente dell'area di Machine Learning.][image4]
 3.	Verificare la posizione dell'area di lavoro.
 
-<!-- Image Links -->  
+<!-- Image Links -->
 
 [image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png

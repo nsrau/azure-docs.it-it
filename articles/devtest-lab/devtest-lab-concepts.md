@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 #Concetti di Lab di sviluppo e test
 

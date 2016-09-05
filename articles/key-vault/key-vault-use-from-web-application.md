@@ -250,7 +250,7 @@ Per ulteriori informazioni sull'aggiunta di un certificato a un'applicazione Web
 Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 

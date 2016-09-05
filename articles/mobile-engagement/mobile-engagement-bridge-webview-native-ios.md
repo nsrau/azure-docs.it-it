@@ -14,7 +14,7 @@
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="08/19/2016" 
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Creare un bridge tra WebView di iOS e Mobile Engagement SDK per iOS nativo
 
@@ -267,7 +267,7 @@ Seguire la procedura riportata sotto per un esempio di bridge iOS:
 
 	![][2]
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 

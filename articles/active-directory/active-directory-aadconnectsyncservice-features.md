@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="andkjell;markvi"/>  
+	ms.author="andkjell;markvi"/>
 
 # Funzionalità del servizio di sincronizzazione Azure AD Connect
 

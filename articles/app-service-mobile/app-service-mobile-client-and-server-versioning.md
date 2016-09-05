@@ -14,7 +14,7 @@
   ms.devlang="dotnet"
   ms.topic="article"
   ms.date="08/22/2016"
-  ms.author="donnam"/>  
+  ms.author="donnam"/>
 
 # Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 
@@ -82,7 +82,7 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 | .NET | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
 | Node.js | (Presto disponibile) | **Nessuna intestazione di versione** |
 
-<!-- TODO: add Node npm version -->  
+<!-- TODO: add Node npm version -->
 
 ### Comportamento dei back-end di Servizi mobili
 

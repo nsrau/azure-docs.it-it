@@ -55,7 +55,7 @@ Per ripristinare un database eliminato:
 ## Passaggi successivi
 Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
    ms.date="08/17/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Configurare CHAP per il dispositivo StorSimple
 

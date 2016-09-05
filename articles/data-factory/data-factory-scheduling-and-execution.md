@@ -29,7 +29,7 @@ La sezione **scheduler** del file JSON dell'attività consente di specificare un
 	    "interval": 1
 	},  
     
-![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)  
+![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
 Come illustrato nel diagramma, se si specifica una pianificazione per l'attività vengono create finestre a cascata costituite da serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Queste finestre logiche a cascata per l'attività vengono denominate **finestre attività**.
  
@@ -197,7 +197,7 @@ Nell'esempio, le sezioni relative alla pianificazione dell'attività e alla disp
 
 Quando 3 delle sezioni nella fascia oraria 8 - 11 AM vengono eseguite e i dati in Azure SQL sono i seguenti:
 
-![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)  
+![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
 Distribuendo questa pipeline, l'archivio BLOB di Azure verrà popolato come segue:
 
@@ -230,9 +230,9 @@ Le sezioni di dati così recuperate potranno essere configurate per essere esegu
 
 Si consideri l'esempio seguente che descrive due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
-![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)  
+![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>  
+<br/>
 
 Il diagramma illustra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per **Dataset2**. La data factory monitorizza automaticamente le dipendenze per il set di dati in serie temporale e, di conseguenza, sospende l'avvio dell'esecuzione di attività per la sezione a valle 9-10 AM.
 
@@ -257,11 +257,11 @@ In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono dis
 
 La visualizzazione sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
 La visualizzazione con entrambe le attività nella stessa pipeline sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copia ordinata
 È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity con i set di dati di input e output seguenti.
@@ -402,7 +402,7 @@ Lo script Hive riceve le informazioni di data e ora appropriate sotto forma di p
 
 Il diagramma seguente illustra lo scenario dal punto di vista della dipendenza dei dati.
 
-![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)  
+![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. La data factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile, Data Factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione dell'attività giornaliera.
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="08/08/2016"
-   ms.author="golive"/>  
+   ms.author="golive"/>
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
 
@@ -73,7 +73,7 @@ I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell D
 
 PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'account di Automazione di Azure. Passare alla risorsa desiderata e fare clic sul pulsante "Deploy to Azure Automation".
 
-![Esempio di PowerShell Gallery](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)  
+![Esempio di PowerShell Gallery](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
 Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nuovi moduli o aggiornare quelli esistenti. Fare clic sulla risorsa Account di automazione, sul riquadro Asset e infine sul riquadro Moduli. L'icona Esplora raccolta consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down dei dettagli e infine di eseguire l'importazione in Account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 

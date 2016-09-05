@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2016"
-	ms.author="jroth"/>  
+	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 
@@ -133,7 +133,7 @@ Per ogni disco, attenersi alla procedura seguente:
 1. Il numero LUN è un riferimento al numero LUN specificato al momento del collegamento del disco rigido virtuale alla macchina virtuale.
 1. Per il ‘Disco virtuale Microsoft’ andare alla scheda **Dettagli**, quindi nell’elenco **Proprietà** andare a **Chiave driver**. In **Valore**, notare l’**Offset**, ovvero 0002 nella schermata seguente. Il valore 0002 denota PhysicalDisk2 a cui fa riferimento il pool di archiviazione.
 
-	![VirtualDiskPropertyDetails][4]  
+	![VirtualDiskPropertyDetails][4]
 
 2. Per ogni del pool di archiviazione eseguire il dump dei dischi associati:
 
@@ -393,7 +393,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 
 È necessario prevedere tempo per eseguire il failover manuale e test CHAOS sui nodi appena aggiunti per assicurarsi che la disponibilità elevata AlwaysOn funzioni come previsto.
 
-![DeploymentUseAlways On2][7]  
+![DeploymentUseAlways On2][7]
 
 > [AZURE.NOTE] Prima che venga eseguita la convalida è necessario arrestare tutte le istanze di SQL Server in cui vengono usati i pool di archiviazione.
 ##### Procedure generali
@@ -536,7 +536,7 @@ Il tempo di inattività corrisponde al tempo necessario per il failover al centr
 Questo scenario presuppone di aver documentato l'installazione e che si sappia come viene eseguito il mapping dell’archiviazione in modo da poter apportare le modifiche necessarie a definire impostazioni della cache su disco ottimali.
 
 ##### Procedure generali
-![MultiSite2][10]  
+![MultiSite2][10]
 
 - Rendere il centro dati di Azure locale/alternativo l'SQL Server primario e l’altro partner di failover automatico.
 - Raccogliere la configurazione del disco da SQL2 e rimuovere il nodo (non eliminare i dischi rigidi virtuali collegati).
@@ -613,7 +613,7 @@ In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono pre
 
 Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, in Gestione cluster di failover passare alle proprietà del gruppo di risorse AlwaysOn:
 
-![Appendix3][13]  
+![Appendix3][13]
 
 Modificare il numero massimo di errori in 6.
 
@@ -640,7 +640,7 @@ Se 'RegisterAllIpProviders' è 0, verrà visualizzato solo un record DNS nel DNS
 
 Se 'RegisterAllIpProviders' è 1:
 
-![Appendix5][15]  
+![Appendix5][15]
 
 Il codice riportato di seguito esegue dump delle impostazioni del nome di rete virtuale e lo imposta automaticamente. Tenere presente che per rendere effettiva la modifica è necessario portare il nome di rete virtuale offline e poi di nuovo online, operazione che causa l'interruzione della connettività client.
 
@@ -1106,11 +1106,11 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 
 1. Per la risorsa indirizzo IP corrente, modificare il proprietario possibile in 'SQL Server primario esistente', nell'esempio seguente 'dansqlams4':
 
-	![Appendix13][23]  
+	![Appendix13][23]
 
 1. Per la nuova risorsa indirizzo IP, modificare il proprietario possibile in 'SQL Server secondario migrato', nell'esempio seguente 'dansqlams5':
 
-	![Appendix14][24]  
+	![Appendix14][24]
 
 1. Dopo queste impostazioni, è possibile eseguire il failover e quando l'ultimo viene migrato, i possibili proprietari devono essere modificati in modo che tale nodo venga aggiunto come possibile proprietario:
 
@@ -1121,7 +1121,7 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 - [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
 [2]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/2_Diskname_Lun.png
 [3]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/3_Virtual_Disk_Properties.png

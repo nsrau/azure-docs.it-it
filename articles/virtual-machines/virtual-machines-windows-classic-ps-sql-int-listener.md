@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2016"
-	ms.author="MikeRayMSFT" />  
+	ms.author="MikeRayMSFT" />
 
 # Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
 
@@ -149,4 +149,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

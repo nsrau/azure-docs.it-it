@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/22/2016" 
-	ms.author="arramac"/>  
+	ms.author="arramac"/>
 
 # Query e sintassi SQL in DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
@@ -864,7 +864,8 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
 	]
 
 
-###Operatore * L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
+###Operatore *
+L'operatore speciale (***) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
 
 **Query**
 

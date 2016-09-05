@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
 ms.date="08/23/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore Excel
 
@@ -212,6 +212,6 @@ Applies to version: 1.0.
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 
 
--->  
+-->
 
 <!---HONumber=AcomDC_0824_2016-->

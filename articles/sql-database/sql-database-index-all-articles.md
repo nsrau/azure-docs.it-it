@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/21/2016"
-	ms.author="genemi"/>  
+	ms.author="genemi"/>
 
 
 # Tutti gli argomenti per il servizio database SQL di Azure
@@ -399,6 +399,6 @@ C:\_MainW\VS15\AzureIndexAllArticles\AzureIndexAllArticles\In-Out\In\
 
 This bullet link is improperly disallowed by publishing automation due to presence of string 'docuXXmentation/arXXticles':
 - [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
--->  
+-->
 
 <!---HONumber=AcomDC_0824_2016-->

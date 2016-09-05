@@ -183,7 +183,7 @@ Solo sui nodi in cui l'istruzione generale restituisce "True" è possibile posiz
 
 Service Fabric definisce anche alcune proprietà predefinite, che possono essere successivamente usate automaticamente, senza alcun intervento da parte dell'utente. Al momento della stesura di questo articolo, le proprietà predefinite specificate a livello di ogni nodo sono NodeType e NodeName. Ad esempio, è possibile scrivere un vincolo di posizionamento come "(NodeType == NodeType03)". In genere, NodeType è una delle proprietà più usate e corrisponde solitamente esattamente a un tipo di computer, che a sua volta corrisponde a un tipo di carico di lavoro in un'architettura di applicazione tradizionale a n livelli.
 
-![Vincoli di posizionamento e proprietà dei nodi][Image6]  
+![Vincoli di posizionamento e proprietà dei nodi][Image6]
 
 Si supponga che le proprietà seguenti del nodo siano state definite per un tipo di nodo specifico: ClusterManifest.xml
 

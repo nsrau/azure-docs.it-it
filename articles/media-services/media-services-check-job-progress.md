@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/19/2016"   
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Monitorare lo stato dei processi mediante .NET
 

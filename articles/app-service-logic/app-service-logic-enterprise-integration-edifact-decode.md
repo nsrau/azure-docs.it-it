@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/15/2016" 
-	ms.author="padmavc"/>  
+	ms.author="padmavc"/>
 
 # Introduzione a Decode EDIFACT Message
 
@@ -34,11 +34,11 @@ Convalida le proprietà EDI e specifiche del partner, genera un documento XML pe
 
 2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta. Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione. Selezionare Mostra API gestite da Microsoft nell'elenco a discesa, quindi immettere "EDIFACT" nella casella di ricerca. Selezionare Decode EDIFACT Message
 
-	![ricerca di EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
+	![ricerca di EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
 	
 3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione.
 
-	![creare un account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)  
+	![creare un account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)
 
 4. Immettere i dettagli dell'account di integrazione. Le proprietà con l'asterisco sono obbligatorie.
 
@@ -49,17 +49,17 @@ Convalida le proprietà EDI e specifiche del partner, genera un documento XML pe
 
 	Al termine, i dettagli della connessione saranno simili ai seguenti:
 
-	![account di integrazione creato](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)  
+	![account di integrazione creato](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)
 
 5. Selezionare **Crea**.
 
 6. La connessione è stata creata.
 
-	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+	![dettagli della connessione all'account di integrazione](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)
 
 7. Selezionare il messaggio con il file flat EDIFACT da decodificare
 
-	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+	![specificare i campi obbligatori](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)
 
 ## EDIFACT Decode esegue queste operazioni
 

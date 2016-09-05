@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
 
@@ -227,7 +227,7 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 -    L'utente riceve la notifica e fa clic su di essa.
 -    La visualizzazione testo appare come un popup con cui l'utente può interagire.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
 [2]: ./media/mobile-engagement-how-tos/First2.png
 [3]: ./media/mobile-engagement-how-tos/First3.png
@@ -261,7 +261,7 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [31]: ./media/mobile-engagement-how-tos/WebView4.png
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

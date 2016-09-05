@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
    ms.date="08/19/2016"
-   ms.author="piyushjo"/>  
+   ms.author="piyushjo"/>
 
 # Come monitorare in tempo reale i dati relativi all'applicazione
 
@@ -52,7 +52,7 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 
 È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di minuti che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica per ogni intervallo specificato.
 
-![Monitor4][17]  
+![Monitor4][17]
 
 
 ## Vedere anche
@@ -60,7 +60,7 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 - [Concetti][Link 6]
 - [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
@@ -120,7 +120,7 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md

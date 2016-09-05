@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 # Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario
 
@@ -81,7 +81,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 2. Dall'elenco a discesa selezionare **Tra due siti VMM locali**.
 3. In **Preparare i server VMM**, fare clic su **Genera file codice di registrazione**. Il file di chiave viene generato automaticamente ed è valido per 5 giorni dal momento in cui viene generato. Se non si accede al portale di Azure dal server VMM è necessario copiare questo file sul server.
 
-	![Registration key](./media/site-recovery-vmm-to-vmm-classic/register-key.png)  
+	![Registration key](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
 ## Passaggio 3: installare il provider di Azure Site Recovery
 
@@ -134,7 +134,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 
 13.  Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato in **Server VMM** > **Server** nell'insieme di credenziali.
 
-	![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)  
+	![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### Installazione dalla riga di comando
 

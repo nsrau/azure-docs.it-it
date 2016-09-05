@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # La carta di credito o di debito viene rifiutata quando si tenta di eseguire l'iscrizione ad Azure
 Se la carta di credito o di debito è stata rifiutata, è possibile che si stia usando una carta prepagata o virtuale. Al momento Microsoft riconosce la maggior parte delle carte di credito e debito, ma non quelle virtuali o prepagate. Queste ultime non sono accettate come opzione di pagamento. I fornitori di carte di credito e di debito accettati variano in base al paese. Nell'elenco a discesa per la scelta della carta di credito vengono visualizzate solo le opzioni valide per il paese selezionato.

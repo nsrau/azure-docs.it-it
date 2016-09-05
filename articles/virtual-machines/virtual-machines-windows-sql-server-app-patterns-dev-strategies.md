@@ -185,7 +185,7 @@ Il diagramma seguente illustra uno scenario locale e la relativa soluzione abili
 
 L'esecuzione di più copie di un'applicazione in macchine virtuali diverse assicura che si eseguirà il bilanciamento del carico delle richieste tra le diverse macchine virtuali. Quando si hanno più macchine virtuali è necessario assicurarsi che siano tutte accessibili e in esecuzione nello stesso momento. Se si configura il bilanciamento del carico, Azure Load Balancer terrà traccia dell'integrità delle VM, dirigendo correttamente le chiamate in entrata ai nodi funzionanti della VM. Per informazioni su come configurare il bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-windows-load-balance.md). La presenza di più istanze di server Web e applicazioni dietro il servizio di bilanciamento del carico assicura la disponibilità elevata del livello presentazione e business.
 
-![Scalabilità orizzontale e disponibilità elevata](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)  
+![Scalabilità orizzontale e disponibilità elevata](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 
 ### Procedure consigliate per i modelli di applicazione che richiedono disponibilità elevata e ripristino di emergenza (HADR) per SQL Server
 

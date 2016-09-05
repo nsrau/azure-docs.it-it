@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>  
+	ms.author="stbaro"/>
 
 # Esempi di supporto del protocollo DocumentDB per MongoDB
 Per usare questi esempi, è necessario seguire questa procedura:

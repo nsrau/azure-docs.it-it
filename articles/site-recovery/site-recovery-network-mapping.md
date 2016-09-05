@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="07/06/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 
 # Preparare il mapping di rete per la protezione delle macchine virtuali Hyper-V con VMM in Azure Site Recovery

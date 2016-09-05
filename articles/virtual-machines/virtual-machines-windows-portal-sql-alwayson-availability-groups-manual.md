@@ -24,7 +24,7 @@
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>  
+<br/>
 
 Questa esercitazione end-to-end mostra come implementare i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure Resource Manager.
 
@@ -310,7 +310,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -427,7 +427,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 

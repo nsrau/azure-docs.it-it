@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Introduzione a Cluster Resource Manager di Service Fabric
 Tradizionalmente, la gestione dei sistemi IT o di un gruppo di servizi comportava dedicare alcune macchine virtuali o fisiche a tali sistemi o servizi specifici. La maggiore parte dei servizi principali erano suddivisi in un livello "web" e un livello "dati" o "archiviazione", magari con alcuni altri componenti specializzati come una cache. Altri tipi di applicazioni avrebbero avuto un livello "messaggistica" che gestiva le richieste in entrata e uscita connesso a un livello "lavoro" per le attività di analisi o trasformazione necessarie per la messaggistica. A ogni tipo di carico di lavoro veniva assegnato un computer dedicato. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro provocava il sovraccarico del computer che lo ospitava, si aggiungevano altri computer configurati per quel particolare tipo di carico di lavoro oppure si sostituivano alcuni computer con equivalenti più potenti. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.

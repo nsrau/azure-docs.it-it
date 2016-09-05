@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="03/29/2016"
-   ms.author="kundanap"/>  
+   ms.author="kundanap"/>
 
 # Estensioni di script personalizzato di VM Windows con modelli di Azure Resource Manager
 

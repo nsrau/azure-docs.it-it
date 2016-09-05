@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # collectd: metriche delle prestazioni Unix in Application Insights
 
@@ -23,7 +23,7 @@ Per esplorare le metriche delle prestazioni del sistema Unix in [Application Ins
 
 In genere, si usa collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi.
 
-![Grafici di esempio](./media/app-insights-java-collectd/sample.png)  
+![Grafici di esempio](./media/app-insights-java-collectd/sample.png)
 
 ## Ottenere la chiave di strumentazione
 

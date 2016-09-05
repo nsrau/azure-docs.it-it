@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="TomSh"/>  
+   ms.author="TomSh"/>
 
 # Introduzione all'integrazione dei log di Microsoft Azure (Anteprima)
 
@@ -26,7 +26,7 @@ I servizi sia PaaS (Platform as a Service, piattaforma distribuita come servizio
 
 L'integrazione dei log di Azure consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. L'integrazione dei log di Azure raccoglie i dati della Diagnostica di Azure dalle macchie virtuali Windows *(WAD)* e Linux *(LAD)* e anche i dati diagnostici dalle soluzioni dei partner come Web Application Firewall (WAF). Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza.
 
-![Integrazione dei log di Azure][1]  
+![Integrazione dei log di Azure][1]
 
 ## Quali log è possibile integrare?
 
@@ -48,7 +48,7 @@ In questo documento è stata presentata l'integrazione dei log di Azure. Per alt
 - [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
 - [Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) - Questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
 
 <!---HONumber=AcomDC_0824_2016-->

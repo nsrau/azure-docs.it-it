@@ -21,7 +21,8 @@
 
 In questo articolo viene fornita una panoramica dell'uso dell'estensione Script personalizzato per le VM Windows tramite i cmdlet Azure PowerShell con le API Gestione dei servizi.
 
-Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere [estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
+Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere 
+[estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-extensions-customscript.md).
 
@@ -74,7 +75,7 @@ In questo caso d'uso viene illustrato come usare un contenitore di archiviazione
 
 Selezionare la VM nel <a href="https://portal.azure.com/ " target="_blank">portale di Azure</a> e aggiungere l'estensione specificando il file script da eseguire.
 
-  ![Specificare il file di script][5]  
+  ![Specificare il file di script][5]
 
 
 ### Disinstallazione dell'estensione Script personalizzato
@@ -87,7 +88,7 @@ Selezionare la VM nel <a href="https://portal.azure.com/ " target="_blank">porta
 
 Per informazioni su come usare l'estensione Script personalizzato con i modelli di Azure Resource Manager, vedere [Uso dell'estensione Script personalizzato per VM Windows con i modelli di Azure Resource Manager](virtual-machines-windows-extensions-customscript.md).
 
-<!--Image references-->  
+<!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_0824_2016-->

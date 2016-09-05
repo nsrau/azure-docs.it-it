@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>  
+	ms.author="stbaro"/>
 
 # Visualizzare l'anteprima delle linee guida sullo sviluppo per account DocumentDB con supporto del protocollo per MongoDB
 

@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore OneDrive for Business
 
@@ -74,7 +74,7 @@ Si applica alla versione 1.0
 ## GetFileMetadata
 Recupero dei metadati di un file tramite ID: ottiene i metadati di un file in OneDrive for Business tramite ID
 
-```GET: /datasets/default/files/{id}```  
+```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -109,7 +109,7 @@ Aggiornamento file: aggiorna un file in OneDrive for Business
 ## DeleteFile
 Eliminazione file: Elimina un file da OneDrive for Business
 
-```DELETE: /datasets/default/files/{id}```  
+```DELETE: /datasets/default/files/{id}```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -143,7 +143,7 @@ Recupero dei metadati di un file tramite percorso: ottiene i metadati di un file
 ## GetFileContentByPath
 Recupero dei contenuti di un file tramite percorso: ottiene i contenuti di un file in OneDrive for Business tramite il percorso
 
-```GET: /datasets/default/GetFileContentByPath```  
+```GET: /datasets/default/GetFileContentByPath```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -160,7 +160,7 @@ Recupero dei contenuti di un file tramite percorso: ottiene i contenuti di un fi
 ## GetFileContent
 Recupero dei contenuti di un file tramite ID: ottiene i contenuti di un file in OneDrive for Business tramite ID
 
-```GET: /datasets/default/files/{id}/content```  
+```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -196,7 +196,7 @@ Creazione file: carica un file in OneDrive for Business
 ## CopyFile
 Copia file: copia un file in OneDrive for Business
 
-```POST: /datasets/default/copyFile```  
+```POST: /datasets/default/copyFile```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -215,7 +215,7 @@ Copia file: copia un file in OneDrive for Business
 ## OnNewFile
 Quando un file viene creato: attiva un flusso quando un nuovo file viene creato in una cartella di OneDrive for Business
 
-```GET: /datasets/default/triggers/onnewfile```  
+```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -232,7 +232,7 @@ Quando un file viene creato: attiva un flusso quando un nuovo file viene creato 
 ## OnUpdatedFile
 Quando un file viene modificato: attiva un flusso quando un file viene modificato in una cartella di OneDrive for Business
 
-```GET: /datasets/default/triggers/onupdatedfile```  
+```GET: /datasets/default/triggers/onupdatedfile```
 
 | Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -249,7 +249,7 @@ Quando un file viene modificato: attiva un flusso quando un file viene modificat
 ## ListFolder
 Elenco file in una cartella: elenca i file in una cartella di OneDrive for Business
 
-```GET: /datasets/default/folders/{id}```  
+```GET: /datasets/default/folders/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
@@ -266,7 +266,7 @@ Elenco file in una cartella: elenca i file in una cartella di OneDrive for Busin
 ## ListRootFolder
 Elenco cartella radice: elenca i file nella cartella radice di OneDrive for Business
 
-```GET: /datasets/default/folders```  
+```GET: /datasets/default/folders```
 
 Non sono disponibili parametri per questa chiamata
 #### Response

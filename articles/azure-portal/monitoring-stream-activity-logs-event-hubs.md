@@ -31,7 +31,7 @@ Ecco alcuni esempi di come è possibile usare la funzionalità di trasmissione p
 ### Tramite il portale di Azure 
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
 
-    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)  
+    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
 
     ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)

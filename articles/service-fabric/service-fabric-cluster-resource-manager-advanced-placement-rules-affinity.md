@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Configurazione e utilizzo dell'affinità del servizio in Service Fabric
 
@@ -46,7 +46,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ## Diverse opzioni di affinità
 L'affinità è rappresentata tramite vari possibili schemi di correlazione e ha due modalità diverse. La modalità di affinità più comune è la cosiddetta NonAlignedAffinity. Nella modalità NonAlignedAffinity le repliche o le istanze dei diversi servizi vengono inserite negli stessi nodi. L'altra modalità è AlignedAffinity. La modalità AlignedAffinity viene usata solo con i servizi con stato. La configurazione di due servizi con stati per l'allineamento dell'affinità garantisce che i primari di tali servizi vengano inseriti negli stessi nodi. La configurazione consente anche di inserire ogni coppia di secondari dei servizi negli stessi nodi. È possibile anche configurare una relazione NonAlignedAffinity per i servizi con stato, sebbene questa pratica sia meno comune. Per la relazione NonAlignedAffinity, le diverse repliche dei due servizi con stato saranno collocate sugli stessi nodi, ma non verrà eseguito alcun tentativo di allineamento di primarie o secondarie.
 
-![Modalità di affinità e loro effetti][Image1]  
+![Modalità di affinità e loro effetti][Image1]
 
 ### Stato desiderato del massimo sforzo
 Esistono alcune differenze tra il servizio di affinità e le architetture monolitiche. Molte di queste dipendono dal fatto che una relazione di affinità è migliore. I servizi in una relazione di affinità sono entità profondamente diverse che possono avere esito negativo ed essere spostate in modo indipendente. Sono disponibili anche le cause per cui una relazione di affinità potrebbe interrompersi. Ad esempio, i limiti di capacità per cui solo alcuni degli oggetti del servizio nella relazione di affinità possono contenere un determinato nodo. In questi casi, anche se è disponibile una relazione di affinità, non verrà applicata a causa di altri vincoli. Se è possibile applicare tutti gli altri vincoli e l'affinità in un secondo momento, la violazione del vincolo di affinità verrà corretta in automatico.
@@ -54,7 +54,7 @@ Esistono alcune differenze tra il servizio di affinità e le architetture monoli
 ### Modelli a catena o a stella
 Ad oggi non siamo in grado di modellare catene di relazioni di affinità. Ciò significa che un servizio che è un elemento figlio in una relazione di affinità non potrà essere un elemento padre in un'altra relazione di affinità. Se si desidera modellare questo tipo di relazione, è necessario modellarla in modo efficace a forma di stella, invece di una catena. A questo scopo, l'elemento figlio più basso sarebbe imparentato con il padre dell'elemento figlio "medio". A seconda della disposizione dei servizi può essere necessario creare un servizio "segnaposto" come padre per più elementi figlio.
 
-![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]  
+![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]
 
 Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali. Ciò significa che la regola "affinità" impone solo che l'elemento figlio si trovi nella stessa posizione dell'elemento padre. Se ad esempio l'elemento padre improvvisamente esegue il failover a un altro nodo, Cluster Resource Manager non ritiene che sia presente un problema effettivo fino a quando non nota che l'elemento figlio non si trova insieme a un elemento padre; la relazione non viene applicata immediatamente.
 

@@ -66,12 +66,12 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 
-<!-- Images. -->  
+<!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/app-service-microsoftaccount-redirect.png
 [1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-microsoftaccount-settings.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di Azure]: https://portal.azure.com/

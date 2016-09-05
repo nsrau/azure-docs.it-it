@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/18/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 
 # Creare un gateway applicazione con il routing basato sul percorso 
@@ -33,7 +33,7 @@ Nell'esempio seguente il gateway applicazione gestisce il traffico per contoso.c
 
 Le richieste per http://contoso.com/image* verranno instradate al pool di server immagini (pool1) e quelle per http://contoso.com/video* al pool di server video (pool2). In caso di mancata corrispondenza dei percorsi, viene selezionato un pool di server predefinito (pool1).
 
-![route dell'URL](./media/application-gateway-create-url-route-arm-ps/figure1.png)  
+![route dell'URL](./media/application-gateway-create-url-route-arm-ps/figure1.png)
 
 ## Prima di iniziare
 

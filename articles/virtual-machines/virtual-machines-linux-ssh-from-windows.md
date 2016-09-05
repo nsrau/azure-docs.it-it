@@ -142,13 +142,13 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 
 6. Fare clic su **Apri**. Verrà visualizzato un prompt simile al seguente:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)  
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
 
 7. Fare clic su **OK**.
 
 8. Fare clic su **Save Private Key**, ossia l'opzione evidenziata nella schermata seguente:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)  
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
 
 9. Salvare il file in formato PPK
 
@@ -159,7 +159,7 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 2.	Eseguire putty.exe
 3.	Inserire il nome host usando l'IP del portale di gestione:
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)  
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
 4.	Prima di selezionare **Open**, fare clic su Connection > SSH > Auth per scegliere la chiave. Per informazioni sul campo da compilare, vedere la schermata seguente:
 

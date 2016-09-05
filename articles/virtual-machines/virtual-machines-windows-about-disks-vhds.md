@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/16/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali di Azure
 

@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahender"/>  
+	ms.author="mahender"/>
 
 # Autenticazione e autorizzazione in App per dispositivi mobili di Azure
 

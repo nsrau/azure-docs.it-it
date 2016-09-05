@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="08/18/2016"
-ms.author="deonhe"/>  
+ms.author="deonhe"/>
 
 # Introduzione al connettore GitHub
 
@@ -65,7 +65,7 @@ Si applica alla versione: 1.0
 ## CreateIssue
 Creare un problema: crea un problema
 
-```POST: /repos/{repositoryOwner}/{repositoryName}/issues```  
+```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -108,7 +108,7 @@ Non sono disponibili parametri per questa chiamata
 ## IssueClosed
 Quando viene chiuso un problema: viene chiuso un problema
 
-```GET: /trigger/issueClosed```  
+```GET: /trigger/issueClosed```
 
 Non sono disponibili parametri per questa chiamata
 #### Response
@@ -127,7 +127,7 @@ Non sono disponibili parametri per questa chiamata
 ## IssueAssigned
 Quando viene assegnato un problema: viene assegnato un problema
 
-```GET: /trigger/issueAssigned```  
+```GET: /trigger/issueAssigned```
 
 Non sono disponibili parametri per questa chiamata
 #### Response
