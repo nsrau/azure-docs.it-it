@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/18/2016"
+    ms.date="08/25/2016"
     ms.author="anhoh"/>
 
 # Sviluppo di applicazioni Web Python Flask con DocumentDB
@@ -36,7 +36,7 @@ In questa esercitazione del database vengono trattati i seguenti argomenti:
 
 Seguendo questa esercitazione, si creerà una semplice applicazione di voto che consente di votare per un sondaggio.
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-python-application/image1.png)
+![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-python-application/image1.png) 
 
 
 ## Prerequisiti per l'esercitazione del database
@@ -51,7 +51,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
 > [AZURE.IMPORTANT] Se si installa Python 2.7 per la prima volta, nella schermata relativa alla personalizzazione di Python 2.7.11 assicurarsi di selezionare **Add python.exe to Path**.
 > 
->    ![Schermata Customize Python 2.7.11, in cui è necessario selezionare Add python.exe to Path](./media/documentdb-python-application/image2.png)
+>    ![Schermata Customize Python 2.7.11, in cui è necessario selezionare Add python.exe to Path](./media/documentdb-python-application/image2.png) 
 
 - Compilatore Microsoft Visual C++ per Python 2.7 disponibile nell'[Area download Microsoft][3].
 
@@ -79,11 +79,11 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha g
 
 4. Nella finestra **Python Tools for Visual Studio** selezionare **Install into a virtual environment** (Installa in un ambiente virtuale).
 
-	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png)
+	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png) 
 
 5. Nella finestra **Add Virtual Environment** è possibile accettare le impostazioni predefinite e usare Python 2.7 come ambiente di base, perché PyDocumentDB attualmente non supporta Python 3.x, quindi fare clic su **Create**. Questo permette di configurare l'ambiente virtuale Python per il progetto.
 
-	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10_A.png)
+	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10_A.png) 
 
     Se l'installazione dell'ambiente riesce, nella finestra di output verrà visualizzato il messaggio `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
@@ -110,7 +110,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere i pacchetti Flas
 2. Salvare il file **requirements.txt**.
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse su **env** e scegliere **Install from requirements.txt**.
 
-	![Schermata che mostra env (Python 2.7) selezionata con l'installazione da requirements.txt evidenziato nell'elenco](./media/documentdb-python-application/image11.png)
+	![Schermata che mostra env (Python 2.7) selezionata con l'installazione da requirements.txt evidenziato nell'elenco](./media/documentdb-python-application/image11.png) 
 
     Al termine dell'installazione, la finestra di output visualizza quanto segue:
 
@@ -125,7 +125,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere i pacchetti Flas
 1. Premere **CTRL**+**MAIUSC**+**B** per compilare la soluzione.
 2. Al termine della compilazione, avviare il sito Web premendo **F5**. Verranno avviati il server di sviluppo Flask e il Web browser. Dovrebbe essere visualizzata la pagina seguente:
 
-	![Il progetto di sviluppo web Python Flask vuoto visualizzato in un browser](./media/documentdb-python-application/image12.png)
+	![Il progetto di sviluppo web Python Flask vuoto visualizzato in un browser](./media/documentdb-python-application/image12.png) 
 
 3. Per arrestare il debug del sito Web, premere **MAIUSC**+**F5**.
 
@@ -369,15 +369,15 @@ def vote():
 
 3. Fare clic su **Create/Clear the Voting Database** per generare il database.
 
-	![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png)
+	![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png) 
 
 4. Fare quindi clic su **Voto** e selezionare un'opzione.
 
-	![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png)
+	![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png) 
 
 5. Ogni voto espresso va a incrementare il contatore appropriato.
 
-	![Schermata dei risultati della pagina voto visualizzata](./media/documentdb-python-application/image19.png)
+	![Schermata dei risultati della pagina voto visualizzata](./media/documentdb-python-application/image19.png) 
 
 6. Per arrestare il debug del sito Web, premere MAIUSC+F5.
 
@@ -387,23 +387,23 @@ Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà pos
 
 1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, assicurarsi che il progetto non sia ancora in esecuzione localmente e quindi selezionare **Pubblica**.
 
- 	![Schermata dell'esercitazione selezionata in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png)
+ 	![Schermata dell'esercitazione selezionata in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png) 
 
 2. Nella finestra di dialogo **Pubblica sul Web** selezionare **App Web di Microsoft Azure** e quindi fare clic su **Avanti**.
 
-	![Screenshot della finestra Pubblica sul Web con App Web di Microsoft Azure evidenziato](./media/documentdb-python-application/image21.png)
+	![Screenshot della finestra Pubblica sul Web con App Web di Microsoft Azure evidenziato](./media/documentdb-python-application/image21.png) 
 
 3. Nella finestra **App Web di Microsoft Azure** fare clic su **Nuovo**.
 
-	![Screenshot della finestra App Web di Microsoft Azure](./media/documentdb-python-application/select-existing-website.png)
+	![Screenshot della finestra App Web di Microsoft Azure](./media/documentdb-python-application/select-existing-website.png) 
 
 4. Nella finestra **Crea sito in Microsoft Azure** immettere i valori per **Nome app Web**, **Piano di Servizio app**, **Gruppo di risorse** e **Area**, quindi fare clic su **Crea**.
 
-	![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
+	![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/create-site-on-microsoft-azure.png) 
 
 5. Nella finestra di dialogo **Pubblica sul Web** fare clic su **Pubblica**.
 
-	![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/publish-web.png)
+	![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/publish-web.png) 
 
 3. Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
 
@@ -433,4 +433,4 @@ Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -42,7 +42,7 @@ Le seguenti connessioni cross-premise sono supportate:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute è una connessione diretta ad Azure dalla rate WAN, non sulla rete Internet pubblica. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
-Per altre informazioni sulle connessioni, vedere [Informazioni sul gateway VPN](vpn-gateway-topology.md).
+Per altre informazioni sulle connessioni, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ### Qual è la differenza tra una connessione da sito a sito e una connessione da punto a sito?
 
@@ -68,11 +68,11 @@ Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](../express
 
 ### Quali operazioni è opportuno eseguire se si possiede un dispositivo VPN non incluso nell'elenco di dispositivi con compatibilità nota?
 
-Se un dispositivo non è elencato tra i dispositivi VPN con compatibilità nota e si desidera usarlo per la connessione VPN, è necessario verificare che soddisfi i parametri e le opzioni di configurazione IPsec/IKE elencati [qui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). I dispositivi che soddisfano i requisiti minimi dovrebbero funzionare correttamente con i gateway VPN. Contattare il produttore del dispositivo per assistenza e istruzioni di configurazione.
+Se un dispositivo non è elencato tra i dispositivi VPN con compatibilità nota e lo si vuole usare per la connessione VPN, è necessario verificare che soddisfi i parametri e le opzioni di configurazione IPsec/IKE supportati elencati [qui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). I dispositivi che soddisfano i requisiti minimi dovrebbero funzionare correttamente con i gateway VPN. Contattare il produttore del dispositivo per assistenza e istruzioni di configurazione.
 
 ### Perché il tunnel VPN basato su criteri si arresta quando il traffico è inattivo?
 
-Questo comportamento è previsto per gateway VPN basate su criteri (anche note come routing statico). Quando il traffico attraverso il tunnel è inattivo per più di 5 minuti, il tunnel verrà arrestato. Ma non appena il traffico inizierà a scorrere in entrambe le direzioni, il tunnel verrà ripristinato immediatamente. Se si dispone di un gateway VPN basato su route (noto anche come dinamico), questo comportamento non si verificherà.
+Questo comportamento è previsto per gateway VPN basate su criteri (anche note come routing statico). Quando il traffico attraverso il tunnel è inattivo per più di 5 minuti, il tunnel verrà arrestato. Quando il traffico inizierà a scorrere in entrambe le direzioni, il tunnel verrà ripristinato immediatamente. Se si dispone di un gateway VPN basato su route (noto anche come dinamico), questo comportamento non si verificherà.
 
 ### È possibile usare soluzioni software VPN per connettersi ad Azure?
 
@@ -148,7 +148,7 @@ I gateway basati su route implementano VPN basate su route. Le VPN basate su rou
 
 ### È possibile ottenere l'indirizzo IP del gateway VPN prima di crearlo?
 
-No. È necessario prima creare il gateway per ottenere l'indirizzo IP. L'indirizzo IP verrà modificato se si elimina e si ricrea il gateway VPN.
+No. È necessario prima creare il gateway per ottenere l'indirizzo IP. L'indirizzo IP viene modificato se si elimina e si ricrea il gateway VPN.
 
 ### Come si ottiene l'autenticazione del tunnel VPN?
 
@@ -166,11 +166,11 @@ Per l'autenticazione possono essere usate solo chiavi precondivise.
 
 È disponibile un servizio gateway che viene eseguito per abilitare la connettività cross-premise.
 
-È necessario creare una subnet del gateway per la rete virtuale configurare un gateway VPN. Tutte le subnet del gateway devono essere denominate GatewaySubnet per il corretto funzionamento. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
+È necessario creare una subnet del gateway per la rete virtuale configurare un gateway VPN. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate GatewaySubnet. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
 
 Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29 per alcune configurazioni, è consigliabile creare una subnet del gateway di /28 o superiore (/ 28, /27, /26 e così via.).
 
-## È possibile distribuire macchine virtuali o istanze del ruolo alla subnet del gateway?
+### È possibile distribuire macchine virtuali o istanze del ruolo alla subnet del gateway?
 
 di serie
 
@@ -195,7 +195,7 @@ Un gateway VPN è basicamente un dispositivo multihomed con una scheda di rete c
 
 ### Altre informazioni sui tipi di gateway, i requisiti e la velocità effettiva
 
-Per altre informazioni, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
+Per altre informazioni, vedere [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md) (Informazioni sulle impostazioni del gateway VPN).
 
 ## Connettività multisito e tra reti virtuali
 
@@ -229,7 +229,7 @@ No, non sono supportati i tunnel ridondanti tra una rete virtuale di Azure e un 
 
 ### Possono esistere spazi di indirizzi sovrapposti tra le reti virtuali connesse e i siti locali?
 
-No, in presenza di spazi di indirizzi sovrapposti, il caricamento del file netcfg o la creazione della rete virtuale hanno esito negativo.
+No, in presenza di spazi di indirizzi sovrapposti, il caricamento del file di configurazione di rete o la creazione della rete virtuale hanno esito negativo.
 
 ### Si ottiene maggiore larghezza di banda con più VPN da sito a sito per una singola rete virtuale?
 
@@ -237,7 +237,7 @@ No, tutti i tunnel VPN, incluse le VPN da punto a sito, condividono lo stesso ga
 
 ### È possibile usare un gateway VPN di Azure per il transito del traffico tra i siti locali o verso un'altra rete virtuale?
 
-Il traffico in transito tramite gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione netcfg. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.
+**Modello di distribuzione classica**<br> Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.<br> **Modello di distribuzione Resource Manager**<br> Se si usa il modello di distribuzione Resource Manager, vedere la sezione [BGP](#bgp) per altre informazioni.
 
 ### Azure genera la stessa chiave precondivisa IPsec/IKE per tutte le connessioni VPN per una stessa rete virtuale?
 
@@ -252,7 +252,7 @@ Per il traffico tra diverse reti virtuali di Azure, in Azure viene addebitato un
 
 Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
@@ -262,23 +262,18 @@ Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurar
 
 ### Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
 
-Sono disponibili diverse opzioni. Se RDP è abilitato ed è stato creato un endpoint, è possibile connettersi alla macchina virtuale tramite il VIP. In tal caso, specificare il VIP e la porta a cui si desidera connettersi. Sarà necessario configurare la porta sulla macchina virtuale per il traffico. In genere, è possibile passare al portale di Azure classico e salvare le impostazioni per la connessione RDP al computer. Le impostazioni conterranno le informazioni necessarie sulla connessione.
+Sono disponibili diverse opzioni. Se RDP è abilitato ed è stato creato un endpoint, è possibile connettersi alla macchina virtuale tramite il VIP. In tal caso, specificare il VIP e la porta a cui si desidera connettersi. Sarà necessario configurare la porta sulla macchina virtuale per il traffico. In genere, è possibile passare al portale di Azure classico e salvare le impostazioni per la connessione RDP al computer. Le impostazioni contengono le informazioni necessarie sulla connessione.
 
 Se si dispone di una rete virtuale per cui è configurata la connettività cross-premise, è possibile connettersi alla macchina virtuale usando il DIP interno o l'indirizzo IP privato. È possibile connettersi alla macchina virtuale anche usando il DIP interno di un'altra macchina virtuale presente nella stessa rete virtuale. Non è possibile usare RDP sulla macchina virtuale tramite DIP se si esegue la connessione da una posizione esterna alla rete virtuale. Se ad esempio è configurata una rete virtuale da punto a sito e non si stabilisce una connessione dal computer, non è possibile connettersi alla macchina virtuale tramite DIP.
 
 ### Se la macchina virtuale si trova in una rete virtuale con connettività cross-premise, il traffico dalla macchina virtuale passa tutto attraverso tale connessione?
 
-No. Attraverso il gateway della rete virtuale passerà solo il traffico con un IP di destinazione incluso negli intervalli di indirizzi IP di rete locale specificati per la rete virtuale. Il traffico che dispone di un IP di destinazione nella rete virtuale rimarrà all'interno della rete stessa. Il restante traffico verrà inviato alle reti pubbliche tramite il bilanciamento del carico o, se si usa il tunneling forzato, tramite il gateway VPN di Azure. Per la risoluzione dei problemi, è importante assicurarsi che nella rete locale siano elencati tutti gli intervalli da inviare tramite il gateway. Verificare che gli intervalli di indirizzi nella rete locale non si sovrappongano agli intervalli di indirizzi presenti nella rete virtuale. È opportuno anche verificare che il server DNS in uso risolva il nome nell'indirizzo IP appropriato.
+No. Attraverso il gateway della rete virtuale passerà solo il traffico con un IP di destinazione incluso negli intervalli di indirizzi IP di rete locale specificati per la rete virtuale. Il traffico che ha un indirizzo IP di destinazione nella rete virtuale rimane all'interno della rete virtuale. Il restante traffico verrà inviato alle reti pubbliche tramite il bilanciamento del carico o, se si usa il tunneling forzato, tramite il gateway VPN di Azure. Per la risoluzione dei problemi, è importante assicurarsi che nella rete locale siano elencati tutti gli intervalli da inviare tramite il gateway. Verificare che gli intervalli di indirizzi nella rete locale non si sovrappongano agli intervalli di indirizzi presenti nella rete virtuale. È opportuno anche verificare che il server DNS usato risolva il nome nell'indirizzo IP appropriato.
 
 
 ## Domande frequenti su Rete virtuale
 
 Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
-
-## Passaggi successivi
-
-È possibile visualizzare altre informazioni sui gateway VPN nella [pagina di documentazione del Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

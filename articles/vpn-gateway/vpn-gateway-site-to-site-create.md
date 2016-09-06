@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/31/2016"
+   ms.author="cherylmc"/>  
 
-# Creare una rete virtuale con una connessione VPN da sito a sito usando il portale di Azure classico
+# Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure classico
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,9 +25,9 @@
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Questo articolo si applica al modello di distribuzione classica e fa uso del portale di Azure classico. Attualmente, non è possibile creare una configurazione da sito a sito per il modello di distribuzione classica tramite il portale di Azure.
+Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione classica** e il portale classico. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Attualmente, non è possibile creare una configurazione da sito a sito per il modello di distribuzione classica tramite il portale di Azure.
 
-![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")
+![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")  
 
 
 ### Strumenti e modelli di distribuzione per le connessioni da sito a sito
@@ -42,7 +42,7 @@ Per connettere più reti virtuali, vedere [Configurare una connessione tra reti 
 
 Prima di iniziare la configurazione, verificare che ci siano le condizioni seguenti:
 
-- Un dispositivo VPN compatibile e un utente che può configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). Se non si ha familiarità con la configurazione del dispositivo VPN o con gli intervalli di indirizzi IP disponibili nella configurazione di rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli.
+- Un dispositivo VPN compatibile e un utente che sia in grado di configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). Se non si ha familiarità con la configurazione del dispositivo VPN o con gli intervalli di indirizzi IP disponibili nella configurazione di rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli.
 
 - Un indirizzo IP pubblico esterno per il dispositivo VPN. L'indirizzo IP non può trovarsi dietro un NAT.
 
@@ -107,4 +107,4 @@ Configurare il gateway di rete virtuale per creare una connessione da sito a sit
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

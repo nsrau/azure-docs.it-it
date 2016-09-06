@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>  
 
 # Gestire la prima API in Gestione API di Azure
@@ -67,7 +67,7 @@ Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizi
 
 Per **URL** specificare un nome univoco di sottodominio da usare per l'URL del servizio.
 
-Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante **Avanti**.
+Scegliere **Sottoscrizione** e **Area** per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante **Avanti**.
 
 ![New API Management service][api-management-create-instance-step1]  
 
@@ -186,7 +186,7 @@ La sezione **Analisi** include le quattro schede seguenti:
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
+- Informazioni su come [proteggere le API con limiti di frequenza](api-management-howto-product-with-rules.md).
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ La sezione **Analisi** include le quattro schede seguenti:
 [Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[Introduzione alla configurazione API avanzata]: api-management-get-started-advanced.md
 [Gestione API - Prezzi]: http://azure.microsoft.com/pricing/details/api-management/
 
 [portale di Azure classico]: https://manage.windowsazure.com/
@@ -245,4 +244,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

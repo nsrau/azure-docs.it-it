@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2016"
-	ms.author="juliako"/>
+	ms.date="08/30/2016"
+	ms.author="juliako"/>  
 
 
 # Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure
@@ -22,8 +22,6 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando il portale di Azure.
-
-Servizi multimediali di Azure è attualmente in anteprima nel portale di Azure.
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -48,15 +46,15 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
 
-	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
+	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)  
 	
 	1. In **Nome account** immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 	2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
 	
-	2. In **Gruppo di risorse** selezionare la risorsa nuova o esistente. Un gruppo di risorse è una raccolta di risorse che condividono lo stesso ciclo di vita, le stesse autorizzazioni e gli stessi criteri. fare clic [qui](resource-group-overview.md#resource-groups) per ulteriori informazioni.
+	2. In **Gruppo di risorse** selezionare la risorsa nuova o esistente. Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. fare clic [qui](resource-group-overview.md#resource-groups) per ulteriori informazioni.
 	3. In **Località** selezionare l'area geografica usata per archiviare i record di metadati e contenuto multimediale per l'account Servizi multimediali. Quest'area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
 	
-	3. In **Account di archiviazione** selezionare un account di archiviazione per l'archivio BLOB del contenuto multimediale dell'account Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
+	3. In **Account di archiviazione** selezionare un account di archiviazione per l'archivio BLOB del contenuto multimediale dell'account Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account Servizi multimediali oppure è possibile crearne uno. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
 		Altre informazioni sull'archiviazione sono disponibili [qui](storage-introduction.md).
 
@@ -66,7 +64,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 	Dopo aver creato l'account, lo stato diventa **In esecuzione**.
 
-	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
+	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)  
 
 	Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni**.
 
@@ -83,11 +81,11 @@ Per accedere a livello di codice all'account Servizi multimediali, sono necessar
 	Nella finestra **Gestisci chiavi** sono visualizzati il nome dell'account e le chiavi primaria e secondaria.
 3. Per copiare i valori, scegliere il pulsante Copia.
 	
-	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
+	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)  
 
 ## Configurare gli endpoint di streaming
 
-Uno degli scenari più frequenti dell'utilizzo di Servizi multimediali di Azure riguarda la distribuzione ai client di contenuto video in streaming a bitrate adattivo. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
+Uno degli scenari più frequenti dell'utilizzo di Servizi multimediali di Azure riguarda la distribuzione ai client di contenuto video in streaming a bitrate adattivo. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
 Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati dal servizio, come MPEG DASH, HLS, Smooth Streaming, HDS, in modalità JIT senza dover archiviare le versioni in pacchetti di ognuno di questi formati di streaming.
 
@@ -109,7 +107,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)  
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -117,11 +115,11 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 ## Caricare file
 
-Per riprodurre video in streaming con Servizi multimediali di Azure, è necessario caricare i video di origine, codificarli in più bitrate e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione.
+Per riprodurre video in streaming con Servizi multimediali di Azure, è necessario caricare i video di origine, codificarli in bitrate multipli e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione.
 
 1. Nella finestra **Impostazione** fare clic su **Asset**.
 
-	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
+	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)  
 
 3. Fare clic sul pulsante **Upload**.
 
@@ -139,7 +137,7 @@ Al termine del caricamento, il nuovo asset viene visualizzato nella finestra **A
 
 Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access). Per preparare i video per lo streaming a bitrate adattivo, è necessario codificare il video di origine in file a più bitrate. Per codificare i video, è consigliabile usare il codificatore **Media Encoder Standard**.
 
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS, Smooth Streaming or HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS, Smooth Streaming o HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
@@ -157,14 +155,14 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 	
 	Per una gestione più semplice, è possibile modificare il nome dell'asset di output e il nome del processo.
 		
-	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
+	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)  
 5. Fare clic su **Crea**.
 
 ### Monitorare lo stato del processo di codifica
 
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e quindi selezionare **Processi**.
 
-![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)  
 
 ## Pubblicare contenuti
 
@@ -215,14 +213,16 @@ Il portale di Azure fornisce un lettore di contenuti che può essere usato per t
 
 Fare clic sul video richiesto e quindi sul pulsante **Riproduci**.
 
-![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)  
 
 Considerazioni applicabili:
 
 - Verificare che il video sia stato pubblicato.
 - Il **Lettore multimediale** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, fare clic per copiare l'URL e usare un altro lettore, ad esempio [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-##Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
+##Passaggi successivi
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -230,4 +230,4 @@ Considerazioni applicabili:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

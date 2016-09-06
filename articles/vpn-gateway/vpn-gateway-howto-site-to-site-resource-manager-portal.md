@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito usando Azure Resource Manager e il portale di Azure | Microsoft Azure"
-   description="Come creare una rete virtuale con il modello di Resource Manager e connetterla alla rete locale con una connessione del gateway VPN S2S."
+   description="Come creare una rete virtuale con il modello di distribuzione Resource Manager e connetterla alla rete locale con una connessione del gateway VPN da sito a sito."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/22/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/31/2016"
+   ms.author="cherylmc"/>  
 
-# Creare una rete virtuale con una connessione VPN da sito a sito tramite il portale di Azure e Azure Resource Manager
+# Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,9 +25,9 @@
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il modello di distribuzione Azure Resource Manager e il portale di Azure.
+Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione Azure Resource Manager** e il portale di Azure. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
-![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
+![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)  
 
 
 
@@ -43,7 +43,7 @@ Se si vogliono connettere più reti virtuali senza creare una connessione a un p
 
 Prima di iniziare la configurazione, verificare la disponibilità degli elementi seguenti:
 
-- Un dispositivo VPN compatibile e un utente che può configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). Se non si ha familiarità con la configurazione del dispositivo VPN o con gli intervalli di indirizzi IP disponibili nella configurazione di rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli.
+- Un dispositivo VPN compatibile e un utente che sia in grado di configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). Se non si ha familiarità con la configurazione del dispositivo VPN o con gli intervalli di indirizzi IP disponibili nella configurazione di rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli.
 
 - Un indirizzo IP pubblico esterno per il dispositivo VPN. L'indirizzo IP non può trovarsi dietro un NAT.
 	
@@ -154,4 +154,4 @@ Per verificare la connessione VPN è possibile usare il portale o PowerShell.
 
 - Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

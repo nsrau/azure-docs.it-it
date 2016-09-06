@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>  
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
@@ -26,7 +26,7 @@ Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key]
 
 ## <a name="create-product"> </a>Per creare un prodotto
 
-In questo passaggio si creerà un prodotto Free Trial che non richiede l'approvazione della sottoscrizione.
+In questo passaggio si creerà un prodotto con una versione di valutazione gratuita che non richiede l'approvazione della sottoscrizione.
 
 >[AZURE.NOTE] Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][] e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto Free Trial.
 
@@ -189,19 +189,19 @@ Scegliere **Utenti** dal menu **Gestione API** a sinistra e fare clic sul nome d
 
 Fare clic su **Aggiungi sottoscrizione**.
 
-![Add subscription][api-management-add-subscription-menu]  
+![Aggiungere la sottoscrizione][api-management-add-subscription-menu]  
 
 Selezionare **Free Trial** e quindi fare clic su **Sottoscrivi**.
 
-![Add subscription][api-management-add-subscription]
+![Aggiungere la sottoscrizione][api-management-add-subscription]
 
->[AZURE.NOTE] In questa esercitazione non sono abilitate più sottoscrizioni simultanee per il prodotto Free Trial. Nel caso lo fossero, verrebbe richiesto di assegnare un nome alla sottoscrizione, come illustrato nell'esempio seguente.
+>[AZURE.NOTE] In questa esercitazione non sono abilitate più sottoscrizioni simultanee per il prodotto con una versione di valutazione gratuita. Nel caso lo fossero, verrebbe richiesto di assegnare un nome alla sottoscrizione, come illustrato nell'esempio seguente.
 
-![Add subscription][api-management-add-subscription-multiple]
+![Aggiungere la sottoscrizione][api-management-add-subscription-multiple]
 
 Dopo aver fatto clic su **Sottoscrivi**, il prodotto verrà visualizzato nell'elenco **Sottoscrizione** dell'utente.
 
-![Subscription added][api-management-subscription-added]  
+![Sottoscrizione aggiunta][api-management-subscription-added]  
 
 ## <a name="test-rate-limit"> </a>Per chiamare un'operazione e testare il limite di frequenza
 
@@ -217,9 +217,9 @@ Fare clic su **GET Resource** (GET su risorsa) e quindi su **Prova**.
 
 ![Open console][api-management-open-console]
 
-Mantenere i valori predefiniti dei parametri e selezionare la chiave della sottoscrizione per il prodotto Free Trial.
+Mantenere i valori predefiniti dei parametri e selezionare la chiave della sottoscrizione per il prodotto con versione di valutazione gratuita.
 
-![Subscription key][api-management-select-key]  
+![Chiave della sottoscrizione][api-management-select-key]  
 
 >[AZURE.NOTE] Se si hanno più sottoscrizioni, assicurarsi di selezionare la chiave per **Free Trial**, altrimenti i criteri configurati nei passaggi precedente non avranno effetto.
 
@@ -237,7 +237,6 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione avanzata di Gestione API di Azure][].
 -	Per una dimostrazione dell'impostazione dei limiti di frequenza e delle quote, vedere il video seguente.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -288,9 +287,8 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Introduzione alla configurazione avanzata di Gestione API di Azure]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

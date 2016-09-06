@@ -12,8 +12,8 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
-    ms.author="ashmaka"/>
+    ms.date="08/29/2016"
+    ms.author="ashmaka"/>  
 
 # Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [AZURE.SELECTOR]
@@ -159,4 +159,4 @@ Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risu
 
 Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

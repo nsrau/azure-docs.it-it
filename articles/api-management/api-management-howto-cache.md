@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="steved0x"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="api-management"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>  
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -113,7 +113,7 @@ La console consente di richiamare le operazioni direttamente dal portale per svi
 
 Mantenere i valori predefiniti per **param1** e **param2**.
 
-Selezionare la chiave desiderata dall'elenco a discesa **subscription-key**. Se l'account dispone di una sola sottoscrizione, sarà già selezionata automaticamente.
+Selezionare la chiave desiderata dall'elenco a discesa **subscription-key**. Se l'account ha una sola sottoscrizione, sarà già selezionata automaticamente.
 
 Immettere **sampleheader:value1** nella casella di testo **Intestazioni della richiesta**.
 
@@ -129,7 +129,6 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione avanzata di Gestione API di Azure][].
 -	Per altre informazioni sui criteri di caching, vedere [Criteri di caching][] nell'argomento [Riferimento ai criteri di Gestione API][].
 -	Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Introduzione alla configurazione avanzata di Gestione API di Azure]: api-management-get-started-advanced.md
 
 [Riferimento ai criteri di Gestione API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Criteri di caching]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -163,4 +161,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

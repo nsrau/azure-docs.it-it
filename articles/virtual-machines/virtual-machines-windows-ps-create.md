@@ -25,7 +25,7 @@ Tutti i passaggi in questo articolo sono necessari per creare una macchina virtu
 
 ## Passaggio 1: installare Azure PowerShell
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
         
 ## Passaggio 2: Creare un gruppo di risorse
 
@@ -122,7 +122,7 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    La password deve avere una lunghezza compresa tra 12 e 123 caratteri e includere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.
+    La password deve avere una lunghezza compresa tra 8 e 123 caratteri e soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Sostituire il valore di **$vmName** con un nome per la macchina virtuale. Creare la variabile e la configurazione della macchina virtuale.
 
@@ -140,13 +140,13 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Per altre informazioni sulla selezione delle immagini di VM Windows da usare, vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando](virtual-machines-windows-cli-ps-findimage.md).
+    Per altre informazioni sulla scelta delle immagini di macchine virtuali Windows da usare, vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando](virtual-machines-windows-cli-ps-findimage.md).
         
 5. Aggiungere l'interfaccia di rete creata alla configurazione.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Sostituire il valore di **$blobPath** con un percorso e un nome file nella risorsa di archiviazione, che saranno usati dal disco rigido virtuale. Il file del disco rigido virtuale è in genere archiviato in un contenitore, ad esempio **vhds/WindowsVMosDisk.vhd**. Creare le variabili.
+6. Sostituire il valore di **$blobPath** con un percorso e un nome file nella risorsa di archiviazione che saranno usati dal disco rigido virtuale. Il file del disco rigido virtuale è in genere archiviato in un contenitore, ad esempio **vhds/WindowsVMosDisk.vhd**. Creare le variabili.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -168,8 +168,8 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
                                   
 ## Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
-- Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute nell'articolo [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md)
+- Se si sono verificati problemi con la distribuzione, è consigliabile leggere l'articolo [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali di Azure con Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
+- Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute nell'articolo [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

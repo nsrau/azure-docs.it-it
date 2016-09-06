@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure
@@ -32,23 +32,29 @@ I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di
 
 2. Nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse** visualizzato sul lato destro selezionare la sottoscrizione in cui abilitare i criteri di sicurezza. Se si preferisce abilitare i criteri di sicurezza per un gruppo di risorse invece che per l'intera sottoscrizione, scorrere fino alla sezione successiva dove viene descritto come impostare i criteri di sicurezza per gruppi di risorse.
 
-    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)
+    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)  
 
 3. Il pannello **Criteri di sicurezza** per la sottoscrizione viene aperto con un set di opzioni simile a quello illustrato nella schermata seguente:
 
-    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)
+    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)  
 
-4. Verificare che l'opzione **Raccogli i dati dalle macchine virtuali** sia **attiva**. Questa opzione abilita la raccolta automatica dei log per le risorse nuove ed esistenti.
+	Le opzioni disponibili in questo pannello sono:
+	- **Criteri di prevenzione**: questa opzione consente di configurare criteri per ogni sottoscrizione o gruppo di risorse.
+	- **Notifica di posta elettronica**: alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. Per altre informazioni su come configurare la notifica tramite posta elettronica, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
+	- **Piano tariffario**: usare questa opzione per aggiornare il piano tariffario selezionato. Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+
+	
+4.  Verificare che l'opzione **Raccogli i dati dalle macchine virtuali** sia **attiva**. Questa opzione abilita la raccolta automatica dei log per le risorse nuove ed esistenti.
 
     >[AZURE.NOTE] È consigliabile attivare la raccolta dati per ogni sottoscrizione per assicurare che il monitoraggio della sicurezza sia disponibile per tutte le macchine virtuali esistenti e nuove. Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si desidera abilitare subito la raccolta di dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni relative allo stato e ai suggerimenti. È anche possibile abilitare la raccolta dati solo per la sottoscrizione o per la macchina virtuale selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
 
 5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nella schermata seguente quando si apre **Criteri di sicurezza**:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)  
 
 6. Se viene visualizzato questo avviso, fare clic su questa opzione e selezionare l'area, come illustrato nella schermata seguente:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)  
 
 7. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. Una volta stabilita l'area da utilizzare, selezionarla e quindi selezionare l'account di archiviazione.
 
@@ -58,7 +64,7 @@ I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di
 
 9. Nel pannello **Criteri di sicurezza** fare clic su **Attivo** per abilitare i suggerimenti per la sicurezza da usare per la sottoscrizione. Fare clic sull'opzione **Criteri di prevenzione**. Verrà aperto il pannello **Criteri di sicurezza**, come illustrato nella schermata seguente:
 
-	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga.png)  
 
 Usare la tabella seguente come riferimento per comprendere il funzionamento di ciascuna opzione:
 
@@ -100,4 +106,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!-----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

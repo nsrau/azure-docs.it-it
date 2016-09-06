@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>  
 
 # Creare un Azure SQL Data Warehouse
@@ -60,6 +60,8 @@ Per iniziare, è necessario:
 
     - **Selezionare l'origine**: fare clic su **Selezionare l'origine** > **Esempio**. Azure inserisce automaticamente AdventureWorksDW per l'opzione **Selezionare l'esempio selezionare**.
 
+> [AZURE.NOTE] Le regole di confronto predefinite per un'istanza di SQL Data Warehouse sono SQL\_Latin1\_General\_CP1\_CI\_AS. Se sono necessarie regole di confronto diverse, è possibile usare [T-SQL][] per creare il database con regole di confronto diverse.
+
 4. Fare clic su **Crea** per creare l'istanza di SQL Data Warehouse.
 
 5. Attendere alcuni minuti. Quando il data warehouse è pronto, verrà visualizzato di nuovo il [portale di Azure](https://portal.azure.com). SQL Data Warehouse è disponibile nel dashboard, elencato tra i database SQL o nel gruppo di risorse usato per crearlo.
@@ -80,7 +82,7 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 
 È anche opportuno vedere le [procedure consigliate][].
 
-<!--Article references-->
+<!--Article references-->  
 [Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
@@ -88,15 +90,16 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [sottoscrizione]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Credito Azure mensile per sottoscrittori di Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

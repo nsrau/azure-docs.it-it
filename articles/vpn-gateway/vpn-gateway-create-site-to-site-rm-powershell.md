@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager | Microsoft Azure"
-   description="Questo articolo illustra la creazione di una rete virtuale con il modello di Gestione risorse e la connessione alla rete locale con una connessione del gateway VPN da sito a sito."
+   description="Questo articolo illustra la creazione di una rete virtuale usando il modello di distribuzione Resource Manager e la connessione alla rete locale usando una connessione del gateway VPN da sito a sito."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,19 +14,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/31/2016"
+   ms.author="cherylmc"/>  
 
-# Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager
+# Creare una rete virtuale con una connessione da sito a sito usando PowerShell
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il modello di distribuzione Azure Resource Manager. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
+Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione Azure Resource Manager**. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
-![Diagramma da sito a sito](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "Da sito a sito")
+![Diagramma da sito a sito](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "Da sito a sito")  
 
 
 ### Strumenti e modelli di distribuzione per le connessioni da sito a sito
@@ -35,7 +35,7 @@ Questo articolo illustra la creazione di una rete virtuale e di una connessione 
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Se si vogliono connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale](vpn-gateway-vnet-vnet-rm-ps.md). Se si sta cercando una configurazione della connessione di tipo diverso, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
+Se si vogliono connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale](vpn-gateway-vnet-vnet-rm-ps.md).
 
 
 ## Prima di iniziare
@@ -124,7 +124,7 @@ Azure usa il prefisso di indirizzo IP che viene specificato per identificare il 
 
 Quando si usano gli esempi di PowerShell, tenere presente quanto segue:
 	
-- Il*GatewayIPAddress* è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
+- Il*GatewayIPAddress*è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
 - *AddressPrefix* corrisponde allo spazio degli indirizzi locale.
 
 Per aggiungere un gateway di rete locale con un solo prefisso di indirizzo:
@@ -146,11 +146,11 @@ Talvolta è possibile modificare i prefissi del gateway di rete locale. I passag
 
 Successivamente, richiedere un indirizzo IP pubblico da allocare per il gateway VPN di rete virtuale di Azure. Non si tratta dello stesso indirizzo IP assegnato al dispositivo VPN, ma viene assegnato al gateway VPN di Azure stesso. Non è possibile specificare l'indirizzo IP che si vuole usare. Viene allocato in modo dinamico per il gateway. Si usa questo indirizzo IP quando si configura il dispositivo VPN locale per la connessione al gateway.
 
-Usare l'esempio di PowerShell seguente. Il metodo di allocazione per questo indirizzo deve essere dinamico.
+Il gateway VPN di Azure per il modello di distribuzione di Gestione risorse supporta attualmente solo indirizzi IP pubblici usando il metodo di allocazione dinamica. Ciò non significa però che l'indirizzo IP verrà modificato. L'indirizzo IP del gateway VPN di Azure viene modificato solamente quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway non cambierà in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN di Azure.
+
+Usare l'esempio di PowerShell seguente.
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
-
->[AZURE.NOTE] Il gateway VPN di Azure per il modello di distribuzione di Gestione risorse supporta attualmente solo indirizzi IP pubblici usando il metodo di allocazione dinamica. Ciò non significa però che l'indirizzo IP verrà modificato. L'indirizzo IP del gateway VPN di Azure viene modificato solamente quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway non cambierà in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN di Azure.
 
 ## 5\. Creare la configurazione di indirizzamento IP gateway
 
@@ -222,4 +222,4 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 - Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

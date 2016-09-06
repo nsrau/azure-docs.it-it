@@ -1,6 +1,6 @@
 <properties
    pageTitle="Usare chiavi SSH con Hadoop basato su Linux da Linux, Unix o OS X | Microsoft Azure"
-   description="È possibile accedere a HDInsight basato su Linux tramite Secure Shell (SSH). Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux."
+   description=" È possibile accedere a HDInsight basato su Linux tramite Secure Shell (SSH). Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
-   ms.author="larryfr"/>
+   ms.date="08/30/2016"
+   ms.author="larryfr"/>  
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
 
@@ -25,7 +25,9 @@
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) consente di eseguire in modalità remota operazioni nei cluster di HDInsight basati su Linux usando un'interfaccia della riga di comando. Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux.
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Sebbene questa procedura possa essere eseguita su un client basato su Windows se è stato installato un pacchetto che fornisce `ssh` e `ssh-keygen`, ad esempio Git per Windows, per i client basati su Windows è consigliabile eseguire la procedura descritta in [Usare SSH con HDInsight (Hadoop) basato su Linux da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Questi passaggi possono essere eseguiti in un client basato su Windows se è stato installato un pacchetto che include `ssh` e `ssh-keygen`, ad esempio [Bash in Ubuntu in Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Se SSH non è installato nel client basato su Windows, usare la procedura illustrata in [Usare SSH con HDInsight basato su Linux (Hadoop) da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) per informazioni sull'installazione e sull'uso di PuTTY.
 
 ##Prerequisiti
 
@@ -99,7 +101,7 @@ Quando si usa il [Portale di Azure][preview-portal] per creare un cluster HDInsi
 
 Se si seleziona **CHIAVE PUBBLICA SSH**, incollare la chiave pubblica (contenuta nel file con l’estensione **pub**) nel campo __SSH PublicKey__ oppure selezionare __Seleziona un file__ per cercare e selezionare il file di chiave pubblica.
 
-![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
+![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)  
 
 > [AZURE.NOTE] Il file della chiave è semplicemente un file di testo. Il contenuto dovrebbe essere simile al seguente:
 > ```
@@ -118,11 +120,11 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 Da una sessione terminal usare il comando SSH per la connessione al nodo head del cluster specificando l'indirizzo e il nome utente:
 
-* **Indirizzo SSH**: per connettersi a un cluster tramite SSH è possibile usare due indirizzi:
+* **Indirizzo SSH**: per connettersi a un cluster con SSH è possibile usare due indirizzi:
 
     * **Connettersi al nodo head**: nome del cluster, seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
     
-    * **Connettersi al nodo perimetrale**: se il cluster è Server R in HDInsight, contiene anche un nodo perimetrale a cui è possibile accedere tramite **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, dove __CLUSTERNAME__ è il nome del cluster.
+    * **Connettersi al nodo perimetrale**: se il cluster è Server R in HDInsight, contiene anche un nodo perimetrale a cui è possibile accedere usando **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, dove __CLUSTERNAME__ è il nome del cluster.
 
 * **Nome utente**: il nome utente SSH fornito durante la creazione del cluster.
 
@@ -217,7 +219,7 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
 3. Quando si apre l'editor nano, copiare e incollare il contenuto della chiave pubblica per il nuovo account utente. Usare infine **Ctrl-X** per salvare il file e uscire dall'editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
+	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)  
 
 4. Usare il comando seguente per specificare il nuovo account utente come proprietario della cartella .ssh e del contenuto.
 
@@ -245,4 +247,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

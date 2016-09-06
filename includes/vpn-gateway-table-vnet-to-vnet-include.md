@@ -6,6 +6,4 @@
 
 (+) indica che questo metodo di distribuzione è disponibile solo per le reti virtuali nella stessa sottoscrizione.<br> (*) indica un supporto parziale.
 
-Il peering reti virtuali, attualmente in anteprima, è disponibile per alcuni modelli di distribuzione e configurazioni. Per maggiori informazioni, leggere l'articolo [Peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md).
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

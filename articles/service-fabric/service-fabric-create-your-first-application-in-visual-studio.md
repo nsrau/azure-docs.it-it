@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="rwike77"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -123,8 +123,9 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 - Informazioni su come creare un [cluster in Azure](service-fabric-cluster-creation-via-portal.md) o un [cluster autonomo in Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Provare a creare un servizio con il modello di programmazione [Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Informazioni su come è possibile esporre i servizi a Internet con un [front-end di servizio Web](service-fabric-add-a-web-frontend.md).
+- Usare un'[esercitazione pratica](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) per creare un servizio senza stato, configurare i report di integrità e di monitoraggio ed eseguire un aggiornamento dell'applicazione.
 
-<!-- Image References -->
+<!-- Image References -->  
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png
 [2]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png
@@ -138,4 +139,4 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
-	ms.author="rachelap"/>
+	ms.date="08/26/2016"
+	ms.author="rachelap"/>  
 
 # Panoramica di App Web
 
@@ -34,7 +34,7 @@ Le risorse di calcolo possono trovarsi in macchine virtuali condivise o dedicate
 
 Per esempi di scenari di applicazione tipici per cui è possibile usare App Web, vedere [Scenari con app Web](https://azure.microsoft.com/documentation/scenarios/web-app/) e la sezione **Scenari e indicazioni** dell'articolo [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md#scenarios).
 
-## Vantaggi dell'uso di App Web
+## Vantaggi dell'uso di app Web
 
 Ecco alcune delle funzionalità principali del servizio app applicabili ad App Web:
 
@@ -62,4 +62,4 @@ Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio a
 
 Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

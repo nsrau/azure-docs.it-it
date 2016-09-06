@@ -23,33 +23,29 @@
 - [.NET](documentdb-get-started.md)
 - [Node.JS](documentdb-nodejs-get-started.md)
 
-Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
+Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il progetto di avvio rapido o completato l'esercitazione, si avrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
 
-Tratteremo questo argomento:
-
-- Creazione e connessione a un account DocumentDB
-- Configurare una soluzione Visual Studio
-- Creazione di un database online
-- Creare una raccolta
-- Creazione di documenti JSON
-- Esecuzione di query sulla raccolta
-- Sostituzione di un documento
-- Eliminazione di un documento
-- Eliminazione del database
-
-Non si ha tempo? Nessun problema. La soluzione completa è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Per istruzioni rapide, vedere la sezione [Ottenere la soluzione completa](#GetSolution).
-
-Successivamente, utilizzare i pulsanti di voti all'inizio o alla fine di questa pagina per fornire feedback. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
-
-Ecco come procedere.
+- **[Avvio rapido](#quickstart)**: scaricare il progetto di esempio e aggiungere le informazioni di connessione per avere un'app DocumentDB in esecuzione in meno di 5 minuti.
+- **[Esercitazione](#tutorial)**: compilare l'app di avvio rapido da zero in 30 minuti.
 
 ## Prerequisiti
 
-Assicurarsi di disporre di quanto segue:
-
 - Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
-- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+- [Visual Studio 2013 o Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
+
+## Quickstart
+
+1. Scaricare il progetto di esempio da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+2. Usare il portale di Azure per [creare un account DocumentDB](documentdb-create-account.md).
+3. Nel file App.config sostituire i valori di EndpointUri e PrimaryKey con i valori recuperati dal [portale di Azure](https://portal.azure.com/), passando al pannello **DocumentDB (NoSQL)**, quindi facendo clic su **Nome account** e infine su **Chiavi** nel menu della risorsa. ![Screenshot del valore di EndpointUri e PrimaryKey da sostituire in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
+4. Compilare il progetto. La finestra della console mostra le nuove risorse di cui è in corso la creazione, la query e quindi la pulizia.
+    
+    ![Screenshot dell'output della console](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)  
+
+## <a id="tutorial"></a>Esercitazione
+
+Questa esercitazione illustra la creazione di un database DocumentDB, di una raccolta DocumentDB e di documenti JSON. Verranno quindi effettuate una query della raccolta e la pulizia e l'eliminazione del database. Questa esercitazione compila un progetto uguale a quello di avvio rapido, ma in modo in modo incrementale, e fornisce una spiegazione del codice che si aggiungerà al progetto.
 
 ## Passaggio 1: Creare un account DocumentDB
 
@@ -194,7 +190,7 @@ Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il co
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+		await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -242,14 +238,14 @@ Copiare e incollare il metodo **CreateDocumentCollectionIfNotExists** sotto il m
 		}
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del database. Verrà creata una raccolta di documenti denominata *FamilyCollection\_oa*.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del database. Verrà creata una raccolta di documenti denominata *FamilyCollection\_va*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+		await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -340,9 +336,9 @@ Inserire anche due documenti, relativi rispettivamente alla famiglia Andersen e 
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione della raccolta di documenti.
 
-	await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+	await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
-	await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+	await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	Family andersenFamily = new Family
@@ -371,7 +367,7 @@ Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il co
 			IsRegistered = true
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", andersenFamily);
 
 	Family wakefieldFamily = new Family
 	{
@@ -408,7 +404,7 @@ Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il co
 			IsRegistered = false
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -458,10 +454,10 @@ Copiare e incollare il metodo **ExecuteSimpleQuery** sotto il metodo **CreateFam
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del secondo documento.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -495,17 +491,17 @@ Copiare e incollare il metodo **ReplaceFamilyDocument** sotto il metodo **Execut
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della query. Dopo aver sostituito il documento, verrà eseguita di nuovo la stessa query per visualizzare il documento modificato.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	// Update the Grade of the Andersen Family child
 	andersenFamily.Children[0].Grade = 6;
 
-	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -533,12 +529,12 @@ Copiare e incollare il metodo **DeleteFamilyDocument** sotto il metodo **Replace
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della seconda query.
 
-	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO CODE
-	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -550,13 +546,13 @@ Se si elimina il database creato, verrà rimosso il database e tutte le risorse 
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di eliminazione del documento per eliminare l'intero database e tutte le risorse figlio.
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
-	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 	// ADD THIS PART TO CODE
 	// Clean up/delete the database
-	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_va"));
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -568,9 +564,9 @@ Premere F5 in Visual Studio per compilare l'applicazione in modalità di debug.
 
 Verrà visualizzato l'output dell'app introduttiva. L'output visualizzerà i risultati delle query aggiunte e dovrà corrispondere al testo di esempio riportato di seguito.
 
-	Created FamilyDB_oa
+	Created FamilyDB_va
 	Press any key to continue ...
-	Created FamilyCollection_oa
+	Created FamilyCollection_va
 	Press any key to continue ...
 	Created Family Andersen.1
 	Press any key to continue ...
@@ -591,15 +587,6 @@ Verrà visualizzato l'output dell'app introduttiva. L'output visualizzerà i ris
 
 Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console C# funzionante.
 
-##<a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su NoSQL
-Per creare la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
-
-- Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
--   Un [account DocumentDB][documentdb-create-account].
--   La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponibile su GitHub.
-
-Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic con il pulsante destro del mouse sulla soluzione **GetStarted** in Esplora soluzioni e quindi scegliere **Abilita ripristino dei pacchetti NuGet**. Nel file App.config aggiornare quindi i valori EndpointUrl e AuthorizationKey come illustrato nell'articolo [Connettersi a un account DocumentDB](#Connect).
-
 ## Passaggi successivi
 
 - Si preferisce un'esercitazione su NoSQL MVC ASP.NET più complessa? Vedere [Creare un'applicazione Web con MVC ASP.NET usando DocumentDB](documentdb-dotnet-application.md).
@@ -610,6 +597,6 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
 <!---HONumber=AcomDC_0831_2016-->

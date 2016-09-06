@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
-   ms.author="larryfr"/>
+   ms.date="08/30/2016"
+   ms.author="larryfr"/>  
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:
 
@@ -26,6 +26,8 @@
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) consente di eseguire in modalità remota operazioni nei cluster di HDInsight basato su Liux tramite un'interfaccia della riga di comando. Questo documento fornisce informazioni sulla connessione a HDInsight da client basati su Windows mediante il client SSH PuTTY.
 
 > [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client basato su Windows. Se si usa un client Linux, Unix o OS X, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> Se si ha Windows 10 e si usa [Bash in Ubuntu in Windows](https://msdn.microsoft.com/commandline/wsl/about), è possibile usare la procedura illustrata nel documento [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Prerequisiti
 
@@ -67,7 +69,7 @@ Se si prevede di usare chiavi SSH con il cluster, attenersi alle seguenti inform
 
 3. Spostare il puntatore del mouse nell'area al di sotto dell'indicatore di stato finché la relativa barra non si riempie. Spostando il mouse si generano dati casuali che vengono usati per generare la chiave.
 
-	![moving the mouse around](./media/hdinsight-hadoop-linux-use-ssh-windows/movingmouse.png)
+	![moving the mouse around](./media/hdinsight-hadoop-linux-use-ssh-windows/movingmouse.png)  
 
 	Dopo che la chiave è stata generata, verrà visualizzata la chiave pubblica.
 
@@ -115,13 +117,13 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 1. Aprire PuTTY.
 
-	![putty interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
+	![putty interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)  
 
 2. Se è stata specificata una chiave SSH quando è stato creato l'account utente, è necessario effettuare il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
 
 	In **Category** espandere **Connection**, **SSH** e selezionare **Auth**. Infine, fare clic su **Browse** e selezionare il file ppk che contiene la chiave privata.
 
-	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
+	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)  
 
 3. In **Category** selezionare **Session**. Nella schermata **Basic options for your PuTTY session** immettere l'indirizzo SSH del server HDInsight nel campo **Host name (or IP address)**. Quando ci si connette a un cluster è possibile usare due indirizzi SSH.
 
@@ -163,7 +165,7 @@ Se è stata specificata una chiave SSH quando è stato creato l'account utente, 
 
     Nella sezione **Authentication parameters** abilitare **Allow agent forwarding**. In questo modo PuTTY passa automaticamente l'autenticazione del certificato tramite la connessione al nodo head del cluster durante la connessione ai nodi di lavoro.
 
-    ![allow agent forwarding](./media/hdinsight-hadoop-linux-use-ssh-windows/allowforwarding.png)
+    ![allow agent forwarding](./media/hdinsight-hadoop-linux-use-ssh-windows/allowforwarding.png)  
 
 6. Connettersi al cluster come descritto in precedenza. Se si usa una chiave SSH per l'autenticazione, non è necessario selezionare la chiave: la chiave SSH aggiunta a Pageant verrà usata per l'autenticazione del cluster.
 
@@ -235,4 +237,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

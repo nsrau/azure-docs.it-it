@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/22/2016"
-	ms.author="swkrish"/>
+	ms.date="08/30/2016"
+	ms.author="swkrish"/>  
 
 
 # Azure Active Directory B2C: registrare l'applicazione
@@ -39,11 +39,14 @@ Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, v
 2. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 3. Immettere un **nome** per l'applicazione che descriva l'applicazione agli utenti. Ad esempio, immettere "App Contoso B2C".
 4. Se si sta scrivendo un'applicazione basata su web, commutare **Includi app Web o API Web** su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione Web chiamerà un'API Web protetta da Azure AD B2C, è opportuno creare un **segreto dell'applicazione** facendo clic sul pulsante **Genera chiave**.
+
+    > [AZURE.NOTE] Un **segreto dell'applicazione** è una credenziale di sicurezza importante e deve essere protetto in modo appropriato.
+
 5. Se si sta scrivendo un'applicazione per dispositivi mobili, impostare **Includi client nativo** su **Sì**. Copiare l'**URI di reindirizzamento** predefinito creato automaticamente.
 6. Fare clic su **Crea** per registrare l'applicazione.
 7. Fare clic sull'applicazione appena creata e copiare l'**ID client applicazione** univoco globale che verrà usato in seguito nel codice.
 
-> [AZURE.NOTE] Un **segreto dell'applicazione** è una credenziale di sicurezza importante e deve essere protetto in modo appropriato.
+> [AZURE.IMPORTANT] Le applicazioni create nel pannello delle funzionalità B2C devono essere gestite nella stessa posizione. Le applicazioni B2C, se vengono modificate usando PowerShell o un altro portale, non sono più supportate ed è probabile che non funzionino con Azure AD B2C.
 
 ## Creare un'applicazione di avvio rapido
 
@@ -51,4 +54,4 @@ Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile compl
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

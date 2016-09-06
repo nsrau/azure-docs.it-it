@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
-	ms.author="rachelap"/>
+	ms.date="08/31/2016"
+	ms.author="rachelap"/>  
 
 # Compilare e distribuire un'app per le API Java nel servizio app di Azure
 
@@ -24,7 +24,7 @@ Questa esercitazione illustra come creare un'applicazione Java e come distribuir
 
 ## Prerequisiti
 
-1. [Java Development Kit 8] \(o versioni successive)
+1. [Java Development Kit 8] (o versioni successive)
 1. [Maven] installato nel computer di sviluppo
 1. [Git] installato nel computer di sviluppo
 1. Una sottoscrizione di [valutazione gratuita] o a pagamento a [Microsoft Azure]
@@ -301,7 +301,7 @@ Per approfondire questo esempio, è possibile acquisire informazioni su [Storage
 
 Per altre informazioni su come usare Java in Azure, vedere il [Centro per sviluppatori Java].
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
 [portale di Azure]: https://portal.azure.com/
@@ -320,7 +320,7 @@ Per altre informazioni su come usare Java in Azure, vedere il [Centro per svilup
 [editor Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [paste-json]: ./media/app-service-api-java-api-app/paste-json.png
 [pasted-swagger]: ./media/app-service-api-java-api-app/pasted-swagger.png
@@ -338,4 +338,4 @@ Per altre informazioni su come usare Java in Azure, vedere il [Centro per svilup
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

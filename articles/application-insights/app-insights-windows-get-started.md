@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Analisi per app di Windows Phone e Windows Store"
+	pageTitle="Application Insights per app di Windows Phone e Windows Store | Microsoft Azure"
 	description="Analizzare l'utilizzo e gli arresti anomali dell'app per dispositivi Windows."
 	services="application-insights"
     documentationCenter="windows"
@@ -12,14 +12,16 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/20/2016"
-	ms.author="awills"/>
+	ms.date="08/26/2016"
+	ms.author="awills"/>  
 
 # Analisi per app di Windows Phone e Windows Store
 
 Microsoft offre due soluzioni di sviluppo per i dispositivi: [HockeyApp](http://hockeyapp.net/), per l'analisi lato client, e [Application Insights](app-insights-overview.md), per il lato server.
 
 [HockeyApp](http://hockeyapp.net/) è la soluzione DevOps mobile per la compilazione di app per dispositivi iOS, OS X, Android e Windows, nonché di app multipiattaforma basate su Xamarin, Cordova e Unity. Permette di distribuire le compilazioni ai beta tester, raccogliere dati sugli arresti anomali del sistema e ottenere commenti e metriche utente. L'integrazione con Visual Studio Team Services semplifica la distribuzione delle compilazioni e l'integrazione degli elementi di lavoro.
+
+## Introduzione a HockeyApp
 
 Passare a:
 
@@ -33,8 +35,15 @@ Se l'app ha un lato server, usare [Application Insights](app-insights-overview.m
 
 È anche possibile usare [Application Insights per app desktop Windows](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] Sarà presto possibile usare [Analisi in Application Insights](app-insights-analytics.md) e l'[esportazione continua](app-insights-export-telemetry.md) con dati di telemetria inviati da HockeyApp SDK.
->
-> [Altre informazioni su questa modifica.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+## Analisi, esportazione e accesso API ai dati di HockeyApp 
 
-<!---HONumber=AcomDC_0622_2016-->
+[Configurare un bridge HockeyApp](app-insights-hockeyapp-bridge-app.md) in Application Insights. Ciò consente di:
+
+* Usare il linguaggio avanzato di query di [Analytics](app-insights-analytics.md) per la telemetria.
+* [Esportare i dati di telemetria](app-insights-export-telemetry.md) nell'archivio BLOB di Azure.
+
+## Passaggi successivi
+
+* [Get started with HockeyApp for Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) (Introduzione a HockeyApp per Windows)
+
+<!---HONumber=AcomDC_0831_2016-->
