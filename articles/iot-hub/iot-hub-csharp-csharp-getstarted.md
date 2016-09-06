@@ -231,7 +231,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli** e quindi selezionare **Avvio** come azione per entrambi i progetti **ReadDeviceToCloudMessages** e **SimulatedDevice**.
 
-   	![Proprietà del progetto di avvio][41]  
+   	![Proprietà del progetto di avvio][41]
 
 2.	Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dal dispositivo simulato all'hub IoT. L'output della console dall'app **ReadDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
 

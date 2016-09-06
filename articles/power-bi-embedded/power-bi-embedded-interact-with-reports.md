@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>  
+   ms.author="jocaplan"/>
 
 # Interagire con i report di Power BI usando l'API JavaScript
 

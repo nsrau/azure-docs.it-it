@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/24/2016"
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
 
@@ -32,17 +32,17 @@ In questo passaggio si creerà un prodotto con una versione di valutazione gratu
 
 Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
-![Portale di pubblicazione][api-management-management-console]  
+![Portale di pubblicazione][api-management-management-console]
 
 >Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][] nell'esercitazione [Gestire la prima API in Gestione API di Azure][].
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizzare la pagina **Prodotti**.
 
-![Add product][api-management-add-product]  
+![Add product][api-management-add-product]
 
 Fare clic su **Aggiungi prodotto** per visualizzare la finestra di dialogo **Aggiungi nuovo prodotto**.
 
-![Add new product][api-management-new-product-window]  
+![Add new product][api-management-new-product-window]
 
 Nella casella **Titolo** digitare **Free Trial**.
 
@@ -56,13 +56,13 @@ Per consentire agli account per sviluppatori di sottoscrivere più volte il nuov
 
 Dopo aver immesso tutti i valori, fare clic su **Salva** per creare il prodotto.
 
-![Product added][api-management-product-added]  
+![Product added][api-management-product-added]
 
 Per impostazione predefinita, i nuovi prodotti sono visibili agli utenti nel gruppo **Amministratori**. Verrà ora aggiunto il gruppo **Sviluppatori**. Fare clic su **Free Trial** e fare clic sulla scheda **Visibilità**.
 
 >In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. Per altre informazioni, vedere [Come creare e usare i gruppi in Gestione API di Azure][].
 
-![Add developers group][api-management-add-developers-group]  
+![Add developers group][api-management-add-developers-group]
 
 Selezionare la casella di controllo **Sviluppatori** e quindi fare clic su **Salva**.
 
@@ -78,11 +78,11 @@ Scegliere **Prodotti** nel menu **Gestione API** a sinistra e quindi fare clic s
 
 Fare clic su **Aggiungi API al prodotto**.
 
-![Add API to product][api-management-add-api]  
+![Add API to product][api-management-add-api]
 
 Selezionare **API Echo** e quindi fare clic su **Salva**.
 
-![Add Echo API][api-management-add-echo-api]  
+![Add Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Per configurare i criteri relativi a limiti di frequenza e quota delle chiamate
 
@@ -92,15 +92,15 @@ I limiti di frequenza e le quote vengono configurate nell'editor dei criteri. Sc
 
 Fare clic su **Aggiungi criteri** per importare il modello dei criteri e iniziare a creare i criteri relativi a limiti di frequenza e quota.
 
-![Aggiungi criteri][api-management-add-policy]  
+![Aggiungi criteri][api-management-add-policy]
 
 Per inserire criteri, posizionare il cursore nella sezione **inbound** o **outbound** del modello dei criteri. I criteri relativi a limiti di frequenza e quota sono criteri in ingresso, di conseguenza posizionare il cursore nell'elemento in ingresso.
 
-![Policy editor][api-management-policy-editor-inbound]  
+![Policy editor][api-management-policy-editor-inbound]
 
 I due criteri che verranno aggiunti in questa esercitazione sono [Limita frequenza chiamate per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Imposta quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
 
-![Policy statements][api-management-limit-policies]  
+![Policy statements][api-management-limit-policies]
 
 Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare clic sulla freccia accanto a **Limita frequenza chiamate per sottoscrizione** per inserire il modello dei criteri corrispondente.
 
@@ -165,7 +165,7 @@ Una volta completata la configurazione, i criteri dovrebbero essere simili a que
 
 Dopo avere configurato i criteri desiderati, fare clic su **Salva**.
 
-![Save policy][api-management-policy-save]  
+![Save policy][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Per pubblicare il prodotto
 
@@ -175,7 +175,7 @@ A questo punto dopo aver aggiunto le API e aver configurato i criteri, il prodot
 
 Fare clic su **Pubblica**, quindi su **Sì, pubblica** per confermare.
 
-![Pubblicazione prodotto][api-management-publish-product]  
+![Pubblicazione prodotto][api-management-publish-product]
 
 ## <a name="subscribe-account"> </a>Per sottoscrivere un account per sviluppatore al prodotto
 
@@ -185,11 +185,11 @@ Una volta pubblicato, il prodotto è disponibile per essere sottoscritto e usato
 
 Scegliere **Utenti** dal menu **Gestione API** a sinistra e fare clic sul nome dell'account per sviluppatore. In questo esempio verrà usato l'account per sviluppatore **Clayton Gragg**.
 
-![Configure developer][api-management-configure-developer]  
+![Configure developer][api-management-configure-developer]
 
 Fare clic su **Aggiungi sottoscrizione**.
 
-![Aggiungere la sottoscrizione][api-management-add-subscription-menu]  
+![Aggiungere la sottoscrizione][api-management-add-subscription-menu]
 
 Selezionare **Free Trial** e quindi fare clic su **Sottoscrivi**.
 
@@ -201,17 +201,17 @@ Selezionare **Free Trial** e quindi fare clic su **Sottoscrivi**.
 
 Dopo aver fatto clic su **Sottoscrivi**, il prodotto verrà visualizzato nell'elenco **Sottoscrizione** dell'utente.
 
-![Sottoscrizione aggiunta][api-management-subscription-added]  
+![Sottoscrizione aggiunta][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Per chiamare un'operazione e testare il limite di frequenza
 
 A questo punto, dopo aver configurato e pubblicato il prodotto Free Trial, è possibile chiamare alcune operazioni e testare i criteri relativi ai limiti di frequenza. Passare al portale per sviluppatori facendo clic su **Portale per sviluppatori** nel menu in alto a destra.
 
-![Portale per sviluppatori][api-management-developer-portal-menu]  
+![Portale per sviluppatori][api-management-developer-portal-menu]
 
 Fare clic su **API** nel menu in alto e quindi su **API Echo**.
 
-![Portale per sviluppatori][api-management-developer-portal-api-menu]  
+![Portale per sviluppatori][api-management-developer-portal-api-menu]
 
 Fare clic su **GET Resource** (GET su risorsa) e quindi su **Prova**.
 
@@ -219,17 +219,17 @@ Fare clic su **GET Resource** (GET su risorsa) e quindi su **Prova**.
 
 Mantenere i valori predefiniti dei parametri e selezionare la chiave della sottoscrizione per il prodotto con versione di valutazione gratuita.
 
-![Chiave della sottoscrizione][api-management-select-key]  
+![Chiave della sottoscrizione][api-management-select-key]
 
 >[AZURE.NOTE] Se si hanno più sottoscrizioni, assicurarsi di selezionare la chiave per **Free Trial**, altrimenti i criteri configurati nei passaggi precedente non avranno effetto.
 
 Fare clic su **Invia** e quindi visualizzare la risposta. Notare che il valore di **Stato della risposta** è **200 OK**.
 
-![Operation results][api-management-http-get-results]  
+![Operation results][api-management-http-get-results]
 
 Fare clic su **Invia** a una frequenza maggiore di quella dei criteri relativi ai limiti di frequenza pari a 10 chiamate al minuto. Al superamento dei criteri dei limiti di frequenza, viene restituito lo stato di risposta **429 Troppe richieste**.
 
-![Operation results][api-management-http-get-429]  
+![Operation results][api-management-http-get-429]
 
 In **Contenuto della risposta** è indicato che l'intervallo residuo prima dei nuovi tentativi avrà esito positivo.
 

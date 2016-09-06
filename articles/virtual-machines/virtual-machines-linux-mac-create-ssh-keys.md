@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/08/2016"
-	ms.author="v-livech"/>  
+	ms.author="v-livech"/>
 
 # Creare chiavi SSH in Linux e Mac per le VM Linux in Azure
 
@@ -134,7 +134,7 @@ The key's randomart image is:
 
 File delle chiavi salvati:
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`  
+`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 
 Nome della coppia di chiavi per questo articolo. Una coppia di chiavi denominata **id\_rsa** è disponibile per impostazione predefinita ed è possibile che alcuni strumenti prevedano un file della chiave privata con nome **id\_rsa**, quindi è opportuno averne uno. La directory `~/.ssh/` è la posizione predefinita per le coppie di chiavi SSH e il file config SSH.
 

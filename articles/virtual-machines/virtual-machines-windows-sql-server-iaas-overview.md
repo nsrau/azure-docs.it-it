@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/29/2016"
-	ms.author="jroth"/>  
+	ms.author="jroth"/>
 
 # Panoramica di SQL Server in macchine virtuali di Azure
 

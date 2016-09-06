@@ -15,7 +15,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.date="08/29/2016"
-    ms.author="ashmaka"/>  
+    ms.author="ashmaka"/>
 
 # Creare un indice di Ricerca di Azure con l'API REST
 > [AZURE.SELECTOR]

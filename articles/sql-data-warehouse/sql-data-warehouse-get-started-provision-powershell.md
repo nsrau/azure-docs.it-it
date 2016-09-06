@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/25/2016"
-   ms.author="lodipalm;barbkess;sonyama"/> 
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare SQL Data Warehouse con PowerShell
 
@@ -79,8 +79,7 @@ Al termine del provisioning di SQL Data Warehouse, è possibile provare a [caric
 
 Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, vedere l'articolo [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][].
 
-<!--Image references--> 
-
+<!--Image references-->
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [migrazione]: ./sql-data-warehouse-overview-migrate.md
@@ -101,7 +100,7 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, v
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [CREATE DATABASE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
-<!--Other Web references--> 
+<!--Other Web references-->
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 [Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Caricare file in un account Servizi multimediali usando il portale di Azure 
@@ -30,7 +30,7 @@ In Servizi multimediali è possibile caricare i file digitali in un asset. L'ass
  
 1. Nella finestra **Impostazione** fare clic su **Asset**.
 
-	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)  
+	![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
 3. Fare clic sul pulsante **Upload**.
 

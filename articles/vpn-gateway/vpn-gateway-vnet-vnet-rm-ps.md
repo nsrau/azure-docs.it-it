@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Configurare una connessione da rete virtuale a rete virtuale per Resource Manager usando PowerShell
 
@@ -49,7 +49,7 @@ Questo articolo illustra la creazione di una connessione tra reti virtuali nel m
 La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività usano un gateway VPN di Azure per fornire un tunnel sicuro tramite IPsec/IKE. Le reti virtuali che si connettono possono trovarsi in aree geografiche diverse. Possono anche trovarsi in sottoscrizioni diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In questo modo è possibile definire topologie di rete che consentono di combinare la connettività fra più sedi locali con la connettività fra più reti virtuali, come illustrato nel diagramma seguente.
 
 
-![Informazioni sulle connessioni](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)  
+![Informazioni sulle connessioni](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
  
 ### Perché connettere reti virtuali?
 
@@ -79,7 +79,7 @@ Le procedure descritte in questo articolo usano variabili dichiarate all'inizio 
 
 ## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
 
-![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)  
+![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### Prima di iniziare
 	
@@ -304,7 +304,7 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
 ## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
 
 
-![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)  
+![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. I passaggi di questa configurazione permettono di aggiungere un'altra connessione tra reti virtuali per connettere TestVNet1 e TestVNet5.
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Creare, avviare o eliminare un gateway applicazione
 
@@ -26,7 +26,7 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-<BR>  
+<BR>
 
 Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
 

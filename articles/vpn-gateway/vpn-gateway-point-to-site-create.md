@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Configurare una connessione da punto a sito a una rete virtuale usando il portale classico
 

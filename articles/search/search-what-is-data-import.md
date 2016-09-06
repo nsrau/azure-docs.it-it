@@ -15,7 +15,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.date="08/29/2016"
-    ms.author="ashmaka"/>  
+    ms.author="ashmaka"/>
 
 # Caricare i dati in Ricerca di Azure
 > [AZURE.SELECTOR]

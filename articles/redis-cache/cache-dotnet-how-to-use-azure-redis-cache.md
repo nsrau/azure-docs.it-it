@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="08/25/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
 
@@ -194,13 +194,13 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 -	Vedere la [documentazione del client della cache StackExchange.Redis][].
 	-	È possibile accedere a Cache Redis di Azure da numerosi linguaggi di sviluppo e client Redis. Per altre informazioni, vedere [http://redis.io/clients][].
 -	È anche possibile usare Cache Redis di Azure con servizi e strumenti di terze parti come Redsmin e Redis Desktop Manager.
-	-	Per altre informazioni su Redsmin, vedere [How to connect Azure Redis Cache to Redsmin][] (Come connettere Cache Redis di Azure a Redsmin).
+	-	Per altre informazioni su Redsmin, vedere [How to connect Azure Redis Cache to Redsmin][] \(Come connettere Cache Redis di Azure a Redsmin).
 	-	Per accedere ai dati in Cache Redis di Azure e controllarli con una GUI, usare [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -	Vedere la documentazione su [Redis][] e in particolare l'articolo sui [tipi di dati Redis][] e l'[introduzione di 15 minuti ai tipi di dati Redis][].
 
 
 
-<!-- INTRA-TOPIC LINKS -->  
+<!-- INTRA-TOPIC LINKS -->
 [Passaggi successivi]: #next-steps
 [Introduction to Azure Redis Cache (Video)]: #video
 [What is Azure Redis Cache?]: #what-is

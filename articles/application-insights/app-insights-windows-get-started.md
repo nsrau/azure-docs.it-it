@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/26/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Analisi per app di Windows Phone e Windows Store
 

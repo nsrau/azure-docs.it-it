@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="hero-article"
 	ms.date="08/25/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 
 #Hub di notifica di Azure
@@ -170,7 +170,7 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [app per dispositivi mobili del servizio app]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-mobile-value-prop/
+  [app per dispositivi mobili del servizio app]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
   [modelli]: notification-hubs-templates.md
   [portale di Azure]: https://portal.azure.com
   [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

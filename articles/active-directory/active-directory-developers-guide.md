@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/01/2016"
-   ms.author="mbaldwin"/>  
+   ms.author="mbaldwin"/>
 
 
 # Guida per gli sviluppatori di Azure Active Directory

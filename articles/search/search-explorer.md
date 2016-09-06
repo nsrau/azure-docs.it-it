@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.date="08/29/2016"
     ms.author="ashmaka"
-/>  
+/>
 # Eseguire query nell'indice di Ricerca di Azure usando il portale di Azure
 > [AZURE.SELECTOR]
 - [Panoramica](search-query-overview.md)

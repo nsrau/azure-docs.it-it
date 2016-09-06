@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/27/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 # Connettersi ad Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Dopo aver stabilito una connessione e una sessione, è possibile scrivere e invi
 
 Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
-<!--Articles-->  
+<!--Articles-->
 [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [Monitoraggio del carico di lavoro mediante DMV]: ./sql-data-warehouse-manage-monitor.md
 
@@ -69,7 +69,7 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 <!--Other-->
 [portale di Azure]: https://portal.azure.com
 
-<!--Image references-->  
+<!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
 <!---HONumber=AcomDC_0831_2016-->

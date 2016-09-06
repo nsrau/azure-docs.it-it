@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/24/2016"
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
 
@@ -44,11 +44,11 @@ Fare clic su **API** dal menu **Gestione API** a sinistra, quindi scegliere **AP
 
 Fare clic sulla scheda **Operazioni**, quindi sull'operazione **GET su risorsa (memorizzata nella cache)** nell'elenco **Operazioni**.
 
-![Operazioni dell'API Echo][api-management-echo-api-operations]  
+![Operazioni dell'API Echo][api-management-echo-api-operations]
 
 Fare clic sulla scheda **Caching** per visualizzare le impostazioni di caching per l'operazione.
 
-![Scheda Memorizzazione nella cache][api-management-caching-tab]  
+![Scheda Memorizzazione nella cache][api-management-caching-tab]
 
 Per abilitare il caching per un'operazione, selezionare la casella di controllo **Abilita**. In questo esempio, il caching è abilitato.
 
@@ -66,11 +66,11 @@ Quando le impostazioni di memorizzazione nella cache vengono configurate per un'
 
 Fare clic su **Criteri** dal menu **Gestione API** a sinistra, quindi selezionare **API Echo/GET su risorsa (memorizzata nella cache)** dall'elenco a discesa **Operazione**.
 
-![Operazione nell'ambito dei criteri][api-management-operation-dropdown]  
+![Operazione nell'ambito dei criteri][api-management-operation-dropdown]
 
 Visualizza i criteri per l'operazione nell'editor dei criteri.
 
-![Editor dei criteri di Gestione API][api-management-policy-editor]  
+![Editor dei criteri di Gestione API][api-management-policy-editor]
 
 La definizione dei criteri per questa operazione include i criteri che definiscono la configurazione della memorizzazione nella cache rivisti usando la scheda **Memorizzazione nella cache** nel passaggio precedente.
 
@@ -95,11 +95,11 @@ La definizione dei criteri per questa operazione include i criteri che definisco
 
 Per vedere il funzionamento della memorizzazione nella cache, l'operazione viene chiamata dal portale per sviluppatori. Fare clic su **Developer portal** nel menu in alto a destra.
 
-![Portale per sviluppatori][api-management-developer-portal-menu]  
+![Portale per sviluppatori][api-management-developer-portal-menu]
 
 Fare clic su **API** dal menu in alto e quindi scegliere **API Echo**.
 
-![API Echo][api-management-apis-echo-api]  
+![API Echo][api-management-apis-echo-api]
 
 >Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
@@ -109,7 +109,7 @@ Selezionare l'operazione **GET su risorsa (memorizzata nella cache)**, quindi fa
 
 La console consente di richiamare le operazioni direttamente dal portale per sviluppatori.
 
-![Console][api-management-console]  
+![Console][api-management-console]
 
 Mantenere i valori predefiniti per **param1** e **param2**.
 

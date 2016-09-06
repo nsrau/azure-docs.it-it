@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 
 # Creare un gateway applicazione usando il modello di Gestione risorse di Azure
@@ -28,7 +28,7 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-<BR>  
+<BR>
 
 Questo articolo illustra come scaricare e modificare un modello di Azure Resource Manager esistente da GitHub e distribuire il modello da GitHub, da PowerShell e dall'interfaccia della riga di comando di Azure.
 
@@ -48,7 +48,7 @@ In questo scenario si apprenderà come:
 
 
 
-![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)  
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
 
 
 
@@ -263,7 +263,7 @@ Vedere [Create an application gateway with public IP](https://azure.microsoft.co
 
 Fare clic su **Distribuzione in Azure**.
 
-![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)  
+![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
 ### Passaggio 3
 

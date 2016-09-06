@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Creare un account Servizi multimediali di Azure con il portale di Azure
@@ -49,7 +49,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
 
-	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)  
+	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
 	
 	1. In **Nome account** immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 	2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
@@ -67,7 +67,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 	Dopo aver creato l'account, lo stato diventa **In esecuzione**.
 
-	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)  
+	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
 	Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni**.
 
@@ -84,7 +84,7 @@ Per accedere a livello di codice all'account Servizi multimediali, sono necessar
 	Nella finestra **Gestisci chiavi** sono visualizzati il nome dell'account e le chiavi primaria e secondaria.
 3. Per copiare i valori, scegliere il pulsante Copia.
 	
-	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)  
+	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## Passaggi successivi
 

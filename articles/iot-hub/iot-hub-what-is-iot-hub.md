@@ -29,7 +29,7 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 
 L'articolo [Confronto di Hub IoT e Hub eventi][lnk-compare] descrive le differenze chiave tra questi due servizi e mette in evidenza i vantaggi dell'impiego dell'hub IoT in qualsiasi soluzione.
 
-![Hub IoT di Azure come gateway cloud in una soluzione Internet delle cose][img-architecture]  
+![Hub IoT di Azure come gateway cloud in una soluzione Internet delle cose][img-architecture]
 
 > [AZURE.NOTE] Per un'analisi approfondita dell'architettura IoT, vedere l'[architettura di riferimento di Microsoft Azure IoT][lnk-refarch].
 

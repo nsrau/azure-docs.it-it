@@ -204,7 +204,7 @@ I parametri sono i seguenti:
 1. Se non si ha account di archiviazione di Azure, fare clic su **Aggiungi un account di archiviazione di Azure** per crearne uno.
 2. Creare un account con la replica geografica abilitata. L'account deve trovarsi nella stessa area geografica del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione.
 
-	![Account di archiviazione](./media/site-recovery-vmm-to-azure-classic/storage.png)  
+	![Account di archiviazione](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è possibile per gli account di archiviazione usati per la distribuzione di Site Recovery.
 
@@ -214,17 +214,17 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 
 1. Fare clic su **Avvio rapido** > **Scaricare l'agente di Servizi di ripristino di Microsoft Azure per l'installazione nei server host Hyper-V** per ottenere la versione più recente del file di installazione dell'agente.
 
-	![Installare l'agente di Servizi di ripristino](./media/site-recovery-vmm-to-azure-classic/install-agent.png)  
+	![Installare l'agente di Servizi di ripristino](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
 
 2. Eseguire il file di installazione in ogni server host Hyper-V.
 3. Nella pagina **Controllo dei prerequisiti** fare clic su **Avanti**. Gli eventuali prerequisiti mancanti verranno installati automaticamente.
 
-	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)  
+	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
 4. Nella pagina **Impostazioni di installazione** specificare dove installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su **Installa**.
 5. Al termine dell'installazione fare clic su **Chiudi** per completare la procedura guidata.
 
-	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure-classic/agent-register.png)  
+	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
 ### Installazione dalla riga di comando
 
@@ -236,7 +236,7 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 
 Dopo la registrazione del server VMM, sarà possibile configurare le impostazioni di protezione del cloud. Quando si installa il provider, abilitare l'opzione **Sincronizza dati cloud con insieme credenziali** in modo che tutti i cloud presenti sul server VMM vengano visualizzati nella scheda <b>Elementi protetti</b> dell'insieme di credenziali.
 
-![Cloud pubblicato](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)  
+![Cloud pubblicato](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
 
 1. Nella pagina Avvio rapido fare clic su **Configurare la protezione per i cloud VMM**.
 2. Nella scheda **Elementi protetti** fare clic sul cloud da configurare e passare alla scheda **Configurazione**.
@@ -248,7 +248,7 @@ Dopo la registrazione del server VMM, sarà possibile configurare le impostazion
 8. In **Frequenza degli snapshop coerenti con l'applicazione** lasciare l'impostazione predefinita. Questo valore consente di specificare la frequenza della creazione di snapshot. Gli snapshot usano il Servizio Copia Shadow del volume (VSS, Volume Shadow Copy Service) per assicurare che lo stato delle applicazioni sia coerente quando viene creato lo snapshot. Se si imposta un valore, questo deve essere inferiore al numero di punti di ripristino aggiuntivi configurati.
 9. In **Ora inizio replica** specificare quando deve essere avviata la replica iniziale dei dati in Azure. Verrà usato il fuso orario del server host Hyper-V. È consigliabile pianificare la replica iniziale durante le fasce orarie di minore attività.
 
-	![Impostazioni della replica cloud](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)  
+	![Impostazioni della replica cloud](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
 
 Dopo avere salvato le impostazioni, verrà creato un processo che potrà essere monitorato nella scheda **Processi**. Tutti i server host Hyper-V nel cloud di origine VMM verranno configurati per la replica.
 
@@ -264,7 +264,7 @@ Prima di iniziare il mapping di rete, verificare che le macchine virtuali nel se
 5. Nella pagina **Seleziona una rete di destinazione** selezionare la rete di Azure di destinazione che si vuole usare.
 6. Fare clic sul segno di spunta per completare il processo di mapping.
 
-	![Impostazioni della replica cloud](./media/site-recovery-vmm-to-azure-classic/map-networks.png)  
+	![Impostazioni della replica cloud](./media/site-recovery-vmm-to-azure-classic/map-networks.png)
 
 Dopo avere salvato le impostazioni, viene avviato un processo che tiene traccia dello stato del mapping e che può essere monitorato nella scheda Processi. Tutte le macchine virtuali di replica esistenti che corrispondono alla rete VM di origine verranno connesse alle reti di Azure di destinazione. Dopo la replica, le nuove macchine virtuali connesse alla rete VM di origine verranno connesse alla rete di Azure mappata. Se si modifica un mapping esistente con una nuova rete, le macchine virtuali di replica verranno connesse usando le nuove impostazioni.
 
@@ -279,24 +279,24 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 - Le macchine virtuali devono essere conformi ai [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 - Per abilitare la protezione, è necessario che le proprietà del sistema operativo e del disco del sistema operativo siano impostate per la macchina virtuale. Quando si crea una macchina virtuale basata su un modello di macchina virtuale VMM è possibile impostare la proprietà. È possibile impostare queste proprietà anche per le macchine virtuali esistenti nelle schede **Generale** e **Configurazione hardware** delle proprietà delle macchine virtuali. Se queste proprietà non vengono impostate in VMM, sarà possibile configurarle nel portale di Azure Site Recovery.
 
-	![Crea macchina virtuale](./media/site-recovery-vmm-to-azure-classic/enable-new.png)  
+	![Crea macchina virtuale](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
 
-	![Modificare le proprietà della macchina virtuale](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)  
+	![Modificare le proprietà della macchina virtuale](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)
 
 
 1. Per abilitare la protezione, nella scheda **Macchine virtuali** del cloud in cui si trova la macchina virtuale fare clic su **Abilita protezione** > **Aggiungi macchine virtuali**.
 2. Nell'elenco di macchine virtuali nel cloud selezionare quella da proteggere.
 
-	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/select-vm.png)  
+	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
 	Tenere traccia dello stato dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
-	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)  
+	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
 
 3. Verificare le proprietà della macchina virtuale e modificarle in base alle esigenze.
 
-	![Verifica macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)  
+	![Verifica macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 
 
 4. Nella scheda **Configura** delle proprietà della macchina virtuale è possibile modificare le proprietà di rete seguenti.
@@ -334,7 +334,7 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 
 1. Nella scheda **Piani di ripristino** aggiungere un nuovo piano. Specificare un nome, immettere **VMM** nel campo **Tipo origine**, specificare il server VMM di origine in **Origine** e digitare Azure nel campo relativo alla destinazione.
 
-	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)  
+	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
 2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
 

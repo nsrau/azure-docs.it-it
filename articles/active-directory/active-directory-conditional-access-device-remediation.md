@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/23/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 
 # Risoluzione dei problemi: Non è possibile accedervi da qui
@@ -41,7 +41,7 @@ In caso di dispositivo Windows 10, Windows 8.1, Windows 8.0, Windows 7, Windows 
 
 Se il dispositivo non è registrato in Azure Active Directory (Azure AD) e l'applicazione è protetta con criteri basati sul dispositivo, potrebbe essere visualizzata una pagina con il contenuto seguente:
 
-![Messaggi "Non è possibile accedervi da qui" per dispositivi non registrati](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")  
+![Messaggi "Non è possibile accedervi da qui" per dispositivi non registrati](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
 
 

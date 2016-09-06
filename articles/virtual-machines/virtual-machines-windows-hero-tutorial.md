@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/29/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Creare la prima macchina virtuale Windows nel portale di Azure
 
@@ -56,20 +56,20 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 4. Al termine, fare clic su **OK** per passare alla sezione successiva.
 
-	![Screenshot che illustra le impostazioni nel pannello **Informazioni di base** per la configurazione di una macchina virtuale di Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)  
+	![Screenshot che illustra le impostazioni nel pannello **Informazioni di base** per la configurazione di una macchina virtuale di Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
 	
 5. Scegliere le [dimensioni](virtual-machines-windows-sizes.md) per la macchina virtuale e quindi fare clic su **Seleziona** per continuare.
 
-	![Screenshot del pannello Dimensioni che mostra le dimensioni di VM di Azure disponibili per la selezione](./media/virtual-machines-windows-hero-tutorial/size-blade.png)  
+	![Screenshot del pannello Dimensioni che mostra le dimensioni di VM di Azure disponibili per la selezione](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
 6. Nel pannello **Impostazioni** è possibile cambiare le opzioni di archiviazione e di rete. Per questa esercitazione, accettare le impostazioni predefinite. Se sono state selezionate dimensioni di macchina virtuale che lo supportano, è possibile provare il servizio Archiviazione Premium selezionando **Premium (SSD)** in **Tipo di disco**. Al termine delle modifiche, fare clic su **OK**.
 
-	![Screenshot del pannello Impostazioni in cui è possibile configurare le funzionalità facoltative per una VM di Azure](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)  
+	![Screenshot del pannello Impostazioni in cui è possibile configurare le funzionalità facoltative per una VM di Azure](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
 7. Fare clic su **Riepilogo** per verificare le modifiche. Quando viene visualizzato il messaggio **Convalida superata**, fare clic su **OK**.
 
-	![Screenshot della pagina Riepilogo che mostra le scelte di configurazione effettuate per la VM di Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)  
+	![Screenshot della pagina Riepilogo che mostra le scelte di configurazione effettuate per la VM di Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
 8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Macchine virtuali** nel menu Hub.
 
@@ -82,19 +82,19 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 3. Nel pannello della macchina virtuale fare clic su **Connetti**. Verrà creato e scaricato un file Remote Desktop Protocol (file con estensione rdp), che è analogo a un collegamento per la connessione alla macchina virtuale. È consigliabile salvare il file sul desktop per semplificare l'accesso. **Aprire** questo file per connettersi alla macchina virtuale.
 
-	![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/virtual-machines-windows-hero-tutorial/connect.png)  
+	![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
 4. Verrà visualizzato un avviso che indica che l'autore del file RDP è sconosciuto. Si tratta di una situazione normale. Nella finestra di Desktop remoto, fare clic su **Connetti** per continuare.
 
-	![Screenshot di un avviso relativo a un autore sconosciuto.](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)  
+	![Screenshot di un avviso relativo a un autore sconosciuto.](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
 5. Nella finestra Sicurezza di Windows immettere il nome utente e la password per l'account locale creato quando è stata creata la VM. Il nome utente viene immesso come *nomevm*&#92;*nomeutente*. Fare quindi clic su **OK**.
 
-	![Screenshot relativa all'immissione del nome della VM, del nome utente e della password.](./media/virtual-machines-windows-hero-tutorial/credentials.png)  
+	![Screenshot relativa all'immissione del nome della VM, del nome utente e della password.](./media/virtual-machines-windows-hero-tutorial/credentials.png)
  	
 6.	Verrà visualizzato un avviso che indica che non è possibile verificare il certificato. Si tratta di una situazione normale. Fare clic su **Sì** per verificare l'identità della macchina virtuale e terminare la procedura di accesso.
 
-	![Screenshot che visualizza un messaggio sulla verifica dell'identità della VM.](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)  
+	![Screenshot che visualizza un messaggio sulla verifica dell'identità della VM.](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
@@ -110,16 +110,16 @@ Dopo aver eseguito l'accesso alla macchina virtuale, verrà installato un ruolo 
 3. Nel menu selezionare **Gestione** > **Aggiungi ruoli e funzionalità**.
 4. Nella pagina **Tipo di installazione** dell'Aggiunta guidata ruoli e funzionalità scegliere **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.
 
-	![Screenshot che illustra la scheda Tipo di installazione dell'Aggiunta guidata ruoli e funzionalità.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)  
+	![Screenshot che illustra la scheda Tipo di installazione dell'Aggiunta guidata ruoli e funzionalità.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
 
 5. Selezionare la macchina virtuale dal pool di server e fare clic su **Avanti**.
 6. Nella pagina **Ruoli server** selezionare **Server Web (IIS)**.
 
-	![Screenshot che illustra la scheda Ruoli server dell'Aggiunta guidata ruoli e funzionalità.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)  
+	![Screenshot che illustra la scheda Ruoli server dell'Aggiunta guidata ruoli e funzionalità.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
 
 7. Nella finestra popup sull'aggiunta di funzionalità necessarie per IIS accertarsi che sia selezionata l'opzione **Includi strumenti di gestione** e quindi fare clic su **Aggiungi funzionalità**. Quando si chiude la finestra popup, fare clic su **Avanti** nella procedura guidata.
 
-	![Screenshot che illustra la finestra popup per la conferma dell'aggiunta del ruolo IIS.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)  
+	![Screenshot che illustra la finestra popup per la conferma dell'aggiunta del ruolo IIS.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
 
 8. Nella pagina delle funzionalità fare clic su **Avanti**.
 9. Nella pagina **Ruolo Server Web (IIS)** fare clic su **Avanti**.
@@ -137,15 +137,15 @@ Perché la macchina virtuale possa accettare il traffico in ingresso attraverso 
 2. In **Macchine virtuali** selezionare la macchina virtuale creata.
 3. In Impostazioni macchina virtuale scegliere **Interfacce di rete** e quindi selezionare l'interfaccia di rete esistente.
 
-	![Screenshot che illustra l'impostazione della macchina virtuale per le interfacce di rete.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)  
+	![Screenshot che illustra l'impostazione della macchina virtuale per le interfacce di rete.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
 4. In **Informazioni di base** per l'interfaccia di rete fare clic sul **Gruppo di sicurezza di rete**.
 
-	![Screenshot che illustra la sezione Informazioni di base per l'interfaccia di rete.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)  
+	![Screenshot che illustra la sezione Informazioni di base per l'interfaccia di rete.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
 
 5. Nel pannello **Informazioni di base** per il gruppo di sicurezza di rete dovrebbe essere già presente una regola in ingresso predefinita per **default-allow-rdp**, che consente di accedere alla macchina virtuale. Aggiungere un'altra regola in ingresso per consentire il traffico IIS. Fare clic su **Regole di sicurezza in ingresso**.
 
-	![Screenshot che illustra la sezione Informazioni di base per il gruppo di sicurezza di rete.](./media/virtual-machines-windows-hero-tutorial/inbound.png)  
+	![Screenshot che illustra la sezione Informazioni di base per il gruppo di sicurezza di rete.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
 
 6. In **Regole di sicurezza in ingresso** fare clic su **Aggiungi**.
 
@@ -153,7 +153,7 @@ Perché la macchina virtuale possa accettare il traffico in ingresso attraverso 
 
 7. In **Regole di sicurezza in ingresso** fare clic su **Aggiungi**. Digitare **80** nell'intervallo di porte e assicurarsi che sia selezionata l'opzione **Consenti**. Al termine, fare clic su **OK**.
 
-	![Screenshot che mostra il pulsante per l'aggiunta di una regola di sicurezza.](./media/virtual-machines-windows-hero-tutorial/port-80.png)  
+	![Screenshot che mostra il pulsante per l'aggiunta di una regola di sicurezza.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
  
 Per altre informazioni sui gruppi di sicurezza di rete e le regole in ingresso e in uscita, vedere [Consentire l'accesso esterno alla VM mediante il portale di Azure](virtual-machines-windows-nsg-quickstart-portal.md).
  
@@ -174,7 +174,7 @@ Per altre informazioni sui gruppi di sicurezza di rete e le regole in ingresso e
 
 È consigliabile arrestare la VM, in modo che non vengano effettuati addebiti quando non la si usa. È sufficiente fare clic sul pulsante **Arresta** e quindi su **Sì**.
 
-![Screenshot che mostra il pulsante per l'arresto di una VM.](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)  
+![Screenshot che mostra il pulsante per l'arresto di una VM.](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 	
 Fare clic sul pulsante **Avvia** per riavviare la macchina virtuale quando si è pronti per usarla di nuovo.
 

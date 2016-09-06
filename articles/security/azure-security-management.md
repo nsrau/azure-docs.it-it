@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/25/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/>
 
 # Gestione della sicurezza in Azure
 
@@ -22,7 +22,7 @@ I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispos
 
 Anche se le funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
 
-![][1]  
+![][1]
 
 Il rischio di attacco aumenta in questo tipo di ambiente perché risulta difficile creare criteri e meccanismi di sicurezza per la gestione appropriata dell'accesso alle interfacce di Azure, ad esempio SMAPI, da endpoint molto diversi.
 
@@ -241,7 +241,7 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 - [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx): consente di segnalare le vulnerabilità della sicurezza di Microsoft, inclusi i problemi relativi ad Azure, tramite posta elettronica all'indirizzo [secure@microsoft.com](mailto:secure@microsoft.com).
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni aggiornate sulla sicurezza in Azure.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png

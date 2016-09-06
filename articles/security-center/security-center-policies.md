@@ -32,11 +32,11 @@ I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di
 
 2. Nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse** visualizzato sul lato destro selezionare la sottoscrizione in cui abilitare i criteri di sicurezza. Se si preferisce abilitare i criteri di sicurezza per un gruppo di risorse invece che per l'intera sottoscrizione, scorrere fino alla sezione successiva dove viene descritto come impostare i criteri di sicurezza per gruppi di risorse.
 
-    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)  
+    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
 3. Il pannello **Criteri di sicurezza** per la sottoscrizione viene aperto con un set di opzioni simile a quello illustrato nella schermata seguente:
 
-    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)  
+    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
 	Le opzioni disponibili in questo pannello sono:
 	- **Criteri di prevenzione**: questa opzione consente di configurare criteri per ogni sottoscrizione o gruppo di risorse.
@@ -50,11 +50,11 @@ I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di
 
 5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nella schermata seguente quando si apre **Criteri di sicurezza**:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)  
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)
 
 6. Se viene visualizzato questo avviso, fare clic su questa opzione e selezionare l'area, come illustrato nella schermata seguente:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)  
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
 7. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. Una volta stabilita l'area da utilizzare, selezionarla e quindi selezionare l'account di archiviazione.
 
@@ -64,7 +64,7 @@ I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di
 
 9. Nel pannello **Criteri di sicurezza** fare clic su **Attivo** per abilitare i suggerimenti per la sicurezza da usare per la sottoscrizione. Fare clic sull'opzione **Criteri di prevenzione**. Verrà aperto il pannello **Criteri di sicurezza**, come illustrato nella schermata seguente:
 
-	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga.png)  
+	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
 Usare la tabella seguente come riferimento per comprendere il funzionamento di ciascuna opzione:
 

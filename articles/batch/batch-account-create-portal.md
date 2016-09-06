@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/26/2016"
-	ms.author="marsma"/>  
+	ms.author="marsma"/>
 
 # Creare un account Azure Batch usando il portale di Azure
 
@@ -30,11 +30,11 @@ Informazioni su come creare un account Azure Batch nel [portale di Azure][azure_
 
 2. Fare clic su **Nuovo** > **Macchine virtuali** > **Servizio Batch**.
 
-	![Batch in Marketplace][marketplace_portal]  
+	![Batch in Marketplace][marketplace_portal]
 
 3. Verrà visualizzato il pannello **Nuovo account Batch**. Per la descrizione di ogni elemento del pannello, vedere gli elementi da *a* a *e* di seguito.
 
-    ![Creare un account Batch][account_portal]  
+    ![Creare un account Batch][account_portal]
 
 	a. **Nome account**: nome univoco dell'account Batch. Questo nome deve essere univoco nell'area di Azure in cui viene creato l'account. Vedere *Località* di seguito. Può contenere solo caratteri minuscoli e numeri e deve avere una lunghezza di 3-24 caratteri.
 
@@ -54,17 +54,17 @@ Informazioni su come creare un account Azure Batch nel [portale di Azure][azure_
 
 Dopo avere creato l'account, è possibile aprire il pannello **Account Batch** per accedere alle impostazioni e alle proprietà. È possibile accedere a tutte le impostazioni e proprietà dell'account usando il menu di sinistra del pannello Account Batch.
 
-![Pannello Account Batch nel portale di Azure][account_blade]  
+![Pannello Account Batch nel portale di Azure][account_blade]
 
 * **URL dell'account Batch**: per le applicazioni create con le [API di sviluppo per Batch](batch-technical-overview.md#batch-development-apis) è necessario un URL dell'account per gestire le risorse ed eseguire i processi nell'account. Un URL dell'account Batch ha il seguente formato:
 
-    `https://<account_name>.<region>.batch.azure.com`  
+    `https://<account_name>.<region>.batch.azure.com`
 
-![URL dell'account Batch nel portale][account_url]  
+![URL dell'account Batch nel portale][account_url]
 
 * **Chiavi di accesso**: per le applicazioni è necessaria anche una chiave di accesso quando si usano le risorse nell'account Batch. Per visualizzare o rigenerare le chiavi di accesso dell'account Batch, immettere `keys` nella casella di **ricerca** del menu a sinistra nel pannello Account Batch, quindi selezionare **Chiavi**.
 
-    ![Chiavi dell'account Batch nel portale di Azure][account_keys]  
+    ![Chiavi dell'account Batch nel portale di Azure][account_keys]
 
 ## Prezzi
 
@@ -76,19 +76,19 @@ Come accennato in precedenza, è possibile (facoltativamente) collegare un accou
 
 Batch attualmente supporta *solo* account di archiviazione di tipo **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, assicurarsi di collegare *solo* un account di archiviazione **Utilizzo generico**.
 
-![Creazione di un account di archiviazione "Utilizzo generico"][storage_account]  
+![Creazione di un account di archiviazione "Utilizzo generico"][storage_account]
 
 È consigliabile creare un account di archiviazione da usare esclusivamente con l'account Batch.
 
 >[AZURE.WARNING] Prestare attenzione quando si rigenerano le chiavi di accesso di un account di archiviazione collegato. Rigenerare solo una chiave dell'account di archiviazione e fare clic su **Sincronizza chiavi** nel pannello dell'account di archiviazione collegato. Attendere cinque minuti per consentire la propagazione delle chiavi ai nodi di calcolo dei pool, quindi rigenerare e sincronizzare l'altra chiave, se necessario. Se si rigenerano entrambe le chiavi contemporaneamente, i nodi di calcolo non riusciranno a sincronizzare entrambe le chiavi e perderanno l'accesso all'account di archiviazione.
 
-  ![Rigenerazione delle chiavi degli account di archiviazione][4]  
+  ![Rigenerazione delle chiavi degli account di archiviazione][4]
 
 ## Quote e limiti del servizio Batch
 
 Tenere presente che, come alla sottoscrizione di Azure e ad altri servizi di Azure, agli account Batch vengono applicati determinati [limiti e quote](batch-quota-limit.md). Le quote correnti per un account Batch vengono visualizzate nel portale nelle **Proprietà** dell'account.
 
-![Quote dell'account Batch nel portale di Azure][quotas]  
+![Quote dell'account Batch nel portale di Azure][quotas]
 
 Tenere presenti queste quote quando si progettano i carichi di lavoro di Batch e se ne aumentano le prestazioni. Se, ad esempio, il pool non raggiunge il numero di destinazione di nodi di calcolo specificato, potrebbe essere stato raggiunto il limite di quota di core per l'account Batch.
 

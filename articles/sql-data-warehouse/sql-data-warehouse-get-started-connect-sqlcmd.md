@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>  
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Eseguire query in Azure SQL Data Warehouse (sqlcmd)
 
@@ -26,7 +26,7 @@
 
 Questa procedura dettagliata usa l'utilità della riga di comando [sqlcmd][] per eseguire query in un'istanza di Azure SQL Data Warehouse.
 
-## 1\. Connetti
+## 1. Connetti
 
 Per iniziare a usare [sqlcmd][], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
 
@@ -44,7 +44,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] L'opzione -I, che abilita gli identificatori delimitati, attualmente è obbligatoria per connettersi a SQL Data Warehouse.
 
-## 2\. Query
+## 2. Query
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza. In questo esempio le query vengono inviate in modalità interattiva.
 
@@ -69,7 +69,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sqlcmd][sqlcmd].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 
@@ -77,6 +77,6 @@ Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sql
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0831_2016-->

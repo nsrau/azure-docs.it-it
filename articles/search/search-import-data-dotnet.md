@@ -15,7 +15,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.date="08/29/2016"
-    ms.author="brjohnst"/> 
+    ms.author="brjohnst"/>
 
 # Caricare dati in Ricerca di Azure tramite .NET SDK
 > [AZURE.SELECTOR]
@@ -53,7 +53,8 @@ Azione | Description | Campi necessari per ogni documento | Note
 --- | --- | --- | ---
 `Upload` | L'azione `Upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
 `Merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `DataType.Collection(DataType.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Questa azione si comporta come `Merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `Upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- `Delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `Merge` e impostare il campo su Null in modo esplicito.
+`MergeOrUpload` | Questa azione si comporta come `Merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `Upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |-
+`Delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `Merge` e impostare il campo su Null in modo esplicito.
 
 È possibile specificare l'azione da usare con i vari metodi statici delle classi `IndexBatch` e `IndexAction`, come mostrato nella sezione successiva.
 

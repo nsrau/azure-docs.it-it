@@ -41,7 +41,7 @@ Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il prog
 3. Nel file App.config sostituire i valori di EndpointUri e PrimaryKey con i valori recuperati dal [portale di Azure](https://portal.azure.com/), passando al pannello **DocumentDB (NoSQL)**, quindi facendo clic su **Nome account** e infine su **Chiavi** nel menu della risorsa. ![Screenshot del valore di EndpointUri e PrimaryKey da sostituire in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Compilare il progetto. La finestra della console mostra le nuove risorse di cui è in corso la creazione, la query e quindi la pulizia.
     
-    ![Screenshot dell'output della console](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)  
+    ![Screenshot dell'output della console](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
 
 ## <a id="tutorial"></a>Esercitazione
 
@@ -96,7 +96,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
 
 Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`.
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]  
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
 Per avviare l'applicazione introduttiva, si creerà una nuova istanza di **DocumentClient**.
 

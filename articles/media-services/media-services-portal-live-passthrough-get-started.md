@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="08/30/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
@@ -87,7 +87,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)  
+	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -121,7 +121,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 
 1. Nella finestra **Impostazioni** fare clic su **Streaming live**.
 
-	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)  
+	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
 	Verrà visualizzata la finestra **Streaming live**.
 
@@ -163,7 +163,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado d
 
 Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
-![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)  
+![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
 ##Percorsi di apprendimento di Servizi multimediali
 
