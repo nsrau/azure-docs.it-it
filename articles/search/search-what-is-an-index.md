@@ -12,7 +12,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Creare un indice di Ricerca di Azure
@@ -70,4 +70,4 @@ Durante la progettazione dell'indice, dedicare alla fase di pianificazione il te
 
 Se i requisiti per l'archiviazione dei dati cambiano nel tempo, è possibile aumentare o ridurre la capacità aggiungendo o spostando le partizioni. Per informazioni dettagliate, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) o [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analisi per app le Android"
+    pageTitle="Analisi per app Android | Microsoft Azure"
     description="Analizzare l'utilizzo e le prestazioni dell'app Android."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="06/20/2016"
+	ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analisi per app le Android
@@ -30,8 +30,16 @@ Passare a:
 
 Se l'app ha un lato server, usare [Application Insights](app-insights-overview.md) per monitorare il lato server Web dell'app in [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md).
 
-> [AZURE.NOTE] Sarà presto possibile usare [Analisi in Application Insights](app-insights-analytics.md) e l'[esportazione continua](app-insights-export-telemetry.md) con dati di telemetria inviati da HockeyApp SDK.
->
-> [Altre informazioni su questa modifica.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0622_2016-->
+## Analisi, esportazione e accesso API ai dati di HockeyApp 
+
+[Configurare un bridge HockeyApp](app-insights-hockeyapp-bridge-app.md) in Application Insights. Ciò consente di:
+
+* Usare il linguaggio avanzato di query di [Analytics](app-insights-analytics.md) per la telemetria.
+* [Esportare i dati di telemetria](app-insights-export-telemetry.md) nell'archivio BLOB di Azure.
+
+## Passaggi successivi
+
+* [Introduzione a HockeyApp per Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+
+<!---HONumber=AcomDC_0831_2016-->

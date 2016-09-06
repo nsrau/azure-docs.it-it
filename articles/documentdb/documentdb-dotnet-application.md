@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/11/2016" 
-	ms.author="anhoh"/>
+	ms.date="08/25/2016" 
+	ms.author="anhoh"/> 
 
 # <a name="_Toc395809351"></a>Esercitazione su MVC ASP.NET: Sviluppo di applicazioni Web con DocumentDB
 
@@ -591,4 +591,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

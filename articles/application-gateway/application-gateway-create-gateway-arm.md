@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 
 # Creare, avviare o eliminare un gateway applicazione tramite Gestione risorse di Azure
@@ -26,7 +26,7 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [PowerShell per Azure classico](application-gateway-create-gateway.md)
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-
+- [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -62,13 +62,7 @@ La differenza tra l'uso di Azure classico e di Azure Resource Manager risiede ne
 Con Resource Manager, tutti gli elementi che costituiscono un gateway applicazione vengono configurati singolarmente e quindi combinati per creare la risorsa del gateway applicazione.
 
 
-Per creare un gateway applicazione, seguire questa procedura:
-
-1. Creare un gruppo di risorse per Gestione risorse.
-2. Creare una rete virtuale, una subnet e un indirizzo IP pubblico per il gateway applicazione.
-3. Creare un oggetto di configurazione del gateway applicazione.
-4. Creare una risorsa del gateway applicazione.
-
+Per creare un gateway applicazione, seguire questa procedura.
 
 ## Creare un gruppo di risorse per Gestione risorse
 
@@ -84,7 +78,7 @@ Controllare le sottoscrizioni per l'account.
 		Get-AzureRmSubscription
 
 ### Passaggio 3
-Scegliere le sottoscrizioni di Azure da usare. <BR>
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
@@ -146,7 +140,7 @@ Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". 
 
 ### Passaggio 2
 
-Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere gli endpoint di indirizzi IP dell'applicazione.
+Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi indirizzi IP saranno quelli che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti e aggiungere gli endpoint di indirizzi IP dell'applicazione.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -227,10 +221,6 @@ Recuperare i dettagli relativi a DNS e indirizzo VIP del gateway applicazione da
 
 Per eliminare un gateway applicazione, seguire questa procedura:
 
-1. Usare il cmdlet **Stop-AzureRmApplicationGateway** per arrestare il gateway.
-2. Usare il cmdlet **Remove-AzureRmApplicationGateway** per rimuovere il gateway.
-3. Verificare che il gateway sia stato rimosso usando il cmdlet **Get-AzureRmApplicationGateway**.
-
 ### Passaggio 1
 
 Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw".
@@ -271,4 +261,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

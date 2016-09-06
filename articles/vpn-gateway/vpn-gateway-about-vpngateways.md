@@ -19,9 +19,11 @@
 # Informazioni sul gateway VPN
 
 
-Il gateway VPN è una raccolta di impostazioni usata per inviare il traffico di rete tra reti virtuali e percorsi locali. Il gateway VPN viene usato per connessioni da sito a sito, da punto a sito ed ExpressRoute. Viene usato anche per l'invio del traffico tra più reti virtuali in Azure, ovvero da rete virtuale a rete virtuale.
+Il gateway VPN è una raccolta di risorse usata per inviare il traffico di rete tra reti virtuali e percorsi locali. I gateway vengono usati per connessioni da sito a sito, da punto a sito ed ExpressRoute. Viene usato anche per l'invio del traffico tra più reti virtuali in Azure, ovvero da rete virtuale a rete virtuale.
 
-Ogni rete virtuale può avere un solo gateway di rete virtuale. Per creare una connessione, si aggiunge un gateway di rete virtuale a una rete virtuale e si configurano le impostazioni aggiuntive del gateway VPN. In alcuni casi, la connessione creata è una connessione VPN. In altri casi, la configurazione non richiede una VPN. La raccolta di impostazioni è chiamata "gateway VPN" indipendentemente dal fatto che sia necessaria o meno una VPN per la connessione.
+Per creare una connessione, si aggiunge un gateway di rete virtuale a una rete virtuale e si configurano le risorse aggiuntive e le relative impostazioni del gateway VPN. Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gateway. Ad esempio, è possibile configurare un gateway di rete virtuale che usa -GatewayType Vpn e una che usa -GatewayType ExpressRoute.
+
+Per informazioni sui requisiti del gateway, vedere la sezione relativa ai [requisiti del gateway](vpn-gateway-about-vpn-gateway-settings.md#requirements). Per la velocità effettiva aggregata stimata, vedere la sezione relativa alle [impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway). Per i limiti del servizio e delle sottoscrizioni, vedere [Limiti relativi alla rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
 Quando si configura un gateway VPN, le istruzioni seguite dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare le impostazioni del gateway VPN si usano le linee guida e le istruzioni per il modello di distribuzione classica. Per altre informazioni, vedere [Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse](../resource-manager-deployment-model.md).
 
@@ -34,7 +36,10 @@ Le sezioni successive contengono tabelle che elencano le informazioni seguenti p
 
 Usare i diagrammi e le descrizioni forniti per selezionare la topologia di configurazione più adatta alle proprie esigenze. I diagrammi illustrano le principali topologie di base, ma è possibile creare configurazioni più complesse usando i diagrammi come riferimento. Ogni configurazione si basa sulle impostazioni del gateway VPN selezionate.
 
-Poiché il gateway VPN è una raccolta di impostazioni, è possibile configurarne alcune usando uno strumento e quindi passare a un altro. Attualmente, non è possibile configurare ogni impostazione del gateway VPN nel portale di Azure. Le istruzioni riportate negli articoli per ogni configurazione indicano se è necessario uno strumento specifico. Se si adotta il modello di distribuzione classica, al momento è possibile lavorare nel portale classico o usare PowerShell. Per informazioni sulle singole impostazioni disponibili, vedere [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) (Informazioni sulle impostazioni del gateway VPN).
+### Configurazione delle impostazioni del gateway VPN
+
+Il gateway VPN è una raccolta di risorse ed è possibile configurarne alcune usando uno strumento e quindi passare a un altro per configurare altre risorse. Attualmente, non è possibile configurare ogni risorsa del gateway VPN nel portale di Azure. Le istruzioni riportate negli articoli per ogni configurazione indicano se è necessario uno strumento specifico. Se si adotta il modello di distribuzione classica, al momento è possibile lavorare nel portale classico o usare PowerShell. Per informazioni sulle singole impostazioni disponibili, vedere [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) (Informazioni sulle impostazioni del gateway VPN).
+
 
 
 ## Da sito a sito e multisito
@@ -77,14 +82,15 @@ Le reti virtuali connesse possono essere:
 
 Azure offre attualmente di due modelli di distribuzione: classica e Resource Manager. Se si usa Azure da qualche tempo, si dispone probabilmente di VM e istanze del ruolo di Azure in esecuzione su una rete virtuale classica. Le VM e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Resource Manager. Si crea una connessione tra le reti virtuali per consentire alle risorse di una rete virtuale di comunicare direttamente con le risorse di un'altra.
 
-### Peering reti virtuali
-
-È possibile usare il peering reti virtuali per creare la connessione, purché la configurazione delle reti virtuali soddisfi determinati requisiti. Peering reti virtuali non usa un gateway di rete virtuale. Il [peering reti virtuali](../virtual-network/virtual-network-peering-overview.md) è attualmente disponibile in versione di anteprima.
-
 
 ### Metodi e modelli di distribuzione
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
+
+### Peering reti virtuali
+
+È possibile usare il peering reti virtuali per creare la connessione, purché la configurazione delle reti virtuali soddisfi determinati requisiti. Peering reti virtuali non usa un gateway di rete virtuale. Il [peering reti virtuali](../virtual-network/virtual-network-peering-overview.md) è attualmente disponibile in versione di anteprima.
+
 
 
 ## Da punto a sito
@@ -108,7 +114,9 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ## Connessioni coesistenti da sito a sito ed ExpressRoute
 
-ExpressRoute è una connessione dedicata diretta dalla rete WAN (non sulla rete Internet pubblica) a servizi Microsoft come Azure. Il traffico VPN da sito a sito viaggia crittografato sulla rete Internet pubblica. La possibilità di configurare connessioni VPN da sito a sito ed ExpressRoute per la stessa rete virtuale offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non fanno parte della rete, ma che sono connessi tramite ExpressRoute.
+ExpressRoute è una connessione dedicata diretta dalla rete WAN (non sulla rete Internet pubblica) a servizi Microsoft come Azure. Il traffico VPN da sito a sito viaggia crittografato sulla rete Internet pubblica. La possibilità di configurare connessioni VPN da sito a sito ed ExpressRoute per la stessa rete virtuale offre diversi vantaggi.
+
+È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non fanno parte della rete, ma che sono connessi tramite ExpressRoute. Questa configurazione richiede due gateway di rete virtuale per la stessa rete virtuale, uno che usa -GatewayType Vpn e l'altro che usa -GatewayType ExpressRoute.
 
 
 ![Connessioni coesistenti](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-da sito a sito")
@@ -131,4 +139,4 @@ Connettere il percorso locale a una rete virtuale. Vedere [Creare una rete virtu
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

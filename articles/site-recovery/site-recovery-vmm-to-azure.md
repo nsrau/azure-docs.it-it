@@ -114,12 +114,16 @@ Per preparare la distribuzione è necessario:
 - A seconda del modello di risorsa da usare per le VM di Azure di cui si esegue il failover, la rete di Azure deve essere configurata in [modalità Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o in [modalità classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - È consigliabile configurare una rete prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è possibile per le reti usate per la distribuzione di Site Recovery.
+
 
 ### Configurare un account di archiviazione di Azure
 
 - Per contenere i dati replicati in Azure è necessario un account di archiviazione di Azure Standard. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 - A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
 - È consigliabile configurare un account prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è possibile per gli account di archiviazione usati per la distribuzione di Site Recovery.
 
 ### Preparare il server VMM
 
@@ -144,7 +148,7 @@ Durante la distribuzione di Site Recovery è necessario configurare il mapping d
 ## Creare un insieme di credenziali di Servizi di ripristino
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Nuovo** > **Gestione** > **Servizi di ripristino**. In alternativa è possibile fare clic su **Sfoglia** > **Insiemi di credenziali dei servizi di ripristino** > **Aggiungi**.
+2. Fare clic su **Nuovo** > **Gestione** > **Servizi di ripristino**. In alternativa è possibile fare clic su **Esplora** > **Insiemi di credenziali dei servizi di ripristino** > **Aggiungi**.
 
 	![Nuovo insieme di credenziali](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
@@ -193,7 +197,7 @@ Installare il provider di Azure Site Recovery nel server VMM e registrare il ser
 
 	![Impostare l'origine](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. Nel pannello **Aggiungi server** verificare che **Server System Center VMM** sia visualizzato in **Tipo di server** e che il server VMM sia conforme ai [prerequisiti e requisiti URL](#on-premises-prerequisites).
+3. Nel pannello **Aggiungi server** verificare che in **Tipo di server** sia visualizzato **System Center VMM server** (Server System Center VMM) e che il server VMM sia conforme a [prerequisiti e requisiti URL](#on-premises-prerequisites).
 4. Scaricare il file di installazione del provider di Azure Site Recovery.
 5. Scaricare la chiave di registrazione, che sarà necessaria durante l'installazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
@@ -381,7 +385,7 @@ In Site Recovery è disponibile lo strumento Capacity Planner, che permettere di
 - Stimare la frequenza di modifica giornaliera (varianza) prevista per i dati replicati. A questo scopo è possibile usare lo strumento [Capacity Planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057).
 
 1.	Fare clic su **Download** per scaricare lo strumento e quindi eseguirlo. [Vedere l'articolo](site-recovery-capacity-planner.md) fornito con lo strumento.
-2.	Al termine scegliere **Sì** in **Have you run the Capacity Planner?** (È stato eseguito lo strumento Capacity Planner?)
+2.	Al termine scegliere **Sì** in **Have you run the Capacity Planner** (È stato eseguito lo strumento Capacity Planner?).
 
 	![Pianificazione della capacità](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -567,4 +571,4 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

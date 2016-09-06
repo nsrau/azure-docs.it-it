@@ -26,6 +26,7 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [PowerShell per Azure classico](application-gateway-create-gateway.md)
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+- [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ In questo scenario si apprenderà come:
 	| **backendaddress2** | Indirizzo IP del secondo server Web |
 
 
->[AZURE.IMPORTANT] I modelli di Gestione risorse di Azure conservati in GitHub possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di usarlo.
+	>[AZURE.IMPORTANT] I modelli di Gestione risorse di Azure conservati in GitHub possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di usarlo.
 
 6. Controllare il contenuto in **resources** e prendere nota di quanto segue:
 
@@ -147,8 +148,6 @@ Scegliere quali sottoscrizioni Azure usare. <BR>
 Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceGroup**. Nell'esempio seguente viene creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

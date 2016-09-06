@@ -50,11 +50,11 @@ In questa esercitazione vengono effettuate le operazioni seguenti usando Visual 
 1. Avviare **Visual Studio 2013**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Si dovrebbe vedere la finestra di dialogo **Nuovo progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**. Se il modello DataFactory non è visibile, chiudere Visual Studio, installare Azure SDK per Visual Studio 2013 e riaprire Visual Studio.
 
-	![Finestra di dialogo Nuovo progetto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
+	![Finestra di dialogo Nuovo progetto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png) 
 
 3. Immettere un **nome** per il progetto, un **percorso** e un nome per la **soluzione** e fare clic su **OK**.
 
-	![Esplora soluzioni](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)
+	![Esplora soluzioni](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
 
 ## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere una risorsa di Archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale.
@@ -70,7 +70,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
  
 3. Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure.
 
-	![Servizio collegato Archiviazione di Azure](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+	![Servizio collegato Archiviazione di Azure](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png) 
 
 4. Salvare il file **AzureStorageLinkedService1.json**.
 
@@ -210,7 +210,7 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Crear
 19. Se viene visualizzato **Sign in to your Microsoft account** (Accedere all'account Microsoft), nella finestra di dialogo immettere le credenziali per l'account associato alla sottoscrizione di Azure e fare clic su **Accedi**.
 20. Verrà visualizzata la finestra di dialogo seguente:
 
-	![Finestra di dialogo Pubblica](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
+	![Finestra di dialogo Pubblica](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png) 
 
 21. Nella pagina Configura data factory, procedere come segue:
 	1. Selezionare l’opzione**Crea nuova data factory**.
@@ -256,7 +256,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 ## Usare Esplora Server per visualizzare le data factory
 
 1. In **Visual Studio** fare clic su **Visualizza** nel menu e fare clic su **Esplora server**.
-2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione viene visualizzato nella finestra **Data Factory Task List** (Elenco attività Data Factory).![Esplora server](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
+2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione viene visualizzato nella finestra **Data Factory Task List** (Elenco attività Data Factory). ![Esplora server](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione per esportare la data factory in un nuovo progetto per creare un progetto di Visual Studio basato su una data factory esistente. ![Esportare la data factory in un progetto VS](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)
 
 ## Aggiornare gli strumenti di Data factory di Azure per Visual Studio
@@ -277,4 +277,4 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo fornisce informazioni sui set di dati in Azure Data Factory.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

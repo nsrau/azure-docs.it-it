@@ -14,8 +14,8 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="08/18/2016"
-	ms.author="anhoh"/>
+	ms.date="08/24/2016"
+	ms.author="anhoh"/> 
 
 # Creazione di un'applicazione Web Java con DocumentDB
 
@@ -60,7 +60,7 @@ Per creare l'applicazione JSP:
 
 1. Iniziare innanzitutto con la creazione di un progetto Java. Avviare Eclipse, quindi fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** (Progetto Web dinamico) non è presente nell'elenco dei progetti disponibili, seguire questa procedura: fare clic su **File**, su **New** (Nuovo) e su **Project** (Progetto), espandere **Web**, fare clic su **Dynamic Web Project** (Progetto Web dinamico), quindi selezionare **Next** (Avanti).
 
-	![Sviluppo di applicazioni Java JSP](./media/documentdb-java-application/image10.png)
+	![Sviluppo di applicazioni Java JSP](./media/documentdb-java-application/image10.png) 
 
 2. Immettere un nome di progetto nella casella **Project name** e dal menu a discesa **Target Runtime** selezionare facoltativamente un valore (ad esempio, versione Apache Tomcat v7.0) e quindi fare clic su **Finish**. Se si seleziona un runtime di destinazione, sarà possibile eseguire il progetto in locale tramite Eclipse.
 3. Nella vista Project Explorer di Eclipse espandere il progetto. Fare clic con il pulsante destro del mouse su **WebContent**, scegliere **New** e quindi fare clic su **JSP File**.
@@ -79,7 +79,7 @@ Per creare l'applicazione JSP:
 8. Salvare il file index.jsp.
 9. Se nel passaggio 2 è stato impostato un runtime di destinazione, è possibile fare clic su **Project** (Progetto), quindi su **Run** (Esegui) per eseguire l'applicazione JSP in locale:
 
-	![Esercitazione sull’applicazione Java - Hello World](./media/documentdb-java-application/image12.png)
+	![Esercitazione sull’applicazione Java - Hello World](./media/documentdb-java-application/image12.png) 
 
 ##<a id="InstallSDK"></a>Passaggio 3: Installazione di DocumentDB Java SDK ##
 
@@ -96,7 +96,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
  - Nella casella **Artifact Id** immettere azure-documentdb.
  - Nella casella **Version** immettere 1.5.1.
 
-	![Installare l'SDK dell’applicazione Java di DocumentDB](./media/documentdb-java-application/image13.png)
+	![Installare l'SDK dell’applicazione Java di DocumentDB](./media/documentdb-java-application/image13.png) 
 
 	Oppure aggiungere l'XML della dipendenza per GroupId e ArtifactId direttamente nel file pom.xml mediante un editor di testo:
 
@@ -780,4 +780,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

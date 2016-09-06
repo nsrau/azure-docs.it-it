@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Caricare dati in Ricerca di Azure tramite l'API REST
@@ -52,7 +52,7 @@ Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare.
 --- | --- | --- | ---
 `upload` | L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
 `merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- 
+`mergeOrUpload` | Questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |-
 `delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su Null in modo esplicito.
 
 ## III. Creare la richiesta HTTP e il corpo della richiesta
@@ -168,4 +168,4 @@ Per altre informazioni su azioni sui documenti e risposte di esito positivo/erro
 ## Avanti
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->
