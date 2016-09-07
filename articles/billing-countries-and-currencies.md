@@ -49,7 +49,7 @@
 | Bulgaria | EUR |
 | Camerun | USD |
 | Canada | CAD |
-| Capo Verde | USD |
+| Cabo Verde | USD |
 | Isole Cayman | USD |
 | Cile | USD |
 | Colombia | USD |
@@ -78,7 +78,7 @@
 | Grecia | EUR |
 | Guatemala | USD |
 | Honduras | USD |
-| Hong Kong | HKD |
+| Hong Kong - R.A.S. | HKD |
 | Hong Kong - R.A.S. | USD |
 | Ungheria | EUR |
 | Islanda | EUR |
@@ -103,8 +103,8 @@
 | Liechtenstein | CHF |
 | Lituania | EUR |
 | Lussemburgo | EUR |
-| Macao | USD |
-| Macedonia | USD |
+| Macao - R.A.S. | USD |
+| Macedonia, ex Repubblica Jugoslava di | USD |
 | Malaysia | MYR |
 | Malaysia | USD |
 | Malta | EUR |
