@@ -780,4 +780,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!----HONumber=AcomDC_0831_2016-->

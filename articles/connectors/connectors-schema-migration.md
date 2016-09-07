@@ -19,8 +19,8 @@
 
 # Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 
-Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:
-1. Aprire l'app per la logica nel portale di Azure.
+Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:  
+1. Aprire l'app per la logica nel portale di Azure.  
 2. Fare clic su Aggiorna schema:
 
 ![Icona API][step1]
