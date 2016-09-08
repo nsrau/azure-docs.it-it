@@ -64,7 +64,8 @@ $
 
 ## Introduzione
 
-L'uso di chiavi SSH pubbliche e private è il modo più semplice di accedere ai server Linux. La [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce un modo molto più sicuro per accedere a una VM Linux o BSD in Azure rispetto all'uso di password, che possono essere molto più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque, ma la chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale. La chiave privata SSH può avere una [password](https://www.xkcd.com/936/) come misura di sicurezza. Questa password serve solo per accedere alla chiave SSH privata e **non è** la password dell'account utente. Quando si aggiunge una password alla chiave SSH, la chiave privata viene crittografata in modo che sia utilizzabile senza la password per sbloccarla. Se un utente malintenzionato ruba una chiave privata priva di password, può usarla per accedere ai server che hanno la chiave pubblica corrispondente. Una chiave privata protetta da password non può essere usata da utenti malintenzionati e rappresenta un livello di sicurezza aggiuntivo per l'infrastruttura in Azure.
+L'uso di chiavi SSH pubbliche e private è il modo più semplice di accedere ai server Linux. La [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce un modo molto più sicuro per accedere a una VM Linux o BSD in Azure rispetto all'uso di password, che possono essere molto più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque, ma la chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale. La chiave privata SSH deve essere protetta da una [password molto sicura ](https://www.xkcd.com/936/) (fonte: [xkcd.com](https://xkcd.com)). Questa password serve solo per accedere alla chiave SSH privata e **non è** la password dell'account utente. Quando si aggiunge una password alla chiave SSH, la chiave privata viene crittografata in modo che non sia utilizzabile senza la password per sbloccarla. Se un utente malintenzionato ruba una chiave privata priva di password, può usarla per accedere ai server che hanno la chiave pubblica corrispondente. Una chiave privata protetta da password non può essere usata da utenti malintenzionati e rappresenta un livello di sicurezza aggiuntivo per l'infrastruttura in Azure.
+
 
 
 Questo articolo consente di creare file delle chiavi nel formato *ssh-rsa*, consigliati per le distribuzioni in Resource Manager. Le chiavi *ssh-rsa* sono necessarie nel [portale](https://portal.azure.com) per le distribuzioni sia classica che Resource Manager.
@@ -242,4 +243,4 @@ Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chia
 - [Creare una VM Linux protetta usando il portale di Azure](virtual-machines-linux-quick-create-portal.md)
 - [Creare una VM Linux protetta usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

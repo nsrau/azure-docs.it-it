@@ -289,7 +289,7 @@ Quando si fa clic sul riquadro Hosted Graphite nel pannello di accesso, si dovre
 
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_02.png

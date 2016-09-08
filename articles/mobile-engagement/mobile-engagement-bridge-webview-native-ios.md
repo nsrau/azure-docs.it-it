@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Creare un bridge tra WebView di iOS e Mobile Engagement SDK per iOS nativo
@@ -26,12 +26,12 @@ Alcune app per dispositivi mobili vengono progettate come app ibride dove l'app 
 
 Esistono due approcci per ottenere questo risultato anche se non è disponibile una documentazione al riguardo:
 
-- Il primo viene descritto in questo [link](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip) e comporta la registrazione di `UIWebViewDelegate` nella visualizzazione Web e il rilevamento con cancellazione immediata di una modifica del percorso eseguito in JavaScript. 
-- Il secondo, che si basa su questa [sessione WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), rappresenta un approccio più lineare rispetto al primo ed è quello che viene adottato in questa guida. Si noti che questo approccio funziona solo con iOS7 e versioni successive. 
+- Il primo viene descritto in questo [link](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip) e comporta la registrazione di `UIWebViewDelegate` nella visualizzazione Web e il rilevamento con cancellazione immediata di una modifica del percorso eseguito in JavaScript.
+- Il secondo, che si basa su questa [sessione WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), rappresenta un approccio più lineare rispetto al primo ed è quello che viene adottato in questa guida. Si noti che questo approccio funziona solo con iOS7 e versioni successive.
 
 Seguire la procedura riportata sotto per un esempio di bridge iOS:
 
-1. Prima di tutto, è necessario verificare di aver terminato l'[esercitazione introduttiva](mobile-engagement-ios-get-started.md) per integrare Mobile Engagement SDK per iOS nell'app ibrida. Si può anche scegliere di abilitare la registrazione test per poter vedere i metodi SDK quando vengono attivati da WebView. 
+1. Prima di tutto, è necessario verificare di aver terminato l'[esercitazione introduttiva](mobile-engagement-ios-get-started.md) per integrare Mobile Engagement SDK per iOS nell'app ibrida. Si può anche scegliere di abilitare la registrazione test per poter vedere i metodi SDK quando vengono attivati da WebView.
     
 		- (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
 		   ....
@@ -162,8 +162,8 @@ Seguire la procedura riportata sotto per un esempio di bridge iOS:
 
 6. Notare i punti seguenti sul file **ViewController.m**:
 
-	- Nel metodo `loadWebView` si sta caricando un file HTML locale chiamato **LocalPage.html** il cui codice verrà esaminato successivamente. 
-	- Dal metodo `webViewDidFinishLoad` viene catturato `JsContext` e lo si associa alla classe wrapper. Questo consente la chiamata ai metodi wrapper SDK tramite l'handle **EngagementJs** da WebView. 
+	- Nel metodo `loadWebView` si sta caricando un file HTML locale chiamato **LocalPage.html** il cui codice verrà esaminato successivamente.
+	- Dal metodo `webViewDidFinishLoad` viene catturato `JsContext` e lo si associa alla classe wrapper. Questo consente la chiamata ai metodi wrapper SDK tramite l'handle **EngagementJs** da WebView.
 
 7. Creare un file denominato **LocalPage.html** con il codice seguente:
 
@@ -254,10 +254,10 @@ Seguire la procedura riportata sotto per un esempio di bridge iOS:
 
 8. Notare i punti seguenti riguardanti il file HTML indicato sopra:
 
-	- 	Contiene un set di caselle di input in cui è possibile fornire i dati da usare come nomi per Event, Job, Error e AppInfo. Quando si fa clic sul pulsante accanto, viene eseguita una chiamata a JavaScript che a sua volta chiama i metodi dal file bridge per passare la chiamata a Mobile Engagement SDK per iOS. 
-	- 	Vengono aggiunte alcune informazioni statiche extra agli eventi, ai processi e anche agli errori per mostrare come eseguire questa operazione. Queste informazioni aggiuntive vengono inviate come stringa JSON che, guardando il file `EngagementJsExports.m`, viene analizzata e passata con l'invio di Events, Jobs ed Errors. 
-	- 	Un processo di Mobile Engagement viene avviato con il nome specificato nella casella di input, viene eseguito per 10 secondi, quindi arrestato. 
-	- 	Un appinfo o tag Mobile Engagement viene passato con 'customer\_name' come chiave statica e con il valore immesso nell'input come valore del tag. 
+	- 	Contiene un set di caselle di input in cui è possibile fornire i dati da usare come nomi per Event, Job, Error e AppInfo. Quando si fa clic sul pulsante accanto, viene eseguita una chiamata a JavaScript che a sua volta chiama i metodi dal file bridge per passare la chiamata a Mobile Engagement SDK per iOS.
+	- 	Vengono aggiunte alcune informazioni statiche extra agli eventi, ai processi e anche agli errori per mostrare come eseguire questa operazione. Queste informazioni aggiuntive vengono inviate come stringa JSON che, guardando il file `EngagementJsExports.m`, viene analizzata e passata con l'invio di Events, Jobs ed Errors.
+	- 	Un processo di Mobile Engagement viene avviato con il nome specificato nella casella di input, viene eseguito per 10 secondi, quindi arrestato.
+	- 	Un appinfo o tag Mobile Engagement viene passato con 'customer\_name' come chiave statica e con il valore immesso nell'input come valore del tag.
  
 9. Eseguire l'app per visualizzare quanto segue. Assegnare un nome a un evento test simile a quello seguente, quindi fare clic sul pulsante **Send** accanto.
 
@@ -271,4 +271,4 @@ Seguire la procedura riportata sotto per un esempio di bridge iOS:
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

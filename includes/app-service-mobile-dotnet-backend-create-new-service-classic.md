@@ -22,7 +22,7 @@
 
 9. Nel pannello **Aggiungi connessione dati** fare clic su **Stringa di connessione**, immettere i valori per l'account di accesso e la password del database e fare clic su **OK**. Prima di procedere, attendere alcuni minuti che a distribuzione del database venga completata.
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0810_2016-->

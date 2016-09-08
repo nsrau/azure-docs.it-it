@@ -1,10 +1,10 @@
 
 <properties 
-   pageTitle="Panoramica del bilanciamento del carico Internet | Microsoft Azure"
+   pageTitle="Panoramica del bilanciamento del carico Internet | Microsoft Azure "
    description="Panoramica del bilanciamento del carico Internet e delle relative funzionalità. Modalità di funzionamento del bilanciamento del carico per Azure con macchine virtuali e servizi cloud."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Bilanciamento del carico Internet tra più macchine virtuali o servizi
@@ -48,4 +48,4 @@ Se l'applicazione deve mantenere attive le connessioni per i server dietro il se
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

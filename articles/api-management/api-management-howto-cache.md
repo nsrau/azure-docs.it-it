@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="steved0x"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="api-management"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
-	ms.author="sdanie"/>  
+	ms.date="08/24/2016"
+	ms.author="sdanie"/>
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
 
@@ -44,11 +44,11 @@ Fare clic su **API** dal menu **Gestione API** a sinistra, quindi scegliere **AP
 
 Fare clic sulla scheda **Operazioni**, quindi sull'operazione **GET su risorsa (memorizzata nella cache)** nell'elenco **Operazioni**.
 
-![Operazioni dell'API Echo][api-management-echo-api-operations]  
+![Operazioni dell'API Echo][api-management-echo-api-operations]
 
 Fare clic sulla scheda **Caching** per visualizzare le impostazioni di caching per l'operazione.
 
-![Scheda Memorizzazione nella cache][api-management-caching-tab]  
+![Scheda Memorizzazione nella cache][api-management-caching-tab]
 
 Per abilitare il caching per un'operazione, selezionare la casella di controllo **Abilita**. In questo esempio, il caching è abilitato.
 
@@ -66,11 +66,11 @@ Quando le impostazioni di memorizzazione nella cache vengono configurate per un'
 
 Fare clic su **Criteri** dal menu **Gestione API** a sinistra, quindi selezionare **API Echo/GET su risorsa (memorizzata nella cache)** dall'elenco a discesa **Operazione**.
 
-![Operazione nell'ambito dei criteri][api-management-operation-dropdown]  
+![Operazione nell'ambito dei criteri][api-management-operation-dropdown]
 
 Visualizza i criteri per l'operazione nell'editor dei criteri.
 
-![Editor dei criteri di Gestione API][api-management-policy-editor]  
+![Editor dei criteri di Gestione API][api-management-policy-editor]
 
 La definizione dei criteri per questa operazione include i criteri che definiscono la configurazione della memorizzazione nella cache rivisti usando la scheda **Memorizzazione nella cache** nel passaggio precedente.
 
@@ -95,11 +95,11 @@ La definizione dei criteri per questa operazione include i criteri che definisco
 
 Per vedere il funzionamento della memorizzazione nella cache, l'operazione viene chiamata dal portale per sviluppatori. Fare clic su **Developer portal** nel menu in alto a destra.
 
-![Portale per sviluppatori][api-management-developer-portal-menu]  
+![Portale per sviluppatori][api-management-developer-portal-menu]
 
 Fare clic su **API** dal menu in alto e quindi scegliere **API Echo**.
 
-![API Echo][api-management-apis-echo-api]  
+![API Echo][api-management-apis-echo-api]
 
 >Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
@@ -109,11 +109,11 @@ Selezionare l'operazione **GET su risorsa (memorizzata nella cache)**, quindi fa
 
 La console consente di richiamare le operazioni direttamente dal portale per sviluppatori.
 
-![Console][api-management-console]  
+![Console][api-management-console]
 
 Mantenere i valori predefiniti per **param1** e **param2**.
 
-Selezionare la chiave desiderata dall'elenco a discesa **subscription-key**. Se l'account dispone di una sola sottoscrizione, sarà già selezionata automaticamente.
+Selezionare la chiave desiderata dall'elenco a discesa **subscription-key**. Se l'account ha una sola sottoscrizione, sarà già selezionata automaticamente.
 
 Immettere **sampleheader:value1** nella casella di testo **Intestazioni della richiesta**.
 
@@ -129,7 +129,6 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione avanzata di Gestione API di Azure][].
 -	Per altre informazioni sui criteri di caching, vedere [Criteri di caching][] nell'argomento [Riferimento ai criteri di Gestione API][].
 -	Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Introduzione alla configurazione avanzata di Gestione API di Azure]: api-management-get-started-advanced.md
 
 [Riferimento ai criteri di Gestione API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Criteri di caching]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -163,4 +161,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

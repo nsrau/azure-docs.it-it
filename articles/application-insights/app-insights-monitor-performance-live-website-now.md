@@ -162,7 +162,7 @@ Per consentire il funzionamento di Status Monitor è necessario aprire [alcune p
   * Aprire il riquadro Ricerca diagnostica (il riquadro Ricerca) per visualizzare i singoli eventi. Gli eventi sono spesso visibili in Ricerca diagnostica prima che vengano visualizzati i dati aggregati nei grafici.
   * Aprire Status Monitor e selezionare la propria applicazione nel pannello a sinistra. Verificare se sono presenti messaggi di diagnostica per l'applicazione nella sezione "Configuration notifications":
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Aprire il pannello delle prestazioni per visualizzare una richiesta, il tempo di risposta, le dipendenze e altri dati](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Assicurarsi che il firewall del server consenta il traffico in uscita sulle porte sopra elencate.
   * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti, provare a seguire questa procedura:
@@ -300,4 +300,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

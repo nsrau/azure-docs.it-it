@@ -3,7 +3,7 @@
    description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica per i servizi cloud"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet per i servizi cloud
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
 
 I servizi cloud vengono configurati automaticamente con il servizio di bilanciamento del carico e possono essere personalizzati tramite il modello del servizio.
 
@@ -83,4 +83,4 @@ Per altre informazioni, fare riferimento allo schema di definizione del servizio
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come visualizzare e gestire i grafici dei dati relativi all'applicazione
@@ -129,4 +129,4 @@ La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafi
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

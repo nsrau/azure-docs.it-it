@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 #Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
 
 Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through.
-
-Servizi multimediali di Azure è attualmente in anteprima nel portale di Azure.
 
 
 ##Prerequisiti
@@ -65,7 +63,7 @@ I passaggi seguenti descrivono le attività previste per la creazione di applica
 1. Arrestare il programma o l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
 1. Eliminare il programma o l'evento e, facoltativamente, l'asset.
 
->[AZURE.IMPORTANT] Per informazioni su considerazioni e concetti relativi allo streaming live con codificatori locali e canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a più bitrate](media-services-live-streaming-with-onprem-encoders.md).
+>[AZURE.IMPORTANT] Per informazioni su considerazioni e concetti relativi allo streaming live con codificatori locali e canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Per visualizzare notifiche ed errori
 
@@ -85,7 +83,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 2. Fare clic sull'endpoint di streaming predefinito.
 
-	Verrà visualizzata la finestra **DEFAULT STREAMING ENDPOINT DETAILS** (DETTAGLI ENDPOINT DI STREAMING PREDEFINITO).
+	Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO**.
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
@@ -119,7 +117,7 @@ Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per l
 
 Queste sezioni illustrano come usare l'opzione **Creazione rapida** per creare un canale pass-through.
 
-Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a più bitrate](media-services-live-streaming-with-onprem-encoders.md).
+Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Nella finestra **Impostazioni** fare clic su **Streaming live**.
 
@@ -154,7 +152,7 @@ Una volta arrestato, l'evento live verrà convertito automaticamente in contenut
 
 ##Eseguire la pulizia
 
-Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a più bitrate](media-services-live-streaming-with-onprem-encoders.md).
+Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
 - È possibile arrestare un canale solo quando tutti gli eventi o i programmi nel canale sono stati arrestati. Una volta arrestato, il canale non subirà modifiche. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
 - È possibile eliminare un canale solo quando tutti gli eventi live nel canale sono stati eliminati.
@@ -167,7 +165,7 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 ![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,4 +173,4 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

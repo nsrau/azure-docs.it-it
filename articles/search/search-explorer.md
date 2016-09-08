@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"
 />
 # Eseguire query nell'indice di Ricerca di Azure usando il portale di Azure
@@ -47,4 +47,4 @@ Prima di iniziare questa procedura dettagliata, è necessario avere [creato un i
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire i modelli di larghezza di banda StorSimple.
 
-## Panoramica
+## Overview
 
 I modelli di larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie, per suddividere in livelli i dati del dispositivo StorSimple nel cloud.
 
@@ -63,7 +63,7 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
    2. Selezionare l'opzione **Tutto il giorno** se la pianificazione viene applicata per l'intera giornata. Se questa opzione è selezionata, non sarà più possibile specificare un'opzione **Ora di inizio** oppure **Ora di fine**. La pianificazione viene eseguita dalle 12:00 alle 23:59.
    3. Dall'elenco a discesa, selezionare l'opzione **Ora di inizio**. Si tratta dell'orario relativo all'inizio della pianificazione.
    4. Dall'elenco a discesa, selezionare l'opzione **Ora di fine**. Si tratta dell'orario relativo all'interruzione della pianificazione.
-
+   
          > [AZURE.NOTE] Le pianificazioni sovrapposte non sono consentite. Se gli orari di inizio e di fine sono sovrapposti con altre pianificazioni, verrà visualizzato un messaggio di errore.
 
    5. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo.
@@ -172,4 +172,4 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -25,7 +25,7 @@ Il supporto per AMQP 1.0 è disponibile in Service Bus SDK versione 2.1 o succes
 
 ## Configurazione delle applicazioni .NET per l'uso di AMQP 1.0
 
-Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane essenzialmente invariato durante l'uso di AMQP 1.0.
+Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane invariato quando si usa AMQP 1.0.
 
 Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate più avanti nella sezione [Funzionalità non supportate, restrizioni e differenze di comportamento](#unsupported-features-restrictions-and-behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
 
@@ -45,7 +45,7 @@ Il valore dell'impostazione `Microsoft.ServiceBus.ConnectionString` corrisponde 
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Dove `[namespace]` e `SharedAccessKey` vengono ottenuti dal [portale di Azure classico][]. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
+Dove `[namespace]` e `SharedAccessKey` vengono ottenuti dal [portale di Azure][]. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
 
 Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di connessione. Questa notazione segnala alla libreria client di effettuare la connessione al bus di servizio mediante AMQP 1.0.
 
@@ -75,14 +75,14 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | DateTime | timestamp | Valore AMQP |
 | Guid | uuid | Valore AMQP |
 | byte | binary | Valore AMQP |
-| string | string | Valore AMQP |
+| string | stringa | Valore AMQP |
 | System.Collections.IList | list | Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Array | array | Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Collections.IDictionary | map | Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. Nota: sono supportate solo chiavi di tipo String. |
 | Uri | Stringa descritta (vedere la tabella seguente) | Valore AMQP |
 | DateTimeOffset | Elemento Long descritto (vedere la tabella seguente) | Valore AMQP |
 | TimeSpan | Elemento Long descritto (vedere la tabella seguente) | Valore AMQP |
-| Stream | binary | Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
+| Flusso | binary | Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
 | Altro oggetto | binary | Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
 
 | Tipo .NET | Tipo descritto AMQP mappato | Note |
@@ -134,9 +134,9 @@ Per altre informazioni, vedere i collegamenti seguenti:
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[portale di Azure classico]: http://manage.windowsazure.com
+[portale di Azure]: https://portal.azure.com
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

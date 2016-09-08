@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Procedura di creazione di un account DocumentDB con supporto del protocollo per MongoDB usando il portale di Azure
@@ -50,7 +50,7 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
 	- Nella casella **ID** immettere un nome per identificare l'account. Quando l’**ID** viene convalidato, appare un segno di spunta verde nella casella **ID**. Il valore **ID** diventa il nome host nell'URI. L'**ID** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Si noti che al nome endpoint scelto viene aggiunto *documents.azure.com* e il risultato finale sarà l'endpoint dell'account.
 
-	- Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account. Se l'account dispone solo una sottoscrizione, tale account viene selezionato per impostazione predefinita.
+	- Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account. Se l'account ha solo una sottoscrizione, tale account viene selezionato per impostazione predefinita.
 
 	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account. Per impostazione predefinita, verrà scelto un gruppo di risorse esistente nella sottoscrizione di Azure. È tuttavia possibile scegliere di creare un nuovo gruppo di risorse a cui aggiungere l'account. Per altre informazioni, vedere [Uso del portale di Azure per gestire le risorse di Azure](resource-group-portal.md).
 
@@ -78,4 +78,4 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Preparazione del backup dei carichi di lavoro in Azure con DPM
@@ -48,7 +48,7 @@ Di seguito sono elencati i vantaggi aziendali derivanti dall'uso del servizio Ba
 ## Funzionamento del backup del server DPM
 Per eseguire il backup di una macchina virtuale è prima necessario acquisire uno snapshot dei dati in un momento specifico. Il servizio Backup di Azure avvia il processo di backup all'ora pianificata e avvia l'estensione per il backup per acquisire uno snapshot. L'estensione per il backup si coordina con il servizio VSS in-guest per assicurare coerenza e, dopo averla ottenuta, richiama l'API snapshot del BLOB del servizio Archiviazione di Azure. Questa operazione viene eseguita per ottenere uno snapshot coerente dei dischi della macchina virtuale senza che sia necessario arrestarla.
 
-Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati all'insieme di credenziali per il backup. Il servizio provvede a identificare e trasferire soltanto i blocchi che sono stati modificati dopo l'ultimo backup, rendendo in questo modo efficienti l'archiviazione dei backup e la rete. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino. È possibile visualizzare tale punto di ripristino nel portale di gestione di Azure.
+Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati all'insieme di credenziali per il backup. Il servizio provvede a identificare e trasferire soltanto i blocchi che sono stati modificati dopo l'ultimo backup, rendendo in questo modo efficienti l'archiviazione dei backup e la rete. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino. È possibile visualizzare tale punto di ripristino nel portale di Azure classico.
 
 >[AZURE.NOTE] Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
 
@@ -74,8 +74,8 @@ Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuz
 - DPM può eseguire il backup della maggior parte dei carichi di lavoro nel servizio Backup di Azure. Per visualizzare un elenco completo degli elementi supportati, consultare gli elementi supportati di Backup di Azure riportati di seguito.
 - Usando l'opzione "Copia su nastro", non è possibile ripristinare i dati memorizzati in Backup di Azure.
 - È necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
-- Per usare Backup di Azure è necessario che Azure Backup Agent sia installato sui server da sottoporre a backup. Le dimensioni di ogni server devono essere almeno il 10% di quelle dei dati sottoposti a backup. Spazio disponibile come archiviazione locale. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 10 GB di spazio disponibile nello spazio di lavoro. Anche se la dimensione minima è 10%, è consigliabile usare uno spazio di archiviazione locale del 15% per il percorso della cache.
-- I dati verranno memorizzati nell'archiviazione relativa all'insieme di credenziali di Azure. Non esistono limiti relativi alla quantità di dati che è possibile sottoporre a backup in un insieme di credenziali di Backup di Azure, tuttavia la dimensione dell'origine dati (ad esempio, un database o una macchina virtuale) non deve superare i 54400 GB.
+- Per usare Backup di Azure è necessario che Azure Backup Agent sia installato sui server da sottoporre a backup. Le dimensioni di ogni server devono essere almeno il 10% di quelle dei dati sottoposti a backup. Lo spazio deve essere disponibile come archiviazione locale. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 10 GB di spazio disponibile nello spazio di lavoro. Anche se la dimensione minima è 10%, è consigliabile usare uno spazio di archiviazione locale del 15% per il percorso della cache.
+- I dati verranno memorizzati nell'archiviazione relativa all'insieme di credenziali di Azure. Non esistono limiti relativi alla quantità di dati che è possibile includere nel backup in un insieme di credenziali di Backup di Azure, tuttavia le dimensioni dell'origine dati (ad esempio, un database o una macchina virtuale) non devono superare 54.400 GB.
 
 Il backup in Azure è supportato per i tipi di file seguenti:
 
@@ -94,6 +94,6 @@ Questi tipi di file non sono supportati:
 - Flusso compresso
 - Flusso di tipo sparse
 
->[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
+>[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup di carichi di lavoro protetti da DPM in Azure, usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

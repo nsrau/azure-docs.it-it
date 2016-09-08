@@ -3,7 +3,7 @@
    description="Informazioni su come creare un servizio di bilanciamento del carico interno in Resource Manager con il portale di Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,11 +15,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno nel portale di Azure
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -43,8 +43,8 @@ Per creare un servizio di bilanciamento del carico interno dal portale di Azure,
 
 >[AZURE.NOTE] Se si sceglie un indirizzo IP statico, sarà necessario fornire un indirizzo per il servizio di bilanciamento del carico.
     
-7. In **Gruppo di risorse** specificare il nome di un nuovo gruppo di risorse per il servizio di bilanciamento del carico oppure fare clic su **Seleziona esistente** e scegliere un gruppo di risorse esistente. 
-8. Fare clic su **Create**. 
+7. In **Gruppo di risorse** specificare il nome di un nuovo gruppo di risorse per il servizio di bilanciamento del carico oppure fare clic su **Seleziona esistente** e scegliere un gruppo di risorse esistente.
+8. Fare clic su **Create**.
 
 ## Configurare le regole del servizio di bilanciamento del carico 
 
@@ -55,7 +55,7 @@ Dopo la creazione del servizio di bilanciamento di carico, individuare la risors
 Configurare un pool back-end:
 
 1. Nel portale di Azure fare clic su **Sfoglia** > **Bilanciamenti del carico**, quindi fare clic sul servizio di bilanciamento del carico creato in precedenza.
-2. Nel pannello **Impostazioni** fare clic su **Pool back-end**. 
+2. Nel pannello **Impostazioni** fare clic su **Pool back-end**.
 3. Nel pannello **Pool di indirizzi back-end** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi pool back-end** digitare un **Nome** per il pool back-end e quindi fare clic su **OK**.
 
@@ -64,7 +64,7 @@ Configurare un pool back-end:
 Configurare un probe:
  
 1. Nel portale di Azure fare clic su **Sfoglia** > **Bilanciamenti del carico**, quindi fare clic sul servizio di bilanciamento del carico creato in precedenza.
-2. Nel pannello **Impostazioni** fare clic su **Probe**. 
+2. Nel pannello **Impostazioni** fare clic su **Probe**.
 3. Nel pannello **Probe** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi probe** digitare un **Nome** per il probe.
 5. In **Protocollo** selezionare **HTTP** (per i siti Web) o **TCP** (per le altre applicazioni basate su TCP).
@@ -79,7 +79,7 @@ Configurare un probe:
 Configurare le regole del servizio di bilanciamento del carico:
 
 1. Nel portale di Azure fare clic su **Sfoglia** > **Bilanciamenti del carico**, quindi fare clic sul servizio di bilanciamento del carico creato in precedenza.
-2. Nel pannello **Impostazioni** fare clic su **Regole di bilanciamento del carico**. 
+2. Nel pannello **Impostazioni** fare clic su **Regole di bilanciamento del carico**.
 3. Nel pannello **Regole di bilanciamento del carico** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi regola di bilanciamento del carico** digitare un **Nome** per la regola.
 5. In **Protocollo** selezionare **HTTP** (per i siti Web) o **TCP** (per le altre applicazioni basate su TCP).
@@ -97,4 +97,4 @@ Configurare le regole del servizio di bilanciamento del carico:
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

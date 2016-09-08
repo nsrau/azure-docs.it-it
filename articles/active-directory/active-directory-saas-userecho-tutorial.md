@@ -307,7 +307,7 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_02.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Reimpostare la password per un utente
@@ -35,4 +35,4 @@ Che si stia rispondendo a una richiesta utente di reimpostazione della password 
 - [Gestire password in Azure AD](active-directory-manage-passwords.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

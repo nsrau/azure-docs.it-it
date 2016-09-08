@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,11 @@
 
 ## Note sulla versione di R Server su HDInsight rilasciata il 17/08/2016
 
-• R Server 8.0.5 - principalmente una versione di correzione di bug. Vedere la sezione [Note sulla versione di R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) per maggiori informazioni. • Il pacchetto AzureML nel nodo perimetrale, [questo pacchetto R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), consente la pubblicazione e l'uso dei modelli R come servizio Web di Azure ML. Vedere la sezione ["Rendere operativo un modello"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) dell'articolo ["Panoramica di R Server su HDInsight"](hdinsight-hadoop-r-server-overview.md) per maggiori informazioni. • Le dipendenze Linux dei [100 pacchetti R più diffusi](https://github.com/metacran/cranlogs) sono ora preinstallate. • Opzione per l'uso del repository CRAN quando si aggiungono pacchetti R ai nodi di dati. Vedere la sezione ["Installare pacchetti R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) dell'articolo ["Introduzione all'uso di R Server su HDInsight "](hdinsight-hadoop-r-server-get-started.md) per maggiori informazioni. • Miglioramento dell'affidabilità del provisioning di R Server dopo la creazione dei cluster.
+- R Server 8.0.5 - principalmente una versione di correzione di bug. Per altre informazioni, vedere le [note sulla versione per R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+- Il pacchetto AzureML nel nodo perimetrale, [questo pacchetto R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), consente la pubblicazione e l'uso dei modelli R come servizio Web di Azure ML. Per altre informazioni, vedere la sezione [Rendere operativo un modello](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) dell'articolo ["Panoramica di R Server su HDInsight"](hdinsight-hadoop-r-server-overview.md).
+- Dipendenze di Linux dei [primi 100 pacchetti R più diffusi](https://github.com/metacran/cranlogs): queste dipendenze di pacchetto Linux sono ora preinstallate.
+- Possibilità di usare il repository CRAN quando si aggiungono pacchetti R ai nodi di dati. Per altre informazioni, vedere la sezione ["Installare pacchetti R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) dell'articolo ["Introduzione all'uso di R Server su HDInsight"](hdinsight-hadoop-r-server-get-started.md).
+- Miglioramento dell'affidabilità del provisioning di R Server dopo la creazione dei cluster.
 
 
 ## Note sulla versione di HDInsight rilasciata in data 01/08/2016
@@ -317,7 +321,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versione HDP predefinita modificata in HDP 2.2 | La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. | Service | Tutti| N/D |
-|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode*, workernode* e zookeepernode* a hn*, wn* e zk*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Service | Cluster HDInsight basati su Linux | N/D |
+|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode\*, workernode\* e zookeepernode\* a hn\*, wn\* e zk\*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Service | Cluster HDInsight basati su Linux | N/D |
 | Modifiche di configurazione | Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> | Service | Tutti | N/D |
 
 
@@ -1684,4 +1688,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

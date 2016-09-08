@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/02/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Metriche comuni per la scalabilità automatica di Azure Insights
 
@@ -166,12 +166,21 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 È possibile configurare questa opzione nel pannello **Impostazioni** del portale di Azure. Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione Scalabilità automatica nel modello di Azure Resource Manager per l'uso di *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
 
+Per un account di archiviazione classico, ad esempio, la classe metricTrigger per la scalabilità automatica includerà:
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+Per un account di archiviazione non classico, metricTrigger includerà:
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## Metriche del bus di servizio usate comunemente
 
@@ -187,4 +196,4 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 
 >[AZURE.NOTE] Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

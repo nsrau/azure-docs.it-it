@@ -20,29 +20,31 @@
 
 # Associazioni di app per dispositivi mobili in Funzioni di Azure
 
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+
 Questo articolo illustra come configurare e scrivere il codice di associazioni di app per dispositivi mobili di Azure in Funzioni di Azure
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Le app per dispositivi mobili del servizio app di Azure consentono di esporre i dati degli endpoint tabella ai client per dispositivi mobili. Questi stessi dati tabulari possono essere usati con le associazioni sia di input che di output in Funzioni di Azure. Grazie al supporto dello schema dinamico, un'app per dispositivi mobili back-end Node.js è ideale per l'esposizione di dati tabulari da usare con le funzioni. Lo schema dinamico è abilitato per impostazione predefinita ed è consigliabile disabilitarlo in un'app per dispositivi mobili di produzione. Per altre informazioni sugli endpoint tabella in un back-end Node. js, vedere [Panoramica: Operazioni su tabella](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Nelle app per dispositivi mobili il back-end Node.js supporta l'esplorazione e la modifica di tabelle nel portale. Per altre informazioni, vedere la sezione relativa alla [modifica nel portale](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) nell'argomento che illustra l'uso di Node.js SDK. Quando si usa un'app per dispositivi mobili del back-end .NET con le funzioni di Azure è necessario aggiornare manualmente il modello di dati come richiesto dalla funzione. Per altre informazioni sugli endpoint tabella in un'app per dispositivi mobili del back-end .NET, vedere [Procedura: Definire un controller tabelle](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) nell'argomento relativo all'SDK di un back-end .NET.
+Le app per dispositivi mobili del servizio app di Azure consentono di esporre i dati degli endpoint tabella ai client per dispositivi mobili. Questi stessi dati tabulari possono essere usati con le associazioni sia di input che di output in Funzioni di Azure. Grazie al supporto dello schema dinamico, un'app per dispositivi mobili back-end Node.js è ideale per l'esposizione di dati tabulari da usare con le funzioni. Lo schema dinamico è abilitato per impostazione predefinita ed è consigliabile disabilitarlo in un'app per dispositivi mobili di produzione. Per altre informazioni sugli endpoint tabella in un back-end Node.js, vedere [Operazioni su tabella](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Nelle app per dispositivi mobili il back-end Node.js supporta l'esplorazione e la modifica di tabelle nel portale. Per altre informazioni, vedere la sezione relativa alla [modifica nel portale](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) nell'argomento che illustra l'uso di Node.js SDK. Quando si usa un'app per dispositivi mobili del back-end .NET con le funzioni di Azure è necessario aggiornare manualmente il modello di dati come richiesto dalla funzione. Per altre informazioni sugli endpoint tabella in un'app per dispositivi mobili del back-end .NET, vedere [Procedura: Definire un controller tabelle](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) nell'argomento relativo all'SDK di un back-end .NET.
 
 ## Creare una variabile di ambiente per l'URL del back-end di app per dispositivi mobili
 
-Le associazioni di app per dispositivi mobili richiedono attualmente la creazione di una variabile di ambiente che restituisca l'URL back-end della stessa app per dispositivi mobili. È possibile trovare l'URL nel [portale Azure](https://portal.azure.com), individuando l'app per dispositivi mobili e aprendo il pannello.
+Le associazioni di app per dispositivi mobili richiedono attualmente la creazione di una variabile di ambiente che restituisca l'URL back-end della stessa app per dispositivi mobili. È possibile trovare l'URL nel [portale di Azure](https://portal.azure.com), individuando l'app per dispositivi mobili e aprendo il pannello.
 
 ![Pannello App per dispositivi mobili nel portale di Azure](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
 
 Per impostare questo URL come variabile di ambiente nell'app per le funzioni:
 
-1. Nel pannello Function App (App per le funzioni) del [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Function app settings** (Impostazioni dell'app per le funzioni) > **Go to App Service settings** (Vai a Impostazioni del servizio app). 
+1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Passa a Impostazioni del servizio app**.
 
 	![Pannello Impostazioni dell'app per le funzioni](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
-2. Nell'app per le funzioni fare clic su **All settings** (Tutte le impostazioni), scorrere verso il basso fino a **Application settings** (Impostazioni applicazione), quindi in **App settings** (Impostazioni app) digitare un nuovo **Nome** per la variabile di ambiente, incollare l'URL nel campo **Value** (Valore) assicurandosi di usare lo schema HTTPS, quindi fare clic su **Salva** e chiudere il pannello Function App (App per le funzioni) per tornare al portale Funzioni.
+2. Nell'app per le funzioni fare clic su **Tutte le impostazioni**, scorrere verso il basso fino a **Impostazioni dell'applicazione**, quindi in **Impostazioni app** digitare un nuovo **Nome** per la variabile di ambiente, incollare l'URL nel campo **Valore** assicurandosi di usare lo schema HTTPS, quindi fare clic su **Salva** e chiudere il pannello dell'app per le funzioni per tornare al portale Funzioni.
 
 	![Aggiungere una variabile di ambiente come impostazione dell'app](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
 
-È ora possibile impostare la nuova variabile di ambiente nel campo *connection* (connessione) delle associazioni.
+È ora possibile impostare la nuova variabile di ambiente come campo *connection* delle associazioni.
 
 ## <a id="mobiletablesapikey"></a> Usare una chiave API per proteggere l'accesso agli endpoint tabella delle app per dispositivi mobili.
 
@@ -64,7 +66,7 @@ Il file *function.json* supporta le proprietà seguenti:
 - `id`: ID del record da recuperare. Questa proprietà supporta associazioni simili a `{queueTrigger}` che useranno il valore stringa del messaggio della coda come ID record.
 - `apiKey`: stringa corrispondente all'impostazione dell'applicazione che specifica la chiave API facoltativa per l'app per dispositivi mobili. È necessaria quando l'app per dispositivi mobili usa una chiave API per limitare l'accesso client.
 - `connection`: stringa che rappresenta il nome della variabile di ambiente nelle impostazioni dell'applicazione che specifica l'URL del back-end dell'app per dispositivi mobili.
-- `direction` : direzione dell'associazione, che deve essere impostata su *in*.
+- `direction`: direzione dell'associazione, che deve essere impostata su *in*.
 
 Esempio di file *function.json*:
 
@@ -167,4 +169,4 @@ Questo esempio di codice Node.js inserisce un nuovo record in un endpoint tabell
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

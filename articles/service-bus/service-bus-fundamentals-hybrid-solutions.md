@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/20/2016" 
+	ms.date="08/31/2016" 
 	ms.author="sethm"/>
 
 # Bus di servizio di Azure
@@ -33,15 +33,14 @@ Il bus di servizio è un servizio cloud multi-tenant, il che significa che il se
 All'interno di uno spazio dei nomi è possibile usare una o più istanze di quattro meccanismi di comunicazione diversi, ognuno dei quali consente di connettere le applicazioni in modo diverso. Le opzioni disponibili sono:
 
 - *Code*: consentono la comunicazione unidirezionale. Ogni coda funge da intermediario (talvolta è infatti denominata *broker*) che archivia i messaggi inviati fino a quando non vengono ricevuti. Ogni messaggio viene ricevuto da un singolo destinatario.
-- *Argomenti*: garantiscono la comunicazione unidirezionale mediante *sottoscrizioni*. Un singolo argomento può disporre di più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
-- *Inoltri*: forniscono funzionalità di comunicazione bidirezionale. Diversamente da code e argomenti, un inoltro non archivia i messaggi in elaborazione, in quanto non si tratta di un broker. Al contrario, li passa semplicemente all'applicazione di destinazione.
-- *Hub eventi*: forniscono eventi e dati di telemetria in entrata al cloud con un livello avanzato di scalabilità, affidabilità elevata e bassa latenza.
+- *Argomenti*: garantiscono la comunicazione unidirezionale mediante *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
+- *Inoltri*: forniscono funzionalità di comunicazione bidirezionale. Diversamente da code e argomenti, un inoltro non archivia i messaggi in elaborazione, perché non si tratta di un broker. Al contrario, li passa semplicemente all'applicazione di destinazione.
 
-Quando si crea una coda, un argomento, un inoltro o un hub eventi, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento, inoltro o hub eventi per comunicare tra loro.
+Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro.
 
-In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Per le code, gli argomenti e gli hub eventi, le applicazioni Windows possono usare un'API del sistema di messaggistica definita dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È inoltre possibile accedere a code, argomenti e hub eventi tramite le API REST su HTTP.
+In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le API REST su HTTP.
 
-È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione generico nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
+È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
 ## Queues
 
@@ -51,7 +50,7 @@ Si supponga di dover connettere due applicazioni usando una coda del bus di serv
  
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
-Il processo è semplice: un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
+Il processo è semplice: un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
 
 Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un corpo del messaggio binario. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà *Venditore="Ava"* e *Importo=10000*. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato, oppure, se questo non è disponibile, rimanere vuoto.
 
@@ -59,9 +58,9 @@ Un ricevitore può leggere un messaggio da una coda del bus di servizio in due m
 
 La seconda opzione, *PeekLock*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
 
-- Se il ricevitore elabora correttamente il messaggio, chiama il metodo **Complete** e la coda elimina il messaggio. 
+- Se il ricevitore elabora correttamente il messaggio, chiama il metodo **Complete** e la coda elimina il messaggio.
 - Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo **Abandon**. La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
-- Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi) la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso, si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
+- Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi) la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
 
 Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà **MessageID** univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda.
 
@@ -97,19 +96,15 @@ Ad esempio, potrebbe essere necessario connettere due applicazioni locali, entra
 
 L'inoltro del bus di servizio di Azure può risultare utile. Per comunicare in modalità bidirezionale tramite un inoltro, ogni applicazione stabilisce una connessione TCP in uscita con il bus di servizio e la mantiene aperta. Tutte le comunicazioni tra le due applicazioni avvengono su tali connessioni. Dato che ogni connessione è stata stabilita dall'interno del data center, il firewall consente il traffico in ingresso a ogni applicazione senza aprire nuove porte. Questo approccio consente inoltre di risolvere il problema relativo al processo NAT, in quanto ogni applicazione presenta un endpoint coerente nel cloud nel corso della comunicazione. Lo scambio di dati tramite l'inoltro consente alle applicazioni di evitare i problemi che potrebbero rendere difficoltosa la comunicazione.
 
-Per usare l'inoltro del bus di servizio, le applicazioni usano Windows Communication Foundation (WCF). Il bus di servizio fornisce le associazioni WCF che semplificano l'interazione delle applicazioni Windows tramite inoltro. Le applicazioni che utilizzano già WCF possono in genere specificare una di queste associazioni e quindi comunicare tra loro tramite un inoltro. Diversamente da code e argomenti, l'utilizzo degli inoltri da applicazioni non Windows, sebbene possibile, richiede alcune operazioni di programmazione, in quanto non sono disponibili librerie standard.
+Per usare l'inoltro del bus di servizio, le applicazioni usano Windows Communication Foundation (WCF). Il bus di servizio fornisce le associazioni WCF che semplificano l'interazione delle applicazioni Windows tramite inoltro. Le applicazioni che utilizzano già WCF possono in genere specificare una di queste associazioni e quindi comunicare tra loro tramite un inoltro. Diversamente da code e argomenti, l'uso degli inoltri da applicazioni non Windows, anche se possibile, richiede alcune operazioni di programmazione dato che non sono disponibili librerie standard.
 
 Diversamente da code e argomenti, le applicazioni non creano inoltri in modo esplicito. Al contrario, quando un'applicazione che desidera ricevere messaggi stabilisce una connessione TCP con il bus di servizio, l'inoltro viene creato automaticamente. Quando la connessione viene chiusa, l'inoltro viene eliminato. Per consentire a un'applicazione di trovare l'inoltro creato da un listener specifico, il bus di servizio fornisce un registro che permette alle applicazioni di trovare un inoltro specifico in base al nome.
 
-Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la comunicazione diretta tra applicazioni, ad esempio un sistema di prenotazione di una compagnia aerea in esecuzione in un data center locale al quale devono poter accedere banchi del check-in, dispositivi mobili e altri computer. Le applicazioni in esecuzione in questi sistemi possono usare l'inoltro del bus di servizio nel cloud per comunicare, indipendentemente dalla posizione in cui risiedono.
-
-## Hub eventi
-
-[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un sistema di inserimento a scalabilità elevata, che può elaborare milioni di eventi al secondo e che permette all'applicazione di elaborare e analizzare le quantità elevate di dati prodotti dalle applicazioni e dai dispositivi connessi. È possibile ad esempio usare un hub eventi per raccogliere dati sulle prestazioni del motore in tempo reale da un parco di automobili. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione. Per altre informazioni sugli hub eventi, vedere [Panoramica di Hub eventi](../event-hubs/event-hubs-overview.md).
+Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la comunicazione diretta tra applicazioni, ad esempio un sistema di prenotazione di una compagnia aerea in esecuzione in un data center locale al quale devono poter accedere banchi del check-in, dispositivi mobili e altri computer. Le applicazioni in esecuzione in questi sistemi possono utilizzare l'inoltro del bus di servizio nel cloud per comunicare, indipendentemente dalla posizione in cui risiedono.
 
 ## Riepilogo
 
-La connessione tra applicazioni è sempre stata parte integrante dello sviluppo di soluzioni complete e il numero di scenari che richiedono una comunicazione diretta tra servizi e applicazioni è in costante aumento, di pari passo con il numero di applicazioni e dispositivi connessi a Internet. Il bus di servizio include tecnologie basate sul cloud, tramite code, argomenti, inoltri e hub eventi, che consentono di rendere questa funzionalità essenziale più semplice da implementare e disponibile a livello più ampio.
+La connessione tra applicazioni è sempre stata parte integrante dello sviluppo di soluzioni complete e il numero di scenari che richiedono una comunicazione diretta tra servizi e applicazioni è in costante aumento, di pari passo con il numero di applicazioni e dispositivi connessi a Internet. Il bus di servizio include tecnologie basate sul cloud, tramite code, argomenti e inoltri, che consentono di rendere questa funzionalità essenziale più semplice da implementare e disponibile a livello più ampio.
 
 ## Passaggi successivi
 
@@ -125,4 +120,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -8,22 +8,24 @@ Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è nece
 
 1. Accedere al [portale di Azure](https://portal.azure.com) dal browser.
 
-1. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati e SSL**.
+1. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-1. Nel pannello **Domini personalizzati e SSL** fare clic su **Porta domini esterni**.
-
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
-
-1. Usare le caselle di testo **NOMI DI DOMINIO** per immettere il nome di dominio di Gestione traffico per l'associazione con questa app Web.
+1. Nel pannello **Domini personalizzati** fare clic su **Aggiungi il nome host**.
+	
+1. Usare le caselle di testo **Nome host** per immettere il nome di dominio di Gestione traffico per l'associazione con questa app Web.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-1. Fare clic su **Salva** per salvare la configurazione del nome di dominio.
+1. Fare clic su **Convalida** per salvare la configurazione del nome di dominio.
+
+7.  Dopo aver fatto clic su **Convalida**, Azure avvierà il flusso di lavoro Verifica del dominio, che controllerà la proprietà del dominio oltre alla disponibilità del nome host e segnalerà la riuscita o un errore dettagliato con le linee guida consigliate per correggere l'errore.
+
+8.  Se la convalida avrà esito positivo, il pulsante **Aggiungi il nome host** diventerà attivo e sarà possibile assegnare il nome host. Ora passare al nome di dominio personalizzato in un browser. Sarà visibile l'app in esecuzione con il nome di dominio personalizzato.
 
 	Al termine della configurazione, il nome di dominio personalizzato sarà elencato nella sezione **nomi di dominio** dell'app Web.
 
 A questo punto sarà possibile immettere il nome di dominio di Gestione traffico nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

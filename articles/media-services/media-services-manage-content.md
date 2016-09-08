@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/17/2016"  
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 - Visualizzare informazioni sul contenuto, ad esempio stato di pubblicazione, URL di pubblicazione, dimensione, data e ora dell'ultimo aggiornamento e se l'asset è crittografato.
 - Caricare nuovo contenuto
 - Indicizzazione dei contenuti
-- Codificare contenuti
+- Codificare il contenuto
 - Crittografare il contenuto
 - Pubblicare/annullare la pubblicazione di contenuto
 - Riprodurre il contenuto
@@ -46,12 +46,12 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 
 	![Finestra di dialogo Carica contenuto][uploadcontent]
 
-5. Nella finestra di dialogo Carica contenuto fare clic sul pulsante con il segno di spunta per accettare il file e il nome del contenuto.
-6. Verrà avviato il caricamento e sarà possibile visualizzarne lo stato nella parte inferiore del portale.
+5. Nella finestra di dialogo Upload content fare clic sul pulsante con il segno di spunta per accettare il file e il nome del contenuto.
+6. Il caricamento si avvia. Sarà possibile visualizzarne lo stato nella parte inferiore del portale.
 
 	![Stato processo][status]
 
-Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco dei contenuti. Per convenzione, al nome verrà aggiunto il suffisso "**-Source**" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
+Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco dei contenuti. Per convenzione, al nome viene aggiunto il suffisso "**-Source**" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
 
 ![ContentPage][contentpage]
 
@@ -67,7 +67,10 @@ Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto 
 
 I seguenti passaggi mostrano come usare il portale di Azure classico per indicizzare il contenuto.
 
-1. Selezionare il file da indicizzare. Se l'indicizzazione è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
+1. Selezionare il file da indicizzare.
+
+	Se l'indicizzazione è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
+	
 1. Premere il pulsante ELABORA.
 2. Nella finestra di dialogo **Elabora** scegliere il processore **Azure Media Indexer**.
 3. Quindi, inserire nella finestra di dialogo Elabora le informazioni dettagliate su **titolo** e **descrizione** relative al file multimediale di input.
@@ -92,31 +95,32 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
 - Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
-Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming on demand offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming on demand offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
 
 Questa sezione descrive la procedura per la codifica di contenuti con Media Encoder Standard tramite il portale di Azure classico.
 
 1.  Selezionare il file da codificare.
 
-  Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
-4. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**.
-5. Scegliere una delle **configurazioni di codifica**.
+	Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
 
-![Process2][process2]
+2. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**.
+3. Scegliere una delle **configurazioni di codifica**.
+
+	![Process2][process2]
 
 
-L'argomento relativo alle [stringhe di set di impostazioni di attività per Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) illustra il significato di ogni set di impostazioni.
+	L'argomento relativo alle [stringhe di set di impostazioni di attività per Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) illustra il significato di ogni set di impostazioni.
 
-5. Quindi, immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
-6. Premere OK.
+4. Quindi, immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
+5. Premere OK.
 
-Al termine della codifica, la pagina CONTENUTO includerà il file codificato.
+Al termine della codifica la pagina CONTENUTO include il file codificato.
 
 Per visualizzare l'avanzamento del processo di codifica, passare alla pagina **PROCESSI**.
 
-Se il valore delle dimensioni del file non viene aggiornato al termine del processo di codifica, premere il pulsante **Sync Metadata**. Le dimensioni del file di asset di output verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina Content.
+Se il valore delle dimensioni del file non viene aggiornato al termine del processo di codifica, premere il pulsante **Sync Metadata**. Le dimensioni del file di asset di output verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina Contenuto.
 
 ##<a id="encrypt"></a>Procedura: Crittografare il contenuto
 
@@ -132,7 +136,7 @@ Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali co
 
 	![Crittografare il contenuto][encrypt]
 
-	Dopo aver abilitato la crittografia, ogni volta che un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
+	Dopo aver abilitato la crittografia, ogni volta che un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
 Vedere anche:
 
@@ -146,7 +150,7 @@ Vedere anche:
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [Portale](media-services-manage-content.md#publish)
 
-###Panoramica
+###Overview
 
 Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
@@ -171,11 +175,11 @@ Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'U
 
 Per i localizzatori viene definita una data di scadenza. Quando si pubblicano asset attraverso il portale, vengono creati localizzatori con scadenza a 100 anni.
 
->[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
+>[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una scadenza di due anni.
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
-###Publish
+###Pubblicazione
 
 Per pubblicare un asset tramite il portale, seguire questa procedura:
 
@@ -198,7 +202,7 @@ Considerazioni applicabili:
 
 ![AMSPlayer][AMSPlayer]
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -222,4 +226,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

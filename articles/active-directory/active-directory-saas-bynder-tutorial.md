@@ -47,12 +47,12 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Microsoft Azure AD in un ambiente di test.
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Bynder dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
 
 
 ## Aggiunta di Bynder dalla raccolta
@@ -86,32 +86,32 @@ Per configurare l'integrazione di Bynder in Azure AD, è necessario aggiungere B
 
 	![Selezione dell'app nella raccolta](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
 
-##  Configurazione e test dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Bynder in base a un utente test di nome "Britta Simon".
+##  Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
+Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con Bynder in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Bynder che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bynder.
 
 La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Bynder.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Bynder, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con Bynder, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Configurazione dell'accesso Single Sign-On di Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Microsoft Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Bynder](#creating-a-bynder-test-user)**: per avere una controparte di Britta Simon in Bynder collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Microsoft Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### Configurazione dell'accesso Single Sign-On di Azure AD
+### Configurazione di Single Sign-On di Microsoft Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Bynder.
+In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Bynder.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Bynder, seguire questa procedura:**
+**Per configurare Single Sign-On di Microsoft Azure AD con Bynder, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Bynder** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 	 
 	![Configura accesso Single Sign-On][6]
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Bynder**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Bynder** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
     
 	![Configura accesso Single Sign-On](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_03.png)
 
@@ -123,13 +123,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 	b. Fare clic su **Avanti**
 
-4. Se si vuole configurare l'applicazione in **modalità avviata da SP** nella pagina **Configurare le impostazioni dell'app** fare clic su **Mostra opzioni avanzate (facoltativo)**, immettere l'**URL di accesso** e fare clic su **Avanti**.
+4. Se si vuole desidera l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
 
 
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_10.png)
 
-	a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.getbynder.com/login/`
+	a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente: `https://<company name>.getbynder.com/login/`
 
 	b. Fare clic su **Avanti**
 
@@ -141,7 +141,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 6. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Bynder. Allegare il file dei metadati scaricato e condividerlo con il team Bynder per la configurazione di SSO sul relativo lato.
 
@@ -168,15 +168,15 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l’elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull’utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_05.png)
 
@@ -184,7 +184,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
@@ -253,7 +253,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Microsoft Azure AD usando il pannello di accesso.
  
 Quando si fa clic sul riquadro Bynder nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Bynder.
 
@@ -283,4 +283,4 @@ Quando si fa clic sul riquadro Bynder nel pannello di accesso, si dovrebbe acced
 [204]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

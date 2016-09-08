@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/06/2016"
+ms.date="08/23/2016"
 ms.author="larryfr"/>
 
 #Utilizzare DataFu con pig in HDInsight
@@ -30,7 +30,9 @@ DataFu è una raccolta di librerie open source per l'utilizzo con Hadoop. In que
 
 ##Installare DataFu in HDInsight basato su Linux
 
-> [AZURE.NOTE] DataFu è preinstallato nei cluster HDInsight basati su Windows. Se si utilizza un cluster basato su Windows, ignorare questa sezione.
+> [AZURE.NOTE] DataFu viene installato nei cluster basati su Linux versione 3.3 e versioni successive e nei cluster basati su Windows. Non viene installato nei cluster basati su Linux precedenti alla versione 3.3.
+>
+> Se si usa un cluster basato su Linux versione 3.3 o successiva o un cluster basato su Windows, è possibile ignorare questa sezione.
 
 DataFu può essere scaricato e installato dall’archivio Maven. Utilizzare la procedura seguente per aggiungere DataFu al cluster di HDInsight:
 
@@ -59,7 +61,7 @@ I passaggi in questa sezione presuppongono che si abbia familiarità con l'utili
 >
 > DataFu è registrato per impostazione predefinita nei cluster HDInsight basati su Windows.
 
-In genere si definirà un alias per le funzioni DataFu. Ad esempio:
+In genere si definirà un alias per le funzioni DataFu. ad esempio:
 
     DEFINE SHA datafu.pig.hash.SHA();
     
@@ -107,4 +109,4 @@ Per altre informazioni su DataFu o Pig, vedere i seguenti documenti:
 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

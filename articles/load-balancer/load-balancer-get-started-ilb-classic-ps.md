@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica | Microsoft Azure"
    description="Informazioni su come creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
 
@@ -116,7 +116,7 @@ I comandi seguenti configurano una nuova istanza del bilanciamento del carico in
 
 	$svc="mytestcloud"
 	$ilb="ilbset"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb 
+	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
 	$prot="tcp"
 	$locport=1433
 	$pubport=1433
@@ -181,4 +181,4 @@ Per ottenere altre informazioni sui cmdlet per il bilanciamento del carico inter
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

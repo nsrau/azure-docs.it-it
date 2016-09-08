@@ -30,13 +30,13 @@ Se la versione installata non corrisponde alla 0.9.0 o a una versione successiva
 
 ### Impostare l'account e la sottoscrizione di Azure
 
-Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone già una sottoscrizione di Azure, ma si dispone di una sottoscrizione MSDN, è possibile attivare i [vantaggi per i titolari di sottoscrizioni MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [Accedere all'account Azure in modo interattivo](../articles/xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni dell'esperienza interattiva per l'accesso all'account Azure.
 
 > [AZURE.NOTE] Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) per accedere nello stesso modo.
 
-L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
+L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe avere un aspetto simile al seguente:
 
     azure account list
     info:    Executing command account list
@@ -213,7 +213,7 @@ Per distribuire una nuova macchina virtuale di Azure da un modello usando l'inte
 
 Di seguito il contenuto del file JSON per il modello. Anche il modello è disponibile in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).
 
-I modelli sono flessibili, quindi l'autore potrebbe aver scelto di rendere disponibili molti parametri oppure di offrirne un numero più limitato creando un modello più rigido. Per raccogliere le informazioni necessarie per passare il modello come parametri, aprire il file di modello (in questo argomento è un modello inline di seguito riportato) ed esaminare i valori dei **parametri**.
+I modelli sono flessibili, quindi l'autore potrebbe aver scelto di rendere disponibili molti parametri oppure di offrirne un numero più limitato creando un modello più rigido. Per raccogliere le informazioni necessarie per passare il modello come parametri, aprire il file di modello (in questo argomento è un modello inline riportato di seguito) ed esaminare i valori **parameters**.
 
 In questo caso, il modello riportato di seguito chiederà:
 
@@ -743,7 +743,7 @@ Seguire queste procedure per distribuire un'applicazione per più macchine virtu
 
 ### Passaggio 1: esaminare il file JSON per il modello
 
-Di seguito il contenuto del file JSON per il modello. Se si desidera che la versione più recente, si trova [nel repository Github per i modelli](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene utilizzato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile utilizzare lo switch `--template-file` per passare a una versione locale.
+Di seguito il contenuto del file JSON per il modello. Se si desidera che la versione più recente, si trova [nel repository Github per i modelli](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene usato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile usare lo switch `--template-file` per passare una versione locale.
 
 
     {
@@ -1240,7 +1240,7 @@ Selezionare quindi myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
-In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 
@@ -1278,4 +1278,4 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 
 Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

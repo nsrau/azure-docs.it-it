@@ -3,7 +3,7 @@
    description="In questo articolo vengono fornite le informazioni per verificare le impostazioni di Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Verifica delle impostazioni di Gestione traffico
 
@@ -72,4 +72,4 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

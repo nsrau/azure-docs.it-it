@@ -3,8 +3,8 @@
    description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurare metodo di routing failover
 
@@ -52,4 +52,4 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

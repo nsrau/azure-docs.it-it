@@ -49,6 +49,9 @@ Enterprise Integration supporta gli standard del settore seguenti:
 - Visual Studio 2015 per creare mappe e schemi
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Strumenti di Enterprise Integration per le app per la logica di Microsoft Azure per Visual Studio 2015 2.0)](https://aka.ms/vsmapsandschemas)
 
+## Prova
+Per fare una prova, fare clic [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) per distribuire app per la logica personalizzate di invio e ricezione AS2 completamente operative usando le funzionalità B2B delle app per la logica.
+
 ## Altre informazioni su:
 - [Contratti](./app-service-logic-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")
 - [Scenari Business to Business (B2B)](./app-service-logic-enterprise-integration-b2b.md "Informazioni su come creare app per la logica con funzionalità B2B")
@@ -61,4 +64,4 @@ Enterprise Integration supporta gli standard del settore seguenti:
 - [Convalida dei messaggi XML](./app-service-logic-enterprise-integration-xml.md "Informazioni su come convalidare i messaggi XML con le app per la logica")
 - [XML transform](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle mappe di Enterprise Integration")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

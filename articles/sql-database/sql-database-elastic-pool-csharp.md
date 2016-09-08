@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/03/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Sviluppo di database in C&#x23;: Creare e configurare un pool di database elastici per database SQL
@@ -51,13 +51,13 @@ Acquisire le librerie di gestione richieste installando i pacchetti seguenti med
 
 Prima di iniziare lo sviluppo di SQL in C#, è necessario completare alcune attività nel portale di Azure. È prima necessario abilitare l'applicazione per accedere all'API REST mediante la configurazione dell'autenticazione richiesta.
 
-Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione usano Azure Active Directory anziché i certificati usati dalle precedenti API REST di gestione del servizio Azure.
+Le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione usano Azure Active Directory anziché i certificati usati dal precedente modello di distribuzione classico.
 
-Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale classico](https://manage.windowsazure.com/).
+Per autenticare l'applicazione client, per prima cosa è necessario registrare l'applicazione nel dominio AAD della sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. Registrare l'applicazione nel [portale di Azure classico](https://manage.windowsazure.com/).
 
-Per creare una nuova applicazione e registrarla nell’active directory corrente procedere come descritto di seguito:
+Per creare un'applicazione e registrarla nell'Active Directory corrente procedere come descritto di seguito:
 
-1. Scorrere il menu a sinistra per individuare il servizio **Active Directory** e aprirlo.
+1. Individuare il servizio **Active Directory** e aprirlo.
 
     ![Sviluppo di database SQL in C#: configurazione di Active Directory][1]
 
@@ -69,7 +69,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Fare clic su Applicazioni.][5]
 
-4. Fare clic su **AGGIUNGI** per creare una nuova applicazione.
+4. Fare clic su **AGGIUNGI** per creare un'applicazione.
 
     ![Fare clic sul pulsante Aggiungi: Creare un'applicazione C#.][6]
 
@@ -83,7 +83,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Aggiunta di un'applicazione][8]
 
-7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l’**ID CLIENT** (l'ID del client sarà necessario nel codice).
+7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client è necessario nel codice).
 
     ![Acquisire l'ID client][9]
 
@@ -104,7 +104,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 Il nome di dominio è obbligatorio per il codice. Un modo semplice per identificare il nome di dominio corretto è:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup. Sostituire **domain.onmicrosoft.com** nel frammento di codice seguente con il valore per l'account.
+2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup. Sostituire **domain.onmicrosoft.com** nel frammento di codice con il valore per l'account.
 
     ![Identificare il nome di dominio][3]
 
@@ -117,7 +117,7 @@ Altre informazioni sull'uso di Azure Active Directory per l'autenticazione sono 
 
 ### Recuperare il token di accesso per l'utente corrente
 
-L'applicazione client deve recuperare il token di accesso all'applicazione per l'utente corrente. Quando un utente esegue per la prima volta il codice gli verrà richiesto di immettere le credenziali utente e il token risultante viene memorizzato nella cache in locale. Alle successive esecuzioni il token viene recuperato dalla cache e all’utente viene chiesto di effettuare l’accesso solo se il token è scaduto.
+L'applicazione client deve recuperare il token di accesso all'applicazione per l'utente corrente. Quando si esegue per la prima volta il codice viene richiesta l'immissione delle credenziali e il token risultante viene memorizzato nella cache locale. Alle successive esecuzioni il token viene recuperato dalla cache e l'utente deve effettuare l'accesso solo se il token è scaduto.
 
 
     private static AuthenticationResult GetAccessToken()
@@ -161,7 +161,7 @@ Con Gestione risorse, tutte le risorse devono essere create in un gruppo di riso
 
 ## Creare un server
 
-I pool di database elastici sono contenuti all'interno di server di Database SQL di Azure perciò il prossimo passaggio è quello di creare un server. Il nome del server deve essere globalmente univoco tra tutti i server SQL Azure, quindi verrà visualizzato un messaggio di errore se il nome del server è già in uso. Vale inoltre la pena notare che il completamento di questo comando potrebbe richiedere alcuni minuti. Per permettere a un'applicazione di connettersi al server è necessario anche creare una regola firewall sul server per aprire l'accesso dall'indirizzo IP del client.
+I pool di database elastici sono contenuti all'interno di server di Database SQL di Azure perciò il prossimo passaggio è quello di creare un server. Il nome del server deve essere globalmente univoco tra tutti i server SQL Azure, quindi viene visualizzato un messaggio di errore se il nome del server è già in uso. Vale inoltre la pena notare che il completamento di questo comando potrebbe richiedere alcuni minuti. Per permettere a un'applicazione di connettersi al server è necessario anche creare una regola firewall sul server per aprire l'accesso dall'indirizzo IP del client.
 
 
     // Create a SQL Database management client
@@ -206,7 +206,7 @@ Nell'esempio seguente viene creata una regola firewall che consente di aprire l'
 
 
 
-Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione di Azure di accedere al server.
+Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione di Azure di accedere al server.
 
 
 ## Creare un database
@@ -573,4 +573,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

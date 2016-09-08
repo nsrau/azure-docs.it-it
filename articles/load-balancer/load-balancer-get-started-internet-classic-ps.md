@@ -3,7 +3,7 @@
    description="Informazioni su come creare un servizio di bilanciamento del carico Internet in modalità classica con PowerShell."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) in PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -64,4 +64,4 @@ Creare un altro endpoint per la seconda VM "web2" utilizzando lo stesso nome del
 
 Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

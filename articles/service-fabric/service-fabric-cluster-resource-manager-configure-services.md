@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="08/19/2016"
    ms.author="masnider"/>
 
 
 # Configurazione delle impostazioni di Cluster Resource Manager per i servizi Service Fabric
-Cluster Resource Manager di Service Fabric consente un controllo con granularità molto fine sulle regole che disciplinano ogni singolo servizio denominato. Ogni istanza del servizio può specificare regole specifiche per la modalità di allocazione nel cluster e può definire il set di metriche di cui desidera generare un report, tra cui il relativo livello di importanza per tale servizio. La configurazione dei servizi prevede in genere tre diverse attività:
+Cluster Resource Manager di Service Fabric consente un controllo con granularità molto fine sulle regole che disciplinano ogni singolo servizio denominato. Ogni istanza del servizio con nome può specificare regole per la modalità di allocazione nel cluster e può definire il set di metriche di cui desidera generare un report, tra cui il relativo livello di importanza per tale servizio. La configurazione dei servizi prevede in genere tre diverse attività:
 
 1. Configurazione dei vincoli di posizionamento
 2. Configurazione delle metriche
-3. Configurazione delle regole di posizionamento avanzate (meno comune)
+3. Configurazione dei criteri di posizionamento avanzati (meno comune)
 
 Di seguito un'analisi dettagliata:
 
 ## Vincoli di posizionamento
-I vincoli di posizionamento vengono usati per controllare su quali nodi del cluster un servizio può effettivamente essere eseguito. In genere si noteranno un'istanza del servizio denominato particolare o tutti i servizi di un tipo vincolato all'esecuzione su un particolare tipo di nodo, ma i vincoli di posizionamento sono estendibili, dal momento che è possibile definire qualsiasi set di proprietà su una base a nodo e quindi selezionarle con vincoli quando viene creato il servizio. I vincoli di posizionamento sono inoltre aggiornabili in modo dinamico per l'intera durata del servizio, consentendo di rispondere alle modifiche del cluster. Altre informazioni sui vincoli di posizionamento e sulla loro configurazione sono disponibili in [questo articolo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
+I vincoli di posizionamento vengono usati per controllare su quali nodi del cluster un servizio può effettivamente essere eseguito. In genere si noterà un'istanza del servizio con nome specifico o tutti i servizi di un determinato tipo vincolati all'esecuzione su un particolare tipo di nodo. Ciò premesso, i vincoli di posizionamento sono estensibili: è possibile definire set di proprietà sulla base di un tipo di nodo e quindi selezionare quelli con vincoli quando viene creato il servizio. I vincoli di posizionamento sono inoltre aggiornabili in modo dinamico per l'intera durata del servizio, consentendo di rispondere alle modifiche del cluster. Le proprietà di un determinato nodo possono essere aggiornate anche in modo dinamico nel cluster. Altre informazioni sui vincoli di posizionamento e sulla loro configurazione sono disponibili in [questo articolo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
 
-## Metriche
-Le metriche rappresentano l'elenco delle risorse su cui questo servizio deve essere bilanciato, incluse le informazioni relative alla quantità di risorsa che ogni replica o istanza del servizio utilizza per impostazione predefinita. Le metriche includono anche un peso che ne indica l'importanza per il servizio, nel caso di compromessi necessari.
+## Metrica
+Le metriche rappresentano l'elenco delle risorse su cui questo servizio deve essere bilanciato, incluse le informazioni relative alla quantità di risorsa che ogni replica o istanza del servizio usa per impostazione predefinita. Le metriche includono anche un peso che ne indica l'importanza del bilanciamento per il servizio, nel caso di compromessi necessari.
 
 ## Altre regole di posizionamento
 Esistono altri tipi di regole di posizionamento che sono principalmente utili nei cluster distribuiti geograficamente o in altri scenari meno comuni. Queste sono configurate tramite correlazioni o criteri. Sebbene non vengano utilizzate in molti scenari, verranno descritte per motivi di completezza.
@@ -43,4 +43,4 @@ Esistono altri tipi di regole di posizionamento che sono principalmente utili ne
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

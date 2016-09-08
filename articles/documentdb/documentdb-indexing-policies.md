@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/05/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
 
 
@@ -130,7 +130,7 @@ Nella tabella seguente viene illustrata la coerenza per le query basata sulla mo
             </td>
             <td valign="top">
                 <p>
-                    Sessione
+                    Session
                 </p>
             </td>
             <td valign="top">
@@ -238,7 +238,7 @@ Nella tabella seguente viene illustrata la coerenza per le query in base alla mo
             </td>
             <td valign="top">
                 <p>
-                    Sessione
+                    Session
                 </p>
             </td>
             <td valign="top">
@@ -248,7 +248,7 @@ Nella tabella seguente viene illustrata la coerenza per le query in base alla mo
             </td>   
             <td valign="top">
                 <p>
-                    Sessione
+                    Session
                 </p>
             </td>             
         </tr>      
@@ -461,7 +461,7 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
 
 Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che è possibile usare per configurare i criteri di indicizzazione per un percorso. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:
 
-- Tipo di dati: **String**, **Number** o **Point** (può contenere una sola voce per tipo di dati per percorso)
+- Tipo di dati: **String**, **Number** o **Point** (può contenere una sola voce per tipo di dati per percorso). **Polygon** e **LineString** supportati nell'anteprima privata
 - Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali)
 - Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
 
@@ -475,6 +475,8 @@ DocumentDB supporta i tipi di indice Hash e Range per ogni percorso (che può es
 DocumentDB supporta anche il tipo di indice Spatial per ogni percorso che è possibile specificare per il tipo di dati Point. Il valore nel percorso specificato deve essere un punto GeoJSON valido come `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** supporta query spaziali (within e distance) efficienti.
+
+>[AZURE.NOTE] DocumentDB supporta l'indicizzazione automatica di tipi di dati Point, Polygon (anteprima privata) e LineString (anteprima privata). Per l'accesso all'anteprima, inviare un messaggio all'indirizzo askdocdb@microsoft.com oppure contattare Microsoft tramite il supporto di Azure.
 
 Di seguito sono elencati i tipi di indice supportati e gli esempi di query che possono essere utilizzati per rispondere:
 
@@ -759,4 +761,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

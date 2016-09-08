@@ -15,16 +15,18 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Associazioni di DocumentDB in Funzioni di Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice di associazioni di Azure DocumentDB in Funzioni di Azure.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a id="docdbinput"></a>Associazione di input di Azure DocumentDB
+## <a id="docdbinput"></a> Associazione di input di Azure DocumentDB
 
 Le associazioni di input possono caricare un documento da una raccolta DocumentDB e passarlo direttamente all'associazione. L'ID documento può essere determinato in base al trigger che ha richiamato la funzione. In una funzione C# eventuali modifiche apportate al record verranno automaticamente inviate alla raccolta quando la funzione termina correttamente.
 
@@ -32,12 +34,12 @@ Le associazioni di input possono caricare un documento da una raccolta DocumentD
 
 Il file *function.json* specifica le proprietà seguenti:
 
-- `name` : nome della variabile usato nel codice della funzione per il documento.
-- `type` : deve essere impostato su "documentdb".
-- `databaseName` : database che contiene il documento.
-- `collectionName` : raccolta che contiene il documento.
-- `id` : ID del documento da recuperare. Questa proprietà supporta associazioni simili a "{queueTrigger}", che useranno il valore della stringa del messaggio della coda come ID documento.
-- `connection`: questa stringa deve essere un'impostazione dell'applicazione configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda Integra, verrà automaticamente creata una nuova impostazione dell'app con un nome nel formato yourAccount\_DOCUMENTDB. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `name`: nome della variabile usato nel codice della funzione per il documento.
+- `type`: deve essere impostato su "documentdb".
+- `databaseName`: database che contiene il documento.
+- `collectionName`: raccolta che contiene il documento.
+- `id`: ID del documento da recuperare. Questa proprietà supporta associazioni simili a "{queueTrigger}", che useranno il valore della stringa del messaggio della coda come ID documento.
+- `connection`: questa stringa deve essere un'impostazione dell'applicazione configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda Integra, verrà automaticamente creata una nuova impostazione dell'app con un nome nel formato yourAccount\_DOCUMENTDB. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato AccountEndpoint=<Endpoint dell'account>;AccountKey=<Chiave di accesso primaria>;.
 - `direction: deve essere impostato su *"in"*.
 
 Esempio di *function.json*:
@@ -78,19 +80,19 @@ Usando il file function.json di esempio precedente, l'associazione di input di D
 
 ## <a id="docdboutput"></a> Associazioni di output di Azure DocumentDB
 
-Le funzioni possono scrivere documenti JSON in un database di Azure DocumentDB usando l'associazione di output di **Azure DocumentDB**. Per altre informazioni su Azure DocumentDB, vedere [Introduzione a DocumentDB: un Database NoSQL JSON](../documentdb/documentdb-introduction.md) ed [Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB](../documentdb/documentdb-get-started.md).
+Le funzioni possono scrivere documenti JSON in un database di Azure DocumentDB usando l'associazione di output **Documento di Azure DocumentDB**. Per altre informazioni su Azure DocumentDB, vedere [Introduzione a DocumentDB: un Database NoSQL JSON](../documentdb/documentdb-introduction.md) ed [Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB](../documentdb/documentdb-get-started.md).
 
 #### function.json per associazione di output di DocumentDB
 
 Il file function.json specifica le proprietà seguenti:
 
-- `name` : nome della variabile usato nel codice della funzione per il nuovo documento.
-- `type` : deve essere impostato su *"documentdb"*.
-- `databaseName` : database contenente la raccolta in cui verrà creato il nuovo documento.
-- `collectionName` : raccolta in cui verrà creato il nuovo documento.
-- `createIfNotExists` : valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false*. Il motivo è che le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : questa stringa deve essere un'**impostazione dell'applicazione** configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda **Integra**, verrà creata una nuova impostazione dell'app con un nome nel formato `yourAccount_DOCUMENTDB`. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
-- `direction` : deve essere impostato su *"out"*. 
+- `name`: nome della variabile usato nel codice della funzione per il nuovo documento.
+- `type`: deve essere impostato su *"documentdb"*.
+- `databaseName`: database contenente la raccolta in cui verrà creato il nuovo documento.
+- `collectionName`: raccolta in cui verrà creato il nuovo documento.
+- `createIfNotExists`: valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false*. Il motivo è che le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection`: questa stringa deve essere un'**impostazione dell'applicazione** configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda **Integra**, verrà creata una nuova impostazione dell'app con un nome nel formato `yourAccount_DOCUMENTDB`. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`.
+- `direction`: deve essere impostato su *"out"*.
  
 Function.json di esempio:
 
@@ -189,4 +191,4 @@ Output di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

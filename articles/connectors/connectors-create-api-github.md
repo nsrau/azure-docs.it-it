@@ -1,6 +1,6 @@
 <properties
 pageTitle="GitHub | Microsoft Azure"
-description="Creare app per la logica con Servizio app di Azure. GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di Git per il controllo delle revisioni distribuite e la gestione del codice sorgente , oltre a diverse funzionalità aggiuntive."
+description="Creare app per la logica in Servizio app di Azure. GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di Git per il controllo delle revisioni distribuite e la gestione del codice sorgente , oltre a diverse funzionalità aggiuntive."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore GitHub
 
-
-
-Il connettore GitHub può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flows.microsoft.com)
+GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di Git per il controllo delle revisioni distribuite e la gestione del codice sorgente , oltre a diverse funzionalità aggiuntive.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -76,12 +70,12 @@ Creare un problema: crea un problema
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |repositoryOwner|string|yes|path|nessuno|Proprietario del repository|
-|repositoryName|string|yes|path|nessuno|Nome del repository|
+|repositoryName|stringa|yes|path|nessuno|Nome del repository|
 |issueBasicDetails| |sì|body|nessuno|Dettagli del problema|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |400|Bad Request|
@@ -157,8 +151,8 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |title|string|Sì |
-|body|string|Sì |
-|assignee|string|Sì |
+|body|stringa|Sì |
+|assignee|stringa|Sì |
 
 
 
@@ -168,15 +162,15 @@ Non sono disponibili parametri per questa chiamata
 | Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
 |title|string|Sì |
-|body|string|Sì |
+|body|stringa|Sì |
 |assignee|string|Sì |
 |number|string|No |
-|state|string|No |
+|state|stringa|No |
 |created\_at|string|No |
-|repository\_url|string|No |
+|repository\_url|stringa|No |
 
 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

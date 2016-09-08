@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Non è possibile accedere per gestire la sottoscrizione di Azure
 
-> [AZURE.NOTE] Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un incidente del supporto tecnico di Azure nel [sito del supporto tecnico di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema.
 
 Questo articolo consentirà di risolvere alcune cause comuni dei problemi di accesso.
 
@@ -54,4 +54,6 @@ Ora che è possibile accedere ad Azure con un account aziendale, ecco le modific
 
 Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

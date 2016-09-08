@@ -31,7 +31,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 11. In **Servizio cloud** eseguire una delle operazioni seguenti:
 
-	- Se questa è la prima o l'unica macchina virtuale nel servizio cloud, selezionare **Crea un nuovo servizio cloud**. Quindi, in **Nome DNS del servizio cloud** digitare un nome composto da un minimo di 3 a un massimo di 24 caratteri, tra lettere in minuscolo e numeri. Tale nome sarà incluso nell'URI usato per contattare la macchina virtuale tramite il servizio cloud.
+	- Se questa è la prima o l'unica macchina virtuale nel servizio cloud, selezionare **Crea un nuovo servizio cloud**. Quindi, in **Nome DNS del servizio cloud** digitare un nome composto da un minimo di 3 a un massimo di 24 caratteri, tra lettere in minuscolo e numeri. Tale nome sarà incluso nell'URI utilizzato per contattare la macchina virtuale tramite il servizio cloud.
 	- Se questa macchina virtuale deve essere aggiunta a un servizio cloud, selezionarla nell'elenco.
 
 	> [AZURE.NOTE] per ulteriori informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
@@ -55,7 +55,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 ##Passaggi successivi##
 Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal portale risulta che lo stato è in esecuzione, è possibile eseguire l'accesso alla macchina virtuale. Per istruzioni, vedere gli articoli seguenti:
 
-- [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

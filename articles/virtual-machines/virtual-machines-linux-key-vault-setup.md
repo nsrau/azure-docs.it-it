@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -49,4 +49,4 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
 
 Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

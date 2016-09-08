@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -106,4 +106,4 @@ Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambi
 
 * [Creazione dei criteri](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

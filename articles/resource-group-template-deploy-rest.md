@@ -23,17 +23,12 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 In questo articolo viene illustrato come utilizzare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
-> - [Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) per informazioni su come risolvere l'errore
+> - [Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md), per ottenere informazioni su come risolvere l'errore
 > - [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
 
 Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
@@ -42,7 +37,7 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 
 ## Distribuire con l'API REST
 1. Impostare [parametri e intestazioni comuni](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), tra cui i token di autenticazione.
-2. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Creare un gruppo di risorse](https://msdn.microsoft.com/library/azure/dn790525.aspx).
+2. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Creare un gruppo di risorse](https://msdn.microsoft.com/library/azure/dn790525.aspx).
 
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
           <common headers>
@@ -55,7 +50,7 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
    
 3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione [Convalidare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790547.aspx). Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
-3. Creare una nuova distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse da distribuire, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Si noti che la **modalità** è impostata su **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
+3. Creare una distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse da distribuire, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Si noti che la **modalità** è impostata su **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
     
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
           <common headers>
@@ -94,4 +89,4 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

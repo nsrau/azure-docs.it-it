@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Sostituire un modulo controller nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questa esercitazione viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller in un dispositivo StorSimple. Viene inoltre illustrata la logica sottostante per gli scenari di sostituzione controller singoli e doppi.
 
@@ -156,7 +156,7 @@ Questo flusso di lavoro è necessario quando entrambi i controller del dispositi
 
 5. Mentre la logica di sostituzione del controller viene eseguita in background, riconnettere i cavi. Prestare attenzione a collegare tutti i cavi esattamente allo stesso modo i cui erano connessi prima della sostituzione. Vedere le istruzioni dettagliate per il modello in uso nella sezione Cable your device (Cablare il dispositivo) di [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) (Installare il dispositivo StorSimple 8100) o [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md) (Installare il dispositivo StorSimple 8600).
 
-6. Accendere il dispositivo StorSimple. Se si utilizza un modello 8600:
+6. Accendere il dispositivo StorSimple. Se si usa un modello 8600:
 
     1. Assicurarsi che l’enclosure EBOD sia accesa per prima.
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

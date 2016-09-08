@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guida alla risoluzione dei problemi relativi ad analisi, monitoraggio, segmentazione e dashboard
@@ -49,7 +49,7 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 
 ### Cause
 
-- Alcuni elementi integrati e tag sulle informazioni dell'app sono disponibili soltanto come criteri di inserimento, ma non possono essere aggiunti a un segmento o essere visibili nell'analisi, nel monitoraggio o nel dashboard. 
+- Alcuni elementi integrati e tag sulle informazioni dell'app sono disponibili soltanto come criteri di inserimento, ma non possono essere aggiunti a un segmento o essere visibili nell'analisi, nel monitoraggio o nel dashboard.
 - Nel caso di elementi integrati e tag sulle informazioni dell'app che non possono essere aggiunti a un segmento, sarà necessario impostare un elenco di criteri di destinazione per ogni campagna, in modo che eseguano la stessa funzione di selezione della destinazione basata su un segmento.
 - Visualizzare i menu di scelta rapida nelle sezioni di analisi, monitoraggio e dashboard dell'interfaccia utente di Azure Mobile Engagement per altre informazioni di supporto e procedure.
 
@@ -61,8 +61,8 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 ### Cause
 
 - Per risolvere i problemi di arresto anomalo dell'applicazione visualizzati nelle sezioni di analisi, monitoraggio o dashboard, controllare le note sulla versione e verificare la presenza di problemi noti nelle versioni precedenti dell'SDK.
-- Per risolvere altri problemi di arresto anomalo dell'app, eseguire un evento da un dispositivo di test su cui è installata l'app, quindi cercare l'ID dispositivo nella sezione "Monitor - Eventi" dell'interfaccia utente di Azure Mobile Engagement. Quindi, eseguire l'evento che causa l'arresto anomalo dell'applicazione e cercare altre informazioni nella sezione "Monitor - Arresto anomalo" dell'interfaccia utente di Azure Mobile Engagement. 
+- Per risolvere altri problemi di arresto anomalo dell'app, eseguire un evento da un dispositivo di test su cui è installata l'app, quindi cercare l'ID dispositivo nella sezione "Monitor - Eventi" dell'interfaccia utente di Azure Mobile Engagement. Quindi, eseguire l'evento che causa l'arresto anomalo dell'applicazione e cercare altre informazioni nella sezione "Monitor - Arresto anomalo" dell'interfaccia utente di Azure Mobile Engagement.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

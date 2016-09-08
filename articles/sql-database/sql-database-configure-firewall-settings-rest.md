@@ -81,7 +81,7 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 - [Protezione del database](sql-database-security.md)
 - [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->

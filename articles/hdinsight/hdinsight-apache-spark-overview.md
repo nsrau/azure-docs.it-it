@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Panoramica: Apache Spark in HDInsight Linux
@@ -116,7 +116,7 @@ Iniziare con la creazione di un cluster Spark in HDInsight Linux. Vedere [Guida 
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -135,4 +135,4 @@ Iniziare con la creazione di un cluster Spark in HDInsight Linux. Vedere [Guida 
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

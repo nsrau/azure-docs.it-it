@@ -3,7 +3,7 @@
    description="Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l'interfaccia della riga di comando di Azure."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -35,7 +35,7 @@ Qui verrà illustrata la sequenza delle singole attività da eseguire per creare
 
 È necessario creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico.
 
-- Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso. 
+- Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
 
 - Pool di indirizzi back-end: contiene interfacce di rete (NIC) per le macchine virtuali per la ricezione di traffico di rete dal servizio di bilanciamento del carico.
 
@@ -120,12 +120,12 @@ Creare le regole NAT.
 	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
 	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
-Parametri:
+Parametri
 
 - **-g**: nome del gruppo di risorse.
-- **-l**: nome del servizio di bilanciamento del carico. 
+- **-l**: nome del servizio di bilanciamento del carico.
 - **-n**: nome della risorsa che indica se si tratta di una regola NAT, una regola probe o una regola del servizio di bilanciamento del carico.
-- **-p**: protocollo. Può essere TCP o UDP.  
+- **-p**: protocollo. Può essere TCP o UDP.
 - **-f**: porta front-end da usare. Il comando probe usa -f per definire il percorso probe.
 - **-b**: porta back-end da usare.
 
@@ -222,14 +222,14 @@ Creare una NIC denominata *lb-nic1-be* e associarla alla regola NAT *rdp1* e qui
 	
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
-Parametri:
+Parametri
 
 - **-g**: nome del gruppo di risorse.
 - **-n**: nome della risorsa NIC.
-- **--subnet-name**: nome della subnet. 
+- **--subnet-name**: nome della subnet.
 - **--subnet-vnet-name**: nome della rete virtuale.
-- **-d**: ID del pool di risorse back-end. Inizia con /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>. 
-- **-e**: ID della regola NAT che verrà associata alla risorsa NIC. Inizia con /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>.
+- **-d**: ID del pool di risorse back-end. Inizia con /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
+- **-e**: ID della regola NAT che verrà associata alla risorsa NIC. Inizia con /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
 
 
 Output previsto:
@@ -307,7 +307,7 @@ E’ possibile aggiungere regole che fanno riferimento un servizio di bilanciame
 
 	azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
 
-Parametri:
+Parametri
 
 **-g**: nome del gruppo di risorse <br>**-l** - nome del servizio di bilanciamento del carico<BR>**-n** -nome della regola di bilanciamento del carico<BR>**-p** - protocollo<BR>**-f** - porta front-end<BR>**-b** - porta back-end<BR>**-t** - nome del pool front-end<BR>**-b** - nome del pool back-end<BR>
 
@@ -328,4 +328,4 @@ Dove **nrprg** è il gruppo di risorse e **nrplb** è il nome del servizio di bi
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -250,6 +250,8 @@ Prima di eseguire un'app Cordova in iOS usando Visual Studio, seguire i passaggi
 
 Verificare che sia possibile compilare l'app per iOS. I passaggi indicati nella guida alla configurazione sono necessari per la compilazione per iOS da Visual Studio. Se non è disponibile un computer Mac, è possibile eseguire la compilazione per iOS usando l'agente remotebuild in un servizio come MacInCloud. Per altre informazioni, vedere [Build and simulate a Cordova iOS app in the cloud](http://taco.visualstudio.com/it-IT/docs/build_ios_cloud/) (Compilare e simulare un'app Cordova per iOS nel cloud).
 
+>[AZURE.NOTE] XCode 7 o versione successiva è necessario per usare il plug-in di push in iOS.
+
 ####Trovare l'ID da usare come ID app
 
 Prima di registrare l'app per le notifiche push, aprire il file config.xml nell'app Cordova, trovare il valore dell'attributo `id` nell'elemento widget e copiarlo per usarlo in un secondo momento. Nel codice XML seguente, l'ID è `io.cordova.myapp7777777`.
@@ -320,7 +322,7 @@ Per usare le opzioni di Store in Visual Studio, selezionare una destinazione Win
 
 Aprire Progettazione configurazione facendo clic con il pulsante destro del mouse sul file config.xml e scegliendo **Visualizza finestra di progettazione**. Selezionare quindi la scheda **Windows** e scegliere **Windows 10** in **Versione Windows di destinazione**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Se si usa una versione di Cordova precedente a Cordova 5.1.1 (6.1.1 consigliata), è necessario impostare anche il flag Popup supportati su true nel file config.xml.
 
 Per supportare le notifiche push nelle compilazioni predefinite (debug), aprire il file build.json. Copiare la configurazione "release" nella configurazione di debug.
 
@@ -384,4 +386,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

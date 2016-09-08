@@ -99,7 +99,7 @@ Questa sezione illustra come generalizzare la macchina virtuale di Windows in mo
 
 	È possibile ottenere l'URL dell'immagine dal modello del file JSON. Passare alla sezione **resources** > **storageProfile** > **osDisk** > **image** > **uri** per il percorso completo dell'immagine. L'URL dell'immagine è simile a questo: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	È anche possibile verificare l'URI nel portale. L'immagine viene copiata in un BLOB denominato **system** nell'account di archiviazione.
+	È anche possibile verificare l'URI nel portale. L'immagine viene copiata in un contenitore denominato **system** nell'account di archiviazione.
 
 2. Creare una variabile per il percorso all'immagine.
 
@@ -210,4 +210,4 @@ Al termine, la VM appena creata verrà visualizzata nel [portale di Azure](https
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Indirizzi IP usati da Application Insights | Microsoft Azure"
-	description="Elenco di indirizzi statici" 
+	description="Eccezioni del firewall del server necessarie per Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Indirizzi IP usati da Application Insights
 
-Il servizio [Visual Studio Application Insights](app-insights-overview.md) usa diversi indirizzi IP che è utile conoscere, ad esempio se si sta monitorando un'app in esecuzione dietro un firewall.
+Il servizio [Visual Studio Application Insights](app-insights-overview.md) usa un numero di indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
 
 > [AZURE.NOTE] Anche se questi indirizzi sono statici, a volte potrebbe essere necessari modificarli.
 
@@ -46,11 +46,11 @@ Il servizio [Visual Studio Application Insights](app-insights-overview.md) usa d
 
 Questo elenco può variare nel tempo.
 
-## Availability
+## Test della disponibilità
 
-Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](app-insights-monitor-web-app-availability.md).
+Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](app-insights-monitor-web-app-availability.md). Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
 
-Aprire le porte 80 (HTTP) e 443 (HTTPS).
+Aprire le porte 80 (http) e 443 (https) per il traffico in ingresso da questi indirizzi:
 
 ```
 
@@ -184,4 +184,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

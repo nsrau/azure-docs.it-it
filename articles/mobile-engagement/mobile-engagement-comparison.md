@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Confronto tra Azure Mobile Engagement e altri servizi Azure simili
@@ -44,7 +44,7 @@ Da questa definizione emergono le seguenti caratteristiche principali che eviden
  
 In base a questo set di differenziazione, ecco come si relaziona il prodotto con altre offerte Azure apparentemente simili, tenendo presente che quest'articolo non propone un confronto tra le funzionalità ma si concentra maggiormente sullo scenario per definire il prodotto più adatto:
  
-1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è la soluzione DevOps mobile di Microsoft. Permette di distribuire le compilazioni ai beta tester, raccogliere dati sugli arresti anomali del sistema e ottenere commenti e suggerimenti degli utenti. Si integra con Visual Studio Team Services, semplificando la distribuzione delle compilazioni e l'integrazione degli elementi di lavoro. 
+1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) è la soluzione DevOps mobile di Microsoft. Permette di distribuire le compilazioni ai beta tester, raccogliere dati sugli arresti anomali del sistema e ottenere commenti e suggerimenti degli utenti. Si integra con Visual Studio Team Services, semplificando la distribuzione delle compilazioni e l'integrazione degli elementi di lavoro.
 	
 	È incentrato su DevOps e sulla raccolta dei dati sulle analisi delle prestazioni relativi alle app per dispositivi mobili. Alla fine si potrebbe decidere di integrare nell'app sia HockeyApps che Mobile Engagement e non sarebbe una scelta insolita, sebbene i dati raccolti possano a volte sovrappporsi, l'obiettivo primario dei prodotti sia differente e gli obiettivi perseguiti siano diversi.
 
@@ -56,7 +56,7 @@ In base a questo set di differenziazione, ecco come si relaziona il prodotto con
 
 Seguono alcuni scenari:
 
-1.	Giulio fa parte del team di marketing digitale di Adventure Works, che pubblica app per dispositivi mobili per gli utenti. L'obiettivo di Giulio è fare in modo che gli utenti che scaricano le app per dispositivi mobili continuino a utilizzarle in modo frequente. In questo modo non aumenta soltanto la fedeltà al marchio tra gli utenti dell'app, ma anche la monetizzazione quando gli utenti dell'app fanno acquisti dall'app. Per questo motivo, Giulio dovrà inviare agli utenti dell'app notifiche mirate che siano utili e inducano ad aprire l'app e a consultarla spesso. In questo contesto, a Giulio servirà Mobile Engagement. 
+1.	Giulio fa parte del team di marketing digitale di Adventure Works, che pubblica app per dispositivi mobili per gli utenti. L'obiettivo di Giulio è fare in modo che gli utenti che scaricano le app per dispositivi mobili continuino a utilizzarle in modo frequente. In questo modo non aumenta soltanto la fedeltà al marchio tra gli utenti dell'app, ma anche la monetizzazione quando gli utenti dell'app fanno acquisti dall'app. Per questo motivo, Giulio dovrà inviare agli utenti dell'app notifiche mirate che siano utili e inducano ad aprire l'app e a consultarla spesso. In questo contesto, a Giulio servirà Mobile Engagement.
 
 2.	Giovanna fa parte del team di sviluppo delle app per dispositivi mobili di Adventure Works e ha bisogno di un prodotto che le permetta di registrare i dettagli degli arresti anomali e delle eccezioni e di ottenere la telemetria delle prestazioni da un'app. In questo contesto, a Giovanna farà comodo HockeyApp. Giovanna potrebbe integrare nella stessa app sia HockeyApp per gli scenari destinati agli sviluppatori che Azure Mobile Engagement per Giulio, per sfruttare i vantaggi di entrambe le soluzioni.
 
@@ -66,4 +66,4 @@ Ricapitolando, Mobile Engagement non serve soltanto alla raccolta di analisi, no
 
 Per ulteriori dettagli, vedere questo [video rapido](mobile-engagement-overview.md) che sintetizza Mobile Engagement.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

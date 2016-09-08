@@ -33,10 +33,10 @@ I certificati di servizio possono essere gestiti separatamente dai servizi e da 
 ## Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
 
->[AZURE.WARNING] Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
+>[AZURE.WARNING] Fare attenzione. Questi tipi di certificati consentono a chiunque esegua l'autenticazione di gestire la sottoscrizione a cui sono associati.
 
 ### Limitazioni
-Esiste un limite di 100 certificati di gestione per ogni sottoscrizione. Esiste anche un limite di 100 certificati di gestione per tutte le sottoscrizioni che fanno riferimento all'ID utente di un amministratore del servizio specifico. Se l'ID utente per l'amministratore dell'account è già stato usato per aggiungere 100 certificati di gestione e ne sono necessari altri, è possibile aggiungere un coamministratore per aumentare il numero di certificati.
+È previsto un limite di 100 certificati di gestione per ogni sottoscrizione. È anche previsto un limite di 100 certificati di gestione per tutte le sottoscrizioni che fanno riferimento all'ID utente di un amministratore del servizio specifico. Se l'ID utente per l'amministratore dell'account è già stato usato per aggiungere 100 certificati di gestione e ne sono necessari altri, è possibile aggiungere un coamministratore per aumentare il numero di certificati.
 
 Prima di aggiungere più di 100 certificati, verificare se è possibile riutilizzarne uno esistente. L'uso di coamministratori potrebbe rendere più complesso il processo di gestione dei certificati.
 
@@ -81,7 +81,7 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[Questo](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) articolo descrive come creare certificati tramite SSH.
+[Questo](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) articolo descrive come creare certificati tramite SSH.
 
 ## Passaggi successivi
 
@@ -91,4 +91,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

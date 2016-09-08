@@ -30,7 +30,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 - [Domande frequenti sulle macchine virtuali di Azure create con il modello di distribuzione classica](virtual-machines-linux-classic-faq.md)
 - [Informazioni sulle immagini per le macchine virtuali](virtual-machines-linux-classic-about-images.md)
 - [Caricamento di un'immagine di distribuzione personalizzata](virtual-machines-linux-classic-create-upload-vhd.md), include anche istruzioni per l'uso di una [distribuzione approvata di Azure](virtual-machines-linux-endorsed-distros.md)
-- [Accedere a una VM Linux con il portale di Azure classico](virtual-machines-linux-classic-log-on.md)
+- [Accedere a una VM Linux con il portale di Azure classico](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Configurare
 
@@ -71,7 +71,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 
 ## Pianificazione
-- [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Selezione dei nomi utente per Linux](virtual-machines-linux-usernames.md)
 - [Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica](virtual-machines-linux-classic-configure-availability.md)
 - [Come pianificare la manutenzione nelle VM di Azure](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 ## gestione
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [Come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-classic-reset-access.md)
 - [Uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
 
@@ -189,4 +189,4 @@ Poiché l'ambito relativo a DevOps, gestione e ottimizzazione è in continua e r
 
 - [Plug-in di Packer per Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

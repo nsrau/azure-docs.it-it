@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Panoramica
+##Overview
 
 Questa esercitazione è basata sull'esercitazione della [guida introduttiva di Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) che deve essere completata per prima. In questa esercitazione si aggiungeranno notifiche push al progetto di creazione di un'app per Xamarin.iOS, in modo da attivare l'invio di una notifica push ogni volta che viene inserito un record. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -156,4 +156,4 @@ L'esercitazione è stata completata.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

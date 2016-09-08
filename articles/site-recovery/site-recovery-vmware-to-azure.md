@@ -353,7 +353,7 @@ Verificare di avere un 'account di archiviazione per la replica e una rete di Az
 
 	![Destinazione](./media/site-recovery-vmware-to-azure/gs-target.png)
 
-4.	Per creare un account di archiviazione con Azure Resource Manager, se non è già stato fatto, fare clic su **+ Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
+4.	Per creare un account di archiviazione con Azure Resource Manager, se non è già stato fatto, fare clic su **+Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 
 	![Archiviazione](./media/site-recovery-vmware-to-azure/gs-createstorage.png)
 
@@ -516,7 +516,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 2. Aggiungere l'account che è stato creato:
 
 	- Aprire **cspsconfigtool**. È disponibile come collegamento sul desktop e si trova nella cartella [PERCORSO DI INSTALLAZIONE]\\home\\svsystems\\bin.
-	- Nella scheda **Manage Accounts** (Gestisci account) fare clic su **Aggiungi account**.
+	- Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 	- Aggiungere l'account che è stato creato. Dopo aver aggiunto l'account, per abilitare la replica per un computer sarà necessario fornire le credenziali.
 
 
@@ -527,7 +527,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 2.	Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve essere un utente root nel server Linux di origine e viene usato solo per l'installazione push.
 
 	- Aprire **cspsconfigtool**. È disponibile come collegamento sul desktop e si trova nella cartella [PERCORSO DI INSTALLAZIONE]\\home\\svsystems\\bin.
-	- Nella scheda **Manage Accounts** (Gestisci account) fare clic su **Aggiungi account**.
+	- Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 	- Aggiungere l'account che è stato creato. Dopo aver aggiunto l'account, per abilitare la replica per un computer sarà necessario fornire le credenziali.
 
 3.	Assicurarsi che il file /etc/hosts nel server Linux di origine contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
@@ -549,10 +549,10 @@ I programmi di installazione sono disponibili nel server di elaborazione in **C:
 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
-Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
+Windows Server (solo 64 bit) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Installare manualmente in un server Windows
@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. In **Dettagli del nuovo server di configurazione** specificare l'indirizzo IP del server di configurazione e la passphrase generata durante l'esecuzione dell'Installazione unificata. Per recuperare la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di configurazione.
+3. In **Dettagli del nuovo server di configurazione** specificare l'indirizzo IP del server di configurazione e la passphrase generata durante l'esecuzione dell'Installazione unificata. Recuperare la passphrase eseguendo **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di configurazione.
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -580,6 +580,14 @@ Dove:
 - /InstallLocation. Obbligatorio. Specifica dove installare il servizio.
 - /PassphraseFilePath. Obbligatorio. Passphrase del server di configurazione.
 - /LogFilePath. Obbligatorio. Percorso dei file di installazione dei log.
+
+#### Disinstallare manualmente il servizio Mobility
+
+Il servizio Mobility può essere disinstallato tramite Installazione applicazioni del Pannello di controllo o la riga di comando.
+
+Il comando per disinstallare il servizio Mobility tramite la riga di comando è
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Installare manualmente in un server Linux
@@ -833,7 +841,7 @@ Il server di elaborazione può rilevare automaticamente le macchine virtuali in 
 --- | --- | ---
 Ruolo Azure\_Site\_Recovery | Individuazione di macchine virtuali VMware |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Datastore -> Allocate space, Browse datastore, Low level file operations, Remove file, Update virtual machine files<br/><br/>Rete -> Network assign<br/><br/>Risorsa -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Attività -> Create task, Update task<br/><br/>Macchina virtuale -> Configuration<br/><br/>Macchina virtuale -> Interact -> Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Macchina virtuale -> Inventory -> Create, Register, Unregister<br/><br/>Macchina virtuale -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Macchina virtuale -> Snapshots -> Remove snapshots
 Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio, quali host vSphere, archivi dati, VM e reti.
-Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio, quali host vSphere, archivi dati, VM e reti.  
+Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio, quali host vSphere, archivi dati, VM e reti. 
 ## Passaggi successivi
 
 - [Altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
@@ -851,4 +859,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

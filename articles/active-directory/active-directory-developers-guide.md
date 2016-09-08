@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
 # Guida per gli sviluppatori di Azure Active Directory
 
-## Panoramica
+## Overview
 Azure Active Directory (AD) è una piattaforma IDMaaS (Identity Management As A Service, gestione delle identità come servizio) che offre agli sviluppatori un modo efficace per integrare la gestione delle identità nelle applicazioni. Gli articoli seguenti offrono panoramiche sull'implementazione e illustrano le funzionalità principali di Azure AD. È consigliabile leggere gli articoli nell'ordine presentato oppure passare alla sezione [Per iniziare](#getting-started) se si è pronti a passare all'azione.
 
 
-1. [Vantaggi dell'integrazione con Azure Active Directory](active-directory-how-to-integrate.md): illustra i motivi per cui l'integrazione con Azure AD offre la soluzione ottimale per l'autorizzazione e l'accesso sicuro.
+1. [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md): illustra il motivo per cui l'integrazione con Azure AD offre la migliore soluzione per autorizzazione e accesso sicuro.
 
 1. [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md): illustra come sfruttare l'autenticazione semplificata di Azure AD per fornire l'accesso all'applicazione.
 
-1. [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md): illustra come aggiungere, aggiornare e rimuovere applicazioni da Azure AD e le linee guida del marchio per le app integrate.
+1. [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md): illustra come aggiungere, aggiornare e rimuovere applicazioni da Azure AD e le linee guida alla personalizzazione per le app integrate.
 
-1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure AD per accedere a livello di codice ad Azure AD tramite gli endpoint dell'API REST. Si noti che l'API Graph di Azure AD è accessibile anche tramite [Microsoft Graph](https://graph.microsoft.io/), un’API unificata che consente l'accesso a più API del servizio Microsoft Cloud tramite un singolo endpoint API REST e con un token di accesso singolo.
+1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure AD per accedere a livello di codice ad Azure AD tramite gli endpoint dell'API REST. L'API Graph di Azure AD è accessibile anche da [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph fornisce un'API unificata che consente l'accesso a più API del servizio Microsoft Cloud tramite un singolo endpoint API REST e con un token di accesso singolo.
 
 1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare facilmente gli utenti per ottenere i token di accesso mediante le librerie di autenticazione di Azure AD per .NET, JavaScript, Objective-C, Android e molte altre.
 
@@ -78,12 +78,13 @@ Questi articoli descrivono come eseguire attività specifiche usando Azure Activ
 - [Anteprima: Come creare applicazioni che permettono ai consumer di iscriversi e accedere](../active-directory-b2c/active-directory-b2c-overview.md)
 
 
-## Riferimento
+## riferimento
 
 Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, errori, protocolli e API della libreria di autenticazione e REST.
 
 ###  Supporto
 - [Domande con tag](http://stackoverflow.com/questions/tagged/azure-active-directory): in Overflow dello stack è possibile trovare soluzioni per Azure Active Directory eseguendo una ricerca in base ai tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
+- Vedere il [glossario per gli sviluppatori di Azure AD](active-directory-dev-glossary.md) per le definizioni di alcuni dei termini di uso comune correlati allo sviluppo e all'integrazione di applicazioni.
 
 ### Codice
 
@@ -107,7 +108,7 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 - [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md): informazioni sulla concessione implicita di autorizzazioni e indicazioni utili per stabilire se è adatta all'applicazione specifica.
 
-- [Service to Service Calls Using Client Credentials](active-directory-protocols-oauth-service-to-service.md) (Chiamate da servizio a servizio con credenziali client): il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web, ovvero un client riservato, di usare le proprie credenziali per l'autenticazione durante la chiamata a un altro servizio Web invece di rappresentare un utente. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web.
+- [Chiamate da servizio a servizio mediante le credenziali client](active-directory-protocols-oauth-service-to-service.md): la concessione delle credenziali client OAuth 2.0 consente a un servizio Web, ovvero un client riservato, di usare le proprie credenziali per l'autenticazione durante la chiamata a un altro servizio Web invece di rappresentare un utente. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web.
 
 - [Autorizzare l'accesso ad applicazioni Web con OpenID Connect e Azure Active Directory](active-directory-protocols-openid-connect-code.md): il protocollo OpenID Connect 1.0 estende OAuth 2.0 per l'uso come protocollo di autenticazione. Un'applicazione client può ricevere un valore id\_token per gestire il processo di accesso o per integrare il flusso del codice di autorizzazione in modo da ricevere sia un valore id\_token che un codice di autorizzazione.
 
@@ -145,4 +146,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

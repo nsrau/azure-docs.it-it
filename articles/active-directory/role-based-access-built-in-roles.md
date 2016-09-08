@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Controllo degli accessi in base al ruolo: ruoli predefiniti | Microsoft Azure"
-	description="In questo argomento vengono descritti i ruoli predefiniti per il controllo di accesso basato sui ruoli (RBAC)."
+	description="Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #Controllo degli accessi in base al ruolo: ruoli predefiniti
@@ -22,7 +22,7 @@ Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli p
 
 ## Ruoli in Azure
 
-La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **notactions **specifica le azioni non consentite.
+La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile utilizzare caratteri jolly. La proprietà **notactions** specifica le azioni non consentite.
 
 >[AZURE.NOTE] Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
 
@@ -42,12 +42,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore account New Relic APM](#new-relic-apm-account-contributor) | Può gestire account e applicazioni di New Relic Application Performance Management |
 | [Proprietario](#owner) | È in grado di gestire tutti gli elementi, compresi gli accessi |
 | [Lettore](#reader) | È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche |
-| [Collaboratore cache Redis](#redis-cache-contributor]) | È in grado di gestire le cache Redis |
+| [Collaboratore cache Redis](#redis-cache-contributor) | È in grado di gestire le cache Redis |
 | [Collaboratore raccolte di processi dell'unità di pianificazione](#scheduler-job-collections-contributor) | È in grado di gestire raccolte di processi dell'utilità di pianificazione |
 | [Collaboratore servizi di ricerca](#search-service-contributor) | È in grado di gestire servizi di ricerca |
 | [Gestore della sicurezza SQL](#security-manager) | Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali |
-| [Collaboratore database SQL](#sql-db-contributor) | È in grado di gestire database SQL, ma non i criteri di sicurezza correlati |
-| [Gestione della sicurezza SQL](#sql-security-manager) | È in grado di gestire i criteri di protezione correlati di server e database SQL |
+| [Collaboratore database SQL](#sql-db-contributor) | Può gestire i database SQL, ma non i criteri correlati alla sicurezza |
+| [Gestione della sicurezza SQL](#sql-security-manager) | Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL |
 | [Collaboratore SQL Server](#sql-server-contributor) | È in grado di gestire server e database SQL, ma non i criteri di sicurezza correlati |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) | È in grado di gestire gli account di archiviazione classici |
 | [Collaboratore account di archiviazione](#storage-account-contributor) | È in grado di gestire gli account di archiviazione |
@@ -59,7 +59,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore siti Web](#website-contributor) | È in grado di gestire siti Web, ma non i piani Web a cui sono connessi |
 
 ## Autorizzazioni ruoli
-Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo. Può trattarsi di proprietà **actions** che concedono autorizzazioni e **notactions** che le limitano.
+Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo. Può trattarsi di proprietà **Actions**, che concedono le autorizzazioni, e **NotActions**, che le limitano.
 
 ### Collaboratore servizio Gestione API
 È in grado di gestire i servizi Gestione API
@@ -147,8 +147,8 @@ Può gestire tutto ad eccezione degli accessi.
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruoli |  
 | Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruoli |
-| Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruoli |
 
 ### Collaboratore Data Factory
 È in grado gestire le Data factory
@@ -179,11 +179,11 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.DevTestLab/labs/createEnvironment/action | Creare un ambiente lab |
 | Microsoft.DevTestLab/labs/formulas/delete | Eliminare le formule |
 | Microsoft.DevTestLab/labs/formulas/read | Leggere le formule |
-| Microsoft.DevTestLab/labs/formulas/write | Aggiungere o modificare le formule |
+| Microsoft.DevTestLab/labs/formulas/write | Aggiunge o modifica le formule |
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Valutare i criteri lab |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Aggiungere un pool di indirizzi back-end di bilanciamento del carico |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Aggiungere una regola NAT di bilanciamento del carico in entrata |
-| Microsoft.Network/networkInterfaces/*/read | Leggere le proprietà di un'interfaccia di rete, ad esempio tutti i bilanciamenti del carico di cui fa parte l'interfaccia di rete |
+| Microsoft.Network/networkInterfaces/*/read | Legge le proprietà di un'interfaccia di rete, ad esempio tutti i servizi di bilanciamento del carico di cui fa parte l'interfaccia di rete |
 | Microsoft.Network/networkInterfaces/join/action | Aggiungere una macchina virtuale a un'interfaccia di rete |
 | Microsoft.Network/networkInterfaces/read | Leggere le interfacce di rete |
 | Microsoft.Network/networkInterfaces/write | Scrivere interfacce di rete |
@@ -260,7 +260,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 
 | **Actions** ||
 | ------- | ------ |
-| **/read | Leggere risorse di tutti i tipi, eccetto i segreti. |
+| */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 
 ### Collaboratore cache Redis
 È in grado di gestire le cache Redis
@@ -284,7 +284,8 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Scheduler/jobcollections/* | Creare e gestire raccolte di processi |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Scheduler/jobcollections/* | Creare e gestire raccolte di processi |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore servizi di ricerca
@@ -296,11 +297,12 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Search/searchServices/* | È in grado di creare e gestire servizi di ricerca |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Search/searchServices/* | È in grado di creare e gestire servizi di ricerca |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Gestore della sicurezza
-È in grado di gestire i componenti di protezione, criteri di sicurezza e le macchine virtuali
+Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali
 
 | **Actions** ||
 | ------- | ------ |
@@ -311,11 +313,12 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Security/* | Creare e gestire criteri e componenti di protezione |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Security/* | Creare e gestire criteri e componenti di protezione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore database SQL
-È in grado di gestire database SQL, ma non i criteri di protezione correlati
+Può gestire i database SQL, ma non i criteri correlati alla sicurezza
 
 | **Actions** ||
 | ------- | ------ |
@@ -323,7 +326,8 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Sql/servers/databases/* | Creare e gestire database SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Sql/servers/databases/* | Creare e gestire database SQL |
 | Microsoft.Sql/servers/read | È in grado di leggere i server SQL |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
@@ -331,13 +335,14 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossibile modificare i criteri di controllo |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Impossibile modificare le impostazioni di controllo |
+| Microsoft.Sql/servers/databases/auditRecords/read | Non può leggere i record di controllo |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossibile modificare i criteri di connessione |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossibile modificare i criteri di mascheratura dei dati |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossibile modificare i criteri di avviso di sicurezza |
 | Microsoft.Sql/servers/databases/securityMetrics/* | Impossibile modificare i criteri di protezione |
 
 ### Gestione della sicurezza SQL
-È in grado di gestire i criteri di protezione correlati di server e database SQL
+Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL
 
 | **Actions** ||
 | ------- | ------ |
@@ -345,10 +350,12 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Sql/servers/auditingPolicies/* | Creare e gestire criteri di controllo di server SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Sql/servers/auditingPolicies/* | Creare e gestire criteri di controllo di server SQL |
 | Microsoft.Sql/servers/auditingSettings/* | Creare e gestire le impostazioni di controllo di SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Creare e gestire i criteri di controllo dei database SQL |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Creare e gestire le impostazioni di controllo dei database di SQL Server |
+| Microsoft.Sql/servers/databases/auditRecords/read | Legge i record di controllo |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Creare e gestire i criteri di connessione dei database dei server SQL |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Creare e gestire i criteri della maschera dei dati dei database dei server SQL |
 | Microsoft.Sql/servers/databases/read | Leggere database SQL |
@@ -362,7 +369,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore SQL Server
-È in grado di gestire server e database SQL, ma non i criteri di protezione correlati
+Può gestire server e database SQL, ma non i criteri di protezione correlati
 
 | **Actions** ||
 | ------- | ------ |
@@ -370,7 +377,8 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Sql/servers/* | Creare e gestire server SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Sql/servers/* | Creare e gestire server SQL |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 | **NotActions** ||
@@ -379,6 +387,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Sql/servers/auditingSettings/* | Non è in grado di modificare le impostazioni di controllo di SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Non è in grado di modificare i criteri di controllo dei database di server SQL |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Non è in grado di modificare le impostazioni di controllo dei database di SQL Server |
+| Microsoft.Sql/servers/databases/auditRecords/read | Non può leggere i record di controllo |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Non è in grado di modificare i criteri di connessione dei database di server SQL |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Non è in grado di modificare i criteri di mascheratura dei dati dei database di server SQL |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Non è in grado di modificare i criteri degli avvisi di sicurezza dei database di SQL server |
@@ -395,7 +404,8 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Support/* | Creare e gestire ticket di supporto |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore account di archiviazione
 Può gestire gli account di archiviazione, ma non accedervi.
@@ -407,7 +417,8 @@ Può gestire gli account di archiviazione, ma non accedervi.
 | Microsoft.Insights/diagnosticSettings/* | Gestire le impostazioni di diagnostica |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Storage/storageAccounts/* | Creare e gestire account di archiviazione |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Storage/storageAccounts/* | Creare e gestire account di archiviazione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Amministratore accessi utente
@@ -415,7 +426,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | 
+| */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 | Microsoft.Authorization/* | Gestire l'autorizzazione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
@@ -439,7 +450,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Support/* | Creare e gestire ticket di supporto |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali
 È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse
@@ -455,7 +467,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Partecipare a pool di indirizzi backend di gateway delle applicazioni di rete |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Partecipare a pool di indirizzi backend di servizi di bilanciamento del carico |
 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Aggiungere pool NAT di bilanciamento del carico in entrata |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Aggiungere regole NAT di bilanciamento del carico in entrata |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Partecipa a regole NAT in entrata di servizi di bilanciamento del carico |
 | Microsoft.Network/loadBalancers/read | Leggere servizi di bilanciamento del carico |
 | Microsoft.Network/locations/* | Creare e gestire percorsi di rete |
 | Microsoft.Network/networkInterfaces/* | Creare e gestire interfacce di rete |
@@ -467,7 +479,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Network/virtualNetworks/subnets/join/action | Partecipare a subnet di reti virtuali |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Storage/storageAccounts/listKeys/action | Ottenere chiavi degli account di archiviazione |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Storage/storageAccounts/listKeys/action | Ottenere chiavi degli account di archiviazione |
 | Microsoft.Storage/storageAccounts/read | Leggere account di archiviazione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
@@ -481,7 +494,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Support/* | Creare e gestire ticket di supporto |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore piani Web
 È in grado di gestire piani Web
@@ -492,7 +506,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Support/* | Creare e gestire ticket di supporto |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
 | Microsoft.Web/serverFarms/* | Creare e gestire server farm |
 
 ### Collaboratore siti Web
@@ -505,7 +520,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Insights/components/* | È in grado di creare e gestire i componenti di Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Support/* | Creare e gestire ticket di supporto |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |  
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
 | Microsoft.Web/certificates/* | Creare e gestire certificati dei siti Web |
 | Microsoft.Web/listSitesAssignedToHostName/read | Leggere siti di lettura assegnati a un nome host |
 | Microsoft.Web/serverFarms/join/action | Partecipare a server farm |
@@ -513,9 +529,9 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Web/sites/* | Creare e gestire siti Web |
 
 ## Vedere anche
-- [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse di Azure Active Directory](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
+- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 - [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 - [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo"/>
 
 #Implementare Mobile Engagement con app multimediali
 
-## Panoramica
+## Overview
 
 Mattia è un project manager impegnato in progetti per dispositivi mobili per una grande società di servizi multimediali. Ha recentemente lanciato una nuova app che sta registrando un numero molto elevato di download. Ha raggiunto i suoi obiettivi di download, ma il ritorno sugli investimenti (ROI) per utente non soddisfa ancora i requisiti stabiliti.
 
@@ -101,4 +101,4 @@ Dopo questi primi quattro mesi, i risultati riflettono buone prestazioni general
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

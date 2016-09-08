@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/19/2016" 
 	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
 
-##Panoramica
+##Overview
 
 Una delle domande più frequenti dei clienti che usano Hub di notifica di Azure riguarda il motivo per cui una notifica inviata dal back-end dell'applicazione non viene visualizzata nel dispositivo client: dove e perché sono state eliminate le notifiche e come risolvere il problema? In questo articolo verranno esaminate le varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Verrà anche illustrato come analizzare e individuare la causa principale.
 
@@ -36,10 +36,10 @@ Hub di notifica di Azure deve eseguire l'autenticazione nel contesto dell'applic
  
 	a) Assicurarsi che il nome dell'hub di notifica (privo di errori di digitazione) sia lo stesso:
 
-	- Dove si esegue la registrazione dal client 
-	- Dove si inviano le notifiche dal back-end  
-	- Dove sono state configurate le credenziali PNS e 
-	- Di cui sono state configurate le credenziali della firma di accesso condiviso nel client e nel back-end. 
+	- Dove si esegue la registrazione dal client
+	- Dove si inviano le notifiche dal back-end
+	- Dove sono state configurate le credenziali PNS e
+	- Di cui sono state configurate le credenziali della firma di accesso condiviso nel client e nel back-end.
 		
 	b) Assicurarsi di usare le stringhe corrette di configurazione della firma di accesso condiviso nel client e nel back-end dell'applicazione. In linea generale, è necessario usare **DefaultListenSharedAccessSignature** sul client e **DefaultFullSharedAccessSignature** sul back-end dell'applicazione (che fornisce l'autorizzazione per poter inviare la notifica a Hub di notifica)
 
@@ -206,7 +206,7 @@ Questo messaggio indica che nell'hub di notifica sono state configurate credenzi
 Per informazioni dettagliate:
 
 - [Accesso alla telemetria a livello di codice]
-- [Esempio di accesso alla telemetria tramite API] 
+- [Esempio di accesso alla telemetria tramite API]
 
 > [AZURE.NOTE] Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di Azure classico.
 
@@ -242,4 +242,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

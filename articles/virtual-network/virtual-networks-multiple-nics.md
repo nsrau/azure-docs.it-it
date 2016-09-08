@@ -31,54 +31,7 @@ Nella figura precedente viene illustrata una macchina virtuale con tre NIC, cias
 - Attualmente, gli indirizzi IP pubblici a livello di istanza (LPIP) (distribuzioni classiche) non sono supportati per le macchine virtuali a più NIC.
 - L'ordine delle NIC all'interno della macchina virtuale sarà casuale e potrebbe cambiare con gli aggiornamenti dell'infrastruttura di Azure. Tuttavia, gli indirizzi IP e gli indirizzi MAC ethernet corrispondenti resteranno invariati. Si supponga, ad esempio, che **Eth1** abbia l’indirizzo IP 10.1.0.100 e l'indirizzo MAC 00-0D-3A-B0-39-0D; dopo un aggiornamento dell'infrastruttura di Azure e il riavvio, potrebbe essere modificato in **Eth2**, ma l’abbinamento di indirizzo IP e MAC resteranno invariati. Quando un riavvio è eseguito dal cliente, l'ordine delle NIC rimane invariato.
 - L'indirizzo di ciascuna NIC su ciascuna macchina virtuale deve trovarsi in una subnet, a più NIC in una singola macchina virtuale possono essere assegnati indirizzi che si trovano nella stessa subnet.
-- Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Nella tabella seguente sono elencati i numeri di NIC corrispondenti alle dimensioni delle macchine virtuali:
-
-|Dimensioni macchina virtuale (SKU standard)|NIC (numero massimo consentito per ogni macchina virtuale)|
-|---|---|
-|Tutte le dimensioni di base|1|
-|A0\\molto piccola|1|
-|A1\\piccola|1|
-|A2\\media|1|
-|A3\\grande|2|
-|A4\\molto grande|4|
-|A5|1|
-|A6|2|
-|A7|4|
-|A8|2|
-|A9|4|
-|A10|2|
-|A11|4|
-|D1|1|
-|D2|2|
-|D3|4|
-|D4|8|
-|D11|2|
-|D12|4|
-|D13|8|
-|D14|8|
-|DS1|1|
-|DS2|2|
-|DS3|4|
-|DS4|8|
-|DS11|2|
-|DS12|4|
-|DS13|8|
-|DS14|8|
-|D1\_v2|1|
-|D2\_v2|2|
-|D3\_v2|4|
-|D4\_v2|8|
-|D5\_v2|8|
-|D11\_v2|2|
-|D12\_v2|4|
-|D13\_v2|8|
-|D14\_v2|8|
-|G1|1|
-|G2|2|
-|G3|4|
-|G4|8|
-|G5|8|
-|Tutte le altre dimensioni|1|
+- Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Fare riferimento agli articoli sulle dimensioni delle VM in [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md) e [Linux](../virtual-machines/virtual-machines-linux-sizes.md) per capire quanti NIC sono supportati da ciascuna dimensione di VM.
 
 ## Gruppi di sicurezza di rete (NGS)
 In una distribuzione di Gestione risorse, qualsiasi NIC in una macchina virtuale può essere associata a un Gruppo di sicurezza di rete, incluse eventuali NIC in una macchina virtuale che presenta la funzionalità Multi-NIC abilitata. Se a una NIC viene assegnato un indirizzo all'interno di una subnet dove la subnet è associata a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete della subnet si applicano anche a tale NIC. Oltre alle subnet, è possibile associare ai Gruppi di sicurezza di rete anche una NIC.
@@ -265,4 +218,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

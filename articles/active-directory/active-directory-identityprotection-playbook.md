@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 #Studio sulla protezione delle identità di Azure Active Directory 
@@ -43,7 +43,7 @@ Questo tipo di evento di rischio identifica gli utenti che hanno eseguito l'acce
 **Per simulare un accesso da un IP anonimo, seguire questa procedura**:
 
 1.	Scaricare [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2.	Usando Tor Browser, passare ad [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2.	Usando Tor Browser, passare ad [https://myapps.microsoft.com](https://myapps.microsoft.com).
 3.	Immettere le credenziali dell'account da visualizzare nel report **Accessi da indirizzi IP anonimi**.
 
 L’accesso verrà visualizzato nel dashboard Identity Protection entro 5 minuti.
@@ -63,7 +63,7 @@ Per simulare posizioni non note, è necessario accedere da una posizione e da un
 
 **Per simulare un accesso da una posizione non nota, seguire questa procedura**:
 
-1.	Scegliere un account che abbia una cronologia di accesso di almeno 14 giorni. 
+1.	Scegliere un account che abbia una cronologia di accesso di almeno 14 giorni.
 
 2.	È possibile procedere in due modi:
 	
@@ -78,7 +78,7 @@ La condizione di trasferimento impossibile è difficile da simulare perché l'al
 
 **Per simulare un trasferimento impossibile a posizioni atipiche, seguire questa procedura**:
 
-1.	Usando il browser standard, passare ad [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1.	Usando il browser standard, passare ad [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2.	Immettere le credenziali dell'account per cui si vuole generare un evento di rischio trasferimento impossibile.
 
@@ -96,7 +96,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 -	Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
 -	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
--	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+-	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md).
 
 
 
@@ -160,7 +160,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 10.	Fare clic su **Save**.
 
-11.	A questo punto è possibile testare l'accesso condizionale basato sul rischio simulando gli eventi di rischio posizioni non note o IP anonimo, in quanto entrambi sono eventi di rischio di livello **Medio**.
+11.	A questo punto è possibile testare l'accesso condizionale basato sul rischio simulando gli eventi di rischio relativi a posizioni insolite o indirizzi IP anonimi, perché sono entrambi eventi di rischio di livello **Medio**.
 
 <br> ![Studio](./media/active-directory-identityprotection-playbook/200.png "Studio") <br>
 
@@ -169,4 +169,4 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

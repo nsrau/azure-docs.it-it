@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guida alla risoluzione di problemi relativi a notifiche push e Reach
@@ -74,7 +74,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 - Non vengono registrati dati sul lato server quando si usa il pulsante per eseguire il "test" degli elementi di push. I dati vengono registrati solo per le campagne reali sugli elementi di push.
 - Per individuare il proprio problema, ricorrere a test, simulazioni e a una campagna reale, dal momento che ogni procedura funziona in modo differente.
 - Il periodo di pianificazione "in-app" e "qualsiasi momento" delle campagne può influire sul numero dei recapiti poiché una campagna verrà recapitata solo a utenti "in-app" durante l'esecuzione della campagna e agli utenti che hanno impostato il dispositivo per la ricezione di notifiche "all'esterno dell'app".
-- Le differenze nella modalità di gestione delle notifiche all'esterno dell'app in Android e iOS rende difficile il confronto delle statistiche di push tra la versione Android e iOS dell'applicazione. Android fornisce più informazioni di notifica a livello di sistema operativo rispetto a iOS. Android segnala quando una notifica nativa viene ricevuta, selezionata o eliminata nell'area di notifica, invece iOS non segnala queste informazioni a meno che la notifica non venga selezionata. 
+- Le differenze nella modalità di gestione delle notifiche all'esterno dell'app in Android e iOS rende difficile il confronto delle statistiche di push tra la versione Android e iOS dell'applicazione. Android fornisce più informazioni di notifica a livello di sistema operativo rispetto a iOS. Android segnala quando una notifica nativa viene ricevuta, selezionata o eliminata nell'area di notifica, invece iOS non segnala queste informazioni a meno che la notifica non venga selezionata.
 - Il motivo principale per cui i numeri relativi al "push" sono diversi dai numeri relativi al "recapito" per le campagne di Reach è dovuto al fatto che le notifiche "in-app" e "all'esterno dell'app" vengono calcolate in modo diverso. Le notifiche "in-app" vengono gestite da Mobile Engagement, mentre quelle "all'esterno dell'app" vengono gestite dal centro notifiche nel sistema operativo del dispositivo.
 
 ## Selezione della destinazione di elementi push
@@ -88,7 +88,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 ### Cause
 
 - Verificare che i tag relativi alle informazioni dell'app siano stati caricati tramite l'interfaccia utente o l'API di Azure Mobile Engagement.
-- Limitando la velocità o la quota degli elementi push a livello di applicazione oppure limitando il pubblico a livello di campagna, è possibile impedire a una persona di ricevere specifici elementi push anche se soddisfano gli altri criteri di selezione della destinazione. 
+- Limitando la velocità o la quota degli elementi push a livello di applicazione oppure limitando il pubblico a livello di campagna, è possibile impedire a una persona di ricevere specifici elementi push anche se soddisfano gli altri criteri di selezione della destinazione.
 - L'impostazione di una "lingua" rappresenta un'operazione differente rispetto alla selezione della destinazione in base al paese o alle impostazioni locali. Si tratta di un'operazione differente anche rispetto alla selezione della destinazione in base alla georilevazione usando la posizione GPS o del telefono.
 - Il messaggio nella lingua "predefinita" viene inviato agli utenti il cui dispositivo non è impostato su una delle lingue alternative specificate.
 
@@ -110,4 +110,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

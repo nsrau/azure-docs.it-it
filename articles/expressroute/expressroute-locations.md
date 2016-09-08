@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -76,7 +76,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Supportato | Supportato | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Supportato | Amsterdam, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Supportato | Amsterdam, Londra |
-| **Interxion** | Supportato | Supportato | Amsterdam, Londra, Parigi |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Londra, Parigi |
 | **Jisc** | Presto disponibile | Presto disponibile | Londra+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Supportato | Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supportato | Supportato | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
@@ -89,7 +89,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Softbank** | Supportato | Supportato | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
-| **Telefonica** | Presto disponibile | Presto disponibile | Sao Paulo+ |
+| **Telefonica** | Supportato | Presto disponibile | Sao Paulo |
 | **Telenor** | Supportato | Supportato | Amsterdam, Londra |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Imminente | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
@@ -133,7 +133,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [Interxion](http://www.interxion.com/)
+	- [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
 	- [NEXTDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 	- [Cologix](http://www.cologix.com/)
@@ -171,4 +171,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

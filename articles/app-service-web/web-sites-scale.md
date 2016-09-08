@@ -115,7 +115,7 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 	- [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 
-<!-- LINKS -->  
+<!-- LINKS -->
 [vmsizes]: /pricing/details/app-service/
 [SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288

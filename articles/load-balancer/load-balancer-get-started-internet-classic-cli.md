@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite l’interfaccia della riga di comando di Azure | Microsoft Azure"
    description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l'interfaccia della riga di comando di Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -43,28 +43,28 @@ In questa guida viene illustrato come creare un servizio di bilanciamento del ca
 		info:    New mode is asm
 
 
-## Creazione dell’endpoint e del set del servizio di bilanciamento del carico 
+## Creazione dell’endpoint e del set del servizio di bilanciamento del carico
 
 Lo scenario presuppone che le macchine virtuali "web1" e "web2" sono state create. In questa guida verrà creato un set del servizio di bilanciamento del carico utilizzando la porta 80 come porta pubblica e la porta 80 come porta locale. Una porta probe è inoltre stata configurata sulla porta 80 e il set del servizio di bilanciamento del carico è stato chiamato "lbset".
 
 
-### Passaggio 1 
+### Passaggio 1
 
 Creare il primo endpoint e il set del servizio di bilanciamento del carico utilizzando `azure network vm endpoint create` per la macchina virtuale "web1".
 
-	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
 
 Parametri utilizzati:
 
 **-k** - porta della macchina virtuale locale<br> **-o** - protocollo<BR> **-t** - porta sonda<BR> **-b** - nome del servizio di bilanciamento del carico<BR>
- 
-## Passaggio 2 
+
+## Passaggio 2
 
 Aggiungere una seconda macchina virtuale "web2" al set del servizio di bilanciamento del carico.
 
 	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
-## Passaggio 3 
+## Passaggio 3
 
 Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show`.
 
@@ -118,7 +118,7 @@ L'output sarà:
 
 È possibile creare un endpoint di desktop remoto per inoltrare il traffico di rete da una porta pubblica a una porta locale per una macchina virtuale specifica utilizzando `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Rimuovere la macchina virtuale dal servizio di bilanciamento del carico
@@ -141,6 +141,4 @@ L'output sarà:
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

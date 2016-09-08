@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 # Indicazioni sulla resilienza dei servizi di Microsoft Azure
@@ -26,7 +26,7 @@ I collegamenti seguenti relativi a indicazioni sul ripristino di emergenza posso
 I collegamenti relativi alle indicazioni per la progettazione seguenti sono indicazioni per la progettazione e l'architettura, create per capire come usare il servizio di Azure in modo da massimizzare i tempi di attività dell'applicazione. Questi collegamenti sono stati creati per contribuire a rispondere alla domanda "Come ci si può assicurare che un bug, un errore hardware, un'interruzione del servizio o un altro errore non influisca sulla disponibilità complessiva della mia applicazione?". Se non è presente alcuna indicazione specifica per il servizio ricercato, è possibile che nell'articolo [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md) (Disponibilità elevata per applicazioni basate su Microsoft Azure) siano contenute informazioni aggiuntive utili per la progettazione.
 
 ##Indicazioni sul servizio
-| Servizio | Indicazioni sul ripristino di emergenza | Indicazioni per la progettazione |
+| Service | Indicazioni sul ripristino di emergenza | Indicazioni per la progettazione |
 |:---------|:--------------------------:|:------------------:|
 | [Servizi cloud](https://azure.microsoft.com/services/cloud-services/ "Servizi cloud di Azure") | [link](../cloud-services/cloud-services-disaster-recovery-guidance.md "Indicazioni sul ripristino di emergenza per i Servizi cloud di Azure") | Non disponibile |
 | [Insieme di credenziali di chiave](https://azure.microsoft.com/services/key-vault/ "Insieme di credenziali chiave Azure") | [link](../key-vault/key-vault-disaster-recovery-guidance.md "Indicazioni sul ripristino di emergenza per l'insieme di credenziali delle chiavi di Azure") | Non disponibile |
@@ -38,4 +38,4 @@ I collegamenti relativi alle indicazioni per la progettazione seguenti sono indi
 ##Passaggi successivi
 Se si cercano indicazioni incentrate in modo più generico su sistemi e soluzioni, vedere [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide) (Ripristino di emergenza e disponibilità elevata per applicazioni basate su Microsoft Azure).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

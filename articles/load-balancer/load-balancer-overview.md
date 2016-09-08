@@ -3,7 +3,7 @@
    description="Panoramica di funzionalità, architettura e implementazione di Azure Load Balancer. Informazioni sul funzionamento del servizio di bilanciamento del carico e su come usarlo nel cloud."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/19/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Panoramica di Azure Load Balancer
@@ -36,7 +36,7 @@ In questo modello al servizio cloud vengono assegnati un indirizzo IP pubblico e
 
 La conversione delle porte viene eseguita tramite gli endpoint con una relazione uno-a-uno tra la porta pubblica assegnata dell'indirizzo IP pubblico e la porta locale assegnata per inviare il traffico a una macchina virtuale specifica. Il bilanciamento del carico avviene tramite gli endpoint del servizio di bilanciamento del carico. Questi endpoint hanno una relazione uno-a molti tra l'indirizzo IP pubblico e le porte locali assegnate a tutte le macchine virtuali nel servizio cloud che risponderanno al traffico di rete con carico bilanciato.
 
-L'etichetta del dominio per l'indirizzo IP pubblico usato dal servizio di bilanciamento del carico in questo modello di distribuzione è <cloud service name>.cloudapp.net. Il grafico seguente mostra Azure Load Balancer in questo modello.
+L'etichetta del dominio per l'indirizzo IP pubblico usato dal servizio di bilanciamento del carico in questo modello di distribuzione è <nome servizio cloud>.cloudapp.net. Il grafico seguente mostra Azure Load Balancer in questo modello.
 
 ![Azure Load Balancer nel modello di distribuzione classica](./media/load-balancer-overview/asm-lb.png)
 
@@ -58,7 +58,7 @@ Il grafico seguente mostra Azure Load Balancer in questo modello:
 
 Il servizio di bilanciamento del carico usa un algoritmo di distribuzione basato su hash. Per impostazione predefinita, usa un hash a 5 tuple (IP di origine, porta di origine, IP di destinazione, porta di destinazione e tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. La persistenza viene mantenuta solo *all'interno* di una sessione di trasporto. I pacchetti nella stessa sessione TCP o UDP verranno indirizzati alla stessa istanza di IP di data center nell'endpoint con carico bilanciato. Quando il client chiude e riapre la connessione o avvia una nuova sessione dallo stesso IP di origine, la porta di origine cambia. È quindi possibile che il traffico venga indirizzato a un diverso endpoint IP di data center.
 
-Per altre informazioni dettagliate, vedere [Modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md). Il grafico seguente illustra la distribuzione basata su hash:
+Per altre informazioni dettagliate, vedere [Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)](load-balancer-distribution-mode.md). Il grafico seguente illustra la distribuzione basata su hash:
 
 ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -82,8 +82,8 @@ Il servizio di bilanciamento del carico può verificare l'integrità delle varie
 
 Sono supportati tre tipi di probe:
 
-- **Probe dell'agente guest (solo in VM PaaS)****:** il servizio di bilanciamento del carico utilizza l'agente guest all'interno della macchina virtuale. È in ascolto e risponde con HTTP 200 OK solo quando l'istanza è pronta, ovvero quando lo stato dell'istanza non è Occupato, Riciclo in corso o Arresto. Se l'agente guest non risponde con un messaggio HTTP 200 OK, il servizio di bilanciamento del carico contrassegna l'istanza che non risponde e interrompe l'invio di traffico a tale istanza. Il servizio di bilanciamento del carico continuerà a effettuare il ping dell'istanza. Se l'agente guest risponde con HTTP 200, il servizio di bilanciamento del carico invierà ancora il traffico a tale istanza. Quando si usa un ruolo Web, il codice del sito Web in genere viene eseguito in w3wp.exe, che non viene monitorato dall'infrastruttura di Azure o dall'agente guest. Gli errori in w3wp.exe, ad esempio le risposte HTTP 500, non verranno quindi segnalati all'agente guest e il servizio di bilanciamento del carico non sa di dover escludere l'istanza dalla rotazione.
-- **Probe HTTP personalizzato:** questo probe esegue l'override del probe predefinito (agente guest). È possibile usarlo per creare la logica personalizzata con cui determinare l'integrità dell'istanza del ruolo. Il servizio di bilanciamento del carico eseguirà regolarmente il probe dell'endpoint (per impostazione predefinita, ogni 15 secondi). L'istanza verrà considerata nella rotazione se risponde con ACK TCP o HTTP 200 entro il periodo di timeout (per impostazione predefinita, 31 secondi). Questo può essere utile per implementare la propria logica per la rimozione delle istanze dalla rotazione del servizio di bilanciamento del carico. È possibile, ad esempio, configurare l'istanza in modo che restituisca uno stato diverso da 200 se l'istanza usa più del 90% della CPU. Per i ruoli Web che usano w3wp.exe, si ottiene anche il monitoraggio automatico del sito Web, perché gli errori nel codice del sito Web restituiranno al probe uno stato diverso da 200.  
+- **Probe dell'agente guest (solo in VM PaaS)****:** il servizio di bilanciamento del carico usa l'agente guest all'interno della macchina virtuale. È in ascolto e risponde con HTTP 200 OK solo quando l'istanza è pronta, ovvero quando lo stato dell'istanza non è Occupato, Riciclo in corso o Arresto. Se l'agente guest non risponde con un messaggio HTTP 200 OK, il servizio di bilanciamento del carico contrassegna l'istanza che non risponde e interrompe l'invio di traffico a tale istanza. Il servizio di bilanciamento del carico continuerà a effettuare il ping dell'istanza. Se l'agente guest risponde con HTTP 200, il servizio di bilanciamento del carico invierà ancora il traffico a tale istanza. Quando si usa un ruolo Web, il codice del sito Web in genere viene eseguito in w3wp.exe, che non viene monitorato dall'infrastruttura di Azure o dall'agente guest. Gli errori in w3wp.exe, ad esempio le risposte HTTP 500, non verranno quindi segnalati all'agente guest e il servizio di bilanciamento del carico non sa di dover escludere l'istanza dalla rotazione.
+- **Probe HTTP personalizzato:** questo probe esegue l'override del probe predefinito (agente guest). È possibile usarlo per creare la logica personalizzata con cui determinare l'integrità dell'istanza del ruolo. Il servizio di bilanciamento del carico eseguirà regolarmente il probe dell'endpoint (per impostazione predefinita, ogni 15 secondi). L'istanza verrà considerata nella rotazione se risponde con ACK TCP o HTTP 200 entro il periodo di timeout (per impostazione predefinita, 31 secondi). Questo può essere utile per implementare la propria logica per la rimozione delle istanze dalla rotazione del servizio di bilanciamento del carico. È possibile, ad esempio, configurare l'istanza in modo che restituisca uno stato diverso da 200 se l'istanza usa più del 90% della CPU. Per i ruoli Web che usano w3wp.exe, si ottiene anche il monitoraggio automatico del sito Web, perché gli errori nel codice del sito Web restituiranno al probe uno stato diverso da 200.
 - **Probe TCP personalizzato:** questo probe si basa sulla corretta attivazione di una sessione TCP in una porta probe definita.
 
 Per altre informazioni, vedere [Schema LoadBalancerProbe](https://msdn.microsoft.com/library/azure/jj151530.aspx).
@@ -122,4 +122,4 @@ Il servizio di bilanciamento del carico può essere gestito mediante API e strum
 
 [Introduzione alla creazione del servizio di bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

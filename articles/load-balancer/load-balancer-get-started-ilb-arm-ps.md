@@ -3,7 +3,7 @@
    description="Informazioni su come creare un servizio di bilanciamento del carico interno in Gestione risorse con PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,13 +15,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -38,7 +38,7 @@ In questo articolo viene illustrata la sequenza delle singole attività da esegu
 
 Gli elementi seguenti devono essere configurati prima di creare un servizio di bilanciamento del carico interno:
 
-- Configurazione di IP front-end: configurazione dell'indirizzo IP privato per il traffico di rete in ingresso. 
+- Configurazione di IP front-end: configurazione dell'indirizzo IP privato per il traffico di rete in ingresso.
 
 - Pool di indirizzi back end: configurazione delle interfacce di rete che riceveranno il traffico con carico bilanciato proveniente dal pool di indirizzi IP front end.
 
@@ -89,7 +89,7 @@ Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo
 
     	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente sono stati creare un gruppo di risorse denominato "NRP-RG" e la località "West US".
 
@@ -316,4 +316,4 @@ Usare il comando Remove-AzureRmLoadBalancer per eliminare un servizio di bilanci
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

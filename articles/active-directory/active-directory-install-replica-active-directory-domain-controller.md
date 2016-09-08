@@ -4,22 +4,22 @@
 	services="virtual-network"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
 	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
 # Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
 
-Questo argomento descrive come installare altri controller di dominio (anche noti come controller di dominio di replica) per un dominio Active Directory locale in Macchine virtuali di Azure in una rete virtuale di Azure.
+Questo argomento descrive come installare altri controller di dominio, noti anche come controller di dominio di replica, per un dominio di Active Directory locale in macchine virtuali di Azure in una rete virtuale di Azure.
 
 Altri argomenti di interesse:
 
@@ -72,7 +72,7 @@ Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo 
 	**Configurazione macchina virtuale** | <p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p>
 2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare le dimensioni per il disco (ad esempio 10 GB) e lasciare l'opzione **Preferenze cache dell'host** impostata su **Nessuna**. Per la procedura, vedere [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md).
 3. Dopo avere effettuato la prima connessione alla macchina virtuale, aprire **Server Manager** > **Servizi file e archiviazione** per creare un volume in questo disco usando NTFS.
-4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](../powershell-install-configure.md), quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
+4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](../powershell-install-configure.md), quindi eseguire il cmdlet Set-AzureStaticVNetIP. ad esempio:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -119,4 +119,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

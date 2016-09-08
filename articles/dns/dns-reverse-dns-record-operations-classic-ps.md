@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Come gestire i record DNS inversi per i servizi tramite PowerShell nel modello di distribuzione classico | Microsoft Azure"
    description="Come gestire i record DNS inversi o i record PTR per i servizi di Azure tramite PowerShell nel modello di distribuzione classico. "
    services="DNS"
@@ -8,19 +8,19 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="DNS"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="s-malone" />
+   ms.author="smalone" />
 
 # Come gestire i record DNS inversi per i servizi (classico) tramite PowerShell
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
-<BR>
+<BR> 
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 <BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](dns-reverse-dns-record-operations-ps.md).
@@ -28,8 +28,8 @@
 ## Convalida dei record DNS inversi
 Per impedire che qualcun altro possa creare record DNS inversi mappati ai propri domini DNS, Azure consente la creazione di un record DNS inverso solo se una delle condizioni seguenti è vera:
 
-- Il nome di dominio completo (FQDN) del DNS inverso è il nome del servizio cloud per il quale è stato specificato o il nome di un qualsiasi servizio cloud nella stessa sottoscrizione, ad esempio il DNS inverso è “contosoapp1.cloudapp.net.”.
-- Il nome di dominio completo del DNS inverso si risolve in avanti nel nome o indirizzo IP del servizio cloud per cui è stato specificato o nel nome di qualsiasi servizio cloud o indirizzo IP nella stessa sottoscrizione, ad esempio il DNS inverso è “app1.contoso.com.”, un alias CName per contosoapp1.cloudapp.net.
+- Il nome di dominio completo (FQDN) del DNS inverso è il nome del servizio cloud per il quale è stato specificato o il nome di un qualsiasi servizio cloud nella stessa sottoscrizione, ad esempio il DNS inverso è "contosoapp1.cloudapp.net.".
+- Il nome di dominio completo del DNS inverso si risolve in avanti nel nome o indirizzo IP del servizio cloud per cui è stato specificato o nel nome di qualsiasi servizio cloud o indirizzo IP nella stessa sottoscrizione, ad esempio il DNS inverso è "app1.contoso.com.", un alias CName per contosoapp1.cloudapp.net.
 
 Controlli di convalida vengono eseguiti solo quando la proprietà DNS inverso per un servizio cloud viene impostata o modificata. La convalida non viene ripetuta periodicamente.
 
@@ -55,4 +55,4 @@ Controlli di convalida vengono eseguiti solo quando la proprietà DNS inverso pe
 
 [AZURE.INCLUDE [DOMANDE FREQUENTI](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

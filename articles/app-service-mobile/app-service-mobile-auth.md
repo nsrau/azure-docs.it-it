@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Autenticazione e autorizzazione in App per dispositivi mobili di Azure
@@ -56,13 +56,13 @@ Dopo che sono state effettuate tutte le configurazioni nel back-end, è possibil
 
 ### Funzionamento dell'autenticazione senza un SDK del provider
 
-Se non si desidera configurare un SDK del provider, è possibile consentire ad App per dispositivi mobili di eseguire l'accesso per l'utente. L’SDK del client di App per dispositivi mobili aprirà una visualizzazione web per il provider di propria scelta e completerà l'accesso. In alcuni casi su blog e forum questo verrà definito "flusso server" o "flusso verso il server" perché il server gestisce l'accesso e l’SDK del client non riceve mai il token del provider.
+Se non si desidera configurare un SDK del provider, è possibile consentire ad App per dispositivi mobili di eseguire l'accesso per l'utente. L'SDK client delle app per dispositivi mobili aprirà una visualizzazione web per il provider scelto e completerà l'accesso. In alcuni casi su blog e forum questo verrà definito "flusso server" o "flusso verso il server", perché il server gestisce l'accesso e l'SDK del client non riceve mai il token del provider.
 
 Il codice necessario per avviare questo flusso è illustrato nell'esercitazione di autenticazione per ogni piattaforma. Alla fine del flusso, l’SDK del client dispone di un token del servizio App e il token viene associato automaticamente a tutte le richieste per il back-end.
 
 ### Funzionamento dell'autenticazione con un SDK del provider
 
-L’utilizzo di un SDK del provider consente all'esperienza di accesso di interagire più strettamente con la piattaforma del sistema operativo su cui è in esecuzione l'app. Inoltre, offre un token del provider e alcune informazioni utente sul client, che rende molto più semplice utilizzare le API Graph e personalizzare l'esperienza utente. In alcuni casi su blog e forum questo verrà definito come “flusso client" o "flusso verso il client" poichè il codice sul client gestisce l'accesso e il codice client ha accesso a un token del provider.
+L'uso di un SDK del provider consente all'esperienza di accesso di interagire più strettamente con la piattaforma del sistema operativo su cui è in esecuzione l'app. Inoltre, offre un token del provider e alcune informazioni utente sul client, che rende molto più semplice utilizzare le API Graph e personalizzare l'esperienza utente. In alcuni casi su blog e forum questo verrà definito come “flusso client" o "flusso verso il client" poichè il codice sul client gestisce l'accesso e il codice client ha accesso a un token del provider.
 
 Dopo aver ottenuto un token del provider, deve essere inviato al servizio App per la convalida. Alla fine del flusso, l’SDK del client dispone di un token del servizio App e il token viene associato automaticamente a tutte le richieste per il back-end. Lo sviluppatore, se vuole, può anche memorizzare un riferimento al token del provider:
 
@@ -104,4 +104,4 @@ Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti,
 [Come configurare un'applicazione per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

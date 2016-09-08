@@ -101,7 +101,7 @@ Tenere presente quanto segue:
 
 - Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 - È possibile usare il **proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che viene elaborata una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
 
 	Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
@@ -214,7 +214,7 @@ Nel frammento di codice JSON si crea una pipeline costituita da una singola atti
 
 Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**) e nella cartella **script** nel contenitore **adfgetstarted**.
 
-La sezione **defines** è usata per specificare le impostazioni di runtime che vengono passate allo script Hive come valori di configurazione Hive, ad esempio, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}.
+La sezione **defines** specifica le impostazioni di runtime che vengono passate allo script Hive come valori di configurazione Hive, ad esempio, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}.
 
 Le proprietà **start** ed **end** della pipeline ne specificano il periodo attivo.
 
@@ -250,7 +250,7 @@ In Azure PowerShell eseguire i comandi seguenti dopo avere sostituito i valori c
 
 ## Creare un'istanza di Data Factory
 
-In questo passaggio viene creata un'istanza di Azure Data Factory denominata **FirstDataFactoryREST**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. Eseguire i comandi seguenti per creare la data factory:
+In questo passaggio viene creata un'istanza di Azure Data Factory denominata **FirstDataFactoryREST**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati. Eseguire i comandi seguenti per creare la data factory:
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
@@ -262,7 +262,7 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se la data factory è stata creata correttamente, in **results** viene visualizzato il codice JSON per la data factory. In caso contrario, viene visualizzato un messaggio di errore.
 
-		$results
+		Write-Host $results
 
 Tenere presente quanto segue:
  
@@ -283,7 +283,7 @@ Tenere presente quanto segue:
 			Get-AzureRmResourceProvider
 	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
 
-Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati e quindi creare la pipeline con un'attività che usa questi set di dati.
+Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati.
 
 ## Creazione di servizi collegati 
 In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline.
@@ -299,7 +299,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results
+		Write-Host $results
 
 ### Creare un servizio collegato Azure HDInsight
 In questo passaggio viene collegato un cluster HDInsight su richiesta alla data factory. Il cluster HDInsight viene creato automaticamente in fase di esecuzione ed eliminato al termine dell'elaborazione, se rimane inattivo per il periodo di tempo specificato. È possibile usare il proprio cluster HDInsight anziché un cluster HDInsight su richiesta. Per informazioni dettagliate, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
@@ -312,7 +312,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
 
-		$results
+		Write-Host $results
 
 ## Creare set di dati
 In questo passaggio vengono creati set di dati per rappresentare i dati di input e di output per l'elaborazione Hive. I set di dati fanno riferimento all'oggetto **StorageLinkedService** creato in precedenza in questa esercitazione. Il servizio collegato punta a un account di archiviazione di Azure e i set di dati specificano il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input e di output.
@@ -328,7 +328,7 @@ In questo passaggio viene creato il set di dati di input per rappresentare i dat
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results
+		Write-Host $results
 ### Creare il set di dati di output
 In questo passaggio viene creato il set di dati di output per rappresentare i dati di output archiviati nell'archivio BLOB di Azure.
 
@@ -340,10 +340,10 @@ In questo passaggio viene creato il set di dati di output per rappresentare i da
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results 
+		Write-Host $results 
 
 ## Creare una pipeline
-In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. La sezione di input è disponibile ogni mese (frequency: Month, interval: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile (vedere sotto). Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input.
+In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. La sezione di input è disponibile ogni mese (frequency: Month, interval: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile. Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input.
 
 Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inputdata** nell'archiviazione BLOB di Azure ed eseguire il comando seguente per distribuire la pipeline. Dal momento che gli orari di **inizio** e **fine** sono impostati nel passato e **isPaused** è impostato su false, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione.
 
@@ -355,7 +355,7 @@ Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inp
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
 
-		$results
+		Write-Host $results
 5. La creazione della prima pipeline tramite Azure PowerShell è così completata.
 
 ## Monitorare la pipeline
@@ -373,7 +373,7 @@ In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare 
     	    (convertFrom-Json $results2).RemoteException
 	}
 
-Eseguire il comando Invoke e il comando successivo fino a quando la sezione non avrà stato **Pronta** o **Non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. Tenere presente che la creazione di un cluster HDInsight su richiesta di solito richiede tempo.
+Eseguire il comando Invoke e il comando successivo fino a quando la sezione non avrà stato **Pronta** o **Non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. La creazione di un cluster HDInsight su richiesta di solito richiede tempo.
 
 ![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
@@ -405,4 +405,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Monitorare e gestire le pipeline con i pannelli del portale di Azure.](data-factory-monitor-manage-pipelines.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline con i pannelli del portale di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

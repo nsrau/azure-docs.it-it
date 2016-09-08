@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come eseguire lo streaming live con codificatori locali" 
-	description="In questo argomento viene illustrato come utilizzare .NET per eseguire la codifica live con codificatori in locale." 
+	pageTitle="Come eseguire lo streaming live con codificatori locali mediante .NET | Microsoft Azure" 
+	description="Questo argomento illustra come usare .NET per eseguire la codifica live con codificatori in locale." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#Come eseguire lo streaming live con codificatori locali
+#Come eseguire lo streaming live con codificatori locali mediante .NET
 
 ##Prerequisiti
 
@@ -377,7 +377,9 @@ Per informazioni su come configurare un codificatore live, vedere [Codificatori 
 	    }
 	}
 
-##Percorsi di apprendimento di Media Services
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -385,4 +387,4 @@ Per informazioni su come configurare un codificatore live, vedere [Codificatori 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

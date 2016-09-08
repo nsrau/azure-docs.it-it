@@ -37,7 +37,7 @@ Un account di archiviazione Azure fornisce memoria per il disco del sistema oper
 
 ## Come si accede alla macchina virtuale?
 
-È necessario stabilire una connessione remota per accedere alla macchina virtuale tramite Secure Shell (SSH). Vedere le istruzioni su come connettersi [da Windows](virtual-machines-linux-ssh-from-windows.md) o [da Linux e Mac](virtual-machines-linux-ssh-from-linux.md). Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
+È necessario stabilire una connessione remota per accedere alla macchina virtuale tramite Secure Shell (SSH). Vedere le istruzioni su come connettersi [da Windows](virtual-machines-linux-ssh-from-windows.md) o [da Linux e Mac](virtual-machines-linux-mac-create-ssh-keys.md). Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
 
 
 Se si verificano problemi, vedere l'argomento [Risolvere i problemi relativi alle connessioni Secure Shell (SSH)](virtual-machines-linux-troubleshoot-ssh-connection.md).
@@ -58,4 +58,4 @@ Le due nuove aree del Canada centrale e del Canada orientale non vengono registr
 
 No. L'aggiunta di una scheda di rete può essere effettuata solo al momento della creazione.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

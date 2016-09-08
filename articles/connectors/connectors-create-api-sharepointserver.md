@@ -1,6 +1,6 @@
 <properties
-pageTitle="Usare il connettore SharePoint Online nelle app per la logica o di PowerApps| Microsoft Azure"
-description="Introduzione all'uso del connettore SharePoint Online del Servizio app di Azure nelle app per la logica e nelle app di PowerApps."
+pageTitle="Usare il connettore SharePoint Online nelle app per la logica | Microsoft Azure"
+description="Introduzione all'uso del connettore SharePoint Online del servizio app di Azure nelle app per la logica."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore SharePoint Online 
@@ -23,12 +23,8 @@ Il connettore SharePoint consente di utilizzare gli elenchi in SharePoint.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Con SharePoint è possibile:
 
-* Compilare app per la logica
-* Compilare app di PowerApps
-
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione alle app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Informazioni su trigger e azioni
 
@@ -72,19 +68,18 @@ Per usare il connettore SharePoint, creare prima una **connessione**, quindi ind
 | ---|---|---|
 |Token|Sì|Fornire le credenziali di SharePoint|
 
-Per connettersi a **SharePoint Online**, è necessario indicare la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare il connettore SharePoint Online nella propria app per la logica.
+Per connettersi a **SharePoint Online** è necessario specificare la propria identità, completa di nome utente, password, credenziali smart card e così via, in SharePoint Online. Dopo l'autenticazione, è possibile usare il connettore SharePoint Online nella propria app per la logica.
 
 Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
 
-1. Nella casella di ricerca digitare "SharePoint" e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]
-2. Selezionare **SharePoint Online - When a file is created**
+1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]
+2. Selezionare **SharePoint Online - Quando viene creato un file**.
 3. Selezionare **Accedi a SharePoint Online**: ![Configurare SharePoint][2]
-4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint ![Configurare SharePoint][3]
-5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** (Quando un file viene creato) di SharePoint. ![Configurare SharePoint][4]
+4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint. ![Configurare SharePoint][3]
+5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla configurando la finestra di dialogo **Quando viene creato un file** di SharePoint. ![Configurare SharePoint][4]
 6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.
-7. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
+7. Salvare il lavoro selezionando **Salva** nella barra dei menu in alto.
 
->[AZURE.TIP] È possibile usare questa connessione in altre app per la logica, app di PowerApps o in entrambe.
 
 ## Informazioni di riferimento sull'API REST di SharePoint
 #### Questa documentazione è relativa alla versione 1.0
@@ -97,7 +92,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |id|string|yes|path|nessuno|Identificatore univoco del file|
 
 
@@ -118,7 +113,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |id|string|yes|path|nessuno|Identificatore univoco del file|
 |body| |sì|body|nessuno|Contenuto del file|
 
@@ -140,7 +135,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |id|string|yes|path|nessuno|Identificatore univoco del file|
 
 
@@ -161,7 +156,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |path|string|yes|query|nessuno|Percorso del file|
 
 
@@ -182,7 +177,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |path|string|yes|query|nessuno|Percorso del file|
 
 
@@ -203,7 +198,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |id|string|yes|path|nessuno|Identificatore univoco del file|
 
 
@@ -224,7 +219,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |folderPath|string|yes|query|nessuno|Percorso della cartella.|
 |name|string|yes|query|nessuno|Nome del file|
 |body| |sì|body|nessuno|Contenuto del file|
@@ -247,7 +242,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |source|string|yes|query|nessuno|Percorso del file di origine|
 |destination|string|yes|query|nessuno|Percorso del file di destinazione|
 |overwrite|boolean|no|query|false|Sovrascrivere o non sovrascrivere un file esistente|
@@ -312,7 +307,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint, Ad esempio http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |source|string|yes|query|nessuno|Percorso del file di origine|
 |destination|string|yes|query|nessuno|Percorso della cartella di destinazione|
 |overwrite|boolean|no|query|false|Sovrascrivere o non sovrascrivere un file esistente|
@@ -335,7 +330,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
@@ -360,7 +355,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
@@ -385,7 +380,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |item| |yes|body|nessuno|Elemento da creare|
 
@@ -407,7 +402,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da recuperare|
 
@@ -429,7 +424,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da eliminare|
 
@@ -451,7 +446,7 @@ Durante la progettazione dell'app per la logica, seguire questa procedura per ac
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|URL del sito di SharePoint (ad esempio: http://contoso.sharepoint.com/sites/mysite)|
+|dataset|string|yes|path|nessuno|URL del sito di SharePoint, ad esempio http://contoso.sharepoint.com/sites/mysite|
 |tabella|string|yes|path|nessuno|Nome dell'elenco SharePoint|
 |id|integer|sì|path|nessuno|Identificatore univoco dell'elemento da aggiornare|
 |item| |yes|body|nessuno|Elemento con le proprietà modificate|
@@ -693,7 +688,7 @@ Nessuna delle proprietà è obbligatoria.
 
 
 ## Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +696,4 @@ Nessuna delle proprietà è obbligatoria.
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

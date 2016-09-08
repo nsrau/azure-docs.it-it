@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph
@@ -23,7 +23,7 @@ Microsoft Graph è l'endpoint API unificato di Microsoft e la posizione in cui r
 
 Per l'accesso ai dati di Identity Protection tramite Microsoft Graph sono disponibili tre passaggi:
 
-1. Aggiungere un'applicazione con un segreto client. 
+1. Aggiungere un'applicazione con un segreto client.
 
 2. Usare questo segreto e qualche altra informazione per eseguire l'autenticazione in Microsoft Graph, dove si riceverà un token di autenticazione.
 
@@ -39,7 +39,7 @@ Ecco gli elementi che occorre avere prima di iniziare:
 ## Aggiungere un'applicazione con un segreto client
 
 
-1. [Accedere](https://manage.windowsazure.com) al portale di Azure classico come amministratore. 
+1. [Accedere](https://manage.windowsazure.com) al portale di Azure classico come amministratore.
 
 1. Nel riquadro di spostamento sinistro fare clic su **Active Directory**.
 
@@ -51,7 +51,7 @@ Ecco gli elementi che occorre avere prima di iniziare:
 
 	![Creazione di un'applicazione](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_02.png)
 
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
 	![Creazione di un'applicazione](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_03.png)
 
@@ -91,7 +91,7 @@ A questo punto è possibile configurare l'applicazione.
 ## Concedere all'applicazione le autorizzazioni per l'uso dell'API
 
 
-1. Nella pagina dell'applicazione scegliere **Configura** dal menu in alto. 
+1. Nella pagina dell'applicazione scegliere **Configura** dal menu in alto.
 
 	![Creazione di un'applicazione](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -155,9 +155,9 @@ Per autenticarsi, inviare una richiesta POST a `https://login.microsoft.com` inc
 
 - resource: "**https://graph.microsoft.com**”
 
-- client\_id: <your client ID>
+- client\_id: <ID client locale>
 
-- client\_secret: <your key>
+- client\_secret: <chiave personale >
 
 
 > [AZURE.NOTE] È necessario fornire i valori per i parametri **client\_id** e **client\_secret**.
@@ -219,8 +219,8 @@ Per altre informazioni su Microsoft Graph e su come creare applicazioni usando l
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Overview of Microsoft Graph](https://graph.microsoft.io/docs) (Panoramica di Microsoft Graph)
+- [Overview of Microsoft Graph (Panoramica di Microsoft Graph)](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) (Radice del servizio Azure AD Identity Protection)
+- [Azure AD Identity Protection Service Root (Radice del servizio Azure AD Identity Protection)](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

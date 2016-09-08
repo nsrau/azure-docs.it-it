@@ -43,7 +43,7 @@ Questo articolo contiene istruzioni relative alla distribuzione avanzata nel por
 
 La distribuzione avanzata è un aggiornamento importante. Di seguito è riportato un riepilogo dei miglioramenti apportati:
 
-- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.  
+- **Nessuna VM dell'infrastruttura in Azure**: i dati vengono replicati direttamente in un account di archiviazione di Azure. Inoltre, per la replica e il failover non è necessario configurare VM dell’infrastruttura (server di configurazione, server di destinazione master), necessaria invece nella distribuzione legacy.
 - **Installazione unificata**: un'unica installazione garantisce la scalabilità per i componenti locali e ne semplifica la configurazione.
 - **Distribuzione protetta**: tutto il traffico viene crittografato e le comunicazioni relative alla gestione della replica vengono inviate tramite HTTPS 443.
 - **Punti di ripristino**: supporto per punti di ripristino per l'arresto anomalo del sistema e coerenti con l'applicazione per ambienti Windows e Linux. Sono supportate configurazioni coerenti con VM singole e multiple.
@@ -498,7 +498,7 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
 Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
@@ -528,6 +528,14 @@ Dove:
 - /InstallLocation. Obbligatorio. Specifica dove installare il servizio.
 - /PassphraseFilePath. Obbligatorio. Specifica la passphrase del server di configurazione.
 - /LogFilePath. Obbligatorio. Specifica il percorso dei file di impostazione log.
+
+#### Disinstallare manualmente il servizio Mobility
+
+Il servizio Mobility può essere disinstallato tramite Installazione applicazioni del Pannello di controllo o la riga di comando.
+
+Il comando per disinstallare il servizio Mobility tramite la riga di comando è
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 #### Modificare l'indirizzo IP del server di gestione
 
@@ -796,4 +804,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

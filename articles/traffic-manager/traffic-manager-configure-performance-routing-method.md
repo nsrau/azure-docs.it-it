@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurare un metodo di routing del traffico delle prestazioni
 
@@ -49,4 +49,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,7 +3,7 @@
    description="Informazioni su come abilitare gli eventi di avviso e la registrazione dello stato di integrità del probe per il servizio di bilanciamento del carico di Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,14 +15,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
 
 - **Log di controllo:** è possibile usare i [log di controllo di Azure](../../articles/azure-portal/insights-debugging-with-events.md) (noti in precedenza come log operativi) per visualizzare tutte le operazioni da inviare alle sottoscrizioni di Azure e il relativo stato. I log di controllo sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di Azure.
-- **Log eventi di avviso:** è possibile usare questo log per visualizzare gli avvisi generati per il bilanciamento del carico. Le informazioni di stato per il bilanciamento del carico vengono raccolte ogni cinque minuti. Questo log viene scritto solo se viene generato un evento di avviso del bilanciamento del carico.  
+- **Log eventi di avviso:** è possibile usare questo log per visualizzare gli avvisi generati per il bilanciamento del carico. Le informazioni di stato per il bilanciamento del carico vengono raccolte ogni cinque minuti. Questo log viene scritto solo se viene generato un evento di avviso del bilanciamento del carico.
 - **Log del probe di integrità:** è possibile usare questo log per verificare lo stato del controllo integrità del probe, il numero di istanze online nel back-end del bilanciamento del carico e la percentuale di macchine virtuali che riceve il traffico di rete dal bilanciamento del carico. Questo log viene scritto se l'evento dello stato del probe cambia.
 
 >[AZURE.WARNING] I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere l'articolo [Comprendere la distribuzione di Gestione risorse e distribuzione classica](../../articles/resource-manager-deployment-model.md). <BR> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. Questa limitazione è temporanea e può cambiare in qualsiasi momento. Assicurarsi di visualizzare nuovamente questa pagina per verificare le modifiche future.
@@ -128,4 +128,4 @@ L'output JSON mostra nel campo proprietà le informazioni di base per lo stato d
 - Post di blog sulla [visualizzazione dei log di controllo di Azure con Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Post di blog su [visualizzazione e analisi dei log di controllo di Azure in Power BI e altri strumenti](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

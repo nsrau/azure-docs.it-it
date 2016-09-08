@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Integrazione di API
@@ -86,7 +86,7 @@ Questa esercitazione illustra uno scenario di questo tipo, in cui un utente azie
         }
 
 ## Integrazione con Mobile Engagement
-1.  Quando viene rilevato un elemento che richiede l'elaborazione, vengono estratte le informazioni necessarie per creare un annuncio dall'elemento dell'elenco, viene chiamato `CreateAzMECampaign` per creare l'annuncio e infine `ActivateAzMECampaign` per attivarlo. Si tratta essenzialmente di chiamate all'API REST per il back-end di Mobile Engagement. 
+1.  Quando viene rilevato un elemento che richiede l'elaborazione, vengono estratte le informazioni necessarie per creare un annuncio dall'elemento dell'elenco, viene chiamato `CreateAzMECampaign` per creare l'annuncio e infine `ActivateAzMECampaign` per attivarlo. Si tratta essenzialmente di chiamate all'API REST per il back-end di Mobile Engagement.
 
 2.  Le API REST di Mobile Engagement necessitano di un'**intestazione HTTP dell'autorizzazione dello schema di autorizzazione di base**, costituita da `ApplicationId` e `ApiKey`, disponibili nel portale di Azure. Assicurarsi di usare la chiave della sezione **Chiavi API** e *non* della sezione **Chiavi SDK**.
 
@@ -207,4 +207,4 @@ Questo esempio ha creato una semplice campagna di tipo annuncio, specificando pr
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->
