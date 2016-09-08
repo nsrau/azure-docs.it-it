@@ -10,23 +10,23 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="08/18/2016"
 	ms.author="vikdesai"/>
 
-# Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
+# Impostare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure
 
 Si è preoccupati per la spesa mensile per la sottoscrizione di Azure? Se si amministrano gli account per una sottoscrizione di Azure, è possibile usare Azure Billing Alert Service per creare avvisi di fatturazione personalizzati che consentono di monitorare e gestire l'attività di fatturazione per gli account Azure.
 
-Poiché si tratta di un servizio in versione di anteprima, è innanzitutto necessario effettuare l'iscrizione. A questo scopo, visitare la <a href="https://account.windowsazure.com/PreviewFeatures">pagina relativa alle funzionalità di anteprima</a> nel portale di gestione degli account Azure.
+Questo servizio è disponibile in anteprima, quindi è necessario innanzitutto effettuare l'iscrizione. Visitare la [pagina Anteprima funzionalità](https://account.windowsazure.com/PreviewFeatures) nel portale di gestione account Azure per abilitare questa funzionalità.
 
 ## Impostare la soglia di avviso e i destinatari di posta elettronica
 
-Dopo aver ricevuto tramite posta elettronica la conferma dell'attivazione del servizio di fatturazione per la sottoscrizione, visitare la <a href="https://account.windowsazure.com/Subscriptions">pagina relativa alle sottoscrizioni</a> nel portale degli account. Fare clic sulla sottoscrizione che si desidera monitorare, quindi selezionare **Avvisi**.
+Dopo aver ricevuto tramite posta elettronica la conferma dell'attivazione del servizio di fatturazione per la sottoscrizione, visitare la [pagina relativa alle sottoscrizioni](https://account.windowsazure.com/Subscriptions) nel portale degli account. Fare clic sulla sottoscrizione che si desidera monitorare, quindi selezionare **Avvisi**.
 
 ![][Image1]
 
@@ -48,4 +48,4 @@ Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

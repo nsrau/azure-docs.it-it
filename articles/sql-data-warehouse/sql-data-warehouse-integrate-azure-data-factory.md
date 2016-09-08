@@ -37,7 +37,7 @@ Per informazioni su come impostare un'attività di copia, vedere [Copiare i dati
 ## Passaggi successivi
 Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 

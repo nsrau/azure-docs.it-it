@@ -22,7 +22,7 @@
 
 Nel portale di Azure classico, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.
 
-Si desidera effettuare la connessione a una macchina virtuale Linux? Vedere [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-classic-log-on.md).
+Si desidera effettuare la connessione a una macchina virtuale Linux? Vedere [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Vedere come [eseguire questi passaggi tramite il nuovo portale di Azure](virtual-machines-windows-connect-logon.md).
 
@@ -58,4 +58,4 @@ Di seguito è riportata una procedura video dettagliata dei passaggi in questa e
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

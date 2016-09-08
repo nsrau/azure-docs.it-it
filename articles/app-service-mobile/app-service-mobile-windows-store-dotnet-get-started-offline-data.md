@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
@@ -129,7 +129,7 @@ In questa sezione verrà interrotta la connessione al back-end dell'app per disp
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È inoltre possibile illustrare il funzionamento offline disabilitando sul dispositivo le reti Wi-Fi e cellulare o impostando la modalità aereo.
+	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È anche possibile illustrare il comportamento offline disabilitando le reti Wi-Fi e cellulare sul dispositivo o impostando la modalità aereo.
 
 2. Premere **F5** per compilare ed eseguire l'app. Si noti l'errore di sincronizzazione al momento dell'aggiornamento quando l'app viene avviata.
  
@@ -175,10 +175,10 @@ Per altre informazioni su questi concetti, vedere [Sincronizzazione di dati offl
 
 ## Altre informazioni
 
-Gli argomenti seguenti forniscono altre informazioni in background sulla funzionalità di sincronizzazione offline di App per dispositivi mobili:
+Gli argomenti seguenti forniscono altre informazioni in background sulla funzionalità di sincronizzazione offline delle app per dispositivi mobili:
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Cloud Cover: Offline Sync in Azure Mobile Services] (Cloud Cover: sincronizzazione offline nei servizi mobili di Azure). Si noti che il video è relativo ai servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure.
+* [Cloud Cover: Offline Sync in Azure Mobile Services] \(Cloud Cover: sincronizzazione offline nei servizi mobili di Azure). Si noti che il video è relativo ai servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure.
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
 <!-- Anchors. -->
@@ -214,4 +214,4 @@ Gli argomenti seguenti forniscono altre informazioni in background sulla funzion
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

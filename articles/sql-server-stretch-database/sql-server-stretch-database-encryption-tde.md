@@ -47,15 +47,15 @@ Per disabilitare TDE per un database di Azure che archivia i dati migrati da un 
 
 
 
-<!--Anchors-->  
+<!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-server-stretch-database-encryption-tde/stretchtde1.png
 [2]: ./media/sql-server-stretch-database-encryption-tde/stretchtde2.png
 
 
-<!--Link references-->  
+<!--Link references-->
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Panoramica
+## Overview
 
 Questo documento illustra le statistiche in tempo reale nella rete CDN di Microsoft Azure. Questa funzionalità fornisce dati in tempo reale, ad esempio la larghezza di banda, gli stati della cache e le connessioni simultanee al profilo della rete CDN per il recapito di contenuto ai client. In questo modo viene abilitato il monitoraggio continuo dell'integrità del servizio in qualsiasi momento, inclusi gli eventi di go-live.
 
@@ -90,7 +90,8 @@ Questo grafico indica il numero di connessioni stabilite con i server perimetral
 
 ## Passaggi successivi
 
+- Per impostare la ricezione di notifiche, vedere [Avvisi in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-alerts.md)
 - Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-- Analizzare i [modelli di utilizzo](cdn-analyze-usage-patterns.md)
+- Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

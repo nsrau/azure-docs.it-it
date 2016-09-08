@@ -51,12 +51,7 @@ Le stored procedure compilate in modo nativo richiedono un numero inferiore di i
 
 Funzionalità di [analisi](#install_analytics_manuallink) in memoria:
 
-- Indici Columnstore
-
-
-Un indice columnstore migliora le prestazioni dei carichi di lavoro di query con la compressione esotica dei dati.
-
-In altri servizi gli indici columnstore hanno necessariamente l'ottimizzazione per la memoria. Nel database SQL di Azure, tuttavia, un indice columnstore può coesistere nello stesso disco rigido con la tabella tradizionale che indicizza.
+Gli indici Columnstore migliorano le prestazioni delle analisi e delle query di report.
 
 
 #### Analisi in tempo reale
@@ -77,7 +72,6 @@ Disponibilità generale (GA):
 Anteprima:
 
 - OLTP in memoria
-- Analisi in memoria con indici columnstore con ottimizzazione per la memoria
 - Analisi operativa in tempo reale
 
 
@@ -190,8 +184,8 @@ Questa sezione illustra come usare l'utilità **ostress.exe** per eseguire le du
 
 Quando si esegue ostress.exe, è consigliabile passare valori di parametri specifici a entrambe:
 
-- Eseguire un numero elevato di connessioni simultanee, usando ad esempio -n100.
-- Ripetere ogni ciclo di connessione centinaia di volte, usando ad esempio -r500.
+- Eseguire un numero elevato di connessioni simultanee, usando -n100.
+- Ripetere ogni ciclo di connessione centinaia di volte, usando -r500.
 
 
 È opportuno, tuttavia, iniziare con valori molto più bassi, ad esempio -n10 e -r50, per assicurarsi che tutto funzioni correttamente.
@@ -242,7 +236,7 @@ Per creare la versione \_ondisk dello script T-SQL precedente per ostress.exe, o
 È consigliabile pianificare l'esecuzione di ostress.exe su una macchina virtuale di Azure. Creare una [macchina virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) nella stessa area geografica di Azure in cui risiede il database AdventureWorksLT. È possibile eseguire ostress.exe sul computer portatile.
 
 
-Installare nella macchina virtuale o nell'host scelto le utilità RML (Replay Markup Language) che includono ostress.exe.
+Installare nella VM o nell'host scelto le utilità RML (Replay Markup Language) che includono ostress.exe.
 
 - Vedere la discussione su ostress.exe nell'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
  - In alternativa, vedere l'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
@@ -286,7 +280,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copiare il testo della riga di comando ostress.exe precedente negli Appunti.
 
-3. Sostituire i <segnaposto> dei parametri -S -U -P -d con i valori reali corretti.
+3. Sostituire `<placeholders>` per i parametri -S -U -P -d con i valori reali corretti.
 
 4. Eseguire la riga di comando modificata in una finestra dei comandi RML.
 
@@ -331,10 +325,7 @@ I test delle funzionalità in memoria hanno mostrato un miglioramento delle pres
 ## B. Installare l'esempio di analisi in memoria
 
 
-In questa sezione vengono messi a confronto i risultati di statistiche e IO quando si usa un indice columnstore rispetto a un indice tradizionale.
-
-
-Gli indici columnstore sono logicamente simili agli indici tradizionali, ma fisicamente sono diversi. Un indice columnstore organizza in modo esotico i dati per comprimerli notevolmente. In questo modo è possibile ottenere notevoli miglioramenti delle prestazioni.
+In questa sezione vengono messi a confronto i risultati di statistiche e IO quando si usa un indice Columnstore rispetto a un indice ad albero B tradizionale.
 
 
 Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile usare un indice columnstore non cluster. Per informazioni dettagliate, vedere [Descrizione degli indici columnstore](http://msdn.microsoft.com/library/gg492088.aspx).
@@ -363,7 +354,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 #### Tabelle e indici columnstore fondamentali
 
 
-- dbo.FactResellerSalesXL\_CCI è una tabella contenente un indice **columnstore** cluster, che presenta una compressione avanzata a livello di *dati*.
+- dbo.FactResellerSalesXL\_CCI è una tabella contenente un indice **Columnstore** cluster, che presenta una compressione avanzata a livello di *dati*.
 
 - dbo.FactResellerSalesXL\_PageCompressed è una tabella contenente un indice cluster equivalente tradizionale, che presenta una compressione solo a livello di *pagina*.
 
@@ -475,7 +466,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-Se la query restituisce **1**, OLTP in memoria è supportato in questo database, nonché in eventuali database copiati e ripristinati basati su questo database.
+Se la query restituisce **1**, OLTP in memoria è supportato in questo database e in eventuali database copiati e ripristinati basati su questo database.
 
 
 #### Oggetti consentiti solo a livello Premium
@@ -494,13 +485,13 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 - L'uso delle funzionalità OLTP in memoria con i database in pool elastici non è supportato durante l'anteprima.
  - Per spostare un database che ha o ha avuto oggetti di OLTP in memoria in un pool elastico, seguire questa procedura:
   - 1. Eliminare le tabelle con ottimizzazione per la memoria, i tipi di tabella e i moduli di T-SQL compilati in modo nativo nel database
-  - 2. Impostare il livello di servizio del database su standard. *Attualmente è presente un problema che impedisce lo spostamento dei database Premium che nel passato disponevano di oggetti OLTP in memoria all'interno di un pool elastico. Il team di Azure DB è impegnato attivamente nella risoluzione del problema.
+  - 2. Modificare il livello di servizio del database su standard
   - 3. Spostare il database in un pool elastico
 
 - L'uso di OLTP in memoria con SQL Data Warehouse non è supportato.
  - La funzionalità di indice columnstore delle analisi in memoria è supportata in SQL Data Warehouse.
 
-- L'archivio query non acquisisce query all'interno di moduli compilati in modo nativo durante l'anteprima, ma potrebbe farlo in futuro.
+- Query Store non acquisisce query in moduli compilati in modalità nativa.
 
 - Alcune funzionalità di Transact-SQL non sono supportate con OLTP in memoria. Questo vale per Microsoft SQL Server e per database SQL di Azure. Per informazioni dettagliate, vedere:
  - [Supporto di Transact-SQL per OLTP in memoria](http://msdn.microsoft.com/library/dn133180.aspx)
@@ -537,4 +528,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

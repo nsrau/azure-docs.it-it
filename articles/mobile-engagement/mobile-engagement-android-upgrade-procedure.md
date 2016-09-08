@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 
@@ -421,4 +421,4 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
 			}
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

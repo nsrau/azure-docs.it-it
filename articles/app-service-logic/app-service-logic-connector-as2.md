@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Uso del connettore AS2 e aggiunta all'app per la logica
@@ -36,7 +36,7 @@ Receive & Decode | Encode & Send
 ## Requisiti iniziali
 L'utente deve creare questi elementi prima di poterli usare nel connettore AS2:
 
-Requisito | Descrizione
+Requisito | Description
 --- | ---
 App per le API TPM | Prima di creare un connettore AS2, è necessario creare un [connettore BizTalk Trading Partner Management][1]. <br/><br/>**Nota** Prendere nota del nome dell'app per le API TPM. 
 Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database/sql-database-get-started.md)
@@ -74,7 +74,7 @@ Fare riferimento alla procedura per [creare un contratto tra partner commerciali
 
 4. Questo trigger non include input. Fare clic sulla freccia destra →: ![Configurazione di Receive & Decode][6]
 
-Come parte dell'output, il connettore restituisce il payload AS2, nonché i metadati specifici di AS2.
+Quale parte dell'output, il connettore restituisce il payload AS2, nonché i metadati specifici di AS2.
 
 Il Trigger viene attivato quando un Payload AS2 è come un POST alhttps://{HostURL} / decodifica. È possibile trovare l'URL host nelle impostazioni dell'app per le API. Inoltre può essere necessario modificare il livello di accesso dell'app per le API nelle impostazioni dell'applicazione in Pubblico (autenticato o anonimo).
 
@@ -89,12 +89,12 @@ Il Trigger viene attivato quando un Payload AS2 è come un POST alhttps://{HostU
 
 	I parametri includono:
 
-	Parametro | Tipo | Descrizione
+	Parametro | Tipo | Description
 --- | --- | ---
-Payload | object| Contenuto del payload da codificare e registrare nell'endpoint configurato. Il payload deve essere specificato come oggetto JSON.
-AS2 From | string | Identità AS2 del mittente del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
-AS2 To | string | Identità AS2 del destinatario del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
-Partner URL | string | Endpoint del partner a cui deve essere inviato il messaggio.
+Payload | oggetto| Contenuto del payload da codificare e registrare nell'endpoint configurato. Il payload deve essere specificato come oggetto JSON.
+AS2 di origine | string | Identità AS2 del mittente del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
+AS2 di destinazione | string | Identità AS2 del destinatario del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
+Partner URL | stringa | Endpoint del partner a cui deve essere inviato il messaggio.
 Enable Archiving | boolean | Determina se il messaggio in uscita deve essere archiviato.
 
 L'azione restituisce un codice di risposta HTTP 200 al termine dell'esecuzione.
@@ -122,4 +122,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

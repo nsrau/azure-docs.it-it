@@ -74,15 +74,17 @@ Quando un'applicazione Web Java è pronta per il test, è possibile usare la sco
         1. Fare clic su **Import from PUBLISH-SETTINGS file**.
         1. Nella finestra di dialogo **Importazione delle informazioni di sottoscrizione**, fare clic su **Download del File delle IMPOSTAZIONI DI PUBBLICAZIONE**. Se non ci si è ancora connessi al proprio account Azure, verrà richiesto di farlo. Quindi verrà richiesto di salvare un file di impostazioni di pubblicazione di Azure. Salvarlo nel computer locale.
         1. Sempre nella finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione) fare clic sul pulsante **Browse** (Sfoglia), selezionare il file di impostazioni di pubblicazione salvato in locale nel passaggio precedente e quindi fare clic su **Open** (Apri). La schermata dovrebbe essere simile alla seguente:
-	
-	![][ic644267]
+            ![][ic644267]
         1. Fare clic su **OK**.
     1. In **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
     1. Per **Storage account** selezionare l'account di archiviazione che si desidera usare oppure fare clic su **New** per creare un nuovo account di archiviazione.
     1. Per **Service name** selezionare il servizio cloud che si desidera usare oppure fare clic su **New** per creare un nuovo servizio cloud.
     1. Per **Target OS** selezionare la versione del sistema operativo che si desidera usare per la distribuzione.
     1. Per **Target environment** selezionare, ai fini di questa esercitazione, **Staging**. Quando si è pronti a eseguire la distribuzione nel sito di produzione, sarà necessario impostare questa opzione su **Production**.
-    1. Facoltativo: assicurarsi che l'opzione **Overwrite previous deployment** sia selezionata se si desidera che la nuova distribuzione sovrascriva automaticamente la distribuzione precedente. Se si abilita questa opzione, non si verificheranno problemi di "conflitto 409" durante la pubblicazione nello stesso percorso. Si noti che la finestra di dialogo **Publish to Azure** contiene una sezione denominata **Remote Access**. Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][]. Verrà visualizzata una finestra di dialogo **Publish to Azure** simile alla seguente: ![][ic719488]
+    1. Facoltativo: assicurarsi che l'opzione **Overwrite previous deployment** sia selezionata se si desidera che la nuova distribuzione sovrascriva automaticamente la distribuzione precedente. Se si abilita questa opzione, non si verificheranno problemi di "conflitto 409" durante la pubblicazione nello stesso percorso.
+        Si noti che la finestra di dialogo **Publish to Azure** contiene una sezione denominata **Remote Access**. Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][].
+        Verrà visualizzata una finestra di dialogo **Publish to Azure** simile alla seguente:
+        ![][ic719488]
 1. Fare clic su **Publish** per eseguire la pubblicazione nell'ambiente di gestione temporanea. Se viene richiesto di eseguire una build completa, fare clic su **Yes**. Questa operazione può richiedere alcuni minuti nel caso della prima build. Nella scheda **Azure Activity Log** della sezione a schede relativa alle visualizzazioni di Eclipse verrà visualizzato un log.
 
 	![][ic719489]
@@ -198,3 +200,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
 <!---HONumber=AcomDC_0817_2016-->
+

@@ -106,7 +106,7 @@ La raccolta fa ora parte di Cortana Intelligence Gallery.
 
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
--->  
+-->
 
 ## Suggerimenti per la pubblicazione e per creare una documentazione di alta qualità
 

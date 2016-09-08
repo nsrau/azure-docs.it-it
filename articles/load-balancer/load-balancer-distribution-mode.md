@@ -3,7 +3,7 @@
    description="Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
@@ -149,4 +149,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

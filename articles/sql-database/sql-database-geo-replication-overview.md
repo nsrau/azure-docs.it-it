@@ -118,7 +118,7 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 |---|-----------|
 |[Creare o aggiornare database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, aggiorna o ripristina un database primario o secondario.|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Restituisce lo stato durante un'operazione di creazione.|
-|[Set Secondary Database as Primary (Planned Failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Innalza di livello un database secondario in una relazione di replica geografica in modo che diventi il nuovo database primario.|
+|[Impostazione del database secondario come primario (failover pianificato)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Innalza di livello un database secondario in una relazione di replica geografica in modo che diventi il nuovo database primario.|
 |[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Per forzare un failover nel database secondario e impostare il database secondario come database primario.|
 |[Get Replication Links](https://msdn.microsoft.com/library/azure/mt600929.aspx)|Ottiene tutti i collegamenti di replica per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo\_replication\_links.|
 |[Get Replication Link](https://msdn.microsoft.com/library/azure/mt600778.aspx)|Ottiene tutti i collegamenti di replica specifici per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo\_replication\_links.|
@@ -133,4 +133,4 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

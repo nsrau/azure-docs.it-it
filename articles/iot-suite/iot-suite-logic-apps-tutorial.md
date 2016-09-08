@@ -82,7 +82,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
     }
     ```
     
-    Nota: è possibile copiare l'URL per il post HTTP dopo aver salvato l'app per la logica. È tuttavia necessario aggiungere prima un'azione.
+    > [AZURE.NOTE] È possibile copiare l'URL per il post HTTP dopo aver salvato l'app per la logica. È tuttavia necessario aggiungere prima un'azione.
 
 8. Fare clic su __+ Nuovo passaggio__ sotto il trigger manuale. Fare quindi clic su **Aggiungi un'azione**.
 
@@ -182,4 +182,4 @@ Dopo aver usato un'app per la logica per connettere la soluzione preconfigurata 
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

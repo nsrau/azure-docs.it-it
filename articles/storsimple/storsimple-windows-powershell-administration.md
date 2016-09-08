@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
-## Panoramica
+## Overview
 
 Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando che può essere utilizzata per gestire il dispositivo Microsoft Azure StorSimple. Come suggerisce il nome, è un'interfaccia della riga di comando basata su Windows PowerShell realizzata in uno spazio di esecuzione vincolato. Dal punto di vista dell'utente nella riga di comando, uno spazio di esecuzione vincolato viene considerato come una versione limitata di Windows PowerShell. Pur mantenendo alcune funzionalità di base di Windows PowerShell, questa interfaccia dispone di ulteriori cmdlet dedicati che sono pensati per la gestione del dispositivo Microsoft Azure StorSimple.
 
@@ -62,8 +62,8 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
  	|Tasto backspace|Ctrl-? (127)|
 	|Tasti home o fine|Standard|
 	|Tasti e tastierino funzione|ESC[n~|
-	|Stato iniziale dei tasti cursore|Normal|
-	|Stato iniziale del tastierino numerico|Normal|
+	|Stato iniziale dei tasti cursore|Normale|
+	|Stato iniziale del tastierino numerico|Normale|
 	|Abilitare le funzionalità di tastiera aggiuntive|Ctrl-Alt è diverso da AltGr|
 
 	![Impostazioni PuTTY supportate](./media/storsimple-windows-powershell-administration/IC740877.png)
@@ -106,13 +106,13 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
 
 2. **Accedere al controller peer con accesso completo**questa opzione equivale all'opzione 1, è la differenza che è possibile connettersi (con le credenziali appropriate) il**SSAdminConsole**spazio di esecuzione del controller peer. Poiché il dispositivo StorSimple è un dispositivo a elevata disponibilità con due controller in una configurazione attiva-passiva, peer fa riferimento all'altro controller del dispositivo a cui si accede tramite la console seriale). Simile all'opzione 1, questa opzione può inoltre essere utilizzata per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza restrizioni su un controller peer.
 
-3. **Connetti con accesso limitato** Questa opzione viene utilizzata per accedere all'interfaccia Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2. Alcune delle attività disponibili tramite l'opzione 1 che non possono essere eseguite in questo spazio di esecuzione sono:
+3. **Connetti con accesso limitato** Questa opzione viene utilizzata per accedere all'interfaccia Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2. Alcune delle attività disponibili tramite l'opzione 1 che **non possono** essere eseguite in questo spazio di esecuzione sono:
 
 	- Ripristino alle impostazioni di fabbrica
 	- Modifica della password
 	- Abilitazione o disabilitazione dell'accesso del supporto
 	- Applicazione degli aggiornamenti
-	- Installazione degli aggiornamenti rapidi 
+	- Installazione degli aggiornamenti rapidi
 												
 
 	>[AZURE.NOTE] **Questa è l'opzione consigliata se si dimentica la password di amministratore del dispositivo e non è possibile connettersi tramite l'opzione 1 o 2.**
@@ -192,9 +192,9 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 1. Una volta installati i file della guida, digitare: `Get-Help Get-Command`. Verrà visualizzato un elenco dei cmdlet per cui è disponibile la guida.
 
 
->[AZURE.NOTE] Per ottenere un elenco di tutti i cmdlet disponibili in ciascuno degli spazi di esecuzione, accedere all'opzione di menu corrispondente ed eseguire il cmdlet `Get-Command`.
+>[AZURE.NOTE] Per ottenere un elenco di tutti i cmdlet disponibili in uno spazio di esecuzione, accedere all'opzione di menu corrispondente ed eseguire il cmdlet `Get-Command`.
 
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

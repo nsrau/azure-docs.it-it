@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Funzionalità principali di Azure Mobile Engagement
@@ -22,19 +22,19 @@ L'articolo fornisce una panoramica generale sulle funzionalità principali della
 
 ## **Generale**
 
-- **SDK per tutte le principali piattaforme** SDK disponibili per tutte le principali piattaforme: iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Vengono forniti SDK facilmente integrabili e documentazione utile per iniziare a usare la piattaforma scelta. 
+- **SDK per tutte le principali piattaforme** SDK disponibili per tutte le principali piattaforme: iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Vengono forniti SDK facilmente integrabili e documentazione utile per iniziare a usare la piattaforma scelta.
 
 - **Portale SaaS separato** Consente di contattare in modo semplice il team di marketing senza accedere dal portale di gestione di Azure.
 
 - **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono disponibili API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [qui](mobile-engagement-api-authentication.md) per informazioni dettagliate.
 
-- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)
+- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
 
 - **Garanzia di sicurezza e privacy** Azure Mobile Engagement fa parte della famiglia di prodotti Azure e segue tutte le procedure consigliate standard relative alla sicurezza e alla privacy previste per un servizio cloud.
 
 ## **Analisi operativa**
 
-- **Monitorare i dati in tempo reale** È possibile tenere traccia delle analisi in tempo reale utilizzando il modulo di monitoraggio che mostra dettagli tra cui sessioni, eventi, errori e arresti anomali del sistema in tempo reale. Vedere questo [articolo](mobile-engagement-concepts.md) per comprendere i concetti di base. 
+- **Monitorare i dati in tempo reale** È possibile tenere traccia delle analisi in tempo reale utilizzando il modulo di monitoraggio che mostra dettagli tra cui sessioni, eventi, errori e arresti anomali del sistema in tempo reale. Vedere questo [articolo](mobile-engagement-concepts.md) per comprendere i concetti di base.
 
 	![][1]
 
@@ -164,4 +164,4 @@ L'articolo fornisce una panoramica generale sulle funzionalità principali della
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

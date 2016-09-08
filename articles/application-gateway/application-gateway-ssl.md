@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
 
@@ -132,7 +132,7 @@ Per la configurazione dei certificati SSL, il protocollo in **HttpListener** dev
 **Esempio di file XML di configurazione**
 
 
-	    <?xml version="1.0" encoding="utf-8"?>
+	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 	    <FrontendIPConfigurations />
 	    <FrontendPorts>
@@ -235,4 +235,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

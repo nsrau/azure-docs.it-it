@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -185,4 +185,4 @@ Il cmdlet _Add-AzureSMVmToRM_ è stato testato con i test case seguenti:
 ## Note
 1. Se più macchine virtuali vengono clonate una dopo l'altra a intervalli brevi, potrebbero verificarsi conflitti di nomi DNS per gli indirizzi IP pubblici, a causa dei tempi di aggiornamento della cache DNS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

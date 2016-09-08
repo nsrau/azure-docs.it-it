@@ -17,6 +17,13 @@
    ms.author="navale;tomfitz;"/>
    
 # API REST di Resource Manager
+
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
+- [Portale](./azure-portal/resource-group-portal.md)
+- [API REST](resource-manager-rest-api.md)
+
 Ogni chiamata ad Azure Resource Manager, ogni modello sviluppato e ogni account di archiviazione configurato sono basati su una o più chiamate all'API REST di Azure Resource Manager. Questo argomento è dedicato a tali API e spiega come chiamarle senza usare alcun SDK. Questa opzione è molto utile se si vuole il controllo completo di tutte le richieste ad Azure oppure se l'SDK per il linguaggio preferito non è disponibile o non supporta le operazioni che si vuole eseguire.
 
 Questo articolo non esamina ogni API esposta in Azure, ma ne usa alcune come esempio per illustrare come procedere e connettersi a esse. Una volta acquisite le nozioni di base, è possibile continuare leggendo [Informazioni di riferimento sull'API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx) che contiene informazioni dettagliate su come usare le altre API.
@@ -115,7 +122,7 @@ Gli ID sottoscrizione seguenti sono stati abbreviati per renderli più leggibili
 
 ### Elencare tutti i gruppi di risorse in una sottoscrizione specifica
 
-Tutte le risorse disponibili con le API ARM vengono annidate in un gruppo di risorse. Verrà eseguita una query di ARM per trovare i gruppi di risorse esistenti nella sottoscrizione usando la richiesta GET HTTP seguente. Si noti che questa volta l'ID sottoscrizione viene passato come parte dell'URL.
+Tutte le risorse disponibili con le API ARM vengono annidate in un gruppo di risorse. Verrà eseguita una query di Azure Resource Manager per trovare i gruppi di risorse esistenti nella sottoscrizione usando la richiesta GET HTTP seguente. Si noti che questa volta l'ID sottoscrizione viene passato come parte dell'URL.
 
 Sostituire YOUR\_ACCESS\_TOKEN e SUBSCRIPTION\_ID con il token di accesso e l'ID sottoscrizione effettivi.
 
@@ -200,7 +207,7 @@ Con ARM, è possibile distribuire le risorse usando i modelli ARM. Un modello AR
 
 La distribuzione di un modello ARM non è molto diversa dalla chiamata alle altre API. Un aspetto importante è che la distribuzione di un modello può richiedere molto tempo, a seconda del contenuto del modello, e che verrà restituita solo la chiamata API. Sarà lo sviluppatore a decidere se eseguire una query per conoscere lo stato della distribuzione e sapere quando la distribuzione è terminata.
 
-Per questo esempio, verrà usato un modello ARM esposto pubblicamente disponibile su [GitHub](https://github.com/Azure/azure-quickstart-templates). Il modello che verrà usato distribuirà una VM Linux nell'area Stati Uniti occidentali. Anche se questo modello sarà disponibile in un repository pubblico come GitHub, è anche possibile scegliere di passare il modello completo come parte della richiesta. Si noti che nell'ambito della richiesta vengono forniti i valori dei parametri che verranno usati nel modello scelto.
+Per questo esempio, verrà usato un modello Azure Resource Manager esposto pubblicamente disponibile su [GitHub](https://github.com/Azure/azure-quickstart-templates). Il modello che verrà usato distribuirà una VM Linux nell'area Stati Uniti occidentali. Anche se questo modello sarà disponibile in un repository pubblico come GitHub, è anche possibile scegliere di passare il modello completo come parte della richiesta. Si noti che nell'ambito della richiesta vengono forniti i valori dei parametri che verranno usati nel modello scelto.
 
 Sostituire SUBSCRIPTION\_ID, RESOURCE\_GROUP\_NAME, DEPLOYMENT\_NAME, YOUR\_ACCESS\_TOKEN, GLOBALY\_UNIQUE\_STORAGE\_ACCOUNT\_NAME, ADMIN\_USER\_NAME,ADMIN\_PASSWORD e DNS\_NAME\_FOR\_PUBLIC\_IP con i valori appropriati per la richiesta.
 
@@ -240,4 +247,4 @@ Content-Type: application/json
 
 La lunga risposta JSON per questa richiesta è stata omessa per migliorare la leggibilità della documentazione. La risposta conterrà informazioni sulla distribuzione basata su modelli appena creata.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

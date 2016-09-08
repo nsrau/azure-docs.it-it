@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+	ms.date="08/22/2016" 
+	ms.author="billmath"/>
 
 # Utilizzare app per dispositivi mobili come metodo di contatto con Azure Multi-Factor Authentication
 
-Se si desidera utilizzare l'applicazione per dispositivi mobili come metodo di contatto principale, è possibile utilizzare questo articolo. Illustrerà come impostare l’autenticazione a più fattori per utilizzare la app per dispositivi mobili come metodo di contatto principale.
+Se si vuole usare l'app Microsoft Authenticator come metodo di contatto principale, è possibile vedere questo articolo. Illustrerà come impostare l’autenticazione a più fattori per utilizzare la app per dispositivi mobili come metodo di contatto principale.
 
-L’app Azure Authenticator è disponibile per [Windows Phone](http://www.windowsphone.com/it-IT/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Utilizzare un’app per dispositivi mobili come metodo di contatto
 
@@ -31,7 +31,7 @@ L’app Azure Authenticator è disponibile per [Windows Phone](http://www.window
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Selezionare Notifica o Password monouso e fare clic su Imposta.
-- Sul telefono in cui è installata l'app Azure Authenticator, avviare l'applicazione e fare clic su analisi del codice a barre. Per aggiungere un account che ha già Azure MFA o un account di terze parti, vedere [Aggiunta manuale di un account](#adding-an-account-manually).
+- Sul telefono in cui è installata l'app Microsoft Authenticator avviare l'applicazione e fare clic su analisi del codice a barre. Per aggiungere un account che ha già Azure MFA o un account di terze parti, vedere [Aggiunta manuale di un account](#adding-an-account-manually).
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -70,7 +70,7 @@ Se si usa un account di terze parti con l'app per dispositivi mobili, immettere 
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
->[AZURE.NOTE]Il messaggio "Aggiungi account lavoro" eventualmente visualizzato riguarda l'aggiunta all'area di lavoro, non la Multi-Factor Authentication. È possibile ignorarlo.
+
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

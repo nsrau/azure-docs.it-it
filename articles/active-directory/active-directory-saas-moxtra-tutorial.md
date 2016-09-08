@@ -344,8 +344,7 @@ Quando si fa clic sul riquadro Moxtra nel pannello di accesso, si dovrebbe acced
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->  
-
+<!--Image references-->
 [1]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_03.png

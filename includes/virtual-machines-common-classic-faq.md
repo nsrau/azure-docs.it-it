@@ -62,7 +62,7 @@ Per le macchine virtuali create nel modello di distribuzione classica, è possib
 È necessario stabilire una connessione remota per accedere alla macchina virtuale, usando la Connessione Desktop Remoto per una VM di Windows o una Secure Shell (SSH) per una VM di Linux. Per le istruzioni, vedere
 
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) Sono supportate al massimo 2 connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.
-- [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
+- [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
 
 
 Se si verificano problemi relativi a Desktop remoto o SSH, installare e utilizzare l'estensione [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) per risolvere il problema.
@@ -110,7 +110,7 @@ Informazioni aggiuntive:
 
 ## Azure è in grado di eseguire software antivirus nelle macchine virtuali?
 
-Azure offre diverse opzioni per le soluzioni antivirus, ma tali soluzioni dovranno essere gestite dall'utente- Ad esempio, potrebbe essere necessaria una sottoscrizione separata per il software antimalware e sarà necessario stabilire quando eseguire le analisi e installare gli aggiornamenti. È possibile aggiungere il supporto antivirus con un'estensione VM per Microsoft Antimalware, Symantec Endpoint Protection o TrendMicro Deep Security Agent quando si crea una macchina virtuale Windows o in un momento successivo. Le estensioni Symantec e TrendMicro consentono di utilizzare una sottoscrizione di prova gratuita a tempo limitato o una sottoscrizione aziendale esistente. Microsoft Antimalware è disponibile gratuitamente. Per informazioni dettagliate, vedere:
+Azure offre diverse opzioni per le soluzioni antivirus, ma tali soluzioni dovranno essere gestite dall'utente- Ad esempio, potrebbe essere necessaria una sottoscrizione separata per il software antimalware e sarà necessario stabilire quando eseguire le analisi e installare gli aggiornamenti. È possibile aggiungere il supporto antivirus con un'estensione VM per Microsoft Antimalware, Symantec Endpoint Protection o TrendMicro Deep Security Agent quando si crea una macchina virtuale Windows o in un momento successivo. Le estensioni Symantec e TrendMicro consentono di usare una sottoscrizione di prova gratuita a tempo limitato o una sottoscrizione aziendale esistente. Microsoft Antimalware è disponibile gratuitamente. Per informazioni dettagliate, vedere:
 
 - [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
@@ -156,4 +156,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

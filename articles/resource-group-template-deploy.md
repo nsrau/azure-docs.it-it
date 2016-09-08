@@ -23,12 +23,6 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 Questo articolo illustra come usare Azure PowerShell con modelli di Resource Manager per distribuire risorse in Azure.
 
@@ -128,7 +122,7 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
         Mode              : Incremental
         ...
 
-     Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell per la distribuzione del modello, viene richiesto di fornire un valore per il parametro con il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+     Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell, viene richiesto di fornire un valore per il parametro. Il parametro del modello includerà il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 6. Per registrare informazioni aggiuntive sulla distribuzione che potrebbero contribuire a risolvere eventuali errori di distribuzione, usare il parametro **DeploymentDebugLogLevel**. È possibile specificare la registrazione del contenuto della richiesta, del contenuto della risposta o di entrambi con l'operazione di distribuzione.
 
@@ -158,7 +152,7 @@ Configurare un account di archiviazione per i modelli nel modo seguente:
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Creare un contenitore L'autorizzazione è impostata su **Off**, quindi il contenitore è accessibile solo al proprietario.
+4. Creare un contenitore L'autorizzazione è impostata su **Off**, pertanto il contenitore è accessibile solo al proprietario.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -195,8 +189,8 @@ Non è tuttavia possibile usare i parametri inline con un file di parametri este
 Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere l'articolo relativo alla [distribuzione delle risorse usando le librerie .NET e un modello](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Per definire i parametri nel modello, vedere l'articolo relativo alla [creazione di modelli](resource-group-authoring-templates.md#parameters).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

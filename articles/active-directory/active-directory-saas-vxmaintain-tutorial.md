@@ -247,8 +247,7 @@ Quando si fa clic sul riquadro vxMaintain nel pannello di accesso, verrà esegui
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->  
-
+<!--Image references-->
 [1]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_03.png

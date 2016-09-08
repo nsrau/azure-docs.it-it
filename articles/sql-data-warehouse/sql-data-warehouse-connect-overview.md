@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/20/2016"
+   ms.date="08/27/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connettersi ad Azure SQL Data Warehouse
@@ -27,7 +27,7 @@ Panoramica sulla connessione ad Azure SQL Data Warehouse.
 
 ## Trovare la stringa di connessione nel portale
 
-SQL Data Warehouse è associato a un server di Azure SQL. Per connettersi è necessario il nome completo del server, ad esempio **nomeserver**.database.windows.net*.
+SQL Data Warehouse è associato a un server di Azure SQL. Per connettersi è necessario il nome completo del server, ad esempio, **mioserver**.database.windows.net.
 
 Per trovare il nome completo del server, procedere come segue:
 
@@ -38,86 +38,38 @@ Per trovare il nome completo del server, procedere come segue:
     ![Nome completo del server][1]
 
 ## Impostazioni di connessione
+
 SQL Data Warehouse standardizza alcune impostazioni durante la connessione e la creazione di oggetti. Queste impostazioni non possono essere sottoposte a override.
 
 | Impostazione del database | Valore |
-| :----------------- | :--------------------------- |
-| ANSI\_NULLS | ATTIVA |
-| QUOTED\_IDENTIFIERS | ATTIVA |
-| NO\_COUNT | DISATTIVA |
-| DATEFORMAT | mdy |
-| DATEFORMAT | 7 |
-| Regole di confronto database | SQL\_Latin1\_General\_CP1\_CI\_AS |
+| :--------------------- | :--------------------------- |
+| [ANSI\_NULLS][] | ATTIVA |
+| [QUOTED\_IDENTIFIERS][] | ATTIVA |
+| [DATEFORMAT][] | mdy |
+| [DATEFORMAT][] | 7 |
 
-## Sessioni e richieste
-Dopo che è stata stabilita una connessione e una sessione è possibile scrivere e inviare query a SQL Data Warehouse.
+## Monitoraggio di connessioni e query
 
-Ogni query viene rappresentata da uno o più identificatori di richiesta. Tutte le query inviate su tale connessione fanno parte di una singola sessione e pertanto saranno rappresentate da un ID sessione.
-
-Tuttavia, poiché SQL Data Warehouse è un sistema MPP (Massively Parallel Processing) distribuito, gli identificatori di sessione e di richiesta vengono presentati in modo leggermente diverso rispetto a SQL Server.
-
-Le sessioni e le richieste sono rappresentate logicamente dai rispettivi identificatori.
-
-| Identificatore | Valore di esempio |
-| :--------- | :------------ |
-| ID sessione | SID123456 |
-| ID richiesta | QID123456 |
-
-Si noti che l'ID sessione è preceduto dal prefisso SID (abbreviazione di ID sessione) e le richieste sono precedute dal prefisso QID (abbreviazione di ID query).
-
-Queste informazioni saranno necessarie per identificare la query quando si monitorano le prestazioni di query. È possibile monitorare le prestazioni di query usando il [portale di Azure] e le viste a gestione dinamica.
-
-Questa query identifica la sessione corrente.
-
-```sql
-SELECT SESSION_ID()
-;
-```
-
-Per visualizzare tutte le query in esecuzione o eseguite di recente sul data warehouse è possibile usare l'esempio riportato di seguito. In questo modo viene creata e poi eseguita una vista.
-
-```sql
-CREATE VIEW dbo.vSessionRequests
-AS
-SELECT 	 s.[session_id]									AS Session_ID
-		,s.[status]										AS Session_Status
-		,s.[login_name]									AS Session_LoginName
-		,s.[login_time]									AS Session_LoginTime
-        ,r.[request_id]									AS Request_ID
-		,r.[status]										AS Request_Status
-		,r.[submit_time]								AS Request_SubmitTime
-		,r.[start_time]									AS Request_StartTime
-		,r.[end_compile_time]							AS Request_EndCompileTime
-		,r.[end_time]									AS Request_EndTime
-		,r.[total_elapsed_time]							AS Request_TotalElapsedDuration_ms
-        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
-        ,DATEDIFF(ms,[start_time],[end_compile_time])	AS Request_CompileDuration_ms
-        ,DATEDIFF(ms,[end_compile_time],[end_time])		AS Request_ExecDuration_ms
-		,[label]										AS Request_QueryLabel
-		,[command]										AS Request_Command
-		,[database_id]									AS Request_Database_ID
-FROM    sys.dm_pdw_exec_requests r
-JOIN    sys.dm_pdw_exec_sessions s	ON	r.[session_id] = s.[session_id]
-WHERE   s.[session_id] <> SESSION_ID()
-;
-
-SELECT * FROM dbo.vSessionRequests;
-```
+Dopo aver stabilito una connessione e una sessione, è possibile scrivere e inviare query a SQL Data Warehouse. Per informazioni su come monitorare le sessioni e le query, vedere [Monitoraggio del carico di lavoro mediante DMV][].
 
 ## Passaggi successivi
 
 Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
-
-<!--Arcticles-->
-
+<!--Articles-->
 [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Monitoraggio del carico di lavoro mediante DMV]: ./sql-data-warehouse-manage-monitor.md
+
+<!--MSDN references-->
+[ANSI\_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
+[QUOTED\_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
 [portale di Azure]: https://portal.azure.com
 
 <!--Image references-->
-
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

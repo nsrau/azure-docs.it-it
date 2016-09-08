@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/09/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B Collaboration
@@ -24,7 +24,7 @@ Collaborazione B2B di Azure Active Directory (Azure AD) consente di abilitare l'
 
 -   L'accesso alle app viene gestito indipendentemente dal ciclo di vita dell'account del partner aziendale. Questo significa, ad esempio, che è possibile revocare l'accesso senza che sia necessario alcun intervento dal parte del reparto IT o del partner aziendale.
 
-## Funzionalità
+## Capabilities
 
 B2B Collaboration semplifica la gestione e migliora la sicurezza dell'accesso dei partner alle risorse aziendali, incluse le app SaaS, come ad esempio Office 365, Salesforce, Servizi di Azure e qualsiasi applicazione in grado di riconoscere attestazioni locale, cloud o per dispositivi mobili. B2B Collaboration consente ai partner di gestire i propri account e alle aziende di applicare criteri di sicurezza all'accesso dei partner.
 
@@ -58,4 +58,4 @@ Vedere gli altri articoli su Collaborazione B2B di Azure AD.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

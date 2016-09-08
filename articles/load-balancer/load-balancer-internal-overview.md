@@ -1,26 +1,26 @@
 
-<properties 
+<properties
    pageTitle="Panoramica del bilanciamento del carico interno | Microsoft Azure"
    description="Panoramica del bilanciamento del carico interno e delle relative funzionalità. Modalità di funzionamento del bilanciamento del carico di Azure e possibili scenari per la configurazione di endpoint interni"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Panoramica del bilanciamento del carico interno
 
 Il bilanciamento del carico interno rappresenta un miglioramento della sicurezza rispetto all'attuale servizio di bilanciamento del carico Internet offerto in Azure. È possibile accedere al bilanciamento del carico interno solo dalle risorse all'interno del servizio cloud oppure usando una rete VPN per accedere all'infrastruttura di Azure e usare il bilanciamento del carico interno.
-			
+
 L'infrastruttura limita l'accessibilità e crea un limite di attendibilità tra gli indirizzi IP virtuali con carico bilanciato per un servizio cloud o una rete virtuale, senza esposizione diretta a un endpoint Internet. Ciò consente di eseguire le applicazioni line-of-business interne in Azure e di accedervi nel cloud o dall'ambiente locale.
 
 ## Scenari per il servizio di bilanciamento del carico interno
@@ -40,7 +40,7 @@ Il bilanciamento del carico interno offre i seguenti nuovi tipi di bilanciamento
 Il bilanciamento del carico di Azure esistente consente solo di bilanciare il carico tra computer basati su Internet e macchine virtuali in un servizio cloud. Il bilanciamento del carico interno offre nuove funzionalità per l'hosting di macchine virtuali in Azure.
 
 - Applicazioni multilivello con connessione Internet in cui i livelli di back-end non sono connessi a Internet, ma che richiedono il bilanciamento del carico per il traffico dal livello con connessione Internet.
-- Bilanciamento del carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. Inserimento di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico. 
+- Bilanciamento del carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. Inserimento di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
 - Le sezioni seguenti descrivono queste configurazioni in modo più dettagliato.
 
 ## Applicazioni multilivello con connessione Internet
@@ -90,6 +90,4 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

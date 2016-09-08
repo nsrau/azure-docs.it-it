@@ -1,5 +1,5 @@
 <properties
-pageTitle="Aggiungere il connettore Excel in PowerApps Enterprise | Microsoft Azure"
+pageTitle="Aggiungere il connettore Excel | Microsoft Azure"
 description="Panoramica del connettore Excel con i parametri dell'API REST"
 services=""    
 documentationCenter=""     
@@ -14,136 +14,139 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="08/23/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore Excel
 
-Connettersi a Excel per inserire una riga, eliminare una riga e altro ancora. Il connettore Excel può essere usato da:
+Al momento non sono disponibili connettori Excel nelle app per la logica.
 
-- PowerApps
+## Per usare dati di Excel
+È possibile archiviare dati di Excel come file con valori delimitati da virgole (CSV) in una cartella di archiviazione, ad esempio [OneDrive](connectors-create-api-onedrive.md). Questo file CSV può essere usato anche con il [connettore file flat](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
-Con Excel, è possibile:
+<!---
 
-- Aggiungere il connettore Excel a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
+There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
-Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-## Trigger e azioni
-Excel include le azioni seguenti. Non sono disponibili trigger.
+
+Connect to Excel to insert a row, delete a row, and more. 
+
+## Triggers and actions
+Excel includes the following action. There are no triggers. 
 
 |Trigger|Actions|
 |--- | ---|
-|Nessuno | <ul><li>Recupera righe</li><li>Inserisci riga</li><li>Elimina riga</li><li>Recupera riga</li><li>Recupera tabelle</li><li>Aggiorna riga</li></ul>
+|None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
 
-Tutti i connettori supportano dati nei formati JSON e XML.
+All connectors support data in JSON and XML formats. 
 
-## Riferimento all'API REST di Swagger
-Si applica alla versione 1.0.
+## Swagger REST API reference
+Applies to version: 1.0.
 
-### Inserisce una nuova riga in una tabella Excel
-```POST: /datasets/{dataset}/tables/{table}/items```
+### Inserts a new row into an Excel table
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
 
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|Il nome del file Excel|
-|tabella|string|yes|path|nessuno|Il nome della tabella Excel|
-|item| |yes|body|nessuno|Riga da inserire nella tabella Excel specificata|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|item| |yes|body|none|Row to insert into the specified Excel table|
 
 
 ### Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Operazione non riuscita.|
+|default|Operation Failed.|
 
 
 
 
-### Recupera una singola riga da una tabella Excel
-```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+### Retrieves a single row from an Excel table
+```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|Il nome del file Excel|
-|tabella|string|yes|path|nessuno|Il nome della tabella Excel|
-|id|string|yes|path|nessuno|Identificatore univoco della riga da recuperare|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of row to retrieve|
 
 
 ### Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Operazione non riuscita.|
+|default|Operation Failed.|
 
 
 
 
-### Elimina una riga da una tabella Excel
-```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+### Deletes a row from an Excel table
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|Il nome del file Excel|
-|tabella|string|yes|path|nessuno|Il nome della tabella Excel|
-|id|string|yes|path|nessuno|Identificatore univoco della riga da eliminare|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to delete|
 
 
 ### Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Operazione non riuscita.|
+|default|Operation Failed.|
 
 
 
 
-### Aggiorna una riga esistente in una tabella Excel
-```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+### Updates an existing row in an Excel table
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|nessuno|Il nome del file Excel|
-|tabella|string|yes|path|nessuno|Il nome della tabella Excel|
-|id|string|yes|path|nessuno|Identificatore univoco della riga da aggiornare|
-|item| |yes|body|nessuno|Riga con i valori aggiornati|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to update|
+|item| |yes|body|none|Row with updated values|
 
 
 ### Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Operazione non riuscita.|
+|default|Operation Failed.|
 
 
 
 
-## Definizioni oggetto
+## Object definitions
 
 #### DataSetsMetadata
 
-| Nome | Tipo di dati | Obbligatorio|
+| Name | Data Type | Required|
 |---|---|---|
-|tabular|non definito|no|
-|BLOB|non definito|no|
+|tabular|not defined|no|
+|blob|not defined|no|
 
 #### TabularDataSetsMetadata
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|una sezione source|string|no|
+|source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -151,61 +154,64 @@ Si applica alla versione 1.0.
 
 #### BlobDataSetsMetadata
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|una sezione source|string|no|
+|source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
 #### TableMetadata
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |name|string|no|
 |title|string|no|
 |x-ms-permission|string|no|
-|schema|non definito|no|
+|schema|not defined|no|
 
 #### DataSetsList
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 #### DataSet
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|Nome|string|no|
+|Name|string|no|
 |DisplayName|string|no|
 
-#### Tabella
+#### Table
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|Nome|string|no|
+|Name|string|no|
 |DisplayName|string|no|
 
 #### Item
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |ItemInternalId|string|no|
 
 #### TablesList
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 #### ItemsList
 
-| Nome | Tipo di dati |Obbligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 
-## Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+-->
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guida alla risoluzione dei problemi relativi al servizio
@@ -56,8 +56,8 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
 4) Per verificare se il problema riguarda il dispositivo:
 
    - Verificare se il dispositivo è in grado di connettersi a Azure Mobile Engagement con un'altra app integrata di Azure Mobile Engagement.
-   - Verificare che sia possibile generare eventi, processi e arresti anomali del sistema dal telefono che può essere visualizzato nell'interfaccia utente di Azure Mobile Engagement. 
-   - Verificare se è possibile inviare notifiche push dall'interfaccia utente di Azure Mobile Engagement sul dispositivo in base al relativo ID dispositivo. 
+   - Verificare che sia possibile generare eventi, processi e arresti anomali del sistema dal telefono che può essere visualizzato nell'interfaccia utente di Azure Mobile Engagement.
+   - Verificare se è possibile inviare notifiche push dall'interfaccia utente di Azure Mobile Engagement sul dispositivo in base al relativo ID dispositivo.
 
 5) Per verificare se il problema riguarda l'app:
 
@@ -89,4 +89,4 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
     - Usare un file di dimensioni inferiori a 35 MB (limite consentito).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

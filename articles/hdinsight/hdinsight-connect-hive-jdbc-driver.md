@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/03/2016"
+ ms.date="08/23/2016"
  ms.author="larryfr"/>
 
 #Connettersi a Hive in Azure HDInsight con il driver Hive JDBC
@@ -182,4 +182,4 @@ Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -98,7 +98,7 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
 [2]: ./media/security-center-get-started/pin-blade.png
 [3]: ./media/security-center-get-started/security-center.png

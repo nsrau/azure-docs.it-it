@@ -5,9 +5,9 @@
 - [Come attivare o disattivare un ruolo](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Come modificare o visualizzare le impostazioni di attivazione predefinite per un ruolo](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
 - [Come configurare gli avvisi di sicurezza](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
-- [Come avviare una verifica della sicurezza](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
-- [Come eseguire una verifica della sicurezza](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
+- [Come iniziare una verifica dell'accesso](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Come eseguire una verifica dell'accesso](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
 - [Come richiedere l'autenticazione a più fattori (MFA)](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Come usare il log di controllo](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

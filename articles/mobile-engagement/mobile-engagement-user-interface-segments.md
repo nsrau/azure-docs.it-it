@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come creare e gestire segmenti di utenti per identificare modelli di utilizzo
@@ -40,7 +40,7 @@ I segmenti consentono di suddividere gli utenti finali dell'applicazione. La seg
  ![segments3][37]
 
 ### Segmenti che è possibile creare in base agli elementi principali di Azure Mobile Engagement:
-- Evento: creare un segmento destinato a un solo evento specifico dell'applicazione che si è verificato più di due volte alla settimana. 
+- Evento: creare un segmento destinato a un solo evento specifico dell'applicazione che si è verificato più di due volte alla settimana.
 - Sessione: creare un segmento di utenti che hanno utilizzato l'applicazione più di 5 volte nell'ultima settimana.
 - Attività: creare un segmento di utenti che hanno utilizzato una pagina o un contenuto più o meno di 10 volte nell'ultimo mese.
 - Processo: creare un segmento di utenti che hanno completato un processo più di due volte al giorno.
@@ -76,7 +76,7 @@ Selezionare Sessione.
 
 1. Selezionare l'operatore rilevante nell'elenco: =; ≥, ≤.
 2. Immettere il numero desiderato.
-3. Selezionare l'occorrenza desiderata. 
+3. Selezionare l'occorrenza desiderata.
 4. Fare clic su Avanti. In questo esempio nell'ultima settimana gli utenti corrispondenti sono quelli che hanno creato almeno 50 sessioni.
  
  ![segments9][43]
@@ -197,4 +197,4 @@ Al termine dell'impostazione, il criterio viene visualizzato nel grafico del seg
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

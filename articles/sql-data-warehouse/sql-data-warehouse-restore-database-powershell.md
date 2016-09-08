@@ -3,7 +3,7 @@
    description="Attività di PowerShell per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
 
@@ -32,7 +32,7 @@ Questo articolo illustra come ripristinare un'istanza di Azure SQL Data Warehous
 
 ### Installare PowerShell
 
-Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. Per controllare la versione usata, eseguire **Get-Module -ListAvailable -Name AzureRM**. È possibile installare la versione più recente da [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
+Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. Per controllare la versione usata, eseguire **Get-Module -ListAvailable -Name AzureRM**. È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
 
 ## Ripristinare un database attivo o sospeso
 
@@ -171,4 +171,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Azure Portal]: https://portal.azure.com/
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

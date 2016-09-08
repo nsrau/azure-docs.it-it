@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -86,7 +86,7 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 * [Campi e origini](../resource-manager-policy.md#fields-and-sources)
 
 
-| Nome campo | Description |
+| Nome campo | Descrizione |
 |----------------|----------------------------------------------------|
 | imagePublisher | Specifica l'editore dell'immagine |
 | imageOffer | Specifica l'offerta per l'editore dell'immagine prescelto |
@@ -106,4 +106,4 @@ Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambi
 
 * [Creazione dei criteri](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

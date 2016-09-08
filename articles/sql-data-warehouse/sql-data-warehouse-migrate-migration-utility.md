@@ -56,7 +56,7 @@ Dopo aver specificato i parametri indicati sopra, è necessario fare clic su 'Ru
 ## Passaggi successivi
 Dopo aver eseguito la migrazione di alcuni dati, è possibile passare alle attività di [sviluppo][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [documentazione per la migrazione]: sql-data-warehouse-overview-migrate.md

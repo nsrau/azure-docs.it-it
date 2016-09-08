@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestione della sicurezza in Azure | Microsoft Azure"
-   description="Questo articolo illustra i passaggi per il miglioramento della gestione remota della sicurezza durante l'amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate."
+   description=" Questo articolo illustra i passaggi per il miglioramento della gestione remota della sicurezza durante l'amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate."
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Gestione della sicurezza in Azure
 
-I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, computer per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
+I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
 
-Anche se queste funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
+Anche se le funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
 
 ![][1]
 
@@ -247,4 +247,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -30,7 +30,7 @@ Questi articoli contengono informazioni di riferimento per SQL Data Warehouse.
 ## Passaggi successivi
 Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
@@ -40,6 +40,6 @@ Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][]
 [Cmdlet PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
-<!--MSDN references-->  
+<!--MSDN references-->
 
 <!---HONumber=AcomDC_0810_2016-->

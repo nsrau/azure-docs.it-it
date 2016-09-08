@@ -12,15 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
+
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-La figura e i passaggi corrispondenti riportati di seguito descrivono le attività da seguire per il provisioning end-to-end di un circuito ExpressRoute.
+La figura e i passaggi corrispondenti riportati di seguito descrivono le attività per il provisioning end-to-end di un circuito ExpressRoute.
 
 1. Usare PowerShell per configurare un circuito ExpressRoute. Per altre informazioni, seguire le istruzioni contenute nell'articolo relativo alla [creazione di circuiti ExpressRoute](expressroute-howto-circuit-classic.md).
 
@@ -36,7 +37,8 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 	
 	>[AZURE.IMPORTANT] Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Collegamento di reti virtuali a circuiti ExpressRoute: è possibile collegare reti virtuali al circuito ExpressRoute. Seguire le istruzioni [per collegare reti virtuali](expressroute-howto-linkvnet-arm.md) a un circuito. Queste reti virtuali possono trovarsi nella stessa sottoscrizione di Azure del circuito ExpressRoute oppure in una sottoscrizione diversa.
 
@@ -92,7 +94,7 @@ Lo stato del circuito ExpressRoute sarà il seguente nel momento in cui si esegu
 
 #### Se viene avviato il deprovisioning sul lato del provider di servizi
 
-Se si è richiesto prima al provider di servizi di eseguire il deprovisioning del circuito ExpressRoute, lo stato del circuito sarà il seguente al termine del processo di deprovisioning eseguito dal provider di servizi.
+Se si è richiesto al provider di servizi di eseguire prima il deprovisioning del circuito ExpressRoute, lo stato del circuito sarà il seguente al termine del processo di deprovisioning eseguito dal provider di servizi.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
@@ -120,4 +122,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

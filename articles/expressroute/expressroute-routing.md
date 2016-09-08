@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/10/2016"
-   ms.author="ganesr"/>
+   ms.author="ganesr"/> 
 
 
 # Requisiti per il routing di ExpressRoute  
@@ -78,15 +78,15 @@ Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sess
 
 ## Numeri AS (Autonomous System)
 
-Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
+Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit. Sul lato peering (cliente o provider) il numero AS può essere un numero ASN pubblico se può esserne verificata la proprietà da parte dell'utente o un numero ASN privato per il peering privato e richiede un numero ASN pubblico per i peering pubblici e Microsoft.
 
-Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
+Non sono previsti requisiti per la simmetria del trasferimento dei dati nei percorsi primari e secondari di un determinato circuito. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate dal lato primario o secondario in una determinata coppia di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 
 ## Limiti per i prefissi e l'aggregazione di route
 
 Sono supportati fino a 4000 prefissi annunciati a Microsoft tramite il peering privato di Azure. Questo numero può essere aumentato fino a 10.000 prefissi se è abilitato il componente aggiuntivo ExpressRoute Premium. Per il peering pubblico di Azure e il peering Microsoft sono accettati fino a 200 prefissi per sessione BGP.
 
-La sessione BGP verrà rimossa se il numero di prefissi supera il limite previsto. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dai percorsi per il peering pubblico di Azure e il peering Microsoft.
+La sessione BGP verrà rimossa se il numero di prefissi supera il limite previsto. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider o cliente deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dagli annunci BGP ai percorsi per il peering pubblico di Azure e il peering Microsoft.
 
 ## Routing di transito e routing tra aree
 
@@ -175,4 +175,4 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

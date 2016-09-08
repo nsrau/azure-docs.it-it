@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Associazioni HTTP e webhook in Funzioni di Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice per trigger e associazioni HTTP e webhook in Funzioni di Azure.
 
@@ -30,17 +32,17 @@ Il file *function.json* specifica le proprietà relative alla richiesta e alla r
 
 Proprietà per la richiesta HTTP:
 
-- `name` : nome della variabile usato nel codice della funzione per l'oggetto di richiesta o per il corpo della richiesta nel caso di funzioni Node.js.
-- `type` : deve essere impostato su *httpTrigger*.
-- `direction` : deve essere impostato su *in*. 
-- `webHookType` : per i trigger webhook, i valori validi sono *github*, *slack* e *genericJson*. Per un trigger HTTP diverso da un webhook, impostare questa proprietà su una stringa vuota. Per altre informazioni sui webhook, vedere la sezione seguente [Trigger webhook](#webhook-triggers).
-- `authLevel` : non si applica a trigger webhook. Impostare su "function" per richiedere la chiave API, su "anonymous" per rimuovere il requisito della chiave API o su "admin" per richiedere la chiave API master. Per altre informazioni, vedere la sezione seguente [Chiavi API](#apikeys).
+- `name`: nome della variabile usato nel codice della funzione per l'oggetto di richiesta o per il corpo della richiesta nel caso di funzioni Node.js.
+- `type`: deve essere impostato su *httpTrigger*.
+- `direction`: deve essere impostato su *in*.
+- `webHookType`: per i trigger webhook, i valori validi sono *github*, *slack* e *genericJson*. Per un trigger HTTP diverso da un webhook, impostare questa proprietà su una stringa vuota. Per altre informazioni sui webhook, vedere la sezione [Trigger webhook](#webhook-triggers) seguente.
+- `authLevel`: non si applica a trigger webhook. Impostare su "function" per richiedere la chiave API, su "anonymous" per rimuovere il requisito della chiave API o su "admin" per richiedere la chiave API master. Per altre informazioni, vedere la sezione [Chiavi API](#apikeys) seguente.
 
 Proprietà per la risposta HTTP:
 
-- `name` : nome della variabile usato nel codice della funzione per l'oggetto di risposta.
-- `type` : deve essere impostato su *http*.
-- `direction` : deve essere impostato su *out*. 
+- `name`: nome della variabile usato nel codice della funzione per l'oggetto di risposta.
+- `type`: deve essere impostato su *http*.
+- `direction`: deve essere impostato su *out*.
  
 Esempio di *function.json*:
 
@@ -72,7 +74,7 @@ Un trigger webhook è un trigger HTTP con le funzionalità seguenti progettate p
 * Per le funzioni Node.js, il runtime di Funzioni fornisce il corpo della richiesta invece dell'oggetto richiesta. Non esiste una gestione speciale per le funzioni C#, perché l'utente controlla ciò che viene fornito specificando il tipo di parametro. Se si specifica `HttpRequestMessage`, si ottiene l'oggetto di richiesta. Se si specifica un tipo POCO, il runtime di Funzioni cerca di analizzare un oggetto JSON nel corpo della richiesta per popolare le proprietà dell'oggetto.
 * Per attivare una funzione webhook, la richiesta HTTP deve includere una chiave API. Per i trigger HTTP non webhook, questo requisito è facoltativo.
 
-Per informazioni su come configurare un webhook GitHub, vedere la pagina relativa alla [creazione di webhook in GitHub Developer](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
+Per informazioni su come configurare un webhook GitHub, vedere [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (GitHub Developer - Creazione di webhook).
 
 ## URL per attivare la funzione
 
@@ -84,9 +86,9 @@ Per attivare una funzione, si invia una richiesta HTTP a un URL, composto dall'U
 
 ## Chiavi API
 
-Per impostazione predefinita, una chiave API deve essere inclusa con una richiesta HTTP per attivare una funzione HTTP o webhook. La chiave può essere inclusa in una variabile della stringa di query denominata `code` oppure in un'intestazione HTTP `x-functions-key`. In caso di funzioni non webhook, è possibile indicare che una chiave API non è obbligatoria impostando la proprietà `authLevel` su "anonymous" nel file *function.json*.
+Per impostazione predefinita, una chiave API deve essere inclusa con una richiesta HTTP per attivare una funzione HTTP o webhook. La chiave può essere inclusa in una variabile della stringa di query denominata `code` oppure in un'intestazione HTTP `x-functions-key`. Per le funzioni non webhook, è possibile indicare che una chiave API non è obbligatoria impostando la proprietà `authLevel` su "anonymous" nel file *function.json*.
 
-È possibile trovare i valori delle chiavi API nella cartella *D:\\home\\data\\Functions\\secrets* nel file system dell'app per le funzioni. La chiave master e la chiave funzione vengono impostate nel file *host.json*, come illustrato in questo esempio.
+È possibile trovare i valori della chiave API nella cartella *D:\\home\\data\\Functions\\secrets* nel file system dell'app per le funzioni. La chiave master e la chiave della funzione vengono impostate nel file *host.json*, come illustrato in questo esempio.
 
 ```json
 {
@@ -95,7 +97,7 @@ Per impostazione predefinita, una chiave API deve essere inclusa con una richies
 }
 ```
 
-La chiave funzione di *host.json* può essere usata per attivare qualsiasi funzione, ma non per attivare una funzione disabilitata. La chiave master può essere usata per attivare qualsiasi funzione, anche una che è stata disabilitata. È possibile configurare una funzione per richiedere la chiave master impostando la proprietà `authLevel` su "admin".
+La chiave della funzione di *host.json* può essere usata per attivare qualsiasi funzione, ma non per attivare una funzione disabilitata. La chiave master può essere usata per attivare qualsiasi funzione, anche una che è stata disabilitata. È possibile configurare una funzione per richiedere la chiave master impostando la proprietà `authLevel` su "admin".
 
 Se la cartella *secrets* contiene un file JSON con lo stesso nome della funzione, la proprietà `key` in tale file può essere usata anche per attivare la funzione e questa chiave funzionerà solo con la funzione a cui si riferisce. Ad esempio, la chiave API per una funzione denominata `HttpTrigger` viene specificata in *HttpTrigger.json* nella cartella *secrets*. Di seguito è fornito un esempio:
 
@@ -201,4 +203,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

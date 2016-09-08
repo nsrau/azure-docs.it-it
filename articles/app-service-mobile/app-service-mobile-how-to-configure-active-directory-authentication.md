@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory
@@ -101,7 +101,7 @@ Azure Active Directory consente inoltre di registrare i client nativi, il che of
 
 4. Nella procedura guidata di aggiunta applicazione immettere un **Nome** per l'applicazione e fare clic sul tipo **Applicazione client nativa**. Fare quindi clic per continuare.
 
-5. Nella casella **URI di reindirizzamento** immettere l’endpoint del sito _/.auth/login/done_, utilizzando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_. Se si crea un'applicazione Windows, usare invece il [SID pacchetto](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
+5. Nella casella **URI di reindirizzamento** immettere l’endpoint del sito _/.auth/login/done_, utilizzando lo schema HTTPS. Questo valore dovrebbe essere simile a \_https://contoso.azurewebsites.net/.auth/login/done_. Se si crea un'applicazione Windows, usare invece il [SID pacchetto](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
 
 6. Dopo aver aggiunto l'applicazione nativa, fare clic sulla scheda **Configura**. Trovare l’**ID Client** e prendere nota del valore.
 
@@ -130,4 +130,4 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 [portale di Azure classico]: https://manage.windowsazure.com/
 [alternative method]: #advanced
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

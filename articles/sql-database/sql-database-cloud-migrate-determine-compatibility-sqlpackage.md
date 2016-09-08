@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Determinare la compatibilità del database SQL utilizzando SqlPackage.exe
@@ -25,7 +25,7 @@
 - [Preparazione aggiornamento](http://www.microsoft.com/download/details.aspx?id=48119)
 - [MIGRAZIONE GUIDATA DATABASE SQL DI AZURE](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
-In questo articolo viene illustrato come determinare se un database del server SQL è compatibile per eseguire la migrazione al database SQL tramite l’utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
+Questo articolo illustra come determinare se un database del server SQL è compatibile per eseguire la migrazione al database SQL tramite l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
 
 ## Utilizzo di SqlPackage.exe
 
@@ -39,10 +39,10 @@ In questo articolo viene illustrato come determinare se un database del server S
 	| < server\_name > | nome server di origine |
 	| < database\_name > | nome database di origine |
 	| < target\_file > | nome e percorso del file BACPAC |
-	| < schema\_name.table\_name > | tabelle per cui i dati verranno restituiti nel file di destinazione |
+	| < schema\_name.table\_name > | tabelle per cui i dati vengono restituiti nel file di destinazione |
 	| < output\_file > | nome e percorso del file di output con eventuali errori |
 
-	L'argomento /p:TableName viene usato per indicare che si vuole testare la compatibilità del database solo per l'esportazione nella versione 12 del database SQL di Azure, invece di esportare i dati da tutte le tabelle. Sfortunatamente, l'argomento di esportazione per sqlpackage.exe non consente di evitare l'esportazione di tabelle, quindi sarà necessario specificare una singola tabella di piccole dimensioni. < output\_file > conterrà il report degli eventuali errori. La stringa "> 2>&1" indirizza sia l'output standard che l'errore standard risultante dall'esecuzione del comando al file di output specificato.
+	L'argomento /p:TableName viene usato per indicare che si vuole testare la compatibilità del database solo per l'esportazione nella versione 12 del database SQL di Azure, invece di esportare i dati da tutte le tabelle. L'argomento export per sqlpackage.exe non supporta tuttavia l'estrazione di zero tabelle. È necessario specificare almeno una tabella, ad esempio una singola tabella di piccole dimensioni. < output\_file > conterrà il report degli eventuali errori. La stringa "> 2>&1" indirizza sia l'output standard che l'errore standard risultante dall'esecuzione del comando al file di output specificato.
 
 	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -62,4 +62,4 @@ In questo articolo viene illustrato come determinare se un database del server S
 - [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

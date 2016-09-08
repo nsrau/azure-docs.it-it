@@ -1,6 +1,6 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
-description="Creare app per la logica con Servizio app di Azure. Il connettore RSS consente agli utenti di pubblicare e recuperare elementi di feed. Consente anche di attivare operazioni quando viene pubblicato un nuovo elemento nel feed."
+description="Creare app per la logica in Servizio app di Azure. Il connettore RSS consente agli utenti di pubblicare e recuperare elementi di feed. Consente anche di attivare operazioni quando viene pubblicato un nuovo elemento nel feed."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,15 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore RSS
-
-
-
-Il connettore RSS può essere usato da:
-
-- [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flusso](http://flows.microsoft.com)
+RSS è un formato di diffusione nel Web molto usato per la pubblicazione di contenuti aggiornati di frequente, come post di blog e notizie. Molti autori di contenuti offrono feed RSS per consentire agli utenti di eseguire la sottoscrizione. È possibile usare il connettore RSS per recuperare informazioni sui feed e attivare flussi quando vengono pubblicati nuovi elementi in un feed RSS.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -40,7 +33,7 @@ Il connettore RSS può essere usato come azione e include trigger. Tutti i conne
 ### Azioni di RSS
 È possibile eseguire queste azioni:
 
-|Azione|Descrizione|
+|Azione|Description|
 |--- | ---|
 |[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Ottiene tutti gli elementi del feed RSS.|
 ### Trigger di RSS
@@ -58,20 +51,20 @@ Il connettore RSS può essere usato come azione e include trigger. Tutti i conne
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
 ## Informazioni di riferimento per RSS
-Si applica alla versione: 1.0
+Si applica alla versione 1.0
 
 ## OnNewFeed
 Quando viene pubblicato un nuovo elemento di feed: attiva un flusso di lavoro quando viene pubblicato un nuovo feed
 
 ```GET: /OnNewFeed```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
 |feedUrl|string|yes|query|nessuno|URL del feed|
 
-#### Risposta
+#### Response
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |200|OK|
 |202|Accepted|
@@ -88,11 +81,11 @@ Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed R
 
 ```GET: /ListFeedItems```
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|yes|query|nessuno|URL del feed|
+|feedUrl|stringa|yes|query|nessuno|URL del feed|
 
-#### Risposta
+#### Response
 
 |Nome|Descrizione|
 |---|---|
@@ -124,7 +117,7 @@ Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed R
 |---|---|---|
 |id|string|Sì |
 |title|string|Sì |
-|content|string|Sì |
+|content|stringa|Sì |
 |links|array|No |
 |updatedOn|string|No |
 
@@ -132,4 +125,4 @@ Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed R
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

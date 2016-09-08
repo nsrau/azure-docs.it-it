@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Come gestire il profilo dell'account e i dispositivi di test
  
 In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili.
  
-Per ottenere la pagina account personale, fare clic sul proprio account nella parte superiore della pagina.
+Per ottenere la pagina **account personale**, fare clic sul proprio account nella parte superiore della pagina.
 
 Nella sezione Account personale dell'interfaccia utente è possibile visualizzare e modificare le impostazioni associate al proprio account, incluse le impostazioni del profilo e gli ID dei dispositivi di test. Queste impostazioni contengono elementi a cui è possibile accedere anche tramite l'API di dispositivo.
 
@@ -40,7 +40,7 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
 1. Dal back-end, è possibile utilizzare la funzionalità "Get" dell'API dispositivo per ottenere l'elenco completo degli identificatori dei dispositivi.
 2. Dall'app, è possibile ottenerlo utilizzando l'SDK (su Android chiamare la funzione getDeviceID() della classe Agent, su iOS leggere la proprietà deviceid della classe Agent).
-3. Da un annuncio Reach, se l'URL dell'azione associato all'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo che attiva l'azione. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata verrà sostituito da: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
+3. Da un annuncio Reach, se l'URL dell'azione associato all'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo che attiva l'azione. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata verrà sostituito da: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata
 4. Da un annuncio Web Reach, se il codice HTML dell'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo di visualizzazione dell'annuncio Web. Ecco l'identificatore del dispositivo: {deviceid} verrà sostituito da: Ecco l'identificatore del dispositivo: XXXXXXXXXXXXXXXX
 5.  Aprire l'applicazione sul dispositivo ed eseguire un evento nell'app contrassegnata. Da "Interfaccia utente - app - Monitoraggio - Eventi - Dettagli", trovare l'evento eseguito nell'elenco. Fare clic su questo evento in Monitoraggio. L'ID del dispositivo sarà presente nell'elenco dei dispositivi che hanno eseguito l'evento. Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfaccia utente - Account personale - Dispositivi - Nuovo dispositivo - Seleziona la piattaforma del dispositivo".
 >Tenere presente che quando IDFA è disabilitato per iOS, l'ID del dispositivo potrebbe cambiare nel tempo se si disinstalla e si reinstalla l'app.
@@ -151,4 +151,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

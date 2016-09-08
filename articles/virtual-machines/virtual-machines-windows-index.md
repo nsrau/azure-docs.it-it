@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>  
+   ms.author="danlep"/>
 
 # Articoli tecnici per le VM Windows nel modello di distribuzione classica
 
@@ -66,7 +66,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Manutenzione pianificata per le macchine virtuali di Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Creare un set di disponibilità per le macchine virtuali](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Gestire le macchine virtuali con Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Connettere reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Connettere reti virtuali classiche a nuove reti virtuali](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [Informazioni sull'agente e sulle estensioni di macchine virtuali](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

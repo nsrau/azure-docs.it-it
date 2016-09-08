@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/25/2016"
+	ms.date="08/18/2016"
 	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
@@ -35,9 +35,7 @@ Cache Redis di Azure fornisce le impostazioni seguenti nel pannello **Impostazio
 -	[Impostazioni generali](#general-settings)
 	-	[Proprietà](#properties)
 	-	[Chiavi di accesso](#access-keys)
-	-	[Porte di accesso](#access-ports)
-	-	[Criterio per la memoria massima](#maxmemory-policy-and-maxmemory-reserved)
-	-	[Impostazioni avanzate (notifiche dello spazio delle chiavi)](#keyspace-notifications-advanced-settings)
+	-	[Impostazioni avanzate](#advanced-settings)
 	-	[Redis Cache Advisor](#redis-cache-advisor)
 -	[Impostazioni di scalabilità](#scale-settings)
 	-	[Pricing tier](#pricing-tier)
@@ -76,9 +74,7 @@ Le impostazioni nella sezione **Generale** consentono di visualizzare e configur
 
 -	[Proprietà](#properties)
 -	[Chiavi di accesso](#access-keys)
--	[Porte di accesso](#access-ports)
--	[Criterio per la memoria massima](#maxmemory-policy-and-maxmemory-reserved)
--	[Impostazioni avanzate (notifiche dello spazio delle chiavi)](#keyspace-notifications-advanced-settings)
+-	[Impostazioni avanzate](#advanced-settings)
 -	[Redis Cache Advisor](#redis-cache-advisor)
 
 ### Proprietà
@@ -93,15 +89,29 @@ Fare clic su **Chiavi di accesso** per visualizzare o rigenerare le chiavi di ac
 
 ![Chiavi di accesso di Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
+
+
+
+
+
+### Impostazioni avanzate
+
+Le impostazioni seguenti devono essere configurate nel pannello **Impostazioni avanzate**.
+
+-	[Porte di accesso](#access-ports)
+-	[Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+-	[Notifiche di Keyspace (impostazioni avanzate)](#keyspace-notifications-advanced-settings)
+
+
 ### Porte di accesso
 
-Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic sul pannello **Porte di accesso** e quindi fare clic su **No**.
+Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic su **No** per **Consentire l'accesso solo tramite SSL** nel pannello **Impostazioni avanzate** e quindi fare clic su **Salva**.
 
 ![Porte di accesso di Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy e maxmemory-reserved
 
-Fare clic su **Criterio per la memoria massima** per configurare i criteri di memoria per la cache. L'impostazione **maxmemory-policy** consente di configurare i criteri di eliminazione per la cache mentre **maxmemory-reserved** consente di configurare la memoria riservata per i processi non appartenenti alla cache.
+Le impostazioni **Criterio per la memoria massima** e **maxmemory-reserved** del pannello **Impostazioni avanzate** configurano i criteri di memoria per la cache. L'impostazione **maxmemory-policy** consente di configurare i criteri di eliminazione per la cache mentre **maxmemory-reserved** consente di configurare la memoria riservata per i processi non appartenenti alla cache.
 
 ![Criterio maxmemory di Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -122,7 +132,7 @@ L'impostazione **maxmemory-reserved** consente di configurare la quantità di me
 
 ### Notifiche di Keyspace (impostazioni avanzate)
 
-Per configurare le notifiche di Keyspace Redis, fare clic su **Impostazioni avanzate**. Le notifiche di Keyspace consentono ai client di ricevere notifiche quando si verificano determinati eventi.
+Le notifiche di Keyspace Redis possono essere configurate nel pannello **Impostazioni avanzate**. Le notifiche di Keyspace consentono ai client di ricevere notifiche quando si verificano determinati eventi.
 
 ![Impostazioni avanzate di Cache Redis](./media/cache-configure/redis-cache-advanced-settings.png)
 
@@ -184,7 +194,7 @@ Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dime
 
 Per modificare le dimensioni del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
->[AZURE.IMPORTANT] Il clustering Redis è disponibile esclusivamente per le cache Premium. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+>[AZURE.IMPORTANT] Il clustering Redis è disponibile esclusivamente per le cache Premium. Per ulteriori informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
 
 ## Impostazioni di gestione dati
@@ -266,7 +276,7 @@ La sezione **Diagnostica** consente di configurare la diagnostica per la cache R
 
 ![Diagnostica](./media/cache-configure/redis-cache-diagnostics.png)
 
-Fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#enable-cache-diagnostics) usato per archiviare la diagnostica della cache.
+Fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#enable-cache-diagnostics) utilizzato per archiviare la diagnostica della cache.
 
 ![Diagnostica di Cache Redis](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
@@ -303,7 +313,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->I valori configurabili, ad esempio **max-memory-policy**, possono essere configurati tramite il portale di Azure o strumenti di gestione della linea di comando, come Azure CLI o PowerShell.
+>I valori configurabili, ad esempio **max-memory-policy**, possono essere configurati tramite il portale di Azure o strumenti di gestione da riga di comando, come l'interfaccia della riga di comando di Azure o PowerShell.
 
 |Impostazione|Valore predefinito|Descrizione|
 |---|---|---|
@@ -313,7 +323,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 |maxmemory-samples|3|Gli algoritmi LRU e TTL non sono precisi ma approssimativi (per risparmiare spazio in memoria), pertanto è possibile selezionare anche la dimensione del campione da controllare. Ad esempio, per impostazione predefinita Redis controllerà tre chiavi e sceglierà quella usata meno di recente.|
 |lua-time-limit|5\.000|Tempo massimo di esecuzione di uno script Lua in millisecondi. Se il tempo di esecuzione massimo viene raggiunto, Redis registrerà che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizierà a rispondere alle query con un errore.|
 |lua-event-limit|500|Questa è la dimensione massima della coda di eventi di script.|
-|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per ulteriori informazioni, vedere [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
 <a name="databases"></a> <sup>1</sup>Il limite per `databases` è diverso per ogni piano tariffario di Cache Redis di Azure e può essere impostato durante la creazione della cache. Se durante la creazione della cache non viene specificata alcuna impostazione `databases`, il valore predefinito è 16.
 
@@ -330,7 +340,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 	-	P2 (13 GB - 130 GB): fino a 32 database
 	-	P3 (26 GB - 260 GB): fino a 48 database
 	-	P4 (53 GB - 530 GB): fino a 64 database
-	-   Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](http://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering) (È necessario apportare modifiche all'applicazione client per usare il clustering?)
+	-   Tutte le cache Premium con il cluster Redis abilitato: il cluster Redis supporta solo l'uso del database 0, quindi il limite `databases` per le cache Premium con il cluster Redis abilitato è effettivamente 1 e il comando [Select](http://redis.io/commands/select) non è consentito. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 
 >[AZURE.NOTE] L'impostazione `databases` può essere configurata solo durante la creazione della cache e solo usando PowerShell, l'interfaccia della riga di comando o altri client di gestione. Per un esempio di configurazione di `databases` durante la creazione della cache con PowerShell, vedere [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
@@ -399,4 +409,4 @@ Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'alt
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

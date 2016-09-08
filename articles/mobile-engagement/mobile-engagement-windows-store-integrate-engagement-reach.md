@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integrazione di Reach SDK per app universali di Windows
@@ -59,7 +59,7 @@ Engagement offre due modi per aggiungere i banner in-app, le visualizzazioni int
 La scelta tra uno dei due tipi d'integrazione può essere riassunta nel modo seguente:
 
 -   Se le pagine ereditano già dall'agente `EngagementPage`, è consigliabile scegliere l'integrazione di una sovrimpressione. È sufficiente sostituire `EngagementPage` con `EngagementPageOverlay` e `xmlns:engagement="using:Microsoft.Azure.Engagement"` con `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` nelle pagine.
--   È possibile scegliere l'integrazione manuale di visualizzazioni Web se si vuole inserire l'interfaccia utente di Reach in un punto preciso nelle pagine oppure se non si vuole aggiungere un altro livello di ereditarietà alle pagine. 
+-   È possibile scegliere l'integrazione manuale di visualizzazioni Web se si vuole inserire l'interfaccia utente di Reach in un punto preciso nelle pagine oppure se non si vuole aggiungere un altro livello di ereditarietà alle pagine.
 
 ### Integrazione di una sovrimpressione
 
@@ -334,4 +334,4 @@ Per usare questo protocollo modificare `App.xaml.cs` con il metodo `OnActivated`
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

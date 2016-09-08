@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) nel dispositivo Microsoft Azure StorSimple è costituito da un alimentatore e ventole di raffreddamento controllati attraverso gli chassis principale e EBOD. Esiste un solo modello di PCM certificato per ciascuno chassis. Lo chassis principale è certificato per un PCM 764 W e lo chassis EBOD è certificato per un PCM 580 W. Sebbene i PCM per lo chassis principale e lo chassis EBOD siano diversi, la procedura di sostituzione è identica.
 
@@ -155,4 +155,4 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple. Veri
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

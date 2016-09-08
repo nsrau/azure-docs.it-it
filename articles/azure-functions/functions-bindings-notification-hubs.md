@@ -15,27 +15,29 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Associazione di output di Hub di notifica in Funzioni di Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice di associazioni di Hub di notifica in Funzioni di Azure.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) (Introduzione a Hub di notifica) e fare clic sulla piattaforma client di destinazione nella parte superiore.
+Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e fare clic sulla piattaforma client di destinazione nella parte superiore.
 
 ## function.json per associazione di output di Hub di notifica di Azure
 
 Il file function.json specifica le proprietà seguenti:
 
-- `name` : nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica.
-- `type` : deve essere impostato su *"notificationHub"*.
-- `tagExpression` : le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag. Per altre informazioni, vedere [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md) (Routing ed espressioni tag).
-- `hubName` : nome della risorsa dell'hub di notifica nel portale di Azure.
-- `connection` : questa stringa di connessione deve essere una stringa di connessione dell'**impostazione dell'applicazione** configurata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
-- `direction` : deve essere impostato su *"out"*. 
+- `name`: nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica.
+- `type`: deve essere impostato su *"notificationHub"*.
+- `tagExpression`: le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag. Per altre informazioni, vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-tags-segment-push-message.md).
+- `hubName`: nome della risorsa dell'hub di notifica nel portale di Azure.
+- `connection`: questa stringa di connessione deve essere una stringa di connessione dell'**impostazione dell'applicazione** configurata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
+- `direction`: deve essere impostato su *"out"*.
  
 Function.json di esempio:
 
@@ -59,7 +61,7 @@ Per usare un'associazione di output dell'hub di notifica, è necessario configur
 
 È anche possibile aggiungere manualmente una stringa di connessione per un hub esistente aggiungendo una stringa di connessione per *DefaultFullSharedAccessSignature* all'hub di notifica. Questa stringa di connessione fornisce l'autorizzazione di accesso alla funzione per inviare messaggi di notifica. È possibile accedere al valore della stringa di connessione *DefaultFullSharedAccessSignature* dal pulsante **chiavi** nel pannello principale della risorsa dell'hub di notifica nel portale di Azure. Per aggiungere manualmente una stringa di connessione per l'hub, usare la procedura seguente:
 
-1. Nel pannello **App per le funzioni** del portale di Azure fare clic su **Impostazioni dell'app per le funzioni > Vai alle impostazioni del servizio app**.
+1. Nel pannello **App per le funzioni** del portale di Azure fare clic su **Impostazioni dell'app per le funzioni > Passa a Impostazioni del servizio app**.
 
 2. Nel pannello **Impostazioni** fare clic su **Impostazioni applicazione**.
 
@@ -155,4 +157,4 @@ Codice di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

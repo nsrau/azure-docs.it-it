@@ -26,7 +26,7 @@
 
 
 
-Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, vedere l'articolo [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
 
 ## Panoramica
 
@@ -34,7 +34,7 @@ Questo articolo descrive come distribuire Site Recovery per replicare le macchin
 
 Questo articolo include i prerequisiti per lo scenario e mostra come configurare un insieme di credenziali di Site Recovery, installare il provider di Azure Site Recovery nel server VMM di origine, registrare il server nell'insieme di credenziali, aggiungere un account di archiviazione di Azure, installare l'agente di Servizi di ripristino di Azure nei server host Hyper-V, configurare le impostazioni di protezione per i cloud VMM che verranno applicate a tutte le macchine virtuali protette e quindi abilitare la protezione per tali macchine virtuali. Terminare con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto.
 
-Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Architettura
 
@@ -91,7 +91,7 @@ Preparare il mapping di rete come segue:
 1. Accedere al [portale di gestione](https://portal.azure.com) dal server VMM che si vuole registrare.
 2. Espandere **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di Site Recovery**.
 3. Fare clic su **Crea nuovo** > **Creazione rapida**.
-4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
+4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali.
 5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Fare clic su **Create vault**.
 
@@ -206,6 +206,8 @@ I parametri sono i seguenti:
 
 	![Account di archiviazione](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è possibile per gli account di archiviazione usati per la distribuzione di Site Recovery.
+
 ## Passaggio 5: Installare l'agente di Servizi di ripristino di Azure
 
 Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-V nel cloud VMM.
@@ -220,7 +222,7 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
 4. Nella pagina **Impostazioni di installazione** specificare dove installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su **Installa**.
-5. Al termine di installazione fare clic su **Chiudi** per completare la procedura guidata.
+5. Al termine dell'installazione fare clic su **Chiudi** per completare la procedura guidata.
 
 	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
@@ -257,7 +259,7 @@ Prima di iniziare il mapping di rete, verificare che le macchine virtuali nel se
 
 1. Nella pagina Avvio rapido fare clic su **Mapping reti**.
 2. Nella scheda **Reti**, in **Percorso di origine**, selezionare il server VMM di origine. In **Percorso di destinazione** selezionare Azure.
-3. In Reti di **origine** viene visualizzato un elenco di reti VM associate al server VMM. In Reti di **destinazione** vengono visualizzate le reti di Azure associate alla sottoscrizione.
+3. In Reti di **origine** viene visualizzato un elenco di reti VM associate al server VMM. In **Rete Azure di destinazione** vengono visualizzate le reti di Azure associate alla sottoscrizione.
 4. Selezionare la rete VM di origine e fare clic su **Esegui mapping**.
 5. Nella pagina **Seleziona una rete di destinazione** selezionare la rete di Azure di destinazione che si vuole usare.
 6. Fare clic sul segno di spunta per completare il processo di mapping.
@@ -267,6 +269,8 @@ Prima di iniziare il mapping di rete, verificare che le macchine virtuali nel se
 Dopo avere salvato le impostazioni, viene avviato un processo che tiene traccia dello stato del mapping e che può essere monitorato nella scheda Processi. Tutte le macchine virtuali di replica esistenti che corrispondono alla rete VM di origine verranno connesse alle reti di Azure di destinazione. Dopo la replica, le nuove macchine virtuali connesse alla rete VM di origine verranno connesse alla rete di Azure mappata. Se si modifica un mapping esistente con una nuova rete, le macchine virtuali di replica verranno connesse usando le nuove impostazioni.
 
 Si noti che, se la rete di destinazione ha più subnet e una di esse ha lo stesso nome di una subnet in cui si trova la macchina virtuale di origine, la macchina virtuale di replica sarà connessa a tale subnet di destinazione dopo il failover. Se non è presente una subnet di destinazione con un nome corrispondente, la macchina virtuale sarà connessa alla prima subnet della rete.
+
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è possibile per le reti usate per la distribuzione di Site Recovery.
 
 ## Passaggio 8: Abilitare la protezione per le macchine virtuali
 
@@ -285,7 +289,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-	Tenere traccia dell'avanzamento dell'azione **Abilita protezione** nella scheda **Processi**, inclusa la replica iniziale. Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
+	Tenere traccia dello stato dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
@@ -332,14 +336,10 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 
 	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo
-3. 
-4. 
-5. 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
+2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
 
-	- Se si vuole verificare le proprietà delle macchine virtuali prima di aggiungerle al piano, fare clic sulla macchina virtuale nella pagina delle proprietà nel cloud in cui si trova. È anche possibile configurare le proprietà della macchina virtuale nella console VMM.
-	- Tutte le macchine virtuali visualizzate sono state abilitate per la protezione. L'elenco include sia le macchine virtuali abilitate per la protezione e per cui la replica iniziale è stata completata sia quelle abilitate per la protezione con la replica iniziale in corso. Solo le macchine virtuali con la replica iniziale completa possono eseguire il failover come parte di un piano di ripristino.
-
+- Se si vuole verificare le proprietà delle macchine virtuali prima di aggiungerle al piano, fare clic sulla macchina virtuale nella pagina delle proprietà nel cloud in cui si trova. È anche possibile configurare le proprietà della macchina virtuale nella console VMM.
+- Tutte le macchine virtuali visualizzate sono state abilitate per la protezione. L'elenco include sia le macchine virtuali abilitate per la protezione e per cui la replica iniziale è stata completata sia quelle abilitate per la protezione con la replica iniziale in corso. Solo le macchine virtuali con la replica iniziale completa possono eseguire il failover come parte di un piano di ripristino.
 
 	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -381,4 +381,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Informazioni su [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

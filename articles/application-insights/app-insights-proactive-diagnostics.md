@@ -58,4 +58,4 @@ Diagnostica proattiva è completamente automatica, tuttavia è possibile configu
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

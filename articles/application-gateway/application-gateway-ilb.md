@@ -5,15 +5,15 @@
    services="application-gateway"
    authors="georgewallace"
    manager="jdial"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/05/2016"
-   ms.author="gwallace"/>  
+   ms.date="08/19/2016"
+   ms.author="gwallace"/>
 
 # Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)
 
@@ -22,7 +22,7 @@
 - [Procedure di PowerShell per Resource Manager](application-gateway-ilb-arm.md)
 
 
-Il gateway applicazione può essere configurato con un indirizzo IP virtuale con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per servizi/livelli in un'applicazione a più livelli posta entro limiti di sicurezza non esposti a Internet, ma che richiede la distribuzione del carico round robin, la persistenza delle sessioni o la terminazione SSL. In questo articolo verrà illustrata la procedura per configurare un gateway applicazione con un ILB.
+Il gateway applicazione può essere configurato con un indirizzo IP virtuale con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per i servizi o i livelli in un'applicazione multilivello che si trova entro un limite di sicurezza non esposto a Internet, ma che richiede la distribuzione del carico round robin, la persistenza delle sessioni o la terminazione SSL. Questo articolo illustra la procedura per configurare un gateway applicazione con un ILB.
 
 ## Prima di iniziare
 
@@ -33,7 +33,7 @@ Il gateway applicazione può essere configurato con un indirizzo IP virtuale con
 
 Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordine indicato.
 
-1. [Creare un nuovo gateway applicazione](#create-a-new-application-gateway)
+1. [Creare un gateway applicazione](#create-a-new-application-gateway)
 2. [Configurare il gateway](#configure-the-gateway)
 3. [Definire la configurazione del gateway](#set-the-gateway-configuration)
 4. [Avviare il gateway](#start-the-gateway)
@@ -41,7 +41,7 @@ Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordi
 
 
 
-## Creare un nuovo gateway applicazione:
+## Creare un gateway applicazione:
 
 **Per creare il gateway**, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
@@ -55,7 +55,7 @@ Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordi
 
 **Per convalidare** la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
-In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
+In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -80,7 +80,7 @@ La configurazione di un gateway applicazione è costituita da più valori. È po
 I valori possibili sono:
 
 - **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici.
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
@@ -96,7 +96,7 @@ Tenere presente quanto segue:
 
 - L'elemento *Type* Frontend IP deve essere impostato su "Private".
 
-- *StaticIPAddress* deve essere impostato sull'IP interno desiderato su cui il gateway riceverà il traffico. Si noti che l'elemento *StaticIPAddress* è facoltativo. Se non viene impostato, viene scelto un IP interno disponibile dalla subnet distribuita.
+- *StaticIPAddress* deve essere impostato sull'IP interno desiderato su cui il gateway riceve il traffico. Si noti che l'elemento *StaticIPAddress* è facoltativo. Se non viene impostato, viene scelto un IP interno disponibile dalla subnet distribuita.
 
 - Il valore dell'elemento *Name* specificato in *FrontendIPConfiguration* deve essere usato nell'elemento *FrontendIP* di HTTPListener per fare riferimento a FrontendIPConfiguration.
 
@@ -186,7 +186,7 @@ Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGatew
 
 ## Verificare lo stato del gateway
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide. Questo esempio illustra il cmdlet nella prima riga seguito dall'output. In questo esempio, il gateway è in esecuzione ed è pronto per ricevere il traffico.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide. Questo esempio illustra il cmdlet nella prima riga seguito dall'output. In questo esempio il gateway è in esecuzione ed è pronto per ricevere il traffico.
 
 > [AZURE.NOTE] Il gateway applicazione è configurato per accettare il traffico nell'endpoint ILB configurato 10.0.0.10 di questo esempio.
 
@@ -212,4 +212,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

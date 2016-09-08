@@ -38,10 +38,10 @@ Definire la seguente risorsa di estensione nella sezione delle risorse del model
       "publisher": "Microsoft.OSTCExtensions",
       "type": "CustomScriptForLinux",
       "typeHandlerVersion": "1.2",
-      "settings": {
-      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
-      "commandToExecute": "sh mongo-install-ubuntu.sh"
-      }
+       "autoUpgradeMinorVersion": true "settings": { 
+       "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh" ], 
+       "commandToExecute": "sh mongo-install-ubuntu.sh" 
+       }, "protectedSettings": {} 
     }
     }
 
@@ -53,4 +53,4 @@ Consultare l’esempio seguente per configurare applicazioni in una macchina vir
 
 * [Estensione di script personalizzato in una VM Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!----HONumber=AcomDC_0824_2016-->

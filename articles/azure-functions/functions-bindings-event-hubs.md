@@ -15,12 +15,14 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Associazioni di Hub eventi di Funzioni di Azure
 
-Questo articolo illustra come configurare e scrivere il codice di associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-overview.md) in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi di Azure.
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+
+Questo articolo illustra come configurare e scrivere il codice di associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-overview.md) per Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi di Azure.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,7 +39,7 @@ Il file *function.json* per un trigger di Hub eventi di Azure specifica le propr
 - `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
 - `direction`: deve essere impostato su *in*.
 - `path`: nome di Hub eventi.
-- `connection` : nome di un'impostazione dell'applicazione che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.
+- `connection`: nome di un'impostazione dell'app che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.
 
 		{
 		  "bindings": [
@@ -84,7 +86,7 @@ Il file *function.json* per un'associazione di output di Hub eventi di Azure spe
 - `type`: deve essere impostato su *eventHub*.
 - `name`: nome della variabile usato nel codice della funzione per il messaggio di Hub eventi.
 - `path`: nome di Hub eventi.
-- `connection` : nome di un'impostazione dell'applicazione che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di Hub eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
+- `connection`: nome di un'impostazione dell'app che contiene la stringa di connessione nello spazio dei nomi in cui si trova Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo spazio dei nomi, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di Hub eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
 - `direction`: deve essere impostato su *out*.
 
 	    {
@@ -134,4 +136,4 @@ Il codice di funzione Node.js di esempio seguente illustra la scrittura di un ev
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

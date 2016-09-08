@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Ripristino di emergenza per le applicazioni basate su Microsoft Azure
@@ -71,7 +71,7 @@ Un'altra opzione consiste nell'archiviare i dati in una posizione alternativa fi
 
 ###Errore di un servizio dipendente
 
-Azure fornisce molti servizi in cui si possono verificare periodicamente tempi di inattività. Si consideri ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/). Questo servizio multi-tenant offre funzionalità di memorizzazione nella cache per le applicazioni. È importante valutare l'impatto sull'applicazione qualora un servizio dipendente non fosse disponibile. Per molti aspetti questo scenario è analogo a quello di un'interruzione della rete, tuttavia se si considera ogni servizio singolarmente, è possibile apportare miglioramenti al piano generale.
+Azure fornisce molti servizi in cui si possono verificare periodicamente tempi di inattività. Si consideri ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/). Questo servizio multitenant offre funzionalità di memorizzazione nella cache per le applicazioni. È importante valutare l'impatto sull'applicazione qualora un servizio dipendente non fosse disponibile. Per molti aspetti questo scenario è analogo a quello di un'interruzione della rete, tuttavia se si considera ogni servizio singolarmente, è possibile apportare miglioramenti al piano generale.
 
 Cache Redis di Azure conferisce all'applicazione funzionalità di memorizzazione nella cache all'interno della distribuzione del servizio cloud, con conseguenti vantaggi per il ripristino di emergenza. Prima di tutto, il servizio ora viene eseguito su ruoli locali rispetto alla distribuzione. È quindi possibile monitorare e gestire in modo più efficace lo stato della cache come parte dei processi di gestione complessivi del servizio cloud. Questo tipo di memorizzazione nella cache espone anche nuove funzionalità. Una di queste è la disponibilità elevata per i dati memorizzati nella cache, che consente di proteggerli in caso di errore di un singolo nodo, mantenendo copie duplicate dei dati in altri nodi.
 
@@ -305,4 +305,4 @@ Esistono diverse altre tecniche utilizzabili per testare i piani di ripristino d
 
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo precedente della serie è [Disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Che cos'è l'hub IoT di Azure?
@@ -53,7 +53,7 @@ L'hub IoT di Azure soddisfa i requisiti di connettività dei dispositivi nei mod
 
 -   **Autenticazione e connettività sicura per ogni dispositivo**. È possibile effettuare il provisioning di ogni dispositivo con la propria [chiave di sicurezza][lnk-devguide-security] per consentire la connessione all'hub IoT. Il [registro delle identità dell'hub IoT][lnk-devguide-identityregistry] memorizza le identità e le chiavi dei dispositivi di una soluzione. Un back-end della soluzione può aggiungere singoli dispositivi per negare o consentire il controllo completo dell'accesso ai dispositivi.
 
--   **Monitoraggio delle operazioni di connettività dei dispositivi**. È possibile ricevere i log dettagliati sulle operazioni di gestione delle identità dei dispositivi e sugli eventi di connettività dei dispositivi. Questa funzionalità di monitoraggio permette alla soluzione IoT di identificare facilmente i problemi di connettività, ad esempio i dispositivi che provano a connettersi con credenziali non corrette, inviare messaggi troppo spesso o rifiutare tutti i messaggi da cloud a dispositivo.
+-   **Monitoraggio delle operazioni di connettività dei dispositivi**. È possibile ricevere i log dettagliati sulle operazioni di gestione delle identità dei dispositivi e sugli eventi di connettività dei dispositivi. Questa funzionalità di monitoraggio permette alla soluzione IoT di identificare i problemi di connettività, ad esempio i dispositivi che provano a connettersi con credenziali non corrette, inviare messaggi troppo spesso o rifiutare tutti i messaggi da cloud a dispositivo.
 
 -   **Un set completo di librerie di dispositivi**. Gli [SDK per dispositivi Azure IoT][lnk-device-sdks] sono disponibili e supportati per vari linguaggi e piattaforme: C per diverse distribuzioni Linux, Windows e sistemi operativi in tempo reale. Gli SDK per dispositivi Azure IoT supportano inoltre linguaggi gestiti, ad esempio C#, Java e JavaScript.
 
@@ -92,7 +92,7 @@ L'hub IoT di Azure implementa il modello di [comunicazione assistita con i servi
 - La comunicazione bidirezionale per i dispositivi connessi in modo intermittente a causa di problemi di alimentazione o di connettività può essere facilitata trattenendo i comandi e le notifiche per i dispositivi finché un dispositivo non si connette per riceverli. L'hub IoT conserva le code specifiche dei dispositivi per i comandi inviati.
 - I dati di payload delle applicazioni possono essere protetti separatamente per il transito sicuro dai gateway a un determinato servizio.
 
-Il modello di comunicazione assistita con i servizi è stato usato con ottimi risultati nel settore dei dispositivi mobili a scalabilità elevatissima per implementare i servizi di notifica push, ad esempio [Servizi notifica Push Windows][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] e [Apple Push Notification Service][lnk-apple-push].
+Il modello di comunicazione assistita con i servizi è stato usato nel settore dei dispositivi mobili a scalabilità elevatissima per implementare i servizi di notifica push, ad esempio [Servizi notifica Push Windows][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] e [Apple Push Notification Service][lnk-apple-push].
 
 ## Passaggi successivi
 
@@ -123,4 +123,4 @@ Per iniziare a scrivere codice ed eseguire alcuni esempi, vedere l'esercitazione
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

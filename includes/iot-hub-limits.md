@@ -11,10 +11,10 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 
 | Risorsa | Limite |
 | -------- | ----- |
-| Hub IoT a pagamento massimi per ogni sottoscrizione di Azure | 10 |
-| Hub IoT gratuiti massimi per ogni sottoscrizione di Azure | 1 |
+| Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure | 10 |
+| Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure | 1 |
 | Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata | 1000 |
-| Memorizzazione massima del messaggio IoT Hub | 7 giorni |
+| Conservazione massima nell'hub IoT per i messaggi dal dispositivo al cloud | 7 giorni |
 | Dimensione massima del messaggio del dispositivo al cloud | 256 KB |
 | Dimensione massima del batch del dispositivo al cloud | 256 KB |
 | Messaggi massimi nel batch del dispositivo al cloud | 500 |
@@ -35,6 +35,6 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Inoltri dal dispositivo al cloud | 6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. |
 | Inoltri dal cloud al dispositivo | 5000/min/unità (per S3), 100/min/unità (per S1 e S2). |
 | Ricezioni dal cloud al dispositivo | 50000/min/unità (per S3), 1000/min/unità (per S1 e S2). |
-| Operazioni di caricamento file | 5000 notifiche di caricamento file/min/unità (per S3), 100 notifiche di caricamento file/min/unità (per S1 e S2). <br/> 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione .<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| Operazioni di caricamento file | 5000 notifiche di caricamento file/min/unità (per S3), 100 notifiche di caricamento file/min/unità (per S1 e S2). <br/> 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

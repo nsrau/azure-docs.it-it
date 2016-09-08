@@ -23,16 +23,10 @@
 - [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 - [Portale](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 
-Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità dei portali di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Creare un gruppo di risorse
 
@@ -56,15 +50,15 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 
     ![cercare nel Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. A seconda del tipo di risorsa selezionato, sarà disponibile una raccolta di proprietà rilevanti da impostare prima della distribuzione. Le opzioni non sono visualizzate in questo articolo, perché variano in base al tipo di risorsa. Per tutti i tipi è necessario selezionare un gruppo di risorse di destinazione. L'immagine seguente mostra come creare una nuova app Web e distribuirla nel gruppo di risorse appena creato.
+3. A seconda del tipo di risorsa selezionato, sarà disponibile una raccolta di proprietà rilevanti da impostare prima della distribuzione. Le opzioni non sono visualizzate in questo articolo, perché variano in base al tipo di risorsa. Per tutti i tipi è necessario selezionare un gruppo di risorse di destinazione. L'immagine seguente mostra come creare un'app Web e distribuirla nel gruppo di risorse creato.
 
     ![creare un gruppo di risorse](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    In alternativa, è possibile decidere di creare un nuovo gruppo di risorse durante la distribuzione delle risorse. Selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+    In alternativa, è possibile decidere di creare un gruppo di risorse durante la distribuzione delle risorse. Selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
     ![creare un nuovo gruppo di risorse](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. Verrà avviata la distribuzione. L'operazione può richiedere alcuni minuti. Al termine della distribuzione, verrà visualizzata una notifica.
+4. La distribuzione ha inizio. La distribuzione può richiedere alcuni minuti. Al termine della distribuzione, verrà visualizzata una notifica.
 
     ![visualizzare notifiche](./media/resource-group-template-deploy-portal/view-notification.png)
 
@@ -74,7 +68,7 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 
 ## Distribuire risorse da un modello personalizzato
 
-Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
 1. Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo**, cercare **Distribuzione modello** e quindi selezionarlo nelle opzioni disponibili.
 
@@ -104,7 +98,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
 ## Distribuire risorse da un modello salvato nel proprio account
 
-Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'utilizzo dei modelli salvati, vedere [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
+Il portale consente di salvare un modello nel proprio account Azure e di ridistribuirlo in un secondo momento. Per altre informazioni sull'uso dei modelli salvati, vedere [Introduzione ai modelli privati nel portale di Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
 1. Per trovare i modelli salvati, selezionare **Sfoglia** > **Modelli**.
 
@@ -124,4 +118,4 @@ Il portale consente di salvare un modello nel proprio account Azure e di ridistr
 - Per risolvere gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Per recuperare un modello da un gruppo di risorse o di distribuzione, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

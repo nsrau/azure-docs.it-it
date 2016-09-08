@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
 > [AZURE.SELECTOR]
-- [Modello Resource Manager](backup-azure-arm-vms-prepare.md)
+- [Modello di Resource Manager](backup-azure-arm-vms-prepare.md)
 - [Modello classico](backup-azure-vms-prepare.md)
 
 Questo articolo illustra i passaggi per preparare un ambiente in cui eseguire il backup di una macchina virtuale (VM) distribuita con Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure.
@@ -46,9 +46,10 @@ Prima di preparare l'ambiente, è importante capire le limitazioni.
 
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 - Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
+- Il backup delle macchine virtuali Linux con estensione Docker non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-- È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+- È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - È possibile eseguire il backup di macchine virtuali solo per specifiche versioni dei sistemi operativi seguenti:
   - **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), ad eccezione di CoreOS Linux. È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
@@ -76,7 +77,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    Verrà aperto il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+    Si apre il pannello degli insiemi di credenziali dei servizi di ripristino in cui viene chiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
@@ -86,11 +87,11 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 6. Fare clic su **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure fare clic su **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
 
-7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali da proteggere.
+7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali **deve** trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
 
     >[AZURE.IMPORTANT] Se si non è certi della località della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, sarà necessario creare un insieme di credenziali dei servizi di ripristino backup in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali dei servizi di ripristino e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
 
-8. Fare clic su **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
+8. Fare clic su **Crea**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -115,7 +116,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire il processo di individuazione per verificare che vengano identificate le eventuali nuove macchine virtuali aggiunte alla sottoscrizione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area. Nel portale di Azure lo scenario fa riferimento a ciò che si inserirà nell'insieme di credenziali dei servizi di ripristino. I criteri determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino.
 
-1. Se un insieme di credenziali dei servizi di ripristino è già aperto, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali dei servizi di ripristino, ma ci si trova nel portale di Azure, scegliere **Sfoglia** dal menu Hub.
+1. Se un insieme di credenziali dei servizi di ripristino è già aperto, procedere al passaggio 2. Se non è aperto alcun insieme di credenziali di Servizi di ripristino, ma ci si trova nel portale di Azure, scegliere **Sfoglia** dal menu Hub.
 
   - Nell'elenco di risorse digitare **Servizi di ripristino**.
   - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzata l'opzione, fare clic su **Insiemi di credenziali dei servizi di ripristino**.
@@ -133,7 +134,7 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     ![Pannello Backup aperto](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
-    Quando si apre il pannello, il servizio Backup cerca le nuove VM nella sottoscrizione.
+    Quando si apre il pannello, il servizio Backup cerca le nuove macchine virtuali nella sottoscrizione.
 
     ![Individuare le VM](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
@@ -141,7 +142,7 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     ![Pannello Scenario aperto](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. Nel pannello Obiettivo del backup impostare **Posizione di esecuzione del carico di lavoro** su Azure ed **Elementi di cui eseguire il backup** su macchina virtuale, quindi fare clic su **OK**.
+4. Nel pannello Obiettivo del backup impostare **Posizione di esecuzione del carico di lavoro** su Azure ed **Elementi di cui eseguire il backup** su Macchina virtuale, quindi fare clic su **OK**.
 
     Il pannello Obiettivo di backup si chiude e viene visualizzato il pannello Criterio di backup.
 
@@ -151,7 +152,7 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    I dettagli del criterio predefinito vengono elencati nei dettagli. Per creare un nuovo criterio, selezionare **Crea nuovo** dal menu a discesa. Il menu a discesa contiene anche un'opzione per impostare l'orario in cui lo snapshot viene acquisito sulle 19. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Dopo aver fatto clic su **OK**, il criterio di backup viene associato all'insieme di credenziali.
+    I dettagli dei criteri predefiniti vengono elencati nei dettagli. Per creare un nuovo criterio, selezionare **Crea nuovo** dal menu a discesa. Il menu a discesa contiene anche un'opzione per impostare l'orario in cui lo snapshot viene acquisito sulle 19. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Dopo aver fatto clic su **OK**, il criterio di backup viene associato all'insieme di credenziali.
 
     Scegliere quindi le VM da associare all'insieme di credenziali.
 
@@ -174,15 +175,15 @@ Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali de
 
 Per altre informazioni, leggere gli articoli relativi all'[agente di macchine virtuali](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente di macchine virtuali](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-In caso di problemi con il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure sia installato correttamente nella macchina virtuale. Vedere in proposito la tabella seguente. Se si è creata una macchina virtuale personalizzata, [assicurarsi che la casella di controllo **Installa l'agente di macchine virtuali** sia selezionata](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) prima che venga effettuato il provisioning della macchina virtuale.
+In caso di problemi con il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure sia installato correttamente nella macchina virtuale. Vedere in proposito la tabella seguente. Se si è creata una macchina virtuale personalizzata, [assicurarsi che la casella di controllo **Installa l'agente di macchine virtuali** sia selezionata](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) prima che ne venga effettuato il provisioning.
 
 La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine virtuali per macchine virtuali Windows e Linux.
 
 | **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installazione dell'agente di macchine virtuali | <li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. | <li> Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
-| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. | Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. |
-| Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
+| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. | Seguire le istruzioni sull'[aggiornamento dell'agente di VM Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
+| Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà** e quindi scegliere la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
 
 
 ### Estensione di backup
@@ -196,19 +197,19 @@ L'estensione di backup viene installata dal servizio Backup indipendentemente da
 
 Per gestire gli snapshot di una macchina virtuale, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. Senza la connettività Internet appropriata, si verificherà il timeout delle richieste HTTP della macchina virtuale e l'operazione di backup non verrà eseguita. Se la distribuzione ha restrizioni di accesso, ad esempio, un gruppo di sicurezza di rete (NSG), scegliere una delle opzioni seguenti per specificare un percorso chiaro per il traffico di backup:
 
-- [Aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti](http://www.microsoft.com/it-IT/download/details.aspx?id=41653): leggere l'articolo per istruzioni su come includere gli indirizzi IP nell'elenco elementi consentiti.
+- [Microsoft Azure Datacenter IP Ranges ](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) (Intervalli di indirizzi IP dei data center di Azure): leggere l'articolo per istruzioni su come includere gli indirizzi IP nell'elenco degli elementi consentiti.
 - Distribuire un server proxy HTTP per eseguire il routing del traffico
 
 Quando si decide quale opzione usare, i compromessi sono compresi tra facilità di gestione, controllo granulare e costo.
 
 |Opzione|Vantaggi|Svantaggi:|
 |------|----------|-------------|
-|Aggiungere gli intervalli IP all'elenco elementi consentiti| Nessun costo aggiuntivo. <br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br><br>Fornisce l'accesso a tutto l'ambiente di Azure, non solo al servizio di archiviazione.|
+|Aggiungere gli intervalli IP all'elenco elementi consentiti| Nessun costo aggiuntivo. <br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br><br>Offre l'accesso a tutto l'ambiente di Azure, non solo al servizio di Archiviazione.|
 |Proxy HTTP| È consentito il controllo granulare nel proxy sugli URL di archiviazione.<br>Singolo punto di accesso a Internet alle VM.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure.| Costi aggiuntivi per l'esecuzione di una VM con il software proxy.|
 
 ### Aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti.
 
-Per aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti, visitare il [sito Web di Azure](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) per informazioni dettagliate sugli intervalli IP e per istruzioni.
+Per aggiungere gli intervalli IP dei data center di Azure all'elenco degli elementi consentiti, vedere il [sito Web di Azure](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) per informazioni dettagliate sugli intervalli IP e per istruzioni.
 
 ### Uso di un proxy HTTP per i backup delle VM
 Quando si esegue il backup di una macchina virtuale, l'estensione di backup nella VM invia i comandi di gestione degli snapshot ad Archiviazione di Azure usando un'API HTTPS. Eseguire il routing del traffico di estensione del backup tramite il proxy HTTP perché è l'unico componente configurato per l'accesso a Internet pubblico.
@@ -254,7 +255,7 @@ Se è stato installato un server proxy in un account utente corrente (non in un 
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel registro del server proxy, verificare che l'autenticazione sia impostata correttamente.
+>[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel log del server proxy, verificare che l'autenticazione sia impostata correttamente.
 
 ######Per macchine Linux
 
@@ -277,7 +278,7 @@ HttpProxy.Port=<proxy port>
 
     ![Aprire il firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole connessioni in entrata**, quindi fare clic su **Nuova regola**.
+2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole in ingresso** e scegliere **Nuova regola**.
 
     ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-02.png)
 
@@ -288,9 +289,9 @@ HttpProxy.Port=<proxy port>
 
     ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-03.png)
 
-    - Nel campo *Tipo di protocollo* scegliere *TCP*
+    - Nel campo *Tipo di protocollo* scegliere *TCP*.
     - Nel campo *Porta locale* scegliere *Porte specifiche* e nel campo sottostante specificare la ```<Proxy Port>``` configurata.
-    - Nel campo *Porta remota* selezionare *Tutte le porte*
+    - Nel campo *Porta remota* selezionare *Tutte le porte*.
 
     Completare la procedura guidata facendo clic su Avanti fino al termine e assegnare un nome a questa regola.
 
@@ -309,7 +310,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *Questi passaggi includono nomi e valori di esempio. Usare nomi e valori appropriati alla distribuzione specifica quando si aggiungono, tagliano e incollano i dettagli nel codice.*
 
 
-Dopo aver stabilito la connettività di rete, è possibile eseguire il backup di una macchina virtuale. Vedere [Eseguire il backup di VM distribuite in Resource Manager](backup-azure-arm-vms.md).
+Dopo aver stabilito la connettività di rete, è possibile eseguire il backup di una macchina virtuale. Vedere [Eseguire il backup di macchine virtuali distribuite con il modello di distribuzione Resource Manager](backup-azure-arm-vms.md).
 
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
@@ -321,4 +322,4 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 - [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

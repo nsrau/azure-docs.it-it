@@ -88,12 +88,12 @@ Le indicazioni sul livello dei prezzi offrono un'esperienza automatizzata per la
 A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento o di un downgrade in genere non si verifica immediatamente. Il portale fornirà notifiche come le transizioni del nuovo livello di database o è possibile monitorare lo stato di aggiornamento eseguendo una query della vista [sys.dm\_operation\_status (database SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx) nel database master del server di Database SQL.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
- 
+
 
 <!---HONumber=AcomDC_0810_2016-->

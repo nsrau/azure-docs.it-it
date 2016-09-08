@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/17/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/> 
 
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST
 > [AZURE.SELECTOR]
@@ -39,10 +39,10 @@ Questo articolo non illustra tutte le API REST di Data Factory. Per la documenta
 - Vedere la [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Installare [Curl](https://curl.haxx.se/dlwiz/) nel computer. Lo strumento Curl viene usato insieme ai comandi REST per creare una data factory.
 - Seguire le istruzioni disponibili in [questo articolo](../resource-group-create-service-principal-portal.md) per:
-	1. Creare un'applicazione Web denominata **ADFCopyTutotiralApp** in Azure Active Directory.
+	1. Creare un'applicazione Web denominata **ADFCopyTutorialApp** in Azure Active Directory.
 	2. Ottenere i valori per l'**ID client** e la **chiave privata**.
 	3. Ottenere l'**ID tenant**.
-	4. Assegnare l'applicazione **ADFCopyTutotiralApp** al ruolo **Collaboratore Data Factory**.
+	4. Assegnare l'applicazione **ADFCopyTutorialApp** al ruolo **Collaboratore Data Factory**.
 - Installare [Azure PowerShell](../powershell-install-configure.md).
 - Avviare **Azure PowerShell** ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
 	1. Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
@@ -298,7 +298,7 @@ In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCop
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se la data factory è stata creata correttamente, in **results** viene visualizzato il codice JSON per la data factory. In caso contrario, viene visualizzato un messaggio di errore.
 
-		$results
+		Write-Host $results
 
 Tenere presente quanto segue:
  
@@ -339,7 +339,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results
+		Write-Host $results
 
 ### Creare un servizio collegato di Azure SQL
 In questo passaggio il database SQL di Azure viene collegato alla data factory. Con questa esercitazione viene usato lo stesso database SQL di Azure per archiviare i dati di output.
@@ -352,7 +352,7 @@ In questo passaggio il database SQL di Azure viene collegato alla data factory. 
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results
+		Write-Host $results
 
 ## Creare set di dati
 
@@ -404,7 +404,7 @@ In questo passaggio viene creato un set di dati denominato **AzureBlobInput** ch
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results
+		Write-Host $results
 
 ### Creare il set di dati di output
 In questo passaggio si crea una tabella di output denominata **AzureSqlOutput**. Questo set di dati punta a una tabella SQL (**emp**) nel database SQL di Azure rappresentato da **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
@@ -417,7 +417,7 @@ In questo passaggio si crea una tabella di output denominata **AzureSqlOutput**.
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
   
-		$results 
+		Write-Host $results 
 
 ## Creare una pipeline
 In questo passaggio viene creata una pipeline con un'**attività di copia** che usa **AzureBlobInput** come input e **AzureSqlOutput** come output.
@@ -430,7 +430,7 @@ In questo passaggio viene creata una pipeline con un'**attività di copia** che 
 		$results = Invoke-Command -scriptblock $cmd;
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
 
-		$results
+		Write-Host $results
 
 **Congratulazioni.** È stata creata una data factory di Azure con una pipeline che copia dati da un archivio BLOB di Azure al database SQL di Azure.
 
@@ -493,4 +493,4 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

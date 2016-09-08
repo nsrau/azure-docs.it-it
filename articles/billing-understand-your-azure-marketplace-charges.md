@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Informazioni sugli addebiti di Azure Marketplace
 Questo articolo offre una panoramica utile per comprendere gli addebiti relativi agli ordini del Marketplace. Un aspetto da tenere presente quando si esamina la fattura sono i diversi tipi di prezzo (Solo Base, Solo Utilizzo e Base + Utilizzo). Si noti che ogni ordine del Marketplace inserito avrà il proprio ciclo di fatturazione mensile. Questi argomenti verranno approfonditi più avanti.
+
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## Esaminare la fattura del Marketplace
 Una volta effettuato l'accesso al [portale degli account di Azure](https://account.windowsazure.com/subscriptions/), è possibile esaminare e scaricare le fatture correnti e precedenti.
@@ -31,7 +33,7 @@ Per visualizzare o scaricare la fattura:
 
     ![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti sul Marketplace](https://azure.microsoft.com/marketplace/faq/).
+3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
     ![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
@@ -57,18 +59,18 @@ Si accederà a un altro portale dove sarà possibile apportare modifiche al meto
 
 Per modificare il metodo di pagamento, seguire questa procedura:
 
-1. Fare clic su **Modifica modalità di pagamento**.
+1. Fare clic su **Change how you pay** (Modifica la modalità di pagamento).
 
     ![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
-2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Paga con** consente di selezionare la carta di credito. L'opzione **Aggiungi nuovo metodo di pagamento** consente di aggiungere una nuova carta di credito.
+2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Pay with** (Paga con) consente di selezionare la carta di credito. L'opzione **Add a new way to pay** (Aggiungi una nuova modalità di pagamento) consente di aggiungere una nuova carta di credito.
 
     ![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gestione degli ordini
-Nella pagina della panoramica di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
+Nella pagina di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
 
-![Portale](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
+![di Microsoft Azure](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
 
 Per richiedere assistenza, fare clic sul riquadro **Guida e supporto**. Verrà visualizzata la pagina **Guida e supporto** seguente dove è possibile eseguire queste operazioni:
 - Aprire una nuova richiesta di supporto.
@@ -98,4 +100,6 @@ Per visualizzare gli addebiti effettivi, seguire questa procedura:
 
     ![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+<!---HONumber=AcomDC_0824_2016-->

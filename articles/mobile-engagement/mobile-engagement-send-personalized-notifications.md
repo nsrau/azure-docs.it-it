@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="all" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Personalizzare le notifiche includendo il nome utente
@@ -22,10 +22,10 @@ Per rendere le notifiche più interessanti per gli utenti dell'app, è possibile
 
 Con Azure Mobile Engagement è possibile personalizzare le notifiche seguendo la procedura illustrata di seguito, che descrive uno scenario in cui il nome utente viene incluso nelle notifiche. Viene usato il concetto di info app o tag i cui valori potrebbero essere passati dagli SDK integrati nell'app per dispositivi mobili per mezzo di API. Info app e Tag potrebbero essere usati:
 
-1. per indirizzare le notifiche a utenti specifici in base ai valori di info app o 
-2. come segnaposto nelle notifiche, da sostituire con valori specifici per l'utente o il dispositivo durante l'invio di notifiche al dispositivo. 
+1. per indirizzare le notifiche a utenti specifici in base ai valori di info app o
+2. come segnaposto nelle notifiche, da sostituire con valori specifici per l'utente o il dispositivo durante l'invio di notifiche al dispositivo.
 
-> [AZURE.IMPORTANT]Si noti che la velocità di invio delle notifiche risulterà ridotta a causa dell'elaborazione aggiuntiva necessaria per sostituire i valori di info app con le singole notifiche.
+> [AZURE.IMPORTANT] Si noti che la velocità di invio delle notifiche risulterà ridotta a causa dell'elaborazione aggiuntiva necessaria per sostituire i valori di info app con le singole notifiche.
 
 ##Registrare info app nel portale di Mobile Engagement
 
@@ -59,7 +59,7 @@ A questo punto è possibile inviare notifiche usando questo **user\_name**.
 
 ![][4]
 
-> [AZURE.NOTE]Gli utenti per i quali l'info app user\_name non è impostata non riceveranno notifiche. Se si esegue una campagna di notifica in modalità di test, e se le informazioni sull’app non sono impostate, verrà inviato un carattere '?' per sostituire il segnaposto.
+> [AZURE.NOTE] Gli utenti per i quali l'info app user\_name non è impostata non riceveranno notifiche. Se si esegue una campagna di notifica in modalità di test, e se le informazioni sull’app non sono impostate, verrà inviato un carattere '?' per sostituire il segnaposto.
 
 2) Quando Mobile Engagement seleziona un dispositivo per l'invio della notifica, esamina questa info app e sostituisce il valore del segnaposto. Se, ad esempio, è stato impostato `str = "Scott"` per un utente, la registrazione del dispositivo verrà associata all'info app **user\_name = SCOTT** per l'utente e questi visualizzerà una notifica push fuori dall'app nel formato seguente:
 
@@ -72,4 +72,4 @@ A questo punto è possibile inviare notifiche usando questo **user\_name**.
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0824_2016-->

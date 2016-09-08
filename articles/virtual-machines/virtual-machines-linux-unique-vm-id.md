@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -37,7 +37,7 @@ Per altre informazioni, vedere [Creare una macchina virtuale](virtual-machines-l
 ## Connettersi alla VM
  
 
-Per altre informazioni, vedere [SSH da Linux](virtual-machines-linux-ssh-from-linux.md).
+Per altre informazioni, vedere [SSH da Linux](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Effettuare una query dell'ID univoco di una VM
@@ -57,4 +57,4 @@ A causa dell'ordinamento dei bit big endian, l'ID univoco effettivo della VM in 
     
 L'ID univoco di una VM di Azure può essere usato in scenari diversi indipendentemente dal fatto che la VM sia in esecuzione in Azure o in locale e consente di soddisfare eventuali requisiti relativi a licenze, creazione di report o verifica generale nelle distribuzioni IaaS di Azure. Diversi fornitori di software indipendenti che compilano applicazioni e le certificano in Azure potrebbero richiedere di identificare una VM di Azure durante il suo ciclo di vita e di indicare se la VM è in esecuzione in Azure, in locale o in altri provider di servizi cloud. Questo identificatore di piattaforma consente, ad esempio, di rilevare se la licenza del software è corretta o di correlare i dati di una VM all'origine, ad esempio per fornire assistenza nell'impostazione della metrica appropriata a seconda della piattaforma e per tenere traccia di questa metrica e correlarla tra gli altri utenti.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

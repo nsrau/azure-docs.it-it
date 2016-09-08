@@ -1,6 +1,6 @@
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-> [AZURE.NOTE] Una macchina virtuale in Azure usa diversi tipi di dischi, ad esempio un disco del sistema operativo, un disco temporaneo locale e un disco dati facoltativo. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
+> [AZURE.NOTE] Una macchina virtuale in Azure usa diversi tipi di dischi, ad esempio un disco del sistema operativo, un disco temporaneo locale e un disco dati facoltativo. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la VM.
 
 
 ## Trovare il disco
@@ -9,8 +9,7 @@ Prima di poter scollegare un disco da una macchina virtuale, è necessario conos
 
 1. 	Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Gestione servizi di Azure (`azure config mode asm`).
 
-2. 	Scoprire quali dischi sono collegati alla macchina virtuale usando `azure vm disk list
-	<virtual-machine-name>`:
+2. 	Scoprire quali dischi sono collegati alla VM usando `azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list
@@ -28,9 +27,9 @@ Prima di poter scollegare un disco da una macchina virtuale, è necessario conos
 
 ## Rimuovere i riferimenti del sistema operativo al disco
 
-Prima di scollegare il disco dal guest Linux, è necessario identificare tutte le partizioni del disco che non sono in uso e assicurarsi che il sistema operativo non cerchi di rimontarle dopo un riavvio. Questi passaggi annullano la configurazione che è stata probabilmente creata durante il [collegamento](../articles/virtual-machines-linux-classic-attach-disk.md) del disco.
+Prima di scollegare il disco dal guest Linux, è necessario assicurarsi che tutte le partizioni del disco non siano in uso. Assicurarsi che il sistema operativo non tenti di rimontarle dopo un riavvio. Questi passaggi annullano la configurazione che è stata probabilmente creata durante il [collegamento](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) del disco.
 
-1. Usare il comando `lsscsi` per trovare l'identificatore disco. `lsscsi` può essere installato da `yum install lsscsi` (su distribuzioni basate su Red Hat) o `apt-get install lsscsi` (su distribuzioni basate su Debian). È possibile trovare l'identificatore disco che si sta cercando grazie al numero LUN riportato sopra. L'ultimo numero della tupla in ogni riga è il LUN. Nell'esempio di seguito LUN 0 mappa a _/dev/sdc_
+1. Usare il comando `lsscsi` per trovare l'identificatore disco. `lsscsi` può essere installato da `yum install lsscsi` (su distribuzioni basate su Red Hat) o `apt-get install lsscsi` (su distribuzioni basate su Debian). È possibile trovare l'identificatore disco che si sta cercando grazie al numero LUN. L'ultimo numero della tupla in ogni riga è il LUN. Nell'esempio di seguito LUN 0 mappa a _/dev/sdc_
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -97,4 +96,4 @@ Dopo aver trovato il numero LUN del disco e aver rimosso i riferimenti al sistem
 
 Il disco scollegato rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

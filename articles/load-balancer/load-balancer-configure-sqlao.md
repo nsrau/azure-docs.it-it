@@ -3,7 +3,7 @@
    description="Configurare il bilanciamento del carico per usare sempre SQL AlwaysOn e sfruttare PowerShell per creare il bilanciamento del carico per l'implementazione SQL"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurare il bilanciamento del carico per SQL AlwaysOn
 
@@ -68,4 +68,4 @@ Per altre informazioni su come creare un gruppo di disponibilità AlwaysOn di SQ
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Eseguire query su un indice di Ricerca di Azure
@@ -58,4 +58,4 @@ Altre informazioni sul paging dei risultati della ricerca sono disponibili nell'
 ## Evidenziazione dei risultati
 In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri `highlight`, `highlightPreTag` e `highlightPostTag`. È possibile specificare quali campi _ricercabili_ devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

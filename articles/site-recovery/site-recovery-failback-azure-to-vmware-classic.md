@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="01/11/2015"
+   ms.date="08/22/2016"
    ms.author="ruturajd"/>
 
 # Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
@@ -29,7 +29,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 
 
 
-## Panoramica
+## Overview
 
 Questo diagramma illustra l'architettura di failback per questo scenario.
 
@@ -65,7 +65,7 @@ Se è stato eseguito il failover di una macchina virtuale VMware è possibile es
 	- È necessario individuare almeno un server di destinazione master e gli host ESX/ESXi necessari per il failback.
 - Se si esegue il failback nella macchina virtuale originaria è necessario quanto segue:
 	- Se la macchina virtuale è gestita da un server vCenter, l'host ESX della destinazione master deve avere accesso all'archivio dati delle macchine virtuali.
-	- Se la macchina virtuale si trova in un host ESX ma non è gestita da vCenter, il disco rigido della macchina virtuale deve trovarsi in un archivio dati accessibile da parte dell'host della destinazione master.
+	- Se la VM si trova in un host ESX ma non è gestita da vCenter, il relativo disco rigido deve trovarsi in un archivio dati accessibile da parte dell'host della destinazione master.
 	- Se la macchina virtuale si trova in un host ESX e non usa vCenter, è necessario completare l'individuazione dell'host ESX della destinazione master prima di abilitare la riprotezione. Questa opzione è valida anche per il failback di server fisici.
 	- Se è presente una macchina virtuale locale, è anche possibile eliminarla prima di eseguire il failback. Il failback crea quindi una nuova macchina virtuale nello stesso host dell'host ESX di destinazione master.
 	
@@ -112,15 +112,15 @@ Il server di destinazione master riceve i dati di failback. Un server di destina
 >[AZURE.NOTE] Per installare un server di destinazione master in Linux, seguire le istruzioni riportate nella procedura successiva.
 
 1. Se si installa il server di destinazione master in Windows, aprire la pagina Avvio rapido dalla macchina virtuale in cui si sta installando il server di destinazione master e scaricare il file di installazione per l'installazione guidata unificata di Azure Site Recovery.
-2. Eseguire la configurazione, quindi in **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per scalare la distribuzione).
-3. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Nella pagina **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di destinazione master e una passphrase per accedere alla macchina virtuale.
+2. Eseguire la configurazione, quindi in **Prima di iniziare** selezionare **Aggiungere server di elaborazione per scalare la distribuzione**.
+3. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Nella pagina **Dettagli del server di configurazione** specificare l'indirizzo IP del server di destinazione master e una passphrase per accedere alla macchina virtuale.
 
 ### Configurare una macchina virtuale Linux come server di destinazione master
 Per configurare il server di gestione che esegue il server di destinazione master come una macchina virtuale Linux è necessario installare il sistema operativo minimo CentOS 6.6, recuperare gli ID SCSI per ogni disco rigido SCSI, installare alcuni pacchetti aggiuntivi e applicare alcune modifiche personalizzate.
 
 #### Installare CentOS 6.6
 
-1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Modifica del sistema** selezionare** Connetti automaticamente** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione.
+1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Dispositivi di archiviazione di base**, verificare che il disco rigido non contenga dati importanti e fare clic su **Sì**. Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Modifica del sistema** selezionare** Connetti automaticamente** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione.
 2.	Quando viene richiesto il tipo di installazione, selezionare **Crea layout personalizzato** come partizione. Dopo aver fatto clic su **Avanti** selezionare **Gratuito** e fare clic su Crea. Creare partizioni **/**, **/var/crash** e **/home partitions** con **FS Type:** **ext4**. Creare la partizione di scambio con **FS Type: swap**.
 3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Formatta** per formattare l'unità con le impostazioni della partizione. Fare clic su **Scrivi modifica su disco** per applicare le modifiche della partizione.
 4.	Selezionare **Installa caricatore di avvio** > **Avanti** per installare il caricatore di avvio nella partizione radice.
@@ -204,4 +204,4 @@ Al termine del failback i dati si trovano nuovamente nel sito locale, ma non son
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0824_2016-->

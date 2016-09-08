@@ -61,7 +61,7 @@ Il servizio app di Azure consente di eseguire il mapping delle categorie di domi
 A seconda delle esigenze, è possibile usare due diversi tipi di record DNS standard per eseguire il mapping del dominio personalizzato:
 
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A): esegue il mapping del nome dominio personalizzato direttamente all'indirizzo IP virtuale dell'app Azure.
-- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **& lt;*appname*>.azurewebsites.net**.
+- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **&lt;*appname*>.azurewebsites.net**.
 
 Il vantaggio di CNAME è la sua persistenza a prescindere dalle variazioni dell'indirizzo IP. Se si elimina e si ricrea l'app oppure se da un piano tariffario di livello superiore si torna al piano **Condiviso**, l'indirizzo IP virtuale dell'app potrebbe cambiare. Se l'indirizzo IP cambia, un record CNAME resta valido, mentre un record A richiede un aggiornamento.
 
@@ -77,9 +77,9 @@ Per eseguire il mapping di un nome dominio personalizzato usando un record A è 
 
 2.	Fare clic su **Servizi app** nel menu a sinistra.
 
-4.	Fare clic sull'app, quindi su **Impostazioni** > **Domini personalizzati ed SSL** > **Porta domini esterni**.
+4.	Fare clic sull'app, quindi su **Domini personalizzati**.
 
-6.  Prendere nota dell'indirizzo IP.
+6.  Prendere nota dell'indirizzo IP sopra la sezione Nomi host.
 
     ![Eseguire il mapping del nome di dominio personalizzato al record A: ottenere l'indirizzo IP per l'app del servizio app di Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -99,7 +99,7 @@ Accedere al registrar di dominio e usare i relativi strumenti per aggiungere un 
 <a name="a"></a>
 ### Creare un record A
 
-Per usare un record A per eseguire il mapping all'indirizzo IP dell'app Azure è in realtà necessario creare sia un record A che un record CNAME. Il record A è per la risoluzione DNS in sé, mentre il record CNAME consente ad Azure di verificare che l'utente possieda il nome di dominio personalizzato.
+Per usare un record A per eseguire il mapping all'indirizzo IP dell'app Azure, è in realtà necessario creare sia un record A che un record TXT. Il record A è per la risoluzione DNS in sé, mentre il record TXT consente ad Azure di verificare che l'utente possieda il nome di dominio personalizzato.
 
 Configurare il record A come indicato di seguito. @ rappresenta in genere il dominio radice:
  
@@ -126,28 +126,28 @@ Configurare il record A come indicato di seguito. @ rappresenta in genere il dom
   </tr>
 </table>
 
-Il record CNAME aggiuntivo segue la convenzione che esegue il mapping da awverify.&lt;*sottodominio*>.&lt;*dominioradice*> a awverify.&lt;*sottodominio*>.azurewebsites.net. Configurare il record CNAME come indicato di seguito:
+Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sottodominio*>.&lt;*dominioradice*> a &lt;*sottodominio*>.azurewebsites.net. Configurare il record TXT come indicato di seguito:
 
 <table cellspacing="0" border="1">
   <tr>
     <th>Esempio di FQDN</th>
-    <th>Host CNAME</th>
-    <th>Valore CNAME</th>
+    <th>Host TXT</th>
+    <th>Valore TXT</th>
   </tr>
   <tr>
     <td>contoso.com (radice)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>@</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sottodominio)</td>
-    <td>awverify.www</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>www</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com (carattere jolly)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>*</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
@@ -181,23 +181,27 @@ Configurare il record CNAME come indicato di seguito. @ rappresenta in genere il
 <a name="enable"></a>
 ## Passaggio 3. Abilitare il nome di dominio personalizzato per l'app
 
-Nel pannello **Porta domini esterni** del portale di Azure (vedere il [passaggio 1](#vip)) è necessario aggiungere all'elenco il nome di dominio completo (FQDN) del dominio personalizzato.
+Nel pannello **Domini personalizzati** del portale di Azure (vedere il [passaggio 1](#vip)) è necessario aggiungere all'elenco il nome di dominio completo (FQDN) del dominio personalizzato.
 
 1.	Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com).
 
 2.	Nel portale di Azure fare clic su **Servizi app** nel menu a sinistra.
 
-4.	Fare clic sull'app, quindi su **Impostazioni** > **Domini personalizzati ed SSL** > **Porta domini esterni**.
+3.	Fare clic sull'app, quindi su **Domini personalizzati** > **Aggiungi il nome host**.
 
-2.	Aggiungere il nome di dominio completo del dominio personalizzato all'elenco, ad esempio **www.contoso.com**.
+4.	Aggiungere il nome di dominio completo del dominio personalizzato all'elenco, ad esempio **www.contoso.com**.
 
     ![Eseguire il mapping di un nome di dominio personalizzato a un'app Azure: aggiungere il nome di dominio all'elenco di nomi di dominio](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure tenterà di verificare il nome di dominio usato. Assicurarsi che si tratti dello stesso nome di dominio per cui è stato creato un record DNS nel [passaggio 2](#createdns).
 
-6.  Fare clic su **Save**.
+5.  Fare clic su **Convalida**.
 
-7.  Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Se l'app Azure viene aperta dal browser, il nome di dominio personalizzato è configurato correttamente.
+6.  Facendo clic su **Convalida**, Azure avvierà il flusso di lavoro Verifica del dominio che controllerà la proprietà del dominio oltre alla disponibilità del nome host e segnalerà la riuscita o un errore dettagliato con le linee guida consigliate per correggere l'errore.
+
+7.  Se la convalida avrà esito positivo, il pulsante **Aggiungi il nome host** diventerà attivo e sarà possibile assegnare il nome host. Ora passare al nome di dominio personalizzato in un browser. Sarà visibile l'app in esecuzione con il nome di dominio personalizzato.
+
+8.  Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Se l'app Azure viene aperta dal browser, il nome di dominio personalizzato è configurato correttamente.
 
 <a name="verify"></a>
 ## Verificare la propagazione di DNS
@@ -219,4 +223,4 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/08/2016" 
 	ms.author="arramac"/>
 	
 # Indicizzazione automatica in Azure DocumentDB
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -106,7 +106,7 @@ Prima di creare una VM, è necessario disporre di un gruppo di risorse, una rete
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP] Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
+	>[AZURE.TIP] Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
 
 5. Creare un account di archiviazione per ospitare l'unità del sistema operativo della VM.
 
@@ -227,4 +227,4 @@ Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamen
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

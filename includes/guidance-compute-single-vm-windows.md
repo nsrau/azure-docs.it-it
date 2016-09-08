@@ -2,7 +2,7 @@ Questo articolo illustra un insieme di procedure consolidate per l'esecuzione di
 
 > [AZURE.NOTE] Azure offre due diversi modelli di distribuzione, ovvero [Azure Resource Manager][resource-manager-overview] e la distribuzione classica. Questo articolo usa Azure Resource Manager, consigliato da Microsoft per le nuove distribuzioni.
 
-Non è consigliabile usare una singola VM per carichi di lavoro di produzione perché non esiste alcun contratto di servizio che disciplini il tempo di attività delle singole VM in Azure. Per ottenere il contratto di servizio, è necessario distribuire più VM in un [set di disponibilità][availability-set]. Per altre informazioni, vedere [Running multiple Windows VMs on Azure][multi-vm] (Esecuzione di più VM Windows in Azure).
+Non è consigliabile usare una singola VM per carichi di lavoro di produzione perché non esiste alcun contratto di servizio che disciplini il tempo di attività delle singole VM in Azure. Per ottenere il contratto di servizio, è necessario distribuire più VM in un [set di disponibilità][availability-set]. Per altre informazioni, vedere [Running multiple Windows VMs on Azure][multi-vm] \(Esecuzione di più VM Windows in Azure).
 
 ## Diagramma dell'architettura
 
@@ -74,7 +74,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 - Per aumentare o ridurre le prestazioni di una VM, è possibile [modificare le dimensioni della VM][vm-resize].
 
-- Per scalare orizzontalmente, inserire due o più VM in un set di disponibilità nell'ambito di un servizio di bilanciamento del carico. Per informazioni dettagliate, vedere [Running multiple VMs on Azure][multi-vm] (Esecuzione di più VM Windows in Azure).
+- Per scalare orizzontalmente, inserire due o più VM in un set di disponibilità nell'ambito di un servizio di bilanciamento del carico. Per informazioni dettagliate, vedere [Running multiple VMs on Azure][multi-vm] \(Esecuzione di più VM Windows in Azure).
 
 ## Considerazioni sulla disponibilità
 
@@ -88,7 +88,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 ## Considerazioni sulla gestibilità
 
-- **Gruppi di risorse.** Posizionare in uno stesso [gruppo di risorse][resource-manager-overview] le risorse strettamente associate che condividono lo stesso ciclo di vita. I gruppi di risorse consentono di distribuire e monitorare le risorse in gruppo, distribuendo i costi per ogni gruppo di risorse. È inoltre possibile eliminare un intero set di risorse, operazione molto utile nelle distribuzioni di test. Assegnare alle risorse nomi significativi. In tal modo, è più semplice individuare una specifica risorsa e comprenderne il ruolo. Vedere [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenzioni di denominazione consigliate per le risorse di Azure).
+- **Gruppi di risorse.** Posizionare in uno stesso [gruppo di risorse][resource-manager-overview] le risorse strettamente associate che condividono lo stesso ciclo di vita. I gruppi di risorse consentono di distribuire e monitorare le risorse in gruppo, distribuendo i costi per ogni gruppo di risorse. È inoltre possibile eliminare un intero set di risorse, operazione molto utile nelle distribuzioni di test. Assegnare alle risorse nomi significativi. In tal modo, è più semplice individuare una specifica risorsa e comprenderne il ruolo. Vedere [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenzioni di denominazione consigliate per le risorse di Azure).
 
 - **Diagnostica delle VM.** Abilitare il monitoraggio e la diagnostica, tra cui le metriche di base sull'integrità, i log relativi all'infrastruttura di diagnostica e la [diagnostica di avvio][boot-diagnostics]. La diagnostica di avvio permette di diagnosticare gli errori di avvio quando la VM passa a uno stato non avviabile. Per altre informazioni, vedere [Abilitare il monitoraggio e la diagnostica][enable-monitoring]. Usare l'estensione [Raccolta di log di Azure][log-collector] per raccogliere i log della piattaforma Azure e caricarli nell'Archiviazione di Azure.
 
@@ -124,7 +124,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 - **Antimalware.** Se abilitato, Centro sicurezza PC controlla se è installato il software antimalware. È inoltre possibile utilizzare Centro sicurezza PC per installare il software antimalware all'interno del portale di Azure.
 
-- Usare il [controllo degli accessi in base al ruolo][rbac] (RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [Utente DevTest Labs][rbac-devtest] e [Collaboratore Rete][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
+- Usare il [controllo degli accessi in base al ruolo][rbac] \(RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [Utente DevTest Labs][rbac-devtest] e [Collaboratore Rete][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
 
     > [AZURE.NOTE] Il controllo degli accessi in base al ruolo non limita le azioni eseguibili da un utente registrato in una VM. Le autorizzazioni sono determinate dal tipo di account sul sistema operativo guest.
 
@@ -144,7 +144,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 I modelli sono governati da parametri, che sono contenuti in file JSON separati. È possibile modificare i parametri in questi file per configurare la distribuzione in base alle proprie esigenze. Non è necessario modificare i modelli stessi. Gli schemi degli oggetti nel file dei parametri non devono essere modificati.
 
-Quando si modificano i modelli, creare oggetti che rispettano le convenzioni di denominazione descritte in [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenzioni di denominazione consigliate per le risorse di Azure).
+Quando si modificano i modelli, creare oggetti che rispettano le convenzioni di denominazione descritte in [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenzioni di denominazione consigliate per le risorse di Azure).
 
 Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'infrastruttura circostante:
 
@@ -171,7 +171,7 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
   }
 	```
 
-- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Questo file contiene le definizioni dei gruppi di sicurezza di rete (NSG) e delle relative regole. Il parametro `name` nel blocco `virtualNetworkSettings` specifica la rete virtuale a cui è associato il gruppo di sicurezza di rete. Il parametro `subnets` nel blocco `networkSecurityGroupSettings` identifica tutte le subnet che applicano le regole del gruppo di sicurezza di rete nella rete virtuale. Deve trattarsi di elementi definiti nel file **virtualNetwork.parameters.json**.
+- **[networkSecurityGroups.parameters.json][nsg-parameters]**. Questo file contiene le definizioni dei gruppi di sicurezza di rete (NSG) e delle relative regole. Il parametro `name` nel blocco `virtualNetworkSettings` specifica la rete virtuale a cui è associato il gruppo di sicurezza di rete. Il parametro `subnets` nel blocco `networkSecurityGroupSettings` identifica tutte le subnet che applicano le regole del gruppo di sicurezza di rete nella rete virtuale. Deve trattarsi di elementi definiti nel file **virtualNetwork.parameters.json**.
 
 	La regola di sicurezza predefinita illustrata nell'esempio consente all'utente di connettersi alla VM tramite una connessione desktop remoto (RDP). È possibile aprire porte aggiuntive o negare l'accesso a porte specifiche aggiungendo altri elementi alla matrice `securityRules`.
 
@@ -313,7 +313,7 @@ Per eseguire lo script che distribuisce la soluzione:
 
 	- [virtualNetwork.parameters.json][vnet-parameters]
 
-	- [networkSecurityGroup.parameters.json][nsg-parameters]
+	- [networkSecurityGroups.parameters.json][nsg-parameters]
 
 	- [virtualMachineParameters.json][vm-parameters]
 
@@ -340,7 +340,7 @@ Per eseguire lo script che distribuisce la soluzione:
 
 ## Passaggi successivi
 
-Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] (Esecuzione di più VM in Azure).
+Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] \(Esecuzione di più VM in Azure).
 
 <!-- links -->
 
@@ -386,11 +386,11 @@ Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
-[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Singola architettura VM di Windows in Azure"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

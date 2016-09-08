@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Materiale sussidiario sulla resilienza di Azure: ripristino dall'ambiente locale ad Azure
@@ -79,22 +79,23 @@ Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza
 
 ###Rete
 
-  1. Vedere la sezione [Rete](#networking) di questo documento.
+  1. Vedere la sezione Rete di questo documento.
   2. Usare la rete virtuale per connettere in modo sicuro l'ambiente locale al cloud.
 
 ###Calcolo
 
-  1. Vedere la sezione [Calcolo](#compute) di questo documento.
+  1. Vedere la sezione Calcolo di questo documento.
   2. Rilocare le macchine virtuali tra Hyper-V e Azure.
 
 ###Archiviazione
-  1. Vedere la sezione [Archiviazione](#storage) di questo documento.
+
+  1. Vedere la sezione Archiviazione di questo documento.
   2. Sfruttare i servizi StorSimple per l'uso dell'archiviazione cloud.
   3. Usare i servizi di Backup di Azure.
 
 ###Database
 
-  1. Vedere la sezione [Database](#database) di questo documento.
+  1. Vedere la sezione Database di questo documento.
   2. Prendere in considerazione l'uso di SQL Server nelle macchine virtuali di Azure come backup.
   3. Impostare Gruppi di disponibilità AlwaysOn.
   4. Configurare il mirroring del database basato su certificati.
@@ -105,4 +106,4 @@ Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza
 
 Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). Il prossimo articolo di questa serie riguarda il [ripristino dal danneggiamento o dall'eliminazione accidentale dei dati](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
@@ -24,7 +24,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 ## <a name="register-microsoft-account"> </a>Registrare l'app con l'account Microsoft
 
-1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app con l'account Microsoft.
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**, che verrà usato in un secondo momento per configurare l'app con Account Microsoft.
 
 2. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft.
 
@@ -76,4 +76,4 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

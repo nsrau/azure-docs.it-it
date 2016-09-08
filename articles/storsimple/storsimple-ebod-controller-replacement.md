@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un controller EBOD nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questa esercitazione viene illustrato come sostituire un modulo controller EBOD guasto nel dispositivo Microsoft Azure StorSimple. Per sostituire un modulo controller EBOD, è necessario:
 
@@ -89,7 +89,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
     ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figura 4** Riconnessione dei cavi
+    **Figura 4**. Ricollegamento dei cavi
 
     |Etichetta|Descrizione|
     |:----|:----------|
@@ -107,4 +107,4 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->
