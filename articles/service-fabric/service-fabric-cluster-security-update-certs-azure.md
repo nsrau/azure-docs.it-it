@@ -40,15 +40,15 @@ A differenza che nel corso del flusso di lavoro di creazione del cluster, qui no
 
 Fare clic su **Certificato**. Inizia una distribuzione e una barra di stato blu verrà visualizzata nel pannello Cluster Security (Sicurezza cluster).
 
-![Schermata delle identificazioni personali del certificato nel portale] [SecurityConfigurations_02]
+![Schermata delle identificazioni personali del certificato nel portale][SecurityConfigurations_02]
 
 Al completamento della distribuzione, sarà possibile usare il certificato primario o quello secondario per eseguire operazioni di gestione sul cluster.
 
-![Schermata della distribuzione del certificato in corso] [SecurityConfigurations_03]
+![Schermata della distribuzione del certificato in corso][SecurityConfigurations_03]
 
 Di seguito è riportata una schermata che illustra l'aspetto del pannello relativo alla sicurezza dopo il completamento della distribuzione.
 
-![Schermata delle identificazioni personali del certificato dopo la distribuzione] [SecurityConfigurations_08]
+![Schermata delle identificazioni personali del certificato dopo la distribuzione][SecurityConfigurations_08]
 
 
 È possibile usare il nuovo certificato appena aggiunto per connettersi ed eseguire operazioni nel cluster.
