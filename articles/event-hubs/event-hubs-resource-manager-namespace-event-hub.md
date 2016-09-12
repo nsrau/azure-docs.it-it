@@ -13,16 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/31/2016"
     ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager
 
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi dell'hub eventi con un hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi dell'hub eventi con un Hub eventi e un gruppo di consumer. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][].
 
-Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer del bus di servizio][] su GitHub.
+Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer][] su GitHub.
 
 >[AZURE.NOTE] Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
 >
@@ -31,7 +31,7 @@ Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consum
 >-    [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 >-    [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 >
->Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare "service bus".
+>Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare Hub eventi.
 
 ## Distribuzione
 
@@ -41,7 +41,7 @@ Questo modello consente di distribuire uno spazio dei nomi dell'hub eventi con u
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## Parametri
 
@@ -71,7 +71,7 @@ Nome dell'hub eventi creato nello spazio dei nomi dell'hub eventi.
 
 ### eventHubConsumerGroupName
 
-Nome del gruppo di consumer creato per l'hub eventi nello spazio dei nomi del bus di servizio.
+Nome del gruppo di consumer creato per l'Hub eventi.
 
 ```
 "eventHubConsumerGroupName": {
@@ -79,59 +79,59 @@ Nome del gruppo di consumer creato per l'hub eventi nello spazio dei nomi del bu
 }
 ```
 
-### serviceBusApiVersion
+### apiVersion
 
-Versione API del bus di servizio del modello.
+Versione API del modello.
 
 ```
-"serviceBusApiVersion": {
+"apiVersion": {
 "type": "string"
 }
 ```
 
 ## Risorse da distribuire
 
-Crea uno spazio dei nomi del bus di servizio di tipo **Hub eventi** con Hub eventi e un gruppo di consumer.
+Crea uno spazio dei nomi di tipo **Hub eventi** con Hub eventi e un gruppo di consumer.
 
 ```
-"resources": [
-        {
-            "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('eventHubNamespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "EventHub",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]"
-                    },
-                    "resources": [
-                        {
-                            "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('eventHubConsumerGroupName')]",
-                            "type": "ConsumerGroups",
-                            "dependsOn": [
-                                "[parameters('eventHubName')]"
-                            ],
-                            "properties": {
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+"resources":[  
+      {  
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('namespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{  
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources":[  
+            {  
+               "apiVersion":"[variables('ehVersion')]",
+               "name":"[parameters('eventHubName')]",
+               "type":"EventHubs",
+               "dependsOn":[  
+                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+               ],
+               "properties":{  
+                  "path":"[parameters('eventHubName')]"
+               },
+               "resources":[  
+                  {  
+                     "apiVersion":"[variables('ehVersion')]",
+                     "name":"[parameters('consumerGroupName')]",
+                     "type":"ConsumerGroups",
+                     "dependsOn":[  
+                        "[parameters('eventHubName')]"
+                     ],
+                     "properties":{  
+
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ],
 ```
 
 ## Comandi per eseguire la distribuzione
@@ -141,7 +141,7 @@ Crea uno spazio dei nomi del bus di servizio di tipo **Hub eventi** con Hub even
 ## PowerShell
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## Interfaccia della riga di comando di Azure
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 azure config mode arm
 
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json][]
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
 ## Passaggi successivi
@@ -164,6 +164,6 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
   [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [modello di Hub eventi e del gruppo di consumer del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
+  [modello di Hub eventi e del gruppo di consumer]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

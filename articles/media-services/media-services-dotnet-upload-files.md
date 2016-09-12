@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Caricamento di file in un account di Servizi multimediali mediante .NET" 
+	pageTitle="Caricare file in un account di Servizi multimediali mediante .NET" 
 	description="Informazioni su come ottenere contenuti multimediali in Servizi multimediali creando e caricando asset." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016" 
+ 	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 
-#Caricamento di file in un account di Servizi multimediali mediante .NET
+# Caricare file in un account di Servizi multimediali mediante .NET
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST](media-services-rest-upload-files.md)
+ - [Portale](media-services-portal-upload-files.md)
 
 In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
@@ -228,7 +231,7 @@ Il seguente esempio illustra come aggiungere due nuove entità IngestManifestAss
 	    copytask.Start();
 	}
 
-Il codice per il caricamento dei file di asset per l'esempio usato in questo argomento è riportato nel seguente esempio.
+Il codice per il caricamento dei file di asset per l'esempio utilizzato in questo argomento è riportato nel seguente esempio.
 	
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
@@ -299,7 +302,7 @@ Il seguente esempio esegue una chiamata alla funzione UploadFile e specifica la 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -315,4 +318,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

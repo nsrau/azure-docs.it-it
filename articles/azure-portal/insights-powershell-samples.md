@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="ashwink"/>  
+	ms.date="08/30/2016"
+	ms.author="ashwink"/>
 
 # Esempi di avvio rapido con PowerShell per Azure Insights
 
@@ -25,7 +25,7 @@ Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul comput
 
 ## Esempi in questo articolo
 
-Gli esempi in questo articolo illustrano come usare i cmdlet di Azure Insights. È anche possibile esaminare l'elenco completo di cmdlet di Azure Insights (monitoraggio) in [Cmdlet di Azure Insights](https://msdn.microsoft.com/library/mt282452.aspx).
+Gli esempi in questo articolo illustrano come usare i cmdlet di Azure Insights. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell (monitoraggio) di Azure Insights in [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) (Cmdlet di Azure Insights).
 
 
 ## Eseguire l'acccesso e usare le sottoscrizioni
@@ -36,13 +36,13 @@ Per prima cosa, accedere alla propria sottoscrizione di Azure.
 Login-AzureRmAccount
 ```
 
-Questo richiede di effettuare l’accesso. Una volta effettuato l’accesso, vengono visualizzati Account, ID tenantId e ID sottoscrizione predefinito. Tutti i cmdlet di Azure operano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente.
+Questo richiede di effettuare l’accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'Account, l'ID tenant e l'ID sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente.
 
 ```
 Get-AzureRmSubscription
 ```
 
-Per modificare il contesto operativo in una sottoscrizione diversa, utilizzare il comando seguente.
+Per modificare il contesto di lavoro in una sottoscrizione diversa, usare il comando seguente.
 
 ```
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -319,7 +319,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Gestione dei profili di log per i log di controllo
 
-È possibile creare un *profilo di log* ed esportare i dati dai log di controllo in un account di archiviazione ed è possibile configurare la relativa conservazione dei dati. Facoltativamente, è inoltre possibile trasmettere i dati all'hub eventi. Questa funzionalità attualmente è in anteprima ed è possibile creare solo un profilo di log per ogni sottoscrizione. Per creare e gestire i profili di log, è possibile utilizzare i cmdlet seguenti con la sottoscrizione corrente. È anche possibile scegliere una sottoscrizione specifica. Anche se PowerShell usa la sottoscrizione corrente per impostazione predefinita, è sempre possibile modificarla usando `Set-AzureRmContext`. È possibile configurare i log di controllo per indirizzare dati a qualsiasi account di archiviazione o all'hub eventi all'interno di tale sottoscrizione. I dati sono scritti come file di BLOB in formato JSON.
+È possibile creare un *profilo di log* ed esportare i dati dai log di controllo in un account di archiviazione ed è possibile configurare la relativa conservazione dei dati. Facoltativamente, è inoltre possibile trasmettere i dati all'hub eventi. Questa funzionalità attualmente è in anteprima ed è possibile creare solo un profilo di log per ogni sottoscrizione. Per creare e gestire i profili di log, è possibile usare i cmdlet seguenti con la sottoscrizione corrente. È anche possibile scegliere una sottoscrizione specifica. Anche se PowerShell usa la sottoscrizione corrente per impostazione predefinita, è sempre possibile modificarla usando `Set-AzureRmContext`. È possibile configurare i log di controllo per indirizzare i dati a qualsiasi account di archiviazione o all'hub eventi all'interno di tale sottoscrizione. I dati sono scritti come file di BLOB in formato JSON.
 
 ### Acquisizione di un profilo di log
 Per recuperare i profili di log esistenti, usare il cmdlet `Get-AzureRmLogProfile`.
@@ -384,4 +384,4 @@ Abilitazione dell’impostazione di diagnostica con conservazione per una catego
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

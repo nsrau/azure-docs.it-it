@@ -3,7 +3,7 @@
 	description="Risposte alle domande più comuni, modelli e procedure consigliate per Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # Domande frequenti su Gestione API di Azure
 
@@ -155,4 +155,4 @@ Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual 
 
 È possibile usarlo.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

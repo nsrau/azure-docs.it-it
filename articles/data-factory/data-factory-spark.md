@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Chiamare i programmi Spark da Data Factory
@@ -26,87 +26,18 @@ L'[esempio Spark - Data Factory in GitHub](https://github.com/Azure/Azure-DataFa
 ## Entità di Data factory
 La cartella **Spark-ADF/src/ADFJsons** contiene i file per le entità di Data Factory, ad esempio servizi collegati, set di dati e pipeline.
 
-Esistono due **servizi collegati** in questo esempio: Archiviazione di Azure e Azure HDInsight. È necessario specificare il nome di archiviazione di Azure e i valori chiave in **StorageLinkedService.json** e URI del cluster, nome utente e password in **HDInsightLinkedService.json**.
+Esistono due **servizi collegati** in questo esempio: Archiviazione di Azure e Azure HDInsight. Specificare il nome di archiviazione di Azure e i valori chiave in **StorageLinkedService.json** e URI del cluster, nome utente e password in **HDInsightLinkedService.json**.
 
 Esistono due **set di dati** in questo esempio: **input.json** e **output.json**. Questi file si trovano nella cartella dei **set di dati**. I file rappresentano i set di dati di input e output per l'attività MapReduce.
 
-Nell'esempio esiste una sola **pipeline** nella cartella **ADFJsons/Pipeline**. Si tratta dell'entità più importante ed è necessario esaminarla per capire in che modo chiamare un programma Spark usando l'attività MapReduce.
+Le pipeline di esempio sono disponibili nella cartella **ADFJsons/Pipeline**. Esaminare una pipeline per comprendere come richiamare un programma Spark usando l'attività MapReduce.
 
-	{
-	    "name": "SparkSubmit",
-	    "properties": {
-	        "description": "Submit a spark job",
-	        "activities": [
-	            {
-	                "type": "HDInsightMapReduce",
-	                "typeProperties": {
-	                    "className": "com.adf.spark.SparkJob",
-	                    "jarFilePath": "libs/spark-adf-job-bin.jar",
-	                    "jarLinkedService": "StorageLinkedService",
-	                    "arguments": [
-	                        "--jarFile",
-	                        "libs/sparkdemoapp_2.10-1.0.jar",
-	                        "--jars",
-	                        "/usr/hdp/current/hadoop-client/hadoop-azure-2.7.1.2.3.3.0-3039.jar,/usr/hdp/current/hadoop-client/lib/azure-storage-2.2.0.jar",
-	                        "--mainClass",
-	                        "com.adf.spark.demo.Demo",
-	                        "--master",
-	                        "yarn-cluster",
-	                        "--driverMemory",
-	                        "2g",
-	                        "--driverExtraClasspath",
-	                        "/usr/lib/hdinsight-logging/*",
-	                        "--executorCores",
-	                        "1",
-	                        "--executorMemory",
-	                        "4g",
-	                        "--sparkHome",
-	                        "/usr/hdp/current/spark-client",
-	                        "--connectionString",
-	                        "DefaultEndpointsProtocol=https;AccountName=<YOUR_ACCOUNT>;AccountKey=<YOUR_KEY>",
-	                        "input=wasb://input@<YOUR_ACCOUNT>.blob.core.windows.net/data",
-	                        "output=wasb://output@<YOUR_ACCOUNT>.blob.core.windows.net/results"
-	                    ]
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "input"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "output"
-	                    }
-	                ],
-	                "policy": {
-	                    "executionPriorityOrder": "OldestFirst",
-	                    "timeout": "01:00:00",
-	                    "concurrency": 1,
-	                    "retry": 1
-	                },
-	                "scheduler": {
-	                    "frequency": "Day",
-	                    "interval": 1
-	                },
-	                "name": "Spark Launcher",
-	                "description": "Submits a Spark Job",
-	                "linkedServiceName": "HDInsightLinkedService"
-	            }
-	        ],
-	        "start": "2015-11-16T00:00:01Z",
-	        "end": "2015-11-16T23:59:00Z",
-	        "isPaused": false,
-	        "pipelineMode": "Scheduled"
-	    }
-	}
+L'attività MapReduce è configurata per chiamare **com.adf.sparklauncher.jar** nel contenitore **adflibs** dell'archiviazione di Azure (specificato in StorageLinkedService.json). Il codice sorgente per questo programma si trova nella cartella Spark-ADF/src/main/java/com/adf/ ed esegue processi Spark e chiamate a spark-submit.
 
-Come si può notare, l'attività MapReduce è configurata per chiamare **spark-adf-job-bin.jar** nel contenitore **libs** dell'archiviazione di Azure (specificato in StorageLinkedService.json). Il codice sorgente per questo programma si trova nella cartella Spark-ADF/src/main/java/com/adf/spark ed esegue processi Spark e chiamate a spark-submit.
-
-Il programma MapReduce (spark-adf-job-bin.jar) in esecuzione nel cluster HDInsight Spark chiama un programma Spark **sparkdemoapp\_2.10-1.0.jar** e, come mostra il codice JSON precedente, passa gli argomenti ricevuti tramite l'attività MapReduce al programma Spark. _**sparkdemoapp\_2.10-1.0.jar**_ contiene codice sorgente Scala che copia i dati da un contenitore BLOB di Azure a un altro. È possibile sostituire il file jar dell'app demo con qualsiasi altro file jar contenente i processi che si sta tentando di eseguire usando Spark.
-
-In breve, l'**attività MapReduce** chiama il programma MapReduce **spark-adf-job-bin.jar** che chiama il programma Spark **sparkdemoapp\_2.10-1.0.jar**_. _Per eseguire un programma Spark proprio, sostituire sparkdemoapp\_2.10-1.0.jar con il proprio.
-
-> [AZURE.NOTE] È necessario usare il proprio cluster HDInsight Spark con questo approccio per chiamare i programmi Spark usando l'attività MapReduce. L'uso di un cluster HDInsight su richiesta non è supportato.
+> [AZURE.IMPORTANT] 
+Leggere con attenzione il file [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) per informazioni aggiuntive e più recenti prima di usare l'esempio.
+>  
+> Usare il proprio cluster HDInsight Spark con questo approccio per chiamare i programmi Spark usando l'attività MapReduce. L'uso di un cluster HDInsight su richiesta non è supportato.
 
 
 ## Vedere anche
@@ -116,4 +47,4 @@ In breve, l'**attività MapReduce** chiama il programma MapReduce **spark-adf-jo
 - [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

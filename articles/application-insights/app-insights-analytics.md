@@ -19,7 +19,7 @@
 # Analytics in Application Insights
 
 
-[Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
+L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
 * **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
@@ -63,7 +63,6 @@ Il linguaggio include diverse funzionalità utili, è possibile:
 
 
 
->[AZURE.NOTE] È consigliabile iniziare con una [panoramica sul linguaggio](app-insights-analytics-tour.md).
 
 
 
@@ -84,4 +83,10 @@ Attualmente sono disponibili i risultati delle query per una settimana di dati.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Passaggi successivi
+
+
+* È consigliabile iniziare con una [panoramica sul linguaggio](app-insights-analytics-tour.md).
+
+<!---HONumber=AcomDC_0831_2016-->

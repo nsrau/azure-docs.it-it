@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # Panoramica: Replica geografica attiva per il database SQL di Azure
@@ -39,6 +39,9 @@ Se per qualsiasi motivo il database primario restituisce un errore o deve essere
 - [Failover: Portale di Azure](sql-database-geo-replication-failover-portal.md)
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
+
+Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
+
 
 La funzionalità Replica geografica attiva implementa un meccanismo per garantire la ridondanza dei database nella stessa area di Microsoft Azure o in aree diverse (ridondanza geografica). La replica geografica attiva replica in modo asincrono le transazioni di cui è stato eseguito il commit da un database a un massimo di quattro copie del database in server diversi, usando l'isolamento RCSI (Read Committed Snapshot Isolation). Quando è configurata la replica geografica attiva, un database secondario viene creato nel server specificato. Il database originale diventa il database primario. Il database primario replica in modo asincrono le transazioni sottoposte a commit in ognuno dei database secondari. Anche se a un certo punto i dati del database secondario possono essere leggermente indietro rispetto al database primario, viene garantito che siano sempre coerenti dal punto di vista transazionale con le modifiche salvate tramite commit nel database primario.
 
@@ -132,5 +135,6 @@ Come indicato in precedenza, oltre al portale di Azure, la replica geografica at
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+- Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

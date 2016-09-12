@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016"  
+	ms.date="08/25/2016"  
 	ms.author="xpouyat"/>
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
 
-##Panoramica
+##Overview
 
 Microsoft Smooth Streaming Client Porting Kit, **SSPK** per brevità, è un'implementazione client di Smooth Streaming ottimizzata per aiutare i produttori di dispositivi integrati, operatori di telefonia via cavo e mobile, provider di servizi di gestione del contenuto, produttori di telefoni, fornitori di software indipendenti (ISV) e provider di soluzioni a creare prodotti e servizi per la trasmissione di flussi adattivi in formato Smooth Streaming. SSPK è un'implementazione indipendente dal dispositivo e dalla piattaforma del client Smooth Streaming che può essere applicata dal licenziatario a qualsiasi dispositivo e piattaforma.
 
@@ -106,6 +106,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - SoftAtHome
 - Sony Corporation
 - Tatung Technology Inc.
+- TCL Technoly Electronics (Huizhou) Co., Ltd.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
 - ZTE Corporation
@@ -129,7 +130,6 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Fluendo S.A.
 - Gibson Innovations Limited
 - HANDAN BroadInfoCom Co., Ltd.
-- Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
 - Infomir GMBH
@@ -157,7 +157,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Wistron Corporation
 - ZTE Corporation
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -165,4 +165,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

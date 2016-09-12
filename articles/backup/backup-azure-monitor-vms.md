@@ -1,6 +1,6 @@
 <properties
    pageTitle="Monitorare i backup delle macchine virtuali distribuite con Resource Manager | Microsoft Azure"
-   description="Monitorare gli eventi e gli avvisi dei backup delle macchine virtuali distribuite con Resource Manager"
+   description="Monitorare gli eventi e gli avvisi dei backup delle macchine virtuali distribuite con Resource Manager. Inviare messaggi di posta elettronica in base agli avvisi."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
+ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Monitorare gli avvisi per i backup della macchina virtuale di Azure
 
-Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere quando un avviso viene generato. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
+Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
+
+## Dove è possibile trovare informazioni sugli avvisi?
 
 Per visualizzare informazioni sull'evento che ha generato un avviso, è necessario aprire il pannello Avvisi di backup. È possibile aprire il pannello Avvisi di backup in due modi: dal riquadro Avvisi di backup nel dashboard dell'insieme di credenziali o dal pannello Avvisi ed eventi.
 
@@ -72,6 +74,15 @@ Per configurare le notifiche di posta elettronica per gli avvisi
 5. Nella finestra di dialogo **Gravità** scegliere uno o più livelli che dovranno attivare la notifica di posta elettronica.
 
 6. Fare clic su **Save**.
+
+### Esistono situazioni in cui il messaggio e-mail non viene inviato anche se sono configurate le notifiche?
+
+Esistono situazioni in cui un avviso non viene inviato anche se le notifiche sono state configurate correttamente. Le notifiche di posta elettronica non vengono inviate nei casi seguenti:
+
+- Se le notifiche sono configurate per il riepilogo orario e un avviso viene generato e risolto entro l'ora.
+- Il processo viene annullato.
+- Viene attivato un processo di backup che non riesce ed è in corso un altro processo di backup.
+- Viene avviato un processo di backup pianificato per una macchina virtuale basata su Resource Manager, ma la macchina virtuale non esiste più.
 
 ## Personalizzare la visualizzazione degli eventi
 
@@ -220,4 +231,4 @@ Per una spiegazione approfondita di eventi, operazioni e log di controllo nei se
 
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sulle attività di gestione per i backup di VM, vedere l'articolo [Gestire e monitorare i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

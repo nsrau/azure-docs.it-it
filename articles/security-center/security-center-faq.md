@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/26/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -31,20 +31,24 @@ Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft 
 ## Fatturazione
 
 ### Come funziona la fatturazione per il Centro sicurezza di Azure?
-Per informazioni, vedere la pagina relativa ai [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+Il Centro sicurezza è disponibile in due livelli: Gratuito e Standard.
+
+Il livello gratuito consente di impostare criteri di sicurezza e ricevere avvisi di sicurezza, eventi imprevisti e suggerimenti che permettono di eseguire il processo di configurazione dei controlli necessari. Con il livello gratuito è inoltre possibile monitorare lo stato di sicurezza delle risorse di Azure e delle soluzioni partner integrate con la sottoscrizione di Azure.
+
+Il livello Standard fornisce le funzionalità del livello gratuito più funzionalità di rilevamento avanzato: intelligence per le minacce, analisi dei comportamenti, analisi degli arresti anomali e rilevamento delle anomalie. Per il livello Standard è disponibile una versione di valutazione di 90 giorni gratuita. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-policies.md#setting-security-policies-for-subscriptions). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Raccolta dei dati
 
-Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, fornire raccomandazioni sulla sicurezza e avvisare delle minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente [disattivandola](#how-do-i-disable-data-collection) nei criteri del Centro di sicurezza.
+Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, fornire raccomandazioni sulla sicurezza e avvisare delle minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dei dati è consigliata, ma è possibile rifiutare esplicitamente [disattivandola](#how-do-i-disable-data-collection) nei criteri del Centro sicurezza.
 
 ### Come si disabilita la raccolta dati?
 
-È possibile disabilitare la **raccolta dati** per una sottoscrizione in Criteri di sicurezza in qualunque momento. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e **Criteri di sicurezza**. Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la **raccolta dati**. Selezionare l'opzione **Elimina agenti** nella barra multifunzione superiore per rimuovere gli agenti dalle macchine virtuali esistenti.
+È possibile disabilitare la **raccolta dei dati** per una sottoscrizione in Criteri di sicurezza in qualunque momento. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e **Criteri di sicurezza**. Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la **raccolta dei dati**. Selezionare l'opzione **Elimina agenti** nella barra multifunzione superiore per rimuovere gli agenti dalle macchine virtuali esistenti.
 
-> [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dati.
+> [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
 
 ### Come si abilita la raccolta dati?
-È possibile abilitare la raccolta dei dati per le sottoscrizioni di Azure in Criteri di sicurezza. Per abilitare la raccolta dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e quindi **Criteri di sicurezza**. Impostare **Raccolta dei dati** su **Attiva** e configurare gli account di archiviazione in cui raccogliere i dati (vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"). Quando viene abilitata l'opzione **Raccolta dei dati**, le informazioni sulla configurazione e sugli eventi di sicurezza vengono raccolte automaticamente da tutte le macchine virtuali supportate nella sottoscrizione.
+È possibile abilitare la raccolta dei dati per le sottoscrizioni di Azure in Criteri di sicurezza. Per abilitare la raccolta dei dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e quindi **Criteri di sicurezza**. Impostare **Raccolta dei dati** su **Attiva** e configurare gli account di archiviazione in cui raccogliere i dati (vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"). Quando viene abilitata l'opzione **Raccolta dei dati**, le informazioni sulla configurazione e sugli eventi di sicurezza vengono raccolte automaticamente da tutte le macchine virtuali supportate nella sottoscrizione.
 
 > [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dei dati viene eseguita solo a livello di sottoscrizione.
 
@@ -64,11 +68,11 @@ Per ulteriori informazioni sull'archiviazione di Azure e i relativi account di a
 ## Utilizzo del Centro sicurezza di Azure
 
 ### Cosa sono i criteri di sicurezza?
-I criteri di sicurezza definiscono il set di controlli consigliato per le risorse all'interno della sottoscrizione o di un gruppo di risorse specificato. Nel Centro sicurezza di Azure è possibile definire i criteri per i gruppi di risorse le sottoscrizioni di Azure in base ai requisiti di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
+I criteri di sicurezza definiscono il set di controlli consigliato per le risorse all'interno della sottoscrizione o di un gruppo di risorse specificato. Nel Centro sicurezza di Azure è possibile definire i criteri per i gruppi di risorse e le sottoscrizioni di Azure in base ai requisiti di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
 
 Ad esempio, le risorse utilizzate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. In modo analogo, le applicazioni con dati regolamentati come le informazioni personali possono richiedere un maggiore livello di sicurezza. I criteri di sicurezza abilitati nel Centro sicurezza di Azure determineranno il monitoraggio e i suggerimenti per la sicurezza. Per ulteriori informazioni sui criteri di sicurezza, vedere [Monitoraggio dello stato di sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md).
 
-> [AZURE.NOTE] In caso di conflitto tra criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
+> [AZURE.NOTE] In caso di conflitto tra i criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
 
 ### Chi può modificare i criteri di sicurezza?
 I criteri di sicurezza vengono configurati per ogni sottoscrizione o gruppo di risorse. Per modificare i criteri di sicurezza a livello di sottoscrizione o di gruppo di risorse, è necessario essere un proprietario o un collaboratore di tale sottoscrizione.
@@ -98,16 +102,29 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 - Avvisi di sicurezza da soluzioni di sicurezza integrata dei partner, ad esempio antimalware o Web application firewall
 
 ### Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?
-Microsoft Security Response Center (MSRC) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi. Se MSRC rileva che un'entità illegale o non autorizzata ha ottenuto l'accesso a dati del cliente o che l'uso di Azure da parte del cliente non è conforme ai criteri d'uso, un responsabile della sicurezza segnala il problema al cliente. In genere la notifica avviene con l'invio di un messaggio di posta elettronica al o ai contatti per la sicurezza specificati nel Centro sicurezza di Azure oppure al proprietario della sottoscrizione Azure se non è specificato nessun contatto per la sicurezza.
+Microsoft Security Response Center (MSRC) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi. Se MSRC rileva che un'entità illegale o non autorizzata ha ottenuto l'accesso a dati del cliente o che l'uso di Azure da parte del cliente non è conforme ai criteri d'uso, un responsabile della sicurezza segnala il problema al cliente. In genere la notifica avviene con l'invio di un messaggio di posta elettronica ai contatti per la sicurezza specificati nel Centro sicurezza di Azure oppure al proprietario della sottoscrizione Azure se non è specificato nessun contatto per la sicurezza.
 
 Il Centro sicurezza PC è un servizio di Azure che esegue il monitoraggio continuo dell'ambiente Azure del cliente e applica metodi di analisi per rilevare un'ampia gamma di attività potenzialmente dannose. I rilevamenti vengono visualizzati come di avvisi di sicurezza nel dashboard del Centro sicurezza PC.
 
 ### Come avviene la gestione delle autorizzazioni nel Centro sicurezza di Azure?
 Il Centro sicurezza di Azure supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-Quando un utente apre il Centro sicurezza di Azure, verranno visualizzati solo i suggerimenti e gli avvisi che riguardano le risorse a cui l'utente può accedere. Di conseguenza, gli utenti visualizzeranno solo le voci relative alle risorse di cui rivestono il ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse a cui appartengono tali risorse.
+Quando un utente apre il Centro sicurezza, verranno visualizzati solo i suggerimenti e gli avvisi che riguardano le risorse a cui l'utente può accedere. Di conseguenza, gli utenti vedranno solo le voci relative alle risorse di cui rivestono il ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse a cui tali risorse appartengono.
 
-Per modificare i criteri di sicurezza, è necessario essere proprietario o collaboratore della sottoscrizione.
+Se è necessario:
+
+- **Modificare i criteri di sicurezza**, è necessario essere proprietario o collaboratore della sottoscrizione.
+- **Applicare una raccomandazione**, è necessario essere proprietario o collaboratore della sottoscrizione.
+- **Acquisire visibilità dello stato di sicurezza di tutte le sottoscrizioni**, è necessario essere un proprietario, collaboratore o lettore (amministratore IT, team di sicurezza) di ogni sottoscrizione.
+- **Acquisire visibilità dello stato di sicurezza delle risorse**, è necessario essere un proprietario, collaboratore o lettore (DevOps) di un gruppo di risorse.
+
+### Quali risorse di Azure vengono monitorate dal Centro sicurezza di Azure?
+Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
+
+- Macchine virtuali (inclusi i Servizi cloud)
+- Reti virtuali di Azure
+- Servizio di SQL Azure
+- Le soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un firewall applicazione Web
 
 ## Macchine virtuali
 
@@ -130,4 +147,16 @@ Macchine virtuali di Linux supportate:
 
 Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+### Perché il Centro sicurezza di Azure non riconosce la soluzione antimalware in esecuzione nella VM Azure?
+
+Il Centro sicurezza di Azure dispone solo di visibilità sull'antimalware installato tramite le estensioni di Azure. Ad esempio, il Centro sicurezza non è in grado di rilevare l'antimalware che è stato preinstallato in un'immagine fornita dall'utente o è stato installato nelle macchine virtuali mediante processi dell'utente (ad esempio sistemi di gestione della configurazione).
+
+### Perché viene visualizzato il messaggio "Dati di analisi mancanti" per la VM?
+
+L'analisi dei dati da popolare può richiedere tempo (in genere meno di un'ora) dopo aver abilitato la raccolta dei dati nel Centro sicurezza di Azure. Le analisi non saranno popolate per le VM in stato arrestato.
+
+### Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"
+
+Per poter abilitare la raccolta dei dati, l'agente di macchine virtuali deve essere installato sulle VM. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. Per altre informazioni su come installare l'agente di maccine virtuali in altre VM, vedere il post di blog [Estensioni e agente di macchine virtuali](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+<!---HONumber=AcomDC_0831_2016-->

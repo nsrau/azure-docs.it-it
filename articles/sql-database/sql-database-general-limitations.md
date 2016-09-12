@@ -31,7 +31,7 @@ Questo argomento illustra le limitazioni e le linee guida generali per il databa
 
 ## SQL Server Agent/Processi
 
-Il database SQL di Microsoft Azure non supporta SQL Server Agent o i processi. È possibile, tuttavia, eseguire SQL Server Agent su SQL Server locale e connettersi al database SQL di Microsoft Azure.
+Il database SQL di Microsoft Azure non supporta SQL Server Agent, ma è possibile usare i processi elastici per eseguire processi su uno o molti database. Per ulteriori informazioni sui processi elastici, vedere l'articolo sui [processi elastici](sql-database-elastic-jobs-overview.md).
 
 ## Supporto delle regole di confronto di SQL Server
 
@@ -63,4 +63,4 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

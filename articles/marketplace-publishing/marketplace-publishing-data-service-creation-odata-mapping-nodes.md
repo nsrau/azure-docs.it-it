@@ -13,16 +13,19 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/29/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
+
+>[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Questo documento chiarisce la struttura dei nodi per il mapping di un protocollo OData a CSDL. È importante notare che la struttura dei nodi è costituita da XML ben formato. Pertanto, durante la progettazione del mapping a OData è possibile applicare gli schemi radice, padre e figlio.
 
 ## Elementi ignorati
 Di seguito sono elencati gli elementi CSDL di alto livello (nodi XML) che non vengono usati dal back-end di Azure Marketplace durante l'importazione dei metadati del servizio Web. Tali elementi possono essere presenti, ma vengono ignorati.
 
-| Elemento | Ambito |
+| Elemento | Scope |
 |----|----|
 | Using | Nodo, sottonodi e tutti gli attributi |
 | Documentation | Nodo, sottonodi e tutti gli attributi |
@@ -147,12 +150,12 @@ Una pagina dettagliata molto utile sul nodo "Elemento Parameter" è disponibile 
 
 | Attributo | Obbligatorio | Valore |
 |----|----|----|
-| Nome | Sì | Nome del parametro. Fa distinzione tra maiuscole e minuscole. Seguire maiuscole e minuscole di BaseUri. **Esempio:** `<Property Name="IsDormant" Type="Byte" />` |
+| Name | Sì | Nome del parametro. Fa distinzione tra maiuscole e minuscole. Seguire maiuscole e minuscole di BaseUri. **Esempio:** `<Property Name="IsDormant" Type="Byte" />` |
 | Tipo | Sì | Tipo di parametro. Il valore deve essere di tipo **EDMSimpleType** o di un tipo complesso compreso nell'ambito del modello. Per ulteriori informazioni, vedere "6 Tipi di parametri e proprietà supportati". Fa distinzione tra maiuscole e minuscole. Il primo carattere è maiuscolo, gli altri sono minuscoli. Vedere anche [Tipi del modello concettuale][MSDNParameterLink]. **Esempio:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | No | **In**, Out o InOut, a seconda che il parametro sia un parametro di input, di output o di input/output. In Azure Marketplace è disponibile solo "In". **Esempio:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | No | Lunghezza massima consentita per il parametro. **Esempio:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | No | Precisione del parametro **Esempio:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| Scale | No | Scalabilità del parametro **Esempio:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Scalabilità | No | Scalabilità del parametro **Esempio:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
 [MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
@@ -209,7 +212,7 @@ Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://m
 |MaxLength | No | Lunghezza massima del valore della proprietà. |
 | FixedLength | No | **True** o **False**, a seconda che il valore della proprietà venga archiviato come stringa di lunghezza fissa. |
 | Precision | No | Indica il numero massimo di cifre da mantenere nel valore numerico. |
-| Scale | No | Numero massimo di posizioni decimali da mantenere nel valore numerico. |
+| Scalabilità | No | Numero massimo di posizioni decimali da mantenere nel valore numerico. |
 | Unicode | No | **True** o **False**, a seconda che il valore della proprietà venga archiviato come stringa Unicode. |
 | Collation | No | Stringa che specifica la sequenza di collazione da utilizzare nell'origine dati. |
 | ConcurrencyMode | No | **None** (valore predefinito) o **Fixed**. Se il valore è impostato su **Fixed**, il valore della proprietà verrà utilizzato nei controlli della concorrenza ottimistica. |
@@ -257,7 +260,7 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 | Boolean | Rappresenta il concetto matematico di logica a valori binari|
 | Byte | Valore intero senza segno a 8 bit|
 |DateTime| Rappresenta una data e un'ora con valori compresi tra le ore 0.00.00 del 1° gennaio 1753 d. C. e le 23.59.59 del dicembre 9999 d.C.|
-|Decimal | Rappresenta valori numerici con precisione e scalabilità fisse. Questo tipo può descrivere un valore numerico compreso tra - 10 ^ 255 + 1 e + 10 ^ 255 -1|
+|Decimale | Rappresenta valori numerici con precisione e scalabilità fisse. Questo tipo può descrivere un valore numerico compreso tra - 10 ^ 255 + 1 e + 10 ^ 255 -1|
 | Double | Rappresenta un numero a virgola mobile con precisione a 15 cifre che può rappresentare valori compresi approssimativamente tra approssimativo compreso tra ± 2,23e -308 e ± 1,79e +308. **Utilizzare Decimal a causa di un problema di esportazione di Excel**|
 | Single | Rappresenta un numero a virgola mobile con precisione a 7 cifre che può rappresentare valori compresi approssimativamente tra approssimativo compreso tra ± 1,18e -38 e ± 3,40e +38.|
 |Guid |Rappresenta un valore di identificatore univoco a 16 byte (128 bit) |
@@ -272,4 +275,4 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 - Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
 - Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Estrazione dei dati da SQL a un hub eventi di Azure
@@ -34,12 +34,12 @@ Dopo che l'applicazione ha letto il file di configurazione, avvia un ciclo che p
 
 1. L'applicazione presuppone che la tabella SQL venga aggiornata da un processo esterno e che si vogliano inviare tutti e solo gli aggiornamenti a un hub eventi.
 2. La tabella SQL deve avere un campo contenente un numero univoco e crescente, ad esempio un numero di record. Può essere un campo semplice denominato "Id" o qualsiasi altro elemento che viene incrementato quando il processo di aggiornamento del database aggiunge record, ad esempio "Creation\_time" o "Sequence\_number". L'applicazione annota e archivia il valore del campo in ogni iterazione. In ogni passaggio successivo del ciclo, l'applicazione esegue in sostanza query nella tabella per tutti i record in cui il valore del campo supera il valore osservato durante l'ultima iterazione del ciclo. Quest'ultimo valore viene denominato "offset".
-3. L'applicazione crea una tabella "TableOffsets" all'avvio, per archiviare gli offset. La tabella viene creata con la query "CreateOffsetTableQuery" definita nel file di configurazione. 
+3. L'applicazione crea una tabella "TableOffsets" all'avvio, per archiviare gli offset. La tabella viene creata con la query "CreateOffsetTableQuery" definita nel file di configurazione.
 4. Esistono diverse query usate per lavorare con la tabella di offset, definite nel file di configurazione come "OffsetQuery", "UpdateOffsetQuery" e "InsertOffsetQuery". Queste query non devono essere modificate.
-5. Infine, la query "DataQuery" definita nel file di configurazione è la query da eseguire per estrarre i record dalla tabella SQL. Per scopi di ottimizzazione, è attualmente limitata ai primi 1000 record in ogni passaggio del ciclo: se, ad esempio, sono stati aggiunti 25000 record al database dall'ultima query, l'esecuzione della query potrebbe richiedere diverso tempo. Limitando la query a 1000 record per volta, le query sono molto più veloci. La selezione dei primi 1000 record comporta il trasferimento in batch successivi di 1000 record all'hub eventi.    
+5. Infine, la query "DataQuery" definita nel file di configurazione è la query da eseguire per estrarre i record dalla tabella SQL. Per scopi di ottimizzazione, è attualmente limitata ai primi 1000 record in ogni passaggio del ciclo: se, ad esempio, sono stati aggiunti 25000 record al database dall'ultima query, l'esecuzione della query potrebbe richiedere diverso tempo. Limitando la query a 1000 record per volta, le query sono molto più veloci. La selezione dei primi 1000 record comporta il trasferimento in batch successivi di 1000 record all'hub eventi.
 
 ## Passaggi successivi
 
 Per distribuire la soluzione, clonare o scaricare l'applicazione SqlToEventHub, modificare il file App.config, compilarlo e infine pubblicarlo. Dopo la pubblicazione, l'applicazione viene eseguita nel portale di Azure classico in Servizi cloud ed è possibile monitorare gli eventi in arrivo nell'hub eventi. Si noti che la frequenza verrà determinata da due elementi: la frequenza degli aggiornamenti della tabella SQL e l'intervallo di sospensione specificato nel file di configurazione per l'applicazione.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

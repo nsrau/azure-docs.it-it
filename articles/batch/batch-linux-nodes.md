@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Elenco di immagini di macchine virtuali
 
-La tabella seguente elenca le immagini di macchina virtuale del Marketplace compatibili con gli agenti del nodo Batch disponibili al momento della stesura di questo documento. È importante notare che questo elenco non è definitivo, perché è possibile che immagini e agenti del nodo vengano aggiunti o rimossi in qualsiasi momento. È consigliabile che le applicazioni e i servizi Batch usino sempre [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(Batch .NET) per determinare e selezionare gli SKU attualmente disponibili.
+La tabella seguente elenca le immagini di macchina virtuale del Marketplace compatibili con gli agenti del nodo Batch disponibili al momento dell'ultimo aggiornamento di questo articolo. È importante notare che questo elenco non è definitivo, perché è possibile che immagini e agenti del nodo vengano aggiunti o rimossi in qualsiasi momento. È consigliabile che le applicazioni e i servizi Batch usino sempre [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(Batch .NET) per determinare e selezionare gli SKU attualmente disponibili.
 
 > [AZURE.WARNING] L'elenco seguente può essere modificato in qualsiasi momento. Usare sempre i metodi di tipo **list node agent SKU** disponibili nelle API Batch per elencare e selezionare le combinazioni compatibili di macchina virtuale e SKU dell'agente del nodo quando si eseguono i processi Batch.
 
@@ -209,19 +209,20 @@ La tabella seguente elenca le immagini di macchina virtuale del Marketplace comp
 | Canonical | UbuntuServer | 14\.04.2-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.3-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | più recenti | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 15\.10 | più recenti | batch.node.debian 8 |
+| Canonical | UbuntuServer | 14\.04.5-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 16\.04.0-LTS | più recenti | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | più recenti | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | più recenti | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | più recenti | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | più recenti | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7\.1 | più recenti | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | più recenti | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7\.0 | più recenti | batch.node.centos 7 |
-| SUSE | SLES | 12 | più recenti | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | più recenti | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | più recenti | batch.node.opensuse 42.1 |
 | SUSE | openSUSE | 13\.2 | più recenti | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42\.1 | più recenti | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | più recenti | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | più recenti | batch.node.opensuse 42.1 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | più recenti | batch.node.windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | più recenti | batch.node.centos 7 |
 | MicrosoftWindowsServer | WindowsServer | 2008 R2-SP1 | più recenti | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | più recenti | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | più recenti | batch.node.windows amd64 |
@@ -234,31 +235,54 @@ Durante lo sviluppo o la risoluzione dei problemi potrebbe essere necessario acc
 Il frammento di codice Python seguente crea un utente in ogni nodo in un pool, necessario per la connessione remota, quindi stampa le informazioni di connessione Secure Shell (SSH) per ogni nodo.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
@@ -277,17 +301,17 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Si noti che, invece di una password, è possibile specificare una chiave pubblica SSH durante la creazione di un utente in un nodo. In Python SDK questa operazione viene eseguita con il parametro **ssh\_public\_key** parametro in [ComputeNodeUser][py_computenodeuser]. In .NET questa operazione viene eseguita con la proprietà [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
+Si noti che, invece di una password, è possibile specificare una chiave pubblica SSH durante la creazione di un utente in un nodo. In Python SDK questa operazione viene eseguita con il parametro **ssh\_public\_key** in [ComputeNodeUser][py_computenodeuser]. In .NET questa operazione viene eseguita con la proprietà [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
 
 ## Prezzi
 
-Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio Batch stesso è gratuito, ovvero vengono addebitate solo le risorse di calcolo utilizzate dalle soluzioni Batch. Quando si sceglie l'opzione **Configurazione macchina virtuale**, gli addebiti saranno basati sulla struttura di [Prezzi di Servizi cloud][cloud_services_pricing]. Quando si sceglie l'opzione **Configurazione macchina virtuale**, gli addebiti saranno basati sulla struttura di [Prezzi di Macchine virtuali][vm_pricing].
+Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio Batch stesso è gratuito, ovvero vengono addebitate solo le risorse di calcolo utilizzate dalle soluzioni Batch. Quando si sceglie l'opzione **Cloud Services Configuration** (Configurazione servizi cloud), gli addebiti saranno basati sulla struttura dei [prezzi di Servizi cloud][cloud_services_pricing]. Quando si sceglie l'opzione **Configurazione macchina virtuale**, gli addebiti saranno basati sulla struttura di [Prezzi di Macchine virtuali][vm_pricing].
 
 ## Passaggi successivi
 
 ### Esercitazione su Python per Batch
 
-Per un'esercitazione più dettagliata sull'utilizzo di Batch tramite Python, vedere [Introduzione al client Python di Azure Batch](batch-python-tutorial.md). L'[esempio di codice][github_samples_pyclient] complementare include una funzione di supporto, `get_vm_config_for_distro`, che mostra un'altra tecnica per ottenere una configurazione della macchina virtuale.
+Per un'esercitazione più dettagliata sull'uso di Batch con Python, vedere [Introduzione al client Python di Azure Batch](batch-python-tutorial.md). L'[esempio di codice][github_samples_pyclient] complementare include una funzione di supporto, `get_vm_config_for_distro`, che illustra un'altra tecnica per ottenere una configurazione della macchina virtuale.
 
 ### Esempi di codice Batch Python
 
@@ -295,7 +319,7 @@ Vedere gli altri [esempi di codice Python][github_samples_py] nel repository [az
 
 ### Forum di Batch
 
-Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante lo sviluppo di soluzioni Batch.
+Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante lo sviluppo di soluzioni Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -327,4 +351,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagramma di alto livello di pacchetti applicazione"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

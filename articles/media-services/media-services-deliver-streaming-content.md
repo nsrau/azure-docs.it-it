@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come distribuire contenuti in streaming da Servizi multimediali" 
-	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	pageTitle="Pubblicare contenuti di Servizi multimediali di Azure mediante .NET" 
+	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Procedura: Distribuire contenuti in streaming
+# Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
  
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portale](media-services-manage-content.md#publish)
+- [Portale](media-services-portal-publish.md)
 
-##Panoramica
+##Overview
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva.
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a bitrate adattivo.
 
 >[AZURE.NOTE]Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento) prima di creare un localizzatore.
 
@@ -159,7 +159,7 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 	Console.WriteLine(mpegDashUri);
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -171,4 +171,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 
 [Asset di download](media-services-deliver-asset-download.md) [Configurare i criteri di sviluppo dell’asset](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

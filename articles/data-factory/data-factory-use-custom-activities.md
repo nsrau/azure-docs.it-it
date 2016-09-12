@@ -526,7 +526,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
 	- **Concorrenza** è impostata su **2** in modo che due sezioni siano elaborate in parallelo da 2 macchine virtuali nel pool di Azure Batch.
 	- Nella sezione delle attività esiste una sola attività, di tipo **DotNetActivity**.
-	- **AssemblyName** è impostato sul nome del DLL: **MyActivities.dll**.
+	- **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
 	- **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.**
 	- **PackageLinkedService** è impostato su **AzureStorageLinkedService** che punta all'archiviazione BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato stesso account di archiviazione di Azure.
 	- **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. Ha il formato: contenitoreperlozip/nomedellozip.zip.
@@ -896,4 +896,4 @@ Esempio | Funzioni delle attività personalizzate
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

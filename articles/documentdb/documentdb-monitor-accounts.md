@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Monitorare le richieste, l'uso e l'archiviazione di DocumentDB
 
-È possibile monitorare gli account Azure DocumentDB nel [portale di Microsoft Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
+È possibile monitorare gli account Azure DocumentDB nel [portale di Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 
 ## Visualizzare le metriche delle prestazioni nel portale 
-1.	In una nuova finestra, aprire il [portale di Azure](https://portal.azure.com/) e fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
-2.	Per impostazione predefinita, nella sezione **Monitoraggio** è possibile visualizzare:
+1.	In una nuova finestra aprire il [portale di Azure](https://portal.azure.com/) e fare clic su **More Services** (Altri servizi), **DocumentDB (NoSQL)** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
+2.	La sezione **Monitoraggio** visualizza i seguenti riquadri per impostazione predefinita:
 	*	Richieste totali per il giorno corrente.
-	*	Unità richieste totali ([Unità richieste](documentdb-request-units.md)) usate nel giorno corrente.
 	*	Spazio di archiviazione usato.
 
-	Se la tabella visualizza **Nessun dato disponibile**, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+	Se la tabella visualizza il messaggio **Nessun dato disponibile** e si ritiene che siano presenti dati nel database, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 
-	![Schermata della sezione Monitoraggio che mostra le richieste totali del giorno corrente e l'utilizzo delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
+	![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Se si fa clic sul riquadro **Richieste**, **Totale UR** o **Archiviazione**, verrà visualizzato un pannello **Metrica** dettagliato.
+3.	Se si fa clic sul riquadro **Richieste** o **Archiviazione**, viene visualizzato un pannello **Metrica** dettagliato.
 4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.
 
 	![Schermata del pannello Metrica che include le richieste limitate](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -53,7 +52,7 @@
 ## Creare grafici affiancati nel portale
 Il portale di Azure consente di creare grafici di metriche affiancati.
 
-1.	Innanzitutto, fare clic con il pulsante destro del mouse sul grafico dal quale si intende copiare e scegliere **Personalizza**.
+1.	Fare clic con il pulsante destro del mouse sul grafico dal quale si intende copiare e scegliere **Personalizza**.
 
 	![Schermata del grafico Richieste totali con l'opzione Personalizza evidenziata](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -65,15 +64,13 @@ Il portale di Azure consente di creare grafici di metriche affiancati.
 Sarà possibile considerare questa parte come tutte le altre parti delle metriche e personalizzare le metriche e l'intervallo di tempo in essa visualizzato. Questa operazione consente di visualizzare contemporaneamente due grafici di metriche affiancati. ![Schermata del grafico Richieste totali e nuovo grafico Richieste totali ora precedente](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## Configurare gli avvisi nel portale
-1.	Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
+1.	Nel [portale di Azure](https://portal.azure.com/) fare clic su **More Services** (Altri servizi), **DocumentDB (NoSQL)** e quindi sul nome dell'account DocumentDB per il quale si vogliono configurare gli avvisi delle prestazioni.
 
-2.	Se il pannello **Tutte le impostazioni** non è aperto, fare clic su sul comando **Impostazioni** in alto a sinistra per aprire il pannello. ![Screenshot del comando Impostazioni nel pannello Account database](./media/documentdb-monitor-accounts/madocdb10.png)
+2.	Nel menu delle risorse fare clic su **Regole di avviso** per aprire il relativo pannello. ![Screenshot della parte di regole di avviso selezionata](./media/documentdb-monitor-accounts/madocdb10.5.png)
 
-3.	Nel pannello **Tutte le impostazioni** fare clic su **Regole di avviso** per aprire il relativo pannello. ![Screenshot della parte di regole di avviso selezionata](./media/documentdb-monitor-accounts/madocdb10.5.png)
+3.	Nel pannello **Regole di avviso** fare clic su **Aggiungi avviso**. ![Schermata del pannello Regole di avviso, con il pulsante Aggiungi avviso evidenziato](./media/documentdb-monitor-accounts/madocdb11.png)
 
-4.	Nel pannello Regole di avviso fare clic su **Aggiungi avviso**. ![Schermata del pannello Regole di avviso, con il pulsante Aggiungi avviso evidenziato](./media/documentdb-monitor-accounts/madocdb11.png)
-
-5.	Nel pannello **Aggiungi una regola di avviso** specificare:
+4.	Nel pannello **Aggiungi una regola di avviso** specificare:
 	*	Il nome della regola di avviso che si sta configurando.
 	*	Una descrizione della nuova regola di avviso.
 	*	La metrica per la regola di avviso.
@@ -85,9 +82,9 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 Le metriche a livello account disponibili nel portale, ad esempio l'utilizzo delle risorse di archiviazione dell'account e le richieste totali, non sono disponibili tramite le interfacce API di DocumentDB. È tuttavia possibile recuperare dati relativi all'uso a livello di raccolta tramite le API di DocumentDB. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:
 
 - Per usare l'API REST, [eseguire il comando GET sulla raccolta](https://msdn.microsoft.com/library/mt489073.aspx). Nelle intestazioni x-ms-resource-quota e x-ms-resource-usage della risposta verranno restituite le informazioni relative alla quota e all'utilizzo per la raccolta.
-- Per usare .NET SDK, usare il metodo [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) che restituisce un oggetto [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) contenente un certo numero di proprietà d’uso, ad esempio **CollectionSizeUsage**, **DatabaseUsage** e **DocumentUsage**.
+- Per usare .NET SDK, usare il metodo [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) che restituisce un oggetto [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) contenente alcune proprietà d'uso, ad esempio **CollectionSizeUsage**, **DatabaseUsage** e **DocumentUsage**.
 
-Per accedere a metriche aggiuntive, usare l'[SDK di Azure Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights). Le definizioni delle metriche disponibili possono essere recuperate chiamando:
+Per accedere a metriche aggiuntive, usare [Azure Insights SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights). Le definizioni delle metriche disponibili possono essere recuperate chiamando:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08 
 
@@ -98,7 +95,7 @@ Le query per recuperare le singole metriche usano il formato seguente:
 Per altre informazioni, vedere [Retrieving Resource Metrics via the Azure Insights API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/) (Recupero delle metriche delle risorse tramite l'API di Azure Insights).
 
 ## Risoluzione dei problemi
-Se il riquadro di monitoraggio visualizza il messaggio **Nessun dato disponibile** e recentemente si sono eseguite richieste o si sono aggiunti dati al database, è possibile modificare il riquadro in modo da riflettere l'uso recente.
+Se i riquadri di monitoraggio visualizzano il messaggio **Nessun dato disponibile** e recentemente si sono eseguite richieste o si sono aggiunti dati al database, è possibile modificare il riquadro in modo da riflettere l'uso recente.
 
 ### Modificare un riquadro per aggiornare i dati correnti
 1.	Per personalizzare le metriche visualizzate in una parte specifica, fare clic sul grafico per aprire il pannello **Metrica** e quindi scegliere **Modifica grafico**. ![Schermata dei comandi del pannello Metrica, con Modifica grafico evidenziato](./media/documentdb-monitor-accounts/madocdb3.png)
@@ -111,4 +108,4 @@ Se il riquadro di monitoraggio visualizza il messaggio **Nessun dato disponibile
 ## Passaggi successivi
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

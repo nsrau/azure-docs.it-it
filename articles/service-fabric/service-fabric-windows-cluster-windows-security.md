@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -79,4 +79,4 @@ Per altre informazioni sulla sicurezza da nodo a nodo e da client a nodo e sul c
 
 Per alcuni esempi di connessione tramite PowerShell o FabricClient, vedere [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) (Connettersi a un cluster sicuro).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

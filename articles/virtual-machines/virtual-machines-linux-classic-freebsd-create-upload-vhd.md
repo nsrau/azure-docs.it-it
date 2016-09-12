@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="kyliel"/>
 
 # Creare e caricare un disco rigido virtuale con FreeBSD in Azure
@@ -27,7 +27,7 @@ Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) c
 ## Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-- **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si ha un abbonamento MSDN, vedere [Crediti mensili di Azure per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si ha una sottoscrizione MSDN, vedere [Crediti mensili di Azure per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Strumenti di Azure PowerShell**: è necessario che il modulo Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione di Azure. Per scaricare il modulo, vedere la pagina dei [download di Azure](https://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale usare il cmdlet nella pagina [Download di Azure](https://azure.microsoft.com/downloads/).
 
@@ -228,4 +228,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

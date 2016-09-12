@@ -21,6 +21,14 @@ Questo articolo risponde ad alcune domande frequenti sui servizi cloud di Micros
 
 ## Certificati
 
+### Dove deve essere installato il certificato?
+
+- **My** Certificato dell'applicazione con chiave privata, con estensioni pfx e p12.
+
+- **CA** Tutti i certificati intermedi, come CA secondari e criteri, vanno in questo archivio.
+
+- **ROOT** Archivio CA radice in cui inserire il certificato CA radice principale.
+
 ### Non è possibile rimuovere un certificato scaduto
 
 Azure impedisce la rimozione di un certificato mentre viene usato. È necessario eliminare la distribuzione che fa uso del certificato o aggiornarla con un certificato diverso o rinnovato.
@@ -35,19 +43,13 @@ Questi certificati vengono creati ogni volta che si aggiunge un'estensione al se
 
 ### I certificati eliminati continuano a riapparire
 
-Molto probabilmente questi certificati continuano a essere eliminati a causa di uno strumento che si sta usando, ad esempio Visual Studio. Ogni volta che ci si riconnette con uno strumento che usa un certificato, questo viene caricato nuovamente in Azure.
+Molto probabilmente questi certificati continuano a ricomparire a causa di uno strumento che si sta usando, ad esempio Visual Studio. Ogni volta che ci si riconnette con uno strumento che usa un certificato, questo viene caricato nuovamente in Azure.
 
 ### I certificati continuano a scomparire
 
 Durante il riciclo dell'istanza di macchina virtuale vengono perse tutte le modifiche locali. Usare un'[attività di avvio](cloud-services-startup-tasks.md) per installare i certificati nella macchina virtuale ogni volta che viene avviato il ruolo.
 
-### Dove deve essere installato il certificato?
 
-**My** Certificato dell'applicazione con chiave privata, con estensioni pfx e p12.
-
-**CA** Tutti i certificati intermedi, come CA secondari e criteri, vanno in questo archivio.
-
-**ROOT** Archivio CA radice in cui inserire il certificato CA radice principale.
 
 ## Risoluzione dei problemi
 
@@ -55,4 +57,4 @@ Durante il riciclo dell'istanza di macchina virtuale vengono perse tutte le modi
 
 Assicurarsi prima di tutto che l'istanza di macchina virtuale per cui si sta provando a riservare l'indirizzo IP sia accesa. Assicurarsi quindi che vengano usati indirizzi IP riservati sia per la distribuzione di staging che per quella di produzione. **Non** modificare le impostazioni durante l'aggiornamento della distribuzione.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

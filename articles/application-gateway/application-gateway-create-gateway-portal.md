@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un gateway applicazione con il portale
 
@@ -26,9 +26,9 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [PowerShell per Azure classico](application-gateway-create-gateway.md)
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+- [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-
-<BR>  
+<BR>
 
 
 
@@ -43,7 +43,7 @@ Questo scenario illustrerà come:
 - Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
 - Configurare un certificato per l'offload SSL.
 
-![Esempio dello scenario][scenario]  
+![Esempio dello scenario][scenario]
 
 >[AZURE.NOTE] La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
 
@@ -57,7 +57,7 @@ Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una
 
 Passare al portale di Azure e fare clic su **Nuovo** > **Rete** > **Gateway applicazione**
 
-![Creazione di un nuovo gateway applicazione][1]  
+![Creazione di un gateway applicazione][1]
 
 ### Passaggio 2
 
@@ -69,20 +69,20 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 - **Dimensioni SKU**: dimensioni del gateway applicazione. Le opzioni disponibili sono Small, Medium e Large.
 - **Numero di istanze**: numero di istanze. Questo valore deve essere un numero compreso tra 2 e 10.
 - **Gruppo di risorse**: gruppo di risorse in cui includere il gateway applicazione. Può essere un gruppo di risorse esistente o uno nuovo.
-- **Località**: area del gateway applicazione. È la stessa località del gruppo di risorse. *Questa impostazione è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway*.
+- **Località**: area del gateway applicazione. È la stessa località del gruppo di risorse. *La località è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway*.
 
-![Pannello con impostazioni di base][2]  
+![Pannello con impostazioni di base][2]
 
 >[AZURE.NOTE] A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
 
 
 ### Passaggio 3
 
-Dopo che sono state definite le impostazioni di base, il passaggio successivo consiste nel definire la rete virtuale da usare. La rete virtuale ospiterà l'applicazione per cui il gateway applicazione esegue il bilanciamento del carico.
+Dopo che sono state definite le impostazioni di base, il passaggio successivo consiste nel definire la rete virtuale da usare. La rete virtuale ospita l'applicazione per cui il gateway applicazione esegue il bilanciamento del carico.
 
 Fare clic su **Scegliere una rete virtuale** per configurare la rete virtuale.
 
-![Pannello con impostazioni per il gateway applicazione][3]  
+![Pannello con impostazioni per il gateway applicazione][3]
 
 ### Passaggio 4
 
@@ -96,7 +96,7 @@ Nel pannello *Scegli rete virtuale* fare clic su **Crea nuovo**.
 
 Inserire le informazioni relative alla rete nel pannello **Crea rete virtuale** come descritto nella precedente sezione [Scenario](#scenario).
 
-![Pannello Crea rete virtuale con informazioni immesse][5]  
+![Pannello Crea rete virtuale con informazioni immesse][5]
 
 ### Passaggio 6
 
@@ -106,19 +106,19 @@ Dopo che è stata creata la rete virtuale, il passaggio successivo consiste nel 
 
 Fare clic su **Scegliere un indirizzo IP pubblico**. Se è disponibile un indirizzo IP pubblico esistente, a questo punto è possibile sceglierlo. In questo scenario verrà creato un nuovo indirizzo IP pubblico. Fare clic su **Crea nuovo**.
 
-![Pannello Scegli indirizzo IP pubblico][6]  
+![Pannello Scegli indirizzo IP pubblico][6]
 
 ### Passaggio 8
 
 Assegnare quindi un nome descrittivo all'indirizzo IP pubblico e fare clic su **OK**.
 
-![Pannello Crea indirizzo IP pubblico][7]  
+![Pannello Crea indirizzo IP pubblico][7]
 
 ### Passaggio 9:
 
-L'ultima impostazione da definire durante la creazione di un gateway applicazione è la configurazione del listener. Se si usa **HTTP**, non è necessario configurare altro e si può fare clic su **OK**. Per sfruttare **HTTPS** sono necessarie operazioni di configurazione aggiuntive.
+L'ultima impostazione da definire durante la creazione di un gateway applicazione è la configurazione del listener. Se si usa **HTTP**, non è necessario configurare altro e si può fare clic su **OK**. Per usare **HTTPS** sono necessarie operazioni di configurazione aggiuntive.
 
-Per usare **HTTPS**, è obbligatorio un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
+Per usare **HTTPS** è necessario un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
 
 
 ![Sezione Configurazione listener vuota nel pannello Impostazioni][8]
@@ -129,7 +129,7 @@ Fare clic su **HTTPS** e quindi sull'icona a forma di **cartella** accanto alla 
 
 Al termine, fare clic su **OK** per rivedere le impostazioni del gateway applicazione.
 
-![Sezione Configurazione listener nel pannello Impostazioni][9]  
+![Sezione Configurazione listener nel pannello Impostazioni][9]
 
 ### Passaggio 11
 
@@ -139,9 +139,9 @@ Esaminare la pagina di riepilogo e fare clic su **OK**. Il gateway applicazione 
 
 Al termine della creazione del gateway applicazione, passare al gateway applicazione nel portale per proseguirne la configurazione.
 
-![Visualizzazione della risorsa del gateway applicazione][10]  
+![Visualizzazione della risorsa del gateway applicazione][10]
 
-Viene così creato un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
+Questi passaggi creano un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 
 ## Passaggi successivi
 
@@ -162,4 +162,4 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

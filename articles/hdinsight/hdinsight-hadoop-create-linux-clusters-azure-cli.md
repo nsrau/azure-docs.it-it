@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="08/30/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -48,7 +48,7 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
 
 I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o una sessione terminal dopo l'installazione e la configurazione dell'interfaccia della riga di comando di Azure.
 
-1. Usare il comando seguente per eseguire l'autenticazione della sottoscrizione di Azure:
+1. Per eseguire l'autenticazione della sottoscrizione di Azure, usare il comando seguente:
 
         azure login
 
@@ -62,8 +62,8 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 
         azure group create groupname location
         
-    * Sostituire __groupname__ con un nome univoco per il gruppo. 
-    * Sostituire __location__ con l'area geografica in cui si vuole creare il gruppo. 
+    * Sostituire __groupname__ con un nome univoco per il gruppo.
+    * Sostituire __location__ con l'area geografica in cui si vuole creare il gruppo.
     
         Per un elenco di località valide, usare il comando `azure locations list` e quindi una delle località della colonna __Nome__.
 
@@ -72,7 +72,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Sostituire __groupname__ con il nome del gruppo creato nel passaggio precedente.
-     * Sostituire __location__ con la stessa località usata nel passaggio precedente. 
+     * Sostituire __location__ con la stessa località usata nel passaggio precedente.
      * Sostituire __storagename__ con un nome univoco per l'account di archiviazione.
      
      > [AZURE.NOTE] Per altre informazioni sui parametri usati in questo comando, usare `azure storage account create -h` per visualizzare la Guida relativa a questo comando.
@@ -93,7 +93,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
     * Sostituire __groupname__ con il nome del gruppo di risorse.
     * Sostituire __location__ con la stessa località usata nei passaggi precedenti.
     * Sostituire __storagename__ con il nome dell'account di archiviazione.
-    * Sostituire __storagekey__ con la chiave ottenuta nel passaggio precedente. 
+    * Sostituire __storagekey__ con la chiave ottenuta nel passaggio precedente.
     * Per il parametro `--defaultStorageContainer` usare lo stesso nome usato per il cluster.
     * Sostituire __admin__ e __httppassword__ con il nome e la password da usare per l'accesso al cluster tramite HTTPS.
     * Sostituire __sshuser__ e __sshuserpassword__ con il nome utente e la password da usare per l'accesso al cluster tramite SSH.
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comand
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

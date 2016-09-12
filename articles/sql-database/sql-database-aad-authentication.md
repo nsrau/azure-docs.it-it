@@ -316,7 +316,7 @@ Per connettersi a un database usando l'autenticazione integrata e un'identità d
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Si noti che la parola chiave ``Integrated Security=True`` della stringa di connessione non è supportata per la connessione al database SQL di Azure.
+Si noti che la parola chiave ``Integrated Security=True`` della stringa di connessione non è supportata per la connessione al database SQL di Azure. Quando si effettua una connessione ODBC, è necessario rimuovere gli spazi e impostare l'autenticazione su 'ActiveDirectoryIntegrated'.
 
 ### 7\.2. Connessione con un nome di entità e una password di Azure AD
 Per connettersi a un database usando l'autenticazione integrata e un'identità di Azure AD, la parola chiave Authentication deve essere impostata su Active Directory Password. La stringa di connessione deve contenere le parole chiave e i valori User ID/UID e Password/PWD. L'esempio di codice C# seguente usa ADO .NET.
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

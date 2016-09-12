@@ -80,7 +80,7 @@ L'elenco seguente descrive il flusso di lavoro comune per la connettività cloud
 
 ### <a name="topologies"></a>Topologie di connessione
 
-Iniziare esaminando i diagrammi nell'articolo [Topologie di connessione](vpn-gateway-topology.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
+Per prima cosa, consultare i diagrammi nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
 
 ### <a name="designbasics"></a>Nozioni di base sulla progettazione
 
@@ -161,4 +161,4 @@ Per altre informazioni che aiutano a semplificare la progettazione, vedere gli a
 
 Per altre informazioni sulle impostazioni specifiche del gateway, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

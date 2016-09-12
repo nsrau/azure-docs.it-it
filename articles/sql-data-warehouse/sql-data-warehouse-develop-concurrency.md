@@ -3,7 +3,7 @@
    description="Informazioni sulla gestione della concorrenza e del carico di lavoro nel Data Warehouse di SQL Azure per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/30/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
 
-Per fornire prestazioni stimabili su larga scala Microsoft Azure SQL Data Warehouse consente di controllare i livelli di concorrenza, nonché le allocazioni di risorse, come la memoria e la classificazione in ordine di priorità della CPU. Questo articolo introduce i concetti di gestione della concorrenza e del carico di lavoro, spiegando in che modo entrambe le funzionalità sono state implementate e come vengono controllate nel data warehouse. La gestione del carico di lavoro di SQL Data Warehouse è concepita per facilitare il supporto di ambienti multiutente. Non è concepita per i carichi di lavoro multi-tenant.
+Per fornire prestazioni stimabili e scalabili, Microsoft Azure SQL Data Warehouse consente di controllare i livelli di concorrenza e le allocazioni di risorse, come la memoria e la classificazione in ordine di priorità della CPU. Questo articolo introduce i concetti di gestione della concorrenza e del carico di lavoro, spiegando in che modo entrambe le funzionalità sono state implementate e come vengono controllate nel data warehouse. La gestione del carico di lavoro di SQL Data Warehouse è concepita per facilitare il supporto di ambienti multiutente. Non è concepita per i carichi di lavoro multi-tenant.
 
 ## Limiti di concorrenza
 
@@ -27,7 +27,7 @@ SQL Data Warehouse consente un massimo di 1.024 connessioni simultanee. Tutte le
 I limiti di concorrenza sono regolati da due concetti, *query simultanee* e *slot di concorrenza*. Perché una query venga eseguita, è necessario che rientri nel limite di concorrenza delle query e nell'allocazione di slot di concorrenza.
 
 - Le query simultanee sono le query in esecuzione contemporaneamente. SQL Data Warehouse supporta fino a 32 query simultanee nelle DWU di dimensioni maggiori.
-- In base alle Unità Data Warehouse (DWU), vengono allocati slot di concorrenza. Ogni 100 DWU, vengono forniti 4 slot di concorrenza. Ad esempio, per DW100 vengono allocati 4 slot di concorrenza e per DW1000 ne vengono allocati 40. Ogni query utilizza uno o più slot di concorrenza, a seconda della [classe di risorse](#resource-classes) della query. Le query in esecuzione nella classe di risorse smallrc utilizzano uno slot di concorrenza. Le query in esecuzione in una classe di risorse superiore utilizzeranno più slot di concorrenza.
+- In base alle Unità Data Warehouse (DWU), vengono allocati slot di concorrenza. Ogni 100 DWU, vengono forniti 4 slot di concorrenza. Ad esempio, per DW100 vengono allocati 4 slot di concorrenza e per DW1000 ne vengono allocati 40. Ogni query utilizza uno o più slot di concorrenza, a seconda della [classe di risorse](#resource-classes) della query. Le query in esecuzione nella classe di risorse smallrc utilizzano uno slot di concorrenza. Le query in esecuzione in una classe di risorse superiore usano più slot di concorrenza.
 
 La tabella seguente descrive i limiti sia per le query simultanee che per gli slot di concorrenza a seconda delle dimensioni della DWU.
 
@@ -119,7 +119,7 @@ Nell'esempio precedente, a una query in esecuzione in DW2000 nella classe di ris
 
 ## Utilizzo di slot di concorrenza
 
-SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di risorse più grandi. Poiché la memoria è una risorsa fissa, maggiore è la quantità di memoria allocata per ogni query, minore è la concorrenza che può essere supportata. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU, nonché gli slot utilizzati da ogni classe di risorse.
+SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di risorse più grandi. Poiché la memoria è una risorsa fissa, maggiore è la quantità di memoria allocata per ogni query, minore è la concorrenza che può essere supportata. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU e gli slot usati da ogni classe di risorse.
 
 ### Allocazione e consumo di slot di concorrenza
 
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Esempio di modifica della classe di risorse di un utente
 
-1. **Creare un account di accesso:** aprire una connessione al database **master** in SQL Data Warehouse ed eseguire i comandi seguenti.
+1. **Creare un account di accesso:** aprire una connessione al database **master** nel server SQL che ospita il database SQL Data Warehouse ed eseguire i comandi seguenti.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] È consigliabile creare utenti per gli account di accesso nel database master sia nel database SQL di Azure che in SQL Data Warehouse. Su questo livello ci sono due ruoli disponibili che richiedono l'accesso per avere un utente nel **master** per concedere l’appartenenza. I ruoli sono`Loginmanager` e `dbmanager`: Nel database SQL Azure e SQL Data Warehouse questi ruoli concedono diritti per gestire gli account di accesso e per creare database. Questo comportamento è diverso rispetto a SQL Server. Per altri dettagli, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso][].
+	> [AZURE.NOTE] È consigliabile creare un utente nel database master per gli utenti di SQL Data Warehouse di Azure. La creazione di un utente nel database master consente all'utente di accedere tramite strumenti come SSMS senza specificare un nome di database. Consente inoltre di usare Esplora oggetti per visualizzare tutti i database in SQL server. Per ulteriori informazioni su creazione e gestione degli utenti, vedere [Proteggere un database in SQL Data Warehouse][].
 
-2. **Creare un account utente:** aprire una connessione al **database SQL Data Warehouse** ed eseguire il comando seguente.
+2. **Creare un utente di SQL Data Warehouse:** aprire una connessione al database di **SQL Data Warehouse** ed eseguire il comando seguente.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 La query seguente mostra il ruolo a cui è assegnato ogni utente.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -342,7 +342,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc');
 SQL Data Warehouse prevede i tipi di attesa seguenti.
 
 - **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema come`SELECT @@VERSION`sono esempi di query locali.
-- **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell’utente finale rappresentano esempi in cui si utilizza questo tipo di risorsa.
+- **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
 - **DmsConcurrencyResourceType**: attese risultanti dalle operazioni di spostamento dei dati.
 - **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se più copie di backup sono stati richieste contemporaneamente, le altre verranno accodate.
 
@@ -420,12 +420,13 @@ Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del dat
 <!--Image references-->
 
 <!--Article references-->
-[Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Ricompilazione degli indici per migliorare la qualità del segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Autenticazione e autorizzazione per database SQL: concessione dell'accesso]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Inviare notifiche agli utenti riguardo ai dati ricevuti da sensori o da altri sistemi
@@ -33,7 +33,7 @@ L'applicazione viene scritta in C# e il file leggimi dell'esempio contiene tutte
 
 Si presuppone che siano presenti eventi critici di cui viene eseguito il push a un Hub eventi di Azure o a un hub IoT. È possibile usare qualsiasi hub, purché si abbia accesso ad esso e si conosca la stringa di connessione.
 
-Se non si ha già un Hub eventi o un hub IoT, è possibile impostare facilmente un ambiente di prova con una scheda Arduino e un Raspberry Pi, seguendo le istruzioni nel progetto [Connect The Dots](https://github.com/Azure/connectthedots). Il sensore di luminosità nella scheda Arduino invia i dati sui livelli di illuminazione tramite il Pi a un [Hub eventi di Azure][] (**ehdevices**) e un processo di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) esegue il push degli avvisi a un secondo hub eventi (**ehalerts**), se i livelli di luminosità ricevuti scendono al di sotto di un determinato livello.
+Se non si ha già un Hub eventi o un hub IoT, è possibile impostare facilmente un ambiente di prova con una scheda Arduino e un Raspberry Pi, seguendo le istruzioni nel progetto [Connect The Dots](https://github.com/Azure/connectthedots). Il sensore di luminosità nella scheda Arduino invia i dati sui livelli di illuminazione tramite il Pi a un [Hub eventi di Azure][] \(**ehdevices**) e un processo di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) esegue il push degli avvisi a un secondo hub eventi (**ehalerts**), se i livelli di luminosità ricevuti scendono al di sotto di un determinato livello.
 
 All'avvio, **AppToNotify** legge un file di configurazione (App.config) per ottenere l'URL e le credenziali dell'Hub eventi che riceve gli avvisi. Genera quindi un processo per monitorare costantemente quell'Hub eventi per ogni messaggio che arriva. Se si ha accesso all'URL dell'Hub eventi o dell'hub IoT e si dispone di credenziali valide, il codice di lettura dell'Hub eventi leggerà continuamente le informazioni in arrivo. Durante l'avvio, l'applicazione legge anche l'URL e le credenziali del servizio di messaggistica (posta elettronica, SMS, telefono) che si vuole usare e il nome o l'indirizzo del mittente, nonché un elenco di destinatari.
 
@@ -44,7 +44,7 @@ Quando il monitoraggio di Hub eventi rileva un messaggio, attiva un processo che
 Il codice in questo esempio illustra solo come monitorare l'Hub eventi e come chiamare i servizi di messaggistica esterni se si vuole aggiungere questa funzionalità all'applicazione. Si noti che si tratta di una soluzione fai da te, destinata solo agli sviluppatori. La soluzione non soddisfa i requisiti aziendali, ad esempio ridondanza, failover, riavvio in caso di errore e così via. Per soluzioni di produzione più complete, vedere quanto segue:
 
 - Uso dei connettori o delle notifiche push tramite il servizio [App per la logica di Azure](../app-service-logic/app-service-logic-connectors-list.md).
-- Uso di [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), come descritto nel blog relativo alla [trasmissione di notifiche push a milioni di dispositivi mobili tramite Hub di notifica di Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Uso di [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), come descritto nel blog relativo alla [trasmissione di notifiche push a milioni di dispositivi mobili tramite Hub di notifica di Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
 ## Passaggi successivi
 
@@ -83,4 +83,4 @@ Per distribuire la soluzione per l'invio di notifiche agli utenti in base ai dat
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

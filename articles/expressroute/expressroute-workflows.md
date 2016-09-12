@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
@@ -50,7 +50,7 @@ Ogni circuito ExpressRoute prevede due stati:
 - Stato di provisioning del provider di servizi
 - Stato
 
-Status rappresenta lo stato di provisioning di Microsoft. Questa proprietà può essere impostata su uno degli stati seguenti: *Enabled*, *Enabling* o *Disabling*. Il circuito ExpressRoute può essere usato solo se è impostato sullo stato Enabled.
+Status rappresenta lo stato di provisioning di Microsoft. Questa proprietà è impostata su Enabled quando si crea un circuito Expressroute
 
 Lo stato di provisioning del provider di connettività rappresenta lo stato sul lato del provider di connettività. Può essere impostato su *NotProvisioned*, *Provisioning* o *Provisioned*. Il circuito ExpressRoute può essere usato solo se è impostato sullo stato Provisioned.
 
@@ -83,24 +83,18 @@ Lo stato del circuito ExpressRoute sarà il seguente quando il provider di conne
 
 Provisioned ed Enabled sono gli unici stati che consentono di usare il circuito. Se si usa un provider di livello 2, è possibile configurare il routing per il circuito solo quando è attivo questo stato.
 
-#### Se viene avviato il deprovisioning prima sul lato Microsoft
+#### Quando il provider di connettività sta eseguendo il deprovisioning del circuito
 
-Lo stato del circuito ExpressRoute sarà il seguente nel momento in cui si esegue il cmdlet di PowerShell per eliminare il circuito ExpressRoute.
-
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
-
-È necessario contattare il provider di connettività per eseguire il deprovisioning del circuito ExpressRoute. **Importante:** Microsoft continuerà ad applicare l'addebito per il circuito finché non si esegue il cmdlet di PowerShell per il deprovisioning.
-
-#### Se viene avviato il deprovisioning sul lato del provider di servizi
-
-Se si è richiesto al provider di servizi di eseguire prima il deprovisioning del circuito ExpressRoute, lo stato del circuito sarà il seguente al termine del processo di deprovisioning eseguito dal provider di servizi.
+Se si è richiesto al provider di servizi di eseguire il deprovisioning del circuito ExpressRoute, al termine del processo di deprovisioning eseguito dal provider di servizi lo stato del circuito sarà il seguente.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-È possibile scegliere di abilitarlo nuovamente, se necessario, o eseguire i cmdlet di PowerShell per eliminare il circuito. **Importante:** Microsoft continuerà ad applicare l'addebito per il circuito finché non si esegue il cmdlet di PowerShell per il deprovisioning.
+
+È possibile scegliere di abilitarlo nuovamente, se necessario, o eseguire i cmdlet di PowerShell per eliminare il circuito.
+
+>[AZURE.IMPORTANT] Se si esegue il cmdlet PowerShell per eliminare il circuito quando lo stato di ServiceProviderProvisioningState è Provisioning in corso o Provisioning eseguito, l'operazione avrà esito negativo. Collaborare con il provider di connettività per eseguire il deprovisioning del circuito ExpressRoute e quindi eliminare il circuito. Microsoft continuerà ad applicare l'addebito per il circuito finché non si esegue il cmdlet di PowerShell per eliminare il circuito.
 
 
 ## Stato di configurazione della sessione di routing
@@ -122,4 +116,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

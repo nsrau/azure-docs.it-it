@@ -223,6 +223,8 @@ In questo caso, il modello riportato di seguito chiederà:
 - Un nome di dominio che potrà essere usato dall'esterno.
 - Un numero di versione di Ubuntu Server (verrà accettato un solo numero dall'interno di un elenco).
 
+Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Una volta definiti questi valori, è possibile creare un gruppo relativo e distribuire il modello nella sottoscrizione di Azure.
 
     {
@@ -1278,4 +1280,4 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 
 Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

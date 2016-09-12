@@ -20,6 +20,13 @@
 
 Gli aggiornamenti su **Power BI Embedded** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. In questa pagina vengono evidenziate nuove funzionalità destinate all'utente. È consigliabile controllarla spesso.
 
+## 31 agosto 2016
+
+Contenuti di questa versione:
+
+- Tutti i nuovi SDK JavaScript che supportano [navigazione tra le pagine e filtri avanzati](power-bi-embedded-interact-with-reports.md).
+- Power BI Embedded è ora supportato nel data center del Canada Centrale. Controllare lo [stato del datacenter](https://azure.microsoft.com/status/).
+
 ## 11 luglio 2016
 
 Contenuti di questa versione:
@@ -34,4 +41,4 @@ Contenuti di questa versione:
 -    Gli utenti possono esportare i dati di visualizzazione in un file con estensione **csv**.
 -    Power BI Embedded è ora supportato in tutte le lingue/impostazioni locali di Microsoft Azure. Per altre informazioni, vedere [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx) (Azure - Lingue).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->
