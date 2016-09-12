@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="mahender"/>  
+	ms.author="mahender"/>
 
 # Autenticazione e autorizzazione nel servizio app di Azure
 
@@ -26,7 +26,7 @@ Il servizio app usa identità federate, in cui un provider di identità di terze
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-- [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
+- [Aggiungere l'autenticazione all'app iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 - [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
 - [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 

@@ -17,7 +17,7 @@
     ms.topic="article"
     ms.date="08/30/2016"
     ms.author="v-livech"
-/>  
+/>
 
 # Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess
 
@@ -104,7 +104,7 @@ Con VMAccess è possibile eseguire il comando fsck sul disco della VM Linux. È 
 
 Per controllare e quindi ripristinare il disco, usare questo script VMAccess:
 
-`disk_check_repair.json`  
+`disk_check_repair.json`
 
 ```json
 {
@@ -127,7 +127,7 @@ Se si è perso l'accesso alla radice della VM Linux è possibile avviare uno scr
 
 Per reimpostare la password radice, usare questo script VMAccess:
 
-`reset_root_password.json`  
+`reset_root_password.json`
 
 ```json
 {
@@ -169,7 +169,7 @@ VMAccess è uno script Python che può essere usato per gestire gli utenti nella
 
 Per creare un utente, usare questo script VMAccess:
 
-`create_new_user.json`  
+`create_new_user.json`
 
 ```json
 {
@@ -189,7 +189,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 Per creare un utente:
 
-`remove_user.json`  
+`remove_user.json`
 
 ```json
 {
@@ -211,7 +211,7 @@ Se si apportano modifiche alla configurazione del disco SSHD della VM Linux e si
 
 Per reimpostare la configurazione SSHD usare questo script VMAccess:
 
-`reset_sshd.json`  
+`reset_sshd.json`
 
 ```json
 {

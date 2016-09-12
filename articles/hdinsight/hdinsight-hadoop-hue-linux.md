@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 # Installare e usare Hue nei cluster Hadoop di HDInsight
 

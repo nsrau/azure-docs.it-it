@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/26/2016"
-	ms.author="krnese"/>  
+	ms.author="krnese"/>
 
 # Eseguire la replica di macchine virtuali VMware in Azure con Site Recovery con Automation DSC per Azure
 
@@ -53,7 +53,7 @@ In questo articolo viene fornito un esempio di come è possibile usare Automatio
 
 - La soluzione Windows Management Framework (WMF) 5.0 installata sui computer di cui che si vuole abilitare la protezione (requisito per Automation DSC)
 
- > [AZURE.NOTE] Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi] (#Uso di DSC in ambienti non connessi).
+ > [AZURE.NOTE] Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi](#Uso di DSC in ambienti non connessi).
 
 Il servizio Mobility può essere installato tramite la riga di comando e accetta diversi argomenti. Ecco perché è necessario disporre dei file binari (dopo averli estratti dalla configurazione) e archiviarli in un punto in cui è possibile recuperarli usando una configurazione DSC.
 
@@ -83,7 +83,7 @@ La passphrase ottenuta durante la distribuzione del server di gestione può esse
 
 Inserire sia la cartella compressa sia la passphrase in un contenitore dedicato nell'account di archiviazione di Azure.
 
-![Percorso della cartella](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)  
+![Percorso della cartella](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
 Se si preferisce, è possibile mantenere questi file in una condivisione all'interno della rete. È sufficiente garantire che la risorsa DSC che verrà usata in un secondo momento disponga dell'accesso e possa usare la configurazione e la passphrase.
 
@@ -152,7 +152,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -210,7 +210,7 @@ Accedere all'account di Automation, andare su **Asset** > **Moduli** e fare clic
 
 Qui è possibile cercare il modulo e importarlo nel proprio account.
 
-![Importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)  
+![Importazione del modulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 Al termine passare al computer su cui sono installati i moduli di Azure Resource Manager e continuare a importare la configurazione DSC appena creata.
 
@@ -245,7 +245,7 @@ Questa operazione può richiedere alcuni minuti poiché si sta distribuendo la c
 
 Al termine della configurazione, è possibile recuperare le informazioni sul processo tramite PowerShell (Get-AzureRmAutomationDscCompilationJob) o usando il [portale di Azure](https://portal.azure.com/).
 
-![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)  
+![Recuperare il processo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
 La configurazione DSC in Automation DSC è stata ora pubblicata e caricata correttamente.
 
@@ -254,7 +254,7 @@ La configurazione DSC in Automation DSC è stata ora pubblicata e caricata corre
 
 Si creerà ora una metaconfig per DSC che sarà applicata ai nodi. Per un risultato positivo è necessario recuperare l'URL e la chiave primaria dell'endpoint per l'account di automazione selezionato in Azure. Questi valori si trovano in **Chiavi** nel pannello **Tutte le impostazioni** dell'account di Automation.
 
-![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)  
+![Valori chiave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 In questo esempio è presente un server fisico Windows Server 2012 R2 che si desidera proteggere con Site Recovery.
 
@@ -314,7 +314,7 @@ Questa configurazione causerà la registrazione del motore di gestione configura
 
 Dopo l'esecuzione dello script, il nodo dovrebbe iniziare la registrazione ad Automation DSC.
 
-![Registrazione del nodo in corso](./media/site-recovery-automate-mobilitysevice-install/register-node.png)  
+![Registrazione del nodo in corso](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
 Se si torna al portale di Azure, si può notare che il nodo appena registrato è ora presente nel portale.
 
@@ -334,13 +334,13 @@ Get-DscConfigurationStatus
 
 L'output mostra che il server ha eseguito correttamente il pull della configurazione:
 
-![Output](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)  
+![Output](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 Inoltre, la configurazione del servizio Mobility dispone di un proprio log in *SystemDrive*\\ProgramData\\ASRSetupLogs.
 
 La procedura è terminata. Il servizio Mobility è stato distribuito e registrato correttamente sul computer che si desidera proteggere tramite Site Recovery. DSC si assicurerà che i servizi necessari siano sempre in esecuzione.
 
-![Distribuzione completata](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)  
+![Distribuzione completata](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
 Una volta che il server di gestione ha rilevato la corretta distribuzione, procedere per configurare la protezione e abilitare la replica nel computer con Site Recovery.
 
@@ -433,7 +433,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'

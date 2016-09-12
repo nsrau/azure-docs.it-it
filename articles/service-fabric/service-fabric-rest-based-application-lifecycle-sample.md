@@ -704,7 +704,7 @@ namespace ServiceFabricRestCaller
 ```
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md)

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Come creare un'immagine di VM da una VM di Azure esistente
 
@@ -145,7 +145,7 @@ Lo script di PowerShell seguente illustra come impostare le configurazioni della
 
 >[AZURE.NOTE] La VM deve trovarsi nello stesso account di archiviazione del disco rigido virtuale originale.
 
-</br>  
+</br>
 
 	
 	

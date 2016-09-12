@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="swkrish"/>  
+	ms.author="swkrish"/>
 
 # Creazione di un tenant Azure Active Directory (Azure AD) o di un tenant Azure AD B2C: problemi e soluzioni
 

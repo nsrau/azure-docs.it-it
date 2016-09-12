@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
 
@@ -37,7 +37,7 @@ I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **More Services** (Altri servizi) e quindi su **Guida e supporto**.
 
-	![Schermata di avvio di Guida e supporto](media/documentdb-increase-limits/helpsupport.png)  
+	![Schermata di avvio di Guida e supporto](media/documentdb-increase-limits/helpsupport.png)
 
 2. Nel pannello **Guida e supporto** fare clic su **Nuova richiesta di supporto**.
 
@@ -45,7 +45,7 @@ I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
 3. Nel pannello **Nuova richiesta di assistenza**, fare clic su **Nozioni di base**. Impostare quindi **Tipo di problema** su **Quota**, **Sottoscrizione** sulla sottoscrizione che ospita l'account DocumentDB, **Tipo di quota** su **DocumentDB** e **Piano di supporto** su **Quota SUPPORT - Included** (SUPPORTO quota - compreso). Fare clic su **Avanti**.
 
-	![Schermata del tipo di richiesta del ticket di supporto](media/documentdb-increase-limits/supportrequest1.png)  
+	![Schermata del tipo di richiesta del ticket di supporto](media/documentdb-increase-limits/supportrequest1.png)
 
 4. Nel pannello **Problema**, scegliere una gravità e includere le informazioni sull'aumento di quota in **Dettagli**. Fare clic su **Avanti**.
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/25/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 
 # Proteggere un cluster autonomo in Windows tramite la funzionalità di sicurezza di Windows

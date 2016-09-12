@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Trigger delle app per le API del servizio app di Azure
 

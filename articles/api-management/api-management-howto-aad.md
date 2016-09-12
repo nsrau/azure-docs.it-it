@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -52,7 +52,7 @@ Per **URL accesso**, copiare l'**URL di reindirizzamento** dalla sezione **Azure
 
 In **URL ID app** immettere il dominio predefinito un dominio personalizzato per Azure Active Directory e aggiungervi una stringa univoca. Nel seguente esempio il dominio predefinito di **https://contoso5api.onmicrosoft.com** viene usato con il suffisso **/api** specificato.
 
-![Proprietà della nuova applicazione Azure Active Directory][api-management-new-aad-application-2]  
+![Proprietà della nuova applicazione Azure Active Directory][api-management-new-aad-application-2]
 
 Fare clic sul segno di spunta per salvare e creare la nuova applicazione e passare alla scheda **Configura** per configurare la nuova applicazione.
 

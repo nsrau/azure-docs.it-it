@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/31/2016"
-   ms.author="alkohli"/>  
+   ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
 
@@ -85,23 +85,23 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | Modello URL | Componente/funzionalità | Indirizzi IP dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure| Interfacce di rete abilitate per il cloud |
-|`https://*.backup.windowsazure.com`  |Registrazione del dispositivo| Solo DATA 0|
+|`https://*.backup.windowsazure.com`|Registrazione del dispositivo| Solo DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revoca del certificato |Interfacce di rete abilitate per il cloud |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> | Solo indirizzi IP fissi del controller |
-| `http://*.deploy.akamaitechnologies.com`   |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
-| `https://*.partners.extranet.microsoft.com/*`   | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
+| `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
+| `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
 
 #### Modelli di URL per il portale di Azure Government
 | Modello URL | Componente/funzionalità | Indirizzi IP dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure| Interfacce di rete abilitate per il cloud |
-|`https://*.backup.windowsazure.us`  |Registrazione del dispositivo| Solo DATA 0|
+|`https://*.backup.windowsazure.us`|Registrazione del dispositivo| Solo DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revoca del certificato |Interfacce di rete abilitate per il cloud |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> | Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
-| `https://*.partners.extranet.microsoft.com/*`   | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
+| `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
 
 ### Metrica di routing
 
@@ -138,7 +138,12 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | 
+	| Data 1 | 2 | 20 | 
+	| Data 2 | 3 | 30 | 
+	| Data 3 | 4 | 40 | 
+	| Data 4 | 5 | 50 | 
+	| Data 5 | 6 | 60 |
 
 
 - L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:

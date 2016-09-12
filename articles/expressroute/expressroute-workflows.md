@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/29/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)  
+![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 La figura e i passaggi corrispondenti riportati di seguito descrivono le attività per il provisioning end-to-end di un circuito ExpressRoute.
 
@@ -37,7 +37,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 	
 	>[AZURE.IMPORTANT] Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
-	![](./media/expressroute-workflows/routing-workflow.png)  
+	![](./media/expressroute-workflows/routing-workflow.png)
 
 
 5. Collegamento di reti virtuali a circuiti ExpressRoute: è possibile collegare reti virtuali al circuito ExpressRoute. Seguire le istruzioni [per collegare reti virtuali](expressroute-howto-linkvnet-arm.md) a un circuito. Queste reti virtuali possono trovarsi nella stessa sottoscrizione di Azure del circuito ExpressRoute oppure in una sottoscrizione diversa.

@@ -28,14 +28,14 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 - Nella schermata Verifica aggiuntiva di sicurezza selezionare App per dispositivi mobili dall'elenco a discesa.
 
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Selezionare Notifica o Password monouso e fare clic su Imposta.
 - Sul telefono in cui è installata l'app Microsoft Authenticator avviare l'applicazione e fare clic sul "+" per aggiungere un nuovo account. Quindi specificare che si desidera aggiungere un account aziendale o dell'istituto di istruzione che avvierà la scansione del codice QR. Se la fotocamera non funziona correttamente, è possibile selezionare di inserire manualmente le informazioni della società. [Aggiunta manuale di un account](#adding-an-account-manually).
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
 - Eseguire la scansione dell'immagine del codice QR visualizzata con la schermata di configurazione dell'app per dispositivi mobili. Fai clic su Done per chiudere la schermata del codice QR.
 
@@ -47,11 +47,11 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 
 - Sul telefono, inizierà l’attivazione, una volta completata questa operazione fare clic su Contattami. Verrà inviata una notifica o un codice di verifica al telefono cellulare. Fare clic su verifica.
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
 - Alcune aziende potrebbero richiedere un PIN durante la verifica.
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 
 - Al termine è possibile fare clic su Chiudi. A questo punto, la verifica avrà esito positivo.
@@ -68,10 +68,10 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 ## Aggiunta manuale di un account
 Per aggiungere un account manualmente, selezionare il pulsante Immetti manualmente.
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
 
 
-![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)  
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
 
 Se si ha un account dove Azure MFA è già presente, immettere il codice e l'URL fornito nella stessa pagina dove è visualizzato il codice a barre. Le informazioni devono essere inserite nelle caselle del codice e dell'URL dell'app per dispositivi mobili. Viene avviata l'attivazione.
 

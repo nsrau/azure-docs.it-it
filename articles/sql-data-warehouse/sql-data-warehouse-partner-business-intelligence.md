@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>  
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Partner di business intelligence per SQL Data Warehouse
 
@@ -29,13 +29,13 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Statistica Dell][3] |**Dell Statistica**<br>Dell Statistica è una piattaforma di analisi avanzata che permette alle organizzazioni di ottenere previsioni sul futuro, ottimizzare i processi, ridurre i costi e aumentare i ricavi. Dell Statistica semplifica le analisi di Big Data, ottimizza l'implementazione e la distribuzione, estrae approfondimenti utili dal testo e migliora le prestazioni aziendali. | [Marketplace][dell_statistica_marketplace]<br>[Sito Web][dell_statistica_website]<br>[Foglio dati][dell_statistica_datasheet]<br>[Twitter][dell_statistica_twitter]<br>[YouTube][dell_statistica_youtube] | [![video di Statistica](./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_video.jpg)](https://www.youtube.com/watch?v=0b8sPW2UHrU) |
 | ![Dundas][4] |**Dundas BI**<br>Dundas Data Visualization è un importante fornitore globale di software per business intelligence e visualizzazione dei dati. I dashboard, i report e le analisi visuali dei dati di Dundas offrono un'integrazione semplificata nelle applicazioni aziendali, permettendo di ottenere decisioni migliori e approfondimenti più rapidi. | [Marketplace][dundas_bi_marketplace]<br>[Sito Web][dundas_bi_website]<br>[Foglio dati][dundas_bi_datasheet]<br>[Twitter][dundas_bi_twitter]<br>[YouTube][dundas_bi_youtube] | [![video di dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_bi_video.jpg)](https://www.youtube.com/watch?v=TEbc3_e7o60) |
 | ![Jinfonet][5] |**JReport**<br>JReport è una soluzione di business intelligence incorporabile per le aziende. La soluzione permette agli utenti di creare report, dashboard e analisi di dati sul cloud, Big Data e origini dati transazionali. La visualizzazione dei dati permette di creare report personalizzati e individuare personalmente i dati per ottenere un processo decisionale agile e rapido.| [Sito Web][jinfonet_website]<br>[Foglio dati][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] | [![video di jreport](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
-| ![LogiAnalytics][6]   |**Logi Analytics**<br>L'uso combinato di Logi Analytics e Azure SQL Data Warehouse consente alle organizzazioni di raccogliere, analizzare e prendere decisioni immediate in base ai set di dati più grandi e più diversificati al mondo. | [Marketplace][logianalytics_marketplace]<br>[Sito Web][logianalytics_website]<br>[Foglio dati][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] | [![video di logianalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
-| ![Looker][7]   |**Looker BI**<br>Looker offre a tutti gli utenti nell'azienda la possibilità di esplorare e comprendere i dati essenziali per l'attività aziendale, fornendo al tempo stesso all'analista dei dati un livello di modellazione flessibile e riusabile per controllare e gestire i dati. Molte aziende hanno trasformato radicalmente la propria cultura usando Looker come catalizzatore. | [Marketplace][looker_marketplace]<br>[Sito Web][looker_website]<br>[Foglio dati][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] | [![video di looker](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
-| ![Qlik][8]   |**Qlik Sense Enterprise**<br>Informazioni approfondite sull'app di visualizzazione dei dati che chiunque può usare. Con Qlik Sense, tutti i dipendenti dell'organizzazione possono creare facilmente visualizzazioni interattive e flessibili e prendere decisioni importanti.| [Sito Web][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![video di qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
+| ![LogiAnalytics][6] |**Logi Analytics**<br>L'uso combinato di Logi Analytics e Azure SQL Data Warehouse consente alle organizzazioni di raccogliere, analizzare e prendere decisioni immediate in base ai set di dati più grandi e più diversificati al mondo. | [Marketplace][logianalytics_marketplace]<br>[Sito Web][logianalytics_website]<br>[Foglio dati][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] | [![video di logianalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
+| ![Looker][7] |**Looker BI**<br>Looker offre a tutti gli utenti nell'azienda la possibilità di esplorare e comprendere i dati essenziali per l'attività aziendale, fornendo al tempo stesso all'analista dei dati un livello di modellazione flessibile e riusabile per controllare e gestire i dati. Molte aziende hanno trasformato radicalmente la propria cultura usando Looker come catalizzatore. | [Marketplace][looker_marketplace]<br>[Sito Web][looker_website]<br>[Foglio dati][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] | [![video di looker](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
+| ![Qlik][8] |**Qlik Sense Enterprise**<br>Informazioni approfondite sull'app di visualizzazione dei dati che chiunque può usare. Con Qlik Sense, tutti i dipendenti dell'organizzazione possono creare facilmente visualizzazioni interattive e flessibili e prendere decisioni importanti.| [Sito Web][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![video di qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
 | ![SiSense][9] |**SiSense**<br>SiSense è un software di business intelligence completo che include gli strumenti necessari alle aziende per analizzare e visualizzare i dati, ovvero un database analitico a prestazioni elevate, la possibilità di unire più origini, l'estrazione semplice dei dati (ETL) e la visualizzazione dei dati basata sul Web. È possibile iniziare subito ad analizzare e visualizzare set di dati di grandi dimensioni con SiSense BI and Analytics. | [Marketplace][sisense_marketplace]<br>[Sito Web][sisense_website]<br>[Foglio dati][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] | [![video di isense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Le analisi self-service di Tableau permettono a chiunque di visualizzare e comprendere i propri dati, di qualsiasi tipo essi siano, da file flat a database. Tableau offre un connettore nativo e ottimizzato per Microsoft Azure SQL Data Warehouse, che supporta le analisi dei dati in tempo reale e in memoria. | [Marketplace][tableau_marketplace]<br>[Sito Web][tableau_website]<br>[Foglio dati][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] | [![Video di tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
-| ![Targit][11]   |**Targit**<br>Targit Decision Suite offre una piattaforma di business intelligence e analisi che fornisce dashboard in tempo reale, analisi self-service, report semplici da usare, straordinarie capacità mobili e una semplice tecnologia per il rilevamento di dati in un'unica soluzione coerente. Targit offre alle aziende il coraggio di agire. | [Marketplace][targit_marketplace]<br>[Sito Web][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] | [![video di targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![Albacora][12]   |**Yellowfin**<br>Yellowfin è un importante fornitore di business intelligence sul cloud per la creazione ad-hoc di report e dashboard, in base al sondaggio BARC su business intelligence. È possibile connettersi ad Azure SQL Data Warehouse, quindi creare e condividere report e dashboard straordinari con funzionalità collaborative avanzate di business intelligence e location intelligence. | [Marketplace][yellowfin_marketplace]<br>[Sito Web][yellowfin_website]<br>[Foglio dati][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] | [![video di yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![Targit][11] |**Targit**<br>Targit Decision Suite offre una piattaforma di business intelligence e analisi che fornisce dashboard in tempo reale, analisi self-service, report semplici da usare, straordinarie capacità mobili e una semplice tecnologia per il rilevamento di dati in un'unica soluzione coerente. Targit offre alle aziende il coraggio di agire. | [Marketplace][targit_marketplace]<br>[Sito Web][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] | [![video di targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
+| ![Albacora][12] |**Yellowfin**<br>Yellowfin è un importante fornitore di business intelligence sul cloud per la creazione ad-hoc di report e dashboard, in base al sondaggio BARC su business intelligence. È possibile connettersi ad Azure SQL Data Warehouse, quindi creare e condividere report e dashboard straordinari con funzionalità collaborative avanzate di business intelligence e location intelligence. | [Marketplace][yellowfin_marketplace]<br>[Sito Web][yellowfin_website]<br>[Foglio dati][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] | [![video di yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
@@ -44,7 +44,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 Per altre informazioni su altri partner, vedere [Partner di integrazione di dati di SQL Data Warehouse][di_partners] e [Partner di gestione di dati di SQL Data Warehouse][dm_partners].
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png
 [2]: ./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png
 [3]: ./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_logo.png
@@ -98,16 +98,16 @@ Per altre informazioni su altri partner, vedere [Partner di integrazione di dati
 <!--Marketplace Links -->
 [birst_marketplace]: https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
-[dell_statistica_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/dell-software/statistica-data-miner/
-[dundas_bi_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/dundas/dundas-bi/
+[dell_statistica_marketplace]: https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/
+[dundas_bi_marketplace]: https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/
 <!--[jinfonet_marketplace]:-->
-[logianalytics_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/logi-analytics/logi-info-11/
-[looker_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/looker/looker-analytics-platform-326/
-<!--[qlik_marketplace]:https://azure.microsoft.com/it-IT/marketplace/partners/qliktech-international-ab/qlikview/ -->
-[sisense_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/sisense/sisense-byol/
-[tableau_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/tableau/tableau-server/
-[targit_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/targit/targit-decision-suite/
-[yellowfin_marketplace]: https://azure.microsoft.com/it-IT/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
+[logianalytics_marketplace]: https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
+[looker_marketplace]: https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
+[sisense_marketplace]: https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
+[tableau_marketplace]: https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
+[targit_marketplace]: https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/
+[yellowfin_marketplace]: https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
 
 <!--Press links-->
 <!--[birst_press]:-->
@@ -137,7 +137,7 @@ Per altre informazioni su altri partner, vedere [Partner di integrazione di dati
 [targit_youtube]: https://www.youtube.com/user/TargitAS
 [yellowfin_youtube]: https://www.youtube.com/user/YellowfinTeam
 
-<!--Twitter links-->  
+<!--Twitter links-->
 [birst_twitter]: https://twitter.com/BirstBI
 [clearstory_twitter]: https://twitter.com/ClearStoryData
 [dell_statistica_twitter]: https://twitter.com/DellStatistica

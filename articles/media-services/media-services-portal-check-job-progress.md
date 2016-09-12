@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/29/2016"  
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Monitorare lo stato del processo di codifica con il portale di Azure
 
@@ -31,7 +31,7 @@ Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento.
 
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e quindi selezionare **Processi**.
 
-![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)  
+![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 È possibile fare clic sul processo per visualizzare altri dettagli.
 

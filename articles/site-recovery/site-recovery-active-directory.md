@@ -60,7 +60,7 @@ Abilitare la protezione della macchina virtuale controller di dominio/DNS in Sit
 
 Per la macchina virtuale controller di dominio/DNS, configurare le impostazioni di rete in Site Recovery in modo che la VM venga collegata alla rete corretta dopo il failover. Ad esempio, se si replicano VM Hyper-V in Azure, è possibile selezionare la VM nel cloud VMM o nel gruppo di protezione per configurare le impostazioni di rete, come illustrato di seguito
 
-![Impostazioni di rete della VM](./media/site-recovery-active-directory/VM-Network-Settings.png)  
+![Impostazioni di rete della VM](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
 ## Proteggere Active Directory con la replica di Active Directory
 
@@ -107,7 +107,7 @@ Se DNS non è presente nella stessa macchina virtuale del controller di dominio,
 
 2. Eseguire il comando seguente nella macchina virtuale controller di dominio:
 
-	`nltest /dsregdns`  
+	`nltest /dsregdns`
 
 3. Aggiungere una zona nel server DNS, consentire aggiornamenti non protetti e aggiungere una voce al DNS:
 

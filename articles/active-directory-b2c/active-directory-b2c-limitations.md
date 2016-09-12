@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/24/2016"
-	ms.author="swkrish"/>  
+	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: limitazioni e restrizioni
 
@@ -86,7 +86,7 @@ Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usar
 
 - Per un utente con un account locale, ad esempio un utente che esegue l'iscrizione con indirizzo di posta elettronica e password o con nome utente e password, il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure classico è il nome dell'entità utente, che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
 
-    ![Account locale - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)  
+    ![Account locale - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - Per un account utente locale, non è possibile modificare i campi e salvare le modifiche nella scheda **Profilo**.
 

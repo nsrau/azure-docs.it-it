@@ -12,7 +12,7 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
 3.  Immettere l'etichetta del nome DNS da usare e **salvare** questa configurazione.
 
-    ![immettere l'etichetta del nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)  
+    ![immettere l'etichetta del nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
     La risorsa IP pubblico mostra ora la nuova etichetta DNS nel relativo pannello.
 

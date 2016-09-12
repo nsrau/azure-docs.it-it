@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="08/29/2016"
-	ms.author="rasquill"/>  
+	ms.author="rasquill"/>
 
 # Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
 
@@ -154,7 +154,7 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 * L'estensione della VM Docker di Azure supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente. Vedere [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure].
 
-<!--Anchors-->  
+<!--Anchors-->
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
@@ -166,7 +166,7 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 
 
-<!--Link references-->  
+<!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md

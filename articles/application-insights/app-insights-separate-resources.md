@@ -119,7 +119,7 @@ La creazione della risorsa richiede pochi secondi. Al termine della creazione ve
 
 La chiave di strumentazione identifica la risorsa creata.
 
-![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)  
+![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)
 
 Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invierà dati.
 

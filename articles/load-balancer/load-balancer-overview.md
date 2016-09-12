@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Panoramica del servizio di bilanciamento del carico
 
@@ -53,7 +53,7 @@ Un indirizzo IP privato o pubblico viene assegnato alla risorsa di interfaccia d
 
 Il grafico seguente mostra Azure Load Balancer in questo modello:
 
-![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)  
+![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
 
 #### Distribuzioni basate su modello con Gestione risorse di Azure
 
@@ -67,7 +67,7 @@ Il servizio di bilanciamento del carico può essere gestito mediante API e strum
 
     Per altre informazioni dettagliate, vedere [Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)](load-balancer-distribution-mode.md). Il grafico seguente illustra la distribuzione basata su hash:
 
-    ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)  
+    ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
 * Port forwarding
 

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/29/2016" 
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 

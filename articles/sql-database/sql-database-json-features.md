@@ -14,7 +14,7 @@
 	ms.author="jovanpop"
    ms.workload="NA"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/>
 
 
 
@@ -30,7 +30,7 @@ Il database SQL di Azure consente di lavorare facilmente con dati JSON e integra
 
 Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 
-![Funzioni di JSON](./media/sql-database-json-features/image_1.png)  
+![Funzioni di JSON](./media/sql-database-json-features/image_1.png)
 
 Se si dispone di testo JSON, è possibile estrarre dati da JSON o verificare che JSON sia formattato correttamente usando le funzioni predefinite [JSON\_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON\_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) e [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). La funzione [JSON\_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) consente di aggiornare il valore all'interno del testo JSON. Per query e analisi più avanzate, la funzione [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) può trasformare un array di oggetti JSON in un set di righe. È possibile eseguire qualsiasi query SQL sul set di risultati restituito. Infine, è disponibile una clausola [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) che consente di formattare i dati archiviati nelle tabelle relazionali come testo JSON.
 
@@ -174,7 +174,7 @@ Il database SQL di Azure consente anche di trasformare gli insiemi JSON in forma
 
 OPENJSON è una funzione con valori di tabella che analizza il testo JSON, individua un array di oggetti JSON, scorre gli elementi dell'array e restituisce una riga nel risultato di output per ogni elemento dell'array.
 
-![JSON tabulare](./media/sql-database-json-features/image_2.png)  
+![JSON tabulare](./media/sql-database-json-features/image_2.png)
 
 Nell'esempio precedente, è possibile specificare dove si trova l'array JSON da aprire (nel percorso $ Orders), quali colonne devono essere restituite come risultato e dove trovare i valori JSON che verranno restituiti come celle.
 

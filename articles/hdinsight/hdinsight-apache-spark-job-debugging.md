@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 # Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in HDInsight Linux
 

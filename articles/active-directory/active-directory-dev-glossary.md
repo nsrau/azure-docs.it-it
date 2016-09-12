@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/31/2016"
-   ms.author="bryanla"/>  
+   ms.author="bryanla"/>
 
 # Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -122,14 +122,14 @@ Così come gli [ambiti](#scopes), i ruoli consentono a un [server di risorse](#r
 
 I ruoli sono stringhe definite a livello di risorsa, ad esempio "Expense approver", "Read-only", "Directory.ReadWrite.All", vengono gestiti nel [portale di Azure classico][AZURE-classic-portal] tramite il [manifesto dell'applicazione](#application-manifest) della risorsa e vengono archiviati nella [proprietà appRoles][AAD-Graph-Sp-Entity] della risorsa. Il portale di Azure classico viene usato anche per assegnare utenti a ruoli utente e configurare [autorizzazioni applicazione](#permissions) client per l'accesso a un ruolo applicazione.
 
-Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] (Controllo degli accessi in base al ruolo nelle applicazioni cloud con Azure AD).
+Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] \(Controllo degli accessi in base al ruolo nelle applicazioni cloud con Azure AD).
 
 ## ambiti
 Così come i [ruoli](#roles), gli ambiti consentono a un [server di risorse](#resource-server) di controllare l'accesso alle proprie risorse protette. Gli ambiti vengono usati per implementare il controllo di accesso [in base all'ambito][OAuth2-Access-Token-Scopes] per un'[applicazione client](#client-application) che ha ottenuto l'accesso delegato alla risorsa dal relativo proprietario.
 
 Gli ambiti sono stringhe definite a livello di risorsa, ad esempio "Mail.Read", "Directory.ReadWrite.All", vengono gestiti nel [portale di Azure classico][AZURE-classic-portal] tramite il [manifesto dell'applicazione](#application-manifest) della risorsa e vengono archiviati nella [proprietà oauth2Permissions][AAD-Graph-Sp-Entity] della risorsa. Il portale di Azure classico viene usato anche per configurare [autorizzazioni delegate](#permissions) dell'applicazione client per l'accesso a un ambito.
 
-Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per informazioni sugli ambiti esposti dai servizi di Office 365, vedere [Office 365 API permissions reference][O365-Perm-Ref] (Informazioni di riferimento sulle autorizzazioni delle API di Office 365).
+Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per informazioni sugli ambiti esposti dai servizi di Office 365, vedere [Office 365 API permissions reference][O365-Perm-Ref] \(Informazioni di riferimento sulle autorizzazioni delle API di Office 365).
 
 ## token di sicurezza
 Documento firmato contenente attestazioni, come un token OAuth2 o un'asserzione SAML 2.0. Per una [concessione di autorizzazione](#authorization-grant) OAuth2, un [token di accesso](#access-token) (OAuth2) e un [token ID](OpenID Connect) costituiscono un tipo di token di sicurezza e vengono entrambi implementati come [token JSON Web (token JWT)][JWT].
@@ -173,7 +173,7 @@ La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] offre u
 
 La sezione dei commenti Disqus di seguito consente di fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md

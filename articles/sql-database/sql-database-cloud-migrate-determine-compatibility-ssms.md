@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/29/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Usare SQL Server Management Studio per determinare la compatibilità del database SQL prima di eseguire la migrazione al database SQL di Azure
 
@@ -40,7 +40,7 @@ In questo articolo viene illustrato come determinare se un database del server S
 
 4. Nell'esportazione guidata, fare clic su **Avanti** e quindi nella scheda **Impostazioni** configurare l'esportazione per salvare il file BACPAC su un percorso disco locale o in un BLOB di Azure. Un file BACPAC viene salvato se non sono presenti problemi di compatibilità del database. Eventuali problemi di compatibilità vengono visualizzati nella console.
 
-	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)  
+	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
 5. Per evitare l'esportazione dei dati, fare clic sulla scheda **Avanzata** e deselezionare la casella di controllo **Seleziona tutto**. In questa fase l'obiettivo principale consiste nella verifica della compatibilità.
 

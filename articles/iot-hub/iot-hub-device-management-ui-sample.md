@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/25/2016"
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio
 
@@ -24,7 +24,7 @@ Gli sviluppatori che desiderano compilare in modo indipendente l'esperienza inte
 
 ## Prerequisiti
 
-Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] (Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
+Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
 
 Al termine dell'esercitazione "Introduzione", è necessario disporre degli elementi seguenti nel sistema di test:
 
@@ -36,7 +36,7 @@ Al termine dell'esercitazione "Introduzione", è necessario disporre degli eleme
 
 La schermata iniziale predefinita per l'interfaccia utente di esempio di Gestione dei dispositivi è la vista **Devices** (Dispositivi), che include i 5 componenti seguenti:
 
-![][1]  
+![][1]
 
 1.  *Pulsanti di navigazione*: vista **Devices** (Dispositivi) (selezionata), **Job History** (Cronologia processo) e **Add a Device** (Aggiungi un dispositivo).
 
@@ -56,7 +56,7 @@ Per immettere questa vista dettagliata sul primo dispositivo simulato (**Device1
 
 Si sta ora visualizzando la rappresentazione completa dei componenti del dispositivo gemello, in cui è possibile aggiornare le proprietà scrivibili ed eseguire altre operazioni sul dispositivo come indicato di seguito:
 
-![][2]  
+![][2]
 
 1.  **Edit a Device Twin** (Modificare un dispositivo gemello): questa opzione include uno stato **Enabled/Disabled** (Abilitato/Disabilitato) per il dispositivo.
 
@@ -94,7 +94,7 @@ Come descritto nella panoramica di Gestione dei dispositivi, i processi del disp
 
 1.  Nell'elenco di query del dispositivo **Only Bacon** (Solo Bacon) fare clic su ogni riga del dispositivo per selezionarla per il processo di riavvio:
 
-    ![][6]  
+    ![][6]
 
 2.  Fare clic sul pulsante **Reboot** (Riavvia) sulla barra degli strumenti dei processi del dispositivo per creare il processo di riavvio. Dopo aver scelto **Sì**, fare clic sul collegamento ipertestuale **Job History** (Cronologia processo) nella finestra di dialogo **Job for Device has started** (Processo per il dispositivo avviato) per passare alla visualizzazione dei processi del dispositivo.
 
@@ -102,7 +102,7 @@ Come descritto nella panoramica di Gestione dei dispositivi, i processi del disp
 
 È stato creato un unico processo padre che genera tre processi figlio, ognuno dei quali esegue l'operazione di riavvio su uno dei tre dispositivi con tag "bacon":
 
-![][8]  
+![][8]
 
 Aggiornare questa schermata dopo qualche istante per visualizzare le modifiche allo stato del processo padre e dei tre processi figlio su **completed** (completato). I nuovi valori dello stato indicano che le operazioni di riavvio hanno avuto esito positivo e sono state confermate dai dispositivi simulati. Usare la colonna **Device ID** (ID dispositivo) per determinare i processi associati ai diversi dispositivi.
 

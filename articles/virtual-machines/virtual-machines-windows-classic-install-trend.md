@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 
 # Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows
@@ -82,7 +82,7 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 [Estensioni VM e funzionalità di Azure]
 
 
-<!--Link references-->  
+<!--Link references-->
 [Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 

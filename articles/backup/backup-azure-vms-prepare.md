@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/26/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>  
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparare l'ambiente per il backup di macchine virtuali di Azure
@@ -64,11 +64,11 @@ Per creare un insieme di credenziali per il backup:
 
 2. Nel portale di Azure fare clic su **Nuovo** > **Integrazione ibrida** > **Backup**. Quando si fa clic su **Backup**, si passa automaticamente al portale classico, qui visualizzato dopo la nota.
 
-    ![Portale Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)  
+    ![Portale Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
 
     >[AZURE.NOTE] Se la sottoscrizione è stata usata l'ultima volta nel portale classico, è possibile che venga aperta nel portale classico. In questo caso, per creare un insieme di credenziali di backup fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali per il backup** > **Creazione rapida**. Vedere l'immagine seguente.
 
-    ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-prepare/backup_vaultcreate.png)  
+    ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
 3. Nel campo **Nome** digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
@@ -78,15 +78,15 @@ Per creare un insieme di credenziali per il backup:
 
 6. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale.
 
-    ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-prepare/creating-vault.png)  
+    ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-prepare/creating-vault.png)
 
 7. La creazione corretta dell'insieme di credenziali verrà confermata da un messaggio. L'insieme verrà elencato come **Attivo** nella pagina **Servizi di ripristino**. Subito dopo la creazione dell'insieme di credenziali, assicurarsi di scegliere l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-prepare/backup_vaultslist.png)  
+    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
 8. Fare clic sull'insieme di credenziali per il backup per visualizzare la pagina **Avvio rapido** in cui sono riportate le istruzioni per il backup delle macchine virtuali di Azure.
 
-    ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-prepare/vmbackup-instructions.png)  
+    ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 
 ## Connettività di rete
@@ -171,11 +171,11 @@ HttpProxy.Port=<proxy port>
 
 1. Aprire Windows Firewall nel server proxy. Il modo più semplice per accedere al firewall consiste nel cercare Windows Firewall con Sicurezza avanzata.
 
-    ![Aprire il firewall](./media/backup-azure-vms-prepare/firewall-01.png)  
+    ![Aprire il firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
 2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole in ingresso** e scegliere **Nuova regola**.
 
-    ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-02.png)  
+    ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. In **Creazione guidata nuova regola connessioni in entrata** scegliere l'opzione **Personalizzata** per **Tipo di regola** e fare clic su **Avanti**.
 

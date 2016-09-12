@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/06/2016"
-   ms.author="ganesr"/>  
+   ms.author="ganesr"/>
 
 #Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP nel modello di distribuzione di Resource Manager
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Gestire le formule dei lab di sviluppo/test per creare macchine virtuali
 
@@ -140,7 +140,7 @@ Per eliminare una formula, seguire questa procedura:
 
 1. Selezionare **Sì** nella finestra di dialogo di conferma dell'eliminazione.
 
-    ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)  
+    ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

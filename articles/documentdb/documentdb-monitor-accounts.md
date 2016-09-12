@@ -28,13 +28,13 @@
 
 	Se la tabella visualizza il messaggio **Nessun dato disponibile** e si ritiene che siano presenti dati nel database, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 
-	![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)  
+	![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
 3.	Se si fa clic sul riquadro **Richieste** o **Archiviazione**, viene visualizzato un pannello **Metrica** dettagliato.
 4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.
 
-	![Schermata del pannello Metrica che include le richieste limitate](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)  
+	![Schermata del pannello Metrica che include le richieste limitate](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
 
 ## Personalizzare le visualizzazioni delle metriche sulle prestazioni nel portale
@@ -46,7 +46,7 @@
 3.	Per modificare le metriche visualizzate nel grafico, selezionare/deselezionare le metriche delle prestazioni disponibili e quindi fare clic su **OK** nella parte inferiore del pannello.
 4.	Per modificare l'intervallo di tempo, scegliere un intervallo diverso, ad esempio **Personalizzato** e fare clic su **OK** nella parte inferiore del pannello.
 
-	![Schermata della parte Intervallo di tempo del pannello Modifica grafico che mostra come immettere un intervallo di tempo personalizzato](./media/documentdb-monitor-accounts/madocdb5.png)  
+	![Schermata della parte Intervallo di tempo del pannello Modifica grafico che mostra come immettere un intervallo di tempo personalizzato](./media/documentdb-monitor-accounts/madocdb5.png)
 
 
 ## Creare grafici affiancati nel portale
@@ -54,11 +54,11 @@ Il portale di Azure consente di creare grafici di metriche affiancati.
 
 1.	Fare clic con il pulsante destro del mouse sul grafico dal quale si intende copiare e scegliere **Personalizza**.
 
-	![Schermata del grafico Richieste totali con l'opzione Personalizza evidenziata](./media/documentdb-monitor-accounts/madocdb6.png)  
+	![Schermata del grafico Richieste totali con l'opzione Personalizza evidenziata](./media/documentdb-monitor-accounts/madocdb6.png)
 
 2.	Scegliere **Clona** dal menu per copiare la parte e quindi fare clic su **Personalizzazione completata**.
 
-	![Schermata del grafico Richieste totali con le opzioni Clona e La personalizzazione è completata evidenziate](./media/documentdb-monitor-accounts/madocdb7.png)  
+	![Schermata del grafico Richieste totali con le opzioni Clona e La personalizzazione è completata evidenziate](./media/documentdb-monitor-accounts/madocdb7.png)
 
 
 Sarà possibile considerare questa parte come tutte le altre parti delle metriche e personalizzare le metriche e l'intervallo di tempo in essa visualizzato. Questa operazione consente di visualizzare contemporaneamente due grafici di metriche affiancati. ![Schermata del grafico Richieste totali e nuovo grafico Richieste totali ora precedente](./media/documentdb-monitor-accounts/madocdb8.png)

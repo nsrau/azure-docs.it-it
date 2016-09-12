@@ -124,12 +124,12 @@ Qui si pubblicherà l'applicazione in un'app Web nelle app Web del servizio app 
 4. Dopo l'accesso, fare clic su **Nuovo** per creare un'app Web.
 5. Compilare tutti i campi obbligatori. Poiché in un secondo tempo si stabilirà la connessione ai dati locali, non occorre creare un database per questa app Web.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 
 6. Fare clic su **Crea**. Dopo la creazione dell'app Web, verrà aperta la finestra di dialogo Pubblica sito Web.
 7. In **URL di destinazione** sostituire **http** con **https**. Copiare l'intero URL in un editor di testo per un uso successivo. Fare quindi clic su **Pubblica**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
 11. In Visual Studio aprire **Web.Release.config** nel progetto. Inserire il seguente codice XML nel tag `<configuration>` e sostituire il valore della chiave con l'URL dell'app Web di pubblicazione.
 	<pre class="prettyprint">
@@ -151,11 +151,11 @@ Prima di poter usare l'applicazione di esempio e autenticarla effettivamente con
 4.	Accedere al server ADFS con le credenziali dotate di diritti di gestione per ADFS.
 5.	Aprire il componente di gestione di ADFS. Fare clic con il pulsante destro del mouse su **AD FS\\Trusted Relationships\\Relying Party Trusts** e selezionare **Add Relying Party Trust**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
 5.	Nella pagina **Select Data Source** selezionare **Enter data about the relying party manually**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 
 6.	Nella pagina **Specify Display Name** digitare un nome visualizzato per l'applicazione e fare clic su **Next**.
 7.	Nella pagina **Choose Protocol** fare clic su **Next**.
@@ -165,11 +165,11 @@ Prima di poter usare l'applicazione di esempio e autenticarla effettivamente con
   
 5.	Prima di passare al prossimo passaggio, è necessario ottenere delle informazioni dal progetto di Visual Studio. Nelle proprietà del progetto prendere nota dell'**URL SSL** dell'applicazione.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
 6.	Nuovamente nel componente di gestione di ADFS, nella pagina **Configure URL** della procedura guidata per l'**aggiunta di un'attendibilità della relying party**, selezionare **Enable support for the WS-Federation Passive protocol** e digitare l'URL SSL del progetto di Visual Studio di cui si è preso nota nel passaggio precedente. Quindi fare clic su **Next**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
 	> [AZURE.NOTE] L'URL specifica dove inviare il client dopo la riuscita dell'autenticazione. Per l'ambiente di debug, l'URL dovrebbe essere <code>https://localhost:&lt;port&gt;/</code>. Per l'app Web pubblicata, deve corrispondere all'URL dell'app Web.
 
@@ -212,19 +212,19 @@ Prima di poter usare l'applicazione di esempio e autenticarla effettivamente con
 
 	La regola personalizzata sarà simile allo screenshot seguente:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
 9.	Fare nuovamente clic su **Add Rule**.
 10.	Selezionare **Transform an Incoming Claim** e fare clic su **Next**.
 11.	Configurare la regola come illustrato nello screenshot seguente, usando il tipo di attestazione creato nella regola personalizzata e fare clic su **Fine**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)
 
 	Per informazioni dettagliate sui passaggi da eseguire per l'attestazione ID nome temporanea, vedere il post di blog [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx) (Identificatori di nome nelle asserzioni SAML).
 
 12.	Fare clic su **Apply** nella finestra di dialogo **Edit Claim Rules**, che ora sarà simile allo screenshot seguente:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
 	> [AZURE.NOTE] Assicurarsi di ripetere questi passaggi sia per l'ambiente di debug che per l'app Web pubblicata.
 
@@ -233,17 +233,17 @@ Prima di poter usare l'applicazione di esempio e autenticarla effettivamente con
 
 Si è ora pronti per testare la logica di autenticazione dell'applicazione in ADFS. Nell'ambiente di laboratorio usato in questo esempio è presente un utente test che appartiene a un gruppo di test in Active Directory.
 
-![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)  
+![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
 
 Per testare l'autenticazione nel debugger, sarà sufficiente premere `F5`. Se si desidera testare l'autenticazione nell'app Web pubblicata, passare all'URL dell'app.
 
 Dopo il caricamento dell'applicazione Web, fare clic su **Accedi**. Dovrebbe ora venire visualizzata una finestra di dialogo di accesso o la pagina di accesso presentata da ADFS, a seconda del metodo di autenticazione scelto da ADFS. Di seguito è riportato ciò che viene visualizzato in Internet Explorer 11.
 
-![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)  
+![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-Dopo l'accesso come utente nel dominio di AD della distribuzione di AD FS, verrà visualizzata di nuovo la home page con **Hello, <Nome utente>!, ** nell'angolo. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
+Dopo l'accesso come utente nel dominio di AD della distribuzione di AD FS, verrà visualizzata di nuovo la home page con **Hello, <Nome utente>!,** nell'angolo. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
 
-![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)  
+![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
 Finora, sono stati raggiunti gli obiettivi seguenti:
 
@@ -253,7 +253,7 @@ Finora, sono stati raggiunti gli obiettivi seguenti:
 
 In caso di assenza dell'attestazione basata su nome, verrebbe visualizzato solo **Hello, !**. Se si esamina il file Views\\Shared\\_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per visualizzare il nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se questa è disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
 
-![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)  
+![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
 <a name="bkmk_authorize"></a>
 ## Autorizzare utenti per controller o azioni specifiche
@@ -285,7 +285,7 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
 3. Avviare il debugger premendo `F5` e accedere, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina `~/About/Index`, se l'utente autenticato è autorizzato per tale azione.
 4. Ora fare clic su **Contact**, che nel caso di questo esempio non autorizza **Test User** per l'azione. Tuttavia, il browser viene reindirizzato ad ADFS, che visualizzerà un messaggio analogo al seguente:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)  
+	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
 	Se si esamina l'errore nel Visualizzatore eventi del server AD FS, verrà visualizzato questo messaggio di eccezione:
 	<pre class="prettyprint">

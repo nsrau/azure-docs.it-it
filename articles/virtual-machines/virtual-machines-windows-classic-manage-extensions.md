@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
  ms.date="08/29/2016"
- ms.author="rasquill"/>  
+ ms.author="rasquill"/>
 
 #Gestire le estensioni delle macchine virtuali
 

@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/25/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 
 # Analytics in Application Insights
@@ -72,7 +72,7 @@ Il linguaggio include diverse funzionalità utili, è possibile:
 
 Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights:
 
-![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)  
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
 
 
 ## Limiti

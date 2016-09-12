@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/31/2016"
-   ms.author="dugill;tomfitz" />  
+   ms.author="dugill;tomfitz" />
 
 # Come usare Azure Active Directory e Resource Manager per gestire le risorse di un cliente
 
@@ -43,7 +43,7 @@ L'app Web:
 
 Ecco il flusso end-to-end dell'applicazione Web.
 
-![Flusso di autenticazione di Resource Manager](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)  
+![Flusso di autenticazione di Resource Manager](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
 L'utente fornisce l'ID sottoscrizione per la sottoscrizione che vuole usare:
 
@@ -51,7 +51,7 @@ L'utente fornisce l'ID sottoscrizione per la sottoscrizione che vuole usare:
 
 Selezionare l'account da usare per l'accesso.
 
-![Selezionare un account](./media/resource-manager-api-authentication/sample-ux-2.png)  
+![Selezionare un account](./media/resource-manager-api-authentication/sample-ux-2.png)
 
 Fornire le credenziali.
 
@@ -59,11 +59,11 @@ Fornire le credenziali.
 
 Concedere all'app l'accesso alle sottoscrizioni di Azure:
  
-![Concedere l'accesso](./media/resource-manager-api-authentication/sample-ux-4.png)  
+![Concedere l'accesso](./media/resource-manager-api-authentication/sample-ux-4.png)
  
 Gestire le sottoscrizioni connesse:
 
-![Connettere la sottoscrizione](./media/resource-manager-api-authentication/sample-ux-7.png)  
+![Connettere la sottoscrizione](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 
 ## Registrare l'applicazione

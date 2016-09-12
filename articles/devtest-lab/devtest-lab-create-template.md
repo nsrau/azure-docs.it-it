@@ -35,11 +35,11 @@ Questa sezione descrive come creare un'immagine personalizzata da un file VHD. S
 
 1. Nel pannello **Impostazioni** del lab selezionare **Immagini personalizzate**.
 
-    ![Opzione per le immagini personalizzate](./media/devtest-lab-create-template/lab-settings-custom-images.png)  
+    ![Opzione per le immagini personalizzate](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
 1. Nel pannello **Immagini personalizzate** selezionare **+ Immagine personalizzata**.
 
-    ![Aggiungere un'immagine personalizzata](./media/devtest-lab-create-template/add-custom-image.png)  
+    ![Aggiungere un'immagine personalizzata](./media/devtest-lab-create-template/add-custom-image.png)
 
 1. Immettere il nome dell'immagine personalizzata. Il nome viene visualizzato nell'elenco delle immagini di base durante la creazione di una nuova macchina virtuale.
 
@@ -71,7 +71,7 @@ Per aggiungere una nuova immagine personalizzata, è necessario accedere a un fi
 
 1. Nel pannello **File VHD** selezionare l'opzione **Carica un disco rigido virtuale con PowerShell**.
 
-    ![Caricare un'immagine](./media/devtest-lab-create-template/upload-image-using-psh.png)  
+    ![Caricare un'immagine](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
 1. Il pannello successivo visualizzerà le istruzioni per la modifica e l'esecuzione di uno script di PowerShell che carica un file VHD nella sottoscrizione di Azure. **Nota:** questo processo può richiedere molto tempo a seconda delle dimensioni del file VHD e della velocità della connessione.
 
@@ -88,11 +88,11 @@ Se è presente una macchina virtuale già configurata, è possibile creare un'im
 
 1. Nel pannello della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)**.
 
-	![Voce di menu Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image.png)  
+	![Voce di menu Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image.png)
 
 1. Nel pannello **Immagine personalizzata** immettere un nome e una descrizione per l'immagine personalizzata. Queste informazioni verranno visualizzate nell'elenco delle immagini di base quando si crea una macchina virtuale.
 
-	![Pannello Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image-blade.png)  
+	![Pannello Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella macchina virtuale, specificare se si vuole che venga eseguito sysprep quando viene creata una macchina virtuale da questa immagine personalizzata.
 

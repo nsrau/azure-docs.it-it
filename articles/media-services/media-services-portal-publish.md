@@ -66,7 +66,7 @@ Per pubblicare un asset tramite il portale, seguire questa procedura:
 1. Selezionare il tipo di localizzatore.
 2. Fare clic su **Aggiungi**.
 
-	![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-publish1.png)  
+	![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
 L'URL verrà aggiunto all'elenco di **URL pubblicati**.
 
@@ -76,7 +76,7 @@ Il portale di Azure fornisce un lettore di contenuti che può essere usato per t
 
 Fare clic sul video richiesto e quindi sul pulsante **Riproduci**.
 
-![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)  
+![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Considerazioni applicabili:
 

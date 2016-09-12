@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="08/25/2016"
-	ms.author="ryansoc"/>  
+	ms.author="ryansoc"/>
 
 #  Rete di Azure per enti pubblici
 
@@ -39,7 +39,7 @@ Perché i servizi di rete possano supportare le applicazioni e le soluzioni dei 
 
 Tutti i clienti che utilizzano un'architettura di connettività privata devono accertarsi che venga stabilita e mantenuta un'implementazione appropriata per la connessione dei clienti al punto di demarcazione del router perimetrale gateway di rete/Internet per Azure per enti pubblici. In modo analogo, l'organizzazione deve stabilire la connettività di rete tra l'ambiente locale e il punto di demarcazione del router perimetrale gateway di rete/Internet per Azure per enti pubblici.
 
-ExpressRoute è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, compresi i partner e le località di peering, vedere la <a href="https://azure.microsoft.com/it-IT/documentation/services/expressroute/"> documentazione pubblica su ExpressRoute </a>.
+ExpressRoute è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, compresi i partner e le località di peering, vedere la <a href="https://azure.microsoft.com/documentation/services/expressroute/"> documentazione pubblica su ExpressRoute </a>.
 
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 

@@ -14,7 +14,7 @@
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="luisca"/>  
+	ms.author="luisca"/>
 
 # Raccomandazioni di Azure Machine Learning - Integrazione con JavaScript
 
@@ -36,7 +36,7 @@ L'integrazione del sito con Azure ML Recommendations si articola in 2 fasi:
 
 Nella prima fase si inserisce nelle pagine HTML una piccola libreria JavaScript che consente l'invio di eventi nel momento in cui si verificano nella pagina HTML ai server di Azure ML Recommendations (tramite DataMarket):
 
-![Drawing1][1]  
+![Drawing1][1]
 
 <ins>Fase II</ins>
 
@@ -44,11 +44,11 @@ Nella seconda fase, per visualizzare le raccomandazioni nella pagina si selezion
 
 1\. Il server (in fase di rendering della pagina) chiama il server di Azure ML Recommendations (tramite DataMarket) per ottenere le raccomandazioni. I risultati includono un elenco di ID di elementi. Il server deve arricchire i risultati con i metadati degli elementi, ad esempio immagini e descrizione, e inviare la pagina creata al browser.
 
-![Drawing2][2]  
+![Drawing2][2]
 
 2\. L'altra opzione prevede di usare il piccolo file JavaScript della fase I per ottenere un semplice elenco degli elementi raccomandati. I dati ricevuti in questo caso sono più snelli rispetto a quelli che si ricevono utilizzando la prima opzione.
 
-![Drawing3][3]  
+![Drawing3][3]
 
 ##2\. Prerequisiti
 
@@ -168,7 +168,8 @@ Questo evento deve essere usato quando l'utente ha acquistato gli elementi nel c
 
 Parametri
 * event (stringa) - "purchase"
-* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> Formato elementi acquistati:
+* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> 
+Formato elementi acquistati:
 	* item (stringa) - identificatore univoco dell'elemento.
 	* count (numero intero o stringa) - numero di elementi che sono stati acquistati.
 	* price (float o stringa) - campo facoltativo - prezzo dell'elemento.
@@ -187,7 +188,11 @@ Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 
 Parametri
 * event (stringa) - "userlogin"
-* user (stringa) - identificazione univoca dell'utente. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" }); </script>
+* user (stringa) - identificazione univoca dell'utente. 
+		<script> 
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" }); 
+		</script>
 
 ##4\. Utilizzare le raccomandazioni tramite JavaScript
 Il codice che utilizza la raccomandazione viene attivato da alcuni eventi JavaScript nella pagina Web del client. Le risposta alla raccomandazione include gli ID degli elementi raccomandati con i relativi nomi e valutazioni. È preferibile utilizzare questa opzione solo per la visualizzazione di un elenco degli elementi consigliati. Le attività di gestione più complesse, ad esempio l'aggiunta dei metadati dell'elemento, devono essere eseguite sull'integrazione lato server.

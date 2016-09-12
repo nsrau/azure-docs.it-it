@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure
 
@@ -56,7 +56,7 @@ La procedura guidata Distribuire il database nel database di Microsoft Azure in 
  - L'**obiettivo del servizio** (livello di prestazioni)
  - Il **nome file temporaneo**
 
-    ![Esportazione impostazioni](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)  
+    ![Esportazione impostazioni](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
 6.	Completare la procedura guidata. A seconda delle dimensioni e della complessità del database la distribuzione può richiedere da pochi minuti a diverse ore. Se questa procedura guidata rileva i problemi di compatibilità, gli errori vengono visualizzati sullo schermo e la migrazione non continua. Per indicazioni su come risolvere i problemi di compatibilità del database, passare a [Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md).
 

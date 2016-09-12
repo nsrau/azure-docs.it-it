@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
     ms.date="08/29/2016"
-    ms.author="carlrab"/>  
+    ms.author="carlrab"/>
 
 # Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL
 

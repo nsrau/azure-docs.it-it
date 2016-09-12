@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Livelli di coerenza in DocumentDB
 
@@ -92,7 +92,7 @@ La tabella seguente descrive varie garanzie di coerenza che corrispondono ai qua
 
 4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
-	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)  
+	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
 ## Livelli di coerenza per le query
 

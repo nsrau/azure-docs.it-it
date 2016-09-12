@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/23/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Attivare o arrestare il dispositivo StorSimple 
 

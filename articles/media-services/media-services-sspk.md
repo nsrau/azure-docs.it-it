@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016"  
-	ms.author="xpouyat"/>  
+	ms.author="xpouyat"/>
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
    ms.date="08/29/2016"
-   ms.author="rasquill"/>  
+   ms.author="rasquill"/>
 
 # Distribuire framework applicazioni comuni usando i modelli di Azure Resource Manager
 

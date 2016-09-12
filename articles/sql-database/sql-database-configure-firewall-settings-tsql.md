@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article" 
 	ms.date="08/30/2016"
-	ms.author="rickbyh"/>  
+	ms.author="rickbyh"/>
 
 
 # Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL

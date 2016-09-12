@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/29/2016" 
-	ms.author="apimpm"/>  
+	ms.author="apimpm"/>
 
 # Informazioni di riferimento per i criteri di Gestione API di Azure
 

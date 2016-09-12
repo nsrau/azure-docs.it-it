@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/10/2016"
-   ms.author="adegeo"/>  
+   ms.author="adegeo"/>
 
 # Installare .NET in un ruolo del servizio cloud 
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 #Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
 

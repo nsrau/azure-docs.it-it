@@ -26,17 +26,17 @@ L'app bridge HockeyApp è la funzionalità di base che consente di accedere ai d
 
 In HockeyApp aprire Account Settings (Impostazioni account), [API Tokens](https://rink.hockeyapp.net/manage/auth_tokens) (Token API). Creare un token oppure usarne uno esistente. I diritti minimi necessari sono "Read Only" (Sola lettura). Eseguire una copia del token API.
 
-![Ottenere un token API HockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)  
+![Ottenere un token API HockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)
 
 Accedere al portale di Microsoft Azure e [creare una risorsa di Application Insights](app-insights-create-new-resource.md). Impostare il tipo di applicazione su "Applicazione bridge HockeyApp":
 
-![Nuova risorsa di Application Insights](./media/app-insights-hockeyapp-bridge-app/02.png)  
+![Nuova risorsa di Application Insights](./media/app-insights-hockeyapp-bridge-app/02.png)
 
 Non è necessario impostare un nome, verrà impostato automaticamente dal nome HockeyApp.
 
 Verranno visualizzati i campi dell'applicazione bridge HockeyApp.
 
-![Immettere i campi dell'app bridge](./media/app-insights-hockeyapp-bridge-app/03.png)  
+![Immettere i campi dell'app bridge](./media/app-insights-hockeyapp-bridge-app/03.png)
 
 Immettere il token HockeyApp annotato in precedenza. Questa azione consente di popolare il menu a discesa "Applicazione HockeyApp" con tutte le applicazioni HockeyApp. Selezionare l'applicazione da usare e compilare gli altri campi.
 
@@ -44,7 +44,7 @@ Aprire la nuova risorsa.
 
 Si noti che l'avvio del flusso di dati richiede del tempo.
 
-![Risorsa di Application Insights in attesa dei dati](./media/app-insights-hockeyapp-bridge-app/04.png)  
+![Risorsa di Application Insights in attesa dei dati](./media/app-insights-hockeyapp-bridge-app/04.png)
 
 La procedura è terminata. Da questo momento, tutti i dati raccolti nell'app instrumentata HockeyApp saranno disponibili anche nelle funzionalità Analisi ed Esportazione continua di Application Insights.
 
@@ -55,7 +55,7 @@ Verranno brevemente esaminate queste funzionalità ora disponibili.
 Analisi è uno strumento avanzato per query ad hoc che consente di diagnosticare e analizzare i dati di telemetria e di individuare rapidamente cause radice e modelli.
 
 
-![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)  
+![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
 
 * [Altre informazioni su Analisi](app-insights-analytics-tour.md)

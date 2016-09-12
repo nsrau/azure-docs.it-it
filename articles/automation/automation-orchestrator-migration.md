@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="bwren" />  
+   ms.author="bwren" />
 
 
 # Migrazione da Orchestrator ad Automazione di Azure (Beta)

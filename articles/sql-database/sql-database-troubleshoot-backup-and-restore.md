@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="daleche"/>  
+	ms.author="daleche"/>
 
 # Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center
 

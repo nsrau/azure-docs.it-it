@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/26/2016"
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 
 # Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug di applicazioni Spark in remoto nel cluster HDInsight Spark Linux

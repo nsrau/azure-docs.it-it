@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/26/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows
 

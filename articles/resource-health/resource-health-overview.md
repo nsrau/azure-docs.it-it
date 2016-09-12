@@ -56,7 +56,7 @@ Facendo clic sul riquadro verrà visualizzato il pannello della sottoscrizione d
 
 **Riquadro Integrità risorsa**
 
-![Riquadro Integrità risorsa](./media/resource-health-overview/resourceHealthTile.png)  
+![Riquadro Integrità risorsa](./media/resource-health-overview/resourceHealthTile.png)
 
 ## Cosa significa lo stato di integrità delle risorse?
 Esistono 4 possibili stati di integrità per la risorsa.
@@ -64,7 +64,7 @@ Esistono 4 possibili stati di integrità per la risorsa.
 ### Disponibile
 Il servizio non ha rilevato problemi nella piattaforma che potrebbero incidere sulla disponibilità della risorsa. Questo stato è indicato da un segno di spunta verde.
 
-![La risorsa è disponibile](./media/resource-health-overview/Available.png)  
+![La risorsa è disponibile](./media/resource-health-overview/Available.png)
 
 ### Non disponibile
 
@@ -74,12 +74,12 @@ In questo caso, il servizio ha rilevato un problema nella piattaforma che riduce
 2.	Sequenza temporale dettagliata del problema, incluso il tempo di risoluzione previsto
 3.	Elenco di azioni consigliate agli utenti
 
-![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)  
+![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)
 
 ### Non disponibile a causa di azione del cliente
 La risorsa non è disponibile a causa di una richiesta del cliente, ad esempio l'arresto di una risorsa o un riavvio. Questo stato è indicato da un'icona informativa blu.
 
-![La risorsa non è disponibile a causa di un'azione avviata dall'utente](./media/resource-health-overview/userInitiated.png)  
+![La risorsa non è disponibile a causa di un'azione avviata dall'utente](./media/resource-health-overview/userInitiated.png)
 
 ### Sconosciuto
 Il servizio non ha ricevuto informazioni sulla risorsa per più di 5 minuti. Questo stato è indicato da un punto interrogativo grigio.
@@ -89,7 +89,7 @@ Il servizio non ha ricevuto informazioni sulla risorsa per più di 5 minuti. Que
 * Se la risorsa è in esecuzione come previsto, ma l'integrità è impostata su Sconosciuta in Integrità risorsa, non sono presenti problemi ed è probabile che lo stato della risorsa torni integro dopo alcuni minuti.
 * Se sono presenti problemi di accesso alla risorsa e la sua integrità è impostata su Sconosciuta in Integrità risorsa, potrebbe essere un'indicazione iniziale di un possibile problema e sono necessarie ulteriori analisi fino a quando lo stato non verrà aggiornato in Integro o Danneggiato
 
-![L'integrità della risorsa è sconosciuta](./media/resource-health-overview/unknown.png)  
+![L'integrità della risorsa è sconosciuta](./media/resource-health-overview/unknown.png)
 
 ## Eventi che hanno un impatto sui servizi
 Se la risorsa può essere interessata da un evento che ha un impatto sui servizi, verrà visualizzato un banner nella parte superiore del pannello Integrità di risorsa. Facendo clic sul banner verrà aperto il pannello Eventi di controllo con altre informazioni sull'interruzione del servizio.

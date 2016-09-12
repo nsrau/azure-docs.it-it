@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Aggiungere un archivio elementi Git a un lab
 
@@ -105,7 +105,7 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
 
 1. Nel pannello del lab, selezionare **Impostazioni**.
 
-    ![Scegliere impostazioni.](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)  
+    ![Scegliere impostazioni.](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
 
 1. Nel pannello **Impostazioni** selezionare **Archivio elementi**.
 

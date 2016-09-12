@@ -107,20 +107,20 @@ Per altre informazioni sulle modifiche ai prezzi della velocità effettiva defin
 2. Fare clic su **Esplora** -> **Account DocumentDB** e quindi selezionare l'account DocumentDB da modificare.
 3. Selezionare il database da modificare nella sezione **Database** e quindi selezionare la raccolta da modificare nel pannello **Database**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.
 
-      ![Screenshot del nuovo pannello Database con una raccolta S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)  
+      ![Screenshot del nuovo pannello Database con una raccolta S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
 4. Nel pannello **Raccolte** fare clic su **Altro**, quindi su **Impostazioni** nella barra superiore.
 5. Nel pannello **Impostazioni** fare clic su **Piano tariffario**. La stima dei costi mensili per ogni piano viene visualizzata nel pannello **Scegliere il piano tariffario**. Per passare alla velocità effettiva definita dall'utente, fare clic su **Standard** e quindi fare clic su **Seleziona** per salvare la modifica.
 
-      ![Screenshot dei pannelli Impostazioni e Scegliere il piano tariffario di DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)  
+      ![Screenshot dei pannelli Impostazioni e Scegliere il piano tariffario di DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
 6. Nel pannello **Impostazioni** il **Piano tariffario** passa a **Standard** e la casella **Velocità effettiva (UR/sec)** riporta un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](documentdb-request-units.md) al secondo (UR/sec). **Riepilogo dei prezzi** nella parte inferiore della pagina si aggiorna automaticamente per fornire una stima del costo mensile. Fare clic su **OK** per salvare le modifiche.
 
-	![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)  
+	![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 7. Nel pannello **Database** è possibile verificare la nuova velocità effettiva della raccolta.
 
-	![Screenshot del pannello Database con la raccolta modificata](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)  
+	![Screenshot del pannello Database con la raccolta modificata](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
 Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per creare una raccolta partizionata, vedere [Come creare una raccolta DocumentDB usando il portale di Azure](documentdb-create-collection.md).
 
@@ -172,7 +172,7 @@ Se si usano già prestazioni definite dall'utente, è possibile modificare la ve
 4. Nel pannello **Raccolte** fare clic su **Impostazioni** nella barra superiore.
 5. Nel pannello **Impostazioni** aumentare il valore nella casella **Velocità effettiva (UR/sec)** e quindi fare clic su **OK** per salvare la modifica. **Riepilogo dei prezzi** nella parte inferiore del pannello di aggiorna per visualizzare il nuovo costo stimato mensile questa tale raccolta in una singola area.
 
-    ![Schermata del pannello Impostazioni con la casella Velocità effettiva e Riepilogo dei prezzi](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)  
+    ![Schermata del pannello Impostazioni con la casella Velocità effettiva e Riepilogo dei prezzi](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 Se non si conosce il valore per aumentare la velocità effettiva, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs) e [Calcolatore di unità di richiesta](https://www.documentdb.com/capacityplanner).
 

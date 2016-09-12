@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
 
@@ -40,7 +40,7 @@ Cache Redis di Azure offre la possibilità di disporre di dati di diagnostica ar
 
 Per abilitare e configurare la diagnostica della cache, passare al pannello **Cache Redis** per l'istanza della cache. Se la diagnostica non è ancora abilitate, viene visualizzato un messaggio anziché un grafico di diagnostica.
 
-![Abilitare la diagnostica della cache][redis-cache-enable-diagnostics]  
+![Abilitare la diagnostica della cache][redis-cache-enable-diagnostics]
 
 Fare clic sul messaggio per visualizzare il pannello **Metrica** e fare clic su **Impostazioni diagnostica** per abilitare e configurare le impostazioni di diagnostica per l'istanza del servizio cache.
 
@@ -258,7 +258,7 @@ Il grafico **Utilizzo** consente di visualizzare le metriche seguenti.
 
 Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
   
-<!-- IMAGES -->  
+<!-- IMAGES -->
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
 

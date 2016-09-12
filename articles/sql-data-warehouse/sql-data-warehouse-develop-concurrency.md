@@ -266,7 +266,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
--->  
+-->
 
 ## Esempio di modifica della classe di risorse di un utente
 
@@ -417,7 +417,7 @@ FROM	sys.dm_pdw_wait_stats w;
 
 Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse][]. Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md

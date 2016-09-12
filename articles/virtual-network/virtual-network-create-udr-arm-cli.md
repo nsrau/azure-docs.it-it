@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 #Creare route definite dall'utente nell'interfaccia della riga di comando di Azure
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="08/25/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Panoramica del ridimensionamento dell'elaborazione multimediale

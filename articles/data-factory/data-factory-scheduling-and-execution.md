@@ -29,7 +29,7 @@ La sezione **scheduler** del file JSON dell'attività consente di specificare un
 	    "interval": 1
 	},  
     
-![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)  
+![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
 Come illustrato nel diagramma, se si specifica una pianificazione per l'attività vengono create finestre a cascata costituite da serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Queste finestre logiche a cascata per l'attività vengono denominate **finestre attività**.
  
@@ -52,7 +52,7 @@ Con Azure Data Factory è possibile elaborare i dati in serie temporale in modal
 
 Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di **sezione** di dati. Nel diagramma seguente viene illustrato un esempio di un'attività con un set di dati di input e un set di dati di output. Questi set di dati hanno set di disponibilità a frequenza oraria.
 
-![Utilità di pianificazione della disponibilità](./media/data-factory-scheduling-and-execution/availability-scheduler.png)  
+![Utilità di pianificazione della disponibilità](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
 Il diagramma illustra le sezioni di dati orarie per i set di dati di input e di output. Il diagramma mostra tre sezioni di input pronte per l'elaborazione e l'esecuzione di attività 10-11 AM in corso, che danno luogo alla sezione di output 10-11 AM.
 
@@ -197,7 +197,7 @@ Nell'esempio, le sezioni relative alla pianificazione dell'attività e alla disp
 
 Quando 3 delle sezioni nella fascia oraria 8 - 11 AM vengono eseguite e i dati in Azure SQL sono i seguenti:
 
-![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)  
+![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
 Distribuendo questa pipeline, l'archivio BLOB di Azure verrà popolato come segue:
 
@@ -230,9 +230,9 @@ Le sezioni di dati così recuperate potranno essere configurate per essere esegu
 
 Si consideri l'esempio seguente che descrive due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
-![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)  
+![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>  
+<br/>
 
 Il diagramma illustra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per **Dataset2**. La data factory monitorizza automaticamente le dipendenze per il set di dati in serie temporale e, di conseguenza, sospende l'avvio dell'esecuzione di attività per la sezione a valle 9-10 AM.
 
@@ -241,7 +241,7 @@ Gli strumenti di monitoraggio e gestione della data factory consentono inoltre d
 
 Dopo che la sezione 9-10 AM di dataset2 è stata eseguita nuovamente ed è pronta, Data Factory avvierà l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale.
 
-![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)  
+![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 ## Esecuzione di attività in sequenza
 È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, usando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente.
@@ -255,11 +255,11 @@ In questo scenario, le attività A1 e A2 si trovano in pipeline differenti. L'at
 
 La visualizzazione sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
 Come anticipato, le attività possono essere nella stessa pipeline. La visualizzazione con entrambe le attività nella stessa pipeline sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copia sequenziale
 È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity2 con i set di dati di input e output seguenti.
@@ -562,7 +562,7 @@ Lo script Hive riceve le informazioni di data e ora appropriate sotto forma di p
 
 Il diagramma seguente illustra lo scenario dal punto di vista della dipendenza dei dati.
 
-![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)  
+![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. La data factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile, Data Factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione dell'attività giornaliera.
 

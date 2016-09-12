@@ -140,30 +140,53 @@ Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database n
 1.	È necessario eseguire Data Warehouse con almeno 1.000 DWU (vedere [Ridimensionare la potenza di calcolo][]).
 2.	L'utente che esegue lo script deve essere nel [ruolo mediumrc][] o superiore.
 	1.	Per aggiungere un utente a questo ruolo, eseguire questo codice:
-		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````  
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
 -- Passaggio 1: creare una tabella per controllare la ricompilazione degli indici
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
-create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+create table sql_statements
+WITH (distribution = round_robin)
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+    row_number() over (order by s.name, t.name) as sequence
+from 
+    sys.schemas s
+    inner join sys.tables t
+        on s.schema_id = t.schema_id
+where
+    is_external = 0
+;
+go
  
 --------------------------------------------------------------------------------
 -- Passaggio 2: eseguire le ricompilazioni degli indici Se si verifica un errore di script, il codice riportato di seguito può essere eseguito nuovamente per riavviare il processo dal punto in cui si è interrotto.
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
 
-declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+declare @nbr_statements int = (select count(*) from sql_statements)
+declare @i int = 1
+while(@i <= @nbr_statements)
+begin
+      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+      exec (@statement)
+      delete from sql_statements where sequence = @i
+      set @i += 1
+end;
 go
 -------------------------------------------------------------------------------
 -- Passaggio 3: tabella di pulizia creata nel passaggio 1
 --------------------------------------------------------------------------------
-drop table sql\_statements; go ````
+drop table sql_statements;
+go
+````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [pianificazione della migrazione automatica]: #automatic-migration-schedule
@@ -181,7 +204,7 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 
 
 <!--Other Web references-->
-[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0831_2016-->

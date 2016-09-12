@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 # Personalizzare cluster HDInsight basati su Linux tramite Azione script
 

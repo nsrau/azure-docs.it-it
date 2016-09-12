@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 

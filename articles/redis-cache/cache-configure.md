@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="08/25/2016"
-	ms.author="sdanie" />  
+	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
 
@@ -54,7 +54,7 @@ Cache Redis di Azure fornisce le impostazioni seguenti nel pannello **Impostazio
 
 Le impostazioni nella sezione **Supporto e risoluzione dei problemi** forniscono le opzioni per risolvere i problemi della cache.
 
-![Supporto e risoluzione dei problemi](./media/cache-configure/redis-cache-support-troubleshooting.png)  
+![Supporto e risoluzione dei problemi](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 Fare clic su **Diagnostica e risoluzione dei problemi** per conoscere i problemi comuni e le strategie per risolverli.
 
@@ -70,7 +70,7 @@ Fare clic su **Nuova richiesta di supporto** per aprire una richiesta di support
 
 Le impostazioni nella sezione **Generale** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
 
-![Impostazioni generali](./media/cache-configure/redis-cache-general-settings.png)  
+![Impostazioni generali](./media/cache-configure/redis-cache-general-settings.png)
 
 -	[Proprietà](#properties)
 -	[Chiavi di accesso](#access-keys)
@@ -87,7 +87,7 @@ Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, inclus
 
 Fare clic su **Chiavi di accesso** per visualizzare o rigenerare le chiavi di accesso per la cache. Tali chiavi vengono utilizzate insieme al nome host e alle porte indicate nel pannello **Proprietà** dai client che si connettono alla cache.
 
-![Chiavi di accesso di Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)  
+![Chiavi di accesso di Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
 
 
@@ -107,7 +107,7 @@ Le impostazioni seguenti devono essere configurate nel pannello **Impostazioni a
 
 Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic su **No** per **Consentire l'accesso solo tramite SSL** nel pannello **Impostazioni avanzate** e quindi fare clic su **Salva**.
 
-![Porte di accesso di Cache Redis](./media/cache-configure/redis-cache-access-ports.png)  
+![Porte di accesso di Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy e maxmemory-reserved
 
@@ -153,7 +153,7 @@ Se durante l'uso della cache si verifica una determinata condizione, ad esempio 
 
 Per altre informazioni, vedere il pannello **Raccomandazioni**.
 
-![Consigli](./media/cache-configure/redis-cache-recommendations.png)  
+![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
@@ -172,7 +172,7 @@ Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il [piano 
 
 Le impostazioni nella sezione **Scalabilità** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
 
-![Rete](./media/cache-configure/redis-cache-scale.png)  
+![Rete](./media/cache-configure/redis-cache-scale.png)
 
 -	[Pricing tier](#pricing-tier)
 -	[Dimensione del cluster Redis](#cluster-size)
@@ -181,7 +181,7 @@ Le impostazioni nella sezione **Scalabilità** consentono di visualizzare e conf
 
 Fare clic su **Livello di prezzo** per visualizzare o modificare il livello di prezzo della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
 
-![Livello di prezzo di Cache Redis](./media/cache-configure/pricing-tier.png)  
+![Livello di prezzo di Cache Redis](./media/cache-configure/pricing-tier.png)
 
 <a name="cluster-size"></a>
 ### Dimensione del Cluster Redis
@@ -190,7 +190,7 @@ Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dime
 
 >[AZURE.NOTE] Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
 
-![Dimensione del cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)  
+![Dimensione del cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Per modificare le dimensioni del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
@@ -201,7 +201,7 @@ Per modificare le dimensioni del cluster, usare il dispositivo di scorrimento op
 
 Le impostazioni nella sezione **Gestione dati** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
 
-![Gestione dati](./media/cache-configure/redis-cache-data-management.png)  
+![Gestione dati](./media/cache-configure/redis-cache-data-management.png)
 
 -	[Persistenza dei dati Redis:](#redis-data-persistence)
 -	[Importazione/Esportazione](#importexport)
@@ -210,7 +210,7 @@ Le impostazioni nella sezione **Gestione dati** consentono di visualizzare e con
 
 Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium.
 
-![Persistenza dei dati Redis:](./media/cache-configure/redis-cache-persistence-settings.png)  
+![Persistenza dei dati Redis:](./media/cache-configure/redis-cache-persistence-settings.png)
 
 Per abilitare la persistenza Redis, fare clic su **Abilitata** per consentire il backup RDB (database Redis). Per disabilitare la persistenza Redis, fare clic su **Disabilitata**.
 
@@ -237,7 +237,7 @@ L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure 
 
 Le impostazioni della sezione **Amministrazione** consentono di eseguire le attività amministrative per la cache Premium seguenti.
 
-![Amministrazione](./media/cache-configure/redis-cache-administration.png)  
+![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
 -	[Reboot](#reboot)
 -	[Pianificare gli aggiornamenti](#schedule-updates)
@@ -248,11 +248,11 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
 
-![Reboot](./media/cache-configure/redis-cache-reboot.png)  
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)  
+![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Riavvia**. Se si ha una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Riavvia**. Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -264,7 +264,7 @@ Il pannello **Pianifica aggiornamenti** consente di progettare un intervallo di 
 
 >[AZURE.IMPORTANT] Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.
 
-![Pianificare gli aggiornamenti](./media/cache-configure/redis-schedule-updates.png)  
+![Pianificare gli aggiornamenti](./media/cache-configure/redis-schedule-updates.png)
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC.
 
@@ -295,7 +295,7 @@ Le impostazioni nella sezione **Rete** consentono di visualizzare e configurare 
 
 ## Impostazioni di gestione delle risorse
 
-![Resource management](./media/cache-configure/redis-cache-resource-management.png)  
+![Resource management](./media/cache-configure/redis-cache-resource-management.png)
 
 La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
@@ -311,7 +311,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 
 >[AZURE.NOTE] Le impostazioni in questa sezione non possono essere modificate con il metodo `StackExchange.Redis.IServer.ConfigSet`. Se questo metodo viene chiamato con uno dei comandi indicati in questa sezione, viene generata un'eccezione simile alla seguente:
 >
->`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`  
+>`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
 >I valori configurabili, ad esempio **max-memory-policy**, possono essere configurati tramite il portale di Azure o strumenti di gestione da riga di comando, come l'interfaccia della riga di comando di Azure o PowerShell.
 
@@ -394,7 +394,7 @@ Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache R
 
 Per eseguire comandi con l'istanza di cache, digitare semplicemente il comando desiderato nella console.
 
-![Console Redis](./media/cache-configure/redis-console.png)  
+![Console Redis](./media/cache-configure/redis-console.png)
 
 Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la precedente sezione [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-redis-cache). Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
 

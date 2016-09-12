@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Scrivere, modificare ed eseguire query SQL per DocumentDB con Esplora query 
 
@@ -25,7 +25,7 @@ Questo articolo offre una panoramica di Esplora query per [Microsoft Azure Docum
 
 2. Nel menu delle risorse fare clic su **Esplora query**.
 
-	![Screenshot del portale di Azure con Esplora query evidenziato](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)  
+	![Screenshot del portale di Azure con Esplora query evidenziato](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
 3. Nel pannello **Esplora query** selezionare **Database** e **Raccolte** in cui eseguire la query dai rispettivi elenchi a discesa e digitare la query da eseguire.
 
@@ -35,21 +35,21 @@ Questo articolo offre una panoramica di Esplora query per [Microsoft Azure Docum
 
     Fare clic su **Esegui query** per visualizzare i risultati.
 
-	![Screenshot della scrittura di query SQL in Esplora query, un editor di query SQL](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)  
+	![Screenshot della scrittura di query SQL in Esplora query, un editor di query SQL](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
 4. Il pannello **Risultati** mostra l'output della query.
 
-	![Screenshot dei risultati della scrittura di query SQL in Esplora query](./media/documentdb-query-collections-query-explorer/queryresults1.png)  
+	![Screenshot dei risultati della scrittura di query SQL in Esplora query](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
 ## Usare i risultati
 
 Per impostazione predefinita, Esplora query restituisce risultati in set di 100. Se la query produce più di 100 risultati, usare semplicemente i comandi **Pagina successiva** e **Pagina precedente** per spostarsi all'interno del set di risultati.
 
-![Schermata del supporto di paginazione di Esplora query](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)  
+![Schermata del supporto di paginazione di Esplora query](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
 Perché le query abbiano esito positivo, il pannello **Informazioni** deve contenere metriche quali l'addebito richiesto, il numero di round trip eseguiti dalla query, il set di risultati attualmente visualizzato e specificare l'eventuale presenza di altri risultati a cui è possibile accedere con il comando **Pagina successiva**, come descritto in precedenza.
 
-![Schermata delle informazioni sulle query di Esplora query](./media/documentdb-query-collections-query-explorer/queryinformation.png)  
+![Schermata delle informazioni sulle query di Esplora query](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
 ## Usare più query
 
@@ -61,13 +61,13 @@ Se si usano più query e si vuole passare rapidamente da una all'altra, è possi
 
 È possibile caricare il contenuto di un file esistente tramite il comando **Carica file**.
 
-![Screenshot che illustra come caricare query SQL da un file in Esplora query usando Carica file](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)  
+![Screenshot che illustra come caricare query SQL da un file in Esplora query usando Carica file](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
 ## Risoluzione dei problemi
 
 Se una query viene completata con errori, Esplora query visualizza un elenco di errori che può facilitare la risoluzione dei problemi.
 
-![Schermata degli errori di query di Esplora query](./media/documentdb-query-collections-query-explorer/queryerror.png)  
+![Schermata degli errori di query di Esplora query](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## Eseguire query SQL di DocumentDB all'esterno del portale
 

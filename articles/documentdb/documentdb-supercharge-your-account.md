@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Potenziare l'account DocumentDB
 
@@ -43,7 +43,7 @@ Seguire questa procedura per ottenere una maggiore velocità effettiva per l'acc
 
 8. Nel pannello **Database** è possibile verificare la velocità effettiva potenziata della raccolta.
 
-	![Screenshot del pannello Database con la raccolta modificata](./media/documentdb-supercharge-your-account/documentdb-change-performance-confirmation.png)  
+	![Screenshot del pannello Database con la raccolta modificata](./media/documentdb-supercharge-your-account/documentdb-change-performance-confirmation.png)
 
 Per altre informazioni sulle modifiche alla velocità effettiva definita dall'utente e quella predefinita, vedere il post del blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (DocumentDB: tutto quello che occorre sapere sull'uso delle nuove opzioni relative ai prezzi).
 

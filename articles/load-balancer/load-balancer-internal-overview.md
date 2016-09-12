@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/25/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 
 # Panoramica del bilanciamento del carico interno
@@ -70,7 +70,7 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
 Figura 4
 
-![Bilanciamento del carico interno tramite VPN da sito a sito](./media/load-balancer-internal-overview/IC744150.png)  
+![Bilanciamento del carico interno tramite VPN da sito a sito](./media/load-balancer-internal-overview/IC744150.png)
 
 
 ## Passaggi successivi

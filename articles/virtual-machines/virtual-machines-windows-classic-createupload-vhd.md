@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
 
@@ -46,11 +46,11 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 2. Aprire una finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\\system32\\sysprep**, quindi eseguire `sysprep.exe`.
 
-	![Apertura della finestra del Prompt dei comandi](./media/virtual-machines-windows-classic-createupload-vhd/sysprep_commandprompt.png)  
+	![Apertura della finestra del Prompt dei comandi](./media/virtual-machines-windows-classic-createupload-vhd/sysprep_commandprompt.png)
 
 3.	Verrà visualizzata la finestra di dialogo **Utilità preparazione sistema**.
 
-	![Avvio di Sysprep](./media/virtual-machines-windows-classic-createupload-vhd/sysprepgeneral.png)  
+	![Avvio di Sysprep](./media/virtual-machines-windows-classic-createupload-vhd/sysprepgeneral.png)
 
 4.  In **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e assicurarsi che l'opzione **Generalizza** sia selezionata.
 

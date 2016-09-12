@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Codificare un asset mediante Media Encoder Standard con il portale di Azure
@@ -43,7 +43,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 	
 	Per una gestione più semplice, è possibile modificare il nome dell'asset di output e il nome del processo.
 		
-	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)  
+	![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Fare clic su **Crea**.
 
 

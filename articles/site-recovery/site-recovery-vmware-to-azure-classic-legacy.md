@@ -73,7 +73,7 @@ Eseguire la migrazione nel modo seguente:
 9. In **Configurare le impostazioni di destinazione** specificare se si vogliono usare le stesse impostazioni per tutte le macchine e selezionare il server di elaborazione e l'account di archiviazione di Azure. Se non è disponibile un server di elaborazione separato, sarà l'indirizzo IP del server di configurazione.
 
 
-	![Aggiunta di un account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)  
+	![Aggiunta di un account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
 	> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per gli account di archiviazione usati per la distribuzione di Site Recovery.
 
@@ -229,11 +229,11 @@ Sono disponibili due opzioni quando si configura la connettività di rete tra il
 
 **Internet:** le comunicazioni e la replica dei dati tra i server locali, come il server di elaborazione e i computer protetti, e i server dei componenti dell'infrastruttura di Azure, come il server di configurazione e il server di destinazione master, avvengono tramite una connessione SSL/TLS protetta dal sito locale agli endpoint pubblici nel server di configurazione e nel server di destinazione master. L'unica eccezione è la connessione tra il server di elaborazione e il server di destinazione master sulla porta TCP 9080 che è non crittografata. Solo le informazioni di controllo relative al protocollo di replica per la configurazione della replica vengono scambiate tramite questa connessione.
 
-![Diagramma di distribuzione Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)  
+![Diagramma di distribuzione Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
 **VPN:** le comunicazioni e la replica dei dati tra i server locali, come il server di elaborazione e i computer protetti, e i server dei componenti dell'infrastruttura di Azure, come il server di configurazione e il server di destinazione master, avvengono tramite una connessione VPN tra la rete locale e la rete virtuale di Azure in cui vengono distribuiti il server di configurazione e i server di destinazione master. Assicurarsi che la rete locale sia connessa alla rete virtuale di Azure tramite una connessione ExpressRoute o una connessione VPN da sito a sito.
 
-![Diagramma di distribuzione VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)  
+![Diagramma di distribuzione VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
 
 ## Passaggio 1: Creare un insieme di credenziali
@@ -252,7 +252,7 @@ Sono disponibili due opzioni quando si configura la connettività di rete tra il
 
 6. Fare clic su **Create vault**.
 
-	![Nuovo insieme di credenziali](./media/site-recovery-vmware-to-azure-classic-legacy/quick-start-create-vault.png)  
+	![Nuovo insieme di credenziali](./media/site-recovery-vmware-to-azure-classic-legacy/quick-start-create-vault.png)
 
 Controllare la barra di stato per verificare che l'insieme di credenziali sia stato creato correttamente. L'insieme di credenziali verrà elencato come **Attivo** nella pagina principale di **Servizi di ripristino**.
 
@@ -262,12 +262,12 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
 1. Nella pagina **Servizi di ripristino** fare clic sull'insieme di credenziali per aprire la pagina Avvio rapido. La pagina Avvio rapido può anche essere aperta in qualsiasi momento tramite l'icona.
 
-	![Quick Start Icon](./media/site-recovery-vmware-to-azure-classic-legacy/quick-start-icon.png)  
+	![Quick Start Icon](./media/site-recovery-vmware-to-azure-classic-legacy/quick-start-icon.png)
 
 2. Nell'elenco a discesa selezionare **Tra un sito locale con server VMware/fisici e Azure**.
 3. In **Preparare le risorse (Azure) di destinazione** fare clic su **Distribuisci server di configurazione**.
 
-	![Distribuire un server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/deploy-cs2.png)  
+	![Distribuire un server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/deploy-cs2.png)
 
 4. In **Dettagli del nuovo server di configurazione** specificare:
 
@@ -276,11 +276,11 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 	- Selezionare la rete di Azure in cui dovrà essere collocato il server. Se si usa una VPN, assicurarsi che la rete di Azure sia connessa alla rete locale come previsto.
 	- Specificare l'indirizzo IP interno e la subnet da assegnare al server. Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per l'uso interno in Azure. Usare gli altri indirizzi IP disponibili.
 	
-	![Distribuire un server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/cs-details.png)  
+	![Distribuire un server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/cs-details.png)
 
 5. Quando si fa clic su **OK**, nella sottoscrizione del server di configurazione verrà creata una macchina virtuale A3 standard basata su un'immagine della raccolta di Windows Server 2012 R2 con Azure Site Recovery. Viene creata come prima istanza in un nuovo servizio cloud. Se si sceglie di connettersi tramite Internet, il servizio cloud viene creato con un indirizzo IP pubblico riservato. Lo stato di avanzamento può essere monitorato nella scheda **Processi**.
 
-	![Monitorare lo stato](./media/site-recovery-vmware-to-azure-classic-legacy/monitor-cs.png)  
+	![Monitorare lo stato](./media/site-recovery-vmware-to-azure-classic-legacy/monitor-cs.png)
 
 6.  Se ci si connette tramite Internet, dopo la distribuzione del server di configurazione annotare l'indirizzo IP pubblico assegnato al server nella pagina **Macchine virtuali** nel portale di Azure. Nella scheda **Endpoint** annotare quindi la porta HTTPS pubblica mappata alla porta privata 443. Queste informazioni saranno necessarie in seguito per la registrazione dei server di destinazione master e di elaborazione con il server di configurazione. Il server di configurazione viene distribuito con gli endpoint indicati di seguito.
 
@@ -289,7 +289,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 	- PowerShell: porta privata 5986
 	- Desktop remoto: porta privata 3389
 	
-	![Endpoint VM](./media/site-recovery-vmware-to-azure-classic-legacy/vm-endpoints.png)  
+	![Endpoint VM](./media/site-recovery-vmware-to-azure-classic-legacy/vm-endpoints.png)
 
     >[AZURE.WARNING] Non eliminare o modificare il numero della porta pubblica o privata di qualsiasi endpoint creato durante la distribuzione del server di configurazione.
 
@@ -304,11 +304,11 @@ Il server di configurazione viene distribuito in un servizio cloud di Azure crea
 
 3. In **Third-Party Software Installation** fare clic su **I Accept** per scaricare e installare MySQL.
 
-	![Installazione di MySQL](./media/site-recovery-vmware-to-azure-classic-legacy/sql-eula.png)  
+	![Installazione di MySQL](./media/site-recovery-vmware-to-azure-classic-legacy/sql-eula.png)
 
 4. In **MySQL Server Details** creare le credenziali per l'accesso all'istanza del server MySQL.
 
-	![Credenziali di MySQL](./media/site-recovery-vmware-to-azure-classic-legacy/sql-password.png)  
+	![Credenziali di MySQL](./media/site-recovery-vmware-to-azure-classic-legacy/sql-password.png)
 
 5. In **Internet Settings** specificare la modalità di connessione a Internet del server di configurazione. Si noti che:
 
@@ -327,22 +327,22 @@ Il server di configurazione viene distribuito in un servizio cloud di Azure crea
 
 6. In **Provider Error Message Localization Settings** specificare in quale lingua si desidera visualizzare i messaggi di errore.
 
-	![Registrazione di messaggi di errore](./media/site-recovery-vmware-to-azure-classic-legacy/register-locale.png)  
+	![Registrazione di messaggi di errore](./media/site-recovery-vmware-to-azure-classic-legacy/register-locale.png)
 
 7. In **Azure Site Recovery Registration** individuare e selezionare il file di chiave copiato nel server.
 
-	![Registrazione del file di chiave](./media/site-recovery-vmware-to-azure-classic-legacy/register-vault.png)  
+	![Registrazione del file di chiave](./media/site-recovery-vmware-to-azure-classic-legacy/register-vault.png)
 
 8. Nella pagina di completamento della procedura guidata selezionare le opzioni seguenti:
 
 	- Selezionare **Avviare la finestra di gestione dell’account** per specificare che deve essere aperta la finestra Gestisci account dopo il completamento della procedura guidata.
 	- Selezionare **Crea un’icona desktop per Cspsconfigtool** per aggiungere un collegamento sul desktop nel server di configurazione, in modo da poter aprire la finestra di dialogo **Gestisci account** in qualsiasi momento senza dover ripetere la procedura guidata.
 
-	![Completare la registrazione](./media/site-recovery-vmware-to-azure-classic-legacy/register-final.png)  
+	![Completare la registrazione](./media/site-recovery-vmware-to-azure-classic-legacy/register-final.png)
 
 9. Fare clic su **Finish** per completare la procedura guidata. Verrà generata una passphrase. Copiarla in una posizione sicura. Sarà necessaria per autenticare e registrare i server di elaborazione e di destinazione master con il server di configurazione. Verrà usata anche per assicurare l'integrità del canale nelle comunicazioni del server di configurazione. La passphrase può essere rigenerata, ma si dovrà registrare di nuovo i server di elaborazione e di destinazione master con la nuova passphrase.
 
-	![Passphrase](./media/site-recovery-vmware-to-azure-classic-legacy/passphrase.png)  
+	![Passphrase](./media/site-recovery-vmware-to-azure-classic-legacy/passphrase.png)
 
 Dopo la registrazione, il server di configurazione verrà elencato nella pagina **Server di configurazione** nell'insieme di credenziali.
 
@@ -360,11 +360,11 @@ Dopo aver registrato il server di configurazione, è possibile aprire la finestr
 
 1. In **Gestisci account** fare clic su **Aggiungi account**. È inoltre possibile modificare ed eliminare account esistenti.
 
-	![Gestire account](./media/site-recovery-vmware-to-azure-classic-legacy/manage-account.png)  
+	![Gestire account](./media/site-recovery-vmware-to-azure-classic-legacy/manage-account.png)
 
 2. In **Dettagli account** specificare un nome di account da usare in Azure e le credenziali (dominio/nome utente).
 
-	![Gestire account](./media/site-recovery-vmware-to-azure-classic-legacy/account-details.png)  
+	![Gestire account](./media/site-recovery-vmware-to-azure-classic-legacy/account-details.png)
 
 ### Connettersi al server di configurazione 
 
@@ -385,7 +385,7 @@ Si noti che:
 1. Fare clic su **Preparare le risorse (Azure) di destinazione** > **Distribuisci server di destinazione master**.
 2. Specificare i dettagli e le credenziali del server di destinazione master. Il server verrà distribuito nella stessa rete di Azure in cui risiede il server di configurazione. Quando si fa clic per confermare, verrà creata una macchina virtuale di Azure con un'immagine della raccolta di Windows o Linux.
 
-	![Impostazioni del server di destinazione](./media/site-recovery-vmware-to-azure-classic-legacy/target-details.png)  
+	![Impostazioni del server di destinazione](./media/site-recovery-vmware-to-azure-classic-legacy/target-details.png)
 
 Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per l'uso interno in Azure. Specificare gli altri indirizzi IP disponibili.
 
@@ -444,7 +444,7 @@ Prima di iniziare è consigliabile configurare un indirizzo IP statico nel serve
 
 1. Fare clic su Avvio rapido > **Installare il server di elaborazione locale** > **Scaricare e installare il server di elaborazione**.
 
-	![Installare il server di elaborazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-deploy.png)  
+	![Installare il server di elaborazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-deploy.png)
 
 2.  Copiare il file ZIP scaricato nel server in cui si installerà il server di elaborazione. Il file ZIP contiene due file di installazione:
 
@@ -469,7 +469,7 @@ Prima di iniziare è consigliabile configurare un indirizzo IP statico nel serve
 
 9.	In **Selezione della NIC per il server di elaborazione** selezionare la scheda di rete che deve essere usata dal server di elaborazione.
 
-	![Selezionare la scheda](./media/site-recovery-vmware-to-azure-classic-legacy/ps-nic.png)  
+	![Selezionare la scheda](./media/site-recovery-vmware-to-azure-classic-legacy/ps-nic.png)
 
 10.	In **Dettagli del server di configurazione**:
 
@@ -478,18 +478,18 @@ Prima di iniziare è consigliabile configurare un indirizzo IP statico nel serve
 	- Per disabilitare la verifica quando si usa il push automatico per installare il servizio, deselezionare **Verifica firma del software del servizio Mobility**. La verifica della firma richiede la connettività Internet dal server di elaborazione.
 	- Fare clic su **Next**.
 
-	![Registrare il server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-cs.png)  
+	![Registrare il server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-cs.png)
 
 
 11. In **Selezionare l'unità di installazione** selezionare un'unità cache. Il server di elaborazione richiede un'unità cache con almeno 600 GB di spazio libero. Fare clic su **Installa**.
 
-	![Registrare il server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-cache.png)  
+	![Registrare il server di configurazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-cache.png)
 
 12. Si noti che potrebbe essere necessario riavviare il server per completare l'installazione. In **Server di configurazione** > **Dettagli server** verificare che il server di elaborazione sia visualizzato e risulti registrato correttamente nell'insieme di credenziali.
 
 >[AZURE.NOTE]Possono essere necessari fino a 15 minuti dopo la registrazione perché il server di elaborazione venga elencato nel server di configurazione. Per aggiornare immediatamente, aggiornare il server di configurazione facendo clic sul pulsante Aggiorna nella parte inferiore della pagina Server di configurazione.
  
-![Convalidare il server di elaborazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-register.png)  
+![Convalidare il server di elaborazione](./media/site-recovery-vmware-to-azure-classic-legacy/ps-register.png)
 
 Se la verifica della firma per il servizio Mobility non è stata disabilitata al momento della registrazione del server di elaborazione, è possibile farlo in un secondo momento come descritto di seguito:
 
@@ -525,7 +525,7 @@ I componenti di Site Recovery vengono aggiornati periodicamente. Quando sono dis
 		2. Assicurarsi che il computer protetto sia conforme ai [prerequisiti](#install-the-mobility-service-automatically) per il push automatico del servizio Mobility, in modo che l'aggiornamento funzioni come previsto.
 		2. Selezionare il gruppo di protezione, evidenziare il computer protetto e fare clic su **Aggiorna servizio Mobility**. Questo pulsante è disponibile solo se è presente una versione più recente del servizio Mobility.
 
-			![Selezionare il server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)  
+			![Selezionare il server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)
 
 In Seleziona account specificare l'account amministratore da utilizzare per aggiornare il servizio Mobility sul server protetto. Fare clic su OK e attendere il completamento del processo attivato.
 
@@ -534,19 +534,19 @@ In Seleziona account specificare l'account amministratore da utilizzare per aggi
 
 1. Fare clic su **Server** > **Server di configurazione**. Selezionare il server di configurazione e fare clic su **Aggiungi server vCenter** per aggiungere un server vCenter o un host vSphere.
 
-	![Selezionare il server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter.png)  
+	![Selezionare il server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter.png)
 
 2. Specificare i dettagli del server o dell'host e selezionare il server di elaborazione da usare per trovarlo.
 
 	- Se il server vCenter non è in esecuzione sulla porta 443 predefinita, specificare il numero di porta su cui è in esecuzione il server vCenter.
 	- Il server di elaborazione deve trovarsi nella stessa rete del server vCenter o dell'host vSphere e deve esservi installato VMware vSphere CLI 5.5.0.
 
-	![Impostazioni del server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter4.png)  
+	![Impostazioni del server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter4.png)
 
 
 3. Al termine dell'individuazione, il server vCenter sarà elencato nei dettagli del server di configurazione.
 
-	![Impostazioni del server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter2.png)  
+	![Impostazioni del server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter2.png)
 
 4. Se si usa un account senza privilegi di amministratore per aggiungere il server o l'host, assicurarsi che l'account abbia i privilegi seguenti:
 
@@ -559,15 +559,15 @@ In Seleziona account specificare l'account amministratore da utilizzare per aggi
 
 1. Aprire **Elementi protetti** > **Gruppo di protezione** > **Crea gruppo di protezione**.
 
-	![Creare un gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg1.png)  
+	![Creare un gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg1.png)
 
 2. Nella pagina **Specificare le impostazioni del gruppo di protezione** immettere un nome per il gruppo e selezionare il server di configurazione in cui creare il gruppo.
 
-	![Impostazioni del gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg2.png)  
+	![Impostazioni del gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg2.png)
 
 3. Nella pagina **Specifica le impostazioni di replica** configurare le impostazioni di replica da usare per tutti i computer nel gruppo.
 
-	![Replica del gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg3.png)  
+	![Replica del gruppo di protezione](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg3.png)
 
 4. Impostazioni:
 	- **Coerenza di più macchine virtuali**: se si attiva questa opzione, vengono creati punti di ripristino coerenti con l'applicazione condivisi tra i computer nel gruppo di protezione. Questa impostazione è importante quando tutti i computer nel gruppo di protezione eseguono lo stesso carico di lavoro. Tutti i computer saranno ripristinati nello stesso punto dati. Disponibile solo per i server Windows.
@@ -594,7 +594,7 @@ Quando si aggiungono computer a un gruppo di protezione, il server di elaborazio
 2. Verificare che sia presente la connettività di rete tra il computer di origine e il server di elaborazione e che il computer di origine sia accessibile dal server di elaborazione.
 3. Configurare Windows Firewall per abilitare **Condivisione di file e stampanti** e **Strumentazione gestione Windows**. Nelle impostazioni di Windows Firewall selezionare l'opzione "Consenti app o funzionalità attraverso Windows Firewall" e selezionare le applicazioni, come illustrato nella figura seguente. Per i computer appartenenti a un dominio, è possibile configurare i criteri del firewall con un oggetto Criteri di gruppo.
 
-	![Impostazioni del firewall](./media/site-recovery-vmware-to-azure-classic-legacy/push-firewall.png)  
+	![Impostazioni del firewall](./media/site-recovery-vmware-to-azure-classic-legacy/push-firewall.png)
 
 4. L'account usato per eseguire l'installazione push deve appartenere al gruppo Administrators nel computer da proteggere. Queste credenziali vengono usate solo per l'installazione push del servizio Mobility e verranno specificate quando si aggiunge un computer a un gruppo di protezione.
 5. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce del Registro di sistema DWORD LocalAccountTokenFilterPolicy con un valore di 1 in HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Per aggiungere la voce del Registro di sistema da una interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
@@ -613,11 +613,11 @@ Quando si aggiungono computer a un gruppo di protezione, il server di elaborazio
 	- b) Nel file /etc/ssh/sshd\_config trovare la riga che inizia con **PasswordAuthentication**.
 	- c) Rimuovere il commento dalla riga e modificare il valore da "no" in "yes".
 
-		![Mobility di Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-push.png)  
+		![Mobility di Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-push.png)
 
 	- d) Trovare la riga che inizia con Subsystem e rimuovere il commento.
 	
-		![Mobility push Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-push2.png)  
+		![Mobility push Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-push2.png)
 
 8. Verificare che la variante Linux del computer di origine sia supportata.
  
@@ -627,7 +627,7 @@ I pacchetti software usati per installare il servizio Mobility sono nel server d
 
 | Sistema operativo di origine | Pacchetto del servizio Mobility nel server di elaborazione |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
-| Windows Server (solo 64 bit) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe`   |
+| Windows Server (solo 64 bit) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bit) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz` |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz`|
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
@@ -640,7 +640,7 @@ I pacchetti software usati per installare il servizio Mobility sono nel server d
 3. Seguire le istruzioni del programma di installazione.
 4. Selezionare **Servizio Mobility** come ruolo e scegliere **Avanti**.
 	
-	![Installare il servizio Mobility](./media/site-recovery-vmware-to-azure-classic-legacy/ms-install.png)  
+	![Installare il servizio Mobility](./media/site-recovery-vmware-to-azure-classic-legacy/ms-install.png)
 
 5. Mantenere la directory di installazione come percorso di installazione predefinito e fare clic su **Installa**.
 6. Nella finestra **Host Agent Config** specificare l'indirizzo IP e la porta HTTPS del server di configurazione.
@@ -648,7 +648,7 @@ I pacchetti software usati per installare il servizio Mobility sono nel server d
 	- Se si sta eseguendo la connessione via Internet, specificare l'indirizzo IP virtuale pubblico e l'endpoint HTTPS pubblico come porta.
 	- Se si sta eseguendo la connessione tramite VPN, specificare l'indirizzo IP interno e 443 per la porta. Lasciare selezionata l'opzione **Use HTTPS**.
 
-	![Installare il servizio Mobility](./media/site-recovery-vmware-to-azure-classic-legacy/ms-install2.png)  
+	![Installare il servizio Mobility](./media/site-recovery-vmware-to-azure-classic-legacy/ms-install2.png)
 
 7. Specificare la passphrase del server di configurazione e fare clic su **OK** per registrare il servizio Mobility con il server di configurazione.
 
@@ -706,24 +706,24 @@ Aggiungere i computer come segue:
 
 3. Se si attiva la protezione per macchine virtuali VMware, nella pagina **Seleziona macchine virtuali** selezionare il server vCenter che gestisce le macchine virtuali (o l'host EXSi in cui sono in esecuzione) e quindi selezionare le macchine.
 
-	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)  
+	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)
 4. In **Specificare le risorse di destinazione** selezionare i server di destinazione master e l'archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Selezionare [Account di archiviazione Premium](../storage/storage-premium-storage.md) durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di I/O elevate e coerenti e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di I/O. Se si desidera utilizzare un account di archiviazione Premium per i dischi dei carichi di lavoro, è necessario usare destinazioni master della serie DS. Non è possibile usare dischi di archiviazione Premium su destinazioni master diverse dalla serie DS.
 
 	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
 
-	![Server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)  
+	![Server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. In **Specificare gli account** selezionare l'account da usare per l'installazione del servizio Mobility nei computer protetti. Sono necessarie le credenziali dell'account per l'installazione automatica del servizio Mobility. Se non è possibile selezionare un account, assicurarsi di configurare uno come descritto nel passaggio 2. Si noti che questo account non è accessibile da Azure. Per i server Windows è richiesto un account con privilegi di amministratore nel server di origine. Per Linux l'account deve essere l'utente ROOT.
 
-	![Credenziali Linux](./media/site-recovery-vmware-to-azure-classic-legacy/mobility-account.png)  
+	![Credenziali Linux](./media/site-recovery-vmware-to-azure-classic-legacy/mobility-account.png)
 
 6. Fare clic sul segno di spunta per completare l'aggiunta dei computer al gruppo di protezione e avviare la replica iniziale per ogni computer. Lo stato può essere monitorato nella pagina **Processi**.
 
-	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/pg-jobs2.png)  
+	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/pg-jobs2.png)
 
 7. Per monitorare lo stato della protezione, fare clic su **Elementi protetti** > nome del gruppo di protezione > **Macchine virtuali**. Dopo il completamento della replica iniziale e la sincronizzazione dei dati nei computer, verrà visualizzato lo stato **Protetto**.
 
-	![Processi di macchine virtuali](./media/site-recovery-vmware-to-azure-classic-legacy/pg-jobs.png)  
+	![Processi di macchine virtuali](./media/site-recovery-vmware-to-azure-classic-legacy/pg-jobs.png)
 
 
 ### Impostare le proprietà dei computer protetti
@@ -745,7 +745,7 @@ Si noti che:
 	- b) Nella scheda **Macchine virtuali** selezionare la macchina virtuale e fare clic su **Rimuovi**.
 	- c) In **Rimuovi macchina virtuale** selezionare l'opzione **Disabilita protezione (Usare per analisi ripristino e ridimensionamento volume)**. Questa opzione disabilita la protezione ma mantiene i punti di ripristino in Azure.
 
-		![Impostare le proprietà di una macchina virtuale](./media/site-recovery-vmware-to-azure-classic-legacy/remove-vm.png)  
+		![Impostare le proprietà di una macchina virtuale](./media/site-recovery-vmware-to-azure-classic-legacy/remove-vm.png)
 
 	- d) Abilitare nuovamente la protezione per la macchina virtuale. Quando si abilita nuovamente la protezione, i dati per il volume ridimensionato verranno trasferiti in Azure.
 
@@ -763,11 +763,11 @@ Attualmente è possibile eseguire solo failover non pianificati per le macchine 
 
 1. Nella pagina **Piani di ripristino** aggiungere un piano di ripristino. Specificare i dettagli per il piano e selezionare **Azure** come destinazione.
 
-	![Configurare un piano di ripristino](./media/site-recovery-vmware-to-azure-classic-legacy/rplan1.png)  
+	![Configurare un piano di ripristino](./media/site-recovery-vmware-to-azure-classic-legacy/rplan1.png)
 
 2. In **Seleziona macchine virtuali** selezionare un gruppo di protezione e quindi i computer nel gruppo da aggiungere al piano di ripristino. [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
 
-	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic-legacy/rplan2.png)  
+	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic-legacy/rplan2.png)
 
 3. Se necessario, è possibile personalizzare il piano per creare gruppi e una sequenza dell'ordine in cui verrà eseguito il failover dei computer nel piano di ripristino. È anche possibile aggiungere istruzioni per azioni manuali e script. Gli script durante il ripristino in Azure possono essere aggiunti tramite i [runbook di automazione di Azure](site-recovery-runbook-automation.md).
 
@@ -804,11 +804,11 @@ Se un server di elaborazione è in stato critico, nel dashboard di Site Recovery
 1. Aprire **Server** > **Server di configurazione**. Selezionare il server di configurazione e aprire **Dettagli server**.
 2. Fare clic su **Server di elaborazione** > **Cambia server di elaborazione** accanto al server da modificare.
 
-	![Modificare il server di elaborazione 1](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)  
+	![Modificare il server di elaborazione 1](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)
 
 3. In **Cambia server di elaborazione** > **Server di elaborazione di destinazione** selezionare il nuovo server da usare e quindi selezionare le macchine virtuali da replicare nel nuovo server. Fare clic sull'icona informazioni accanto al nome del server per informazioni dettagliate sullo spazio disponibile e la memoria usata. Per consentire di prendere le decisioni relative al carico, viene visualizzato lo spazio medio che sarà necessario per replicare ogni macchina virtuale selezionata nel nuovo server di elaborazione.
 
-	![Modificare il server di elaborazione 2](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)  
+	![Modificare il server di elaborazione 2](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)
 
 4. Fare clic sul segno di spunta per avviare la replica nel nuovo server di elaborazione. Si noti che se si rimuovono tutte le macchine virtuali da un server di elaborazione in stato critico, per tale server non dovrebbe più essere visualizzato un avviso critico nel dashboard.
 

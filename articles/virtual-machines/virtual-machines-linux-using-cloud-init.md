@@ -17,7 +17,7 @@
     ms.topic="article"
     ms.date="08/30/2016"
     ms.author="v-livech"
-/>  
+/>
 
 # Uso di cloud-init per personalizzare una VM Linux durante la creazione
 

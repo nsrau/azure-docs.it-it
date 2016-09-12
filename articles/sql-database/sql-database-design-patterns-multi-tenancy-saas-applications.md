@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-design"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Modelli di progettazione per le applicazioni SaaS multi-tenant e il database SQL di Azure
 

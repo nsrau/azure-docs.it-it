@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/30/2016"
-   ms.author="rick.byham@microsoft.com"/>  
+   ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
 

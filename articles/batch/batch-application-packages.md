@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="08/25/2016"
-	ms.author="marsma" />  
+	ms.author="marsma" />
 
 # Distribuzione delle applicazioni con i pacchetti dell’applicazione di Azure Batch.
 
@@ -38,7 +38,7 @@ Questa funzionalità è stata introdotta nella versione 2015-12-01.2.2 dell'[API
 
 Per *applicazione* in Azure Batch si intende un set di file binari con versione che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un *pacchetto dell'applicazione* è invece un *set specifico* di tali file binari e rappresenta una *versione* specifica dell'applicazione.
 
-![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]  
+![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
 
 ### Applicazioni
 
@@ -78,7 +78,7 @@ Per usare i pacchetti dell'applicazione, è prima necessario collegare un accoun
 
 > [AZURE.IMPORTANT] Batch supporta attualmente *solo* account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, collegare *solo* un account di archiviazione **per utilizzo generico**.
 
-![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]  
+![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]
 
 Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo. Selezionare **Impostazioni account di archiviazione** nel pannello **Avviso** e quindi fare clic su **Account di archiviazione** nel pannello **Account di archiviazione** per collegare un account di archiviazione a un account Batch.
 
@@ -96,7 +96,7 @@ Per visualizzare le applicazioni nell'account Batch, fare clic sul riquadro **Ap
 
 Verrà aperto il pannello **Applicazioni**:
 
-![Elenco applicazioni][3]  
+![Elenco applicazioni][3]
 
 Nel pannello **Applicazioni** vengono visualizzati l'ID di ogni applicazione nell'account e le proprietà seguenti:
 
@@ -156,7 +156,7 @@ Dopo aver selezionato un file, fare clic su **OK** per avviare il caricamento in
 
 Per aggiungere una nuova versione del pacchetto dell'applicazione per un'applicazione esistente, selezionare un'applicazione nel pannello **Applicazioni**, fare clic su **Pacchetti** e quindi su **Aggiungi** per visualizzare il pannello **Aggiungi pacchetto**.
 
-![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]  
+![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]
 
 Come si può notare, i campi corrispondono a quelli del pannello **Nuova applicazione**, ad eccezione della casella **ID applicazione** che è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
 
@@ -164,19 +164,19 @@ Come si può notare, i campi corrispondono a quelli del pannello **Nuova applica
 
 Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire il pannello dei dettagli relativo all'applicazione, fare clic su **Pacchetti** per visualizzare il pannello **Pacchetti**, fare clic sui **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.
 
-![Aggiornare o eliminare pacchetto nel portale di Azure][7]  
+![Aggiornare o eliminare pacchetto nel portale di Azure][7]
 
 **Update**
 
 Se si seleziona **Aggiorna**, verrà visualizzato il pannello *Aggiorna pacchetto*. Questo pannello è simile al pannello usato per creare un *nuovo pacchetto dell'applicazione*. In questo caso, però, è abilitato solo il campo di selezione del pacchetto, in cui è possibile specificare un nuovo file ZIP da caricare.
 
-![Pannello Aggiorna pacchetto nel portale di Azure][11]  
+![Pannello Aggiorna pacchetto nel portale di Azure][11]
 
 **Eliminazione**
 
 Se si seleziona **Elimina**, verrà chiesto di confermare l'eliminazione della versione del pacchetto e Batch eliminerà il pacchetto da Archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, verrà rimossa l'impostazione **Versione predefinita** per l'applicazione.
 
-![Eliminare applicazione][12]  
+![Eliminare applicazione][12]
 
 ## Installare le applicazioni su nodi di calcolo
 
@@ -238,11 +238,11 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 
 I pacchetti specificati per un pool o un'attività vengono scaricati ed estratti in una directory denominata all'interno del nodo `AZ_BATCH_ROOT_DIR`. Batch crea anche una variabile di ambiente che contiene il percorso della directory denominata. Le righe di comando dell'attività usano questa variabile di ambiente quando fanno riferimento all'applicazione nel nodo. La variabile è nel formato seguente:
 
-`AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`  
+`AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
 `APPLICATIONID` e `version` sono valori che corrispondono all'applicazione e alla versione del pacchetto specificati per la distribuzione. Se ad esempio si specifica l'installazione della versione 2.7 dell'applicazione *blender*, le righe di comando dell'attività useranno questa variabile di ambiente per accedere ai file corrispondenti:
 
-`AZ_BATCH_APP_PACKAGE_BLENDER#2.7`  
+`AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
 Se si specifica una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione. Se ad esempio è stata specificata la versione predefinita "2.7" per l'applicazione *blender*, le attività possono fare riferimento alla variabile di ambiente seguente per eseguire la versione 2.7:
 

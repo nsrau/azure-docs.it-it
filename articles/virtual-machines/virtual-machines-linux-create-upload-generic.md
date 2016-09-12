@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="szark"/>  
+	ms.author="szark"/>
 
 # Informazioni per le distribuzioni non approvate #
 
@@ -111,7 +111,7 @@ Per risolvere questo problema, è possibile ridimensionare la macchina virtuale 
 
 I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (cioè 3.x) questi driver sono già disponibili; in alternativa, fornire versioni backport dei driver con i relativi kernel. Questi driver vengono aggiornati costantemente nel kernel upstream con nuove correzioni e funzionalità, pertanto, quando è possibile, è consigliabile eseguire una [distribuzione approvata](virtual-machines-linux-endorsed-distros.md), che include tali correzioni e aggiornamenti.
 
-Se si esegue una variante di Red Hat Enterprise Linux versioni **6.0-6.3**, è necessario installare i driver LIS più recenti per Hyper-V. I driver sono disponibili [a questo indirizzo](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Per quanto riguarda RHEL **6.4 e versioni successive ** (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e pertanto non sono necessari pacchetti di installazione aggiuntivi per eseguire tali sistemi su Azure.
+Se si esegue una variante di Red Hat Enterprise Linux versioni **6.0-6.3**, è necessario installare i driver LIS più recenti per Hyper-V. I driver sono disponibili [a questo indirizzo](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Per quanto riguarda RHEL **6.4 e versioni successive** (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e pertanto non sono necessari pacchetti di installazione aggiuntivi per eseguire tali sistemi su Azure.
 
 Se è necessario un kernel personalizzato, è consigliabile usare una versione più recente del kernel (ad esempio **3.8 e versioni successive**). Per le distribuzioni o i fornitori che gestiscono il proprio kernel, è consigliabile eseguire il backport ai driver LIS dal kernel upstream al kernel personalizzato. Anche se si esegue già una versione relativamente recente del kernel, è generalmente consigliabile tenere traccia di eventuali correzioni upstream nei driver LIS ed eseguirne il backport in base alle esigenze. La posizione dei file di origine dei driver LIS è disponibile nel file [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) nell'albero di origine del kernel Linux:
 

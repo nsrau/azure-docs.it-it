@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
 	ms.date="08/31/2016" 
-	ms.author="cephalin"/>  
+	ms.author="cephalin"/>
 
 # Creare un'app line-of-business in Azure con l'autenticazione di Azure Active Directory #
 
@@ -53,17 +53,17 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 3. Selezionare il modello **MVC**, quindi modificare l'autenticazione in **Nessuna autenticazione**. Assicurarsi che **Ospita nel cloud** sia selezionata e fare clic su **OK**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/1-create-mvc-no-authentication.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/1-create-mvc-no-authentication.png)
 
 4. Nella finestra di dialogo **Crea servizio App** fare clic su **Aggiungi un account** (e quindi **Aggiungi un account** nell'elenco a discesa) per accedere al proprio account Azure.
 
 5. Dopo aver eseguito l'accesso, configurare l'app Web. Creare un gruppo di risorse e un nuovo piano di servizio app facendo clic sul pulsante **Nuovo** corrispondente. Fare clic su **Esplora altri servizi di Azure** per continuare.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
 6. Nella scheda**Servizi** , fare clic su **+** per aggiungere un database SQL per l'app.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 
 7. In **Configura database SQL** fare clic su **Nuovo** per creare un'istanza di SQL Server.
 
@@ -82,11 +82,11 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 2. Nel menu a sinistra fare clic su **Servizi app** > **&lt;*nomeapp*>** > **Autenticazione / Autorizzazione**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 
 3. Attivare l'autenticazione di Azure Active Directory facendo clic su **Sì** > **Azure Active Directory** > **Rapida** > **OK**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/6-authentication-express.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/6-authentication-express.png)
 
 4. Fare clic su **Salva** nella barra dei comandi.
 
@@ -98,7 +98,7 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 6. Nel menu a sinistra fare clic su **Active Directory** > **Directory predefinita** > **Applicazioni** > **&lt;*nomeapp*>**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
 
 	Questa è l'applicazione Azure Active Directory creata automaticamente dal servizio app per abilitare la Autorizzazione/Autenticazione.
 
@@ -110,11 +110,11 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 8. Scorrere verso il basso fino alla sezione **Chiavi** e aggiungere una chiave selezionando una durata. Fare quindi clic su **Autorizzazioni delegate** e selezionare **Leggi i dati della directory**. Fare clic su **Salva**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/10-configure-aad-application.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/10-configure-aad-application.png)
 
 8. Dopo aver salvato le impostazioni, scorrere tornando alla sezione **Chiavi** e fare clic su **Copia** per copiare la chiave client.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/11-get-app-key.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/11-get-app-key.png)
 
 	>[AZURE.IMPORTANT] Se si esce dalla pagina ora, non sarà mai più possibile accedere a questa chiave client.
 
@@ -122,13 +122,13 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 10. Nella parte superiore della pagina fare clic su **Lettura/Scrittura** per apportare modifiche in Esplora risorse di Azure.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
 
-11. Trovare le impostazioni di autenticazione per l'app disponibili in sottoscrizioni > **& lt;*nomesottoscrizione*>** > **gruppidirisorse** > **& lt;*nomegruppodirisorse*>** > **provider** > **Microsoft.Web** > **siti** > **&lt;*nomeapp*>** > **config** > **authsettings**.
+11. Trovare le impostazioni di autenticazione per l'app disponibili in sottoscrizioni > **&lt;*nomesottoscrizione*>** > **gruppidirisorse** > **&lt;*nomegruppodirisorse*>** > **provider** > **Microsoft.Web** > **siti** > **&lt;*nomeapp*>** > **config** > **authsettings**.
 
 12. Fare clic su **Modifica**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
 
 13. Nel riquadro di modifica impostare le proprietà `clientSecret` e `additionalLoginParams` come indicato di seguito.
 
@@ -193,7 +193,7 @@ Verrà creato un semplice progetto di gestione degli elementi di lavoro CRUD.
 
 10.	Selezionare il modello creato, fare clic su **+**, quindi su **Aggiungi** per aggiungere un contesto dei dati e infine fare clic su **Aggiungi**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 
 9.	Aprire ~\\Controllers\\WorkItemsController.cs.
 
@@ -316,7 +316,7 @@ Verrà creato un semplice progetto di gestione degli elementi di lavoro CRUD.
 
 18. In Gestione pacchetti NuGet fare clic su Sfoglia, digitare **jquery-ui** nella barra di ricerca e fare clic su **jQuery.UI.Combined**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/17-add-jquery-ui-nuget.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/17-add-jquery-ui-nuget.png)
 
 19. Nel riquadro di destra fare clic su **Installa**, e quindi su **OK** per continuare.
 
@@ -354,13 +354,13 @@ Verrà creato un semplice progetto di gestione degli elementi di lavoro CRUD.
 
 21. Fare clic su **Impostazioni**, assicurarsi che sia disponibile una stringa di connessione al database SQL, selezionare **Aggiorna database** per apportare le modifiche allo schema per il modello e fare clic su **Pubblica**.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/18-publish-crud-changes.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/18-publish-crud-changes.png)
 
 22. Nel browser passare a https://&lt;*appname*>.azurewebsites.net/workitems e fare clic su **Crea nuovo**.
 
 23. Fare clic sulla casella **AssignedToName**. Gli utenti e i gruppi del tenant di Azure Active Directory verranno visualizzati in un elenco a discesa. È possibile digitare per filtrare o usare la chiave `Up` o `Down` oppure fare clic per selezionare l'utente o il gruppo.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/19-use-aadpicker.png)  
+	![](./media/web-sites-dotnet-lob-application-azure-ad/19-use-aadpicker.png)
 
 24. Fare clic su **Salva** per salvare le modifiche. Quindi, fare clic su **Modifica** nell'elemento di lavoro creato per osservare lo stesso comportamento.
 

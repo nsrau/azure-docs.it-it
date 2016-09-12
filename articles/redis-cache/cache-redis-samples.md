@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Esempi di Cache Redis di Azure 
 

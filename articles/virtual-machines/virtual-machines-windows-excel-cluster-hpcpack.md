@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
  ms.date="08/25/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Introduzione all'esecuzione di carichi di lavoro Excel e SOA in un cluster HPC Pack in Azure
 
@@ -25,7 +25,7 @@ In questo articolo viene illustrato come distribuire un cluster Microsoft HPC Pa
 
 Il seguente diagramma illustra in modo generale il cluster HPC Pack che verrà creato.
 
-![Cluster HPC con nodi che eseguono carichi di lavoro di Excel][scenario]  
+![Cluster HPC con nodi che eseguono carichi di lavoro di Excel][scenario]
 
 ## Prerequisiti
 
@@ -58,7 +58,7 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e 
 
     a. Nella pagina **Parametri**, immettere o modificare i valori dei parametri del modello. (Per visualizzare informazioni della Guida, fare clic sull'icona accanto a ogni impostazione). Nella seguente schermata vengono visualizzati valori di esempio. In questo esempio viene creato un cluster denominato *hpc01* nel dominio *hpc.local*, composto da un nodo head e 2 nodi di calcolo. I nodi di calcolo vengono creati da un'immagine di VM di HPC Pack che include Microsoft Excel.
 
-    ![Immettere i parametri][parameters]  
+    ![Immettere i parametri][parameters]
 
     >[AZURE.NOTE]La VM del nodo head viene creata automaticamente dall'[immagine più recente del Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di HPC Pack 2012 R2 su Windows Server 2012 R2. Attualmente l'immagine è basata su HPC Pack 2012 R2 Update 3.
     >
@@ -80,7 +80,7 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e 
 
     b. Seguire le procedure standard in usare Gestione certificati per esportare il certificato del nodo head (situato in Cert: \\LocalMachine\\My) senza la chiave privata. In questo esempio esportare *CN = hpc01.eastus.cloudapp.azure.com*.
 
-    ![Esportare il certificato][cert]  
+    ![Esportare il certificato][cert]
 
 ### Opzione 2. Uso dello script di distribuzione di HPC Pack IaaS
 
@@ -238,11 +238,11 @@ Per eseguire l'offload di una cartella di lavoro di Excel in modo da eseguirla n
 
 7.	Aprire la cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **COM Add-Ins** e verificare che il componente aggiuntivo HPC Pack Excel COM venga caricato correttamente.
 
-    ![Componente aggiuntivo Excel per HPC Pack][addin]  
+    ![Componente aggiuntivo Excel per HPC Pack][addin]
 
 8.	Modificare la macro VBA HPCControlMacros in Excel cambiando le righe commentate, come illustrato nello script seguente. Sostituire con i valori appropriati per il proprio ambiente.
 
-    ![Macro Excel per HPC Pack][macro]  
+    ![Macro Excel per HPC Pack][macro]
 
     ```
     'Private Const HPC_ClusterScheduler = "HEADNODE_NAME"
@@ -275,7 +275,7 @@ Dopo aver correttamente distribuito il cluster, continuare con la procedura segu
 
 1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio. Se il ClusterUDF32 non esiste nel computer client, copiarlo dalla cartella %CCP\_HOME%Bin\\XLL32 nel nodo head.
 
-    ![Selezionare la UDF][udf]  
+    ![Selezionare la UDF][udf]
 
 2.	Fare clic su **File** > **Opzioni** > **Avanzate**. In **Formule** selezionare **Allow user-defined XLL functions to run a compute cluster** (Consenti l'esecuzione di funzioni XLL definite dall'utente in un cluster di elaborazione). Fare clic su **Opzioni** e immettere il nome completo del cluster in **Nome del nodo head del cluster**. (Come indicato in precedenza la casella di immissione è limitata a 34 caratteri, pertanto un nome di cluster lungo potrebbe non essere adatto. Per i nomi di cluster lunghi, è possibile usare una variabile a livello di computer).
 
@@ -283,7 +283,7 @@ Dopo aver correttamente distribuito il cluster, continuare con la procedura segu
 
 3.	Per eseguire il calcolo della funzione UDF nel cluster, fare clic sulla cella con valore =XllGetComputerNameC() e premere Invio. La funzione recupera semplicemente il nome del nodo di calcolo in cui viene eseguita la funzione UDF. Per la prima esecuzione, una finestra di dialogo per l'immissione delle credenziali richiede nome utente e password per connettersi al cluster IaaS.
 
-    ![Eseguire una UDF][run]  
+    ![Eseguire una UDF][run]
 
     Quando le celle da elaborare sono molte, premere ALT-MAIUSC-CTRL + F9 per eseguire il calcolo su tutte le celle.
 
@@ -359,7 +359,7 @@ Per usare l'associazione NetTcp, la configurazione è simile alla connessione a 
 
 2. Aggiungere le porte TCP 9090, 9087, 9091, 9094 rispettivamente per Sessione, Broker, Broker worker e Servizi dati
 
-    ![Configurare gli endpoint][endpoint]  
+    ![Configurare gli endpoint][endpoint]
 
 3. Avviare la VM.
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>  
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuzione di tabelle in SQL Data Warehouse
 

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="singhkay"/>  
+	ms.author="singhkay"/>
 
 # Strumenti della community per la gestione del servizio Azure durante la migrazione di Azure Resource Manager
 

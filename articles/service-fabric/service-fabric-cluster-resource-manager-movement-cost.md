@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/19/2016"
-   ms.author="masnider"/>  
+   ms.author="masnider"/>
 
 # Costo dello spostamento del servizio per influenzare le scelte di Cluster Resource Manager
 Un fattore importante da considerare durante l'identificazione delle modifiche da apportare a un cluster e il punteggio di una soluzione è il costo complessivo dell'ottenimento di tale soluzione.
@@ -36,7 +36,7 @@ this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 
 MoveCost ha quattro livelli: Zero, Low, Medium e High. Questi sono correlati, escluso il livello Zero. Zero indica che lo spostamento di una replica è gratuito e non deve influire sul punteggio della soluzione. Impostare il costo di spostamento su High *non* garantisce che la replica non verrà spostata, ma solo che non sarà spostata senza un valido motivo.
 
-![Costo di spostamento come fattore da considerare per la selezione delle repliche da spostare][Image1]  
+![Costo di spostamento come fattore da considerare per la selezione delle repliche da spostare][Image1]
 
 MoveCost consente di trovare le soluzioni che causano un'interruzione complessivamente minima e che sono più facili da realizzare garantendo allo stesso tempo un bilanciamento equivalente. Il concetto di costo di un servizio può essere correlato a molti aspetti. I fattori più comuni per il calcolo del costo di spostamento sono:
 

@@ -14,12 +14,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
 
-![Cos'è Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)  
+![Cos'è Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)
 
 ## Tabella 1 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e l'AD locale.

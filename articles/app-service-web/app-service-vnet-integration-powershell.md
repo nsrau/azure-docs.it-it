@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="ccompy"/>  
+	ms.author="ccompy"/>
 
 # Connettere l'app alla rete virtuale tramite PowerShell #
 
@@ -721,7 +721,7 @@ La disconnessione dell'app dalla rete virtuale non provoca l'arresto del gateway
 
 Anche se lo script usa il termine "delete", non elimina effettivamente la rete virtuale. Rimuove solo l'integrazione. Dopo la conferma dell'utente, il comando viene elaborato molto rapidamente e al termine restituisce **True**.
 
-<!--Links-->  
+<!--Links-->
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Scalare un'app Web in Servizio app di Azure
 
@@ -89,7 +89,7 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 - [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running

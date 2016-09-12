@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/25/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 
 # Ciclo di vita dell'applicazione Service Fabric

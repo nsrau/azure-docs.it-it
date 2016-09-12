@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>  
+	ms.author="stbaro"/>
 
 # Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB
 

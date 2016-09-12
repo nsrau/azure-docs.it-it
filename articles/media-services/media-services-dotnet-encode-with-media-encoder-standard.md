@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
  	ms.date="08/30/2016"
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/>
 
 
 # Codificare un asset con Media Encoder Standard mediante .NET

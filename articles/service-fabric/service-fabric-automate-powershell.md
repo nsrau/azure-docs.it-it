@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="ryanwi"/>  
+	ms.author="ryanwi"/>
 
 # Automatizzare il ciclo di vita dell'applicazione tramite PowerShell
 

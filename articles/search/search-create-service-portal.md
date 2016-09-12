@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/29/2016"
-	ms.author="ashmaka"/>  
+	ms.author="ashmaka"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
 

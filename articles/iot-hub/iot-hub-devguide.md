@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/11/2016" 
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # Guida per gli sviluppatori dell'hub IoT di Azure
 
@@ -68,7 +68,7 @@ Quando si usano SDK (o integrazioni del prodotto) non compatibili con l'hub IoT,
 1. Nel pannello dell'hub IoT fare clic su **Messaggistica**.
 2. La sezione **Impostazioni da dispositivo a cloud** include i valori seguenti: **Endpoint compatibile con l'hub eventi**, **Nome compatibile con l'hub eventi** e **Partizioni**.
 
-    ![Impostazioni da dispositivo a cloud][img-eventhubcompatible]  
+    ![Impostazioni da dispositivo a cloud][img-eventhubcompatible]
 
 > [AZURE.NOTE] Se l'SDK richiede un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema da **Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
@@ -384,7 +384,7 @@ Per implementare la garanzia di almeno un recapito, i messaggi da cloud a dispos
 
 Il diagramma seguente illustra il grafico sullo stato del ciclo di vita per un messaggio da cloud a dispositivo.
 
-![Ciclo di vita dei messaggi da cloud a dispositivo][img-lifecycle]  
+![Ciclo di vita dei messaggi da cloud a dispositivo][img-lifecycle]
 
 Quando il servizio invia un messaggio, questo viene considerato *Accodato*. Quando un dispositivo accetta di *ricevere* un messaggio, l'hub IoT *blocca* il messaggio (impostando lo stato su **Invisibile**) per consentire ad altri thread nello stesso dispositivo di iniziare a ricevere altri messaggi. Quando un thread del dispositivo termina l'elaborazione di un messaggio, invia una notifica all'hub IoT *completando* il messaggio.
 
@@ -424,8 +424,8 @@ Ogni messaggio recuperato da un dispositivo dall'endpoint di commenti ha le prop
 | Proprietà | Descrizione |
 | -------- | ----------- |
 | EnqueuedTime | Timestamp che indica quando è stato creato il messaggio. |
-| UserId | `{iot hub name}`   |
-| ContentType | `application/vnd.microsoft.iothub.feedback.json`   |
+| UserId | `{iot hub name}` |
+| ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
 Il corpo è una matrice serializzata con JSON dei record, ognuno con le proprietà seguenti:
 
@@ -561,7 +561,7 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità dei dispositivi.
 
-Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
+Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitazione dell'hub IoT).
 
 >[AZURE.NOTE] È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 

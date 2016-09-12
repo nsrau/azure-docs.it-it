@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Configurare le impostazioni dell'immagine di Azure Marketplace in un lab
 
@@ -34,7 +34,7 @@ Lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su 
 
 1. Nel pannello **Impostazioni** selezionare **Immagini Marketplace**
 
-	![Configurare l'uso delle immagini di Azure Marketplace](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)  
+	![Configurare l'uso delle immagini di Azure Marketplace](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
 
 1. Specificare se si desidera che tutte le immagini di Azure Marketplace qualificate siano disponibili per essere usate come base di una nuova macchina virtuale. Se si seleziona **Sì**, tutte le immagini di Azure Marketplace che soddisfano tutti i criteri seguenti saranno disponibili nel lab:
 
@@ -48,7 +48,7 @@ Lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su 
  
 1. Se si seleziona **No** nel passaggio precedente, la casella di controllo **Immagini consentite/Seleziona tutto** verrà abilitata. È possibile usare questa opzione con la casella di ricerca per selezionare o deselezionare rapidamente tutti gli elementi visualizzati nell'elenco. È inoltre possibile selezionare le singole immagini di Azure Marketplace che si desidera rendere disponibili per la creazione di macchine virtuali selezionando la casella di controllo corrispondente all'immagine. Non selezionare alcuna voce nell'elenco se non si desidera rendere disponibile alcuna immagine di Azure Marketplace per l'uso nel lab.
 
-	![È possibile specificare quali immagini di Azure Marketplace possono essere usate come immagini di base per le macchine virtuali](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)  
+	![È possibile specificare quali immagini di Azure Marketplace possono essere usate come immagini di base per le macchine virtuali](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

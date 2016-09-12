@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
 	ms.date="08/31/2016" 
-	ms.author="cephalin"/>  
+	ms.author="cephalin"/>
 
 # Eseguire l'autenticazione con l'istanza locale di Active Directory nell'app Azure #
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="swkrish"/>  
+	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: tenant B2C a livello di produzione e di anteprima
 
@@ -35,7 +35,7 @@ I tenant di Azure AD B2C (per gli utenti) sono attualmente disponibili in alcuni
 
 ## Tenant B2C a livello di produzione in America del Nord
 
-Se è stato [creato un tenant B2C](active-directory-b2c-get-started.md) in America del Nord, ad esempio, in uno dei paesi o delle aree geografiche seguenti: Stati Uniti, Canada, Costa Rica, Repubblica dominicana, El Salvador, Guatemala, Messico, Panama, Portorico e Trinidad e Tobago E **Tipo di tenant ** nell'interfaccia utente di amministrazione di B2C indica **Tenant a livello di produzione**, il tenant può essere usato per le app di produzione.
+Se è stato [creato un tenant B2C](active-directory-b2c-get-started.md) in America del Nord, ad esempio, in uno dei paesi o delle aree geografiche seguenti: Stati Uniti, Canada, Costa Rica, Repubblica dominicana, El Salvador, Guatemala, Messico, Panama, Portorico e Trinidad e Tobago E **Tipo di tenant** nell'interfaccia utente di amministrazione di B2C indica **Tenant a livello di produzione**, il tenant può essere usato per le app di produzione.
 
 > [AZURE.NOTE]
 I tenant a livello di produzione sono ridimensionabili fino a centinaia di milioni di identità utente per ogni tenant.
@@ -49,7 +49,7 @@ Se è stato creato un tenant B2C durante il periodo di anteprima di Azure AD B2C
 > [AZURE.IMPORTANT]
 Non esiste un percorso di migrazione da una versione di anteprima del tenant B2C a un tenant B2C a livello di produzione. Si noti che si verificano problemi noti quando si elimina un tenant B2C di anteprima e viene creato un tenant B2C a livello di produzione con lo stesso nome di dominio. È necessario creare un tenant B2C a livello di produzione con un nome di dominio diverso.
 
-![Screenshot di un tenant di anteprima](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)  
+![Screenshot di un tenant di anteprima](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
 
 ## Tenant B2C a livello di produzione al di fuori dell'America del Nord
 

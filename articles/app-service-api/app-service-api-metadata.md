@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Metadati delle app per le API del servizio app per l'individuazione di API e la generazione di codice 
 

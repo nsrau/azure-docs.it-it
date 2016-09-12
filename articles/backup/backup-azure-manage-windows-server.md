@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/19/2016"
-	ms.author="jimpark; markgal"/>  
+	ms.author="jimpark; markgal"/>
 
 
 # Monitorare e gestire i server e gli insiemi di credenziali dei servizi di ripristino di Azure per i computer Windows
@@ -49,7 +49,7 @@ I processi e gli avvisi vengono monitorati dal dashboard dell'insieme di credenz
 - Spazio di archiviazione totale utilizzato in Azure
 - Stato dei processi di backup
 
-![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)  
+![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
 Fare clic sulle informazioni in ogni riquadro per aprire il pannello associato dove si gestiscono le attività correlate.
 
@@ -59,12 +59,12 @@ Nella parte superiore del dashboard:
 - Backup: consente di eseguire il backup di nuovi file e cartelle (o VM di Azure) nell'insieme di credenziali dei servizi di ripristino.
 - Elimina: se un insieme di credenziali dei servizi di ripristino non è più in uso, è possibile eliminarlo per liberare spazio di archiviazione. L'opzione Elimina viene abilitata solo dopo l'eliminazione di tutti i server protetti dall'insieme di credenziali.
 
-![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)  
+![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
 ## Gestire gli avvisi di backup
 Fare clic sul riquadro **Avvisi di backup** per aprire il pannello **Avvisi di backup** e gestire gli avvisi.
 
-![Avvisi di backup](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)  
+![Avvisi di backup](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
 Il riquadro Avvisi di backup mostra il numero di:
 
@@ -77,15 +77,15 @@ Nel pannello Avvisi di backup è possibile:
 
 - Scegliere le informazioni appropriate da includere con gli avvisi.
 
-    ![Scegliere le colonne](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)  
+    ![Scegliere le colonne](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 
 - Filtrare gli avvisi per gravità, stato e ora di inizio/fine.
 
-    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/filter-alerts.png)  
+    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/filter-alerts.png)
 
 - Configurare le notifiche in relazione a gravità, frequenza e destinatari, oltre ad attivare o disattivare gli avvisi.
 
-    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/configure-notifications.png)  
+    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
 Se si seleziona **Per ogni avviso** come frequenza per **Notifica**, nei messaggi di posta elettronica non vengono eseguiti raggruppamenti o riduzioni. Ogni avviso restituisce 1 notifica. Questa è l'impostazione predefinita e viene anche inviato immediatamente il messaggio di posta elettronica relativo alla risoluzione.
 
@@ -108,17 +108,17 @@ Nel portale di gestione ora è disponibile la gestione dei backup locali. Nella 
 
 Fare clic su **File-cartelle** nel riquadro Elementi di backup.
 
-![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items-tile.png)  
+![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
 Il pannello Elementi di backup si apre con il filtro impostato su File-cartella, dove è possibile vedere elencato ogni elemento di backup specifico.
 
-![Elementi di backup](./media/backup-azure-manage-windows-server/backup-item-list.png)  
+![Elementi di backup](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Se si fa clic su un elemento di backup specifico nell'elenco, vengono visualizzati i dettagli più importanti dell'elemento.
 
 >[AZURE.NOTE] Nel pannello **Impostazioni** si gestiscono file e cartelle selezionando **Elementi protetti > Elementi di backup** e quindi scegliendo **File-Cartelle** dal menu a discesa.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)  
+![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
 ## Gestire i processi di backup
 I processi di backup per i backup sia locali (quando il server locale esegue il backup in Azure) che di Azure sono visibili nel dashboard.
@@ -150,7 +150,7 @@ Per gestire i server di produzione, fare clic su **Impostazioni**. In Gestisci f
 
 Il pannello Server di produzione elenca tutti i server di produzione disponibili. Fare clic su un server nell'elenco per aprire i dettagli del server.
 
-![Elementi protetti](./media/backup-azure-manage-windows-server/production-server-list.png)  
+![Elementi protetti](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 ## Attività dell'agente Backup di Microsoft Azure
 
@@ -158,7 +158,7 @@ Il pannello Server di produzione elenca tutti i server di produzione disponibili
 
 Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
 
-![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)  
+![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
 Dalle **Azioni** disponibili a destra della console dell'agente di backup è possibile eseguire le attività di gestione seguenti:
 
@@ -167,7 +167,7 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 - Esegui backup
 - Modifica proprietà
 
-![Azioni della console dell'agente Backup di Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)  
+![Azioni della console dell'agente Backup di Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
 
 >[AZURE.NOTE] Per **ripristinare i dati**, vedere [Ripristinare file da un computer che esegue Windows Server o un client Windows](backup-azure-restore-windows-server.md).
 
@@ -175,11 +175,11 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 
 1. Nell'agente di Backup di Microsoft Azure fare clic su **Pianifica backup**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 
 2. Nella **Pianificazione guidata backup** lasciare selezionata l'opzione **Modifica elementi o tempistica del backup** e fare clic su **Avanti**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 
 3. Per aggiungere o modificare elementi, nella schermata **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
 
@@ -187,19 +187,19 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
 
 4. Selezionare i file e le cartelle di cui si vuole eseguire il backup e fare clic su **OK**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
 
 5. Specificare la **pianificazione del backup** e fare clic su **Avanti**.
 
     È possibile pianificare backup giornalieri (non più di 3 al giorno) o settimanali.
 
-    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)  
+    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
 
     >[AZURE.NOTE] Per informazioni dettagliate su come specificare la pianificazione del backup, vedere questo [articolo](backup-azure-backup-cloud-as-tape.md).
 
 6. Selezionare i **criteri di conservazione** per la copia di backup e fare clic su **Avanti**.
 
-    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)  
+    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
 
 7. Nella schermata **Conferma** riesaminare le informazioni e fare clic su **Fine**.
 
@@ -216,7 +216,7 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
 2. Selezionare la casella di controllo **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
 
-    ![Limitazione della larghezza di banda della rete](./media/backup-azure-manage-windows-server/throttling-dialog.png)  
+    ![Limitazione della larghezza di banda della rete](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
 3. Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per il trasferimento dei dati di backup durante le **Ore lavorative** e le **Ore non lavorative**.
 
@@ -228,7 +228,7 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
 1. Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
 2. Nell'agente di Backup di Microsoft Azure fare clic su **Pianifica backup**.
 
@@ -236,31 +236,31 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
 3. Nella Pianificazione guidata backup lasciare selezionata l'opzione **Modifica elementi o tempistica del backup** e fare clic su **Avanti**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 
 4. Fare clic su **Impostazioni di esclusione**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)
 
 5. Fare clic su **Aggiungi esclusione**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)
 
 6. Selezionare il percorso e quindi fare clic su **OK**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
 
 7. Aggiungere l'estensione di file nel campo **Tipo file**.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
 
     Aggiunta di un'estensione mp3
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-mp3.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-mp3.png)
 
     Per aggiungere un'altra estensione, fare clic su **Aggiungi esclusione** e immettere l'estensione di un altro tipo di file, aggiungendo un'estensione jpeg.
 
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)  
+    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)
 
 8. Dopo aver aggiunto tutte le estensioni, fare clic su **OK**.
 

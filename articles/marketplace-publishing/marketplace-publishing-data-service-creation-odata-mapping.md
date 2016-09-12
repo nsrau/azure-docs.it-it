@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="08/26/2016"
-      ms.author="hascipio; avikova" />  
+      ms.author="hascipio; avikova" />
 
 # Mapping di un servizio Web esistente in OData tramite CSDL
 
@@ -27,11 +27,11 @@ Un CSDL (Conceptual Schema Definition Language) è una specifica che definisce l
 
 Panoramica semplice del **flusso della richiesta:**
 
-  `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`  
+  `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`
 
 Il **flusso di dati** è nella direzione opposta:
 
-  `Client <- Azure Marketplace <- Content Provider’s WebService`  
+  `Client <- Azure Marketplace <- Content Provider’s WebService`
 
 La **figura 1** illustra come un client ottiene i dati da un provider di contenuti (il servizio dell'utente) navigando attraverso Azure Marketplace. Il CSDL viene utilizzato dal componente di mapping o trasformazione per gestire la richiesta e trasmettere i dati tra servizi del provider di contenuti e il client che ha effettuato la richiesta.
 
@@ -51,7 +51,7 @@ Estratto dal collegamento precedente: *"Lo scopo del protocollo Open Data (d'ora
 
 Nel diagramma seguente viene illustrata una panoramica del flusso dal quale il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati.
 
-  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
 
 ### Passaggi:
 
@@ -83,7 +83,7 @@ Consente di definire le funzioni (SPROC) e le entità che vengono esposte tramit
 
 Di seguito viene illustrato il flusso di dettagli da sinistra a destra da cui il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati:
 
-  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
 
 ## Nozioni di base su CSDL

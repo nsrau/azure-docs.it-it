@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Azure AD B2C: usare l'API Graph
 

@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="08/30/2016"
-   	ms.author="larryfr"/>  
+   	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
 

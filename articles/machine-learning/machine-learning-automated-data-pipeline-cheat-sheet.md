@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="mithal;garye" />  
+	ms.author="mithal;garye" />
 
 # Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 

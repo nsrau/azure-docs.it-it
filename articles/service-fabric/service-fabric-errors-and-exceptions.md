@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/25/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 # Errori ed eccezioni comuni quando si usano le API FabricClient
 Le API [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) consentono agli amministratori di cluster e applicazioni di eseguire attività amministrative su applicazioni, servizi o cluster Service Fabric. Ad esempio, la distribuzione, l'aggiornamento e la rimozione di applicazioni, il controllo dell'integrità di un cluster o il test di un servizio. Gli sviluppatori di applicazioni e gli amministratori di cluster possono usare le API FabricClient per sviluppare strumenti per la gestione del cluster e delle applicazioni Service Fabric.

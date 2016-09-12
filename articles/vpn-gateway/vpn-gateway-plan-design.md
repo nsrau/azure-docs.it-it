@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/19/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Pianificazione e progettazione per il gateway VPN
 
@@ -147,7 +147,7 @@ Senza il tunneling forzato, il traffico associato a Internet dalle macchine virt
 
 **Diagramma tunneling forzato**
 
-![Connessione di tunneling forzato](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forzato")  
+![Connessione di tunneling forzato](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forzato")
 
 È possibile configurare una connessione di tunneling forzato in entrambi i modelli di distribuzione e tramite strumenti diversi. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 

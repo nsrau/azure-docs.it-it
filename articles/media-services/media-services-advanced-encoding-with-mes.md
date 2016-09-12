@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/30/2016"   
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Codifica avanzata con Media Encoder Standard

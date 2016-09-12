@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/26/2016"
-   ms.author="hascipio; avikova" />  
+   ms.author="hascipio; avikova" />
 
 # Prerequisiti tecnici per la creazione di un’offerta del servizio dati per Azure Marketplace
 

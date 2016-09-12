@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # Carta di credito o di debito rifiutata al momento dell'iscrizione
 

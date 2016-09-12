@@ -13,7 +13,7 @@
 	ms.devlang="multiple"
 	ms.topic="article" 
 	ms.date="08/26/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Diagnostica completa per servizi e app Web con Application Insights
 
@@ -21,7 +21,7 @@
 
 Application Insights consente di monitorare l'app Web in esecuzione, segnalando errori e problemi di prestazioni e aiutando ad analizzare l'utilizzo dell'app da parte dei clienti. Può essere utilizzato per le app in esecuzione su molte piattaforme (ASP.NET, J2EE, Node.js, ...) e può essere ospitato nel cloud oppure in locale.
 
-![Aspetti della complessità della distribuzione di app Web](./media/app-insights-devops/010.png)  
+![Aspetti della complessità della distribuzione di app Web](./media/app-insights-devops/010.png)
 
 È essenziale per monitorare un'applicazione moderna in esecuzione e, in particolare, per rilevare gli errori prima che si presentino ai clienti. È anche utile per rilevare e correggere i problemi di prestazioni che, pur non essendo gravi, possono rallentare il sistema o causare inconvenienti agli utenti. Quando invece il sistema funziona in modo soddisfacente, è opportuno sapere se gli utenti usano le funzionalità più recenti e se stanno traendo vantaggio dal programma.
 
@@ -61,7 +61,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 ## Informazioni su Azure Application Insights
 
 
-![Flusso di lavoro di base di Application Insights](./media/app-insights-devops/020.png)  
+![Flusso di lavoro di base di Application Insights](./media/app-insights-devops/020.png)
 
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.
@@ -109,7 +109,7 @@ Un altro aspetto di questa funzionalità è che consente di eseguire un'approfon
 
 In entrambi i casi, nell'avviso non sono indicati solo i sintomi osservati, ma anche i dati necessari per diagnosticare il problema, ad esempio report sulle eccezioni pertinenti.
 
-![Messaggio di posta dalla diagnostica proattiva](./media/app-insights-devops/030.png)  
+![Messaggio di posta dalla diagnostica proattiva](./media/app-insights-devops/030.png)
 
 Ricorda il cliente Samtec: "Ultimamente, durante una migrazione completa delle funzionalità, abbiamo scoperto che un database sottodimensionato stava raggiungendo i limiti di risorse e provocava timeout. Gli avvisi proattivi si sono presentati al momento stesso di valutare il problema, praticamente in tempo reale, come promesso. Questi e gli altri avvisi della piattaforma Azure ci hanno aiutato a risolvere il problema quasi nell'immediato. Tempo di inattività totale: neanche 10 minuti."
 
@@ -157,7 +157,7 @@ Durante lo sviluppo e il debug di una funzionalità, è possibile visualizzare e
 
 Inoltre, quando Application Insights esegue un'eccezione, è possibile visualizzare il punto dati in Visual Studio e passare direttamente al codice pertinente.
 
-![Ricerca di Visual Studio](./media/app-insights-devops/060.png)  
+![Ricerca di Visual Studio](./media/app-insights-devops/060.png)
 
 Durante il debug, è possibile scegliere di mantenere i dati di telemetria nel computer su cui si esegue lo sviluppo, visualizzandoli in Visual Studio, ma senza inviarli al portale. Con l'opzione locale si evita di mischiare il debug e la telemetria della produzione.
 
@@ -165,7 +165,7 @@ Durante il debug, è possibile scegliere di mantenere i dati di telemetria nel c
 
 Se si utilizza Visual Studio Team Services per compilare e distribuire l'app, nei grafici sul portale vengono visualizzate annotazioni sulla distribuzione. Qualunque effetto sulle metriche dovuto alla versione più recente risulterà molto evidente.
 
-![Annotazioni sulla compilazione](./media/app-insights-devops/070.png)  
+![Annotazioni sulla compilazione](./media/app-insights-devops/070.png)
 
 ### Elementi di lavoro 
 

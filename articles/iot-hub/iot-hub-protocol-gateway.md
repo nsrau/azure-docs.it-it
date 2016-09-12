@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/23/2016"
-   ms.author="kdotchko"/>  
+   ms.author="kdotchko"/>
 
 # Supporto di protocolli aggiuntivi per hub IoT
 

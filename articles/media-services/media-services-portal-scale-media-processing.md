@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Modificare il tipo di unità riservata
 
@@ -41,7 +41,7 @@ Per modificare il tipo di unità riservata e il numero di unità riservate, effe
 
 	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere S1, S2 o S3.
 
-	![Pagina relativa ai processori](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)  
+	![Pagina relativa ai processori](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 
 3. Fare clic sul pulsante SAVE per salvare le modifiche apportate.
 

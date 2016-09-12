@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="08/25/2016"
-	ms.author="ryansoc"/>  
+	ms.author="ryansoc"/>
 
 
 #  Sicurezza e gestione di Azure per enti pubblici

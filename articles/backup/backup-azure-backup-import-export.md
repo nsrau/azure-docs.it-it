@@ -54,7 +54,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 1. Durante la pianificazione di un backup verrà visualizzata la schermata seguente in Windows Server, nel client Windows o in System Center Data Protection Manager.
 
-    ![Schermata di importazione](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)  
+    ![Schermata di importazione](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Di seguito è riportata la schermata corrispondente in System Center Data Protection Manager: <br/> ![Schermata di importazione di DPM](./media/backup-azure-backup-import-export/dpmoffline.png)
 
@@ -74,15 +74,15 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 2. Completare il flusso di lavoro e quindi selezionare **Esegui backup** nella console di gestione di Backup di Azure per avviare la copia di backup offline. Durante questo passaggio il backup iniziale viene scritto nell'area di gestione temporanea.
 
-    ![Esegui backup ora](./media/backup-azure-backup-import-export/backupnow.png)  
+    ![Esegui backup ora](./media/backup-azure-backup-import-export/backupnow.png)
 
     Per completare il flusso di lavoro corrispondente in System Center Data Protection Manager, fare clic con il pulsante destro del mouse su **Gruppo protezione dati** e scegliere l'opzione **Crea punto di ripristino**. Scegliere quindi l'opzione **Protezione dati online**.
 
-    ![Esegui backup di DPM ora](./media/backup-azure-backup-import-export/dpmbackupnow.png)  
+    ![Esegui backup di DPM ora](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
     Al termine dell'operazione, il percorso di gestione temporanea è pronto per essere usato per la preparazione dei dischi.
 
-    ![Stato del backup](./media/backup-azure-backup-import-export/opbackupnow.png)  
+    ![Stato del backup](./media/backup-azure-backup-import-export/opbackupnow.png)
 
 ### Preparare l'unità SATA e creare un processo di importazione di Azure con lo strumento di preparazione dischi di Azure
 Lo strumento di preparazione dischi di Azure è disponibile nella directory di installazione dell'agente di Servizi di ripristino (aggiornamento di agosto 2016 e versioni successive) nel percorso seguente.
@@ -117,7 +117,7 @@ Quando si esegue il comando, lo strumento richiede di selezionare il processo di
 
 Lo strumento inizia quindi a preparare il disco con i dati di backup. Potrebbe essere necessario collegare dischi aggiuntivi quando richiesto dallo strumento, nel caso in cui lo spazio sul disco specificato non sia sufficiente a contenere i dati di backup. <br/>
 
-Al termine della corretta esecuzione dello strumento, uno o più dischi specificati vengono preparati per la spedizione ad Azure. Nel portale di Azure classico viene anche creato un processo di importazione con il nome specificato durante il flusso di lavoro di ** backup offline**. Lo strumento visualizza infine l'indirizzo del data center di Azure a cui i dischi devono essere spediti nonché il collegamento per individuare il processo di importazione nel portale di Azure classico.
+Al termine della corretta esecuzione dello strumento, uno o più dischi specificati vengono preparati per la spedizione ad Azure. Nel portale di Azure classico viene anche creato un processo di importazione con il nome specificato durante il flusso di lavoro di **backup offline**. Lo strumento visualizza infine l'indirizzo del data center di Azure a cui i dischi devono essere spediti nonché il collegamento per individuare il processo di importazione nel portale di Azure classico.
 
    ![Preparazione dischi di Azure completata](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 4. Spedire i dischi all'indirizzo indicato nello strumento e conservare il numero di tracciabilità come riferimento futuro.<br/>
@@ -166,7 +166,7 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
 ### Creazione di un processo di importazione nel portale di Azure
 1. Passare all'account di archiviazione nel [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Importa/Esporta** e quindi su **Crea processo di importazione** nel riquadro attività.
 
-    ![Scheda Importazione/Esportazione nel portale di Azure](./media/backup-azure-backup-import-export/azureportal.png)  
+    ![Scheda Importazione/Esportazione nel portale di Azure](./media/backup-azure-backup-import-export/azureportal.png)
 
 2. Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
 3. Nel passaggio 2 della procedura guidata specificare le informazioni di contatto per la persona responsabile di questo processo di importazione.
@@ -174,13 +174,13 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
 5. Nel passaggio 4 immettere un nome descrittivo per il processo di importazione come quello immesso durante la creazione del gruppo di criteri di backup/protezione. Il nome immesso può contenere solo lettere minuscole, numeri, segni meno e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo che sono stati completati.
 6. Selezionare quindi l'area geografica del data center dall'elenco. L'area geografica del data center indica il data center e l'indirizzo per la spedizione del pacchetto.
 
-    ![Selezionare l'area geografica del data center](./media/backup-azure-backup-import-export/dc.png)  
+    ![Selezionare l'area geografica del data center](./media/backup-azure-backup-import-export/dc.png)
 
 7. Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Questo account viene usato da Microsoft per restituire le unità all'utente al termine del processo di importazione.
 
 8. Spedire il disco e immettere il numero di tracciabilità per tenere traccia dello stato della spedizione. Dopo l'arrivo nel data center, il disco viene copiato nell'account di archiviazione e lo stato viene aggiornato.
 
-    ![Stato di completamento](./media/backup-azure-backup-import-export/complete.png)  
+    ![Stato di completamento](./media/backup-azure-backup-import-export/complete.png)
 
 ### Completare il flusso di lavoro
 Quando i dati del backup iniziale sono disponibili nell'account di archiviazione, l'agente di Servizi di ripristino di Microsoft Azure copia il contenuto dei dati dall'account all'insieme di credenziali di Backup o di Servizi di ripristino, a seconda di quale sia applicabile. Al successivo backup pianificato, l'agente Backup di Azure esegue il backup incrementale sulla copia di backup iniziale.

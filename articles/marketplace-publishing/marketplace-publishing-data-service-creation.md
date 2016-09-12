@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="08/26/2016"
-      ms.author="hascipio; avikova" />  
+      ms.author="hascipio; avikova" />
 
 # Guida alla pubblicazione del servizio dati per Azure Marketplace
 
@@ -32,7 +32,7 @@ Fare clic sul riquadro **Pubblica servizi dati** se si tratta del primo accesso 
 
 ## 2\. Selezionare **Servizi dati** nel menu di navigazione a sinistra.
 
-  ![disegno](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)
 
 ## 3\. Creare un nuovo servizio dati
 
@@ -108,31 +108,31 @@ Fare clic sul sottomenu **Servizi dati**.
 
 Nella metà superiore della pagina verrà richiesto di indicare lo **spazio dei nomi** dell'offerta.
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.png)
 
 La domanda seguente definirà in che modo l'autore esporrà l'offerta appena creata in Azure Marketplace. (Per ulteriori informazioni, vedere la [Guida ai prerequisiti tecnici dei servizi dati](marketplace-publishing-data-service-creation-prerequisites.md)).
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.2.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.2.png)
 
 **Pubblicazione del servizio basato su database**
 
 Fare clic su **Database**. Verrà visualizzata la pagina seguente:
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.3.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.3.png)
 
 Per creare un mapping CSDL per il set di dati basato su database di SQL Azure:
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.4.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.4.png)
 
 E quindi per ciascuna tabella
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.5.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.5.png)
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.6.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.6.png)
 
 Se il servizio Web
 
-  ![disegno](media/marketplace-publishing-data-service-creation/step-7.7.png)  
+  ![disegno](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
 > [AZURE.IMPORTANT] Leggere [Mapping di un servizio Web esistente in OData tramite CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) per istruzioni dettagliate ed esempi sulla creazione di un servizio Web CSDL.
 

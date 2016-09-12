@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/30/2016"
-   ms.author="barbkess;jrj;sonyama"/>  
+   ms.author="barbkess;jrj;sonyama"/>
 
 # Eseguire la migrazione della soluzione in SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Il team CAT (Customer Advisory Team) dispone anche di utili istruzioni su SQL Da
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Migrazione dei dati in SQL Data Warehouse di Azure in pratica]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 <!---HONumber=AcomDC_0831_2016-->

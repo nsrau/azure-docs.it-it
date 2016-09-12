@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Usare i certificati autofirmati per le connessioni Point-to-Site
 
@@ -49,7 +49,7 @@ Durante la configurazione del gateway VPN per le connessioni da punto a sito, in
 
 2. Nella procedura guidata fare clic su **Avanti**, selezionare **No, non esportare la chiave privata**, quindi fare clic su **Avanti**.
 
-3. Nella pagina **Formato file di esportazione ** selezionare **Codificato base 64 X.509 (.CER)**. Quindi fare clic su **Avanti**.
+3. Nella pagina **Formato file di esportazione** selezionare **Codificato base 64 X.509 (.CER)**. Quindi fare clic su **Avanti**.
 
 4. In **File da esportare**, fare clic su**Sfoglia** e passare alla posizione in cui si desidera esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 

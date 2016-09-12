@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Ridimensionare gli endpoint di streaming con il portale di Azure
@@ -45,7 +45,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 3. Fare clic sull'endpoint di streaming da ridimensionare.
 4. Spostare il dispositivo di scorrimento per specificare il numero di unità di streaming
  
-![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)  
+![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 Si applicano le considerazioni seguenti:
 

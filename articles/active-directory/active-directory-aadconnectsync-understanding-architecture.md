@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/31/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
 Questo argomento illustra l'architettura di base per il servizio di sincronizzazione Azure AD Connect. Sotto diversi aspetti è simile ai predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
@@ -96,7 +96,7 @@ Il motore di sincronizzazione crea un oggetto di esportazione usando le informaz
 
 La figura seguente illustra come viene creato un oggetto di esportazione usando le informazioni sull'identità nel metaverse.
 
-![Architettura 4](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)  
+![Architettura 4](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)
 
 Il motore di sincronizzazione conferma l'esportazione dell'oggetto reimportando l'oggetto dall'origine dati connessa. Gli oggetti di esportazione diventano oggetti di importazione quando il motore di sincronizzazione li riceve durante l'importazione successiva da tale origine dati connessa.
 

@@ -78,7 +78,7 @@ Non è necessario configurare nessuna altra regola di sicurezza di rete perché 
 
 L'elenco completo di regole nel gruppo di sicurezza di rete è mostrato di seguito. Si noti che l'ultima regola, che è evidenziata, impedisce l'accesso in ingresso a tutti i chiamanti a cui non è stato esplicitamente concesso.
 
-![Configurazione del gruppo di sicurezza di rete][NSGConfiguration]  
+![Configurazione del gruppo di sicurezza di rete][NSGConfiguration]
 
 Il passaggio finale consiste nell'applicare il gruppo di sicurezza di rete alla subnet contenente l'ambiente del servizio app "apiase".
 
@@ -101,12 +101,12 @@ Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambient
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- LINKS -->  
+<!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[InboundTraffic]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 

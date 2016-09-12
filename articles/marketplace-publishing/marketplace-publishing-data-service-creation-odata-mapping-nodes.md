@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="08/26/2016"
-      ms.author="hascipio; avikova" />  
+      ms.author="hascipio; avikova" />
 
 # Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
 

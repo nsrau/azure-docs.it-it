@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/26/2016"
-	ms.author="sumedhb;aglick"/>  
+	ms.author="sumedhb;aglick"/>
 
 
 # Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure

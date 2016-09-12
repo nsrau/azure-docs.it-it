@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Come creare un database per DocumentDB usando il portale di Azure
 
@@ -30,7 +30,7 @@ Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account
 
 3. Nel pannello dell'**account DocumentDB** fare clic sul comando **Aggiungi database**.
 
-    ![Screenshot che illustra come creare un database. Sono evidenziati il pulsante Aggiungi database, la casella ID e il pulsante OK.](./media/documentdb-create-database/docdb-database-creation-3-5.png)  
+    ![Screenshot che illustra come creare un database. Sono evidenziati il pulsante Aggiungi database, la casella ID e il pulsante OK.](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
 4. Nel pannello **Aggiungi database** immettere l'ID del nuovo database. Quando il nome viene convalidato, appare un segno di spunta verde nella casella **ID**. Fare quindi clic su **OK**.
 

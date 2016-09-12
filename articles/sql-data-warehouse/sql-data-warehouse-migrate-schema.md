@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/25/2016"
-   ms.author="jrj;barbkess;sonyama"/>  
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Eseguire la migrazione dello schema in SQL Data Warehouse#
 
@@ -34,7 +34,7 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno
 
 Per altre informazioni, vedere l'articolo con le [procedure consigliate][] di SQL Data Warehouse.
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Eseguire la migrazione del codice]: ./sql-data-warehouse-migrate-code.md
@@ -49,6 +49,6 @@ Per altre informazioni, vedere l'articolo con le [procedure consigliate][] di SQ
 <!--MSDN references-->
 
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0831_2016-->

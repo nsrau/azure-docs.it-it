@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.devlang="na"
 	ms.date="08/30/2016"
-	ms.author="swkrish"/>  
+	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: creare un tenant di Azure AD B2C
 

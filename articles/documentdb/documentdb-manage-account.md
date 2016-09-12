@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Come gestire un account DocumentDB
 
@@ -36,7 +36,7 @@ Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso p
 
 Nel [portale di Azure](https://portal.azure.com/) accedere al pannello **Chiavi** dal menu delle risorse nel pannello **Account DocumentDB** per visualizzare, copiare e rigenerare le chiavi di accesso usate per accedere all'account DocumentDB.
 
-![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)  
+![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)
 
 > [AZURE.NOTE] Il pannello **Chiavi** include anche le stringhe di connessione primaria e secondaria che possono essere usate per connettersi al proprio account dall'[Utilità di migrazione dati](documentdb-import-data.md).
 
@@ -64,7 +64,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 5. Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa 5 minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.
 6. Rigenerare la chiave di accesso secondaria.
 
-    ![Per rigenerare le chiavi di accesso](./media/documentdb-manage-account/regenerate-secondary-key.png)  
+    ![Per rigenerare le chiavi di accesso](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una chiave appena generata possa essere usata per accedere all'account DocumentDB.
@@ -89,7 +89,7 @@ Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft
 Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
 [3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
@@ -97,10 +97,10 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 [5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->  
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/it-IT/regions/#services
-[offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0831_2016-->

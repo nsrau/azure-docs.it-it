@@ -39,7 +39,7 @@ Per iniziare a gestire gli endpoint di streaming per l'account, procedere come s
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nella finestra **Impostazioni** selezionare **Endpoint di streaming**.
 
-	![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)  
+	![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 ##Aggiungere o eliminare un endpoint di streaming
 
@@ -51,7 +51,7 @@ Per aggiungere o eliminare gli endpoint di streaming tramite il portale di Azure
 	Gli endpoint di streaming predefiniti non possono essere eliminati.
 2. Fare clic sul pulsante **Avvia** per avviare l'endpoint di streaming.
 
-	![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)  
+	![Endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 Per impostazione predefinita, è possibile disporre di un massimo di due endpoint di streaming. Se sono necessari più endpoint di streaming, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 	

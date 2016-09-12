@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows
 
@@ -63,7 +63,7 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 [Estensioni VM e funzionalità di Azure][Ext]
 
 
-<!--Link references-->  
+<!--Link references-->
 [Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Portal]: http://manage.windowsazure.com

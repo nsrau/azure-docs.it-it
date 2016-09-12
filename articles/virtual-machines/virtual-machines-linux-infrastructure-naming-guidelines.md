@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/22/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Linee guida sulle convenzioni di denominazione dell'infrastruttura
 

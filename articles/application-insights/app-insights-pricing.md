@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/27/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
 
@@ -137,7 +137,7 @@ Sono disponibili diversi tipi di campionamento.
 
 Per impostare il campionamento per inserimento, impostare il controllo nel pannello Quota + prezzi:
 
-![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)  
+![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)
 
 > [AZURE.WARNING] Il valore visualizzato nel riquadro Campioni mantenuti indica solo il valore impostato per il campionamento per inserimento. Non visualizza la frequenza di campionamento che opera nell'SDK all'interno dell'app.
 > 
@@ -155,7 +155,7 @@ In ogni record conservato, `itemCount` indica il numero di record originali che 
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).
 
-![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)  
+![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)
 
 
 
@@ -172,7 +172,7 @@ Se l'applicazione sta per superare questi limiti, considerare la possibilità di
 [AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

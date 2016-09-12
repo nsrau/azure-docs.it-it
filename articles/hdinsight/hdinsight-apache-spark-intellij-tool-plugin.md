@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/26/2016"
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 
 # Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per creare applicazioni Spark per il cluster HDInsight Spark Linux
@@ -136,7 +136,7 @@ Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolki
 
 	3. Nella scheda **Spark Submission** (Invio Spark) nella parte inferiore della finestra verrà visualizzato lo stato di avanzamento. È anche possibile arrestare l'applicazione facendo clic sul pulsante rosso nella finestra "Spark Submission".
 
-        ![Risultato dell'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)  
+        ![Risultato dell'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
     La sezione successiva illustrerà come accedere all'output del processo tramite gli strumenti HDInsight nel Toolkit di Azure per IntelliJ.
 
@@ -222,7 +222,7 @@ Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è
 
 4.  Fare clic con il pulsante destro del mouse sull'applicazione **LogQuery** e scegliere **"Run 'LogQuery'"** (Esegui "LogQuery"). Verrà visualizzato un output simile al seguente nella scheda **Esegui** in basso.
 
-	![Risultato dell'esecuzione locale dell'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)  
+	![Risultato dell'esecuzione locale dell'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## Convertire le applicazioni IntelliJ IDEA esistenti per usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ
 

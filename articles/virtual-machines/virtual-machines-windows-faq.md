@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Domande frequenti sulle Macchine virtuali Windows 
 

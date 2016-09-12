@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/25/2016"
-   ms.author="spyros;sethm" />  
+   ms.author="spyros;sethm" />
 
 # Estrazione dei dati da SQL a un hub eventi di Azure
 

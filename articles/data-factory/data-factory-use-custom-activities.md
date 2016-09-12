@@ -630,7 +630,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
  
 8. Nel pannello Data factory del portale di Azure fare clic su **Diagramma**.
 	
-	![Riquadro Diagramma](./media/data-factory-use-custom-activities/DataFactoryBlade.png)  
+	![Riquadro Diagramma](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
  
 9. Nella vista Diagramma fare clic su OutputDataset.
  

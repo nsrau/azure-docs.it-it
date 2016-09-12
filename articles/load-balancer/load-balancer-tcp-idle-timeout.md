@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Come modificare le impostazioni del timeout di inattività TCP per il bilanciamento del carico
 
