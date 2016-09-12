@@ -33,7 +33,7 @@ Cosa si farà?|Descrizione
 [Accesso con l'app Microsoft Authenticator mediante il codice di verifica](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Ecco cosa aspettarsi quando si usa l'app Microsoft Authenticator con un codice di verifica.
 [Accesso con un metodo alternativo](#signing-in-with-an-alternate-method)|Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
 
-<h2 id="1">Accesso con telefono cellulare o dell'ufficio</h2>
+## Accesso con telefono cellulare o dell'ufficio
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
 
@@ -62,10 +62,11 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 ![Microsoft invia una notifica](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- Rispondere al telefono e premere il tasto di verifica.
+- Rispondere al telefono e premere il tasto di verifica. Se la società richiede un PIN, verrà richiesto qui.
 
-![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
+![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)  
 
+![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - Ora dovrebbe essere stato effettuato l’accesso.
 
@@ -83,12 +84,14 @@ Le informazioni seguenti descrivono l'esperienza di utilizzo dell'autenticazione
 
 - Aprire l'app Microsoft Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l'accesso.
 
-![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)  
+
+
 
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-<h2 id="4">Accesso con un metodo alternativo</h2>
+## Accesso con un metodo alternativo
 
 
 Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.
@@ -104,4 +107,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

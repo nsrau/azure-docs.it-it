@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -47,9 +47,9 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 | Stati Uniti centro-meridionali | 27 maggio 2016 |
 | Asia sudorientale | 24 maggio 2016 |
 | Europa occidentale | 25 maggio 2016 |
-| Stati Uniti centro-occidentali | Archiviazione Premium non ancora disponibile |
+| Stati Uniti centro-occidentali | 26 agosto 2016 |
 | Stati Uniti occidentali | 26 maggio 2016 |
-| Stati Uniti occidentali 2 | Archiviazione Premium non ancora disponibile |
+| Stati Uniti occidentali 2 | 26 agosto 2016 |
 
 ## Dettagli sulla migrazione automatica
 Per impostazione predefinita, la migrazione automatica del database verrà eseguita tra le 18.00 e le 06.00, ora locale dell'area di appartenenza, in base alla [pianificazione della migrazione automatica][] riportata di seguito. Durante la migrazione non sarà possibile usare il Data Warehouse esistente. In base alle stime la migrazione richiederà circa un'ora per TB di archiviazione per ogni data warehouse. Microsoft si assicurerà che non vengano addebitati costi durante il processo di migrazione automatica.
@@ -133,60 +133,37 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Passaggi successivi
-Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Se si verificano problemi relativi alle prestazioni, è consigliabile ricompilare gli indici columnstore cluster usando il seguente script. Lo script di seguito forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
+Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Per ottenere il massimo dei vantaggi delle prestazioni per questa modifica, si consiglia di ricreare gli indici columnstore cluster usando il seguente script. Lo script di seguito forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
 
 **Prerequisiti:**
 
 1.	È necessario eseguire Data Warehouse con almeno 1.000 DWU (vedere [Ridimensionare la potenza di calcolo][]).
 2.	L'utente che esegue lo script deve essere nel [ruolo mediumrc][] o superiore.
 	1.	Per aggiungere un utente a questo ruolo, eseguire questo codice:
-		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````  
 
 ````sql
 -------------------------------------------------------------------------------
 -- Passaggio 1: creare una tabella per controllare la ricompilazione degli indici
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- Passaggio 2: eseguire le ricompilazioni degli indici Se si verifica un errore di script, il codice riportato di seguito può essere eseguito nuovamente per riavviare il processo dal punto in cui si è interrotto.
 -- Eseguire come utente in mediumrc o superiore
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -- Passaggio 3: tabella di pulizia creata nel passaggio 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [pianificazione della migrazione automatica]: #automatic-migration-schedule
@@ -204,7 +181,7 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 
 
 <!--Other Web references-->
-[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/it-IT/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

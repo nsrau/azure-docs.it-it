@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="owend"/>  
 
 # Cos'è Microsoft Power BI Embedded?
 
@@ -55,33 +55,20 @@ Nella versione di anteprima è possibile usare i set di dati memorizzati nella c
 
 ## Autenticazione e autorizzazione con token delle app
 
-**Microsoft Power BI Embedded** incarica l'applicazione dell'utente affinché esegua tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è assolutamente necessario che gli utenti finali siano clienti di Azure Active Directory. Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI in **Microsoft Power BI Embedded** usando **token di autenticazione delle applicazioni**. I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report. Vedere la sezione relativa ai [token delle app](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** incarica l'applicazione dell'utente affinché esegua tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory. Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI in **Microsoft Power BI Embedded** usando **token di autenticazione dell'applicazione**. I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report. Vedere la sezione relativa ai [token delle app](power-bi-embedded-get-started-sample.md#key-flow).
 
-![](media\powerbi-embedded-whats-is\app-tokens.png)
-
-### Token di autenticazione delle applicazioni
+![](media\powerbi-embedded-whats-is\app-tokens.png)  
 
 I**token di autenticazione dell'applicazione (token dell'app)** vengono usati per eseguire l'autenticazione in **Microsoft Power BI Embedded**. Esistono tre tipi di **token dell'app**:
 
-1.	Token di provisioning: sono usati durante il provisioning di una nuova **area di lavoro** in una **raccolta di aree di lavoro**
-2.	Token di sviluppo: sono usati per chiamare direttamente le **API REST di Power BI**
+1.	Token di provisioning: si usano durante il provisioning di una nuova **area di lavoro** in una **raccolta di aree di lavoro**
+2.	Token di sviluppo: si usano per chiamare direttamente le **API REST di Power BI**
 3.	Token d'incorporamento: sono usati quando si eseguono chiamate per il rendering di un report nell'iframe incorporato
 
-Questi token vengono usati nelle varie fasi di interazione con **Microsoft Power BI Embedded**. I token sono progettati in modo che sia possibile delegare le autorizzazioni dalla propria app a Power BI.
-
-### Generazione dei token delle app
-
-Gli SDK (Software Development Kit) disponibili nella versione di anteprima consentono di generare i token. È prima necessario chiamare uno dei metodi Create\_\_\_Token() Chiamare poi il metodo Generate() usando la chiave di accesso ottenuta dalla **raccolta di aree di lavoro**. I metodi di base per la creazione dei token sono definiti nella classe PowerBI.Security.PowerBIToken e sono i seguenti:
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken](https://msdn.microsoft.com/library/mt710366.aspx)
-
-Per un esempio su come usare i metodi [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) e [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), vedere [Introduzione all'esempio di Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md).
-
+Questi token si usano nelle varie fasi di interazione con **Microsoft Power BI Embedded**. I token sono progettati in modo che sia possibile delegare le autorizzazioni dalla propria app a Power BI. Per altre informazioni, vedere [Flusso dei token delle app](power-bi-embedded-app-token-flow.md).
 
 ## Vedere anche
 - [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

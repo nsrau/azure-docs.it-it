@@ -21,7 +21,7 @@
 
 L’obiettivo di questa esercitazione è descrivere l’integrazione di Amazon Web Service (AWS) con Azure Active Directory (Azure AD). L'integrazione di Amazon Web Service (AWS) con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere ad Amazon Web Service (AWS). 
+- È possibile controllare in Azure AD chi può accedere ad Amazon Web Service (AWS).
 - È possibile abilitare gli utenti per l'accesso automatico ad Amazon Web Service (AWS) (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -32,7 +32,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Amazon Web Service (AWS), sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione Amazon Web Service (AWS) abilitata per l'accesso Single Sign-On.
+- Sottoscrizione Amazon Web Service (AWS) abilitata per l'accesso Single Sign-On
 
 
 > [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -41,13 +41,13 @@ Per configurare l'integrazione di Azure AD con Amazon Web Service (AWS), sono ne
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
-1. Aggiunta di Amazon Web Service (AWS) dalla raccolta 
+1. Aggiunta di Amazon Web Service (AWS) dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -56,19 +56,19 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 
 ### Per aggiungere Amazon Web Service (AWS) dalla raccolta, seguire questa procedura:
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
@@ -244,14 +244,17 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
      a. Nella casella di testo **Nome attributo** digitare **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Nella casella di testo **Valore dell'attributo**, digitare **userprincipalname**.
+     b. Nella casella di testo **Valore attributo** digitare **user.principalname** oppure selezionarlo dall'elenco a discesa.
+     
+	![Configura accesso Single Sign-On][35]
+	
 
      c. Fare clic su **Completa** per chiudere la finestra di dialogo **Aggiungi attributo utente**.
 
 
 25. Fare clic su **Applica modifiche**.
 
-	![Configura accesso Single Sign-On][26]
+	![Configura accesso Single Sign-On][26]  
 
 
 
@@ -261,27 +264,27 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)  
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l’elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)  
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)  
 
-5. Nella pagina **Informazioni sull’utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)  
 
   1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
@@ -289,7 +292,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)  
 
 	a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -303,15 +306,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)  
  
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)  
 
 	a. Prendere nota del valore visualizzato in **Nuova password**.
   
-	b. Fare clic su **Complete**.
+	b. Fare clic su **Completa**.
   
  
 ### Creazione di un utente test Amazon Web Service (AWS)
@@ -322,21 +325,21 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Amazon We
 
 1. Accedere al sito aziendale di **Amazon Web Service (AWS)** come amministratore.
 
-2. Fare clic sull’icona **Console Home**.
+2. Fare clic sull'icona **Console Home**.
 
-	![Configura accesso Single Sign-On][11]
+	![Configura accesso Single Sign-On][11]  
 
 3. Fare clic su Identity and Access Management.
 
-	![Configura accesso Single Sign-On][28]
+	![Configura accesso Single Sign-On][28]  
 
 4. In Dashboard, fare clic su Users e quindi fare clic su Create New Users.
 
-	![Configura accesso Single Sign-On][29]
+	![Configura accesso Single Sign-On][29]  
 
 5. Nella finestra di dialogo Create User seguire questa procedura:
 
-	![Configura accesso Single Sign-On][30]
+	![Configura accesso Single Sign-On][30]  
 
      a. Nelle caselle di testo **Inserire Nomi Utenti** digitare il nome utente (userprincipalname) di Britta Simon in Azure AD.
 
@@ -349,7 +352,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Amazon We
 
 Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Amazon Web Service (AWS).
 
-![Assegna utente][31]
+![Assegna utente][31]  
 
 **Per assegnare Britta Simon ad Amazon Web Service (AWS), seguire questa procedura:**
 
@@ -357,19 +360,19 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 	![Assegna utente][26]
 
-2. Nell’elenco delle applicazioni selezionare **Amazon Web Service (AWS)**.
+2. Nell'elenco delle applicazioni selezionare **Amazon Web Service (AWS)**.
 
-	![Assegna utente][27]
+	![Assegna utente][27]  
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][25]
+	![Assegna utente][25]  
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][29]
+	![Assegna utente][29]  
 
 ### Test dell'accesso Single Sign-On
 
@@ -416,5 +419,6 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
+[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

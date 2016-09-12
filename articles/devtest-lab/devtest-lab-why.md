@@ -44,8 +44,10 @@ E’ possibile acquisire e condividere elementi e modelli di ambienti all'intern
 
 E’ possibile sfruttare plug-in già pronti oppure l’API per effettuare il provisioning di ambienti di sviluppo/test direttamente dallo strumento di integrazione continua (CI), dall'ambiente di sviluppo integrato (IDE, Integrated Development Environment) o dalla pipeline di rilascio automatizzata. E’ anche possibile utilizzare il nostro strumento da riga di comando completo.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Passaggi successivi
 
 [Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

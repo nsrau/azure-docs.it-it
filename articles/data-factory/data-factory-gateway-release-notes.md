@@ -13,16 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2016" 
-	ms.author="spelluru"/>
+	ms.date="08/26/2016" 
+	ms.author="spelluru"/>  
 
 # Note sulla versione di Gateway di gestione dati
+Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento uniforme di dati da ambienti locali al cloud e viceversa. Data Factory facilita questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
 
-Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento uniforme di dati da ambienti locali al cloud e viceversa. Data factory facilita questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
+Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione dati e su come usarlo:
 
-Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) e [Gateway di gestione dati](data-factory-data-management-gateway.md).
+- [Gateway di gestione dati](data-factory-data-management-gateway.md)
+- [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
-## VERSIONE CORRENTE (2.1.6040.1)
+## Versione corrente (2.2.6072.1)
+
+- Supporta l'impostazione proxy HTTP per il gateway tramite Gestione configurazione del gateway. Se configurato, l'accesso tramite proxy HTTP è disponibile per il BLOB di Azure, le tabelle di Azure, Azure Data Lake e Document DB.
+- Supporta la gestione delle intestazioni per il formato di testo quando si copiano dati da e verso BLOB di Azure, Azure Data Lake Store, File System locale e HDFS locale.
+- Supporta la copia di dati dal BLOB di accodamento e BLOB di pagine, oltre al BLOB in blocchi già supportato.
+- Introduce un nuovo stato del gateway **Online (Limited)** (Online (limitato)), che indica che la funzionalità principale del gateway funziona ad eccezione del supporto delle operazioni interattive per la copia guidata.
+- Migliora la solidità della registrazione del gateway con la chiave di registrazione.
+
+## Versioni precedenti
+
+## 2\.1.6040.1
 
 - Il driver DB2 è ora incluso nel pacchetto di installazione del gateway. Non è necessario installarlo separatamente.
 - Il driver DB2 supporta ora z/OS e DB2 for i (AS/400) oltre alle piattaforme già supportate (Linux, Unix e Windows).
@@ -30,16 +42,14 @@ Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e 
 - Supporta la copia di dati da e nell'archivio BLOB ad accesso frequente o sporadico con l'account di archiviazione di uso generico già supportato.
 - Consente di connettersi a SQL Server locale tramite il gateway con privilegi di accesso remoto.
 
-## Versioni precedenti
-
 ## 2\.0.6013.1
 
 - È possibile selezionare la lingua/cultura che verrà usata da un gateway durante l'installazione manuale.
-- Quando il gateway non funziona come previsto, è possibile scegliere di inviare a Microsoft i log di gateway degli ultimi 7 giorni per agevolare la risoluzione del problema. Se il gateway non è connesso al servizio cloud, è possibile scegliere di salvare e archiviare i log del gateway.
+- Quando il gateway non funziona come previsto, è possibile scegliere di inviare a Microsoft i log di gateway degli ultimi sette giorni per agevolare la risoluzione del problema. Se il gateway non è connesso al servizio cloud, è possibile scegliere di salvare e archiviare i log del gateway.
 - Miglioramenti all'interfaccia utente per la gestione della configurazione gateway:
 	- Stato del gateway più visibile sulla scheda Home.
 	- Controlli riorganizzati e semplificati.
-- È possibile copiare dati da un archivio diverso dall'archivio BLOB di Azure in SQL Data Warehouse di Azure tramite Polybase e BLOB di staging usando lo [strumento in anteprima di copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy).
+- È possibile copiare dati da un archivio tramite lo [strumento di anteprima della copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy).
 - Gateway di gestione dati consente di inserire i dati direttamente da un database di SQL Server locale in Azure Machine Learning.
 - Miglioramenti delle prestazioni
 	- Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di anteprima della copia senza codice.
@@ -53,7 +63,7 @@ Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e 
 
 - La dimensione massima del registro eventi del gateway è aumentata da 1 MB a 40 MB.
 - Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo.
-- In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo 3 volte.
+- In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo tre volte.
 - Miglioramenti delle prestazioni
 	- È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
 - Correzioni di bug
@@ -107,7 +117,7 @@ Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e 
 - Supporto delle colonne di tabella per le origini dati tabulari per Data factory di Azure
 - Supporto di SQL DW per Data factory di Azure
 - Supporto dell'isolamento in BlobSource e FileSource per Data factory di Azure
-- Supporto di CopyBehavior – MergeFiles, PreserveHierarchy e FlattenHierarchy in BlobSink e FileSink con copia binaria per Data factory di Azure
+- Supporto di CopyBehavior – MergeFiles, PreserveHierarchy e FlattenHierarchy in BlobSink e FileSink con copia binaria per Data Factory di Azure
 - Supporto dello stato di avanzamento della creazione di report per l'attività di copia per Data factory di Azure
 - Supporto della convalida della connettività dell'origine dati per Data factory di Azure
 - Correzioni di bug
@@ -135,7 +145,7 @@ Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e 
 
 ### 1\.5.5612.1
 
-- Supporto di 5 database relazionali per Data factory di Azure (MySQL, PostgreSQL, DB2, Teradata e Sybase)
+- Supporto di cinque database relazionali per Data Factory di Azure (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 - Supporto della compressione (Gzip e Deflate)
 - Miglioramenti delle prestazioni
 - Correzioni di bug
@@ -165,9 +175,4 @@ Per altre informazioni, vedere gli articoli [Spostare dati tra origini locali e 
 
 - Nessuna modifica che interessi gli scenari di Data factory di Azure.
 
-## Domande e risposte
-
-### Perché Gestione origine dati prova a connettersi a un gateway?
-Si tratta di una progettazione di sicurezza secondo cui è possibile configurare solo origini dati locali per l'accesso cloud all'interno della rete aziendale, evitando la propagazione delle credenziali all'esterno del firewall aziendale. Assicurarsi che il computer possa raggiungere il computer in cui è installato il gateway.
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

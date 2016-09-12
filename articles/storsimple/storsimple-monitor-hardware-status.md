@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
-   ms.author="alkohli" />
+   ms.date="08/18/2016"
+   ms.author="alkohli" />  
 
 # Utilizzare il servizio StorSimple Manager per monitorare le componenti hardware e lo stato
 
-## Panoramica
+## Overview
 
 In questo articolo vengono descritti i vari componenti fisici e logici del dispositivo StorSimple in locale. Viene inoltre spiegato come monitorare lo stato di componente del dispositivo utilizzando la pagina **Manutenzione** nel servizio StorSimple Manager.
 
@@ -46,7 +46,7 @@ Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chas
 
 Per visualizzare lo stato dell'hardware di un componente del dispositivo, procedere come segue:
 
-1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Fare clic per passare al menu a livello di dispositivo e quindi fare clic su **Manutenzione**. 
+1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Fare clic per passare al menu a livello di dispositivo e quindi fare clic su **Manutenzione**.
 2. Individuare la sezione **Stato hardware** e scegliere tra i componenti disponibili (come descritto in precedenza). Fare clic su una freccia che precede l'etichetta del componente per espandere l'elenco e visualizzare lo stato dei vari componenti del dispositivo. Vedere l'[elenco dettagliato dei componenti per lo chassis principale](#component-list-for-primary-enclosure-of-storsimple-device) e l'[elenco dettagliato dei componenti per lo chassis EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
 2. Utilizzare il seguente schema di codifica a colori per interpretare lo stato del componente:
@@ -62,7 +62,7 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell’enclosure principale del dispositivo StorSimple in locale.
 
-|Componente|Modulo|Tipo|Location|Unità sostituibile sul campo (FRU)?|Descrizione|
+|Componente|Modulo|Tipo|Percorso|Unità sostituibile sul campo (FRU)?|Descrizione|
 |---|---|---|---|---|---|
 |Unità in slot [0-11]|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale.|
 |Sensore di temperatura ambientale|Chassis|Fisico|Condiviso|No|Misura la temperatura all'interno dello chassis.|
@@ -104,7 +104,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell’enclosure EBOD del dispositivo StorSimple in locale.
 
-|Componente|Modulo|Tipo|Location|FRU?|Descrizione|
+|Componente|Modulo|Tipo|Percorso|FRU?|Descrizione|
 |---|---|---|---|---|---|
 |Unità in slot [0-11]|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD.|
 |Sensore di temperatura ambientale|Chassis|Fisico|Condiviso|No|Misura la temperatura all'interno dello chassis.|
@@ -136,4 +136,4 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 - Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

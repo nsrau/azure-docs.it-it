@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
-   ms.author="spyros;sethm" />
+   ms.date="08/25/2016"
+   ms.author="spyros;sethm" />  
 
 # Inviare notifiche agli utenti riguardo ai dati ricevuti da sensori o da altri sistemi
 
@@ -44,7 +44,7 @@ Quando il monitoraggio di Hub eventi rileva un messaggio, attiva un processo che
 Il codice in questo esempio illustra solo come monitorare l'Hub eventi e come chiamare i servizi di messaggistica esterni se si vuole aggiungere questa funzionalità all'applicazione. Si noti che si tratta di una soluzione fai da te, destinata solo agli sviluppatori. La soluzione non soddisfa i requisiti aziendali, ad esempio ridondanza, failover, riavvio in caso di errore e così via. Per soluzioni di produzione più complete, vedere quanto segue:
 
 - Uso dei connettori o delle notifiche push tramite il servizio [App per la logica di Azure](../app-service-logic/app-service-logic-connectors-list.md).
-- Uso di [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), come descritto nel blog relativo alla [trasmissione di notifiche push a milioni di dispositivi mobili tramite Hub di notifica di Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Uso di [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), come descritto nel blog relativo alla [trasmissione di notifiche push a milioni di dispositivi mobili tramite Hub di notifica di Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
 ## Passaggi successivi
 
@@ -83,4 +83,4 @@ Per distribuire la soluzione per l'invio di notifiche agli utenti in base ai dat
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

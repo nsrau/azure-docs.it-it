@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
@@ -26,7 +26,7 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [PowerShell per Azure classico](application-gateway-create-gateway.md)
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-
+- [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
 <BR>  
 
@@ -57,7 +57,7 @@ Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una
 
 Passare al portale di Azure e fare clic su **Nuovo** > **Rete** > **Gateway applicazione**
 
-![Creazione di un nuovo gateway applicazione][1]  
+![Creazione di un gateway applicazione][1]  
 
 ### Passaggio 2
 
@@ -69,7 +69,7 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 - **Dimensioni SKU**: dimensioni del gateway applicazione. Le opzioni disponibili sono Small, Medium e Large.
 - **Numero di istanze**: numero di istanze. Questo valore deve essere un numero compreso tra 2 e 10.
 - **Gruppo di risorse**: gruppo di risorse in cui includere il gateway applicazione. Può essere un gruppo di risorse esistente o uno nuovo.
-- **Località**: area del gateway applicazione. È la stessa località del gruppo di risorse. *Questa impostazione è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway*.
+- **Località**: area del gateway applicazione. È la stessa località del gruppo di risorse. *La località è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway*.
 
 ![Pannello con impostazioni di base][2]  
 
@@ -78,7 +78,7 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 ### Passaggio 3
 
-Dopo che sono state definite le impostazioni di base, il passaggio successivo consiste nel definire la rete virtuale da usare. La rete virtuale ospiterà l'applicazione per cui il gateway applicazione esegue il bilanciamento del carico.
+Dopo che sono state definite le impostazioni di base, il passaggio successivo consiste nel definire la rete virtuale da usare. La rete virtuale ospita l'applicazione per cui il gateway applicazione esegue il bilanciamento del carico.
 
 Fare clic su **Scegliere una rete virtuale** per configurare la rete virtuale.
 
@@ -116,9 +116,9 @@ Assegnare quindi un nome descrittivo all'indirizzo IP pubblico e fare clic su **
 
 ### Passaggio 9:
 
-L'ultima impostazione da definire durante la creazione di un gateway applicazione è la configurazione del listener. Se si usa **HTTP**, non è necessario configurare altro e si può fare clic su **OK**. Per sfruttare **HTTPS** sono necessarie operazioni di configurazione aggiuntive.
+L'ultima impostazione da definire durante la creazione di un gateway applicazione è la configurazione del listener. Se si usa **HTTP**, non è necessario configurare altro e si può fare clic su **OK**. Per usare **HTTPS** sono necessarie operazioni di configurazione aggiuntive.
 
-Per usare **HTTPS**, è obbligatorio un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
+Per usare **HTTPS** è necessario un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
 
 
 ![Sezione Configurazione listener vuota nel pannello Impostazioni][8]
@@ -141,7 +141,7 @@ Al termine della creazione del gateway applicazione, passare al gateway applicaz
 
 ![Visualizzazione della risorsa del gateway applicazione][10]  
 
-Viene così creato un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
+Questi passaggi creano un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 
 ## Passaggi successivi
 
@@ -149,7 +149,7 @@ Per informazioni su come creare probe di integrità personalizzati, vedere [Crea
 
 Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
 [2]: ./media/application-gateway-create-gateway-portal/figure2.png
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
@@ -162,4 +162,4 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

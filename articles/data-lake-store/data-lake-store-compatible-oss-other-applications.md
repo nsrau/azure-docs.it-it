@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
-   ms.author="nitinme"/>
+   ms.date="08/25/2016"
+   ms.author="nitinme"/>  
 
 # Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
 
@@ -41,4 +41,4 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 
 - [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

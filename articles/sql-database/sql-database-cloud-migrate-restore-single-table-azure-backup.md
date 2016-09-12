@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="daleche"/>
+	ms.date="08/31/2016"
+	ms.author="daleche"/>  
 
 
 # Come ripristinare una singola tabella nel backup del database SQL di Azure
@@ -22,7 +22,7 @@
 Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati accidentalmente in un database SQL e ora si desidera ripristinare la singola tabella interessata. Questo articolo descrive come ripristinare una singola tabella in un database da uno dei [backup automatici](sql-database-automated-backups.md) del database SQL.
 
 ## Passaggi preliminari: rinominare la tabella e ripristinare una copia del database
-1. Identificare la tabella nel database SQL di Azure che si desidera sostituire con la copia ripristinata. Utilizzare Microsoft SQL Management Studio per rinominare la tabella. Ad esempio, rinominare la tabella come &lt; nome tabella &gt;\_vecchia.
+1. Identificare la tabella nel database SQL di Azure che si desidera sostituire con la copia ripristinata. Utilizzare Microsoft SQL Management Studio per rinominare la tabella. Ad esempio, rinominare la tabella come & lt; nome tabella &gt;\_vecchia.
 
 	**Nota**: per evitare il blocco, assicurarsi che non vi sia alcuna attività in esecuzione nella tabella che si sta rinominando. In caso di problemi, accertarsi di eseguire questa procedura durante una finestra di manutenzione.
 
@@ -71,4 +71,4 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 [Backup automatici del database SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

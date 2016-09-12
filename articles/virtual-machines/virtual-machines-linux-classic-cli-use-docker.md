@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="01/04/2016"
-	ms.author="rasquill"/>
+	ms.date="08/29/2016"
+	ms.author="rasquill"/>  
 
 # Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
 
@@ -23,7 +23,7 @@
 
 
 
-Questo argomento descrive come creare una macchina virtuale con l'estensione della VM Docker dalla modalità di gestione servizi (asm) nell’interfaccia della riga di comando di Azure su qualsiasi piattaforma. [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l'[Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Questo argomento descrive come creare una VM con l'estensione della VM Docker dalla modalità di gestione dei servizi (asm) nell'interfaccia della riga di comando di Azure su qualsiasi piattaforma. [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l'[Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 
 ##Come usare l'estensione della VM Docker con Azure
@@ -44,7 +44,7 @@ Per installare e configurare l’interfaccia della riga di comando di Azure, ved
 > [AZURE.NOTE] Docker include strumenti per Windows, ovvero [Docker Machine](https://docs.docker.com/installation/windows/), che consentono anche di automatizzare la creazione di un client Docker da usare per gestire macchine virtuali di Azure come host Docker.
 
 ### Connettere l'interfaccia della riga di comando di Azure al proprio account Azure
-Prima di poter usare l'interfaccia della riga di comando di Azure è necessario associare alla stessa le credenziali del proprio account Azure sulla propria piattaforma. La sezione [Come connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) spiega come scaricare e importare il file **.publishsettings** o associare l’interfaccia della riga di comando di Azure a un ID organizzazione.
+Prima di poter usare l'interfaccia della riga di comando di Azure è necessario associare alla stessa le credenziali del proprio account Azure sulla propria piattaforma. La sezione [Come connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) spiega come scaricare e importare il file **.publishsettings** o associare l'interfaccia della riga di comando di Azure a un ID organizzazione.
 
 > [AZURE.NOTE] Ci sono alcune differenze di comportamento quando si usa l'uno o l'altro metodo di autenticazione, perciò assicurarsi di leggere il documento sopra riportato per comprendere le diverse funzionalità.
 
@@ -154,7 +154,7 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 * L'estensione della VM Docker di Azure supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente. Vedere [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure].
 
-<!--Anchors-->
+<!--Anchors-->  
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
@@ -166,7 +166,7 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 
 
-<!--Link references-->
+<!--Link references-->  
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
@@ -176,4 +176,4 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
  
 [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="tarcher"/>
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>  
 
 # Aggiungere proprietari e utenti a un lab
 
@@ -103,4 +103,6 @@ Per aggiungere un utente di lab di sviluppo e test al lab, seguire questi passag
 
 1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0824_2016-->
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+<!---HONumber=AcomDC_0831_2016-->

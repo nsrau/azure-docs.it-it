@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
-   ms.author="hascipio; avikova" />
+   ms.date="08/26/2016"
+   ms.author="hascipio; avikova" />  
 
 # Test dell'offerta del servizio dati in gestione temporanea
+
+>[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Dopo aver completato i primi due passaggi della [creazione di un account per il Dashboard venditori](marketplace-publishing-accounts-creation-registration.md) e della [creazione dell'offerta del servizio dati nel portale di pubblicazione](marketplace-publishing-data-service-creation.md), si è pronti per rendere disponibile l'offerta in Azure Marketplace. Questo argomento illustra il primo passaggio intermedio denominato "Gestione temporanea"
 
 Per gestione temporanea si intende la distribuzione dell'offerta in un ambiente "sandbox" privato, in cui è possibile testarne e verificarne le funzionalità prima di eseguirne il push in produzione. L'offerta verrà visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita.
@@ -24,7 +27,7 @@ Per gestione temporanea si intende la distribuzione dell'offerta in un ambiente 
 ## Passaggio 1. Push dell'offerta nella gestione temporanea
 Il push dell'offerta nella gestione temporanea consente di testare l'offerta prima che diventi disponibile ai sottoscrittori futuri. È possibile visualizzare come l'offerta verrà visualizzata e funzionerà per coloro che effettuano la sottoscrizione ai dati.
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
+  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)  
 
 1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com)
 2.	Selezionare **Servizi dati** nella finestra di navigazione a sinistra
@@ -36,17 +39,17 @@ Se non sono presenti problemi con l'offerta, si noterà la finestra popup di seg
 
 Se non si prevede/non si è stati approvati per la presentazione dell'offerta nel portale di Azure (attualmente dispone di capacità limitate), chiudere semplicemente la finestra popup.
 
-Per testare il servizio dati nel portale di Azure (oltre al portale di DataMarket), è necessario un ID di sottoscrizione di Azure con cui eseguire il test. Questo ID di sottoscrizione identificherà l'account consentito per testare la l’offerta.
+Per testare il servizio dati nel portale di Azure (oltre al portale di DataMarket), è necessario un ID di sottoscrizione di Azure con cui eseguire il test. Questo ID di sottoscrizione identificherà l'account consentito per testare l'offerta.
 
 Tagliare e incollare l'ID di sottoscrizione e fare clic sul segno di spunta per continuare.
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
+  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)  
 
 > [AZURE.NOTE] Questi ID di sottoscrizione di Azure sono necessari per il testing e la gestione temporanea nel [portale di gestione di Azure](https://manage.windowsazure.com). Non sono necessari per eseguire il test in Azure Marketplace.
 
 La schermata successiva visualizzata mostra che la pubblicazione ha luogo visualizzando l'icona "In corso" evidenziata in giallo di seguito. Il push in gestione temporanea richiede tra 10 e 15 minuti. Se richiede più tempo, prima di aggiornare il browser (premere F5 in Internet Explorer). In rari casi in cui l'offerta è ancora in fase di push in gestione temporanea dopo un'ora, fare clic sul collegamento dei contatti per comunicarci che è presente un problema.
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)
+  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)  
 
 Quando il push in gestione temporanea viene completato, l'icona "In corso" smette di muoversi e lo stato viene aggiornato in "Gestione temporanea". È ora possibile testare l'offerta.
 
@@ -86,4 +89,4 @@ Se si è soddisfatti e pronti per la pubblicazione dell'offerta, leggere la docu
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

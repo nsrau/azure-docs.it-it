@@ -11,8 +11,8 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
-	ms.author="ashmaka"/>
+	ms.date="08/29/2016"
+	ms.author="ashmaka"/>  
 
 # Creare un indice di Ricerca di Azure nel portale di Azure
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ Nelle schermate riportate di seguito viene mostrato come sono stati denominati e
 ## Avanti
 Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md), in modo che si possa iniziare a cercare dati.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

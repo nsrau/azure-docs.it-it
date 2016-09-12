@@ -175,6 +175,10 @@ Aggiungere l'attività di avvio seguente al file [ServiceDefinition.csdef].
 
 Aggiungere questo comando al file **startup.cmd**:
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 In questo modo il file batch **startup.cmd** viene eseguito ogni volta che il ruolo Web viene inizializzato, assicurando lo sblocco della sezione **ipSecurity**.
@@ -487,4 +491,4 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
-	ms.author="nitinme"/>
+	ms.date="08/25/2016" 
+	ms.author="nitinme"/>  
 
 # Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in HDInsight Linux
 
@@ -27,7 +27,7 @@ Questo articolo illustra come tenere traccia ed eseguire il debug di processi Sp
 
 - Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere [Creare cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-- Si sarà già avviato il notebook **[Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Per istruzioni su come eseguire questo notebook, seguire il collegamento.  
+- Si sarà già avviato il notebook **[Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Per istruzioni su come eseguire questo notebook, seguire il collegamento.
 
 ## Tenere traccia di un'applicazione nell'interfaccia utente di YARN
 
@@ -84,7 +84,7 @@ Nell'interfaccia utente di Spark è possibile eseguire il drill-down dei process
 6. Altre schede nell'interfaccia utente di Spark forniscono anche informazioni utili sull'istanza di Spark.
 
 	* Scheda Storage: se l'applicazione crea oggetti RDD, è possibile trovare informazioni corrispondenti in questa scheda.
-	* Scheda Environment: questa scheda fornisce molte informazioni utili sull'istanza di Spark, ad esempio 
+	* Scheda Environment: questa scheda fornisce molte informazioni utili sull'istanza di Spark, ad esempio
 		* Versione di Scala
 		* Directory dei log eventi associata al cluster
 		* Numero di core executor per l'applicazione
@@ -132,7 +132,7 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -140,10 +140,10 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

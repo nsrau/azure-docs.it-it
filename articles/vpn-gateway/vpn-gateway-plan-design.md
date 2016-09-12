@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/19/2016"
-   ms.author="cherylmc"/>
+   ms.author="cherylmc"/>  
 
 # Pianificazione e progettazione per il gateway VPN
 
@@ -80,7 +80,7 @@ L'elenco seguente descrive il flusso di lavoro comune per la connettività cloud
 
 ### <a name="topologies"></a>Topologie di connessione
 
-Iniziare esaminando i diagrammi nell'articolo [Topologie di connessione](vpn-gateway-topology.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
+Per prima cosa, consultare i diagrammi nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
 
 ### <a name="designbasics"></a>Nozioni di base sulla progettazione
 
@@ -147,7 +147,7 @@ Senza il tunneling forzato, il traffico associato a Internet dalle macchine virt
 
 **Diagramma tunneling forzato**
 
-![Connessione di tunneling forzato](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forzato")
+![Connessione di tunneling forzato](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forzato")  
 
 È possibile configurare una connessione di tunneling forzato in entrambi i modelli di distribuzione e tramite strumenti diversi. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 
@@ -161,4 +161,4 @@ Per altre informazioni che aiutano a semplificare la progettazione, vedere gli a
 
 Per altre informazioni sulle impostazioni specifiche del gateway, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+	ms.author="billmath"/>  
 
 # Problemi di Azure Multi-Factor Authentication
 >[AZURE.IMPORTANT]
@@ -45,7 +45,7 @@ Quando si contatta il personale di supporto, è consigliabile includere le infor
  - **ID correlazione**: il codice ID di correlazione generato quando è stato visualizzato l'errore.
  - **Data e ora**: la data e l'ora in cui è stato visualizzato l'errore (includere il fuso orario).
  
-![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)
+![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)  
 
  - **ID utente**: l'ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com.
  - **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud, nonché se l'utente dispone di una licenza Azure AD Premium, Enterprise Mobility o Azure AD Basic e se usa Office 365.
@@ -147,7 +147,7 @@ Il secondo consiste nel contattare l'amministratore o la persona che ha configur
 - Se si è scelto di ricevere codici di verifica tramite messaggio di testo nel telefono cellulare, assicurarsi che il piano di servizio e il dispositivo supportino il recapito di messaggi di testo. La velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi. Assicurarsi anche che il segnale cellulare sia adeguato quando si prova a ricevere questi codici.
 - Se si è scelto di ricevere una verifica tramite l'app per dispositivi mobili, assicurarsi che il segnale cellulare sia buono. Si noti anche che la velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi.
 
-Se si usa uno smartphone, è consigliabile usare l'[app Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
+Se si dispone di uno smartphone, è consigliabile usare l'app Authenticator Microsoft, disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 È possibile cambiare la modalità di ricezione dei codici di verifica tramite messaggi di testo e l'app per dispositivi mobili scegliendo **Usa un'opzione di verifica diversa** all'accesso.
 
@@ -172,4 +172,4 @@ Se non si trova una risposta al problema in questa pagina, è possibile inserire
 
 Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
-   ms.author="ryanwi"/>
+   ms.date="08/25/2016"
+   ms.author="ryanwi"/>  
 
 
 # Ciclo di vita dell'applicazione Service Fabric
@@ -41,7 +41,7 @@ I ruoli del modello di servizio sono i seguenti:
 
 Per gli esempi, vedere gli articoli relativi all'[introduzione ai modelli di programmazione Reliable Actors](service-fabric-reliable-actors-get-started.md) e all'[introduzione ai modelli di programmazione Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## Distribuire
+## Distribuisci
 1. Un *amministratore di applicazioni* personalizza il tipo di applicazione in un'applicazione specifica da distribuire in un cluster di Service Fabric specificando i parametri appropriati dell'elemento **ApplicationType** nel manifesto dell'applicazione.
 
 2. Un *operatore* carica il pacchetto applicazione nell’archivio immagini cluster usando il [**metodo CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) o il [**cmdlet Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Il pacchetto applicazione contiene il manifesto dell'applicazione e la raccolta di pacchetti servizio. Service Fabric distribuisce le applicazioni dal relativo pacchetto archiviato nell’archivio immagini, che può essere un archivio BLOB di Azure o un servizio di sistema di Service Fabric.
@@ -121,4 +121,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 - [Panoramica di Testabilità](service-fabric-testability-overview.md)
 - [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

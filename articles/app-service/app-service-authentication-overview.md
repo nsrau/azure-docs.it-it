@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="mahender"/>
+	ms.date="08/29/2016"
+	ms.author="mahender"/>  
 
 # Autenticazione e autorizzazione nel servizio app di Azure
 
@@ -26,7 +26,7 @@ Il servizio app usa identità federate, in cui un provider di identità di terze
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-- [Aggiungere l'autenticazione all'app iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
+- [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 - [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
 - [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 
@@ -89,7 +89,7 @@ Si ha il controllo completo sulle richieste che possono accedere all'applicazion
 
 	In questo caso la funzionalità Autenticazione/Autorizzazione è disabilitata. Le attività di autenticazione e autorizzazione dipendono interamente dal codice dell'applicazione.
 
-I comportamenti precedenti sono controllati dall'opzione **Azione da eseguire quando la richiesta non è autenticata** nel portale di Azure. Se si sceglie **Accedi con *nome provider***, tutte le richieste devono essere autenticate. **Consenti richiesta (nessuna azione)** rinvia la decisione di autorizzazione al codice, ma fornisce comunque informazioni di autenticazione. Se si vuole che il codice gestisca tutti gli elementi, è possibile disabilitare la funzionalità Autenticazione/Autorizzazione.
+I comportamenti precedenti sono controllati dall'opzione **Azione da eseguire quando la richiesta non è autenticata** nel portale di Azure. Se si sceglie **Accedi con *nome provider* **, tutte le richieste devono essere autenticate. **Consenti richiesta (nessuna azione)** rinvia la decisione di autorizzazione al codice, ma fornisce comunque informazioni di autenticazione. Se si vuole che il codice gestisca tutti gli elementi, è possibile disabilitare la funzionalità Autenticazione/Autorizzazione.
 
 ## Utilizzo delle identità utente nell'applicazione
 
@@ -102,7 +102,7 @@ Il servizio app passa alcune informazioni utente all'applicazione usando intesta
 
 Il codice scritto in qualsiasi linguaggio o framework può ottenere le informazioni necessarie da queste intestazioni. Per le app ASP.NET 4.6, i valori appropriati per **ClaimsPrincipal** vengono impostati automaticamente.
 
-L'applicazione può anche ottenere altri dettagli sull'utente tramite una richiesta HTTP GET sull'endpoint `/.auth/me` dell'applicazione. Un token valido incluso nella richiesta restituirà un payload JSON con informazioni dettagliate sul provider in uso, il token del provider sottostante e altre informazioni utente. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+L'applicazione può anche ottenere altri dettagli sull'utente tramite una richiesta HTTP GET sull'endpoint `/.auth/me` dell'applicazione. Un token valido incluso nella richiesta restituirà un payload JSON con informazioni dettagliate sul provider in uso, il token del provider sottostante e altre informazioni utente. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentazione e risorse aggiuntive
 
@@ -115,7 +115,7 @@ Le esercitazioni seguenti illustrano come configurare il servizio app per usare 
 - [Come configurare un'applicazione per usare l'account di accesso Microsoft][MSA]
 - [Come configurare un'applicazione per usare l'account di accesso di Twitter][Twitter]
 
-Se si vuole usare un sistema di gestione delle identità diverso da quelli qui forniti, è anche possibile sfruttare il [supporto per l'anteprima per l'autenticazione personalizzata dell'SDK del server .NET per app per dispositivi mobili di Azure][custom-auth], che può essere usato in app Web, app per dispositivi mobili o app per le API.
+Se si vuole usare un sistema di gestione delle identità diverso da quelli qui forniti, è anche possibile sfruttare l'[anteprima del supporto per l'autenticazione personalizzata dell'SDK del server .NET per app per dispositivi mobili di Azure][custom-auth], che può essere usato in app Web, app per dispositivi mobili o app per le API.
 
 ### Applicazioni Web
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione a un'applicazione Web:
@@ -138,6 +138,18 @@ Se si vuole usare il flusso verso il client per Azure Active Directory, consulta
 - [Usare Active Directory Authentication Library per iOS][ADAL-iOS]
 - [Usare Active Directory Authentication Library per Android][ADAL-Android]
 - [Usare Active Directory Authentication Library per Windows e Xamarin][ADAL-dotnet]
+
+Se si vuole usare il flusso verso il client per Facebook, vedere le risorse seguenti:
+
+- [Usare Facebook SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
+
+Se si vuole usare il flusso verso il client per Twitter, vedere le risorse seguenti:
+
+- [Usare Twitter Fabric for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Se si vuole usare il flusso verso il client per Google, vedere le risorse seguenti:
+
+- [Usare Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
 ### Applicazioni per le API
 Le esercitazioni seguenti illustrano come proteggere le app per le API:
@@ -178,4 +190,4 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

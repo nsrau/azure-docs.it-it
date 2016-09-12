@@ -88,7 +88,7 @@ Questa immagine illustra i diversi canali e le porte di comunicazione usati da S
 
 3. Fare clic su **Crea nuovo** > **Creazione rapida**.
 
-4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
+4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali.
 
 5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -186,8 +186,7 @@ I parametri includono:
 
 	![Create storage account](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
-
+>[AZURE.NOTE] 1. Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse. 2. [La migrazione degli account di archiviazione](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per gli account di archiviazione usati per la distribuzione di Site Recovery.
 
 ## Passaggio 5: Creare e configurare gruppi di protezione
 
@@ -195,9 +194,9 @@ I gruppi di protezione dati sono raggruppamenti logici di macchine virtuali che 
 
 1. In **Crea e configura gruppi di protezione** fare clic su **Crea gruppo di protezione dati**. Se non risultano soddisfatti tutti i requisiti, viene visualizzato un messaggio in cui è disponibile l'opzione **Visualizza dettagli** che consente di ottenere maggiori informazioni.
 
-2. Nella scheda **Gruppo di protezione dati**, aggiungere un gruppo di protezione. Specificare un nome, il sito Hyper-V di origine, **Azure** di destinazione, il nome della propria sottoscrizione di Azure Site Recovery e l'account di archiviazione di Azure.
+2. Nella scheda **Gruppo di protezione dati**, aggiungere un gruppo di protezione. Specificare un nome, il sito Hyper-V di origine, **Azure** di destinazione, il nome della sottoscrizione di Azure Site Recovery e l'account di archiviazione di Azure.
 
-	![Gruppo protezione dati](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
+	![Gruppo protezione dati](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)  
 
 
 2. In **Impostazioni di replica** impostare la **Frequenza di copia** per specificare la frequenza di sincronizzazione dei dati differenziali tra origine e destinazione. È possibile impostare su 30 secondi, 5 minuti o 15 minuti.
@@ -205,7 +204,7 @@ I gruppi di protezione dati sono raggruppamenti logici di macchine virtuali che 
 4. In **Frequenza di snapshot coerenti con l’applicazione** è possibile specificare se eseguire snapshot che utilizzano il servizio Copia Shadow del volume (VSS) per garantire che le applicazioni siano coerenti durante la creazione dello snapshot. Per impostazione predefinita questi snapshot non vengono eseguiti. Se si imposta un valore, questo deve essere inferiore al numero di punti di ripristino aggiuntivi configurati. Questa opzione è supportata solo se nella macchina virtuale è in esecuzione un sistema operativo Windows.
 5. In **Ora di inizio replica iniziale** specificare quando la replica iniziale delle macchine virtuali nel gruppo di protezione deve essere inviata in Azure.
 
-	![Gruppo protezione dati](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group2.png)
+	![Gruppo protezione dati](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group2.png)  
 
 
 ## Passaggio 6: Abilitare la protezione delle macchine virtuali
@@ -229,7 +228,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
 		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali* nome\_macchina\_virtuale* > **Configura**, tra cui:
+	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione** > *nome\_gruppodiprotezione* > **Macchine virtuali* nome\_macchina\_virtuale* > **Configura**, tra cui:
 
 		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
 
@@ -243,8 +242,10 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Rete di Azure**: specificare la rete in cui la macchina virtuale deve eseguire il failover. Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
 		- **Subnet**: per ogni scheda di rete nella macchina virtuale, selezionare la subnet nella rete di Azure a cui deve connettersi la macchina dopo il failover.
 		- **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per usare un indirizzo IP statico, è possibile specificare l'indirizzo IP per la macchina virtuale di destinazione per assicurarsi che la macchina abbia lo stesso indirizzo IP dopo il failover. Se non si specifica un indirizzo IP, al momento del failover verrà assegnato un qualsiasi indirizzo disponibile. Se si specifica un indirizzo che si sta usando, il failover avrà esito negativo.
+		
+        > [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per le reti usate per la distribuzione di Site Recovery.
 
-		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
+		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)  
 
 
 
@@ -274,14 +275,14 @@ Eseguire il failover di test come descritto di seguito:
 1. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
 2. Nella pagina **Conferma failover di test** selezionare **Nessuno** o una rete di Azure specifica. Tenere presente che se si seleziona **Nessuno**, il failover di test verifica che la macchina virtuale venga replicata correttamente in Azure ma non controlla la configurazione della rete di replica.
 
-	![Failover di test](./media/site-recovery-hyper-v-site-to-azure-classic/test-nonetwork.png)
+	![Failover di test](./media/site-recovery-hyper-v-site-to-azure-classic/test-nonetwork.png)  
 
 3. Nella scheda **Processi** è possibile tenere traccia dello stato di avanzamento del failover. Dovrebbe anche essere possibile vedere la replica di test della macchina virtuale nel portale di Azure. Se è stato impostato l'accesso alle macchine virtuali dalla rete locale, è possibile inizializzare una Connessione Desktop remoto alla macchina virtuale.
 4. Quando il processo di failover raggiunge la **fase conclusiva**, fare clic su **Completa** test per completare il failover di test. È possibile eseguire il drill-down fino alla scheda **Processo** per tenere traccia dello stato e dell’avanzamento del failover ed eseguire eventuali azioni necessarie.
 5. Al termine del processo di failover, nel portale di Azure sarà possibile visualizzare la replica del test eseguito sulla macchina virtuale. Se è stato impostato l'accesso alle macchine virtuali dalla rete locale, è possibile inizializzare una Connessione Desktop remoto alla macchina virtuale.
 
 	1. Verificare che le macchine virtuali vengano avviate correttamente.
-    2. Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test. È necessario anche aggiungere un endpoint RDP nella macchina virtuale. A tale scopo, è possibile usare un [runbook di Automazione di Azure](site-recovery-runbook-automation.md).
+    2. Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test. È necessario anche aggiungere un endpoint RDP nella macchina virtuale. A tale scopo, è possibile usare un [runbook di automazione di Azure](site-recovery-runbook-automation.md).
     3. Dopo il failover, se si utilizza un indirizzo IP pubblico per connettersi alla macchina virtuale in Azure tramite Desktop remoto, verificare che non siano definiti criteri di dominio che impediscono la connessione a una macchina virtuale utilizzando un indirizzo pubblico.
 
 6. Al completamento del test, procedere come segue:
@@ -299,4 +300,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

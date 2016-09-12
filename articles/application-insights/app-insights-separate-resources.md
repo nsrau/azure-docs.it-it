@@ -90,7 +90,7 @@ Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenu
     // Modify this part:
     }({instrumentationKey:  
       // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
+      "@Microsoft.ApplicationInsights.Extensibility.
          TelemetryConfiguration.Active.InstrumentationKey"
     }) // ...
 
@@ -119,7 +119,7 @@ La creazione della risorsa richiede pochi secondi. Al termine della creazione ve
 
 La chiave di strumentazione identifica la risorsa creata.
 
-![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)
+![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)  
 
 Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invierà dati.
 
@@ -127,4 +127,4 @@ Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invi
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -75,6 +75,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 - Gateway applicazione
 - Application Insights
 - Express Route
+- Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino.
 - Set di scalabilità di macchine virtuali
 - Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Gateway VPN
@@ -273,4 +274,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

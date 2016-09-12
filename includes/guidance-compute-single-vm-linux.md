@@ -2,13 +2,13 @@ Questo articolo illustra un insieme di procedure consolidate per l'esecuzione di
 
 > [AZURE.NOTE] Azure offre due diversi modelli di distribuzione, ovvero [Azure Resource Manager][resource-manager-overview] e la distribuzione classica. Questo articolo usa Azure Resource Manager, consigliato da Microsoft per le nuove distribuzioni.
 
-Non è consigliabile usare una singola VM per carichi di lavoro di produzione perché non esiste alcun contratto di servizio che disciplini il tempo di attività delle singole VM in Azure. Per ottenere il contratto di servizio, è necessario distribuire più VM in un [set di disponibilità][availability-set]. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] \(Esecuzione di più VM in Azure).
+Non è consigliabile usare una singola VM per carichi di lavoro di produzione perché non esiste alcun contratto di servizio che disciplini il tempo di attività delle singole VM in Azure. Per ottenere il contratto di servizio, è necessario distribuire più VM in un [set di disponibilità][availability-set]. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] (Esecuzione di più VM in Azure).
 
 ## Diagramma dell'architettura
 
 Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre alla VM in sé. Sono presenti elementi di calcolo, rete e archiviazione.
 
-![[0]][0]
+![[0]][0]  
 
 - **Gruppo di risorse.** Un [_gruppo di risorse_][resource-manager-overview] è un contenitore in cui risiedono le risorse correlate. Creare un gruppo di risorse in cui includere le risorse per questa VM.
 
@@ -89,7 +89,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 - Per aumentare o ridurre le prestazioni di una VM, è possibile [modificare le dimensioni della VM][vm-resize].
 
-- Per scalare orizzontalmente, inserire due o più VM in un set di disponibilità nell'ambito di un servizio di bilanciamento del carico. Per informazioni dettagliate, vedere [Running multiple VMs on Azure][multi-vm] \(Esecuzione di più VM in Azure).
+- Per scalare orizzontalmente, inserire due o più VM in un set di disponibilità nell'ambito di un servizio di bilanciamento del carico. Per informazioni dettagliate, vedere [Running multiple VMs on Azure][multi-vm] (Esecuzione di più VM in Azure).
 
 ## Considerazioni sulla disponibilità
 
@@ -103,7 +103,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 ## Considerazioni sulla gestibilità
 
-- **Gruppi di risorse.** Posizionare in uno stesso [gruppo di risorse][resource-manager-overview] le risorse strettamente associate che condividono lo stesso ciclo di vita. I gruppi di risorse consentono di distribuire e monitorare le risorse in gruppo, distribuendo i costi per ogni gruppo di risorse. È inoltre possibile eliminare un intero set di risorse, operazione molto utile nelle distribuzioni di test. Assegnare alle risorse nomi significativi. In tal modo, è più semplice individuare una specifica risorsa e comprenderne il ruolo. Vedere [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenzioni di denominazione consigliate per le risorse di Azure).
+- **Gruppi di risorse.** Posizionare in uno stesso [gruppo di risorse][resource-manager-overview] le risorse strettamente associate che condividono lo stesso ciclo di vita. I gruppi di risorse consentono di distribuire e monitorare le risorse in gruppo, distribuendo i costi per ogni gruppo di risorse. È inoltre possibile eliminare un intero set di risorse, operazione molto utile nelle distribuzioni di test. Assegnare alle risorse nomi significativi. In tal modo, è più semplice individuare una specifica risorsa e comprenderne il ruolo. Vedere [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenzioni di denominazione consigliate per le risorse di Azure).
 
 - **SSH**. Prima di creare una VM Linux, generare una coppia di chiavi RSA pubblica/privata a 2.048 bit. Quando si crea la VM, utilizzare il file di chiave pubblica. Per altre informazioni, vedere [Come usare SSH con Linux e Mac in Azure][ssh-linux].
 
@@ -133,7 +133,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 - Automatizzare gli aggiornamenti del sistema operativo usando l'estensione [OSPatching] della VM. Installare l'estensione al momento di eseguire il provisioning della VM. È possibile specificare la frequenza di installazione delle patch e stabilire se eseguire il riavvio dopo l'applicazione di patch.
 
-- Usare il [controllo degli accessi in base al ruolo][rbac] \(RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [Utente DevTest Labs][rbac-devtest] e [Collaboratore Rete][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
+- Usare il [controllo degli accessi in base al ruolo][rbac] (RBAC) per controllare l'accesso alle risorse di Azure da distribuire. Il controllo degli accessi in base al ruolo consente di assegnare i ruoli di autorizzazione ai membri del proprio team DevOps. Ad esempio, il ruolo di lettura permette di visualizzare le risorse di Azure, ma non di crearle, gestirle o eliminarle. Alcuni ruoli sono specifici di determinati tipi di risorse di Azure. Ad esempio, il ruolo di Collaboratore Macchina virtuale consente di riavviare o deallocare una VM, reimpostare la password di amministratore, creare una nuova VM e così via. Altri [ruoli RBAC predefiniti][rbac-roles] che potrebbero essere utili per questa architettura di riferimento includono [Utente DevTest Labs][rbac-devtest] e [Collaboratore Rete][rbac-network]. Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
 
     > [AZURE.NOTE] Il controllo degli accessi in base al ruolo non limita le azioni eseguibili da un utente registrato in una VM. Le autorizzazioni sono determinate dal tipo di account sul sistema operativo guest.
 
@@ -147,24 +147,25 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 
 I modelli sono governati da parametri, che sono contenuti in file JSON separati. È possibile modificare i parametri in questi file per configurare la distribuzione in base alle proprie esigenze. Non è necessario modificare i modelli stessi. Gli schemi degli oggetti nel file dei parametri non devono essere modificati.
 
-Quando si modificano i modelli, creare oggetti che rispettano le convenzioni di denominazione descritte in [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenzioni di denominazione consigliate per le risorse di Azure).
+Quando si modificano i modelli, creare oggetti che rispettano le convenzioni di denominazione descritte in [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenzioni di denominazione consigliate per le risorse di Azure).
 
 Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'infrastruttura circostante:
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Questo file definisce le impostazioni di rete virtuale, ad esempio il nome, lo spazio di indirizzi, la subnet e gli indirizzi di qualsiasi server DNS richiesto. Gli indirizzi della subnet devono essere inglobati dallo spazio di indirizzi della rete virtuale.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json#L4-L21 -->  
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -177,24 +178,23 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. Questo file contiene le definizioni dei gruppi di sicurezza di rete (NSG) e delle relative regole. Il parametro `name` nel blocco `virtualNetworkSettings` specifica la rete virtuale a cui è associato il gruppo di sicurezza di rete. Il parametro `subnets` nel blocco `networkSecurityGroupSettings` identifica tutte le subnet che applicano le regole del gruppo di sicurezza di rete nella rete virtuale. Deve trattarsi di elementi definiti nel file **virtualNetwork.parameters.json**.
 
 	La regola di sicurezza illustrata nell'esempio consente all'utente di connettersi alla VM tramite una connessione SSH. È possibile aprire porte aggiuntive o negare l'accesso a porte specifiche aggiungendo altri elementi alla matrice `securityRules`.
-
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json#L4-L36 -->  
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -223,17 +223,18 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
 	azure vm image list westus redhat rhel
 	```
 
-	Il parametro `subnetName` nella sezione `nics` specifica la subnet per la VM. Analogamente, il parametro `name` in `virtualNetworkSettings` identifica la rete virtuale da usare. Dovrebbe trattarsi del nome di una rete virtuale e di una subnet definito nel file **virtualNetwork.parameters.json**.
+	Il parametro `subnetName` nella sezione `nics` specifica la subnet per la VM. Analogamente, il parametro `name` in `virtualNetworkSettings` identifica la VM da usare. I valori devono corrispondere al nome della subnet e della rete virtuale definite nel file **virtualNetwork.parameters.json**.
 
 	È possibile creare più VM attraverso la condivisione di un account di archiviazione o con i propri account di archiviazione modificando le impostazioni nella sezione `buildingBlockSettings`. Se si creano più VM, è necessario specificare anche il nome di un set di disponibilità da usare o creare nella sezione `availabilitySet`.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json#L4-L63 -->
 	```json
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "linux",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -241,16 +242,19 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
         "imageReference": {
-          "publisher": "RedHat",
-          "offer": "RHEL",
-          "sku": "7.2",
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.5-LTS",
           "version": "latest"
         },
         "dataDisks": {
@@ -264,22 +268,17 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -287,9 +286,6 @@ Lo script fa riferimento al file dei parametri seguenti per creare le VM e l'inf
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -321,8 +317,9 @@ Per eseguire lo script che distribuisce la soluzione:
 
 5. Modificare il file Deploy-ReferenceArchitecture.ps1 nella cartella Script e modificare la riga seguente per specificare il gruppo di risorse che deve essere creato o utilizzato per contenere la VM e le risorse create dallo script:
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->  
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Modificare ogni file JSON nella cartella Modelli/Linux per impostare i parametri relativi a rete virtuale, gruppo di sicurezza di rete e VM, come descritto nella sezione Componenti della soluzione.
 
@@ -342,18 +339,18 @@ Per eseguire lo script che distribuisce la soluzione:
 
 ## Passaggi successivi
 
-Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] \(Esecuzione di più VM in Azure).
+Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è necessario distribuire due o più istanze in un set di disponibilità. Per altre informazioni, vedere [Running multiple VMs on Azure][multi-vm] (Esecuzione di più VM in Azure).
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/it-IT/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
@@ -372,26 +369,26 @@ Per poter applicare il [Contratto di Servizio per Macchine virtuali][vm-sla], è
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/it-IT/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/it-IT/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/it-IT/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/it-IT/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/it-IT/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/deploy-reference-architecture.sh
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroup.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Singola architettura VM di Linux in Azure"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

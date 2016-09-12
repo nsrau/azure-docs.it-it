@@ -13,38 +13,52 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/30/2016"
-	ms.author="marsma" />
+	ms.date="08/25/2016"
+	ms.author="marsma" />  
 
 # Distribuzione delle applicazioni con i pacchetti dell’applicazione di Azure Batch.
 
-I pacchetti dell’applicazione sono una funzionalità di Azure Batch che consente di gestire e distribuire facilmente le applicazioni sui nodi di calcolo del pool. I pacchetti dell'applicazione consentono di caricare e gestire con facilità più versioni delle applicazioni, inclusi i file binari eseguiti dalle attività e i relativi file di supporto. È quindi possibile di distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
+I pacchetti dell'applicazione sono una funzionalità di Azure Batch che consente di gestire e distribuire facilmente le applicazioni per le attività nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono di caricare e gestire più versioni delle applicazioni eseguite dalle attività, inclusi i file di supporto. È quindi possibile di distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
 
-In questo articolo si apprenderà come caricare e gestire pacchetti dell'applicazione tramite il portale di Azure. Si apprenderà quindi come installarli sui nodi di calcolo del pool usando la libreria [Batch .NET][api_net].
+In questo articolo si apprenderà come caricare e gestire pacchetti dell'applicazione nel portale di Azure. Si apprenderà quindi come installarli nei nodi di calcolo di un pool usando la libreria [Batch .NET][api_net].
 
 > [AZURE.NOTE] La funzionalità dei pacchetti dell’applicazione descritta di seguito sostituisce la funzionalità App Batch disponibile nelle versioni precedenti del servizio.
 
 ## Requisiti dei pacchetti dell'applicazione
 
+Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#link-a-storage-account) all'account Batch.
+
 La funzionalità dei pacchetti dell'applicazione descritta in questo articolo è compatibile *solo* con i pool di Batch creati dopo il 10 marzo 2016. I pacchetti dell’applicazione non saranno distribuiti sui nodi di calcolo di pool creati prima di questa data.
 
-Questa funzionalità è stata introdotta nella versione 2015-12-01.2.2 dell'[API Batch REST][api_rest] e nella versione 3.1.0 della libreria [ Batch .NET][api_net] corrispondente. È consigliabile usare sempre la versione API più recente quando si usa Batch.
+Questa funzionalità è stata introdotta nella versione 2015-12-01.2.2 dell'[API Batch REST][api_rest] e nella versione 3.1.0 della libreria [Batch .NET][api_net] corrispondente. È consigliabile usare sempre la versione API più recente quando si usa Batch.
 
-> [AZURE.IMPORTANT] Attualmente solo i pool *CloudServiceConfiguration* pool supportano pacchetti dell'applicazione. Non è possibile usare i pacchetti dell'applicazione in pool creati con immagini VirtualMachineConfiguration. Per altre informazioni sulle due diverse configurazioni, vedere la sezione [Configurazione macchina virtuale](batch-linux-nodes.md#virtual-machine-configuration) dell'articolo [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
+> [AZURE.IMPORTANT] Solo i pool *CloudServiceConfiguration* supportano attualmente pacchetti dell'applicazione. Non è possibile usare i pacchetti dell'applicazione in pool creati con immagini VirtualMachineConfiguration. Per altre informazioni sulle due diverse configurazioni, vedere la sezione [Configurazione macchina virtuale](batch-linux-nodes.md#virtual-machine-configuration) dell'articolo [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
 
 ## Informazioni sulle applicazioni e sui pacchetti dell’applicazione
 
-Per *applicazione* in Azure Batch si intende un set di file binari sottoposti al controllo della versione, che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un *pacchetto dell'applicazione* è invece un *set specifico* di tali file binari e rappresenta una *versione* specifica dell'applicazione.
+Per *applicazione* in Azure Batch si intende un set di file binari con versione che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un *pacchetto dell'applicazione* è invece un *set specifico* di tali file binari e rappresenta una *versione* specifica dell'applicazione.
 
-![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
+![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]  
 
 ### Applicazioni
 
-Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Ad esempio, un'applicazione specifica la versione del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
+Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Un'applicazione può ad esempio specificare la versione predefinita del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
 
 ### Pacchetti dell'applicazione
 
-Un pacchetto dell'applicazione è un file ZIP contenente i file binari e i file di supporto dell'applicazione necessari per l'esecuzione delle attività. Ogni pacchetto dell’applicazione rappresenta una versione specifica dell'applicazione. Quando si crea un pool nel servizio Batch, è possibile specificare una o più di queste applicazioni e, facoltativamente, una versione. I pacchetti dell'applicazione verranno scaricati automaticamente ed estratti in ogni nodo quando viene aggiunto al pool.
+Un pacchetto dell'applicazione è un file ZIP contenente i file binari e i file di supporto dell'applicazione necessari per l'esecuzione delle attività. Ogni pacchetto dell’applicazione rappresenta una versione specifica dell'applicazione.
+
+È possibile specificare i pacchetti dell'applicazione a livello di pool e di attività. È possibile specificare uno o più di questi pacchetti ed eventualmente una versione quando si crea un pool o un'attività.
+
+* I **pacchetti dell'applicazione del pool** vengono distribuiti in *ogni* nodo del pool. Le applicazioni vengono distribuite quando un nodo viene aggiunto a un pool e quando viene riavviato o oppure la sua immagine viene ricreata.
+
+    I pacchetti dell'applicazione del pool possono essere usati quando tutti i nodi in un pool eseguono le attività di un processo. È possibile specificare uno o più pacchetti dell'applicazione quando si crea un pool e aggiungere o aggiornare i pacchetti di un pool esistente. Se si aggiornano i pacchetti dell'applicazione di un pool esistente, è necessario riavviare i nodi per installare il nuovo pacchetto.
+
+* I **pacchetti dell'applicazione per le attività** vengono distribuiti solo in un nodo di calcolo che dovrà eseguire un'attività, appena prima di eseguire la riga di comando dell'attività. Se il pacchetto dell'applicazione specificato con la versione corrispondente si trova già nel nodo, non verrà ridistribuito e verrà usato il pacchetto esistente.
+
+    I pacchetti dell'applicazione per le attività sono utili in ambienti di pool condivisi, in cui diversi processi vengono eseguiti in un pool e il pool non viene eliminato quando viene completato un processo. Se il processo ha meno attività che nodi nel pool, i pacchetti dell'applicazione di attività possono ridurre il trasferimento dei dati, perché l'applicazione viene distribuita solo nei nodi che eseguono le attività.
+
+    Altri scenari che possono trarre vantaggio da pacchetti dell'applicazione per le attività sono processi che usano un'applicazione di dimensioni particolarmente elevate, ma solo per un numero ridotto di attività, ad esempio una fase di pre-elaborazione o un'attività di unione, in cui l'applicazione di pre-elaborazione o di unione è pesante.
 
 > [AZURE.IMPORTANT] Sono previste restrizioni al numero di applicazioni e di pacchetti dell’applicazione in un account Batch. Anche la dimensione massima del pacchetto dell’applicazione è limitata. Per informazioni dettagliate su questi limiti, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
@@ -52,25 +66,21 @@ Un pacchetto dell'applicazione è un file ZIP contenente i file binari e i file 
 
 Con i pacchetti dell'applicazione è possibile semplificare il codice nella soluzione Batch e ridurre il sovraccarico richiesto in termini di gestione delle applicazioni eseguite delle attività.
 
-Con i pacchetti dell’applicazione, non è necessario che l’attività d’avvio del pool debba specificare un lungo elenco di singoli file di risorse per eseguire l’installazione sui nodi. Non è necessario gestire manualmente più versioni di questi file in Archiviazione di Azure o nei nodi. Per accedere ai file dell'account di archiviazione di Azure, non è fondamentale generare un [URL di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
-
-Batch interagisce in background con Archiviazione di Azure per archiviare e distribuire i pacchetti dell'applicazione nei nodi di calcolo, semplificando sia il codice che il sovraccarico in termini di gestione.
+Non è necessario che l'attività di avvio del pool specifichi un lungo elenco di singoli file di risorse per eseguire l'installazione nei nodi. Non è necessario gestire manualmente più versioni dei file dell'applicazione in Archiviazione di Azure o nei nodi. Per accedere ai file nell'account di archiviazione non è necessario generare un [URL di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md). Batch interagisce in background con Archiviazione di Azure per archiviare e distribuire i pacchetti dell'applicazione nei nodi di calcolo.
 
 ## Caricare e gestire le applicazioni
 
-Nel portale di Azure è possibile aggiungere, aggiornare ed eliminare i pacchetti dell'applicazione. È possibile configurare versioni predefinite per ogni applicazione.
-
-Nelle sezioni seguenti viene illustrato come associare un account di archiviazione a un account Batch e come analizzare le funzionalità di gestione dei pacchetti disponibili nel portale di Azure. Viene anche spiegato come distribuire tali pacchetti nei nodi di calcolo usando la libreria [Batch .NET][api_net].
+È possibile usare il [portale di Azure][portal] o la libreria di [.NET per Batch](batch-management-dotnet.md) per gestire i pacchetti dell'applicazione nell'account Batch. Nelle sezioni successive verrà prima di tutto collegato un account di archiviazione, quindi verrà descritta l'aggiunta di applicazioni e pacchetti e la loro gestione con il portale.
 
 ### Collegare un account di archiviazione
 
 Per usare i pacchetti dell'applicazione, è prima necessario collegare un account di archiviazione di Azure all'account Batch. Se non è stato ancora configurato un account di archiviazione per l'account Batch, il portale di Azure visualizza un avviso nel momento in cui si seleziona per la prima volta il riquadro **Applicazioni** nel pannello **Account Batch**.
 
-> [AZURE.IMPORTANT] Batch attualmente supporta *solo* account di archiviazione di tipo **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, collegare *solo* un account di archiviazione **Utilizzo generico**.
+> [AZURE.IMPORTANT] Batch supporta attualmente *solo* account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, collegare *solo* un account di archiviazione **per utilizzo generico**.
 
-![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]
+![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]  
 
-Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo. Selezionare **Impostazioni dell'account di archiviazione** nel pannello **Avviso** e quindi fare clic su **Account di archiviazione** nel pannello **Account di archiviazione** per collegare un account di archiviazione a un account Batch.
+Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo. Selezionare **Impostazioni account di archiviazione** nel pannello **Avviso** e quindi fare clic su **Account di archiviazione** nel pannello **Account di archiviazione** per collegare un account di archiviazione a un account Batch.
 
 ![Selezionare il pannello Account di archiviazione nel portale di Azure][10]
 
@@ -86,17 +96,17 @@ Per visualizzare le applicazioni nell'account Batch, fare clic sul riquadro **Ap
 
 Verrà aperto il pannello **Applicazioni**:
 
-![Elenco applicazioni][3]
+![Elenco applicazioni][3]  
 
 Nel pannello **Applicazioni** vengono visualizzati l'ID di ogni applicazione nell'account e le proprietà seguenti:
 
 * **Pacchetti**: il numero delle versioni associate a questa applicazione.
 * **Versione predefinita**: la versione che verrà installata se non si specifica una versione durante l'impostazione dell'applicazione per un pool. Questa impostazione è facoltativa.
-* **Consenti aggiornamenti**: il valore che specifica se sono consentiti aggiornamenti, eliminazioni e aggiunte al pacchetto. Se è impostata su **No**, gli aggiornamenti del pacchetto e le eliminazioni sono disabilitate per l'applicazione. È possibile aggiungere solo nuove versioni del pacchetto dell'applicazione. Il valore predefinito è **Sì**.
+* **Consenti aggiornamenti**: il valore che specifica se sono consentiti aggiornamenti, eliminazioni e aggiunte per il pacchetto. Se l'opzione è impostata su **No**, gli aggiornamenti del pacchetto e le eliminazioni sono disabilitate per l'applicazione. È possibile aggiungere solo nuove versioni del pacchetto dell'applicazione. Il valore predefinito è **Sì**.
 
 ### Visualizzare i dettagli dell'applicazione
 
-Se si seleziona un'applicazione nel pannello **Applicazioni**, viene visualizzato il pannello che include i dettagli dell'applicazione.
+Se si seleziona un'applicazione nel pannello **Applicazioni**, verrà visualizzato il pannello che include i dettagli dell'applicazione.
 
 ![Dettagli applicazione][4]
 
@@ -146,35 +156,37 @@ Dopo aver selezionato un file, fare clic su **OK** per avviare il caricamento in
 
 Per aggiungere una nuova versione del pacchetto dell'applicazione per un'applicazione esistente, selezionare un'applicazione nel pannello **Applicazioni**, fare clic su **Pacchetti** e quindi su **Aggiungi** per visualizzare il pannello **Aggiungi pacchetto**.
 
-![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]
+![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]  
 
-Come si può notare, i campi corrispondono a quelli del pannello **Nuova applicazione**, ad eccezione della casella di testo **ID applicazione** che è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **Versione** del nuovo pacchetto, scegliere il file ZIP del **Pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
+Come si può notare, i campi corrispondono a quelli del pannello **Nuova applicazione**, ad eccezione della casella **ID applicazione** che è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
 
 ### Aggiornare o eliminare un pacchetto dell'applicazione
 
-Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire il pannello dei dettagli relativo all'applicazione, fare clic su **Pacchetti** per visualizzare il pannello **Pacchetti**, selezionare i **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.
+Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire il pannello dei dettagli relativo all'applicazione, fare clic su **Pacchetti** per visualizzare il pannello **Pacchetti**, fare clic sui **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.
 
-![Aggiornare o eliminare pacchetto nel portale di Azure][7]
+![Aggiornare o eliminare pacchetto nel portale di Azure][7]  
 
 **Update**
 
-Se si seleziona **Aggiorna**, viene visualizzato il pannello *Aggiorna pacchetto*. Questo pannello è simile al pannello usato per creare un *nuovo pacchetto dell'applicazione*. In questo caso, però, è abilitato solo il campo di selezione del pacchetto, in cui è possibile specificare un nuovo file ZIP da caricare.
+Se si seleziona **Aggiorna**, verrà visualizzato il pannello *Aggiorna pacchetto*. Questo pannello è simile al pannello usato per creare un *nuovo pacchetto dell'applicazione*. In questo caso, però, è abilitato solo il campo di selezione del pacchetto, in cui è possibile specificare un nuovo file ZIP da caricare.
 
-![Pannello Aggiorna pacchetto nel portale di Azure][11]
+![Pannello Aggiorna pacchetto nel portale di Azure][11]  
 
 **Eliminazione**
 
-Se si seleziona **Elimina**, verrà richiesto di confermare l'eliminazione della versione del pacchetto e Batch eliminerà il pacchetto da Archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, viene rimossa l'impostazione **Versione predefinita** per l'applicazione.
+Se si seleziona **Elimina**, verrà chiesto di confermare l'eliminazione della versione del pacchetto e Batch eliminerà il pacchetto da Archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, verrà rimossa l'impostazione **Versione predefinita** per l'applicazione.
 
-![Eliminare applicazione][12]
+![Eliminare applicazione][12]  
 
 ## Installare le applicazioni su nodi di calcolo
 
-Dopo aver spiegato come caricare e gestire i pacchetti dell'applicazione tramite il portale di Azure, verrà descritta la distribuzione effettiva dei pacchetti nei nodi di calcolo e la relativa esecuzione usando attività di Batch.
+Dopo aver visto come gestire i pacchetti dell'applicazione con il portale di Azure, verrà ora descritta la distribuzione dei pacchetti nei nodi di calcolo e la relativa esecuzione con attività di Batch.
 
-Per installare un pacchetto dell'applicazione nei nodi di calcolo di un pool, specificare uno o più *riferimenti* al pacchetto dell'applicazione per il pool. In Batch .NET aggiungere uno o più [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] quando si crea un nuovo pool oppure aggiungerli a un pool esistente.
+### Installare pacchetti dell'applicazione nel pool
 
-La classe [ApplicationPackageReference][net_pkgref] specifica un ID applicazione e la versione da installare nei nodi di calcolo di un pool.
+Per installare un pacchetto dell'applicazione in tutti i nodi di calcolo di un pool, specificare uno o più *riferimenti* al pacchetto dell'applicazione per il pool. I pacchetti dell'applicazione specificati per un pool vengono installati su ciascun nodo di calcolo quando tale nodo viene aggiunto al pool e quando il nodo viene riavviato o ne viene ricreata l'immagine.
+
+In Batch .NET specificare uno o più [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] quando si crea un nuovo pool, oppure aggiungerli al pool esistente. La classe [ApplicationPackageReference][net_pkgref] specifica un ID applicazione e la versione da installare nei nodi di calcolo di un pool.
 
 ```csharp
 // Create the unbound CloudPool
@@ -198,31 +210,54 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
-I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo quando tale nodo viene aggiunto al pool e quando il nodo viene riavviato o ne viene ricreata l'immagine. Se una distribuzione del pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio Batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività verrà pianificata per l'esecuzione in tale nodo. In questo caso, è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consentirà anche di pianificarne di nuovo le attività.
+>[AZURE.IMPORTANT] Se una distribuzione del pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio Batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività verrà pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consentirà anche di pianificarne di nuovo le attività.
+
+### Installare pacchetti dell'applicazione per le attività
+
+Come per un pool, specificare i *riferimenti* del pacchetto dell'applicazione per un'attività. Quando un'attività è pianificata per l'esecuzione su un nodo, il pacchetto viene scaricato ed estratto appena prima dell'esecuzione della riga di comando dell'attività. Se un pacchetto specificato con la versione corrispondente è già installato nel nodo, non verrà scaricato e verrà usato il pacchetto esistente.
+
+Per installare un pacchetto dell'applicazione per le attività, configurare la proprietà [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] dell'attività:
+
+```csharp
+CloudTask task =
+    new CloudTask(
+        "litwaretask001",
+        "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
+
+task.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference
+    {
+        ApplicationId = "litware",
+        Version = "1.1001.2b"
+    }
+};
+```
 
 ## Eseguire le applicazioni installate
 
-Quando un nodo di calcolo viene aggiunto a un pool, viene riavviato o ne viene ricreata l'immagine, i pacchetti specificati vengono scaricati ed estratti in una directory denominata all'interno del nodo `AZ_BATCH_ROOT_DIR`. Batch crea inoltre una variabile di ambiente per le righe di comando dell'attività da usare quando si chiamano i file binari dell'applicazione. Questa variabile è conforme allo schema di denominazione seguente:
+I pacchetti specificati per un pool o un'attività vengono scaricati ed estratti in una directory denominata all'interno del nodo `AZ_BATCH_ROOT_DIR`. Batch crea anche una variabile di ambiente che contiene il percorso della directory denominata. Le righe di comando dell'attività usano questa variabile di ambiente quando fanno riferimento all'applicazione nel nodo. La variabile è nel formato seguente:
 
-`AZ_BATCH_APP_PACKAGE_appid#version`
+`AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`  
 
-Ad esempio, se si specifica di installare la versione 2.7 dell'applicazione *blender*, le attività possono accedere ai relativi file binari facendo riferimento alla variabile di ambiente seguente nelle relative righe di comando:
+`APPLICATIONID` e `version` sono valori che corrispondono all'applicazione e alla versione del pacchetto specificati per la distribuzione. Se ad esempio si specifica l'installazione della versione 2.7 dell'applicazione *blender*, le righe di comando dell'attività useranno questa variabile di ambiente per accedere ai file corrispondenti:
 
-`AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
+`AZ_BATCH_APP_PACKAGE_BLENDER#2.7`  
 
-Se l’applicazione specifica una versione predefinita, è possibile fare riferimento alla variabile di ambiente senza indicare il suffisso stringa relativo alla versione. Se ad esempio è stata specificata la versione predefinita 2.7 per l'applicazione *blender* nel portale di Azure, le attività possono fare riferimento alla variabile di ambiente seguente:
+Se si specifica una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione. Se ad esempio è stata specificata la versione predefinita "2.7" per l'applicazione *blender*, le attività possono fare riferimento alla variabile di ambiente seguente per eseguire la versione 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-Il frammento di codice seguente mostra come è possibile configurare un'attività nel caso in cui sia stata specificata una versione predefinita per l'applicazione *blender*.
+Il frammento di codice seguente mostra una riga di comando dell'attività di esempio che consente di avviare la versione predefinita dell'applicazione *blender*:
 
 ```csharp
 string taskId = "blendertask01";
-string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -command -args";
+string commandLine =
+    @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] Per altre informazioni sulle impostazioni dell'ambiente di nodi di calcolo, vedere "Impostazioni di ambiente per le attività" in [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
+> [AZURE.TIP] Per altre informazioni sulle impostazioni dell'ambiente dei nodi di calcolo, vedere [Impostazioni di ambiente per le attività](batch-api-basics.md#environment-settings-for-tasks) in [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
 
 ## Aggiornare i pacchetti dell’applicazione di un pool
 
@@ -246,7 +281,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Ora che è stata configurata nuova la versione, qualsiasi nodo *nuovo* aggiunto al pool avrà la versione 2.76b. Per installare la versione 2.76b nei nodi *già* presenti nel pool, riavviarli o ricrearne l'immagine. Notare che i nodi riavviati manterranno i file delle distribuzioni precedenti del pacchetto.
+Ora che è stata configurata la nuova versione, per qualsiasi *nuovo* nodo aggiunto al pool verrà distribuita la versione 2.76b. Per installare la versione 2.76b nei nodi *già* presenti nel pool, riavviarli o ricrearne l'immagine. Notare che i nodi riavviati manterranno i file delle distribuzioni precedenti del pacchetto.
 
 ## Elencare le applicazioni in un account Batch
 
@@ -272,9 +307,9 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 
 ## Passaggi successivi
 
-* L'[API Batch REST][api_rest] fornisce anche il supporto per l'utilizzo dei pacchetti dell'applicazione. Per informazioni su come specificare i pacchetti da installare con l'API REST, vedere ad esempio l'elemento [applicationPackageReferences][rest_add_pool_with_packages] in [Aggiungere un pool a un account][rest_add_pool]. Per sapere come ottenere informazioni sull'applicazione con l'API Batch REST, vedere [Applicazioni][rest_applications].
+* L'[API Batch REST][api_rest] fornisce anche il supporto per l'uso dei pacchetti dell'applicazione. Per informazioni su come specificare i pacchetti da installare con l'API REST, vedere ad esempio l'elemento [applicationPackageReferences][rest_add_pool_with_packages] in [Aggiungere un pool a un account][rest_add_pool]. Per dettagli su come ottenere informazioni sull'applicazione con l'API Batch REST, vedere [Applicazioni][rest_applications].
 
-* È possibile scoprire come [Gestire quote e account Azure Batch con la gestione .NET per Batch](batch-management-dotnet.md) a livello di codice. Con la libreria di [Gestione .NET per Batch][api_net_mgmt] è possibile abilitare funzionalità di creazione ed eliminazione di account per l'applicazione o il servizio Batch.
+* È possibile scoprire come [gestire quote e account Azure Batch con la gestione .NET per Batch](batch-management-dotnet.md) a livello di codice. Con la libreria di [gestione .NET per Batch][api_net_mgmt] è possibile abilitare funzionalità di creazione ed eliminazione di account per l'applicazione o il servizio Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -286,8 +321,11 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_cloudtask]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudtask.aspx
+[net_cloudtask_pkgref]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudtask.applicationpackagereferences.aspx
 [net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
+[portal]: https://portal.azure.com
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
@@ -304,4 +342,4 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 [11]: ./media/batch-application-packages/app_pkg_11.png "Pannello Aggiorna pacchetto nel portale di Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

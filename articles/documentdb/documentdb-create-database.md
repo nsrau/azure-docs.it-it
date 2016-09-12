@@ -14,29 +14,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="mimig"/>
+	ms.date="08/25/2016" 
+	ms.author="mimig"/>  
 
 # Come creare un database per DocumentDB usando il portale di Azure
 
 Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account DocumentDB](documentdb-create-account.md), un database, una raccolta e documenti. Questo argomento descrive come creare un database per DocumentDB nel portale di Microsoft Azure. Per informazioni su come creare un database usando uno degli SDK, vedere [Altri modi per creare un database di DocumentDB](#other-ways-to-create-a-documentdb-database).
 
-1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **Account DocumentDB**.
+1.  Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
 
 
     ![Screenshot che illustra come creare un database. Sono evidenziati Account DocumentDB nel pannello Sfoglia e un account DocumentDB nel pannello Account DocumentDB.](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
-2.  Nel pannello **Account DocumentDB** selezionare l'account in cui aggiungere un database NoSQL DocumentDB. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
+2.  Nel pannello **DocumentDB (NoSQL)** selezionare l'account in cui aggiungere un database NoSQL DocumentDB. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
 3. Nel pannello dell'**account DocumentDB** fare clic sul comando **Aggiungi database**.
 
-    ![Screenshot che illustra come creare un database. Sono evidenziati il pulsante Aggiungi database, la casella ID e il pulsante OK.](./media/documentdb-create-database/docdb-database-creation-3-5.png)
+    ![Screenshot che illustra come creare un database. Sono evidenziati il pulsante Aggiungi database, la casella ID e il pulsante OK.](./media/documentdb-create-database/docdb-database-creation-3-5.png)  
 
-4. Nel pannello **Aggiungi database** immettere l'ID del nuovo database. Quando il nome viene convalidato, appare un segno di spunta verde nella casella **ID**.
+4. Nel pannello **Aggiungi database** immettere l'ID del nuovo database. Quando il nome viene convalidato, appare un segno di spunta verde nella casella **ID**. Fare quindi clic su **OK**.
 
-5. Fare su **OK** nella parte inferiore della schermata per creare il nuovo database.
+    ![Screenshot che illustra come creare un database. Sono evidenziati il pulsante Aggiungi database, la casella ID e il pulsante OK.](./media/documentdb-create-database/docdb-database-creation-4.png)
 
-6. Il nuovo database è ora visualizzato nel filtro **Database** nel pannello **Account DocumentDB**.
+5. Il nuovo database è ora visualizzato nel filtro **Database** nel pannello **Account DocumentDB**.
  
 	![Cattura di schermata del nuovo database nel pannello Account DocumentDB](./media/documentdb-create-database/docdb-database-creation-6.png)
 
@@ -52,4 +52,4 @@ Una volta creata la raccolta, è possibile[aggiungere documenti JSON](documentdb
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-sql-queries) nei documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

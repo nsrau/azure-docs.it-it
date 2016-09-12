@@ -3,7 +3,7 @@
 	description="Il database SQL di Azure consente di analizzare, formattare ed eseguire query sui dati nella notazione JavaScript Object Notation (JSON)."
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="jovanpop-msft"
 	manager="jhubbard"
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="08/17/2016"
-	ms.author="carlrab"
+	ms.author="jovanpop"
    ms.workload="NA"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+	ms.tgt_pltfrm="NA"/>  
 
 
 
@@ -30,7 +30,7 @@ Il database SQL di Azure consente di lavorare facilmente con dati JSON e integra
 
 Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 
-![Funzioni di JSON](./media/sql-database-json-features/image_1.png)
+![Funzioni di JSON](./media/sql-database-json-features/image_1.png)  
 
 Se si dispone di testo JSON, è possibile estrarre dati da JSON o verificare che JSON sia formattato correttamente usando le funzioni predefinite [JSON\_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON\_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) e [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). La funzione [JSON\_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) consente di aggiornare il valore all'interno del testo JSON. Per query e analisi più avanzate, la funzione [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) può trasformare un array di oggetti JSON in un set di righe. È possibile eseguire qualsiasi query SQL sul set di risultati restituito. Infine, è disponibile una clausola [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) che consente di formattare i dati archiviati nelle tabelle relazionali come testo JSON.
 
@@ -174,7 +174,7 @@ Il database SQL di Azure consente anche di trasformare gli insiemi JSON in forma
 
 OPENJSON è una funzione con valori di tabella che analizza il testo JSON, individua un array di oggetti JSON, scorre gli elementi dell'array e restituisce una riga nel risultato di output per ogni elemento dell'array.
 
-![JSON tabulare](./media/sql-database-json-features/image_2.png)
+![JSON tabulare](./media/sql-database-json-features/image_2.png)  
 
 Nell'esempio precedente, è possibile specificare dove si trova l'array JSON da aprire (nel percorso $ Orders), quali colonne devono essere restituite come risultato e dove trovare i valori JSON che verranno restituiti come celle.
 
@@ -208,4 +208,4 @@ Per informazioni su come integrare JSON nell'applicazione, consultare le seguent
 
 Per ulteriori informazioni sui vari scenari per l'integrazione di JSON nell'applicazione, vedere le dimostrazioni in questo [video di Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o trovare uno scenario che corrisponde al caso d'uso nei [post del blog su JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

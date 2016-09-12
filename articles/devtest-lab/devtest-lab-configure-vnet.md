@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="tarcher"/>
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>  
 
 # Configurare una rete virtuale per un lab
 
-## Panoramica
+## Overview
 
 Come illustrato nell'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md), quando si crea una VM in un lab, è possibile specificare una rete virtuale configurata (e una subnet) per la macchina virtuale. Questo potrebbe essere utile, ad esempio, per accedere alle risorse di rete aziendali dalle VM utilizzando la rete virtuale impostata con ExpressRoute o VPN da sito a sito. Le sezioni seguenti illustrano come aggiungere la rete virtuale esistente alle impostazioni della rete virtuale del lab in modo che sia disponibile al momento della creazione delle VM.
 
@@ -27,7 +27,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
+1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -41,7 +41,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Selezionare **+ Aggiungi**.
 
-	![Aggiungere una rete virtuale esistente al lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
+	![Aggiungere una rete virtuale esistente al lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)  
 	
 1. Nel pannello **Rete virtuale** selezionare **[Selezionare rete virtuale]**.
 
@@ -65,8 +65,10 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una nuova VM. Questa operazione è esemplificata nell'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Passaggi successivi
 
-Dopo aver aggiunto le reti virtuali desiderate al lab, il passaggio successivo consiste nell'[aggiungere una VM a un lab](devtest-lab-add-vm-with-artifacts.md).
+Dopo avere aggiunto le reti virtuali desiderate al lab, il passaggio successivo consiste nell'[aggiungere una VM a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/29/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect: abilitazione del writeback dei dispositivi
@@ -130,4 +130,4 @@ Verificare la configurazione in Active Directory:
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

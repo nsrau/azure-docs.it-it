@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON con Esplora documenti di DocumentDB
@@ -25,17 +25,13 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
 
 ## Avviare Esplora documenti
 
-1. Nell'indice del portale di Azure fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
+1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
 
-2. Nella parte superiore del pannello **Account DocumentDB** fare clic su **Esplora documenti**.
+2. Nel menu delle risorse fare clic su **Esplora documenti**.
  
-	![Schermata del comando Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorercommand.png)
-
- 	>[AZURE.NOTE] Esplora query viene visualizzato anche nei pannelli di database e raccolte.
+	![Schermata del comando Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)  
 
     Nel pannello **Esplora documenti** gli elenchi a discesa **Database** e **Raccolte** vengono precompilati a seconda del contesto in cui viene avviato Esplora documenti.
-
-	![Screenshot del pannello Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerinitial.png)
 
 ## Creare un documento
 
@@ -45,11 +41,11 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
 
     Nel pannello **Documento** è disponibile un frammento di codice JSON minimo.
 
-	![Screenshot dell'esperienza di creazione documenti di Esplora documenti, in cui è possibile visualizzare e modificare codice JSON](./media/documentdb-view-json-document-explorer/createdocument.png)
+	![Screenshot dell'esperienza di creazione documenti di Esplora documenti, in cui è possibile visualizzare e modificare codice JSON](./media/documentdb-view-JSON-document-explorer/createdocument.png)
 
 2. Nel pannello **Documento** digitare o incollare il contenuto del documento JSON da creare e quindi fare clic su **Salva** per eseguire il commit del documento nel database e nella raccolta specificati nel pannello **Esplora documenti**.
 
-	![Schermata del comando di salvataggio di Esplora documenti](./media/documentdb-view-json-document-explorer/savedocument1.png)
+	![Schermata del comando di salvataggio di Esplora documenti](./media/documentdb-view-JSON-document-explorer/savedocument1.png)  
 
 	> [AZURE.NOTE] Se non si specifica una proprietà "ID", Esplora documenti aggiunge automaticamente una proprietà ID e genera un GUID come valore ID.
 
@@ -61,11 +57,11 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
 
 2. Per modificare un documento esistente, selezionarlo nel pannello **Esplora documenti**, modificarlo nel pannello **Documento** e quindi fare clic su **Salva**.
 
-    ![Screenshot della funzionalità di modifica documenti di Esplora documenti usata per visualizzare codice JSON](./media/documentdb-view-json-document-explorer/editdocument.png)
+    ![Screenshot della funzionalità di modifica documenti di Esplora documenti usata per visualizzare codice JSON](./media/documentdb-view-JSON-document-explorer/editdocument.png)  
 
     Se si modifica un documento e si decide di eliminare il set di modifiche corrente, è sufficiente fare clic su **Annulla** nel pannello **Documento** e confermare l'azione. Verrà ricaricato lo stato precedente del documento.
 
-    ![Schermata del comando per ignorare di Esplora documenti](./media/documentdb-view-json-document-explorer/discardedit.png)
+    ![Schermata del comando per ignorare di Esplora documenti](./media/documentdb-view-JSON-document-explorer/discardedit.png)  
 
 ## Eliminare un documento
 
@@ -73,21 +69,21 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
 
 2. Selezionare il documento in **Esplora documenti**, fare clic su **Elimina** e quindi confermare l'eliminazione. Dopo la conferma, il documento viene immediatamente rimosso dall'elenco di Esplora documenti.
 
-	![Schermata del comando di eliminazione di Esplora documenti](./media/documentdb-view-json-document-explorer/deletedocument.png)
+	![Schermata del comando di eliminazione di Esplora documenti](./media/documentdb-view-JSON-document-explorer/deletedocument.png)  
 
 ## Usare documenti JSON
 
 Esplora documenti verifica che qualsiasi documento nuovo o modificato includa contenuto JSON valido. È possibile visualizzare gli errori JSON anche passando il puntatore sulla sezione non corretta per ottenere informazioni dettagliate sull'errore di convalida.
 
-![Screenshot di Esplora documenti in cui è evidenziato un codice JSON che non è valido](./media/documentdb-view-json-document-explorer/invalidjson1.png)
+![Screenshot di Esplora documenti in cui è evidenziato un codice JSON che non è valido](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)  
 
 Esplora documenti impedisce anche di salvare un documento con contenuto JSON non valido.
 
-![Screenshot di Esplora documenti con errore di salvataggio JSON non valido](./media/documentdb-view-json-document-explorer/invalidjson2.png)
+![Screenshot di Esplora documenti con errore di salvataggio JSON non valido](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
 
 Infine, Esplora documenti consente di visualizzare facilmente le proprietà di sistema del documento attualmente caricato facendo clic sul comando **Proprietà**.
 
-![Schermata di visualizzazione delle proprietà del documento di Esplora documenti](./media/documentdb-view-json-document-explorer/documentproperties.png)
+![Schermata di visualizzazione delle proprietà del documento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentproperties.png)  
 
 > [AZURE.NOTE] La proprietà timestamp (\_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
 
@@ -100,11 +96,11 @@ Per impostazione predefinita, Esplora documenti carica i primi 100 documenti del
 
 2. Nella parte superiore del pannello **Esplora documenti** fare clic su **Filtra**.
 
-    ![Screenshot delle impostazioni filtro di Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings.png)
+    ![Screenshot delle impostazioni filtro di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings.png)  
   
-3.  Le impostazioni del filtro vengono visualizzate sotto la barra dei comandi. Nelle impostazioni del filtro specificare una clausola WHERE e/o una clausola ORDER BY e quindi fare clic su **Filtro**.
+3.  Le impostazioni del filtro vengono visualizzate sotto la barra dei comandi. Nelle impostazioni del filtro specificare una clausola WHERE e/o ORDER BY e quindi fare clic su **Filtro**.
 
-	![Screenshot del pannello Impostazioni di Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings2.png)
+	![Screenshot del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
 
 	Esplora documenti aggiorna automaticamente i risultati con i documenti corrispondenti alla query del filtro. Per altre informazioni sulla grammatica SQL di DocumentDB, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [Foglio informativo PDF di SQL DocumentDB](documentdb-sql-query-cheat-sheet.md).
 
@@ -112,17 +108,17 @@ Per impostazione predefinita, Esplora documenti carica i primi 100 documenti del
 
     Esplora documenti supporta anche l'applicazione di filtri al set di documenti attualmente caricato in base alla relativa proprietà ID. È sufficiente digitare Filtra per ID nella casella Documenti.
 
-	![Schermata di Esplora documenti con filtro evidenziato](./media/documentdb-view-json-document-explorer/documentexplorerfilter.png)
+	![Schermata di Esplora documenti con filtro evidenziato](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)  
 
 	I risultati nell'elenco di Esplora documenti vengono filtrati in base ai criteri forniti.
 
-	![Schermata di Esplora documenti con risultati filtrati](./media/documentdb-view-json-document-explorer/documentexplorerfilterresults.png)
+	![Schermata di Esplora documenti con risultati filtrati](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 	> [AZURE.IMPORTANT] La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
 
 4. Per aggiornare l'elenco dei documenti caricati da Esplora documenti, fare clic su **Aggiorna** nella parte superiore del pannello.
 
-	![Schermata del comando di aggiornamento di Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerrefresh.png)
+	![Schermata del comando di aggiornamento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)  
 
 ## Aggiungere documenti in blocco
 
@@ -132,27 +128,35 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
 2. Per avviare il processo di caricamento, fare clic su **Carica documento**.
 
-	![Schermata della funzionalità di inserimento in blocco di Esplora documenti](./media/documentdb-view-json-document-explorer/uploaddocument1.png)
+	![Schermata della funzionalità di inserimento in blocco di Esplora documenti](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)  
 
     Verrà visualizzato il pannello **Carica documento**.
 
 2. Fare clic sul pulsante Sfoglia per aprire una finestra di Esplora file, selezionare uno o più documenti JSON da caricare e quindi fare clic su **Apri**.
 
-	![Schermata del processo di inserimento in blocco di Esplora documenti](./media/documentdb-view-json-document-explorer/uploaddocument2.png)
+	![Schermata del processo di inserimento in blocco di Esplora documenti](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)  
 
 	> [AZURE.NOTE] Esplora documenti supporta attualmente fino a 100 documenti JSON per singola operazione di caricamento.
 
 3. Dopo aver completato la selezione, fare clic sul pulsante **Carica**. I documenti vengono aggiunti automaticamente alla griglia di Esplora documenti e i risultati del caricamento vengono visualizzati con l'avanzare dell'operazione. Gli errori di importazione vengono segnalati per i singoli file.
 
-	![Schermata dei risultati dell’inserimento in blocco di Esplora documenti](./media/documentdb-view-json-document-explorer/uploaddocument3.png)
+	![Schermata dei risultati dell’inserimento in blocco di Esplora documenti](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)  
 
 4. Al termine dell'operazione, è possibile selezionare un massimo di altri 100 documenti da caricare.
 
 ## Usare documenti JSON all'esterno del portale
 
-Esplora documenti nel portale di Azure è soltanto uno dei modi in cui è possibile usare i documenti in DocumentDB. Per lavorare con i documenti è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per un codice di esempio, vedere gli [esempi di documento .NET SDK](documentdb-dotnet-samples.md#document-examples) e gli [esempi di documento Node.js SDK](documentdb-nodejs-samples.md#document-examples).
+Esplora documenti nel portale di Azure è soltanto uno dei modi in cui è possibile usare i documenti in DocumentDB. Per lavorare con i documenti è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per un codice di esempio, vedere gli [esempi di documento per .NET SDK](documentdb-dotnet-samples.md#document-examples) e gli [esempi di documento per Node.js SDK](documentdb-nodejs-samples.md#document-examples).
 
-Per eseguire la migrazione o importare file da un'altra origine, ad esempio file JSON, MongoDB, SQL Server, file CSV, archivio tabelle di Azure, Amazon DynamoDB o HBase, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati in DocumentDB.
+Per eseguire la migrazione o importare file da un'altra origine, ad esempio file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure, Amazon DynamoDB o HBase, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati in DocumentDB.
+
+## Risoluzione dei problemi
+
+**Sintomo**: Esplora documenti restituisce **Non sono stati trovati documenti**.
+
+**Soluzione**: assicurarsi di avere selezionato la sottoscrizione, il database e la raccolta corretti in cui sono stati inseriti i documenti. Verificare anche che si stia usando una quota di velocità effettiva all'interno dei limiti consentiti. Se si usa il livello massimo di velocità effettiva e si riceve una limitazione, ridurre l'uso delle applicazioni a funzionare con la quota massima di velocità effettiva per la raccolta.
+
+**Spiegazione**: il portale è un'applicazione come qualsiasi altra, che esegue chiamate alla raccolta e al database di DocumentDB. Se le richieste sono attualmente limitate a causa di chiamate effettuate da un'applicazione separata, anche il portale può essere limitato, causando la mancata visualizzazione delle risorse nel portale. Per risolvere il problema, correggere la causa dell'uso di velocità effettiva elevata e quindi aggiornare il pannello del portale. Informazioni su come misurare e ridurre l'uso della velocità effettiva sono reperibili nella sezione [Velocità effettiva](documentdb-performance-tips.md#throughput) dell'articolo [Suggerimenti per incrementare le prestazioni](documentdb-performance-tips.md).
 
 ## Passaggi successivi
 
@@ -160,4 +164,4 @@ Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora 
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

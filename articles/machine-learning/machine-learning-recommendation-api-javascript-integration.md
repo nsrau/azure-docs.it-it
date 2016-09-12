@@ -3,7 +3,7 @@
 	description="Raccomandazioni di Azure Machine Learning - Integrazione con JavaScript – Documentazione" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="luisca"/>
+	ms.date="08/24/2016" 
+	ms.author="luisca"/>  
 
 # Raccomandazioni di Azure Machine Learning - Integrazione con JavaScript
+
+> Documentazione relativa alla precedente API Recommendations del DataMarket, che sarà deprecata entro il 31/12/2016. È consigliabile passare da ora all'[API Recommendations di Servizi cognitivi](https://www.microsoft.com/cognitive-services/it-IT/recommendations-api).
+
 
 Questo documento illustra come integrare il sito usando JavaScript. JavaScript consente di inviare eventi di acquisizione dei dati e utilizzare raccomandazioni dopo aver creato un modello di raccomandazione. Tutte le operazioni eseguite tramite JS possono essere eseguite anche dal lato server.
 
@@ -33,7 +36,7 @@ L'integrazione del sito con Azure ML Recommendations si articola in 2 fasi:
 
 Nella prima fase si inserisce nelle pagine HTML una piccola libreria JavaScript che consente l'invio di eventi nel momento in cui si verificano nella pagina HTML ai server di Azure ML Recommendations (tramite DataMarket):
 
-![Drawing1][1]
+![Drawing1][1]  
 
 <ins>Fase II</ins>
 
@@ -41,11 +44,11 @@ Nella seconda fase, per visualizzare le raccomandazioni nella pagina si selezion
 
 1\. Il server (in fase di rendering della pagina) chiama il server di Azure ML Recommendations (tramite DataMarket) per ottenere le raccomandazioni. I risultati includono un elenco di ID di elementi. Il server deve arricchire i risultati con i metadati degli elementi, ad esempio immagini e descrizione, e inviare la pagina creata al browser.
 
-![Drawing2][2]
+![Drawing2][2]  
 
 2\. L'altra opzione prevede di usare il piccolo file JavaScript della fase I per ottenere un semplice elenco degli elementi raccomandati. I dati ricevuti in questo caso sono più snelli rispetto a quelli che si ricevono utilizzando la prima opzione.
 
-![Drawing3][3]
+![Drawing3][3]  
 
 ##2\. Prerequisiti
 
@@ -87,7 +90,7 @@ La libreria supporta 5 tipi di eventi: Click, Recommendation Click, Add to Shop 
 ####3\.2.1. Evento Click
 Questo evento deve essere usato ogni volta che un utente fa clic su un elemento. In genere, quando un utente fa clic su un elemento, si apre una nuova pagina contenente i dettagli dell'elemento dove l'evento deve essere attivato.
 
-Parametri:
+Parametri
 - event (stringa, obbligatorio) - "click"
 - item (stringa, obbligatorio) - identificatore univoco dell'elemento
 - itemName (stringa, facoltativo) - nome dell'elemento
@@ -133,8 +136,7 @@ In alternativa, con dati facoltativi:
 
 
 ####3\.2.3. Evento Add Shopping Cart
-Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti.
-Parametri:
+Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti. Parametri
 * event (stringa, obbligatorio) - "addshopcart"
 * item (stringa, obbligatorio) - identificatore univoco dell'elemento
 * itemName (stringa, facoltativo) - nome dell'elemento
@@ -149,7 +151,7 @@ Parametri:
 ####3\.2.4. Evento Remove Shopping Cart
 Questo evento deve essere usato quando l'utente rimuove un elemento dal carrello acquisti.
 
-Parametri:
+Parametri
 * event (stringa, obbligatorio) - "removeshopcart"
 * item (stringa, obbligatorio) - identificatore univoco dell'elemento
 * itemName (stringa, facoltativo) - nome dell'elemento
@@ -164,10 +166,9 @@ Parametri:
 ####3\.2.5. Evento Purchase
 Questo evento deve essere usato quando l'utente ha acquistato gli elementi nel carrello.
 
-Parametri:
+Parametri
 * event (stringa) - "purchase"
-* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br>
-Formato elementi acquistati:
+* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> Formato elementi acquistati:
 	* item (stringa) - identificatore univoco dell'elemento.
 	* count (numero intero o stringa) - numero di elementi che sono stati acquistati.
 	* price (float o stringa) - campo facoltativo - prezzo dell'elemento.
@@ -184,13 +185,9 @@ La libreria degli eventi di Azure ML Recommendations crea e usa un cookie per id
 
 Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 
-Parametri:
+Parametri
 * event (stringa) - "userlogin"
-* user (stringa) - identificazione univoca dell'utente.
-		<script> 
-			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" });
-		</script>
+* user (stringa) - identificazione univoca dell'utente. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" }); </script>
 
 ##4\. Utilizzare le raccomandazioni tramite JavaScript
 Il codice che utilizza la raccomandazione viene attivato da alcuni eventi JavaScript nella pagina Web del client. Le risposta alla raccomandazione include gli ID degli elementi raccomandati con i relativi nomi e valutazioni. È preferibile utilizzare questa opzione solo per la visualizzazione di un elenco degli elementi consigliati. Le attività di gestione più complesse, ad esempio l'aggiunta dei metadati dell'elemento, devono essere eseguite sull'integrazione lato server.
@@ -200,7 +197,7 @@ Per utilizzare le raccomandazioni, è necessario includere nella pagina le libre
 
 Per utilizzare le raccomandazioni per uno o più elementi, è necessario chiamare un metodo denominato AzureMLRecommendationsGetI2IRecommendation.
 
-Parametri:
+Parametri
 * items (matrice di stringhe) - uno o più elementi per i quali ottenere le raccomandazione. Se si usa una build Fbt, qui sarà possibile impostare un solo elemento.
 * numberOfResults (numero intero) - numero dei risultati richiesti.
 * includeMetadata (booleano, facoltativo) - se impostato su 'true' indica che il campo di metadati deve essere popolato nel risultato.
@@ -228,4 +225,4 @@ Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->

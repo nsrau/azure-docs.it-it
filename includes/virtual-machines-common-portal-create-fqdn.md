@@ -6,13 +6,13 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     ![individuare la risorsa ip](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Notare che il nome DNS per l'indirizzo IP pubblico è vuoto. Fare clic su **Tutte le impostazioni** per il pannello IP pubblico.
+2.  Notare che il nome DNS per l'indirizzo IP pubblico è vuoto. Fare clic su **Configurazione** nel pannello relativo all'IP pubblico.
 
     ![impostazioni ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Aprire la scheda **Configurazione** nelle impostazioni dell'IP pubblico. Immettere l'etichetta del nome DNS da usare e **salvare** questa configurazione.
+3.  Immettere l'etichetta del nome DNS da usare e **salvare** questa configurazione.
 
-    ![immettere l'etichetta del nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![immettere l'etichetta del nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)  
 
     La risorsa IP pubblico mostra ora la nuova etichetta DNS nel relativo pannello.
 
@@ -20,4 +20,4 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     ![FQDN creato](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

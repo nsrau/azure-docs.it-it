@@ -64,7 +64,7 @@ L'[interfaccia utente di esempio di gestione dei dispositivi ][lnk-dm-sample-ui]
 
 ## Compilare ed eseguire
 
-Per eseguire questo esempio è necessario creare un'immagine personalizzata per la scheda Edison che include il software del gateway dell'hub IoT e il client di gestione dei dispositivi.
+Per eseguire questo esempio è necessario creare un'immagine personalizzata per la scheda Edison che includa il software del gateway dell'hub IoT e il client di gestione dei dispositivi.
 
 Prima di iniziare, verificare che sia possibile connettere la scheda Edison alla rete wireless. Per configurare la scheda Edison, è necessario connetterla a un computer host. In seguito si userà il computer host per eseguire il flashing della scheda Edison con l'immagine personalizzata creata. Intel offre un set di guide introduttive che includono guide per i sistemi operativi seguenti:
 
@@ -387,7 +387,7 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
 - [Guida per sviluppatori][lnk-devguide]
-- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
 
@@ -425,4 +425,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

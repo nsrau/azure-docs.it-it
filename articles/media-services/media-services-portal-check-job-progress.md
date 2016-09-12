@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Informazioni su come controllare lo stato dei processi mediante il portale di Azure classico" 
-	description="Informazioni su come tracciare lo stato dei processi mediante il portale di Azure classico." 
+	pageTitle="Monitorare lo stato del processo di codifica con il portale di Azure" 
+	description="Questa esercitazione illustra i passaggi necessari per monitorare lo stato del processo nel portale di Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,27 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="08/29/2016"  
+	ms.author="juliako"/>  
 
-#Procedura: Controllare lo stato dei processi
+#Monitorare lo stato del processo di codifica con il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Portale](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-##Usare il portale per controllare lo stato dei processi
+## Overview
 
-1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Selezionare la pagina **PROCESSI**.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-	Nella pagina è possibile visualizzare lo stato di tutti i processi in uso. È inoltre possibile filtrare i processi in base allo stato, all'ora o all'ID.
+Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento.
 
-	![CheckStatus][checkstatus]
+Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e quindi selezionare **Processi**.
 
+![Processi](./media/media-services-portal-vod-get-started/media-services-jobs.png)  
 
-##Percorsi di apprendimento di Media Services
+È possibile fare clic sul processo per visualizzare altri dettagli.
+
+![Processi](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##Passaggi successivi
+
+Al termine del processo di codifica è possibile pubblicare e riprodurre gli asset, come descritto [qui](media-services-portal-publish.md).
+
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -41,13 +49,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-##Passaggio successivo
-
-Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un asset](media-services-manage-content.md#publish).
-
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="08/29/2016"
+	ms.author="markusvi;andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -39,7 +39,7 @@ Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi
 ### Funzioni
 Il provisioning dichiarativo usa molte funzioni per rendere possibile la trasformazione dei valori dell'attributo. Queste funzioni possono essere annidate, in modo che il risultato di una funzione venga passato a un'altra.
 
-`Function1(Function2(Function3()))`
+`Function1(Function2(Function3()))`  
 
 L'elenco completo delle funzioni è disponibile nel [riferimento di funzione](active-directory-aadconnectsync-functions-reference.md).
 
@@ -73,25 +73,15 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, * (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2*(5+3) è diversa da 2*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
 
 ## Attributi multivalore
-
-### Flussi di attributi per gli attributi multivalore
 Le funzioni possono essere usate con gli attributi a valore singolo e multivalore. Per gli attributi multivalore la funzione agisce su ogni valore e viene applicata la stessa funzione a ogni valore.
 
 Ad esempio `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Per ogni valore con una chiocciola (@), sostituire il dominio con @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.
 
-### Unione di valori degli attributi
-Nei flussi di attributi è disponibile un'impostazione per stabilire se gli attributi multivalore devono essere uniti da molti connettori diversi. Il valore predefinito è **Update** (Aggiorna) e indica che la regola di sincronizzazione con precedenza più alta avrà la priorità.
-
-![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
-
-Sono disponibili anche **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole). Queste opzioni consentono di unire i valori da diverse origini. Ad esempio, possono essere usate per unire l'attributo proxyAddresses o membro di più foreste diverse. Quando si usano queste opzioni, tutte le regole di sincronizzazione nell'ambito per un oggetto devono usare lo stesso tipo di unione. Non è possibile definire **Update** (Aggiorna) da un connettore e **Merge** (Unisci) da un altro. In questo caso, viene visualizzato un errore.
-
-La differenza tra **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole) è la modalità di elaborazione dei valori di attributo duplicati. Il motore di sincronizzazione assicura che non vengano inseriti valori duplicati nell'attributo di destinazione. Con **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole) non saranno presenti valori duplicati con solo una differenza tra maiuscole/minuscole. Ad esempio, nell'attributo di destinazione non saranno presenti sia "SMTP:bob@contoso.com" che "smtp:bob@contoso.com". **Merge** (Unisci) verifica solo i valori esatti e potrebbero essere presenti più valori in cui è presente solo una differenza tra maiuscole/minuscole.
-
-L'opzione **Replace** (Sostituisci) è come **Update** (Aggiorna), ma non viene usata.
-
 ## Risorse aggiuntive
 
-[Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md) [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md) [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+- [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
+- [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
+- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

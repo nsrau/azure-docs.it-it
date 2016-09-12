@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="sumedhb;aglick"/>
+	ms.date="08/26/2016"
+	ms.author="sumedhb;aglick"/>  
 
 
 # Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
@@ -46,4 +46,4 @@ Esistono alcune limitazioni che è necessario tenere presenti:
  * backup
 * Dopo il failback di un failover, tutti i tipi di richiesta, ad esempio le richieste di lettura ___e___ scrittura, risultano disponibili.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

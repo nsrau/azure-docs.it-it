@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="07/19/2016"
-    ms.author="carlrab"/>
+    ms.date="08/29/2016"
+    ms.author="carlrab"/>  
 
 # Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL
 
@@ -96,10 +96,11 @@ Usare la procedura seguente per avviare un failover non pianificato.
 
 ## Passaggi successivi   
 
-- Per informazioni sul ripristino di emergenza tramite replica geografica attiva, incluse procedure preliminari e successive a un ripristino e un'esercitazione per il ripristino di emergenza, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md)
-- Per un post di blog di Sasha Nosov sulla replica geografica attiva, vedere [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
-- Per informazioni sulla progettazione di applicazioni cloud per l'uso della replica geografica attiva, vedere [Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica attiva nel database SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
+- Per informazioni sul ripristino di emergenza tramite replica geografica attiva, comprensive delle procedure preliminari e successive a un ripristino e di un'esercitazione sul ripristino di emergenza, vedere le [esercitazioni per il ripristino di emergenza](sql-database-disaster-recovery.md).
+- Per un post del blog di Sasha Nosov sulla replica geografica attiva, vedere [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza).
+- Per informazioni sulla progettazione di applicazioni cloud per l'uso della replica geografica attiva, vedere [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 - Per informazioni sull'uso della replica geografica attiva con pool di database elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-- Per un quadro generale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
+- Per un quadro generale, vedere la [panoramica della continuità aziendale](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

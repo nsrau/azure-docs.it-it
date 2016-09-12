@@ -14,7 +14,7 @@ description="Informazioni su come generare e usare chiavi SSH in un computer Win
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #Come usare SSH con Windows in Azure
@@ -142,13 +142,13 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 
 6. Fare clic su **Apri**. Verrà visualizzato un prompt simile al seguente:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)  
 
 7. Fare clic su **OK**.
 
 8. Fare clic su **Save Private Key**, ossia l'opzione evidenziata nella schermata seguente:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)  
 
 9. Salvare il file in formato PPK
 
@@ -159,13 +159,13 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 2.	Eseguire putty.exe
 3.	Inserire il nome host usando l'IP del portale di gestione:
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)  
 
-4.	Prima di selezionare **Open**, fare clic su Connection > SSH > Auth per scegliere la chiave. Per informazioni sul campo da compilare, vedere la schermata seguente:
+4.	Prima di selezionare **Open** (Apri), fare clic su Connection > SSH > Auth (Connessione > SSH > Autorizzazione) per scegliere la chiave privata. Per informazioni sul campo da compilare, vedere la schermata seguente:
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
-   ms.author="ryanwi"/>
+   ms.date="08/25/2016"
+   ms.author="ryanwi"/>  
 
 # Errori ed eccezioni comuni quando si usano le API FabricClient
 Le API [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) consentono agli amministratori di cluster e applicazioni di eseguire attività amministrative su applicazioni, servizi o cluster Service Fabric. Ad esempio, la distribuzione, l'aggiornamento e la rimozione di applicazioni, il controllo dell'integrità di un cluster o il test di un servizio. Gli sviluppatori di applicazioni e gli amministratori di cluster possono usare le API FabricClient per sviluppare strumenti per la gestione del cluster e delle applicazioni Service Fabric.
@@ -31,7 +31,7 @@ Esistono molti tipi diversi di operazioni che possono essere eseguite tramite Fa
 
 Alcuni errori [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) comuni che possono essere restituiti in un'eccezione [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx):
 
-|Errore| Condizione|
+|Tipi di errore| Condizione|
 |---------|:-----------|
 |CommunicationError|L'operazione non è riuscita a causa di un errore di comunicazione, ripetere l'operazione.|
 |InvalidCredentialType|Il tipo di credenziale non è valido.|
@@ -44,4 +44,4 @@ Alcuni errori [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric
 |InvalidSubjectName|Il nome soggetto non è valido.|
 |InvalidAllowedCommonNameList|Il formato della stringa dell'elenco nomi comuni non è valido. Deve essere un elenco delimitato da virgole.|
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

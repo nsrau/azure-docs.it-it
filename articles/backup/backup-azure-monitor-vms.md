@@ -1,6 +1,6 @@
 <properties
    pageTitle="Monitorare i backup delle macchine virtuali distribuite con Resource Manager | Microsoft Azure"
-   description="Monitorare gli eventi e gli avvisi dei backup delle macchine virtuali distribuite con Resource Manager"
+   description="Monitorare gli eventi e gli avvisi dei backup delle macchine virtuali distribuite con Resource Manager. Inviare messaggi di posta elettronica in base agli avvisi."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
-ms.author="trinadhk; giridham;"/>
+ms.date="08/25/2016"
+ms.author="trinadhk; giridham;"/>  
 
 # Monitorare gli avvisi per i backup della macchina virtuale di Azure
 
-Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere quando un avviso viene generato. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
+Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
+
+## Dove è possibile trovare informazioni sugli avvisi?
 
 Per visualizzare informazioni sull'evento che ha generato un avviso, è necessario aprire il pannello Avvisi di backup. È possibile aprire il pannello Avvisi di backup in due modi: dal riquadro Avvisi di backup nel dashboard dell'insieme di credenziali o dal pannello Avvisi ed eventi.
 
@@ -26,7 +28,7 @@ Per aprire il pannello Avvisi di backup dal riquadro Avvisi di backup:
 
 - Nel riquadro **Avvisi di backup** nel dashboard dell'insieme di credenziali fare clic su **Critico** o **Avviso** per visualizzare gli eventi operativi per tale livello di gravità.
 
-    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
+    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-tile.png)  
 
 
 Per aprire il pannello Avvisi di backup dal riquadro Avvisi ed eventi:
@@ -39,11 +41,11 @@ Per aprire il pannello Avvisi di backup dal riquadro Avvisi ed eventi:
 
     Il pannello **Avvisi di backup** si apre e visualizza gli avvisi filtrati.
 
-    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
+    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-critical.png)  
 
 4. Per visualizzare informazioni dettagliate su un avviso specifico, nell'elenco di eventi fare clic sull'avviso per aprire il pannello **Dettagli**.
 
-    ![Dettagli dell'evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Dettagli dell'evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)  
 
     Per personalizzare gli attributi visualizzati nell'elenco, vedere [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
@@ -59,7 +61,7 @@ Per configurare le notifiche di posta elettronica per gli avvisi
 
     Si apre il pannello Configura notifiche.
 
-    ![Pannello Configura notifiche](./media/backup-azure-monitor-vms/configure-notifications.png)
+    ![Pannello Configura notifiche](./media/backup-azure-monitor-vms/configure-notifications.png)  
 
 2. Nel pannello Configura notifiche per Notifiche tramite posta elettronica fare clic su **Sì**.
 
@@ -73,23 +75,32 @@ Per configurare le notifiche di posta elettronica per gli avvisi
 
 6. Fare clic su **Save**.
 
+### Esistono situazioni in cui il messaggio e-mail non viene inviato anche se sono configurate le notifiche?
+
+Esistono situazioni in cui un avviso non viene inviato anche se le notifiche sono state configurate correttamente. Le notifiche di posta elettronica non vengono inviate nei casi seguenti:
+
+- Se le notifiche sono configurate per il riepilogo orario e un avviso viene generato e risolto entro l'ora.
+- Il processo viene annullato.
+- Viene attivato un processo di backup che non riesce ed è in corso un altro processo di backup.
+- Viene avviato un processo di backup pianificato per una macchina virtuale basata su Resource Manager, ma la macchina virtuale non esiste più.
+
 ## Personalizzare la visualizzazione degli eventi
 
 L'impostazione **Log di controllo** ha un set predefinito di filtri e colonne che mostrano le informazioni sugli eventi operativi. È possibile personalizzare la visualizzazione in modo che, quando il pannello **Eventi** si apre, mostri le informazioni desiderate.
 
 1. Nel [dashboard dell'insieme di credenziali](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard) cercare e fare clic su **Log di controllo** per aprire il pannello **Eventi**.
 
-    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)  
 
     Verrà visualizzato il pannello **Eventi** con gli eventi operativi filtrati solo per l'insieme di credenziali corrente.
 
-    ![Filtro di Log di controllo](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+    ![Filtro di Log di controllo](./media/backup-azure-monitor-vms/audit-logs-filter.png)  
 
     Il pannello mostra l'elenco di eventi critici, di errore, di avviso e informativi che si sono verificati nell'ultima settimana. L'intervallo di tempo è un valore predefinito specificato in **Filtro**. Il pannello **Eventi** mostra anche un grafico a barre che tiene traccia degli eventi che si sono verificati. Se non si vuole visualizzare il grafico a barre, scegliere **Nascondi grafico** dal menu **Eventi** per disattivare il grafico. La visualizzazione predefinita di Eventi mostra l'operazione, il livello, lo stato, la risorsa e le informazioni sull'ora. Per informazioni sull'esposizione di altri attributi degli eventi, vedere la sezione [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 2. Per altre informazioni su un evento operativo, nella colonna **Operazione** fare clic su un evento operativo per aprirne il pannello. Il pannello contiene informazioni dettagliate sugli eventi. Gli eventi vengono raggruppati in base all'ID correlazione e a un elenco degli eventi che si sono verificati nell'intervallo di tempo.
 
-    ![Dettagli operazione](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
+    ![Dettagli operazione](./media/backup-azure-monitor-vms/audit-logs-details-window.png)  
 
 3. Per visualizzare informazioni dettagliate su un evento specifico, nell'elenco di eventi fare clic sull'evento per aprire il pannello **Dettagli**.
 
@@ -103,7 +114,7 @@ Usare **Filtro** per modificare o scegliere le informazioni visualizzate in un d
 
 1. Nel [dashboard dell'insieme di credenziali](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard) cercare e fare clic su **Log di controllo** per aprire il pannello **Eventi**.
 
-    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)  
 
     Verrà visualizzato il pannello **Eventi** con gli eventi operativi filtrati solo per l'insieme di credenziali corrente.
 
@@ -111,17 +122,17 @@ Usare **Filtro** per modificare o scegliere le informazioni visualizzate in un d
 
 2. Scegliere **Filtro** dal menu **Eventi** per aprire tale pannello.
 
-    ![Aprire il pannello del filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
+    ![Aprire il pannello del filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)  
 
 3. Nel pannello **Filtro** regolare i filtri **Livello**, **Intervallo di tempo** e **Chiamante**. Gli altri filtri non sono disponibili perché sono stati impostati per fornire le informazioni correnti per l'insieme di credenziali di Servizi di ripristino.
 
-    ![Dettagli della query sui Log di controllo](./media/backup-azure-monitor-vms/filter-blade.png)
+    ![Dettagli della query sui Log di controllo](./media/backup-azure-monitor-vms/filter-blade.png)  
 
     È possibile specificare il **Livello** dell'evento: Critico, Errore, Avviso o Informativo. È possibile scegliere qualsiasi combinazione di livelli dell'evento, ma è necessario avere selezionato almeno un livello. Attivare o disattivare il livello. Il filtro **Intervallo di tempo** consente di specificare il periodo di tempo per l'acquisizione degli eventi. Se si usa un intervallo di tempo personalizzato, è possibile impostare l'ora di inizio e di fine.
 
 4. Quando si è pronti per effettuare una query sui log operazioni usando il filtro, fare clic su **Aggiorna**. I risultati vengono visualizzati nel pannello **Eventi**.
 
-    ![Dettagli operazione](./media/backup-azure-monitor-vms/edited-list-of-events.png)
+    ![Dettagli operazione](./media/backup-azure-monitor-vms/edited-list-of-events.png)  
 
 
 ### Visualizzare altri attributi degli eventi
@@ -129,11 +140,11 @@ Usando il pulsante **Colonne**, è possibile visualizzare altri attributi degli 
 
 1. Nel pannello **Eventi** fare clic su **Colonne**.
 
-    ![Aprire le colonne](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
+    ![Aprire le colonne](./media/backup-azure-monitor-vms/audi-logs-column-button.png)  
 
     Si apre il pannello **Scegli colonne**.
 
-    ![Pannello delle colonne](./media/backup-azure-monitor-vms/columns-blade.png)
+    ![Pannello delle colonne](./media/backup-azure-monitor-vms/columns-blade.png)  
 
 2. Per selezionare l'attributo, fare clic sulla casella di controllo. La casella di controllo di un attributo può essere attivata e disattivata.
 
@@ -220,4 +231,4 @@ Per una spiegazione approfondita di eventi, operazioni e log di controllo nei se
 
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sulle attività di gestione per i backup di VM, vedere l'articolo [Gestire e monitorare i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

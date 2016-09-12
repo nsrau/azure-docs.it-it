@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/30/2016" 
+	ms.author="sdanie"/>  
 
 # Come monitorare Cache Redis di Azure
 
@@ -24,7 +24,7 @@ Quando è abilitata la diagnostica della cache, le metriche per le istanze di Ca
 
 Le metriche della cache vengono raccolte utilizzando il comando [INFO](http://redis.io/commands/info) di Redis. Per ulteriori informazioni sui diversi valori INFO usati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
-Per visualizzare le metriche della cache, [passare](cache-configure.md) all'istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Metriche Redis**.
+Per visualizzare le metriche della cache, [sfogliare](cache-configure.md#configure-redis-cache-settings) l’istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Metriche Redis**.
 
 ![Metriche Redis][redis-cache-redis-metrics-blade]
 
@@ -40,7 +40,7 @@ Cache Redis di Azure offre la possibilità di disporre di dati di diagnostica ar
 
 Per abilitare e configurare la diagnostica della cache, passare al pannello **Cache Redis** per l'istanza della cache. Se la diagnostica non è ancora abilitate, viene visualizzato un messaggio anziché un grafico di diagnostica.
 
-![Abilitare la diagnostica della cache][redis-cache-enable-diagnostics]
+![Abilitare la diagnostica della cache][redis-cache-enable-diagnostics]  
 
 Fare clic sul messaggio per visualizzare il pannello **Metrica** e fare clic su **Impostazioni diagnostica** per abilitare e configurare le impostazioni di diagnostica per l'istanza del servizio cache.
 
@@ -56,7 +56,7 @@ Dopo aver configurate le impostazioni di diagnostica, fare clic su **Salva** per
 
 >[AZURE.IMPORTANT] Le cache nella stessa area e nella stessa sottoscrizione condividono le stesse impostazioni di archiviazione di diagnostica e, quando viene modificata la configurazione (abilitazione/disabilitazione della diagnostica o cambio dell'account di archiviazione), la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
-Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per altre informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l'esempio relativo all'[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per ulteriori informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l’esempio relativo all’[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
 >[AZURE.NOTE] Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di Azure. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di Azure.
 
@@ -126,7 +126,7 @@ Per aggiungere o rimuovere le metriche dal grafico, selezionare la casella di co
 
 ![Modifica grafico][redis-cache-edit-chart]
 
-Quando si fa clic su **Salva** le modifiche vengono mantenute fino a quando si esce dal pannello **Metrica**. A un accesso successivo al pannello, verranno visualizzate le metriche e l'intervallo di tempo originali. Per ulteriori informazioni sulla personalizzazione dei grafici, vedere [Monitorare la metrica di servizio](../azure-portal/insights-how-to-customize-monitoring.md).
+Quando si fa clic su **Salva** le modifiche vengono mantenute fino a quando si esce dal pannello **Metrica**. A un accesso successivo al blade, verranno visualizzate le metriche e l'intervallo di tempo originali. Per ulteriori informazioni sulla personalizzazione dei grafici, vedere [Monitorare la metrica di servizio](../azure-portal/insights-how-to-customize-monitoring.md).
 
 Per visualizzare le metriche per un periodo di tempo specifico in un grafico, passare con il mouse su una delle barre o dei punti specifici del grafico corrispondenti al momento desiderato; verrà visualizzata la metrica per tale intervallo.
 
@@ -180,7 +180,7 @@ Le regole di avviso dispongono delle seguenti proprietà.
 | Proprietà della regola di avviso | Descrizione |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Risorsa | La risorsa viene valutata mediante la regola di avviso. Quando si crea una regola di avviso da una cache Redis, la cache è la risorsa. |
-| Nome | Nome che identifica in modo univoco la regola di avviso nell'istanza corrente della cache. |
+| Name | Nome che identifica in modo univoco la regola di avviso nell'istanza corrente della cache. |
 | Descrizione | Descrizione facoltativa della regola di avviso. |
 | Metrica | La metrica da monitorare tramite la regola di avviso. Per un elenco di metriche della cache, vedere le metriche disponibili e gli intervalli di report. |
 | Condizione | L'operatore di condizione per la regola di avviso. È possibile scegliere tra: maggiore di, maggiore di o uguale a, minore di, minore di o uguale a |
@@ -258,7 +258,7 @@ Il grafico **Utilizzo** consente di visualizzare le metriche seguenti.
 
 Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
   
-<!-- IMAGES -->
+<!-- IMAGES -->  
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
 
@@ -296,4 +296,4 @@ Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione 
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/29/2016"
 	ms.author="jodebrui"/>
 
 
@@ -290,7 +290,7 @@ EXECUTE Demo.usp_DemoReset;
 
 Al termine, ostress.exe scrive la durata dell'esecuzione come ultima riga di output nella finestra dei comandi RML. Ad esempio, per un'esecuzione dei test più breve, durata circa 1,5 minuti:
 
-`11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
+`11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`  
 
 
 #### Reimpostare, modificare per l'esecuzione \_ondisk ed eseguire di nuovo il test
@@ -365,8 +365,8 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 [Qui](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) sono disponibili diversi tipi di query T-SQL che è possibile eseguire per migliorare le prestazioni. Dal passaggio 2, nello script T-SQL è presente una coppia di query di interesse diretto. Le due query differiscono per una sola riga:
 
 
-- `FROM FactResellerSalesXL_PageCompressed a`
-- `FROM FactResellerSalesXL_CCI a`
+- `FROM FactResellerSalesXL_PageCompressed a`  
+- `FROM FactResellerSalesXL_CCI a`  
 
 
 Un indice columnstore cluster si trova nella tabella FactResellerSalesXL**\_CCI**.
@@ -528,4 +528,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

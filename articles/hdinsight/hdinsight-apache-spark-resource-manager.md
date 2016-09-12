@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
-	ms.author="nitinme"/>
+	ms.date="08/25/2016" 
+	ms.author="nitinme"/>  
 
 
 # Gestire le risorse del cluster Apache Spark in HDInsight Linux
@@ -31,7 +31,7 @@ Questo articolo descrive come accedere a interfacce associate al cluster Spark, 
 
 ## Come è possibile avviare l'interfaccia utente Web di Ambari?
 
-1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **cluster HDInsight**. 
+1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **cluster HDInsight**.
  
 2. Dal pannello del cluster Spark fare clic su **Dashboard**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
@@ -185,7 +185,7 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -193,7 +193,7 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
@@ -212,4 +212,4 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

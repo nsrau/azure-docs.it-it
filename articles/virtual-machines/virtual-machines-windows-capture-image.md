@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="cynthn"/>
+	ms.author="cynthn"/>  
 
 # Come creare un'immagine di VM da una VM di Azure esistente
 
@@ -33,7 +33,7 @@ Questo articolo illustra come usare Azure PowerShell per creare un'immagine gene
 
 ## Preparare la VM di origine 
 
-Questa sezione illustra come generalizzare la macchina virtuale di Windows in modo da poterla usare come immagine.
+Questa sezione illustra come generalizzare la macchina virtuale di Windows in modo da poterla usare come immagine. Eseguire il backup della VM prima di eseguire Sysprep.
 
 > [AZURE.WARNING] Non è possibile accedere alla VM tramite RDP dopo la generalizzazione, perché il processo rimuove tutti gli account utente. Le modifiche sono irreversibili.
 
@@ -145,7 +145,7 @@ Lo script di PowerShell seguente illustra come impostare le configurazioni della
 
 >[AZURE.NOTE] La VM deve trovarsi nello stesso account di archiviazione del disco rigido virtuale originale.
 
-</br>
+</br>  
 
 	
 	
@@ -210,4 +210,4 @@ Al termine, la VM appena creata verrà visualizzata nel [portale di Azure](https
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

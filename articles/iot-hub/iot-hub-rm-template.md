@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/16/2016"
-     ms.author="dobett"/>
+     ms.author="dobett"/>  
 
 # Creare un hub IoT usando un programma C# con un modello di Resource Manager | Microsoft Azure
 
@@ -200,7 +200,7 @@ Usare un modello JSON e un file di parametri per creare un hub IoT nel gruppo di
 
 ## Passaggi successivi
 
-Dopo aver distribuito un hub IoT usando un modello di Resource Manager di Azure con un programma C#, può essere opportuno ottenere informazioni più dettagliate:
+Dopo avere distribuito un hub IoT usando un modello di Azure Resource Manager con un programma C#, può essere opportuno ottenere informazioni più dettagliate:
 
 - Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
 - Per ulteriori informazioni sulle funzionalità di Gestione risorse di Azure, leggere la [Panoramica su Gestione risorse di Azure][lnk-azure-rm-overview].
@@ -217,7 +217,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: ../powershell-install-configure.md
@@ -233,4 +233,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="andkjell"/>
+	ms.date="08/26/2016"
+	ms.author="andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita
@@ -25,7 +25,7 @@ L'editor delle regole di sincronizzazione viene usato per visualizzare e modific
 
 Quando lo si apre, vengono visualizzate le regole predefinite.
 
-![Editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
+![Editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)  
 
 ### Spostamento nell'editor
 Gli elenchi a discesa nella parte superiore dell'editor consentono di trovare rapidamente una regola particolare. Ad esempio, se si vogliono visualizzare le regole in cui è incluso l'attributo proxyAddresses, modificare gli elenchi a discesa come indicato di seguito: ![Filtro nell'editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png) Per reimpostare il filtro e caricare una nuova configurazione, premere **F5** sulla tastiera.
@@ -40,7 +40,7 @@ La modifica più comune riguarda i flussi degli attributi. I dati nella director
 ### Disabilitare l'utilità di pianificazione
 Per impostazione predefinita, l'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) viene eseguita ogni 30 minuti. Si vuole garantire che non venga avviata mentre si apportano modifiche e si risolvono i problemi delle nuove regole. Per disabilitare temporaneamente l'utilità di pianificazione, avviare PowerShell ed eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-![Disabilitare l'utilità di pianificazione](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+![Disabilitare l'utilità di pianificazione](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
 ### Creare la regola
 
@@ -111,7 +111,7 @@ Alcuni attributi in Active Directory sono di tipo multivalore nello schema, anch
 Se l'attributo ha un valore in questa espressione, si seleziona il primo elemento (Item) dell'attributo, si rimuovono gli spazi iniziali e finali (Trim) e quindi si mantengono i primi 448 caratteri (Left) della stringa.
 
 ### Non trasmettere un attributo
-Per informazioni generali sullo scenario per questa sezione, vedere [Controllare il processo del flusso dell'attributo](#control-the-attribute-flow-process).
+Per informazioni generali sullo scenario per questa sezione, vedere [Controllare il processo del flusso dell'attributo](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
 Sono disponibili due modalità per non trasmettere un attributo. Il primo è disponibile nell'installazione guidata e consente di [rimuovere gli attributi selezionati](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Questa opzione funziona se l'attributo non è mai stato sincronizzato in precedenza. Tuttavia, se si è iniziato a sincronizzare questo attributo e lo si rimuove in seguito con questa funzionalità, il motore di sincronizzazione interrompe la gestione dell'attributo e i valori esistenti rimangono in Azure AD.
 
@@ -124,31 +124,9 @@ In Fabrikam si è notato che alcuni degli attributi sincronizzati nel cloud non 
 - Salvare la regola di sincronizzazione Avviare il **servizio di sincronizzazione**, trovare il connettore, selezionare **Esegui** e avviare una **sincronizzazione completa**. Questo passaggio consente di ricalcolare tutti i flussi degli attributi.
 - Verificare che le modifiche richieste stiano per essere esportate mediante la ricerca dello spazio connettore. ![Eliminazione di gestione temporanea](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-## Concetto avanzato
-
-### Controllare il processo del flusso dell'attributo
-Quando vengono configurate più regole di sincronizzazione in ingresso per lo stesso attributo metaverse, per determinare la regola prioritaria viene usata la precedenza. La regola di sincronizzazione con la precedenza più alta (valore numerico inferiore) fornisce il valore. Lo stesso concetto si applica alle regole in uscita. La regola di sincronizzazione con la precedenza più alta ha la priorità e fornisce il valore alla directory connessa.
-
-In alcuni casi, invece di fornire un valore, la regola di sincronizzazione deve determinare il comportamento delle altre regole. In questo caso vengono usati alcuni valori letterali speciali.
-
-Per le regole di sincronizzazione in ingresso è possibile usare il valore letterale **NULL** per indicare che nel flusso non è disponibile un valore da fornire. Un'altra regola con una precedenza inferiore può fornire un valore. Se nessuna regola ha fornito valori, l'attributo metaverse verrà rimosso. Per una regola in uscita, se **NULL** è il valore finale dopo l'elaborazione di tutte le regole di sincronizzazione, il valore viene rimosso nella directory connessa.
-
-Il valore letterale **AuthoritativeNull** è simile a **NULL**, con la differenza che nessuna regola con una precedenza inferiore può fornire un valore.
-
-Un flusso dell'attributo può anche usare **IgnoreThisFlow**. È simile a NULL in quanto indica che non è disponibile alcun valore da fornire, con la differenza che non rimuove un valore già esistente nella destinazione. È come se il flusso dell'attributi non sia mai stato presente.
-
-Di seguito è fornito un esempio:
-
-Nella regola *Out to AD - User Exchange hybrid* (In uscita ad AD - Utente Exchange ibrido) è possibile trovare il flusso seguente: `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)` Questa espressione deve essere letta come: se la cassetta postale dell'utente si trova in Azure AD, trasmettere l'attributo da Azure AD ad Active Directory. In caso contrario, non ritrasmettere nulla ad Active Directory. In questo caso, il valore esistente rimarrà in Active Directory.
-
-### ImportedValue
-La funzione ImportedValue è diversa da tutte le altre funzioni, perché il nome dell'attributo deve essere racchiuso tra virgolette invece che tra parentesi quadre: `ImportedValue("proxyAddresses")`.
-
-In genere, durante la sincronizzazione un attributo usa il valore previsto, anche se non è stato ancora esportato o se è stato visualizzato un errore durante l'esportazione ("livello massimo"). Una sincronizzazione in ingresso presuppone che un attributo che non ha ancora raggiunto una directory connessa la raggiungerà prima o poi. In alcuni casi è importante sincronizzare solo un valore confermato dalla directory connessa ("livello di importazione ologrammi e delta").
-
-Un esempio di questa funzione è disponibile nella regola di sincronizzazione predefinita *In from AD – User Common from Exchange* (In ingresso da AD - Utente comune di Exchange). Nella regola per Exchange ibrido il valore aggiunto da Exchange online deve essere sincronizzato solo quando è stato confermato che l'esportazione del valore è riuscita: `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
-
 ## Passaggi successivi
+
+Altre informazioni sul [provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md) e sulle opzioni disponibili nelle regole di sincronizzazione.
 
 Altre informazioni sulle [espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) usate per i flussi degli attributi.
 
@@ -156,4 +134,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

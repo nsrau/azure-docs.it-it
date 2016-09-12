@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>  
 
 # Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
@@ -211,7 +211,6 @@ L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio 
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
@@ -228,4 +227,4 @@ L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio 
 
 [Accedere al portale per sviluppatori con un account Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

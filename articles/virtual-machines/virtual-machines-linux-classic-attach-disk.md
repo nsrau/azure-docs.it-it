@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="iainfou"/>
+	ms.author="iainfou"/>  
 
 # Come collegare un disco dati a una macchina virtuale Linux
 
@@ -76,19 +76,19 @@
 4. Quando richiesto, digitare **n** per creare una nuova partizione.
 
 
-	![Creare un dispositivo](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Creare un dispositivo](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)  
 
 5. Quando richiesto, digitare **p** per impostare la partizione come partizione primaria. Digitare **1** per impostarla come prima partizione, quindi premere INVIO per accettare il valore predefinito per il cilindro. In alcuni sistemi, è possibile visualizzare i valori predefiniti del primo e dell'ultimo settore e non del cilindro. È possibile scegliere di accettare questi valori predefiniti.
 
 
-	![Creare la partizione](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Creare la partizione](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Digitare **p** per visualizzare i dettagli relativi al disco da suddividere in partizioni.
 
 
-	![Visualizzare le informazioni sul disco](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Visualizzare le informazioni sul disco](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -152,9 +152,9 @@
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Se il comando `mount` restituisce un errore, verificare che la sintassi del file /etc/fstab sia corretta. Anche le eventuali altre unità o partizioni dati create deve essere inserite separatamente in /etc/fstab.
+	Se il comando `mount` restituisce un errore, verificare che la sintassi del file /etc/fstab sia corretta. Anche le eventuali altre unità o partizioni dati create devono essere inserite separatamente in /etc/fstab.
 
-	È necessario rendere scrivibile l'unità tramite questo comando:
+	Rendere scrivibile l'unità tramite questo comando:
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

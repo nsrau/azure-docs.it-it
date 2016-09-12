@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/10/2016"
+	ms.date="08/30/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
@@ -30,9 +30,9 @@
 
 Il server di Azure SQL utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server logico del server di Azure SQL per consentire l'accesso al database in modo selettivo. Questo argomento descrive le regole del firewall a livello di server.
 
-> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di Azure SQL, è necessario abilitare le connessioni da Azure. Per comprendere il funzionamento delle regole del firewall, vedere [Come configurare un firewall del database SQL di Azure](sql-database-firewall-configure.md). È necessario aprire alcune porte TCP aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+> [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di Azure SQL, è necessario abilitare le connessioni da Azure. Per comprendere il funzionamento delle regole del firewall, vedere [Come configurare un firewall del database SQL di Azure](sql-database-firewall-configure.md). Se si apportano le connessioni all'interno del cloud di Azure, è necessario aprire alcune porte TCP aggiuntive. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-**Indicazione:** usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database. È consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database.
+**Suggerimento:** usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database. È consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database.
 
 [AZURE.INCLUDE [Creare un database SQL](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
@@ -65,11 +65,11 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 - [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

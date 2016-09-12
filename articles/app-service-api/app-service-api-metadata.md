@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
-	ms.author="rachelap"/>
+	ms.date="08/30/2016"
+	ms.author="rachelap"/>  
 
 # Metadati delle app per le API del servizio app per l'individuazione di API e la generazione di codice 
 
@@ -60,4 +60,4 @@ Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e u
 
 Se si usa Gestione API di Azure con app per le API, è possibile usare metadati di Swagger per importare l'API in Gestione API. Per altre informazioni, vedere [Come importare la definizione di un'API con le operazioni in Gestione API di Azure](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

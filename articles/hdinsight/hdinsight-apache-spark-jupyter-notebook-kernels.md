@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -85,6 +85,8 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
 	| delete | `%%delete -f -s <session number>` | Elimina una sessione specifica dell'endpoint Livy corrente. Si noti che non è possibile eliminare la sessione avviata dal kernel stesso. |
 	| cleanup | `%%cleanup -f` | Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
+	>[AZURE.NOTE] Oltre ai magic aggiunti dal kernel PySpark, è possibile anche usare il [magic IPython incorporato](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), tra cui `%%sh`. È possibile usare il magic `%%sh` per eseguire script e il blocco del codice nel nodo head del cluster.
+
 3. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive e SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
 
 ## Parametri supportati con il magic %%sql
@@ -93,11 +95,11 @@ Il magic %%sql supporta parametri diversi che è possibile utilizzare per contro
 
 | Parametro | Esempio | Descrizione |
 |-----------|---------------------------------|--------------|
-| -o | `-o <VARIABLE NAME>` | Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
-| -q | `-q` | Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si vuole disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`, usare semplicemente `-q` senza specificare un argomento `-o`. |
-| -m | `-m <METHOD>` | Dove **METHOD** è **take** o **sample**. Per impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
+| -o | `-o <VARIABLE NAME>`   | Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
+| -q | `-q`   | Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si vuole disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`, usare semplicemente `-q` senza specificare un argomento `-o`. |
+| -m | `-m <METHOD>`   | Dove **METHOD** è **take** o **sample**. Per impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
 | -r | `-r <FRACTION>` | Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo sample per la query SQL è `sample`, allora il kernel campionerà automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Ad esempio, se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, allora l'1% delle righe dei risultati verrà campionato in modo casuale. |
-| -n | `-n <MAXROWS>` | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
+| -n | `-n <MAXROWS>`   | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
 
 **Esempio:**
 
@@ -156,7 +158,7 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -188,4 +190,4 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
-   ms.author="cherylmc" />
+   ms.date="08/29/2016"
+   ms.author="cherylmc" />  
 
 # Informazioni sulle impostazioni del gateway VPN
 
-Il gateway VPN è una raccolta di impostazioni usata per inviare il traffico di rete tra reti virtuali e percorsi locali. È possibile usare il gateway VPN anche per inviare il traffico tra reti virtuali in Azure. Le sezioni di questo articolo illustrano le impostazioni correlate al gateway VPN.
+Il gateway VPN è una raccolta di risorse usata per inviare il traffico di rete tra reti virtuali e percorsi locali. È possibile usare il gateway VPN anche per inviare il traffico tra reti virtuali in Azure. Le sezioni di questo articolo illustrano le risorse e le impostazioni correlate al gateway VPN.
 
-A volte è utile per visualizzare le configurazioni disponibili tramite i diagrammi di connessione. È possibile trovare i diagrammi su come distribuire ogni configurazione nella sezione [Informazioni sulle connessioni del gateway VPN](vpn-gateway-topology.md) dell'articolo.
+L'articolo è utile per visualizzare le configurazioni disponibili tramite i diagrammi di connessione. Nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md) sono disponibili diagrammi che illustrano come distribuire ogni configurazione.
 
 
 ## <a name="gwsku"></a>SKU del gateway
@@ -49,7 +49,7 @@ La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregat
 
 ## <a name="gwtype"></a>Tipi di gateway
 
-Il tipo di gateway specifica il modo in cui il gateway si connette ed è un'impostazione di configurazione obbligatoria per il modello di distribuzione di Resource Manager. Il tipo di gateway non è da confondere con il tipo di VPN, che specifica il tipo di routing per la VPN. I valori disponibili per `-GatewayType` sono:
+Il tipo di gateway specifica il modo in cui il gateway si connette ed è un'impostazione di configurazione obbligatoria per il modello di distribuzione di Resource Manager. Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo. I valori disponibili per `-GatewayType` sono:
 
 - VPN
 - ExpressRoute
@@ -133,7 +133,7 @@ Per ulteriori risorse tecniche e altri requisiti di sintassi specifici quando si
 
 ## Passaggi successivi
 
-Per altre informazioni sulle configurazioni delle connessioni disponibili, vedere [Connessioni del gateway VPN](vpn-gateway-topology.md).
+Per altre informazioni sulle configurazioni delle connessioni disponibili, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
 
 
@@ -143,4 +143,4 @@ Per altre informazioni sulle configurazioni delle connessioni disponibili, veder
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

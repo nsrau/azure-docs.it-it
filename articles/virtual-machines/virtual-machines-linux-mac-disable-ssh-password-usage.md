@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>  
 
 # Disabilitare le password SSH nella VM Linux configurando SSHD
 
@@ -43,7 +43,7 @@ Per questo articolo è molto importante mantenere aperto un accesso alla VM Linu
 
 ## Prerequisiti
 
-- [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](link)
+- [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Account Azure
   - [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)
   - [Portale di Azure](http://portal.azure.com)
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 Le password sono ora disabilitate nella VM, che a questo punto è protetta dai tentativi di accesso tramite password da parte di attacchi di forza bruta. Con le sole chiavi SSH consentite è possibile effettuare l'accesso in modo più veloce e molto più sicuro.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

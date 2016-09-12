@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+	ms.date="08/30/2016"
+	ms.author="swkrish"/>  
 
 # Creazione di un tenant Azure Active Directory (Azure AD) o di un tenant Azure AD B2C: problemi e soluzioni
 
@@ -28,6 +28,7 @@ Se si verificano problemi durante la [creazione di un tenant Azure AD B2C](activ
  
 - Se il tenant di Azure AD B2C non viene visualizzato nell'elenco di tenant, riprovare.
 - Se il tenant di Azure AD B2C è mostrato nell'elenco dei tenant e si riceve un messaggio di errore ("Impossibile completare la creazione del tenant di B2C 'contosob2c'. Visitare questo [collegamento](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) per altre informazioni."), eliminare il tenant appena creato e riprovare.
+- Si noti che si verificano problemi noti quando si elimina un tenant B2C esistente e lo si crea nuovamente con lo stesso nome di dominio. È necessario creare un tenant B2C con un nome di dominio diverso.
 - Se nessuna di queste soluzioni risolve il problema, contattare il Supporto. Altre informazioni su [come presentare richieste di supporto per Azure AD B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/25/2016"
+   ms.author="jrj;barbkess;sonyama"/>  
 
 
 # Caricare dati dall’archiviazione BLOB di Azure in un SQL Data Warehouse (PolyBase)
@@ -249,7 +249,7 @@ CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey
 
 ### 4\.3. Monitorare l'avanzamento del caricamento
 
-È possibile monitorare l’avanzamento del caricamento con la vista a gestione dinamica (DMV) `[sys].[dm_pdw_exec_requests]`.
+È possibile monitorare l'avanzamento del caricamento con le viste a gestione dinamica (DMV).
 
 ```sql
 -- To see all requests
@@ -257,9 +257,31 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 
 -- To see a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r;
-WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
-      OR r.label = 'CTAS : Load [cso].[FactOnlineSales]        '
+WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
+      OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+WHERE 
+    r.[label] = 'CTAS : Load [cso].[DimProduct]             '
+    OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## 5\. Ottimizzare la compressione columnstore
@@ -343,12 +365,10 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-Ora è possibile usare SQL Data Warehouse per l'esplorazione dei dati.
-
 ## Passaggi successivi
 Per caricare i dati completi del data warehouse di Contoso Retail, usare lo script disponibile nei suggerimenti per lo sviluppo e vedere [Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
@@ -366,8 +386,8 @@ Per caricare i dati completi del data warehouse di Contoso Retail, usare lo scri
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Caricare nel Data Warehouse completo di Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

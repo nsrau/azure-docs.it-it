@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/06/2016"
-   ms.author="ganesr"/>
+   ms.author="ganesr"/>  
 
 #Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP nel modello di distribuzione di Resource Manager
 
@@ -128,10 +128,10 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 
 ### Tabella ARP quando un circuito è in stato operativo (stato previsto)
 
- - La tabella ARP conterrà una voce per il lato locale con un indirizzo IP e un indirizzo MAC valido e una voce simile per il lato Microsoft. 
+ - La tabella ARP conterrà una voce per il lato locale con un indirizzo IP e un indirizzo MAC valido e una voce simile per il lato Microsoft.
  - L'ultimo ottetto dell'indirizzo IP locale sarà sempre un numero dispari.
  - L'ultimo ottetto dell'indirizzo IP Microsoft sarà sempre un numero pari.
- - Lo stesso indirizzo MAC verrà visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario). 
+ - Lo stesso indirizzo MAC verrà visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario).
 
 
 		Age InterfaceProperty IpAddress  MacAddress    
@@ -141,7 +141,7 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 
 ### Tabella ARP quando il lato locale/provider di connettività presenta problemi
 
- - Verrà visualizzata solo una voce nella tabella ARP. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
+ - Verrà visualizzata solo una voce nella tabella ARP. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft.
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -152,15 +152,15 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 
 ### Tabella ARP quando il lato Microsoft presenta problemi
 
- - Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering. 
- -  Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2. 
+ - Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering.
+ -  Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2.
 
 ## Passaggi successivi
 
  - Convalidare le configurazioni di livello 3 per il circuito ExpressRoute
-	 - Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP 
+	 - Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP
 	 - Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute
  - Convalidare il trasferimento dei dati controllando i byte in ingresso/uscita
  - Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se continuano a verificarsi problemi.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

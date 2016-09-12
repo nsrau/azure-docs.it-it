@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+	ms.date="08/30/2016"
+	ms.author="swkrish"/>  
 
 # Azure Active Directory B2C: tenant B2C a livello di produzione e di anteprima
 
@@ -47,16 +47,18 @@ I tenant a livello di produzione sono ridimensionabili fino a centinaia di milio
 Se è stato creato un tenant B2C durante il periodo di anteprima di Azure AD B2C, è probabile che **Tipo di tenant** sia **Tenant di anteprima**. In questo caso, è NECESSARIO usare il tenant solo per scopi di sviluppo e test e non per le app di produzione.
 
 > [AZURE.IMPORTANT]
-Non esiste un percorso di migrazione da una versione di anteprima del tenant B2C a un tenant B2C a livello di produzione.
+Non esiste un percorso di migrazione da una versione di anteprima del tenant B2C a un tenant B2C a livello di produzione. Si noti che si verificano problemi noti quando si elimina un tenant B2C di anteprima e viene creato un tenant B2C a livello di produzione con lo stesso nome di dominio. È necessario creare un tenant B2C a livello di produzione con un nome di dominio diverso.
 
-![Screenshot di un tenant di anteprima](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Screenshot di un tenant di anteprima](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)  
 
 ## Tenant B2C a livello di produzione al di fuori dell'America del Nord
 
 Azure Active Directory B2C attualmente non è disponibile a livello generale al di fuori dell'America del Nord. È tuttavia possibile creare e usare tenant a livello di produzione a scopo di sviluppo e test, in uno dei seguenti paesi o aree geografiche: Algeria, Austria, Azerbaigian, Bahrain, Belarus, Belgio, Bulgaria, Croazia, Cipro, Repubblica ceca, Danimarca, Egitto, Estonia, Finlandia, Francia, Germania, Grecia, Ungheria, Islanda, Irlanda, Israele, Italia, Giordania, Kazakhstan, Kenya, Kuwait, Lettonia, Libano, Liechtenstein, Lituania, Lussemburgo, Ex Repubblica Jugoslava di Macedonia, Malta, Montenegro, Marocco, Paesi Bassi, Nigeria, Norvegia , Oman, Pakistan, Polonia, Portogallo, Qatar, Romania, Russia, Arabia Saudita, Serbia, Slovacchia, Slovenia, Sud Africa, Spagna, Svezia, Svizzera, Tunisia, Turchia, Ucraina, Emirati Arabi Uniti e Regno Unito.
 
+Quando per Azure Active Directory B2C verrà annunciata la disponibilità generale in queste aree o paesi, sarà possibile continuare a usare questi tenant a livello di produzione e pubblicare le applicazioni di produzione senza alcuna perdita di dati.
+
 ## Disponibilità di B2C tenant
 
 B2C tenant non sono attualmente disponibili nei paesi o nelle aree geografiche seguenti: Afghanistan, Argentina, Australia, Brasile, Cile, Colombia, Ecuador, Hong Kong - R.A.S., India, Indonesia, Iraq, Giappone, Corea, Malaysia, Nuova Zelanda, Paraguay, Perù, Filippine, Singapore, Sri Lanka, Taiwan, Thailandia, Uruguay e Venezuela. Ne è prevista l'inclusione in futuro.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

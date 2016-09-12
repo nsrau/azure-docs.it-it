@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="tarcher"/>
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>  
 
 # Aggiungere un archivio elementi Git a un lab
 
 > [AZURE.NOTE] Visualizzare il video associato a questo articolo, relativo alla [procedura di aggiunta di un archivio privato di elementi in un lab di sviluppo/test](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
-## Panoramica
+## Overview
 
 Per impostazione predefinita, un lab include gli elementi dell’archivio ufficiale di Lab di sviluppo e test. È possibile aggiungere un archivio elementi di Git al lab per includere gli elementi creati dal team. L’archivio può essere ospitato in [GitHub](https://github.com) o [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
@@ -53,7 +53,7 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
+1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -105,7 +105,7 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
 
 1. Nel pannello del lab, selezionare **Impostazioni**.
 
-    ![Scegliere impostazioni.](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
+    ![Scegliere impostazioni.](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)  
 
 1. Nel pannello **Impostazioni** selezionare **Archivio elementi**.
 
@@ -117,8 +117,10 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
     4. Selezionare **Salva**.
 
-## Post di blog correlati
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di AD esistente usando un modello ARM in Azure DevTest Labs)
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+## Post di blog correlati
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Come risolvere gli errori degli elementi in Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Aggiungere una macchina virtuale a un dominio di AD esistente usando un modello ARM in Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+<!---HONumber=AcomDC_0831_2016-->

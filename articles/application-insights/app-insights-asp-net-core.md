@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
-	ms.author="awills"/>
+	ms.date="08/30/2016" 
+	ms.author="awills"/>  
 
 # Application Insights per ASP.NET Core
 
-Application Insights consente di monitorare la disponibilità, le prestazioni e l'utilizzo dell'applicazione Web. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
+[Visual Studio Application Insights](app-insights-overview.md) consente di monitorare la disponibilità, le prestazioni e l'uso dell'applicazione Web. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
-![Esempio](./media/app-insights-asp-net-five/sample.png)
+![Esempio](./media/app-insights-asp-net-five/sample.png)  
 
 È necessaria una sottoscrizione con [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
 
 ## Introduzione
 
-Se è stato creato il progetto in Visual Studio 2015, si dovrebbe già disporre di Application Insights. In caso contrario, seguire la [Guida introduttiva](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+In caso contrario, seguire la [Guida introduttiva](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Utilizzo di Application Insights
 
@@ -53,11 +53,11 @@ Le visualizzazioni nel portale rientrano in due categorie principali:
 * [Aggiungere i dati di telemetria alle pagine Web](app-insights-javascript.md) per monitorare l'uso e le prestazioni delle pagine.
 * [Monitoraggio delle dipendenze](app-insights-dependencies.md) per vedere se REST, SQL o altre risorse esterne rallentano l’utente.
 * [Utilizzare l'API](app-insights-api-custom-events-metrics.md) per inviare gli eventi e le metriche per una visualizzazione più dettagliata dell'utilizzo e delle prestazioni dell'app.
-* [Test di disponibilità](app-insights-monitor-web-app-availability.md) controlla costantemente l’app da tutto il mondo. 
+* [Test di disponibilità](app-insights-monitor-web-app-availability.md) controlla costantemente l’app da tutto il mondo.
 
 
 ## Aprire origine
 
 [Leggere e contribuire al codice](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

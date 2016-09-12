@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="mimig"/>
+	ms.date="08/24/2016"
+	ms.author="mimig"/>  
 
 # Livelli di coerenza in DocumentDB
 
@@ -83,16 +83,16 @@ La tabella seguente descrive varie garanzie di coerenza che corrispondono ai qua
 
 ## Configurazione del livello di coerenza predefinito
 
-1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**.
+1.  Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **DocumentDB (NoSQL)**.
 
-2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
+2. Nel pannello **DocumentDB (NoSQL)** selezionare l'account di database da modificare.
 
 3. Nel pannello dell'account fare clic su **Coerenza predefinita**.
 
 
-4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **OK**.
+4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
-	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)  
 
 ## Livelli di coerenza per le query
 
@@ -119,4 +119,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

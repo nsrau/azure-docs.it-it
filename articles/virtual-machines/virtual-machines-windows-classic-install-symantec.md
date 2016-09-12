@@ -14,41 +14,22 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="iainfou"/>
+	ms.date="08/24/2016"
+	ms.author="iainfou"/>  
 
 # Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) nuova o esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni.
-
-Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali. In una nuova macchina virtuale si procede all'installazione dell'agente insieme al client dell'endpoint. In una macchina virtuale esistente senza l'agente, sarà necessario prima scaricare e installare l'agente stesso. In questo articolo vengono descritte entrambe le situazioni.
+Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni. Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali.
 
 Se si dispone di una sottoscrizione Symantec per una soluzione locale, è possibile usarla per proteggere le macchine virtuali di Azure. Se non si è ancora clienti, è possibile iscriversi per una sottoscrizione di valutazione. Per altre informazioni su questa soluzione, vedere [Symantec Endpoint Protection sulla piattaforma Microsoft Azure][Symantec]. Questa pagina include anche collegamenti a informazioni sulle licenze e a istruzioni per installare il client se si è già clienti Symantec.
 
-## Installare Symantec Endpoint Protection in una nuova macchina virtuale
-
-Il [portale di Azure classico][Portal] consente di installare l'agente VM e l'estensione di sicurezza Symantec quando si usa l'opzione **Da raccolta** per creare la macchina virtuale. L'uso di questo approccio rappresenta un modo semplice per aggiungere la protezione di Symantec quando si sta creando una singola macchina virtuale.
-
-L'opzione **Da raccolta** apre una procedura guidata che consente di configurare la macchina virtuale. L'ultima pagina della procedura guidata consente di installare l'agente di macchine virtuali e l'estensione di sicurezza Symantec.
-
-Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows Server][Create]. Quando si raggiunge l'ultima pagina della procedura guidata, eseguire le operazioni seguenti:
-
-1.	In Agente di macchine virtuali, l’opzione **Installa agente di macchine virtuali** dovrebbe essere già selezionata.
-
-2.	In Estensioni di sicurezza selezionare **Symantec Endpoint Protection**.
-
-
-	![Installare l'agente di macchine virtuali e il client di Endpoint Protection](./media/virtual-machines-windows-classic-install-symantec/InstallVMAgentandSymantec.png)
-
-3.	Fare clic sul segno di spunta nella parte inferiore della pagina per creare la macchina virtuale.
-
-## Installare Symantec Endpoint Protection in una macchina virtuale esistente
+## Installare Symantec Endpoint Protection in una VM esistente
 
 Prima di iniziare, è necessario disporre di quanto segue:
 
-- Il modulo Azure PowerShell 0.8.2 o versione successiva sul computer di lavoro. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure | format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell][PS]. Assicurarsi di eseguire l'accesso alla sottoscrizione di Azure.
+- Il modulo Azure PowerShell 0.8.2 o versione successiva sul computer di lavoro. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure | format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell][PS]. Effettuare l'accesso alla sottoscrizione di Azure usando `Add-AzureAccount`.
 
 - L'agente di macchine virtuali in esecuzione sulla macchina virtuale di Azure.
 
@@ -82,7 +63,7 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 [Estensioni VM e funzionalità di Azure][Ext]
 
 
-<!--Link references-->
+<!--Link references-->  
 [Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Portal]: http://manage.windowsazure.com
@@ -97,4 +78,4 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

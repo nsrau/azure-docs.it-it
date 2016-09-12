@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
-	ms.author="rachelap"/>
+	ms.date="08/29/2016" 
+	ms.author="rachelap"/>  
 
 # Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 
-## Panoramica
+## Overview
 
 Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di sottoporre a debug un'app Web nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) tramite la [modalità debug](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
 
@@ -51,12 +51,12 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 1. Se non è già stato effettuato l'accesso ad Azure in Visual Studio, fare clic sul pulsante **Connetti ad Azure** in **Esplora server**.
 
-	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci e filtra sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
+	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server** e quindi scegliere **Gestisci e filtra sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
 
 	> [AZURE.NOTE]
 	Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
 
-	Per ulteriori informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+	Per altre informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
 2. In **Esplora server** espandere **Azure** e quindi **Servizio app**.
 
@@ -728,4 +728,4 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.author="genli"/>  
 
 # Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure
 Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, è necessario preparare correttamente il disco rigido virtuale (VHD). Esistono alcune procedure consigliate da svolgere prima di caricare un disco VHD in Azure. L'esecuzione di `sysprep` è una procedura abituale, ma rappresenta solo un passaggio nella generalizzazione di un'immagine. Questo articolo descrive come preparare un disco rigido virtuale di Windows da caricare in Microsoft Azure.
@@ -26,7 +26,7 @@ Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, 
 
 Assicurarsi che il disco VHD di Windows funzioni correttamente sul server locale. Risolvere qualsiasi errore nella macchina virtuale prima di provare a convertire o caricare il disco in Azure.
 
-Se è necessario convertire il disco virtuale in un formato richiesto per Azure, utilizzare uno dei metodi descritti nelle prossime sezioni.
+Se è necessario convertire il disco virtuale in un formato richiesto per Azure, utilizzare uno dei metodi descritti nelle prossime sezioni. Eseguire il backup della VM prima di eseguire qualsiasi processo di conversione del disco virtuale o Sysprep.
 
 ### Conversione tramite la console di gestione di Hyper-V
 - Aprire la console di gestione di Hyper-V e selezionare il computer locale a sinistra. Nel menu superiore fare clic su **Azione** > **Modifica disco**.
@@ -66,7 +66,7 @@ Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedi
 3. Configurare il criterio SAN disco su [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Utilizzare l'ora UTC (Coordinated Universal Time) per Windows e impostare il tipo di avvio del servizio ora di Windows (w32time) su **Automatico**:
@@ -287,6 +287,7 @@ Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedi
 
 	- [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione di Resource Manager](virtual-machines-windows-capture-image.md)
 	- [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione classico](virtual-machines-windows-classic-capture-image.md)
+	- [Supporto di Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Configurazioni aggiuntive suggerite
@@ -320,4 +321,4 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
 
 - [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

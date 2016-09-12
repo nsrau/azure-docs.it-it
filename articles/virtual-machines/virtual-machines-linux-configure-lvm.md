@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
-	ms.author="szark"/>
+	ms.date="08/24/2016" 
+	ms.author="szark"/>  
 
 
-# Configurare LVM in una VM Linux in Azure
+# Configurare LVM in una macchina virtuale Linux in Azure
 
-In questo documento verrà illustrato come configurare la gestione dei volumi logici (LVM) nella macchina virtuale di Azure. Sebbene sia possibile configurare una LVM su qualsiasi disco collegato alla macchina virtuale, per impostazione predefinita la maggior parte delle immagini di cloud non avrà alcuna LVM configurata sul disco del sistema operativo. Ciò avviene per evitare problemi con i gruppi di volumi duplicati se il disco del sistema operativo dovesse mai essere collegato a un'altra VM dello stesso tipo e della stessa distribuzione, ad esempio durante uno scenario di ripristino. Pertanto è consigliabile usare la LVM solo sui dischi dati.
+Questo documento illustra come configurare il gestore dei volumi logici (Logical Volume Manager, LVM) nella macchina virtuale di Azure. Sebbene sia possibile configurare una LVM su qualsiasi disco collegato alla macchina virtuale, per impostazione predefinita la maggior parte delle immagini di cloud non avrà alcuna LVM configurata sul disco del sistema operativo. Questa impostazione consente di evitare problemi con i gruppi di volumi duplicati se il disco del sistema operativo viene collegato a un'altra macchina virtuale dello stesso tipo e della stessa distribuzione, ad esempio durante uno scenario di ripristino. Pertanto è consigliabile usare la LVM solo sui dischi dati.
 
 
 ## Volumi lineari e volumi con striping logici
 
-La LVM può essere usata per combinare un numero di dischi fisici in un unico volume di archiviazione. Per impostazione predefinita la LVM crea generalmente volumi logici lineari, il che significa che l'archiviazione fisica è concatenata. In questo caso, le operazioni di lettura/scrittura sono in genere inviate solo a un singolo disco. Al contrario, è possibile creare anche volumi con striping logici in cui le letture e le scritture sono distribuite in più dischi contenuti nel gruppo di volumi, ad esempio simile a RAID0. Per motivi di prestazioni è probabile che si debba eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.
+La LVM può essere usata per combinare un numero di dischi fisici in un unico volume di archiviazione. Per impostazione predefinita la LVM crea generalmente volumi logici lineari, il che significa che l'archiviazione fisica è concatenata. In questo caso, le operazioni di lettura/scrittura sono in genere inviate solo a un singolo disco. Al contrario, è anche possibile creare volumi logici con striping in cui le operazioni di lettura e scrittura sono distribuite in più dischi contenuti nel gruppo di volumi, ad esempio simile a RAID0. Per motivi di prestazioni è probabile che si debba eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.
 
-In questo documento viene descritto come combinare più dischi dati in un singolo gruppo di volumi e quindi creare un volume con striping logici. I passaggi seguenti sono in qualche modo generalizzati per funzionare con la maggior parte delle distribuzioni. Nella maggior parte dei casi le utilità e i flussi di lavoro per la gestione di LVM in Azure non sono fondamentalmente diversi da altri ambienti. Come sempre, consultare anche il fornitore Linux per la documentazione e le procedure consigliate per l'uso delle LVM con una distribuzione particolare.
+In questo documento viene descritto come combinare più dischi dati in un singolo gruppo di volumi e quindi creare un volume con striping logici. I passaggi seguenti sono generalizzati per funzionare con la maggior parte delle distribuzioni. Nella maggior parte dei casi le utilità e i flussi di lavoro per la gestione di LVM in Azure non sono fondamentalmente diversi da altri ambienti. Come sempre, consultare anche il fornitore Linux per la documentazione e le procedure consigliate per l'uso delle LVM con una distribuzione particolare.
 
 
 ## Collegamento di dischi dati
@@ -52,7 +52,7 @@ In genere si preferisce iniziare con due o più dischi dati vuoti quando si usan
 
 		# sudo zypper install lvm2
 
-	In SLES11 è anche necessario modificare /etc/sysconfig/lvm e impostare `LVM_ACTIVATED_ON_DISCOVERED` su "attiva":
+	In SLES11 è anche necessario modificare /etc/sysconfig/lvm e impostare `LVM_ACTIVATED_ON_DISCOVERED` su "enable":
 
 		LVM_ACTIVATED_ON_DISCOVERED="enable" 
 
@@ -68,7 +68,7 @@ In questa guida si presuppone che siano stati connessi tre dischi dati, che veng
 		  Physical volume "/dev/sde" successfully created
 
 
-2.  Creare un gruppo di volumi. In questo esempio si sta chiamando il volume gruppo "data-vg01":
+2.  Creare un gruppo di volumi. In questo esempio il nome del gruppo di volumi è "data-vg01":
 
 		# sudo vgcreate data-vg01 /dev/sd[cde]
 		  Volume group "data-vg01" successfully created
@@ -132,4 +132,4 @@ In questa guida si presuppone che siano stati connessi tre dischi dati, che veng
 
 		/dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

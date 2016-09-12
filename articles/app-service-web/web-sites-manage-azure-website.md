@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="rachelap"/>
+	ms.date="08/24/2016" 
+	ms.author="rachelap"/>  
 
 # Scalare un'app Web in Servizio app di Azure
 
-In questo argomento vengono forniti collegamenti alle risorse per la gestione di un'applicazione web in [servizio App Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Nella gestione sono incluse tutte le attività che consentono al sito Web di funzionare alla perfezione.
+Questo argomento include i collegamenti alle risorse per la gestione di un'app Web nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Nella gestione sono incluse tutte le attività che consentono al sito Web di funzionare alla perfezione.
 
 Nel corso del ciclo di vita di un sito, vengono eseguite diverse attività di gestione, a mano a mano che si passa dalla distribuzione iniziale alle normali attività operative, di manutenzione e di aggiornamento.
 
@@ -62,7 +62,7 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
 - Attraverso il portale di Azure, è possibile [aggiungere metriche delle prestazioni](web-sites-monitor.md) quali utilizzo della CPU e numero di richieste dei client.
 - [Applicare la scalabilità al proprio sito Web](web-sites-scale.md) per rispondere al traffico. A seconda del livello, è possibile applicare la scalabilità al numero di VM e/o le dimensioni delle istanze delle VM. Nel piano Standard, è inoltre possibile impostare la scalabilità automatica da applicare automaticamente ai siti secondo una pianificazione fissa o in risposta al carico.
  
-### Backups
+### Backup
 
 - Impostare i [backups automatici](web-sites-backup.md) del sito Web. Ulteriori informazioni sui backup sono disponibili in [questo video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Ulteriori informazioni sulle opzioni per il [ripristino database](../sql-database/sql-database-business-continuity.md) nel database SQL di Azure
@@ -89,7 +89,7 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 - [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
@@ -97,4 +97,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

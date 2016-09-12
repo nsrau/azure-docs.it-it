@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="tarcher"/>
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>  
 
 # Definire i criteri del lab
 
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
-## Panoramica
+## Overview
 
 Lab di sviluppo/test consente di specificare i criteri principali che determinano come vengono usati il lab e le relative macchine virtuali. Ad esempio, è possibile configurare le regole per le dimensioni delle VM consentite per la creazione di macchine virtuali, definire la soglia per il numero di VM che è possibile creare e pianificare processi per avviare/arrestare automaticamente le VM del lab.
 
@@ -30,7 +30,7 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e poi **DevTest Labs** dall'elenco.
+1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -128,6 +128,8 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 
 1. Dopo l'abilitazione, questi criteri non vengono applicati automaticamente alle VM del lab corrente. Per applicare questa impostazione a una macchina virtuale specifica, aprire il pannello della VM e modificare la rispettiva impostazione **Avvio automatico**.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Passaggi successivi
 
 Dopo avere definito e applicato i diversi criteri per le VM per il lab, è possibile eseguire le operazioni seguenti:
@@ -137,4 +139,4 @@ Dopo avere definito e applicato i diversi criteri per le VM per il lab, è possi
 - [Configurare le impostazioni dell'immagine di Azure Marketplace in un lab](./devtest-lab-configure-marketplace-images.md): DevTest Labs supporta la creazione di nuove VM basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
 - [Aggiungere una macchina virtuale con elementi a un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova VM da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

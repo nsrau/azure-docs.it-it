@@ -13,8 +13,8 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/08/2016"
- ms.author="dobett"/>
+ ms.date="08/25/2016"
+ ms.author="dobett"/>  
 
 # Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio
 
@@ -36,7 +36,7 @@ Al termine dell'esercitazione "Introduzione", è necessario disporre degli eleme
 
 La schermata iniziale predefinita per l'interfaccia utente di esempio di Gestione dei dispositivi è la vista **Devices** (Dispositivi), che include i 5 componenti seguenti:
 
-![][1]
+![][1]  
 
 1.  *Pulsanti di navigazione*: vista **Devices** (Dispositivi) (selezionata), **Job History** (Cronologia processo) e **Add a Device** (Aggiungi un dispositivo).
 
@@ -52,15 +52,15 @@ La schermata iniziale predefinita per l'interfaccia utente di esempio di Gestion
 
 La [panoramica di Gestione dei dispositivi][lnk-dm-overview] ha introdotto il concetto di *dispositivo gemello* che rappresenta un dispositivo fisico (o simulato) nell'hub IoT di Azure. Dalla griglia dei dispositivi è possibile selezionare un dispositivo registrato dall'elenco dei dispositivi per visualizzare e modificare il relativo dispositivo gemello.
 
-Immettere questa vista dettagliata sul primo dispositivo simulato, **Device11 7ce4a850**, selezionando la riga del dispositivo corrispondente e quindi scegliendo il pulsante **Modifica**, facendo doppio clic sulla riga o immettendo l'ID del dispositivo nella casella di ricerca.
+Per immettere questa vista dettagliata sul primo dispositivo simulato (**Device11 7ce4a850**), selezionare la riga del dispositivo corrispondente. Fare quindi clic sul pulsante **Modifica** oppure è possibile fare doppio clic sulla riga o immettere l'ID del dispositivo nella casella di ricerca.
 
 Si sta ora visualizzando la rappresentazione completa dei componenti del dispositivo gemello, in cui è possibile aggiornare le proprietà scrivibili ed eseguire altre operazioni sul dispositivo come indicato di seguito:
 
-![][2]
+![][2]  
 
-1.  **Edit a Device Twin** (Modificare un dispositivo gemello): sono incluse le opzioni **Enabled/Disabled** (Abilitato/Disabilitato) per il dispositivo.
+1.  **Edit a Device Twin** (Modificare un dispositivo gemello): questa opzione include uno stato **Enabled/Disabled** (Abilitato/Disabilitato) per il dispositivo.
 
-2.  **Service Properties** (Proprietà del servizio): sono inclusi i **Tags** (Tag) del dispositivo.
+2.  **Service Properties** (Proprietà del servizio): questa opzione include i **Tags** (Tag) del dispositivo.
 
 3.  **Device Properties** (Proprietà del dispositivo): fare clic per espandere questa sezione.
 
@@ -74,7 +74,7 @@ Le query del dispositivo rappresentano un potente strumento per individuare rapi
 
 Per creare un filtro personalizzato sul tag della proprietà del servizio "bacon", seguire questa procedura:
 
-1.  Fare clic sull'icona a imbuto per aprire la visualizzazione di modifica delle query del dispositivo:
+1.  Fare clic sull'icona a imbuto per aprire la vista di modifica delle query del dispositivo:
 
     ![][3]
 
@@ -90,11 +90,11 @@ Per creare un filtro personalizzato sul tag della proprietà del servizio "bacon
 
 ## Usare un processo del dispositivo per simulare il riavvio del dispositivo 
 
-Come descritto nella panoramica di Gestione dei dispositivi, i processi del dispositivo consentono di orchestrare azioni semplici o complesse in uno o più dispositivi fisici. In questa sezione verrà creato un processo del dispositivo nell'interfaccia utente di esempio per eseguire un'operazione di riavvio su tutti i dispositivi simulati con il tag "bacon":
+Come descritto nella panoramica di Gestione dei dispositivi, i processi del dispositivo consentono di orchestrare azioni semplici o complesse in uno o più dispositivi fisici. In questa sezione viene creato un processo del dispositivo nell'interfaccia utente di esempio per eseguire un'operazione di riavvio su tutti i dispositivi simulati con il tag "bacon":
 
-1.  Dall'elenco delle query del dispositivo **Only Bacon** (Solo Bacon), fare clic su ogni riga del dispositivo per selezionarla per il processo di riavvio:
+1.  Nell'elenco di query del dispositivo **Only Bacon** (Solo Bacon) fare clic su ogni riga del dispositivo per selezionarla per il processo di riavvio:
 
-    ![][6]
+    ![][6]  
 
 2.  Fare clic sul pulsante **Reboot** (Riavvia) sulla barra degli strumenti dei processi del dispositivo per creare il processo di riavvio. Dopo aver scelto **Sì**, fare clic sul collegamento ipertestuale **Job History** (Cronologia processo) nella finestra di dialogo **Job for Device has started** (Processo per il dispositivo avviato) per passare alla visualizzazione dei processi del dispositivo.
 
@@ -102,12 +102,12 @@ Come descritto nella panoramica di Gestione dei dispositivi, i processi del disp
 
 È stato creato un unico processo padre che genera tre processi figlio, ognuno dei quali esegue l'operazione di riavvio su uno dei tre dispositivi con tag "bacon":
 
-![][8]
+![][8]  
 
-L'aggiornamento di questa schermata dopo alcuni istanti modifica lo stato del processo padre e dei tre processi figlio su **completed** (completato), che indica che le operazioni di riavvio hanno avuto esito positivo e sono state confermate dai dispositivi simulati. Usare la colonna **Device ID** (ID dispositivo) per determinare i processi associati ai diversi dispositivi.
+Aggiornare questa schermata dopo qualche istante per visualizzare le modifiche allo stato del processo padre e dei tre processi figlio su **completed** (completato). I nuovi valori dello stato indicano che le operazioni di riavvio hanno avuto esito positivo e sono state confermate dai dispositivi simulati. Usare la colonna **Device ID** (ID dispositivo) per determinare i processi associati ai diversi dispositivi.
 
 
-> [AZURE.NOTE] Se i processi figlio restituiscono lo stato "failed" (non riuscito), verificare che i dispositivi simulati siano ancora in esecuzione nel sistema di test. In caso contrario, eseguire nuovamente lo script simulate.bat o simulate.sh e ripetere la procedura del processo di riavvio del dispositivo riportata in alto.
+> [AZURE.NOTE] Se i processi figlio restituiscono lo stato "failed" (non riuscito), verificare che i dispositivi simulati siano ancora in esecuzione nel sistema di test. In caso contrario, eseguire nuovamente lo script simulate.bat o simulate.sh e ripetere la procedura del processo di riavvio del dispositivo riportata nella sezione precedente.
 
 ## Passaggi successivi
 
@@ -152,4 +152,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

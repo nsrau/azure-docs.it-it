@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -53,9 +53,9 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		info:    network route-table create command OK
 
 	Parametri
-	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creato il gruppo di sicurezza di rete. Per questo scenario, *TestRG*.
-	- **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
-	- **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
+	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creata la route definita dall'utente. Per questo scenario, *TestRG*.
+	- **-l (o --location)**. Area di Azure in cui verrà creata la route definita dall'utente. Per questo scenario, *westus*.
+	- **-n (o --nome)**. Nome della nuova route definita dall'utente. Per questo scenario, *UDR-FrontEnd*.
 
 4. Eseguire il comando **`azure network route-table route create`** per creare una route nella tabella della route creata in precedenza per inviare tutto il traffico destinato alla subnet back-end (192.168.2.0/24) alla macchina virtuale **FW1** (192.168.0.4).
 
@@ -199,4 +199,4 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

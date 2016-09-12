@@ -3,9 +3,9 @@
 	description="Informazioni sui criteri disponibili per configurare Gestione API." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="api-management" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>  
 
 # Informazioni di riferimento per i criteri di Gestione API di Azure
 
@@ -26,7 +26,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 
 -	[Criteri di limitazione dell'accesso][]
 	-	[check-header][]\: impone l'esistenza e/o il valore di un'intestazione HTTP.
-	-	[Limita frequenza delle chiamate per sottoscrizione][]\: impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate, per ogni sottoscrizione.
+	-	[Limita frequenza delle chiamate per sottoscrizione][]\: impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate per ogni sottoscrizione.
 	-	[Limita frequenza delle chiamate per chiave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey): impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.
 	-	[ip-filter][]\: filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.
 	-	[Imposta quota di utilizzo per sottoscrizione][]\: consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.
@@ -36,13 +36,15 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[choose][]\: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
 	-	[Inoltra richiesta][]\: inoltra la richiesta al servizio back-end.
 	-	[Registra a Hub eventi][]\: invia messaggi nel formato specificato a una destinazione del messaggio definita da un’entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) .
+	-	[Riprova](https://msdn.microsoft.com/it-IT/library/dn894085.aspx#Retry): riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.
 	-	[Restituisci risposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.
 	-	[Invia richiesta unidirezionale](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): invia una richiesta all'URL specificato senza attendere una risposta.
 	-	[Invia richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): invia una richiesta all'URL specificato.
 	-	[Imposta metodo di richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.
 	-	[Imposta stato](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): modifica il codice di stato HTTP per il valore specificato.
 	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
-	-	[Attesa](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) -attende il completamento dei criteri inclusi per l'invio della richiesta, il recupero del valore dalla cache o il flusso di controllo prima di procedere.
+	-	[Traccia](https://msdn.microsoft.com/it-IT/library/dn894085.aspx#Trace): aggiunge una stringa nell'output di [Controllo API](../api-management/api-management-howto-api-inspector.md).
+	-	[Attendi](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait): attende il completamento dei criteri inclusi per l'invio della richiesta, il recupero del valore dalla cache o il flusso di controllo prima di procedere.
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
 	-	[authentication-certificate][]\: consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
@@ -51,6 +53,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[cache-lookup][]\: memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.
 	-	[Recupera valore dalla cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupera un elemento memorizzato nella cache per chiave.
 	-	[Archivia valore nella cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): archivia un elemento nella cache per chiave.
+	-	[ valore dalla cache](https://msdn.microsoft.com/it-IT/library/dn894086.aspx#RemoveCacheByKey): rimuove un elemento dalla cache in base alla chiave.
 -	[Criteri tra domini][]
 	-	[Permetti chiamate tra i domini][]\: rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 	-	[CORS][]\: aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
@@ -119,4 +122,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

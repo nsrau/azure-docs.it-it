@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/18/2016"
-   ms.author="ryanwi"/>
+   ms.date="08/25/2016"
+   ms.author="ryanwi"/>  
 
 # Connettersi a un cluster sicuro
 Quando un client si connette a un nodo di un cluster Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita mediante la sicurezza dei certificati. Ciò garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere stata attivata in precedenza sul cluster durante la creazione del cluster stesso. È necessario usare almeno due certificati per proteggere il cluster, uno per il certificato del server e del cluster e un altro per l'accesso client. È consigliabile usare anche altri certificati secondari e certificati di accesso client. Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md).
@@ -61,7 +61,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ## Connettersi a un cluster sicuro mediante le API FabricClient
-Il valore [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN venga visualizzato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo consente l'autenticazione reciproca tra il client e il nodo del cluster.
+Il valore [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN venga visualizzato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), che consente l'autenticazione reciproca fra il client e il nodo del cluster.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -115,4 +115,4 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 - [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 - [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

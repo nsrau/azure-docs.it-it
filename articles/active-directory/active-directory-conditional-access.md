@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/17/2016"
-	ms.author="markvi"/>
+	ms.date="08/25/2016"
+	ms.author="markvi"/>  
 
 
 # Accesso condizionale di Azure Active Directory   
@@ -82,7 +82,7 @@ I criteri possono essere impostati in base ai requisiti seguenti:
 
 - **Dispositivi conformi**: è possibile impostare criteri per limitare l'accesso ai dispositivi contrassegnati come **conformi** nella directory tramite il sistema di gestione. Con questo criterio, l'accesso viene limitato ai soli dispositivi conformi ai criteri di sicurezza, ad esempio l'applicazione della crittografia dei file. Questo criterio può essere utilizzato per limitare l'accesso dai dispositivi seguenti:
 
-    - **Dispositivi aggiunti a un dominio di Windows** gestiti tramite System Center Configuration Manager 2016 in una configurazione ibrida.
+    - **Dispositivi aggiunti a un dominio di Windows** gestiti tramite System Center Configuration Manager Current Branch in una configurazione ibrida.
 
     - **Dispositivi Windows 10 mobili o personali** gestiti tramite Microsoft Intune o un sistema di Gestione dei dispositivi mobili (MDM) di terze parti supportato.
 
@@ -125,4 +125,4 @@ La mappa dei contenuti seguente elenca i documenti a cui è necessario fare rife
 - [Domande frequenti sull'accesso condizionale](active-directory-conditional-faqs.md)
 - [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

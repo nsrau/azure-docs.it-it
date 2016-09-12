@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
-      ms.author="hascipio; avikova" />
+      ms.date="08/26/2016"
+      ms.author="hascipio; avikova" />  
 
 # Mapping di un servizio Web esistente in OData tramite CSDL
+
+>[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
 
 In questo articolo viene fornita una panoramica sull'utilizzo di un CSDL per eseguire il mapping di un servizio esistente in uno compatibile con OData. Viene spiegato come creare il documento di mapping (CSDL) che trasforma la richiesta di input dal client tramite una chiamata del servizio e restituisce l'output (dati) al client tramite un feed compatibile con OData. Microsoft Azure Marketplace espone i servizi agli utenti finali mediante il protocollo OData. I servizi dei provider di contenuti (proprietari di dati) vengono esposti in varie forme, ad esempio REST, SOAP e così via.
 
@@ -25,11 +27,11 @@ Un CSDL (Conceptual Schema Definition Language) è una specifica che definisce l
 
 Panoramica semplice del **flusso della richiesta:**
 
-  `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`
+  `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`  
 
 Il **flusso di dati** è nella direzione opposta:
 
-  `Client <- Azure Marketplace <- Content Provider’s WebService`
+  `Client <- Azure Marketplace <- Content Provider’s WebService`  
 
 La **figura 1** illustra come un client ottiene i dati da un provider di contenuti (il servizio dell'utente) navigando attraverso Azure Marketplace. Il CSDL viene utilizzato dal componente di mapping o trasformazione per gestire la richiesta e trasmettere i dati tra servizi del provider di contenuti e il client che ha effettuato la richiesta.
 
@@ -49,7 +51,7 @@ Estratto dal collegamento precedente: *"Lo scopo del protocollo Open Data (d'ora
 
 Nel diagramma seguente viene illustrata una panoramica del flusso dal quale il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati.
 
-  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
+  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)  
 
 ### Passaggi:
 
@@ -81,7 +83,7 @@ Consente di definire le funzioni (SPROC) e le entità che vengono esposte tramit
 
 Di seguito viene illustrato il flusso di dettagli da sinistra a destra da cui il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati:
 
-  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
+  ![disegno](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)  
 
 
 ## Nozioni di base su CSDL
@@ -129,7 +131,7 @@ A seguire, un esempio di CSDL: (copiare e incollare il CSDL di esempio seguente 
 
 **Condizioni:** correlazione tra i termini di CSDL e i termini dell'interfaccia utente del [portale di pubblicazione](https://publish.windowsazure.com).
 - Il "titolo" dell'offerta nell'interfaccia utente del portale di pubblicazione è correlato a MyWebOffer.
-- Il valore MyCompany nell'interfaccia utente del portale di pubblicazione è correlato al **Nome visualizzato dell'editore** nell'interfaccia utente del [Centro sviluppatori Microsoft](http://dev.windows.com/registration?accountprogram=azure).
+- Il valore MyCompany nell'interfaccia utente del portale di pubblicazione è correlato al **Nome visualizzato dell'editore** nell'interfaccia utente del [Centro sviluppatori Microsoft](http://dev.windows.com/registration?accountprogram=azure)
 - L'API è correlata a un servizio Web o un servizio dati, ovvero un piano nell'interfaccia utente del portale di pubblicazione
 
 **Gerarchia:** una società (provider di contenuti) è titolare delle offerte con piani, ossia servizi, che si allineano a un'API.
@@ -308,4 +310,4 @@ Si connette a un servizio che espone una vista o tabella di database come un end
 - Per esaminare gli esempi, leggere l'articolo relativo agli [esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e comprendere il contesto e la sintassi del codice.
 - Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

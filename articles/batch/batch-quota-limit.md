@@ -94,7 +94,7 @@ Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto te
 
 ## Argomenti correlati
 
-* [Creare e gestire un account Azure Batch](batch-account-create-portal.md)
+* [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md)
 
 * [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md)
 
@@ -106,4 +106,4 @@ Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto te
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

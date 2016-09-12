@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
-	ms.author="ccompy"/>
+	ms.date="08/29/2016"
+	ms.author="ccompy"/>  
 
 # Connettere l'app alla rete virtuale tramite PowerShell #
 
-## Panoramica ##
+## Overview ##
 
 Nel servizio app di Azure è possibile connettere l'app Web, l'app per dispositivi mobili o l'app per le API a una rete virtuale (VNet) di Azure nella sottoscrizione. Questa funzionalità è detta integrazione rete virtuale. La funzionalità di integrazione rete virtuale non deve essere confusa con la funzionalità Ambiente del servizio app, che consente di eseguire un'istanza del servizio app di Azure nella rete virtuale.
 
@@ -500,7 +500,7 @@ Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo 
 
 		    Write-Host "Creating App association to VNET"
 		    $propertiesObject = @{
-		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
+		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
 		    }
 
 		    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
@@ -721,8 +721,8 @@ La disconnessione dell'app dalla rete virtuale non provoca l'arresto del gateway
 
 Anche se lo script usa il termine "delete", non elimina effettivamente la rete virtuale. Rimuove solo l'integrazione. Dopo la conferma dell'utente, il comando viene elaborato molto rapidamente e al termine restituisce **True**.
 
-<!--Links-->
+<!--Links-->  
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

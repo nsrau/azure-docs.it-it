@@ -214,7 +214,7 @@ app.configure(function() {
 app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('Authenitcation was called in the Sample');
+    log.info('Authentication was called in the Sample');
     res.redirect('/');
   });
 
@@ -414,4 +414,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

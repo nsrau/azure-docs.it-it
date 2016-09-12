@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="08/29/2016"
+	ms.author="markusvi;andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
@@ -37,7 +37,8 @@ Argomento | Contenuti e destinatari
 [Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md)| Illustra le regole predefinite e la configurazione predefinita. Illustra anche il modo in cui le regole interagiscono per consentire il funzionamento degli scenari predefiniti.
 [Informazioni su utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continua l'argomento precedente e illustra l'interazione tra le configurazioni di utenti e contatti, in particolare in un ambiente con più foreste.
 [Servizio di sincronizzazione Azure AD Connect: Come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md) | Illustra in dettaglio come creare una configurazione comune per i flussi di attributi.
-[Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Fornisce informazioni approfondite sul funzionamento del modello di configurazione e sulla sintassi per il linguaggio delle espressioni.
+[Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Descrive il modello di configurazione denominato provisioning dichiarativo.
+[Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Descrive la sintassi del linguaggio delle espressioni usato nel provisioning dichiarativo.
 [Procedure consigliate per modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Limitazioni del supporto e come apportare modifiche alla configurazione predefinita.
 [Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md) | Illustra le diverse opzioni per limitare gli oggetti da sincronizzare in Azure AD e fornisce procedure dettagliate per la configurazione di queste opzioni.
 **Funzionalità e scenari** |
@@ -63,4 +64,4 @@ Argomento | Contenuti e destinatari
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
